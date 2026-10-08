@@ -1,0 +1,57 @@
+--- v1/ari_source.py
++++ v2/ari_source.py
+@@ -15,7 +15,7 @@
+ WORK = HERE / "work"
+ KIT = Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work')
+ CONTROL_HERE = Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source')
+-SOURCE = WORK / "ari-first-form.blend"
++SOURCE = WORK / "ari-middle-volume.blend"
+ PREFIX = "bl_ext.blender_org.mpfb"
+ if not bpy.app.background or bpy.app.online_access or SOURCE.exists():
+     raise RuntimeError("Require offline owned new source")
+@@ -221,7 +221,7 @@
+     report.update(error_type=type(error).__name__, error=str(error), traceback=traceback.format_exc())
+ finally:
+     report["finished_utc"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
+-    report["limit"] = "Complete Ari first native form with fixed active detail targets; no helper bake/export/cold/render/appearance/motion acceptance. Python write audit is not instrumentation of all native C writes."
++    report["limit"] = "Complete Ari revised middle-volume native form with one predeclared recipe; no helper bake/export/cold/render/appearance/motion acceptance. Python write audit is not instrumentation of all native C writes."
+     with (HERE / "RESULT.json").open("x") as out:
+         json.dump(report, out, indent=2)
+         out.write("\n")
+--- v1/ari_checks.py
++++ v2/ari_checks.py
+@@ -35,7 +35,14 @@
+  general=sys.modules["bl_ext.blender_org.mpfb.entities.objectproperties"].GeneralObjectProperties;scale=general.get_value('scale_factor',entity_reference=body)
+  report['observed_scale']={'full_name':general.get_fullname_key_from_shortname_key('scale_factor'),'value':scale}
+  require(scale==float(np.float32(.1)),'Actual General scale0.1 before target application')
+- data=json.loads((here/'INPUT-RESULT.json').read_text());rigdata=json.loads((here/'RIG-RESULT.json').read_text());require(len(data['targets'])==10 and rigdata['passed'],'Admitted exact input records')
++ data=json.loads(Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/INPUT-RESULT.json').read_text());rigdata=json.loads(Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/RIG-RESULT.json').read_text());require(len(data['targets'])==10 and rigdata['passed'],'Admitted exact input records')
++ recipe=json.loads((here/'RECIPE.json').read_text());weights=recipe['weights']
++ require(set(weights)=={r['request'] for r in data['targets']},'Exact ten recipe identities')
++ require(all(type(v) in (int,float) and math.isfinite(v) and 0<=v<=1 for v in weights.values()),'Finite recipe values within recorded0–1 artist sliders')
++ changed={r['request']:{'v1':r['weight'],'v2':weights[r['request']]} for r in data['targets'] if r['weight']!=weights[r['request']]}
++ require(changed==recipe['changes'] and set(changed)=={'torso/torso-scale-horiz-incr','torso/torso-scale-depth-incr','torso/measure-waist-circ-incr'},'Only declared three middle-volume controls differ')
++ report['declared_recipe']=recipe;report['input_rows_reused_from_frozen_v1']=True
++ for r in data['targets']:r['weight']=weights[r['request']]
+  STATE['rigdata']=rigdata['document'];STATE['scale']=scale;STATE['targets']=data['targets']
+  basis=coords(keys['Basis'].data).astype(np.float64);report['applied_targets']=[]
+  for rec in data['targets']:
+--- v1/run_native.py
++++ v2/run_native.py
+@@ -3,7 +3,7 @@
+ HERE=Path(__file__).resolve().parent
+ plan=json.loads((HERE/'EXEC-PLAN.json').read_text());guard=json.loads((HERE/'ROOT-PREFLIGHT.json').read_text())
+ assert guard['admitted'] and guard['outputs_absent'] and guard['owned_native_absent']
+-assert datetime.datetime.now(datetime.timezone.utc)<datetime.datetime.fromisoformat('2026-10-08T14:35:00+00:00')
++assert datetime.datetime.now(datetime.timezone.utc)<datetime.datetime.fromisoformat('2026-10-08T17:00:00+00:00')
+ for pin in plan['pins']:
+  b=Path(pin['path']).read_bytes();assert len(b)==pin['bytes'] and hashlib.sha256(b).hexdigest()==pin['sha256']
+ assert all(not (HERE/n).exists() for n in ['work','RESULT.json','JOB-start.json','JOB.json','native.log'])
+@@ -18,6 +18,6 @@
+   try:job['exit_code']=p.wait(timeout=5)
+   except subprocess.TimeoutExpired:os.killpg(p.pid,signal.SIGKILL);job['exit_code']=p.wait()
+ job['finished_utc']=datetime.datetime.now(datetime.timezone.utc).isoformat()
+-if (HERE/'work/ari-first-form.blend').is_file():(HERE/'work/ari-first-form.blend').chmod(0o444)
++if (HERE/'work/ari-middle-volume.blend').is_file():(HERE/'work/ari-middle-volume.blend').chmod(0o444)
+ with (HERE/'JOB.json').open('x') as out:json.dump(job,out,indent=2);out.write('\n')
+ print(json.dumps(job,indent=2),flush=True);sys.exit(job['exit_code'])

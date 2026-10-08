@@ -1,0 +1,13 @@
+# Ari middle-volume v2 — source saved, images pending
+
+One predeclared recipe changes torso horizontal/depth0.25→0.70 and waist circumference0.30→0.75; the other seven details and all eight macros remain fixed. [Plan](PLAN.md), [recipe](RECIPE.json), [independent worth](WORTH.md), [source preflight](PREFLIGHT.md). These are artist control values, with no implied anatomy measurements or percentages. V1/neutral/reference/frozen evidence are preserved.
+
+Sole native36683/wrapper36672 runs2026-10-08T16:35:03.575404–16:35:14.706364UTC, exit0/no timeout; session39323collected. Exact command: `python3 docs/evidence/appearance-2026-10-08/ari-middle-volume/run_native.py`. All6,734guards pass. Readonly/localignored saved source12,197,092B SHA8d28c905e95f92c1c689df495ee30a4cf4bbe55e069b4cc8ae345c59d3f069a4.
+
+Root independently verifies the exact ten Float32values, only three of252 default semantics changed, unchanged macros/all108body-key geometry/rawBasis records, changed mixed-body hash, all106 endpoint norms, five fitted anatomy witnesses and445expression associations. All56executionpins and1,620 frozen corpusfiles remain exact. No oldrest factors or committedBasis/body-only shortcut. Original source/fit/rig/expression functions are unchanged; a small prepare delta applies the declared weights to in-memory frozen decoded records. Native load_target still reads ten physical files; no repeated standalone validation decoder. Numerical/cold/image results never transfer automatically fromv1.
+
+Sourcepreflight rootadmission16:35:00 is before16:55 andlaunchbefore17:00. Minimal source preparation preceded the wholeworthread; exactorder is recorded without retroactive qualification. No native retry, parameter sweep or tolerance change. Source runtime has normal-path cleanup/isolated failure limits and Python-write audit limitations; no universal rollback.
+
+[Prepared v1/v2 gallery](views/review.html) has no images yet. Separate source-result and image-source review is collecting before17:20, one240sCPU capture before17:25, complete receipt by17:45. Actual persisted scene/key/mixedhash guards and shared full render-domain framing precede any image. No source save or retake. Appearance, identity/skin/curls, wardrobe/fit, expression/motion, normals/fineeye/closed-mouth anatomy, complete-influenceCPU/actualWebGPU/performance/fullAAA remain open. Stop first mismatch or visual refusal; retain both sources and partial originals. No next recipe is admitted here.
+
+Recovery: no live owned native job. Vite825 and ACTIVE ten-minute recovery retained. Accepted assets, frozen evidence, original references and unrelated worktrees intact; no purchases/reset/install/prefs/model/subscription/push/publish/otherproject work. Human steering wins.

@@ -1,0 +1,31 @@
+{
+  "name": "Ari middle-volume v2",
+  "weights": {
+    "torso/torso-scale-horiz-incr": 0.7,
+    "torso/torso-scale-depth-incr": 0.7,
+    "torso/measure-waist-circ-incr": 0.75,
+    "hip/hip-scale-horiz-incr": 0.2,
+    "hip/hip-scale-depth-incr": 0.2,
+    "buttocks/buttocks-volume-incr": 0.15,
+    "arms/l-upperarm-fat-incr": 0.2,
+    "arms/r-upperarm-fat-incr": 0.2,
+    "legs/l-upperleg-fat-incr": 0.2,
+    "legs/r-upperleg-fat-incr": 0.2
+  },
+  "changes": {
+    "torso/torso-scale-horiz-incr": {
+      "v1": 0.25,
+      "v2": 0.7
+    },
+    "torso/torso-scale-depth-incr": {
+      "v1": 0.25,
+      "v2": 0.7
+    },
+    "torso/measure-waist-circ-incr": {
+      "v1": 0.3,
+      "v2": 0.75
+    }
+  },
+  "selection": "One deliberate large middle-volume step addressing the witnessed residual waist indentation and modest profile middle. Artist control values within recorded0\u20131 sliders, not anatomical measurements or percentages. No sweep or subsequent retune.",
+  "source_input_record": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/INPUT-RESULT.json"
+}

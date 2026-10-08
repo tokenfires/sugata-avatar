@@ -1,0 +1,3 @@
+# Prepared v1/v2 comparison instrument
+
+No image plan/pins/admission orjobyet. Unchanged reviewed camera/render/domain/settings/restoration programme; exactv1/v2 labels and v1 completewarm semantics/mixedhash control replace genericneutral control. Sourcejob outcome cannotadmit thisphase. Bind actualsuccessfulv2 warmreceipt/savednative andunchangedv1 warmreceipt/source; freshcritic/rootpreflight by17:20, one240sCPUlaunchby17:25, close17:45. Stopfirstcold/projection/render/preservationmismatch, retainpartialoriginals, no retry/retake. Body/headfront/profile/rear sharedunion/cameras andall-point4%margin; actualwholeoriginals qualifyonlydeclaredformdecision, noAAA/identity/motion/material/runtime/fitacceptance.

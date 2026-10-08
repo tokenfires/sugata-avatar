@@ -1,0 +1,3 @@
+# Input reuse scope
+
+The plan’s “no new targetparse” and the worth note’s “do not reparse targets” mean no separate validation job repeats the frozen decoded-row inquiry. The required native TargetService.load_target still reads the ten exact target files when applying them to the new body; this is explicitly owned construction, not a decode-free operation. Frozen rows provide the independent coordinate expectation and declared new weights. Hash/size checks preserve their physical inputs before and after the sole native job. No input record is modified on disk and no target-domain discovery or standalone parser is run. This clarification changes no programme, recipe, numerical guard, native count or deadline.

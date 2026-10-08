@@ -1,0 +1,22 @@
+{
+  "admitted": true,
+  "read_utc": "2026-10-08T16:35:00.005095+00:00",
+  "whole_handoff_chunk": "8b3b25",
+  "all10critic_bindings_exact": [
+    "ari_source.py",
+    "ari_checks.py",
+    "run_native.py",
+    "PROGRAM-CHANGES.diff",
+    "RECIPE.json",
+    "EXEC-PLAN.json",
+    "INPUT-REUSE-SCOPE.md",
+    "ROOT-PROGRAM-READBACK.json",
+    "RECOVERY-READBACK.json",
+    "WORTH.md"
+  ],
+  "physical_execution_pins": 56,
+  "outputs_absent": true,
+  "owned_native_absent": true,
+  "first_recipe_construction_only": true,
+  "separate_image_admission_required": true
+}

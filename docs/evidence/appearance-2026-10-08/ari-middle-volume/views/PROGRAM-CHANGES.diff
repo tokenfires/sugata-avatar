@@ -1,0 +1,48 @@
+--- v1view/cold_views.py
++++ comparison/cold_views.py
+@@ -19,7 +19,7 @@
+ for pin in PLAN['pins']:physical(pin)
+ require(bpy.app.background and not bpy.app.online_access,'Offline background only')
+ receipt=load_module('sugata_view_receipt',PLAN['scene_helper'])
+-WARM=json.loads(Path(PLAN['warm']).read_text());NEUTRAL=json.loads(Path(PLAN['neutral_receipt']).read_text())['scene']
++WARM=json.loads(Path(PLAN['warm']).read_text());BASELINE=json.loads(Path(PLAN['neutral_receipt']).read_text());NEUTRAL=BASELINE['scene']
+ def metadata():
+  return {o.name:[{'name':k.name,'relative':k.relative_key.name,'value':k.value,'min':k.slider_min,'max':k.slider_max,'mute':k.mute,'vertex_group':k.vertex_group,'interpolation':k.interpolation} for k in o.data.shape_keys.key_blocks] for o in bpy.data.objects if o.type=='MESH' and o.data.shape_keys}
+ def coords(points):
+@@ -33,13 +33,13 @@
+ def open_checked(label):
+  pin=PLAN['sources'][label];physical(pin);result=bpy.ops.wm.open_mainfile(filepath=pin['path']);require(result=={'FINISHED'},'Cold open finished')
+  require(Path(bpy.data.filepath).resolve()==Path(pin['path']).resolve(),'Exact loaded source')
+- actual=receipt.capture_scene();expected=WARM['scene'] if label=='ari' else NEUTRAL;require(actual==expected,'Complete cold owner signature:'+label)
++ actual=receipt.capture_scene();expected=WARM['scene'] if label=='v2' else NEUTRAL;require(actual==expected,'Complete cold owner signature:'+label)
+  meta=metadata()
+- if label=='ari':
++ if label=='v2':
+   require(meta==WARM['full_native_key_metadata'],'All252 cold semantics')
+   require(mixhash()==WARM['body_new_mixed_coordinate_sha256'],'Cold mixed body exact')
+  else:
+-  require(all(k['relative']=='Basis' and not k['mute'] and not k['vertex_group'] and k['interpolation']=='KEY_LINEAR' for values in meta.values() for k in values),'Neutral default semantics')
++  require(meta==BASELINE['full_native_key_metadata'] and mixhash()==BASELINE['body_new_mixed_coordinate_sha256'],'Complete v1 cold key semantics/mixed body')
+  REPORT['cold'].append({'label':label,'scene_exact':True,'key_metadata':meta,'mixed_body_hash':mixhash(),'file_sha256':pin['sha256']})
+  return actual,meta
+ 
+@@ -101,16 +101,16 @@
+ try:
+  domains={}
+  # Both complete cold signatures qualify before any diagnostic object or image.
+- for label in ['neutral','ari']:
++ for label in ['v1','v2']:
+   before,meta=open_checked(label);points,heads,counts,saved=render_domain();domains[label]={'body':points,'head':heads,'counts':counts};restore(saved)
+   require(receipt.capture_scene()==before and metadata()==meta,'Bounds observer restores source state:'+label)
+  frames={}
+  for framing,res in [('body',(768,1024)),('head',(768,768))]:
+-  points=domains['neutral'][framing]+domains['ari'][framing];lo,hi=bbox(points);center=(lo+hi)/2;span=hi-lo
++  points=domains['v1'][framing]+domains['v2'][framing];lo,hi=bbox(points);center=(lo+hi)/2;span=hi-lo
+   scale=float(max(span[2],max(span[0],span[1])/(res[0]/res[1]))*1.12)
+   frames[framing]={'center':center.tolist(),'scale':scale,'resolution':list(res),'union_min':lo.tolist(),'union_max':hi.tolist()}
+  REPORT['shared_frames']=frames;REPORT['domains']={label:{'counts':data['counts']} for label,data in domains.items()}
+- for label in ['neutral','ari']:
++ for label in ['v1','v2']:
+   before,meta=open_checked(label);points,heads,counts,saved=render_domain();scene=bpy.context.scene;oldworld=scene.world;oldcamera=scene.camera;camera,diag,world=settings(scene,frames['body']['center'])
+   require(len(diag)==4 and not set(diag)&{o['name'] for o in before['objects']},'Diagnostic object ownership')
+   for framing in ['body','head']:

@@ -1,0 +1,706 @@
+{
+  "sealed_utc": "2026-10-08T17:13:55.894972+00:00",
+  "payloads": [
+    {
+      "path": ".gitignore",
+      "bytes": 7,
+      "sha256": "07cc0e3f57247b75f5278d110feba3719a32f4b2383e41234cf01325de774d40"
+    },
+    {
+      "path": "EXEC-PLAN.json",
+      "bytes": 14561,
+      "sha256": "84bc3f8fa780bf3d309a427671c2a178a2b47dd1a6986db185c79df61b0616af"
+    },
+    {
+      "path": "INPUT-REUSE-SCOPE.md",
+      "bytes": 731,
+      "sha256": "24e26f72189bc562dc5c6b88cf576a7312d6730f3bc988e915fa485a9152ad05"
+    },
+    {
+      "path": "INPUTS.json",
+      "bytes": 2718,
+      "sha256": "e414ffd3aa918c503468c4159296c056220a0f1119779d1c866c079716520296"
+    },
+    {
+      "path": "JOB-start.json",
+      "bytes": 420,
+      "sha256": "aa7c9a88fc42b92762c56d1267b152ec30d21149d40d004216dd06c5b9bffb92"
+    },
+    {
+      "path": "JOB.json",
+      "bytes": 492,
+      "sha256": "50dd9b39fc8b4a7c2e95a5e4c86731722f4feb2e6791f8afdc03925e303d42c4"
+    },
+    {
+      "path": "PLAN.md",
+      "bytes": 2506,
+      "sha256": "edcf280b906d76fb6a66621178b099ecd75991f18ab25a52402c7f5699afd76e"
+    },
+    {
+      "path": "POST-IMAGE-PRESERVATION.json",
+      "bytes": 287,
+      "sha256": "cc2407afac7da86a97c9f1b7f359eeb596f625db050c72dfc978fa23e10371ad"
+    },
+    {
+      "path": "PREFLIGHT.md",
+      "bytes": 5142,
+      "sha256": "c65d7c0aee249a91c955b52d49f957e27320a84a23c4149c9c7486c6f0b357cd"
+    },
+    {
+      "path": "PROGRAM-CHANGES.diff",
+      "bytes": 4766,
+      "sha256": "76d90ca4436363e7f69cf2c19b0d455d28b5058d1ccc3e5932e59cba26ed34dc"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5313,
+      "sha256": "1c102d7a13eaaeb4df67f7721faac61358df7ba4d848acc41f2c09269dfea09f"
+    },
+    {
+      "path": "README.pre-images.md",
+      "bytes": 2764,
+      "sha256": "f6fc9dfed02ced7d722653ed65b2d16c7bf28bd577385f7dc077f2e4beb683bd"
+    },
+    {
+      "path": "RECIPE.json",
+      "bytes": 1113,
+      "sha256": "b0c47418458fad80b581fbdb3d0084203337944a2fb93c4c02ab0bd239f4627d"
+    },
+    {
+      "path": "RECOVERY-READBACK.json",
+      "bytes": 342,
+      "sha256": "1ce966e9de7ba8b5af228d61de1d7abaafbba13b703df8ead521284353464ed8"
+    },
+    {
+      "path": "RESULT.json",
+      "bytes": 1682947,
+      "sha256": "dee83ac4f1f85871340fdcf3321595ed11aa2a3064fb0e52b0572f649a5deab8"
+    },
+    {
+      "path": "ROOT-PREFLIGHT.json",
+      "bytes": 563,
+      "sha256": "d4e2baa74d1e2abca06dd39a7b7fcbaf287e7f962ee39716b1a77280d16cc270"
+    },
+    {
+      "path": "ROOT-PROGRAM-READBACK.json",
+      "bytes": 277,
+      "sha256": "9bbed84af0b01c351ee7910b34e79c8f74b36066bb32b7940c38bafa1f11806f"
+    },
+    {
+      "path": "ROOT-RESULT.json",
+      "bytes": 1315,
+      "sha256": "cb5580ae59a5a8f16e7976dc5b6ac0b2a07b2b7fab465f2fb388f8a34373e7bb"
+    },
+    {
+      "path": "ROOT-SOURCE-READBACK.json",
+      "bytes": 528,
+      "sha256": "ad43a3612e79bc5e4f12a40bf7dade71b01fd4c384c07f03738b00e4a5a58886"
+    },
+    {
+      "path": "ROOT-WORTH.json",
+      "bytes": 529,
+      "sha256": "4974e61daf85d4658490a2b73ea2c7963327cc4f3c492a122884a7e136c56bb2"
+    },
+    {
+      "path": "SOURCE-RESULT-REVIEW.md",
+      "bytes": 4476,
+      "sha256": "414672bb2c93a396dec40db8fb8f3e561b3daf6fed9493d7060e2b467c535d92"
+    },
+    {
+      "path": "WORTH.md",
+      "bytes": 3780,
+      "sha256": "da8c292705be0c8168d7f94b8f7e1f84f73717d7dab0694781bf2fad7f60c132"
+    },
+    {
+      "path": "ari_checks.py",
+      "bytes": 11682,
+      "sha256": "7622e8fe4b3fef127946dc00d646a996fecb4c45c36f6dbf8681ba3e505ee365"
+    },
+    {
+      "path": "ari_source.py",
+      "bytes": 14381,
+      "sha256": "2e733a6514369b855a6496fe84d4c96e8c5c2b74f382c6a118d18d9117a79b0a"
+    },
+    {
+      "path": "native.log",
+      "bytes": 832349,
+      "sha256": "27d0e31802b7e3fc8d4b4d227b805aceb12a498cac5616731b37b5092d2cc896"
+    },
+    {
+      "path": "run_native.py",
+      "bytes": 1692,
+      "sha256": "ee0fcd3c08f3f0163d581eafcaa24f30cc09602f8b86b210ba5d52921b2227b3"
+    },
+    {
+      "path": "seal_packet.py",
+      "bytes": 1744,
+      "sha256": "8eac14ebd3e6dd494dbf4ae4c039258e73fec6ad13184acae47c6859bc45ec5a"
+    },
+    {
+      "path": "views/BROWSER-READBACK.json",
+      "bytes": 529,
+      "sha256": "71d5f049cf40146d3e3a9afc7193ebb27b47bd981c39eb1cb4c8d4094000224c"
+    },
+    {
+      "path": "views/EXEC-PLAN.json",
+      "bytes": 7946,
+      "sha256": "04a9015d449e282531c10931e26e59508bc8fe5721cbed6f0b0dbc93c787f008"
+    },
+    {
+      "path": "views/JOB-start.json",
+      "bytes": 426,
+      "sha256": "672e963313b3111de7693fe6747e23f521c9453de28f203be66ca525644d1d73"
+    },
+    {
+      "path": "views/JOB.json",
+      "bytes": 498,
+      "sha256": "7ba19cb2709ddd4af63bd71783faf87d6631bf350a96d3e851fabf5017a81b52"
+    },
+    {
+      "path": "views/PREFLIGHT.md",
+      "bytes": 4271,
+      "sha256": "f63b3aec6e68d1228decea3d0f1fedc76a5da323136253be5ac40504273f5e95"
+    },
+    {
+      "path": "views/PREPARED.md",
+      "bytes": 718,
+      "sha256": "d6263373c7ffbcabc22da2ba369198330f3f604e871a1c6ff8a49a93711caee1"
+    },
+    {
+      "path": "views/PROGRAM-CHANGES.diff",
+      "bytes": 3653,
+      "sha256": "292fb8745e443f40a4a2be0213966c3594f60635dd0ea9a54ded3c41bf4818b1"
+    },
+    {
+      "path": "views/README.md",
+      "bytes": 2608,
+      "sha256": "fbf6b8ed459d8ced5f98562c2c7dd9c59f102bfd51a074992e915714d8ca110e"
+    },
+    {
+      "path": "views/RESULT-REVIEW.md",
+      "bytes": 7081,
+      "sha256": "80b8058ba364af42ca5d78c8d95a1f0e7b556f759e9233ad299294bd41ab19eb"
+    },
+    {
+      "path": "views/RESULT.json",
+      "bytes": 286986,
+      "sha256": "7edee8c9bd63da3ebcd4c69002524cc5910b0c5027504616a286397b875cdcec"
+    },
+    {
+      "path": "views/ROOT-IMAGE-REVIEW.md",
+      "bytes": 2830,
+      "sha256": "5bf607747f44fd86c24beab0591b551d2f6f58d5103c139fb4e1020e7cde1ff5"
+    },
+    {
+      "path": "views/ROOT-PREFLIGHT.json",
+      "bytes": 448,
+      "sha256": "dd5e58f515782c8a24af3f35a5767d3e568761bba9cd78de858d70d7b812a4c1"
+    },
+    {
+      "path": "views/ROOT-READBACK.json",
+      "bytes": 699,
+      "sha256": "d32fed4da3fe3f038948909fe1c259c3851c08b8248f5a9e4f965c0dbb61de0c"
+    },
+    {
+      "path": "views/ROOT-RESULT.json",
+      "bytes": 420,
+      "sha256": "31fad99bb4e6357be57e716d999ddaa83742c0d1d8cddb2b5fc958af9df4f7ae"
+    },
+    {
+      "path": "views/cold_views.py",
+      "bytes": 11143,
+      "sha256": "2be4976ad807f1d24883a1752d04953c7374ea1634f2fd003b747d643887a825"
+    },
+    {
+      "path": "views/native.log",
+      "bytes": 13146,
+      "sha256": "494a7d7ce2f108c1e98197f36a37f2cd2351ddbd4b65761685bd8ee4a411e1a5"
+    },
+    {
+      "path": "views/review.html",
+      "bytes": 3384,
+      "sha256": "7ad7cfbad5f1f14141bed98ff91b15c2c2edc6723d9122511672f8d9bb2b49fd"
+    },
+    {
+      "path": "views/run_native.py",
+      "bytes": 1646,
+      "sha256": "63db9750211680a69982d630d25d8587e62aebf073bfff4f69ba3daba577e819"
+    },
+    {
+      "path": "views/v1-body-front.png",
+      "bytes": 464767,
+      "sha256": "3fe0f5db8deb696dfeb5b8271ba9655925eee9bc0892ccca7042d1af8a089e1b"
+    },
+    {
+      "path": "views/v1-body-profile.png",
+      "bytes": 387219,
+      "sha256": "55d7d1ced59862ab1a61c9149d5441cdffcc3c7a7c608162eae516b700b0b354"
+    },
+    {
+      "path": "views/v1-body-rear.png",
+      "bytes": 470925,
+      "sha256": "380c8fbf1fe545b9a0c5abd0af4a95856ea0277dfe3200eab3ca7bc42ddf9f82"
+    },
+    {
+      "path": "views/v1-head-front.png",
+      "bytes": 437486,
+      "sha256": "b1af744d596411da129e81f6996898fb6476924e65baf951db468afbfc0f4039"
+    },
+    {
+      "path": "views/v1-head-profile.png",
+      "bytes": 442252,
+      "sha256": "da71d31aea243f6e7aac7e8f8f88df070cdfe8a663bed72608e7309f31ea4e62"
+    },
+    {
+      "path": "views/v1-head-rear.png",
+      "bytes": 477042,
+      "sha256": "0c0cd2c532e427113c62590ea73a4a84dac3b73456c8f080d3746a002f67387f"
+    },
+    {
+      "path": "views/v2-body-front.png",
+      "bytes": 466692,
+      "sha256": "e56df28a98cf9204cc8b0bc81f75221b439d371152a7d0cbcb008c9bf94abeda"
+    },
+    {
+      "path": "views/v2-body-profile.png",
+      "bytes": 390073,
+      "sha256": "bd1765133fde84a2394cfb9906ef65b1724261851d89b4af97710475b352aa6f"
+    },
+    {
+      "path": "views/v2-body-rear.png",
+      "bytes": 473808,
+      "sha256": "d7f8cd6750bc04a8406d43d1530b14cc51201cbd7700d63aa1146878bd9b2ce1"
+    },
+    {
+      "path": "views/v2-head-front.png",
+      "bytes": 439279,
+      "sha256": "77da0e949ff103b012786c8ec4080a7f85a78bb9300746b9c935174f517bce2c"
+    },
+    {
+      "path": "views/v2-head-profile.png",
+      "bytes": 445321,
+      "sha256": "0c89bf50feebd32cc2a5e68046273b45929de29ef1908c26609e10faae75ac97"
+    },
+    {
+      "path": "views/v2-head-rear.png",
+      "bytes": 478538,
+      "sha256": "07826437847bd85a8a224fa724165bd05c513600f78599632dadcb5aa913c12e"
+    }
+  ],
+  "source_local_ignored": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/work/ari-middle-volume.blend",
+    "bytes": 12197092,
+    "sha256": "8d28c905e95f92c1c689df495ee30a4cf4bbe55e069b4cc8ae345c59d3f069a4",
+    "mode": "0o444"
+  },
+  "external_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+      "bytes": 6017,
+      "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/SOURCE-PINS.json",
+      "bytes": 3105,
+      "sha256": "290f6c086c83dbc7d068abca6630a335a66146149e44b07852084b59fa6b3ffd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/SOURCE-ADDITIONAL.json",
+      "bytes": 919,
+      "sha256": "5e0b566bcbd64901bb56c87284f96125cd0d6c4a228149eef4d1d0e828f2075e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/INPUTS.json",
+      "bytes": 760639,
+      "sha256": "b15f76537b65e86c6f453cae3a36c1e9e25dce28243bfed2cd1cc1e88eae8da9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/EXPRESSION-PATHS.json",
+      "bytes": 15293,
+      "sha256": "853b323487e621d3edb4d8fd6e3bf375ee21b7b7abe8ba7142dba825e6587d17"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/EXPRESSION-REQUESTS.json",
+      "bytes": 2140,
+      "sha256": "4a0a092d517f2e291c7287b24c30385d5422de4bf07953d5d8fa8b5c094f2036"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/SKIN-WITNESS.json",
+      "bytes": 1842,
+      "sha256": "186cec1bb663c79cc5717e2d6acfe2108d6346ded71fe0adabfb3753463265d5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/function_module.py",
+      "bytes": 992,
+      "sha256": "ad25e48b56faf74e12001dd994963f3b2bf5afb09db7f36cca90550778858d82"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/LAUNCH-FAILURE.json",
+      "bytes": 1843,
+      "sha256": "75aa8f419713200a8b90cd65b4195356bd2b07175932e8756fc03506822ff817"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/create_source_logged.py",
+      "bytes": 12357,
+      "sha256": "7e8a5cbf1075979939167550402c1abbcca6e31aa4979178e6af8301af639856"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/GUARDED-FAILURE.json",
+      "bytes": 1256,
+      "sha256": "e330d8b2dcdeec335b1f689aecb84c563ae17d41512fce71c640ac05aa697728"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/logservice.py",
+      "bytes": 16584,
+      "sha256": "98bd5ca5e3f5772e5d45c1923dfffea08ce6309444b4ccc16edafe6b1f425d3b"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/faceservice.py",
+      "bytes": 42894,
+      "sha256": "389940c62dfa623409dadc5b2a38f4edeaa0fe45a8315ac887ad696a37bbd950"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/targetservice.py",
+      "bytes": 62066,
+      "sha256": "8287e87f466b44c6bcf145e6ad6ef5807acef961af948376c07dd0fa8abd1f2d"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/clothesservice.py",
+      "bytes": 40732,
+      "sha256": "20b60daeb862e35652035b9e94d1830f1bd2d86706b1e6056f0f2cee43c8d40b"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/objectservice.py",
+      "bytes": 41911,
+      "sha256": "a618794f0bf6d7fb76e3381bd1ac2741250a84d5f291e223ba7751ae812d41c6"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/humanservice.py",
+      "bytes": 86233,
+      "sha256": "a88e4150753b371527963fa3d99dd70f1ea957b9baaec8200438ffa4d9c1e207"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/locationservice.py",
+      "bytes": 15297,
+      "sha256": "64ed1b6046ef1eb158a61f06ea3d53ca731f172676b087ee193f1b01287ce687"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/build_figure.py",
+      "bytes": 130865,
+      "sha256": "270e87d563ab0212835ec2c63b4d6364a1031397979152b0af14bccdc7753065"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/install_deps.sh",
+      "bytes": 5144,
+      "sha256": "534e9d0735b5f09ced320248778276385f0a92d33a71a5607a9e2d3fe24d0b37"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/mpfb_bridge.py",
+      "bytes": 1687,
+      "sha256": "dd596870a20d7875d44f81e4438a52d7ce5c0b6ea159cc93be1ef6bbb5363a88"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/hair_cards.py",
+      "bytes": 183787,
+      "sha256": "6a9392de61d52953e35543b6aa4b39ac9817cac2f1c5f032177aeae1456baaca"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/rigservice.py",
+      "bytes": 77405,
+      "sha256": "c3a1ef529cd5b68bf82272f08bc93f0f9a6974ac6e4b141e31345bff81209948"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/clothes/mhclo.py",
+      "bytes": 12931,
+      "sha256": "889ed0a4384ba50dd80d79768e75c9c62a3370551d4d62530e503db050ed739c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/ari_source.py",
+      "bytes": 14367,
+      "sha256": "8b2466f6c159ebb7769c0599ddc257b702a233df5c5b57b1728de79512a4d8c5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/ari_checks.py",
+      "bytes": 10683,
+      "sha256": "af2fe051061cbcc4906ee724bbb6d0a3c3ea324e350829f95f7e05ec824d060a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/INPUT-RESULT.json",
+      "bytes": 1747962,
+      "sha256": "e9bb99faefb8994af92801313be4cae82bbb9bda7b5989349df8912101631e2b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/RIG-RESULT.json",
+      "bytes": 36908,
+      "sha256": "102d6be3422db4a55fd33f54444ca67cd363d4bfe54f926800e1131a641dcaec"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-native-form-contract/CONTROL.json",
+      "bytes": 1364,
+      "sha256": "8ed0437673787ec2832e58190ccd583c324c8e471db027bdc79f2cc6f7a86b3c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/WORTH.md",
+      "bytes": 4368,
+      "sha256": "17c9dd01e1f11e5e2147b7bbfe327ed881435b0f1f5d7134f1705c4d52eb91d6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/RIG-LEGACY-WORTH.md",
+      "bytes": 3548,
+      "sha256": "2ff14295d4fb3568d6b369e5f70e4fec91ed03989a57abe2b6fa132ab2c8d38f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/COLD-RESULT.json",
+      "bytes": 635270,
+      "sha256": "381b890fba742144626dc49e0188fbb12c02631e5ff046c8317118762b0e85cd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/neutral-source-logged.blend",
+      "bytes": 11983694,
+      "sha256": "6ed771b71a99ac8a5cf9c717fef5364ac0a427763e601fecffa984bafd4f53eb"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/objectproperties/__init__.py",
+      "bytes": 1680,
+      "sha256": "ada0453e4460d3a5d5d3949648f97fa3c5ca5e212dd6123464d31d31f34f4d7c"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/objectproperties/generalproperties/scale_factor.json",
+      "bytes": 205,
+      "sha256": "c2f487607cf591753dacf06458fe2e0b0ef483d93fb3770f88d140d97f8d4b6a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-native-form-contract/TARGET-NOMINEES.json",
+      "bytes": 5860,
+      "sha256": "ec74dd6bf1c1bf09e3610a26ae1058f364214725fa5aab21f919c3e1a1be4cb6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/LOGGED-SOURCE-RESULT.json",
+      "bytes": 952573,
+      "sha256": "3cc2c2be835b034b81c4c855d4433244a132ce9b0546469d7d4246b055fea7c9"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/blenderconfigset.py",
+      "bytes": 20303,
+      "sha256": "29ed9eb7b29fe1988eee16b42665a699ef8f1587b05b570fd066457a52c80565"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rigging/rigifyhelpers/rigifyhelpers.py",
+      "bytes": 21107,
+      "sha256": "d39cd2c9bda3034c8a3c27f71a5aebd72087ea14308849dafb6fc4270ad92dde",
+      "role": "Existing native legacy100 upgrade import; no selected rigify fields or new rollstrategy"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/run_native.py",
+      "bytes": 1686,
+      "sha256": "8ae71e2561b38a27deff5a148f552e7b71033537f96153b504d24461fa8f0ccc"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/entities/rig.py",
+      "bytes": 66545,
+      "sha256": "21fc0a99dd7c72b8002ebfffd95e6d796e1004a05f8b4c38541eda8d9a50e959"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/ari_source.py",
+      "bytes": 14381,
+      "sha256": "2e733a6514369b855a6496fe84d4c96e8c5c2b74f382c6a118d18d9117a79b0a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/ari_checks.py",
+      "bytes": 11682,
+      "sha256": "7622e8fe4b3fef127946dc00d646a996fecb4c45c36f6dbf8681ba3e505ee365"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/run_native.py",
+      "bytes": 1692,
+      "sha256": "ee0fcd3c08f3f0163d581eafcaa24f30cc09602f8b86b210ba5d52921b2227b3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/RECIPE.json",
+      "bytes": 1113,
+      "sha256": "b0c47418458fad80b581fbdb3d0084203337944a2fb93c4c02ab0bd239f4627d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/PLAN.md",
+      "bytes": 2506,
+      "sha256": "edcf280b906d76fb6a66621178b099ecd75991f18ab25a52402c7f5699afd76e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/INPUTS.json",
+      "bytes": 2718,
+      "sha256": "e414ffd3aa918c503468c4159296c056220a0f1119779d1c866c079716520296"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/RESULT.json",
+      "bytes": 1683911,
+      "sha256": "bf18239272c055e6c3f3ec976a927c69ccf5b604f42975da388e080d9fbe42f7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/work/ari-first-form.blend",
+      "bytes": 12197114,
+      "sha256": "ca0df89ab0183b7a7441b58885d3a81f4a84cb0836fb0852bec182fcb1a7e249"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/RESULT-REVIEW.md",
+      "bytes": 7655,
+      "sha256": "5f91315968125eca48ab146ace67d298802480a6aafc0198c08b939e3ec57e8c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/MANIFEST.json",
+      "bytes": 6994,
+      "sha256": "6d7bccd107d6a438d6ffc552c2c0afe688838dee2e5197bd5925f3b88d8f5a90"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/MacOS/Blender",
+      "bytes": 182900560,
+      "sha256": "f5c1f2a0c0bca3389ec772d355242b700975ea84e66cbb3f5257a7bce8e5adeb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/WORTH.md",
+      "bytes": 3780,
+      "sha256": "da8c292705be0c8168d7f94b8f7e1f84f73717d7dab0694781bf2fad7f60c132"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/ROOT-WORTH.json",
+      "bytes": 529,
+      "sha256": "4974e61daf85d4658490a2b73ea2c7963327cc4f3c492a122884a7e136c56bb2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/INPUT-REUSE-SCOPE.md",
+      "bytes": 731,
+      "sha256": "24e26f72189bc562dc5c6b88cf576a7312d6730f3bc988e915fa485a9152ad05"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-lossless-cold-views/cold_render.py",
+      "bytes": 7907,
+      "sha256": "153aacd5f9132846dbd71351311e9eea19d847a2783fa30f91171591c11b4df8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+      "bytes": 6017,
+      "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/RESULT.json",
+      "bytes": 1683911,
+      "sha256": "bf18239272c055e6c3f3ec976a927c69ccf5b604f42975da388e080d9fbe42f7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-admission/work/ari-first-form.blend",
+      "bytes": 12197114,
+      "sha256": "ca0df89ab0183b7a7441b58885d3a81f4a84cb0836fb0852bec182fcb1a7e249"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/COLD-RESULT.json",
+      "bytes": 635270,
+      "sha256": "381b890fba742144626dc49e0188fbb12c02631e5ff046c8317118762b0e85cd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/neutral-source-logged.blend",
+      "bytes": 11983694,
+      "sha256": "6ed771b71a99ac8a5cf9c717fef5364ac0a427763e601fecffa984bafd4f53eb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md",
+      "bytes": 2270,
+      "sha256": "3a5b0493387b14d164455996e2ab3840d02e10341220f0282968d3720878899c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/cold_views.py",
+      "bytes": 11179,
+      "sha256": "060fc7cdd46c1979870d52ca4e5fecc4ccd76cef6a5c5c41bb8b813ce1c35ae2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/run_native.py",
+      "bytes": 1646,
+      "sha256": "5d359386b45d97796a11f2c2eb03bce6ec204bfb7d61a828e988ca1fd6908892"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/PLAN.md",
+      "bytes": 3207,
+      "sha256": "e474f4fbc5ad7ac27d7340e3d4ae913126218c5e49e8d93f44fee4b164a2ab3e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/INPUTS.json",
+      "bytes": 2088,
+      "sha256": "df9789920bf018403d05ab7de7f574f29f37d6c7b2db929a08fe5cdcf22c4034"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/WORTH.md",
+      "bytes": 4692,
+      "sha256": "423856c739bd1d778c572267e2fbc9e2e1942a9280410cbc65481b09d100b5df"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/MacOS/Blender",
+      "bytes": 182900560,
+      "sha256": "f5c1f2a0c0bca3389ec772d355242b700975ea84e66cbb3f5257a7bce8e5adeb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/FRESH-ALLOCATION.md",
+      "bytes": 1133,
+      "sha256": "253ffdf464e20e3b7004ac2a72700d393b624774c9b5f442485c9bad128a8350"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/views/cold_views.py",
+      "bytes": 11143,
+      "sha256": "2be4976ad807f1d24883a1752d04953c7374ea1634f2fd003b747d643887a825"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/views/run_native.py",
+      "bytes": 1646,
+      "sha256": "63db9750211680a69982d630d25d8587e62aebf073bfff4f69ba3daba577e819"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/views/PREPARED.md",
+      "bytes": 718,
+      "sha256": "d6263373c7ffbcabc22da2ba369198330f3f604e871a1c6ff8a49a93711caee1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/views/PROGRAM-CHANGES.diff",
+      "bytes": 3653,
+      "sha256": "292fb8745e443f40a4a2be0213966c3594f60635dd0ea9a54ded3c41bf4818b1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/RESULT.json",
+      "bytes": 1682947,
+      "sha256": "dee83ac4f1f85871340fdcf3321595ed11aa2a3064fb0e52b0572f649a5deab8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/work/ari-middle-volume.blend",
+      "bytes": 12197092,
+      "sha256": "8d28c905e95f92c1c689df495ee30a4cf4bbe55e069b4cc8ae345c59d3f069a4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/ROOT-RESULT.json",
+      "bytes": 1315,
+      "sha256": "cb5580ae59a5a8f16e7976dc5b6ac0b2a07b2b7fab465f2fb388f8a34373e7bb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/RECIPE.json",
+      "bytes": 1113,
+      "sha256": "b0c47418458fad80b581fbdb3d0084203337944a2fb93c4c02ab0bd239f4627d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/WORTH.md",
+      "bytes": 3780,
+      "sha256": "da8c292705be0c8168d7f94b8f7e1f84f73717d7dab0694781bf2fad7f60c132"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/PLAN.md",
+      "bytes": 2506,
+      "sha256": "edcf280b906d76fb6a66621178b099ecd75991f18ab25a52402c7f5699afd76e"
+    }
+  ],
+  "decision": "Retain isolated directional study; refuse concept-form qualification; close three-control experiment.",
+  "limits": "Numerical and static original-image evidence; full AAA/runtime/motion/material/wardrobe/fit acceptance remains open."
+}

@@ -1,0 +1,43 @@
+{
+  "checked_utc": "2026-10-08T16:36:24.370384+00:00",
+  "job": {
+    "started_utc": "2026-10-08T16:35:03.575404+00:00",
+    "wrapper_pid": 36672,
+    "argv": [
+      "/Applications/Blender.app/Contents/MacOS/Blender",
+      "--background",
+      "--offline-mode",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/ari_source.py"
+    ],
+    "timeout_seconds": 240,
+    "timed_out": false,
+    "pid": 36683,
+    "exit_code": 0,
+    "finished_utc": "2026-10-08T16:35:14.706364+00:00"
+  },
+  "checks": 6734,
+  "all_pass": true,
+  "declared10values_exact": true,
+  "only3of252key_semantics_changed": [
+    "torso/torso-scale-horiz-incr",
+    "torso/torso-scale-depth-incr",
+    "torso/measure-waist-circ-incr"
+  ],
+  "macros_unchanged": true,
+  "endpoints_independently_recomputed": 106,
+  "anatomy_fit": 5,
+  "auxiliary_expression_witnesses": 445,
+  "source_readonly_exact": {
+    "bytes": 12197092,
+    "sha256": "8d28c905e95f92c1c689df495ee30a4cf4bbe55e069b4cc8ae345c59d3f069a4"
+  },
+  "external_pins_exact": 56,
+  "appearance_pending": true,
+  "all108body_key_geometry_records_v1_exact": true,
+  "raw_basis_unchanged": true,
+  "new_mixed_body_hash_differs": true,
+  "frozen_corpus_physical_files_exact": 1620
+}
