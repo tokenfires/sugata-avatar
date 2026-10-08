@@ -1,0 +1,301 @@
+{
+  "observed_utc": "2026-10-08T01:19:38.149797+00:00",
+  "pid": 55616,
+  "version": "5.2.2 LTS",
+  "background": true,
+  "online_access": false,
+  "loaded_materialservice": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/materialservice.py",
+  "material_fields": {
+    "blend_method": {
+      "present": true,
+      "type": "ENUM",
+      "readonly": false,
+      "enum_identifiers": [
+        "OPAQUE",
+        "CLIP",
+        "HASHED",
+        "BLEND"
+      ]
+    },
+    "surface_render_method": {
+      "present": true,
+      "type": "ENUM",
+      "readonly": false,
+      "enum_identifiers": [
+        "DITHERED",
+        "BLENDED"
+      ]
+    },
+    "use_nodes": {
+      "present": true,
+      "type": "BOOLEAN",
+      "readonly": false
+    }
+  },
+  "initializer": {
+    "called": true,
+    "name": "Sugata_CompatibilityProbe",
+    "object_argument": null,
+    "success": true,
+    "returned_name": "Sugata_CompatibilityProbe",
+    "use_nodes": true
+  },
+  "operators": {
+    "save_as_mainfile": {
+      "registered": true,
+      "rna_query_success": true,
+      "required_fields": {
+        "filepath": {
+          "present": true,
+          "type": "STRING",
+          "readonly": false
+        },
+        "check_existing": {
+          "present": true,
+          "type": "BOOLEAN",
+          "readonly": false
+        },
+        "copy": {
+          "present": true,
+          "type": "BOOLEAN",
+          "readonly": false
+        },
+        "relative_remap": {
+          "present": true,
+          "type": "BOOLEAN",
+          "readonly": false
+        }
+      },
+      "all_property_names": [
+        "check_existing",
+        "compress",
+        "copy",
+        "display_type",
+        "filemode",
+        "filepath",
+        "filter_alembic",
+        "filter_archive",
+        "filter_backup",
+        "filter_blender",
+        "filter_blenlib",
+        "filter_btx",
+        "filter_folder",
+        "filter_font",
+        "filter_image",
+        "filter_movie",
+        "filter_obj",
+        "filter_python",
+        "filter_sound",
+        "filter_text",
+        "filter_usd",
+        "filter_volume",
+        "hide_props_region",
+        "relative_remap",
+        "rna_type",
+        "show_save_modified_images_dialog",
+        "sort_method"
+      ]
+    },
+    "pack_all": {
+      "registered": true,
+      "rna_query_success": true,
+      "required_fields": {},
+      "all_property_names": [
+        "rna_type"
+      ]
+    },
+    "gltf": {
+      "registered": true,
+      "rna_query_success": true,
+      "required_fields": {
+        "filepath": {
+          "present": true,
+          "type": "STRING",
+          "readonly": false
+        },
+        "export_format": {
+          "present": true,
+          "type": "ENUM",
+          "readonly": false,
+          "enum_identifiers": []
+        },
+        "use_selection": {
+          "present": true,
+          "type": "BOOLEAN",
+          "readonly": false
+        },
+        "export_morph": {
+          "present": true,
+          "type": "BOOLEAN",
+          "readonly": false
+        },
+        "export_skins": {
+          "present": true,
+          "type": "BOOLEAN",
+          "readonly": false
+        },
+        "export_morph_reset_sk_data": {
+          "present": true,
+          "type": "BOOLEAN",
+          "readonly": false
+        }
+      },
+      "all_property_names": [
+        "at_collection_center",
+        "check_existing",
+        "collection",
+        "export_action_filter",
+        "export_active_vertex_color_when_no_material",
+        "export_all_influences",
+        "export_all_vertex_colors",
+        "export_anim_scene_split_object",
+        "export_anim_single_armature",
+        "export_anim_slide_to_zero",
+        "export_animation_mode",
+        "export_animations",
+        "export_apply",
+        "export_armature_object_remove",
+        "export_attributes",
+        "export_bake_animation",
+        "export_cameras",
+        "export_convert_animation_pointer",
+        "export_copyright",
+        "export_current_frame",
+        "export_def_bones",
+        "export_draco_color_quantization",
+        "export_draco_generic_quantization",
+        "export_draco_mesh_compression_enable",
+        "export_draco_mesh_compression_level",
+        "export_draco_normal_quantization",
+        "export_draco_position_quantization",
+        "export_draco_texcoord_quantization",
+        "export_extra_animations",
+        "export_extras",
+        "export_force_sampling",
+        "export_format",
+        "export_frame_range",
+        "export_frame_step",
+        "export_gltfpack_kn",
+        "export_gltfpack_noq",
+        "export_gltfpack_sa",
+        "export_gltfpack_si",
+        "export_gltfpack_slb",
+        "export_gltfpack_tc",
+        "export_gltfpack_tq",
+        "export_gltfpack_vc",
+        "export_gltfpack_vn",
+        "export_gltfpack_vp",
+        "export_gltfpack_vpi",
+        "export_gltfpack_vt",
+        "export_gn_mesh",
+        "export_gpu_instances",
+        "export_hierarchy_flatten_bones",
+        "export_hierarchy_flatten_objs",
+        "export_hierarchy_full_collections",
+        "export_image_add_webp",
+        "export_image_format",
+        "export_image_quality",
+        "export_image_webp_fallback",
+        "export_import_convert_lighting_mode",
+        "export_influence_nb",
+        "export_jpeg_quality",
+        "export_keep_originals",
+        "export_leaf_bone",
+        "export_lights",
+        "export_loglevel",
+        "export_materials",
+        "export_merge_animation",
+        "export_meshopt_compression_enable",
+        "export_meshopt_extension",
+        "export_morph",
+        "export_morph_animation",
+        "export_morph_normal",
+        "export_morph_reset_sk_data",
+        "export_morph_tangent",
+        "export_negative_frame",
+        "export_nla_strips",
+        "export_nla_strips_merged_animation_name",
+        "export_normals",
+        "export_optimize_animation_keep_anim_armature",
+        "export_optimize_animation_keep_anim_object",
+        "export_optimize_animation_size",
+        "export_optimize_disable_viewport",
+        "export_original_specular",
+        "export_pointer_animation",
+        "export_reset_pose_bones",
+        "export_rest_position_armature",
+        "export_sampling_interpolation_fallback",
+        "export_shared_accessors",
+        "export_skins",
+        "export_tangents",
+        "export_texcoords",
+        "export_texture_dir",
+        "export_try_omit_sparse_sk",
+        "export_try_sparse_sk",
+        "export_unused_images",
+        "export_unused_textures",
+        "export_use_gltfpack",
+        "export_vertex_color",
+        "export_vertex_color_name",
+        "export_yup",
+        "filepath",
+        "filter_glob",
+        "gltf_export_id",
+        "rna_type",
+        "ui_tab",
+        "use_active_collection",
+        "use_active_collection_with_nested",
+        "use_active_scene",
+        "use_mesh_edges",
+        "use_mesh_vertices",
+        "use_renderable",
+        "use_selection",
+        "use_visible",
+        "will_save_settings"
+      ]
+    }
+  },
+  "before": {
+    "objects": [
+      [
+        "Camera",
+        "CAMERA"
+      ],
+      [
+        "Cube",
+        "MESH"
+      ],
+      [
+        "Light",
+        "LIGHT"
+      ]
+    ],
+    "materials": [
+      "Dots Stroke",
+      "Material"
+    ]
+  },
+  "after": {
+    "objects": [
+      [
+        "Camera",
+        "CAMERA"
+      ],
+      [
+        "Cube",
+        "MESH"
+      ],
+      [
+        "Light",
+        "LIGHT"
+      ]
+    ],
+    "materials": [
+      "Dots Stroke",
+      "Material",
+      "Sugata_CompatibilityProbe"
+    ]
+  },
+  "objects_unchanged": true,
+  "limit": "One actual initializer on a new temporary material in this owned background process. No human/geometry, asset/image reads, targets, rig, save/pack/export/render calls or installed preferences/source changes. Normal startup/logging uninstrumented; may create dirs/reset/append logs. RNA registration does not prove live save/export or appearance."
+}

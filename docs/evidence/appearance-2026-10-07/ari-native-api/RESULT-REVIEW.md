@@ -1,0 +1,41 @@
+# Independent actual API result: initializer pass; no facade justified
+
+Reviewed at 2026-10-08T01:27:38.818227+00:00. The actual installed MaterialService.create_empty_material succeeded in Blender5.2.2LTS on the sole new Sugata_CompatibilityProbe material, with use_nodes=True. It supplied no object argument, added exactly this material to the before-name set and preserved the Camera/Cube/Light object-name/type summary. This disproves the proposed initializer-failure concern for this observed call; no defect, vendor change or isolated facade is justified by this result. I ran no native/process/test/material operation, asset query/decode or capture.
+
+I independently read the complete stored RESULT/JOB/root records and checked the exact SUGATA_API marker JSON equals RESULT. Root preflight01:19:36.823193 preceded process01:19:36.881363–01:19:38.208983UTC; observation01:19:38.149797 is inside the job. Native55616/wrapper55615, exact PLAN argv, offline/background, exit0/no timeout and tracked config file size/mtime equality agree. Normal startup/logging is uninstrumented; those metadata fields do not prove universal write/byte identity. All3 source pins were already independently bound in preserved preflight and remain the root-verified inputs.
+
+Actual RNA witnesses: blend_method is present/writable ENUM with OPAQUE/CLIP/HASHED/BLEND; surface_render_method is present/writable with DITHERED/BLENDED; use_nodes is writable BOOLEAN. The actual initializer's source197–208 assigns HASHED without raising and returns its new material; final render semantics/post-assignment mode values were not separately recorded. Save_as_mainfile, pack_all and glTF return registered=True/rna_query_success=True, with the named required fields present. No save, pack or export call occurred. glTF.export_format is present but its observed enum_identifiers is empty, so no GLB-value validation follows from that enum observation alone.
+
+I independently derived all15 explicit glTF keyword names from actual builderexport2449–2476 AST and verified all appear in recorded operator names. The preserved sidecar corrects the earlier root printcount18 to15 without changing source/query behavior. RNA name/field registration is not live argument/context/export/save/pack success or morphology/rig/appearance proof. Full native source work still requires a separately preflighted constructor/save and exact artifact readback.
+
+Worth alternatives resolved: A, the actual private initializer/RNA observation tests this specific source clue directly and selects the full source/input contract on success (chosen). B, an isolated facade with official references would be useful only after actual failure; applying it now would change working behavior without a proved defect and consumes effort without advancing source ownership. No official-reference/facade allocation follows this pass.
+
+Fresh ari-neutral-native-source PLAN merits the next slice conditionally. It proposes one deliberately new complete neutral whole-scene source after face/expression/rig/part binding and before destructive bake, with a complete input/cache/instrument preflight and no Ari8coefficients/10targets or body-only/export/render bypass. The20 frozen face files are now a concrete input subset, and this initializer check removes one suspected compatibility blocker. Builder2583–2608 exposes the exact lifecycle: create body/skin/face; expression load2591; rig2599; face binding2601; destructive bake2608. Save the whole native scene before2608, not a direct-child-only copy (hierarchy2082–2100/in-place helper bake2113–2130). Raw pristine input lineage and later derived export/cornea/helper-strip states must be owned separately.
+
+Prioritize exact directly called source/input/cache duties rather than another generic inventory:
+
+1. Builder2018–2026 calls FaceService.load_targets with ARKit/meta enabled and optional Microsoft visemes, then interpolate_targets before the rig. Pin/read those actual implementations and directly named pack/cache/interpolation paths; own all required shapes on body and auxiliary face objects plus any compiled cache write before construction. The service implementation/cache closure is not newly inspected or qualified by critic here.
+2. create_figure492–513→HumanService.create_human→ObjectService base mesh/groups/config and TargetService.reapply_macro_details: freeze exact native body/helper source and macro target inputs, literal0.5/race parameters and actual normalized values. Inspect the actual Target cache loader/write path before redirecting writes to the owned working root; no old reader/rig/arithmetic replay or accepted-source lineage borrowing.
+3. bind_mhclo_parts_to_rig555–583 calls Mhclo.load and ClothesService.set_up_rigging before helper stripping, then fallback/weight checks. Own rig/game-engine weight/rest-bind and implicit .mhw/config/interpolation/cache duties on fresh working copies of the20 frozen face inputs; preserve those originals.
+4. Selected skin needs an exact owner and positive prerequisite. Actual apply_skin2003–2006 may print MISSING and continue; this is source behavior, not a claim any installed skin is missing. A: own/resolve/assert the declared skin and its material/texture closure before a full-source constructor; consistent with the existing builder. B: separately own a literal procedural native skin/material recipe; changes material input duties and needs explicit authoring values. Do not call a silently omitted declared skin a complete source.
+
+For the whole-scene next decision, A: complete these exact input/cache/lifecycle responsibilities, then one isolated complete neutral source save and separately preflighted cold readback; advances an editable native owner with real evidence. B: retain the present input bundle and continue manual authoring/source selection until those responsibilities are literal; avoids premature construction but delays usable native evidence. Prefer A under the fresh45-minute/02:30 slice gate; stop at the first concrete unresolved owner/write rather than produce another generic metadata packet. This is worth only, not constructor/input acquisition admission by this critic. No Face/Target service, current body/asset content or new source acquisition was performed here.
+
+Exact reviewed current identities:
+
+| File | Bytes | SHA256 |
+| --- | ---: | --- |
+| docs/evidence/appearance-2026-10-07/ari-native-api/PLAN.json | 2202 | 001a4fa2191a8ced9a984970edfd9a44eac6e9935ccd0c370f538da909fe2174 |
+| docs/evidence/appearance-2026-10-07/ari-native-api/api_probe.py | 3950 | 3ccc68bff8e817b01357030a30c018906f2b85460d8da334266a33a6b706d615 |
+| docs/evidence/appearance-2026-10-07/ari-native-api/WORTH-PREFLIGHT.md | 5185 | d9f40adf7c3a12152b3e62e2279e937e6d8a17433dde4eac37390cb7b828e33e |
+| docs/evidence/appearance-2026-10-07/ari-native-api/ROOT-PREFLIGHT.json | 286 | 9f362be0b90329f03ab9ea2a50d8ab90379ca033a400996f69683825c11b5877 |
+| docs/evidence/appearance-2026-10-07/ari-native-api/JOB-start.json | 733 | e8695558d6ed479f5accc79b2c9954bed1e283495c0a28c139e065c011e4ba12 |
+| docs/evidence/appearance-2026-10-07/ari-native-api/JOB.json | 1193 | 98c9a8134cfac8cb2c7fa50dc0f0dbdeec1f7e0650d7a93e6a51c38a12a864af |
+| docs/evidence/appearance-2026-10-07/ari-native-api/RESULT.json | 8053 | 6c7b7b6d86aee2f5047c28e05307f6dd667716724f4b95c7cccb668bcf8e84be |
+| docs/evidence/appearance-2026-10-07/ari-native-api/native.log | 6638 | b426aae6cdce86aa0423b50db21577771d59037d054a1b5cbd6bde6066ae10b8 |
+| docs/evidence/appearance-2026-10-07/ari-native-api/ROOT-RESULT.json | 337 | 2eb72d2bbd58849c88ff40dea173df6057dc3dd37832aabc9cf724be36622bfc |
+| docs/evidence/appearance-2026-10-07/ari-native-api/BUILDER-EXPORT-KEYWORDS.json | 666 | 4b5663f8f47efc6727d4e7d79022d171c9ffa73183bb5bb6d7cfd68ba5225eab |
+| docs/evidence/appearance-2026-10-07/ari-neutral-native-source/PLAN.json | 2715 | 97fe685e0a9b3404c722dcddab560817c246d94768dbb56be1c687bc8e2352ce |
+| tools/figure-pipeline/build_figure.py | 130865 | 270e87d563ab0212835ec2c63b4d6364a1031397979152b0af14bccdc7753065 |
+
+The complete API result and prior source/candidate handoffs remain unchanged. Full AAA expression/representation/wardrobe/fit/motion/performance and19checked/10broadopen are retained; no native Ari/body/render/appearance acceptance follows this primitive pass.

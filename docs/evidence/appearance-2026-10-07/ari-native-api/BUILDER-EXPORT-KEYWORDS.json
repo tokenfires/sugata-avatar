@@ -1,0 +1,23 @@
+{
+  "source": "tools/figure-pipeline/build_figure.py:2458",
+  "keys": [
+    "filepath",
+    "export_format",
+    "use_selection",
+    "export_apply",
+    "export_morph",
+    "export_morph_normal",
+    "export_morph_tangent",
+    "export_morph_animation",
+    "export_morph_reset_sk_data",
+    "export_try_sparse_sk",
+    "export_extras",
+    "export_skins",
+    "export_animations",
+    "export_attributes",
+    "export_yup"
+  ],
+  "limit": "Compare declaredkeywordpresence to actual RNA only; no exporterexecution/admission.",
+  "count": 15,
+  "observer_correction": "Prior e77793 printsaid18; actualAST-derived list contains15. No source/querybehavior changed."
+}
