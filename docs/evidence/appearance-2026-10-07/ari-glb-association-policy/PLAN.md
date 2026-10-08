@@ -1,0 +1,17 @@
+# Remaining exact GLB association policy
+
+Usable improvement: a literal proposed operator-option manifest and native→GLB association predicates ready for a separate one-export instrument preflight, or the first specifically unowned responsibility.
+
+Research question: after the actual native cutoff condition passes, can the installed called routes own the53-bone joint tree/rest/bind/axis frame, active morph/default mixture and point/corner/triangle/UV/material ownership of all six meshes without vendor/product edits?
+
+Decision: inspect only the directly named joint/tree, object-data/shape export, custom attribute/primitive and material-image routes required for this candidate. Reuse the completed cutoff source/census/control evidence without requery. Set all-influences=True explicitly; raw native sums are not assumed exactly1 and future encoded values require complete-set normalization/float32 criteria. Declare each concrete predicate and implementation bounds, or stop at the first unresolved route. No native/export/module execution, candidate/source save, renderer, target/shape/weight/mask edit, alternate serializer or generic code inventory under this source-policy slice.
+
+Bounds: at most35 minutes relevant source/contract work, close2026-10-08T07:30UTC. One raw primary Khronos format read may resolve a specific normative point if installed code is insufficient; prior provider-generated query is not verbatim authority. No broad web/example search or repeated profile/source/rig trial. Stop after complete policy, first unowned needed route or effort limit. No late constructor/export under this contract.
+
+Inputs: cold verified candidate10,811,557B/SHA7493efbb…; skin eligibility RESULT16,937,297B/SHA `98e018c7d33ca3ac800fb53a0774233c4239ffbb115193b68a5c2e838c99d53b`, locald09682b; constructor/cold/six pixel-identical neutral controls remain frozen. Actual six positive influences at Human1870 require all=True, and zero native positive weights participate in0<w<=0.0001. These facts do not prove exporter joint membership or GLB. Pristine full-helper source SHA6ed771b7… remains Ari authoring/refit authority.
+
+Duties: explicit selected six meshes/rig and complete scene transforms; named joint order/rest/inverse-bind and any neutral/leaf/deform filtering; source-local/world/Y-up swizzle and UV flip; exact diagnostic native point/corner IDs despite splitting/triangulation/material primitives; every morph name/delta/weight default and exclusion rule; actual finite normalized complete joint weight sets; material/texture/encoded-image identity versus native-only shader/slider/mute/interpolation limits. No old g050 proof or static/numeric appearance promotion.
+
+Alternatives: A finish the isolated source contract then separately qualify one neutral export before coupled Ari shaping (preferred), preserving causal separation at the cost of bounded format work; B admit native Ari shaping first and qualify conversion later, earlier character pixels with confounded target/refit/export causes. Ask independent critic whether A is worthwhile before inspection; root verifies its handoff and final candidate/source preservation.
+
+Preserve all accepted/runtime/original/frozen/failure/unrelated work and fullAAA/19scoped10broad-open expression/wardrobe/representation/fit/motion/performance/VTuber/Mii ambitions. Vite825/ACTIVE recovery remain. No purchases/reset/install/preferences/models/subscriptions/push/publication or other projects. Human check-in/pause wins.

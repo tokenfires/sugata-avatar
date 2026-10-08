@@ -1,0 +1,24 @@
+{
+  "verified_utc": "2026-10-08T07:47:54.581006+00:00",
+  "verification_command_chunk": "9309fe and current nine-excerpt/option check",
+  "source_pins_exact": 16,
+  "source_witnesses_exact": 9,
+  "proposed_literal_kwargs": 32,
+  "candidate": {
+    "bytes": 10811557,
+    "sha256": "7493efbb49243131d78c6fa9517c28f3001d5b75c1612bfe5b4ff8cb0ee0eaba",
+    "mode": "0444"
+  },
+  "pristine": {
+    "bytes": 11983694,
+    "sha256": "6ed771b71a99ac8a5cf9c717fef5364ac0a427763e601fecffa984bafd4f53eb",
+    "mode": "0444"
+  },
+  "root_independent_correction_witness_chunk": "61a7ea",
+  "late_document_corrections": [
+    "complete winding-aware triangle multiset equality",
+    "permit zero skin padding; compare positive complete set"
+  ],
+  "native_export_module_capture_jobs": 0,
+  "admission": "HELD: exact joint-local replay and candidate socket/channel routing unresolved; late documentation review is checkpoint only"
+}

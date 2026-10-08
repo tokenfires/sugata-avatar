@@ -1,0 +1,59 @@
+{
+  "created_utc": "2026-10-08T07:24:11.628684+00:00",
+  "status": "PROPOSED_FOR_INSTRUMENT_PREFLIGHT_ONLY_NOT_EXECUTED",
+  "operator": "bpy.ops.export_scene.gltf",
+  "kwargs": {
+    "export_format": "GLB",
+    "use_selection": true,
+    "use_visible": false,
+    "use_renderable": false,
+    "export_apply": false,
+    "export_morph": true,
+    "export_morph_normal": false,
+    "export_morph_tangent": false,
+    "export_morph_animation": false,
+    "export_morph_reset_sk_data": false,
+    "export_try_sparse_sk": true,
+    "export_extras": true,
+    "export_attributes": true,
+    "export_skins": true,
+    "export_all_influences": true,
+    "export_def_bones": false,
+    "export_leaf_bone": false,
+    "export_armature_object_remove": false,
+    "export_hierarchy_flatten_bones": false,
+    "export_hierarchy_flatten_objs": false,
+    "export_rest_position_armature": true,
+    "export_current_frame": true,
+    "export_animations": false,
+    "export_yup": true,
+    "export_materials": "EXPORT",
+    "export_image_format": "AUTO",
+    "export_shared_accessors": false,
+    "export_normals": true,
+    "export_tangents": false,
+    "export_draco_mesh_compression_enable": false,
+    "export_cameras": false,
+    "export_lights": false
+  },
+  "diagnostic_attributes": {
+    "_SUGATA_NATIVE_VERTEX": "POINT FLOAT scalar equal currentnativevertexindex",
+    "_SUGATA_NATIVE_CORNER": "CORNER FLOAT scalar equalcurrentloopindex",
+    "_SUGATA_NATIVE_FACE": "FACE FLOAT scalar equalcurrentpolygonindex"
+  },
+  "id_bound": "Exactfinite integers0<=id<2**24; sourceguard/missingcollision stop. DiagnosticcornerID forces splitting; no production/performanceclaim.",
+  "selection": "Only exactcold6MESH +Human.rig, no constructors/cameras/lights; sourceowner_before after equal excludingdeclarednewattributes only, no source.save.",
+  "numeric_bounds": {
+    "position_morph_frame_m": 1e-06,
+    "uv_absolute": 1e-06,
+    "joint_weight_absolute": 1e-06,
+    "joint_rest_inversebind_matrix_element_absolute": 1e-06
+  },
+  "hold": [
+    "Morphnormals/tangents fidelity andnative normalbitidentity",
+    "Fullnative shadergraph/slider/mute/interpolation equivalence",
+    "Actualshader/render/motion/fit/Ari appearance",
+    "Everynewkeyword mustmatchactualregisteredRNAvalues atfuture preflight; sourcepropertytextnotliveAPI success"
+  ],
+  "filename": "Freshisolatedwork/candidate.glb, neveroverwrite; FINISHED/newfile/parse required underfuturecontract"
+}

@@ -1,0 +1,58 @@
+{
+  "read_utc": "2026-10-08T07:53:08.995901+00:00",
+  "review_full_read_chunk": "0b21c1",
+  "review": {
+    "bytes": 7060,
+    "sha256": "00e293604c2f1f28e4a6a2ffa8004562b357650f4a51b3588fd767215c7cc814"
+  },
+  "all_eight_current_bindings_match": [
+    {
+      "name": "PLAN.md",
+      "bytes": 3505,
+      "sha256": "f888b28b05e57ecc19f8fbdb49d47b45479b6d7504ae9f2244e9c5d8e71b1d01"
+    },
+    {
+      "name": "WORTH.md",
+      "bytes": 3605,
+      "sha256": "72245a8e3f247311d92ae74e8acd600e484a1cd4875670e41f9d6b289d342812"
+    },
+    {
+      "name": "CONTRACT-PROPOSED.md",
+      "bytes": 7864,
+      "sha256": "a8ce45e44aa1f9455c90dfa736ad52ba1ad545986e8c4e620d696b501e009dc8"
+    },
+    {
+      "name": "OPTIONS-PROPOSED.json",
+      "bytes": 2452,
+      "sha256": "ac0c897ee13c76cef4782f0b52038c8a0810a6d0ba738f516dca71d10b2af2de"
+    },
+    {
+      "name": "README.md",
+      "bytes": 3152,
+      "sha256": "ad6acdbb7536f60f6bef8efa88723be29acac10dece1d35c374eda44eeaac614"
+    },
+    {
+      "name": "SOURCE-PINS.json",
+      "bytes": 4156,
+      "sha256": "9e2569c199a1dd511bc6ee933bd729fdf128bc35f04cf98dfba5e0fd16be03c0"
+    },
+    {
+      "name": "SOURCE-WITNESSES.json",
+      "bytes": 34517,
+      "sha256": "d5771606e0005baac332ceab4b44d82bdd7e571ac9c398515d14fa8949946a67"
+    },
+    {
+      "name": "ROOT-SOURCE.json",
+      "bytes": 786,
+      "sha256": "b9cb2a84f1c99e49e2990fa3dc4344472b8da1ef43fb6abe646fa7c80b018c47"
+    }
+  ],
+  "root_independent_source_witness_chunk": "61a7ea",
+  "additional_source_pin_excerpt_and_native_preservation_checks": [
+    "9309fe",
+    "433228"
+  ],
+  "decision": "Retain source-qualified proposal; full GLB export admission held. Fresh numeric-only instrument is worthwhile if complete joint/local/global/rest/skin checks and explicit material-bucket scope are implemented/preflighted. No execution under expired source allocation.",
+  "timing": "Review/root readback late checkpoint only; no native/export/module/capture",
+  "jobs": 0
+}

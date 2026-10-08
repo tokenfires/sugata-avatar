@@ -1,0 +1,1272 @@
+{
+  "captured_utc": "2026-10-08T07:30:26.079679+00:00",
+  "excerpts": [
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/obj_data.py",
+      "start": 112,
+      "end": 175,
+      "lines": [
+        {
+          "line": 112,
+          "text": "    if export_settings['gltf_extras']:"
+        },
+        {
+          "line": 113,
+          "text": "        extras = generate_extras(blender_data) or {}"
+        },
+        {
+          "line": 114,
+          "text": "    # Not for point clouds"
+        },
+        {
+          "line": 115,
+          "text": "    if blender_data.id_type == \"POINTCLOUD\":"
+        },
+        {
+          "line": 116,
+          "text": "        return extras if extras else None"
+        },
+        {
+          "line": 117,
+          "text": ""
+        },
+        {
+          "line": 118,
+          "text": "    # Not for GN Instances"
+        },
+        {
+          "line": 119,
+          "text": "    if export_settings['gltf_morph'] and blender_data.shape_keys and ((blender_data.is_evaluated is True and blender_data.get("
+        },
+        {
+          "line": 120,
+          "text": "            'gltf2_mesh_applied') is not None) or blender_data.is_evaluated is False):"
+        },
+        {
+          "line": 121,
+          "text": "        morph_max = len(blender_data.shape_keys.key_blocks) - 1"
+        },
+        {
+          "line": 122,
+          "text": "        if morph_max > 0:"
+        },
+        {
+          "line": 123,
+          "text": "            extras['targetNames'] = [k.name for k in get_sk_exported(blender_data.shape_keys.key_blocks)]"
+        },
+        {
+          "line": 124,
+          "text": ""
+        },
+        {
+          "line": 125,
+          "text": "    if extras:"
+        },
+        {
+          "line": 126,
+          "text": "        return extras"
+        },
+        {
+          "line": 127,
+          "text": ""
+        },
+        {
+          "line": 128,
+          "text": "    return None"
+        },
+        {
+          "line": 129,
+          "text": ""
+        },
+        {
+          "line": 130,
+          "text": ""
+        },
+        {
+          "line": 131,
+          "text": "def __gather_name(blender_data,"
+        },
+        {
+          "line": 132,
+          "text": "                  vertex_groups: bpy.types.VertexGroups,"
+        },
+        {
+          "line": 133,
+          "text": "                  modifiers: Optional[bpy.types.ObjectModifiers],"
+        },
+        {
+          "line": 134,
+          "text": "                  export_settings"
+        },
+        {
+          "line": 135,
+          "text": "                  ) -> str:"
+        },
+        {
+          "line": 136,
+          "text": "    return blender_data.name"
+        },
+        {
+          "line": 137,
+          "text": ""
+        },
+        {
+          "line": 138,
+          "text": ""
+        },
+        {
+          "line": 139,
+          "text": "def __gather_primitives(blender_data,"
+        },
+        {
+          "line": 140,
+          "text": "                        uuid_for_skined_data,"
+        },
+        {
+          "line": 141,
+          "text": "                        vertex_groups: bpy.types.VertexGroups,"
+        },
+        {
+          "line": 142,
+          "text": "                        modifiers: Optional[bpy.types.ObjectModifiers],"
+        },
+        {
+          "line": 143,
+          "text": "                        materials: Tuple[bpy.types.Material],"
+        },
+        {
+          "line": 144,
+          "text": "                        export_settings"
+        },
+        {
+          "line": 145,
+          "text": "                        ) -> List[gltf2_io.MeshPrimitive]:"
+        },
+        {
+          "line": 146,
+          "text": "    return gltf2_blender_gather_primitives.gather_primitives(blender_data,"
+        },
+        {
+          "line": 147,
+          "text": "                                                             uuid_for_skined_data,"
+        },
+        {
+          "line": 148,
+          "text": "                                                             vertex_groups,"
+        },
+        {
+          "line": 149,
+          "text": "                                                             modifiers,"
+        },
+        {
+          "line": 150,
+          "text": "                                                             materials,"
+        },
+        {
+          "line": 151,
+          "text": "                                                             export_settings)"
+        },
+        {
+          "line": 152,
+          "text": ""
+        },
+        {
+          "line": 153,
+          "text": ""
+        },
+        {
+          "line": 154,
+          "text": "def __gather_weights(blender_data,"
+        },
+        {
+          "line": 155,
+          "text": "                     vertex_groups: bpy.types.VertexGroups,"
+        },
+        {
+          "line": 156,
+          "text": "                     modifiers: Optional[bpy.types.ObjectModifiers],"
+        },
+        {
+          "line": 157,
+          "text": "                     export_settings"
+        },
+        {
+          "line": 158,
+          "text": "                     ) -> Optional[List[float]]:"
+        },
+        {
+          "line": 159,
+          "text": ""
+        },
+        {
+          "line": 160,
+          "text": "    # Not for Point Clouds"
+        },
+        {
+          "line": 161,
+          "text": "    if blender_data.id_type == \"POINTCLOUD\":"
+        },
+        {
+          "line": 162,
+          "text": "        return None"
+        },
+        {
+          "line": 163,
+          "text": ""
+        },
+        {
+          "line": 164,
+          "text": "    if not export_settings['gltf_morph'] or not blender_data.shape_keys:"
+        },
+        {
+          "line": 165,
+          "text": "        return None"
+        },
+        {
+          "line": 166,
+          "text": ""
+        },
+        {
+          "line": 167,
+          "text": "    # Not for GN Instances"
+        },
+        {
+          "line": 168,
+          "text": "    if blender_data.is_evaluated is True and blender_data.get('gltf2_mesh_applied') is None:"
+        },
+        {
+          "line": 169,
+          "text": "        return None"
+        },
+        {
+          "line": 170,
+          "text": ""
+        },
+        {
+          "line": 171,
+          "text": "    morph_max = len(blender_data.shape_keys.key_blocks) - 1"
+        },
+        {
+          "line": 172,
+          "text": "    if morph_max <= 0:"
+        },
+        {
+          "line": 173,
+          "text": "        return None"
+        },
+        {
+          "line": 174,
+          "text": ""
+        },
+        {
+          "line": 175,
+          "text": "    return [k.value for k in get_sk_exported(blender_data.shape_keys.key_blocks)]"
+        }
+      ]
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/com/data_path.py",
+      "start": 61,
+      "end": 80,
+      "lines": [
+        {
+          "line": 61,
+          "text": "def get_sk_exported(key_blocks):"
+        },
+        {
+          "line": 62,
+          "text": "    return ["
+        },
+        {
+          "line": 63,
+          "text": "        k"
+        },
+        {
+          "line": 64,
+          "text": "        for k in key_blocks"
+        },
+        {
+          "line": 65,
+          "text": "        if not skip_sk(key_blocks, k)"
+        },
+        {
+          "line": 66,
+          "text": "    ]"
+        },
+        {
+          "line": 67,
+          "text": ""
+        },
+        {
+          "line": 68,
+          "text": ""
+        },
+        {
+          "line": 69,
+          "text": "def skip_sk(key_blocks, k):"
+        },
+        {
+          "line": 70,
+          "text": "    # Do not export:"
+        },
+        {
+          "line": 71,
+          "text": "    # - if muted"
+        },
+        {
+          "line": 72,
+          "text": "    # - if relative key is SK itself (this avoid exporting Basis too if user didn't change order)"
+        },
+        {
+          "line": 73,
+          "text": "    # - the Basis (the first SK of the list)"
+        },
+        {
+          "line": 74,
+          "text": "    return k == k.relative_key \\"
+        },
+        {
+          "line": 75,
+          "text": "        or k.mute \\"
+        },
+        {
+          "line": 76,
+          "text": "        or is_first_index(key_blocks, k) is True"
+        },
+        {
+          "line": 77,
+          "text": ""
+        },
+        {
+          "line": 78,
+          "text": ""
+        },
+        {
+          "line": 79,
+          "text": "def is_first_index(key_blocks, k):"
+        },
+        {
+          "line": 80,
+          "text": "    return key_blocks[0].name == k.name"
+        }
+      ]
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/tree.py",
+      "start": 310,
+      "end": 326,
+      "lines": [
+        {
+          "line": 310,
+          "text": "                    correction = Quaternion((2**0.5 / 2, -2**0.5 / 2, 0.0, 0.0))"
+        },
+        {
+          "line": 311,
+          "text": "                else:"
+        },
+        {
+          "line": 312,
+          "text": "                    correction = Matrix.Identity(4).to_quaternion()"
+        },
+        {
+          "line": 313,
+          "text": "                node.matrix_world @= correction.to_matrix().to_4x4()"
+        },
+        {
+          "line": 314,
+          "text": "        elif node.blender_type == VExportNode.BONE:"
+        },
+        {
+          "line": 315,
+          "text": "            if self.export_settings['gltf_rest_position_armature'] is False:"
+        },
+        {
+          "line": 316,
+          "text": "                # Use pose bone for TRS"
+        },
+        {
+          "line": 317,
+          "text": "                node.matrix_world = self.nodes[node.armature].matrix_world @ blender_bone.matrix"
+        },
+        {
+          "line": 318,
+          "text": "                if self.export_settings['gltf_leaf_bone'] is True:"
+        },
+        {
+          "line": 319,
+          "text": "                    node.matrix_world_tail = self.nodes[node.armature].matrix_world @ Matrix.Translation("
+        },
+        {
+          "line": 320,
+          "text": "                        blender_bone.tail)"
+        },
+        {
+          "line": 321,
+          "text": "                    node.matrix_world_tail = node.matrix_world_tail @ self.axis_basis_change"
+        },
+        {
+          "line": 322,
+          "text": "            else:"
+        },
+        {
+          "line": 323,
+          "text": "                # Use edit bone for TRS --> REST pose will be used"
+        },
+        {
+          "line": 324,
+          "text": "                node.matrix_world = self.nodes[node.armature].matrix_world @ blender_bone.bone.matrix_local"
+        },
+        {
+          "line": 325,
+          "text": "                # Tail will be set after, as we need to be in edit mode"
+        },
+        {
+          "line": 326,
+          "text": "            node.matrix_world = node.matrix_world @ self.axis_basis_change"
+        }
+      ]
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/tree.py",
+      "start": 575,
+      "end": 591,
+      "lines": [
+        {
+          "line": 575,
+          "text": "    def get_all_bones(self, uuid):  # For armature only"
+        },
+        {
+          "line": 576,
+          "text": "        if not hasattr(self.nodes[uuid], \"all_bones\"):"
+        },
+        {
+          "line": 577,
+          "text": "            if self.nodes[uuid].blender_type == VExportNode.ARMATURE:"
+        },
+        {
+          "line": 578,
+          "text": "                def recursive_get_all_bones(uuid):"
+        },
+        {
+          "line": 579,
+          "text": "                    total = []"
+        },
+        {
+          "line": 580,
+          "text": "                    if self.nodes[uuid].blender_type == VExportNode.BONE:"
+        },
+        {
+          "line": 581,
+          "text": "                        total.append(uuid)"
+        },
+        {
+          "line": 582,
+          "text": "                        for child_uuid in self.nodes[uuid].children:"
+        },
+        {
+          "line": 583,
+          "text": "                            total.extend(recursive_get_all_bones(child_uuid))"
+        },
+        {
+          "line": 584,
+          "text": ""
+        },
+        {
+          "line": 585,
+          "text": "                    return total"
+        },
+        {
+          "line": 586,
+          "text": ""
+        },
+        {
+          "line": 587,
+          "text": "                tot = []"
+        },
+        {
+          "line": 588,
+          "text": "                for c_uuid in self.nodes[uuid].children:"
+        },
+        {
+          "line": 589,
+          "text": "                    tot.extend(recursive_get_all_bones(c_uuid))"
+        },
+        {
+          "line": 590,
+          "text": "                self.nodes[uuid].all_bones = tot"
+        },
+        {
+          "line": 591,
+          "text": "                return tot  # Not really needed to return, we are just baking it before export really starts"
+        }
+      ]
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/tree.py",
+      "start": 718,
+      "end": 738,
+      "lines": [
+        {
+          "line": 718,
+          "text": "    def node_filter_not_inheritable_is_kept(self, uuid):"
+        },
+        {
+          "line": 719,
+          "text": "        # Export Camera or not"
+        },
+        {
+          "line": 720,
+          "text": "        if self.nodes[uuid].blender_type == VExportNode.CAMERA:"
+        },
+        {
+          "line": 721,
+          "text": "            if self.export_settings['gltf_cameras'] is False:"
+        },
+        {
+          "line": 722,
+          "text": "                return False"
+        },
+        {
+          "line": 723,
+          "text": ""
+        },
+        {
+          "line": 724,
+          "text": "        # Export Lamp or not"
+        },
+        {
+          "line": 725,
+          "text": "        if self.nodes[uuid].blender_type == VExportNode.LIGHT:"
+        },
+        {
+          "line": 726,
+          "text": "            if self.export_settings['gltf_lights'] is False:"
+        },
+        {
+          "line": 727,
+          "text": "                return False"
+        },
+        {
+          "line": 728,
+          "text": ""
+        },
+        {
+          "line": 729,
+          "text": "        # Export deform bones only"
+        },
+        {
+          "line": 730,
+          "text": "        if self.nodes[uuid].blender_type == VExportNode.BONE:"
+        },
+        {
+          "line": 731,
+          "text": "            if self.export_settings['gltf_def_bones'] is True and self.nodes[uuid].use_deform is False:"
+        },
+        {
+          "line": 732,
+          "text": "                # Check if bone has some objected parented to bone. We need to keep it in"
+        },
+        {
+          "line": 733,
+          "text": "                # that case, even if this is not a def bone"
+        },
+        {
+          "line": 734,
+          "text": "                if len([c for c in self.nodes[uuid].children if self.nodes[c].blender_type != VExportNode.BONE]) != 0:"
+        },
+        {
+          "line": 735,
+          "text": "                    return True"
+        },
+        {
+          "line": 736,
+          "text": "                return False"
+        },
+        {
+          "line": 737,
+          "text": ""
+        },
+        {
+          "line": 738,
+          "text": "        return True"
+        }
+      ]
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/joints.py",
+      "start": 40,
+      "end": 67,
+      "lines": [
+        {
+          "line": 40,
+          "text": ""
+        },
+        {
+          "line": 41,
+          "text": ""
+        },
+        {
+          "line": 42,
+          "text": "@cached"
+        },
+        {
+          "line": 43,
+          "text": "def gather_joint_vnode(vnode, export_settings):"
+        },
+        {
+          "line": 44,
+          "text": "    \"\"\""
+        },
+        {
+          "line": 45,
+          "text": "    Generate a glTF2 node from a blender bone, as joints in glTF2 are simply nodes."
+        },
+        {
+          "line": 46,
+          "text": ""
+        },
+        {
+          "line": 47,
+          "text": "    :param blender_bone: a blender PoseBone"
+        },
+        {
+          "line": 48,
+          "text": "    :param export_settings: the settings for this export"
+        },
+        {
+          "line": 49,
+          "text": "    :return: a glTF2 node (acting as a joint)"
+        },
+        {
+          "line": 50,
+          "text": "    \"\"\""
+        },
+        {
+          "line": 51,
+          "text": "    vtree = export_settings['vtree']"
+        },
+        {
+          "line": 52,
+          "text": "    blender_bone = vtree.nodes[vnode].blender_bone"
+        },
+        {
+          "line": 53,
+          "text": ""
+        },
+        {
+          "line": 54,
+          "text": "    if export_settings['gltf_armature_object_remove'] is True:"
+        },
+        {
+          "line": 55,
+          "text": "        if vtree.nodes[vnode].parent_uuid is not None:"
+        },
+        {
+          "line": 56,
+          "text": "            mat = vtree.nodes[vtree.nodes[vnode].parent_uuid].matrix_world.inverted_safe("
+        },
+        {
+          "line": 57,
+          "text": "            ) @ vtree.nodes[vnode].matrix_world"
+        },
+        {
+          "line": 58,
+          "text": "        else:"
+        },
+        {
+          "line": 59,
+          "text": "            mat = vtree.nodes[vnode].matrix_world"
+        },
+        {
+          "line": 60,
+          "text": "    else:"
+        },
+        {
+          "line": 61,
+          "text": "        mat = vtree.nodes[vtree.nodes[vnode].parent_uuid].matrix_world.inverted_safe() @ vtree.nodes[vnode].matrix_world"
+        },
+        {
+          "line": 62,
+          "text": ""
+        },
+        {
+          "line": 63,
+          "text": "    trans, rot, sca = mat.decompose()"
+        },
+        {
+          "line": 64,
+          "text": ""
+        },
+        {
+          "line": 65,
+          "text": "    trans = __convert_swizzle_location(trans, export_settings)"
+        },
+        {
+          "line": 66,
+          "text": "    rot = __convert_swizzle_rotation(rot, export_settings)"
+        },
+        {
+          "line": 67,
+          "text": "    sca = __convert_swizzle_scale(sca, export_settings)"
+        }
+      ]
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/primitive_extract.py",
+      "start": 1377,
+      "end": 1455,
+      "lines": [
+        {
+          "line": 1377,
+          "text": "    def __get_layer_attribute(self, attr):"
+        },
+        {
+          "line": 1378,
+          "text": ""
+        },
+        {
+          "line": 1379,
+          "text": "        size = {"
+        },
+        {
+          "line": 1380,
+          "text": "            \"CORNER\": len(self.blender_mesh.loops),"
+        },
+        {
+          "line": 1381,
+          "text": "            \"POINT\": len(self.blender_mesh.vertices),"
+        },
+        {
+          "line": 1382,
+          "text": "            \"EDGE\": len(self.blender_mesh.edges),"
+        },
+        {
+          "line": 1383,
+          "text": "            \"FACE\": len(self.blender_mesh.polygons)"
+        },
+        {
+          "line": 1384,
+          "text": "        }.get(attr['blender_domain'], 0)"
+        },
+        {
+          "line": 1385,
+          "text": ""
+        },
+        {
+          "line": 1386,
+          "text": "        if size == 0:"
+        },
+        {
+          "line": 1387,
+          "text": "            self.export_settings['log'].error(\"domain not known\")"
+        },
+        {
+          "line": 1388,
+          "text": ""
+        },
+        {
+          "line": 1389,
+          "text": "        data = extract_attribute_data("
+        },
+        {
+          "line": 1390,
+          "text": "            self.blender_mesh.attributes[attr['blender_attribute_index']],"
+        },
+        {
+          "line": 1391,
+          "text": "            size,"
+        },
+        {
+          "line": 1392,
+          "text": "            attr['type'],"
+        },
+        {
+          "line": 1393,
+          "text": "            attr['blender_data_type'],"
+        },
+        {
+          "line": 1394,
+          "text": "            attr['blender_domain'],"
+        },
+        {
+          "line": 1395,
+          "text": "            attr['len'],"
+        },
+        {
+          "line": 1396,
+          "text": "            self.export_settings"
+        },
+        {
+          "line": 1397,
+          "text": "        )"
+        },
+        {
+          "line": 1398,
+          "text": ""
+        },
+        {
+          "line": 1399,
+          "text": "        if attr['blender_domain'] in ['CORNER']:"
+        },
+        {
+          "line": 1400,
+          "text": "            for i in range(attr['len']):"
+        },
+        {
+          "line": 1401,
+          "text": "                self.dots[attr['gltf_attribute_name'] + str(i)] = data[:, i]"
+        },
+        {
+          "line": 1402,
+          "text": "        elif attr['blender_domain'] in ['POINT']:"
+        },
+        {
+          "line": 1403,
+          "text": "            if attr['len'] > 1:"
+        },
+        {
+          "line": 1404,
+          "text": "                data = data.reshape(-1, attr['len'])"
+        },
+        {
+          "line": 1405,
+          "text": "            data_dots = data[self.dots['vertex_index']]"
+        },
+        {
+          "line": 1406,
+          "text": "            if self.export_settings['gltf_loose_edges']:"
+        },
+        {
+          "line": 1407,
+          "text": "                data_dots_edges = data[self.dots_edges['vertex_index']]"
+        },
+        {
+          "line": 1408,
+          "text": "            if self.export_settings['gltf_loose_points']:"
+        },
+        {
+          "line": 1409,
+          "text": "                data_dots_points = data[self.dots_points['vertex_index']]"
+        },
+        {
+          "line": 1410,
+          "text": "            for i in range(attr['len']):"
+        },
+        {
+          "line": 1411,
+          "text": "                self.dots[attr['gltf_attribute_name'] + str(i)] = data_dots[:, i]"
+        },
+        {
+          "line": 1412,
+          "text": "                if self.export_settings['gltf_loose_edges']:"
+        },
+        {
+          "line": 1413,
+          "text": "                    self.dots_edges[attr['gltf_attribute_name'] + str(i)] = data_dots_edges[:, i]"
+        },
+        {
+          "line": 1414,
+          "text": "                if self.export_settings['gltf_loose_points']:"
+        },
+        {
+          "line": 1415,
+          "text": "                    self.dots_points[attr['gltf_attribute_name'] + str(i)] = data_dots_points[:, i]"
+        },
+        {
+          "line": 1416,
+          "text": "        elif attr['blender_domain'] in ['EDGE']:"
+        },
+        {
+          "line": 1417,
+          "text": "            # No edge attribute exports"
+        },
+        {
+          "line": 1418,
+          "text": "            pass"
+        },
+        {
+          "line": 1419,
+          "text": "        elif attr['blender_domain'] in ['FACE']:"
+        },
+        {
+          "line": 1420,
+          "text": "            if attr['len'] > 1:"
+        },
+        {
+          "line": 1421,
+          "text": "                data = data.reshape(-1, attr['len'])"
+        },
+        {
+          "line": 1422,
+          "text": "            # data contains face attribute, and is len(faces) long"
+        },
+        {
+          "line": 1423,
+          "text": "            # We need to dispatch these len(faces) attribute in each dots lines"
+        },
+        {
+          "line": 1424,
+          "text": "            data_attr = np.empty(self.dots.shape[0] * attr['len'], dtype=attr['type'])"
+        },
+        {
+          "line": 1425,
+          "text": "            data_attr = data_attr.reshape(-1, attr['len'])"
+        },
+        {
+          "line": 1426,
+          "text": "            for idx, poly in enumerate(self.blender_mesh.polygons):"
+        },
+        {
+          "line": 1427,
+          "text": "                data_attr[list(poly.loop_indices)] = data[idx]"
+        },
+        {
+          "line": 1428,
+          "text": "            data_attr = data_attr.reshape(-1, attr['len'])"
+        },
+        {
+          "line": 1429,
+          "text": "            for i in range(attr['len']):"
+        },
+        {
+          "line": 1430,
+          "text": "                self.dots[attr['gltf_attribute_name'] + str(i)] = data_attr[:, i]"
+        },
+        {
+          "line": 1431,
+          "text": ""
+        },
+        {
+          "line": 1432,
+          "text": "        else:"
+        },
+        {
+          "line": 1433,
+          "text": "            self.export_settings['log'].error(\"domain not known\")"
+        },
+        {
+          "line": 1434,
+          "text": ""
+        },
+        {
+          "line": 1435,
+          "text": "    def __get_uvs_attribute(self, blender_uv_idx, attr):"
+        },
+        {
+          "line": 1436,
+          "text": "        layer = self.blender_mesh.uv_layers[blender_uv_idx]"
+        },
+        {
+          "line": 1437,
+          "text": "        uvs = np.empty(len(self.blender_mesh.loops) * 2, dtype=np.float32)"
+        },
+        {
+          "line": 1438,
+          "text": "        layer.uv.foreach_get('vector', uvs)"
+        },
+        {
+          "line": 1439,
+          "text": "        uvs = uvs.reshape(len(self.blender_mesh.loops), 2)"
+        },
+        {
+          "line": 1440,
+          "text": ""
+        },
+        {
+          "line": 1441,
+          "text": "        # Blender UV space -> glTF UV space"
+        },
+        {
+          "line": 1442,
+          "text": "        # u,v -> u,1-v"
+        },
+        {
+          "line": 1443,
+          "text": "        uvs[:, 1] *= -1"
+        },
+        {
+          "line": 1444,
+          "text": "        uvs[:, 1] += 1"
+        },
+        {
+          "line": 1445,
+          "text": ""
+        },
+        {
+          "line": 1446,
+          "text": "        self.dots[attr['gltf_attribute_name'] + '0'] = uvs[:, 0]"
+        },
+        {
+          "line": 1447,
+          "text": "        self.dots[attr['gltf_attribute_name'] + '1'] = uvs[:, 1]"
+        },
+        {
+          "line": 1448,
+          "text": "        del uvs"
+        },
+        {
+          "line": 1449,
+          "text": ""
+        },
+        {
+          "line": 1450,
+          "text": "    def __get_normals(self):"
+        },
+        {
+          "line": 1451,
+          "text": "        \"\"\"Get normal for each loop.\"\"\""
+        },
+        {
+          "line": 1452,
+          "text": "        key_blocks = self.key_blocks if self.use_morph_normals else []"
+        },
+        {
+          "line": 1453,
+          "text": "        if key_blocks:"
+        },
+        {
+          "line": 1454,
+          "text": "            self.normals = key_blocks[0].relative_key.normals_split_get()"
+        },
+        {
+          "line": 1455,
+          "text": "            self.normals = np.array(self.normals, dtype=np.float32)"
+        }
+      ]
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/material/encode_image.py",
+      "start": 218,
+      "end": 244,
+      "lines": [
+        {
+          "line": 218,
+          "text": "    def encode(self, mime_type: Optional[str], export_settings) -> Tuple[bytes, bool]:"
+        },
+        {
+          "line": 219,
+          "text": "        self.file_format = {"
+        },
+        {
+          "line": 220,
+          "text": "            \"image/jpeg\": \"JPEG\","
+        },
+        {
+          "line": 221,
+          "text": "            \"image/png\": \"PNG\","
+        },
+        {
+          "line": 222,
+          "text": "            \"image/webp\": \"WEBP\""
+        },
+        {
+          "line": 223,
+          "text": "        }.get(mime_type, \"PNG\")"
+        },
+        {
+          "line": 224,
+          "text": ""
+        },
+        {
+          "line": 225,
+          "text": "        # Happy path = we can just use an existing Blender image"
+        },
+        {
+          "line": 226,
+          "text": "        if self.__on_happy_path():"
+        },
+        {
+          "line": 227,
+          "text": "            # Store that this image is fully exported (used to export or not not used images)"
+        },
+        {
+          "line": 228,
+          "text": "            for fill in self.fills.values():"
+        },
+        {
+          "line": 229,
+          "text": "                export_settings['exported_images'][fill.image.name] = 1  # Fully used"
+        },
+        {
+          "line": 230,
+          "text": "                break"
+        },
+        {
+          "line": 231,
+          "text": "            return self.__encode_happy(export_settings), None"
+        },
+        {
+          "line": 232,
+          "text": ""
+        },
+        {
+          "line": 233,
+          "text": "        if self.__on_happy_path_udim():"
+        },
+        {
+          "line": 234,
+          "text": "            return self.__encode_happy_tile(export_settings), None"
+        },
+        {
+          "line": 235,
+          "text": ""
+        },
+        {
+          "line": 236,
+          "text": "        # Unhappy path = we need to create the image self.fills describes or self.stores describes"
+        },
+        {
+          "line": 237,
+          "text": "        if self.numpy_calc is None:"
+        },
+        {
+          "line": 238,
+          "text": "            if self.__unhappy_is_udim():"
+        },
+        {
+          "line": 239,
+          "text": "                return self.__encode_unhappy_udim(export_settings), None"
+        },
+        {
+          "line": 240,
+          "text": "            else:"
+        },
+        {
+          "line": 241,
+          "text": "                return self.__encode_unhappy(export_settings), None"
+        },
+        {
+          "line": 242,
+          "text": "        else:"
+        },
+        {
+          "line": 243,
+          "text": "            pixels, width, height, factor = self.numpy_calc(self.stored, export_settings)"
+        },
+        {
+          "line": 244,
+          "text": "            return self.__encode_from_numpy_array(pixels, (width, height), export_settings), factor"
+        }
+      ]
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/material/encode_image.py",
+      "start": 384,
+      "end": 411,
+      "lines": [
+        {
+          "line": 384,
+          "text": "    def __encode_from_image(self, image: bpy.types.Image, export_settings) -> bytes:"
+        },
+        {
+          "line": 385,
+          "text": "        # See if there is an existing file we can use."
+        },
+        {
+          "line": 386,
+          "text": "        data = None"
+        },
+        {
+          "line": 387,
+          "text": "        # Sequence image can't be exported, but it avoid to crash to check that default image exists"
+        },
+        {
+          "line": 388,
+          "text": "        # Else, it can crash when trying to access a non existing image"
+        },
+        {
+          "line": 389,
+          "text": "        if image.source in ['FILE', 'SEQUENCE'] and not image.is_dirty:"
+        },
+        {
+          "line": 390,
+          "text": "            if image.packed_file is not None:"
+        },
+        {
+          "line": 391,
+          "text": "                data = image.packed_file.data"
+        },
+        {
+          "line": 392,
+          "text": "            else:"
+        },
+        {
+          "line": 393,
+          "text": "                src_path = bpy.path.abspath(image.filepath_raw)"
+        },
+        {
+          "line": 394,
+          "text": "                if os.path.isfile(src_path):"
+        },
+        {
+          "line": 395,
+          "text": "                    with open(src_path, 'rb') as f:"
+        },
+        {
+          "line": 396,
+          "text": "                        data = f.read()"
+        },
+        {
+          "line": 397,
+          "text": "        # Check magic number is right"
+        },
+        {
+          "line": 398,
+          "text": "        if data:"
+        },
+        {
+          "line": 399,
+          "text": "            if self.file_format == 'PNG':"
+        },
+        {
+          "line": 400,
+          "text": "                if data.startswith(b'\\x89PNG'):"
+        },
+        {
+          "line": 401,
+          "text": "                    return data"
+        },
+        {
+          "line": 402,
+          "text": "            elif self.file_format == 'JPEG':"
+        },
+        {
+          "line": 403,
+          "text": "                if data.startswith(b'\\xff\\xd8\\xff'):"
+        },
+        {
+          "line": 404,
+          "text": "                    return data"
+        },
+        {
+          "line": 405,
+          "text": "            elif self.file_format == 'WEBP':"
+        },
+        {
+          "line": 406,
+          "text": "                if data[8:12] == b'WEBP':"
+        },
+        {
+          "line": 407,
+          "text": "                    return data"
+        },
+        {
+          "line": 408,
+          "text": ""
+        },
+        {
+          "line": 409,
+          "text": "        # Copy to a temp image and save."
+        },
+        {
+          "line": 410,
+          "text": "        with TmpImageGuard() as guard:"
+        },
+        {
+          "line": 411,
+          "text": "            make_temp_image_copy(guard, src_image=image)"
+        }
+      ]
+    }
+  ]
+}
