@@ -1,0 +1,26 @@
+{
+  "recorded_utc": "2026-10-08T02:33:48.233315+00:00",
+  "job": {
+    "started_utc": "2026-10-08T02:28:20.197907+00:00",
+    "argv": [
+      "/Applications/Blender.app/Contents/MacOS/Blender",
+      "--background",
+      "--offline-mode",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/create_source_guarded.py"
+    ],
+    "wrapper_pid": 75611,
+    "timeout_seconds": 180,
+    "timed_out": false,
+    "pid": 75612,
+    "exit_code": 1,
+    "finished_utc": "2026-10-08T02:28:23.843918+00:00"
+  },
+  "actual_failure": "Unowned Python write: /Users/robault/Library/Application Support/Blender/5.2/mpfb/logs/separated.services.humanservice.txt",
+  "classification": "Write-audit admission usedLocationlogdir, but actualalreadycreatedLogService logger retaineddifferentlegacy path. Body creation/countassert reached, skinsetupwarn append blocked beforefaces/rig/save. No whole scene or appearance result.",
+  "native_human_constructor_attempts": 1,
+  "same_constructor_retry": false,
+  "next": "Qualifyactualcachedloggerpath ownership or redirectallactualloggerchannels toownedlogs underfreshsource contract. No bodyparameter/geometry tuning."
+}

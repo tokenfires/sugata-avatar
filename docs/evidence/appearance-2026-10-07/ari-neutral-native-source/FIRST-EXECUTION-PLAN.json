@@ -1,0 +1,49 @@
+{
+  "created_utc": "2026-10-08T02:11:47.547086+00:00",
+  "usable_improvement": "First complete neutralprebake native .blend from alreadyqualified inputs and exactretained source",
+  "research_question": "Does this exactreviewed whole-owner constructor/save succeed and survive one exactcoldreadback?",
+  "prior_stop": "45minutesourceeffortgate ended02:09:10; sourcepreflightsaved02:09:14/rootwhole read02:10:32. No constructor wasattempted, no .blend exists; preserveSTOP andlatehandoff.",
+  "decision": "No more code/sourceinventory/inputreads fordevelopment. Onefirstnative execution ofexactretained source afterfreshworth/rootpins, then separatelypreflightedonecoldreadback onlyifwhole savesucceeds. Actualerrorsstop/no constructorretry.",
+  "bounds": "Fresh execution/collection window closes03:00UTC; one180s constructor/save +one60s coldreadback, rootserializes; no retake/tuning/targets/export/render.",
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/create_source.py"
+  ],
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/SOURCE-PREFLIGHT.md",
+      "bytes": 5641,
+      "sha256": "3055d041e846713bc0b9436d3dc4c002f2d251302f9a19dffc525a0295f674ed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/SOURCE-EXEC-PLAN.json",
+      "bytes": 3182,
+      "sha256": "5b4dd3e9d238b601da8507f65041bb39b1f7da7963573e2f21f18cb8ce897d03"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/create_source.py",
+      "bytes": 11434,
+      "sha256": "4c0f4dd7317219721a35796cfec9003f70d80a382223ef1f44918b4be7fca67e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+      "bytes": 6017,
+      "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/INPUTS.json",
+      "bytes": 760639,
+      "sha256": "b15f76537b65e86c6f453cae3a36c1e9e25dce28243bfed2cd1cc1e88eae8da9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/STOP.json",
+      "bytes": 535,
+      "sha256": "2189428b256f18b830f04b8636f607433a2153b2f8a486ab49bab6d1063e7714"
+    }
+  ]
+}

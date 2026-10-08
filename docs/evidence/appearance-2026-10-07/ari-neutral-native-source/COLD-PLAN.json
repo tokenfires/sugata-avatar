@@ -1,0 +1,35 @@
+{
+  "created_utc": "2026-10-08T02:54:10.119088+00:00",
+  "decision": "Onecoldreadback ofexactsuccessfulwholeprebakesource; comparecomplete7owner/shape/weights/UV/rig/materialgraph/packedimage signature, no constructor/resave/export/render",
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/neutral-source-logged.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/cold_logged_readback.py"
+  ],
+  "timeout_seconds": 60,
+  "close_utc": "2026-10-08T03:30:00Z",
+  "source_bytes": 11983694,
+  "source_sha256": "6ed771b71a99ac8a5cf9c717fef5364ac0a427763e601fecffa984bafd4f53eb",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/cold_logged_readback.py",
+      "bytes": 1711,
+      "sha256": "b78712a49a0a622b9eb0fa769f1d1970f63bb99d69c8fa089d88254d723cbae2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+      "bytes": 6017,
+      "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/LOGGED-SOURCE-RESULT.json",
+      "bytes": 952573,
+      "sha256": "3cc2c2be835b034b81c4c855d4433244a132ce9b0546469d7d4246b055fea7c9"
+    }
+  ]
+}

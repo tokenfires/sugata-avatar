@@ -1,0 +1,46 @@
+{
+  "recorded_utc": "2026-10-08T02:17:54.410934+00:00",
+  "job": {
+    "started_utc": "2026-10-08T02:14:21.108876+00:00",
+    "argv": [
+      "/Applications/Blender.app/Contents/MacOS/Blender",
+      "--background",
+      "--offline-mode",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/create_source.py"
+    ],
+    "wrapper_pid": 38924,
+    "timeout_seconds": 180,
+    "timed_out": false,
+    "pid": 38925,
+    "exit_code": 2,
+    "finished_utc": "2026-10-08T02:14:23.263645+00:00"
+  },
+  "actual_failure": "Builder trailing unconditional main() executes during import; argparse exits2 for missing--gender/--output beforeclear_startup_scene/create_figure.",
+  "source_witness": {
+    "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/build_figure.py",
+    "tail": [
+      "",
+      "",
+      "main()"
+    ],
+    "sha256": "270e87d563ab0212835ec2c63b4d6364a1031397979152b0af14bccdc7753065"
+  },
+  "source_result_exists": false,
+  "blend_exists": false,
+  "native_scene_constructor_attempts": 0,
+  "native_launcher_attempts": 1,
+  "decision": "Stopfirst nativeallocation; preserve source/log/inputs; coldreadback notadmitted. Freshsource-loader fix can changeactualimportbehavior, notretune/retryunchangedconstructor.",
+  "alternatives": [
+    {
+      "choice": "Ownedfunction-module loader removingexactterminalmain AST expression",
+      "tradeoff": "Preservesoriginalbuilder/functions/filename andpreventsautomaticshippingpath; adapterrequiresliteralASTverification."
+    },
+    {
+      "choice": "Makebuildermain entryguarded inprojectsource",
+      "tradeoff": "Conventionalimportabletool withsameCLIentrybehavior, but changesacceptedtoolsource and requiresnewsourcepins/equivalencevalidation."
+    }
+  ]
+}

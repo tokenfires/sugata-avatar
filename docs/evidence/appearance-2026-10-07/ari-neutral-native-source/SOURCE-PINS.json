@@ -1,0 +1,80 @@
+{
+  "observed_utc": "2026-10-08T01:26:39.242944+00:00",
+  "source_pins": [
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/faceservice.py",
+      "bytes": 42894,
+      "sha256": "389940c62dfa623409dadc5b2a38f4edeaa0fe45a8315ac887ad696a37bbd950"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/targetservice.py",
+      "bytes": 62066,
+      "sha256": "8287e87f466b44c6bcf145e6ad6ef5807acef961af948376c07dd0fa8abd1f2d"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/clothesservice.py",
+      "bytes": 40732,
+      "sha256": "20b60daeb862e35652035b9e94d1830f1bd2d86706b1e6056f0f2cee43c8d40b"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/objectservice.py",
+      "bytes": 41911,
+      "sha256": "a618794f0bf6d7fb76e3381bd1ac2741250a84d5f291e223ba7751ae812d41c6"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/humanservice.py",
+      "bytes": 86233,
+      "sha256": "a88e4150753b371527963fa3d99dd70f1ea957b9baaec8200438ffa4d9c1e207"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/locationservice.py",
+      "bytes": 15297,
+      "sha256": "64ed1b6046ef1eb158a61f06ea3d53ca731f172676b087ee193f1b01287ce687"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/build_figure.py",
+      "bytes": 130865,
+      "sha256": "270e87d563ab0212835ec2c63b4d6364a1031397979152b0af14bccdc7753065"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/install_deps.sh",
+      "bytes": 5144,
+      "sha256": "534e9d0735b5f09ced320248778276385f0a92d33a71a5607a9e2d3fe24d0b37"
+    }
+  ],
+  "exact_named_installer_caches": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/.cache/faceunits01.zip",
+      "exists": true,
+      "regular": true,
+      "symlink": false,
+      "bytes": 257821,
+      "mtime_ns": 1790126734758290462
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/.cache/visemes01.zip",
+      "exists": true,
+      "regular": true,
+      "symlink": false,
+      "bytes": 179683,
+      "mtime_ns": 1790126734928656405
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/.cache/visemes02.zip",
+      "exists": true,
+      "regular": true,
+      "symlink": false,
+      "bytes": 130733,
+      "mtime_ns": 1790126734929136907
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/.cache/makehuman_system_assets_cc0.zip",
+      "exists": true,
+      "regular": true,
+      "symlink": false,
+      "bytes": 280737770,
+      "mtime_ns": 1790126734907029249
+    }
+  ],
+  "limit": "Textsource pinning and four namedcache metadata only; no archivecontent/decode/acquisition/nativeconstructor."
+}

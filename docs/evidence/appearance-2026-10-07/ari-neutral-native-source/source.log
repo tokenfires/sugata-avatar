@@ -1,0 +1,20 @@
+usage: build_figure.py [-h] --gender GENDER --output OUTPUT [--age AGE]
+                       [--muscle MUSCLE] [--weight WEIGHT] [--height HEIGHT]
+                       [--proportions PROPORTIONS] [--cupsize CUPSIZE]
+                       [--firmness FIRMNESS] [--rig RIG] [--skin SKIN]
+                       [--no-face-parts]
+                       [--eye-proxy {high-poly.mhclo,low-poly.mhclo}]
+                       [--no-microsoft-visemes] [--keep-morph-normals]
+                       [--garment ID] [--hide-mask-attribute]
+                       [--foundation ID] [--no-hem-roll] [--hair STYLE]
+                       [--hair-dir DIR] [--hair-seed HAIR_SEED]
+                       [--hair-colour #RRGGBB] [--hair-part FRACTION]
+                       [--no-hair-cap] [--no-hair-collision]
+                       [--garment-fragment-dir DIR]
+                       [--wardrobe-manifest WARDROBE_MANIFEST]
+build_figure.py: error: the following arguments are required: --gender, --output
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:49:19)
+[INFO ] services.locationservice ...............: Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.
+[INFO ] mpfb.init ..............................: Build info 20260722
+[INFO ] mpfb.init ..............................: Online access preference is not enabled. Not checking if MakeHuman is online.
+[INFO ] mpfb.init ..............................: MPFB initialization has finished.
