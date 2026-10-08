@@ -1,0 +1,48 @@
+{
+  "checked_utc": "2026-10-08T18:31:54.334792+00:00",
+  "actual_source_triangle_associations": [
+    {
+      "evaluated_vertex": 12062,
+      "native_vertex": 12062,
+      "world_residual": 1.1926748300777466e-07,
+      "body_scalp_head_ears": [
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "evaluated_vertex": 12039,
+      "native_vertex": 12039,
+      "world_residual": 5.587935447692871e-09,
+      "body_scalp_head_ears": [
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "evaluated_vertex": 12040,
+      "native_vertex": 12040,
+      "world_residual": 1.0536712127723509e-08,
+      "body_scalp_head_ears": [
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "nearest_point_barycentric": [
+    1.2259502765177288e-06,
+    0.4738986284157159,
+    0.5261001456340076
+  ],
+  "unsigned_separation": 0.014446398352565495,
+  "oriented_signed_sample": -0.004775905442577166,
+  "nearest_is_close_to_triangle_edge": true,
+  "all3source_vertices_ears_positive_scalp_zero": true,
+  "limit": "Ear-source association and nearestedge geometry verified; no solid-occupancy, transversecrossing or appearance conclusion. Refusedrecipe remainsclosed."
+}

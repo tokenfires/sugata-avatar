@@ -1,0 +1,66 @@
+{
+  "recorded_utc": "2026-10-08T17:42:44.916553+00:00",
+  "source": "Existing complete v2RESULT only; no native/query/geometry computation.",
+  "groups": {
+    "body": 5,
+    "ears": 149,
+    "scalp": 150,
+    "head": 195,
+    "neck_01": 194
+  },
+  "modifiers": [
+    {
+      "name": "Armature",
+      "type": "ARMATURE",
+      "show_viewport": true,
+      "show_render": true,
+      "object": "Human.rig",
+      "settings": {
+        "vertex_group": "",
+        "invert_vertex_group": false,
+        "use_vertex_groups": true,
+        "use_bone_envelopes": false,
+        "use_deform_preserve_volume": false,
+        "use_multi_modifier": false
+      }
+    },
+    {
+      "name": "Hide helpers",
+      "type": "MASK",
+      "show_viewport": true,
+      "show_render": true,
+      "object": null,
+      "settings": {
+        "vertex_group": "body",
+        "invert_vertex_group": false
+      }
+    }
+  ],
+  "matrix_world": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "domain": "Named scalp is nominee only; no actual membership/faces/root permission demonstrated yet."
+}

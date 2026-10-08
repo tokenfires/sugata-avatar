@@ -1,0 +1,65 @@
+{
+  "checked_utc": "2026-10-08T18:25:42.983712+00:00",
+  "job_collected": true,
+  "sole_job": {
+    "started_utc": "2026-10-08T18:18:09.135752+00:00",
+    "wrapper_pid": 28979,
+    "argv": [
+      "/Applications/Blender.app/Contents/MacOS/Blender",
+      "--background",
+      "--offline-mode",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-first-study/construct.py"
+    ],
+    "timeout_seconds": 240,
+    "timed_out": false,
+    "pid": 28981,
+    "exit_code": 1,
+    "finished_utc": "2026-10-08T18:18:17.074772+00:00"
+  },
+  "actual_splines": 2000,
+  "actual_controls": 82000,
+  "all14000point_array_hashes_and_declared_co_radius_exact": true,
+  "all_skin_render_array_hashes_exact": true,
+  "groom_render_array_hashes_exact": true,
+  "refusal_point_matches_array": true,
+  "double_precision_dot": -0.004775905442577166,
+  "reported_dot": -0.0047759052795299795,
+  "skin_owner": "Human",
+  "skin_local_triangle": 23589,
+  "skin_vertex_indices": [
+    12062,
+    12039,
+    12040
+  ],
+  "actual_skin_triangle_points": [
+    [
+      0.08052302151918411,
+      -0.03168196231126785,
+      1.5371454954147339
+    ],
+    [
+      0.08055151998996735,
+      -0.029234962537884712,
+      1.5322984457015991
+    ],
+    [
+      0.08165402710437775,
+      -0.029268963262438774,
+      1.5376008749008179
+    ]
+  ],
+  "nearest_point_vertex_distances": [
+    0.003240974400729591,
+    0.002849333978896178,
+    0.0025666085429325368
+  ],
+  "original_seven_owner_signature_in_partial_scene_exact": true,
+  "physical_execution_pins_exact": 20,
+  "work_npzs_readonly": 5,
+  "candidate_saved": false,
+  "native_jobs_live": false,
+  "decision": "Fixedrecipe refused bydeclared oriented sample; no solid/intersection/appearance inference; no retry/cold/render."
+}

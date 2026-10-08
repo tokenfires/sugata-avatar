@@ -1,0 +1,23 @@
+"""Exclusive one-process trial; no retry, bounded isolated process group."""
+from pathlib import Path
+import json,hashlib,datetime,subprocess,os,signal,sys
+HERE=Path(__file__).resolve().parent
+plan=json.loads((HERE/'EXEC-PLAN.json').read_text());admission=json.loads((HERE/'ROOT-PREFLIGHT.json').read_text())
+assert admission['admitted'] and admission['outputs_absent'] and admission['owned_native_absent']
+assert datetime.datetime.now(datetime.timezone.utc)<datetime.datetime.fromisoformat('2026-10-08T18:40:00+00:00')
+for pin in plan['pins']:
+ b=Path(pin['path']).read_bytes();assert len(b)==pin['bytes'] and hashlib.sha256(b).hexdigest()==pin['sha256']
+assert not any((HERE/n).exists() for n in ['RESULT.json','JOB-start.json','JOB.json','native.log','PATCH-ROOTS.json','work'])
+job={'started_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'wrapper_pid':os.getpid(),'argv':plan['argv'],'timeout_seconds':240,'timed_out':False}
+env=os.environ.copy();env['PYTHONDONTWRITEBYTECODE']='1'
+with (HERE/'native.log').open('x') as log:
+ p=subprocess.Popen(plan['argv'],stdout=log,stderr=subprocess.STDOUT,cwd=str(HERE),env=env,start_new_session=True);job['pid']=p.pid
+ with (HERE/'JOB-start.json').open('x') as f:json.dump(job,f,indent=2);f.write('\n')
+ try:job['exit_code']=p.wait(timeout=240)
+ except subprocess.TimeoutExpired:
+  job['timed_out']=True;os.killpg(p.pid,signal.SIGTERM)
+  try:job['exit_code']=p.wait(timeout=5)
+  except subprocess.TimeoutExpired:os.killpg(p.pid,signal.SIGKILL);job['exit_code']=p.wait()
+job['finished_utc']=datetime.datetime.now(datetime.timezone.utc).isoformat()
+with (HERE/'JOB.json').open('x') as f:json.dump(job,f,indent=2);f.write('\n')
+print(json.dumps(job,indent=2),flush=True);sys.exit(job['exit_code'])
