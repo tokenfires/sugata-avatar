@@ -1,0 +1,33 @@
+# Independent result review: observed prerequisite failure; setup inquiry worth doing
+
+Reviewed at 2026-10-08T00:36:54.304267+00:00. The sole recorded native metadata query completed successfully, but the required-input gate fails. RESULT.face_parts records all five required names with roots=[], matches=[], canonical_matches=[], status=missing and no traversal errors/excluded paths. RESULT.prerequisites_available is false. This is a concrete absence of the five selected subdirectory inputs in the two returned active roots at00:34:40.223085UTC; it is not global asset absence or an MPFB/body capability failure. Human creation, complete native source acquisition and the entire Ari recipe remain held.
+
+I read the complete stored RESULT/JOB/JOB-start/native log and independently checked the exact SUGATA_CENSUS marker JSON equals RESULT. JOB/PLAN/JOB-start argv agree; report/native PID65458 and wrapper65442 agree. Root preflight read00:34:29.726205 preceded process start00:34:39.382229; observation precedes finish00:34:40.279728. Exit0, offline, no timeout; elapsed process0.897499 seconds, recorded census0.001556125 seconds. No retry appears in this owned job record. I did not run or query native/installed data myself.
+
+Actual result witnesses: active roots are the selected extension's data and version-scoped .user/blender_org/mpfb/data. The five required inputs are eyes/high-poly.mhclo, teeth/teeth_base.mhclo, tongue/tongue01.mhclo, eyebrows/eyebrow001.mhclo and eyelashes/eyelashes01.mhclo. None had a returned asset-subdir root, so directory/file census counts are0/0. Source association remains builder128–134/532–542 and AssetService434–454 from the unchanged preflight: that getter includes only existing subdirectory paths. No parser or first-match resolver ran.
+
+The four literal files were observed regular, existing, non-symlink files: base.obj1749303 bytes, basemesh_vertex_groups.json81984, rig.game_engine.json40936, weights.game_engine.json3026778. Their canonical paths equal the named selected extension paths; ObjectService804–805/846–849 and HumanService1571–1584/1608–1616 with RigService1046–1068 support those roles. These are metadata witnesses only, not content/readability/geometry/rest-bind/helper/rig correctness or complete dependency proof. Neither a new human nor any accepted asset was read/constructed/modified by this observer.
+
+Scene-name/type summaries remain Camera/Cube/Light and Scene; this is no full scene/property equality proof. Tracked config platform_support.txt and userpref.blend size/mtime metadata match before/after; this is no universal byte/write audit. Normal startup is explicitly uninstrumented and can create directories/reset logs, and getter logs may append. The complete current source and its corrected effort/ambiguity controls were reviewed in preserved WORTH-PREFLIGHT; I did not rewrite it. Earlier SOURCE-READBACK.job_state describes its00:32:37 pre-run moment, not the later result.
+
+Actionable missing-input finding and next decision: one bounded official system-assets source/license/dependency inquiry is worthwhile under the fresh ari-system-assets PLAN. It can select the actual pack needed for these five proved setup gaps, before a separately preflighted single acquisition/extraction. Local install_deps.sh25–26 names files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip and6 names the face categories. That is a useful concrete lead, not live provenance, license or pack-content verification. Its88–89 enables an extension and116–120 globally extracts packs: those operations are outside the candidate inquiry and must not run.
+
+A: root uses the bounded one-search/two-official-page allowance to verify exact current pack provenance/license and whether the five MHClOs plus referenced geometry/material/texture dependencies can be owned in one isolated project candidate folder; then separate archive/size/member/dependency preflight before transfer/extraction as required by the fresh PLAN. This can repair the demonstrated gap without global installation/preferences, at the cost of transfer/storage and actual dependency validation. B: obtain Robert's explicitly selected existing system-asset paths and qualify their complete references within a fresh isolated-input contract; avoids a download but needs human path selection and cannot infer usable inputs from names. Prefer A's source inquiry now; no download/extraction/native constructor is admitted by this result review alone. Stop on unsupported license/provenance, missing/ambiguous pack members or incomplete references rather than substitute a partial face.
+
+Exact reviewed byte identities (stored source/receipts only; no asset content/hash or native rerun):
+
+| File | Bytes | SHA256 |
+| --- | ---: | --- |
+| docs/evidence/appearance-2026-10-07/ari-input-census/PLAN.json | 4945 | 899ed259b7626055035229902c043200bb07f166ba41e1b1614181f56d1ee8b9 |
+| docs/evidence/appearance-2026-10-07/ari-input-census/census.py | 5898 | b6cb2744b84a150bde30b4f3f032466202a3a0f7ac194ea3a8229e3c88a86067 |
+| docs/evidence/appearance-2026-10-07/ari-input-census/WORTH-PREFLIGHT.md | 7570 | 19bea69f268880e8cd07a479604b6c603e8fc90cf66858efddd382072fe283fc |
+| docs/evidence/appearance-2026-10-07/ari-input-census/ROOT-PREFLIGHT.json | 453 | 4ea756572487f38dde4c4caccedd0416206012d933a6d801dbcb0d083d92cedb |
+| docs/evidence/appearance-2026-10-07/ari-input-census/SOURCE-READBACK.json | 617 | 2f83881de7ff7476d252e6b7194e25ecc746e44abe924fb8ad8d1522304b7492 |
+| docs/evidence/appearance-2026-10-07/ari-input-census/JOB-start.json | 828 | cd545472fc14d5bcd0b5f7df921af3cc80ec7c6314ce922787343f912cf42294 |
+| docs/evidence/appearance-2026-10-07/ari-input-census/RESULT.json | 5334 | 23543efc03de79f650afb6410c50c3ae163dd06b35f90bd50c3eadd3c10458bf |
+| docs/evidence/appearance-2026-10-07/ari-input-census/JOB.json | 1310 | 349db02b107a521dc16088bddc19147e62fd94f73649056daf076d9c108131a3 |
+| docs/evidence/appearance-2026-10-07/ari-input-census/native.log | 5036 | 7aaca8eed933cc8f80ae1427414ee32e61abef34f62cf6ceb553034058555ea1 |
+| docs/evidence/appearance-2026-10-07/ari-system-assets/PLAN.json | 1278 | bb2f0f38318ec6b47bae2bee00aeb8321d5dfd6d6ab718a05c499ff44142cdeb |
+| tools/figure-pipeline/install_deps.sh | 5144 | 534e9d0735b5f09ced320248778276385f0a92d33a71a5607a9e2d3fe24d0b37 |
+
+No result/source discrepancy found. The useful next work is specific input acquisition, not another generic owner inventory, drawing replay or old rig/source trial. Full neutral pre-bake source/auxiliary/expression/rig/dependency/export duties remain for a later complete contract.

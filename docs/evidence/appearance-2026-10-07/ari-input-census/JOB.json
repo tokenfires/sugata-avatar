@@ -1,0 +1,41 @@
+{
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-input-census/census.py",
+    "--",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-input-census/RESULT.json"
+  ],
+  "started_utc": "2026-10-08T00:34:39.382229+00:00",
+  "wrapper_pid": 65442,
+  "timeout_seconds": 60,
+  "config_before": {
+    "/Users/robault/Library/Application Support/Blender/5.2/config/platform_support.txt": {
+      "bytes": 39,
+      "mtime_ns": 1791410858974462103
+    },
+    "/Users/robault/Library/Application Support/Blender/5.2/config/userpref.blend": {
+      "bytes": 183189,
+      "mtime_ns": 1791411225178403238
+    }
+  },
+  "pid": 65458,
+  "timed_out": false,
+  "exit_code": 0,
+  "finished_utc": "2026-10-08T00:34:40.279728+00:00",
+  "config_after": {
+    "/Users/robault/Library/Application Support/Blender/5.2/config/platform_support.txt": {
+      "bytes": 39,
+      "mtime_ns": 1791410858974462103
+    },
+    "/Users/robault/Library/Application Support/Blender/5.2/config/userpref.blend": {
+      "bytes": 183189,
+      "mtime_ns": 1791411225178403238
+    }
+  },
+  "config_metadata_unchanged": true
+}

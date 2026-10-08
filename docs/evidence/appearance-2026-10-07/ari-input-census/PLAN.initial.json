@@ -1,0 +1,91 @@
+{
+  "created_utc": "2026-10-08T00:31:12.857990+00:00",
+  "usable_improvement": "Exact native-input availability report to unblock Ari source creation or identify concrete setup gaps",
+  "research_question": "Are five required face sources canonical and unique, and four literal base/game-engine rig inputs regular files in this installed profile?",
+  "decision": "Only complete unique metadata results can admit a separate full-scene source contract. Missing/ambiguous/incomplete results stop construction and select explicit asset setup.",
+  "effort_limit": "One offline native process after independent worth and source preflight; 60s process timeout; census 20s/10000 dirs/100000 files; no reruns. Close this slice by 2026-10-08T01:10:00Z.",
+  "scope": "Read source and file metadata only, already loaded getter APIs; allow normal startup/getter logs, write owned report/job/log; no installs, enablement, preference/cache/scene changes, binary asset content, geometry/rig/target/export/render, accepted or frozen asset edits.",
+  "alternatives": [
+    {
+      "choice": "Bounded canonical census",
+      "tradeoff": "Resolves duplicates and concrete availability without creating a character; metadata alone cannot prove mesh quality."
+    },
+    {
+      "choice": "Ask for chosen canonical inputs",
+      "tradeoff": "Avoids API ambiguity but requires Robert to select paths without first proving a setup gap."
+    }
+  ],
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-input-census/census.py",
+    "--",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-input-census/RESULT.json"
+  ],
+  "pins": [
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/locationservice.py",
+      "bytes": 15297,
+      "sha256": "64ed1b6046ef1eb158a61f06ea3d53ca731f172676b087ee193f1b01287ce687"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/assetservice.py",
+      "bytes": 35000,
+      "sha256": "3003a7aa046a1126a6c4b48b4e5fd9c794ac2d67a3d73dbf57751a11e9019e14"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/objectservice.py",
+      "bytes": 41911,
+      "sha256": "a618794f0bf6d7fb76e3381bd1ac2741250a84d5f291e223ba7751ae812d41c6"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/humanservice.py",
+      "bytes": 86233,
+      "sha256": "a88e4150753b371527963fa3d99dd70f1ea957b9baaec8200438ffa4d9c1e207"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/rigservice.py",
+      "bytes": 77405,
+      "sha256": "c3a1ef529cd5b68bf82272f08bc93f0f9a6974ac6e4b141e31345bff81209948"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/logservice.py",
+      "bytes": 16584,
+      "sha256": "98bd5ca5e3f5772e5d45c1923dfffea08ce6309444b4ccc16edafe6b1f425d3b"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/sceneconfigset.py",
+      "bytes": 1806,
+      "sha256": "b3005cbdab106bf5a692c4b10da6914d394b4ff5065b213b66b51829a4262bc1"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/blenderconfigset.py",
+      "bytes": 20303,
+      "sha256": "29ed9eb7b29fe1988eee16b42665a699ef8f1587b05b570fd066457a52c80565"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/assetlibrary/assetsettingspanel.py",
+      "bytes": 5416,
+      "sha256": "a3d52aa73df484883f8517b02dc6e17e4f5673c4f171c6f937b9303823db427b"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/ui/apply_assets/assetlibrary/properties/second_root.json",
+      "bytes": 209,
+      "sha256": "01f93c3fadc41cf0a8c9736ee1979fada2318b9f3c1e58f69dec8b2c2f0ad3f4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/build_figure.py",
+      "bytes": 130865,
+      "sha256": "270e87d563ab0212835ec2c63b4d6364a1031397979152b0af14bccdc7753065"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-input-census/census.py",
+      "bytes": 5631,
+      "sha256": "dcda19a033cf3d553d95ef22fcc12895c32711f89d7db9758ad31f5d55da4399"
+    }
+  ]
+}
