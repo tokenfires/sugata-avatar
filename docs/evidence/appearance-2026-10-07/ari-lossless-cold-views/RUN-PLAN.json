@@ -1,0 +1,51 @@
+{
+  "created_utc": "2026-10-08T05:20:38.758361+00:00",
+  "source": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/work/neutral-lossless.blend",
+    "bytes": 10811557,
+    "sha256": "7493efbb49243131d78c6fa9517c28f3001d5b75c1612bfe5b4ff8cb0ee0eaba"
+  },
+  "warm_receipt": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/RESULT.json",
+    "bytes": 2364038,
+    "sha256": "0301bd3f82da3dac37551c41495978a1f37810edd2f1ec7f21ba22000dee1368"
+  },
+  "scene_helper": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+    "bytes": 6017,
+    "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+  },
+  "metadata_helper": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/exact_reconstruction.py",
+    "bytes": 4023,
+    "sha256": "c82fa06abd9bfa14960f931709a191d18ed95f02266fb04a4b894ce5c16da390"
+  },
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/RESULT.json",
+      "bytes": 2364038,
+      "sha256": "0301bd3f82da3dac37551c41495978a1f37810edd2f1ec7f21ba22000dee1368"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+      "bytes": 6017,
+      "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/exact_reconstruction.py",
+      "bytes": 4023,
+      "sha256": "c82fa06abd9bfa14960f931709a191d18ed95f02266fb04a4b894ce5c16da390"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-lossless-cold-views/cold_guard.py",
+      "bytes": 1932,
+      "sha256": "cf3d9c49699c975ef61a256b95e38067d9eaee0c4d7dbcaa4246eb61bfec6506"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-lossless-cold-views/cold_render.py",
+      "bytes": 7907,
+      "sha256": "153aacd5f9132846dbd71351311e9eea19d847a2783fa30f91171591c11b4df8"
+    }
+  ],
+  "pin_refresh_utc": "2026-10-08T05:25:46.996774+00:00"
+}

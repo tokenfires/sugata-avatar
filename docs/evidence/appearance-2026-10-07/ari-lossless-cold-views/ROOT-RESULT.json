@@ -1,0 +1,59 @@
+{
+  "verified_utc": "2026-10-08T05:32:41.597417+00:00",
+  "job": {
+    "started_utc": "2026-10-08T05:28:42.960187+00:00",
+    "wrapper_pid": 50231,
+    "argv": [
+      "/Applications/Blender.app/Contents/MacOS/Blender",
+      "--background",
+      "--offline-mode",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/work/neutral-lossless.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-lossless-cold-views/cold_render.py"
+    ],
+    "timeout_seconds": 180,
+    "timed_out": false,
+    "pid": 50232,
+    "exit_code": 0,
+    "finished_utc": "2026-10-08T05:28:51.524181+00:00"
+  },
+  "cold_complete_scene_map_expanded_metadata_equal": true,
+  "six_image_bindings": [
+    {
+      "name": "body-front.png",
+      "bytes": 467280,
+      "sha256": "eb0e561ac3f900bd212265397fb60ebb488b54a558e120aa3d783d699742c5c9"
+    },
+    {
+      "name": "body-profile.png",
+      "bytes": 389164,
+      "sha256": "52d26488bdcb389ab2d5c90bd95d6c0f481605f10d68d5d5a250e8f3b9825c21"
+    },
+    {
+      "name": "body-rear.png",
+      "bytes": 473993,
+      "sha256": "033ffead3b97dde21ce285772f598df23b3523d64e74e5642ee4dafc8c3cb3d4"
+    },
+    {
+      "name": "head-front.png",
+      "bytes": 309808,
+      "sha256": "2439de010c33a400f89ba63087247877129fa716940858c476c7ee832daa3223"
+    },
+    {
+      "name": "head-profile.png",
+      "bytes": 317708,
+      "sha256": "07a3c92d4f8c69384b5323b98e8fb9bdd6419b62f89829ab9806dc122d0c84e1"
+    },
+    {
+      "name": "head-rear.png",
+      "bytes": 331281,
+      "sha256": "0cb2036ba7e57f7e70496eb0b0739ae34b8eafda53e926520a6cbbee16d68263"
+    }
+  ],
+  "all_camera_framing_bounds_and_denoiser_equal_to_pristine_controls": true,
+  "render_log_json_equal": true,
+  "candidate_and_pristine_original_physical_hashes_unchanged": true,
+  "root_whole_image_review": "All six original-resolution images personally viewed: complete crowns/hands/feet/body directions; head crown/face/ears included with deliberate shoulder crop/upperbackground. Neutral silhouette/grossvisibleassembly retained. Fineeye/materialsoftness andclosedmouth limits remain. Decodedsource-image comparison is numeric support, not expression/rig/motion/fit/Ari/GLB approval."
+}

@@ -1,0 +1,35 @@
+{
+  "timeout_seconds": 180,
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/work/neutral-lossless.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-lossless-cold-views/cold_render.py"
+  ],
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-lossless-cold-views/PLAN.md",
+      "bytes": 3693,
+      "sha256": "aa92636664454bbafc1ae9295ec2d8eed6c6aa8c5c680077ce29fa72f333da2f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-lossless-cold-views/RUN-PLAN.json",
+      "bytes": 2400,
+      "sha256": "1a4b29e91138a5dc5d51f35bacfdbba866c82afa62889df1d259e05a5fbbc9b2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-lossless-cold-views/cold_guard.py",
+      "bytes": 1932,
+      "sha256": "cf3d9c49699c975ef61a256b95e38067d9eaee0c4d7dbcaa4246eb61bfec6506"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-lossless-cold-views/cold_render.py",
+      "bytes": 7247,
+      "sha256": "81ec9e2d023c9d6897d93dd88370a884cdeedc3c2c0febec044d90b220334d82"
+    }
+  ]
+}
