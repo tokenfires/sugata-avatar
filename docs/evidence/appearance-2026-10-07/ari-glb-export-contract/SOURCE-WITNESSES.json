@@ -1,0 +1,1013 @@
+{
+  "captured_utc": "2026-10-08T05:56:24.913755+00:00",
+  "excerpts": [
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/primitive_extract.py",
+      "line_start": 1558,
+      "line_end": 1597,
+      "lines": [
+        {
+          "line": 1558,
+          "text": "    def __get_bone_data(self):"
+        },
+        {
+          "line": 1559,
+          "text": ""
+        },
+        {
+          "line": 1560,
+          "text": "        self.need_neutral_bone = False"
+        },
+        {
+          "line": 1561,
+          "text": "        min_influence = 0.0001"
+        },
+        {
+          "line": 1562,
+          "text": ""
+        },
+        {
+          "line": 1563,
+          "text": "        joint_name_to_index = {joint.name: index for index, joint in enumerate(self.skin.joints)}"
+        },
+        {
+          "line": 1564,
+          "text": "        group_to_joint = [joint_name_to_index.get(g.name) for g in self.blender_vertex_groups]"
+        },
+        {
+          "line": 1565,
+          "text": ""
+        },
+        {
+          "line": 1566,
+          "text": "        # List of (joint, weight) pairs for each vert"
+        },
+        {
+          "line": 1567,
+          "text": "        self.vert_bones = []"
+        },
+        {
+          "line": 1568,
+          "text": "        max_num_influences = 0"
+        },
+        {
+          "line": 1569,
+          "text": ""
+        },
+        {
+          "line": 1570,
+          "text": "        for vertex in self.blender_mesh.vertices:"
+        },
+        {
+          "line": 1571,
+          "text": "            bones = []"
+        },
+        {
+          "line": 1572,
+          "text": "            if vertex.groups:"
+        },
+        {
+          "line": 1573,
+          "text": "                for group_element in vertex.groups:"
+        },
+        {
+          "line": 1574,
+          "text": "                    weight = group_element.weight"
+        },
+        {
+          "line": 1575,
+          "text": "                    if weight <= min_influence:"
+        },
+        {
+          "line": 1576,
+          "text": "                        continue"
+        },
+        {
+          "line": 1577,
+          "text": "                    try:"
+        },
+        {
+          "line": 1578,
+          "text": "                        joint = group_to_joint[group_element.group]"
+        },
+        {
+          "line": 1579,
+          "text": "                    except Exception:"
+        },
+        {
+          "line": 1580,
+          "text": "                        continue"
+        },
+        {
+          "line": 1581,
+          "text": "                    if joint is None:"
+        },
+        {
+          "line": 1582,
+          "text": "                        continue"
+        },
+        {
+          "line": 1583,
+          "text": "                    bones.append((joint, weight))"
+        },
+        {
+          "line": 1584,
+          "text": "            bones.sort(key=lambda x: x[1], reverse=True)"
+        },
+        {
+          "line": 1585,
+          "text": "            if not bones:"
+        },
+        {
+          "line": 1586,
+          "text": "                # Is not assign to any bone"
+        },
+        {
+          "line": 1587,
+          "text": "                bones = ((len(self.skin.joints), 1.0),)  # Assign to a joint that will be created later"
+        },
+        {
+          "line": 1588,
+          "text": "                self.need_neutral_bone = True"
+        },
+        {
+          "line": 1589,
+          "text": "            self.vert_bones.append(bones)"
+        },
+        {
+          "line": 1590,
+          "text": "            if len(bones) > max_num_influences:"
+        },
+        {
+          "line": 1591,
+          "text": "                max_num_influences = len(bones)"
+        },
+        {
+          "line": 1592,
+          "text": ""
+        },
+        {
+          "line": 1593,
+          "text": "        # How many joint sets do we need? 1 set = 4 influences"
+        },
+        {
+          "line": 1594,
+          "text": "        self.num_joint_sets = (max_num_influences + 3) // 4"
+        },
+        {
+          "line": 1595,
+          "text": ""
+        },
+        {
+          "line": 1596,
+          "text": "##################################### Set ###################################"
+        },
+        {
+          "line": 1597,
+          "text": "    def set_function(self):"
+        }
+      ]
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/primitive_attributes.py",
+      "line_start": 39,
+      "line_end": 173,
+      "lines": [
+        {
+          "line": 39,
+          "text": ""
+        },
+        {
+          "line": 40,
+          "text": "def __gather_skins(blender_primitive, export_settings):"
+        },
+        {
+          "line": 41,
+          "text": "    attributes = {}"
+        },
+        {
+          "line": 42,
+          "text": ""
+        },
+        {
+          "line": 43,
+          "text": "    if not export_settings['gltf_skins']:"
+        },
+        {
+          "line": 44,
+          "text": "        return attributes"
+        },
+        {
+          "line": 45,
+          "text": ""
+        },
+        {
+          "line": 46,
+          "text": "    # Retrieve max set index"
+        },
+        {
+          "line": 47,
+          "text": "    max_bone_set_index = 0"
+        },
+        {
+          "line": 48,
+          "text": "    while blender_primitive[\"attributes\"].get("
+        },
+        {
+          "line": 49,
+          "text": "        'JOINTS_' +"
+        },
+        {
+          "line": 50,
+          "text": "        str(max_bone_set_index)) and blender_primitive[\"attributes\"].get("
+        },
+        {
+          "line": 51,
+          "text": "        'WEIGHTS_' +"
+        },
+        {
+          "line": 52,
+          "text": "            str(max_bone_set_index)):"
+        },
+        {
+          "line": 53,
+          "text": "        max_bone_set_index += 1"
+        },
+        {
+          "line": 54,
+          "text": "    max_bone_set_index -= 1"
+        },
+        {
+          "line": 55,
+          "text": ""
+        },
+        {
+          "line": 56,
+          "text": "    # Here, a set represents a group of 4 weights."
+        },
+        {
+          "line": 57,
+          "text": "    # So max_bone_set_index value:"
+        },
+        {
+          "line": 58,
+          "text": "    # if -1 => No weights"
+        },
+        {
+          "line": 59,
+          "text": "    # if 0 => Max 4 weights"
+        },
+        {
+          "line": 60,
+          "text": "    # if 1 => Max 8 weights"
+        },
+        {
+          "line": 61,
+          "text": "    # etc..."
+        },
+        {
+          "line": 62,
+          "text": ""
+        },
+        {
+          "line": 63,
+          "text": "    # If no skinning"
+        },
+        {
+          "line": 64,
+          "text": "    if max_bone_set_index < 0:"
+        },
+        {
+          "line": 65,
+          "text": "        return attributes"
+        },
+        {
+          "line": 66,
+          "text": ""
+        },
+        {
+          "line": 67,
+          "text": "    # Retrieve the wanted by user max set index"
+        },
+        {
+          "line": 68,
+          "text": "    if export_settings['gltf_all_vertex_influences']:"
+        },
+        {
+          "line": 69,
+          "text": "        wanted_max_bone_set_index = max_bone_set_index"
+        },
+        {
+          "line": 70,
+          "text": "    else:"
+        },
+        {
+          "line": 71,
+          "text": "        wanted_max_bone_set_index = ceil(export_settings['gltf_vertex_influences_nb'] / 4) - 1"
+        },
+        {
+          "line": 72,
+          "text": ""
+        },
+        {
+          "line": 73,
+          "text": "    # No need to create a set with only zero if user asked more than requested group set."
+        },
+        {
+          "line": 74,
+          "text": "    if wanted_max_bone_set_index > max_bone_set_index:"
+        },
+        {
+          "line": 75,
+          "text": "        wanted_max_bone_set_index = max_bone_set_index"
+        },
+        {
+          "line": 76,
+          "text": ""
+        },
+        {
+          "line": 77,
+          "text": "    # Set warning, for the case where there are more group of 4 weights needed"
+        },
+        {
+          "line": 78,
+          "text": "    # Warning for the case where we are in the same group, will be done later"
+        },
+        {
+          "line": 79,
+          "text": "    # (for example, 3 weights needed, but 2 wanted by user)"
+        },
+        {
+          "line": 80,
+          "text": "    if max_bone_set_index > wanted_max_bone_set_index:"
+        },
+        {
+          "line": 81,
+          "text": "        if export_settings['warning_joint_weight_exceed_already_displayed'] is False:"
+        },
+        {
+          "line": 82,
+          "text": "            export_settings['log'].warning("
+        },
+        {
+          "line": 83,
+          "text": "                \"There are more than {} joint vertex influences.\""
+        },
+        {
+          "line": 84,
+          "text": "                \"The {} with highest weight will be used (and normalized).\".format("
+        },
+        {
+          "line": 85,
+          "text": "                    export_settings['gltf_vertex_influences_nb'],"
+        },
+        {
+          "line": 86,
+          "text": "                    export_settings['gltf_vertex_influences_nb']))"
+        },
+        {
+          "line": 87,
+          "text": "            export_settings['warning_joint_weight_exceed_already_displayed'] = True"
+        },
+        {
+          "line": 88,
+          "text": ""
+        },
+        {
+          "line": 89,
+          "text": "        # Take into account only the first set of 4 weights"
+        },
+        {
+          "line": 90,
+          "text": "        max_bone_set_index = wanted_max_bone_set_index"
+        },
+        {
+          "line": 91,
+          "text": ""
+        },
+        {
+          "line": 92,
+          "text": "    # Convert weights to numpy arrays, and setting joints"
+        },
+        {
+          "line": 93,
+          "text": "    weight_arrs = []"
+        },
+        {
+          "line": 94,
+          "text": "    for s in range(0, max_bone_set_index + 1):"
+        },
+        {
+          "line": 95,
+          "text": ""
+        },
+        {
+          "line": 96,
+          "text": "        weight_id = 'WEIGHTS_' + str(s)"
+        },
+        {
+          "line": 97,
+          "text": "        weight = blender_primitive[\"attributes\"][weight_id]"
+        },
+        {
+          "line": 98,
+          "text": "        weight = np.array(weight, dtype=np.float32)"
+        },
+        {
+          "line": 99,
+          "text": "        weight = weight.reshape(len(weight) // 4, 4)"
+        },
+        {
+          "line": 100,
+          "text": ""
+        },
+        {
+          "line": 101,
+          "text": "        # Set warning for the case where we are in the same group, will be done later (for example, 3 weights needed, but 2 wanted by user)"
+        },
+        {
+          "line": 102,
+          "text": "        # And then, remove no more needed weights"
+        },
+        {
+          "line": 103,
+          "text": "        if s == max_bone_set_index and not export_settings['gltf_all_vertex_influences']:"
+        },
+        {
+          "line": 104,
+          "text": "            # Check how many to remove"
+        },
+        {
+          "line": 105,
+          "text": "            to_remove = (wanted_max_bone_set_index + 1) * 4 - export_settings['gltf_vertex_influences_nb']"
+        },
+        {
+          "line": 106,
+          "text": "            if to_remove > 0:"
+        },
+        {
+          "line": 107,
+          "text": "                warning_done = False"
+        },
+        {
+          "line": 108,
+          "text": "                for i in range(0, to_remove):"
+        },
+        {
+          "line": 109,
+          "text": "                    idx = 4 - 1 - i"
+        },
+        {
+          "line": 110,
+          "text": "                    if not all(weight[:, idx]):"
+        },
+        {
+          "line": 111,
+          "text": "                        if warning_done is False:"
+        },
+        {
+          "line": 112,
+          "text": "                            if export_settings['warning_joint_weight_exceed_already_displayed'] is False:"
+        },
+        {
+          "line": 113,
+          "text": "                                export_settings['log'].warning("
+        },
+        {
+          "line": 114,
+          "text": "                                    \"There are more than {} joint vertex influences.\""
+        },
+        {
+          "line": 115,
+          "text": "                                    \"The {} with highest weight will be used (and normalized).\".format("
+        },
+        {
+          "line": 116,
+          "text": "                                        export_settings['gltf_vertex_influences_nb'],"
+        },
+        {
+          "line": 117,
+          "text": "                                        export_settings['gltf_vertex_influences_nb']))"
+        },
+        {
+          "line": 118,
+          "text": "                                export_settings['warning_joint_weight_exceed_already_displayed'] = True"
+        },
+        {
+          "line": 119,
+          "text": "                            warning_done = True"
+        },
+        {
+          "line": 120,
+          "text": "                    weight[:, idx] = 0.0"
+        },
+        {
+          "line": 121,
+          "text": ""
+        },
+        {
+          "line": 122,
+          "text": "        weight_arrs.append(weight)"
+        },
+        {
+          "line": 123,
+          "text": ""
+        },
+        {
+          "line": 124,
+          "text": "        # joints"
+        },
+        {
+          "line": 125,
+          "text": "        joint_id = 'JOINTS_' + str(s)"
+        },
+        {
+          "line": 126,
+          "text": "        internal_joint = blender_primitive[\"attributes\"][joint_id]"
+        },
+        {
+          "line": 127,
+          "text": "        component_type = gltf2_io_constants.ComponentType.UnsignedShort"
+        },
+        {
+          "line": 128,
+          "text": "        if max(internal_joint) < 256:"
+        },
+        {
+          "line": 129,
+          "text": "            component_type = gltf2_io_constants.ComponentType.UnsignedByte"
+        },
+        {
+          "line": 130,
+          "text": "        joints = np.array(internal_joint, dtype=gltf2_io_constants.ComponentType.to_numpy_dtype(component_type))"
+        },
+        {
+          "line": 131,
+          "text": "        joints = joints.reshape(-1, 4)"
+        },
+        {
+          "line": 132,
+          "text": ""
+        },
+        {
+          "line": 133,
+          "text": "        if s == max_bone_set_index and not export_settings['gltf_all_vertex_influences']:"
+        },
+        {
+          "line": 134,
+          "text": "            # Check how many to remove"
+        },
+        {
+          "line": 135,
+          "text": "            to_remove = (wanted_max_bone_set_index + 1) * 4 - export_settings['gltf_vertex_influences_nb']"
+        },
+        {
+          "line": 136,
+          "text": "            if to_remove > 0:"
+        },
+        {
+          "line": 137,
+          "text": "                for i in range(0, to_remove):"
+        },
+        {
+          "line": 138,
+          "text": "                    idx = 4 - 1 - i"
+        },
+        {
+          "line": 139,
+          "text": "                    joints[:, idx] = 0.0"
+        },
+        {
+          "line": 140,
+          "text": ""
+        },
+        {
+          "line": 141,
+          "text": "        joint = array_to_accessor("
+        },
+        {
+          "line": 142,
+          "text": "            \"JOINTS\","
+        },
+        {
+          "line": 143,
+          "text": "            joints,"
+        },
+        {
+          "line": 144,
+          "text": "            export_settings,"
+        },
+        {
+          "line": 145,
+          "text": "            component_type,"
+        },
+        {
+          "line": 146,
+          "text": "            data_type=gltf2_io_constants.DataType.Vec4,"
+        },
+        {
+          "line": 147,
+          "text": "        )"
+        },
+        {
+          "line": 148,
+          "text": "        attributes[joint_id] = joint"
+        },
+        {
+          "line": 149,
+          "text": ""
+        },
+        {
+          "line": 150,
+          "text": "    # Sum weights for each vertex"
+        },
+        {
+          "line": 151,
+          "text": "    for s in range(0, max_bone_set_index + 1):"
+        },
+        {
+          "line": 152,
+          "text": "        sums = weight_arrs[s].sum(axis=1)"
+        },
+        {
+          "line": 153,
+          "text": "        if s == 0:"
+        },
+        {
+          "line": 154,
+          "text": "            weight_total = sums"
+        },
+        {
+          "line": 155,
+          "text": "        else:"
+        },
+        {
+          "line": 156,
+          "text": "            weight_total += sums"
+        },
+        {
+          "line": 157,
+          "text": ""
+        },
+        {
+          "line": 158,
+          "text": "    # Normalize weights so they sum to 1"
+        },
+        {
+          "line": 159,
+          "text": "    weight_total = weight_total.reshape(-1, 1)"
+        },
+        {
+          "line": 160,
+          "text": "    for s in range(0, max_bone_set_index + 1):"
+        },
+        {
+          "line": 161,
+          "text": "        weight_id = 'WEIGHTS_' + str(s)"
+        },
+        {
+          "line": 162,
+          "text": "        weight_arrs[s] /= weight_total"
+        },
+        {
+          "line": 163,
+          "text": ""
+        },
+        {
+          "line": 164,
+          "text": "        weight = array_to_accessor("
+        },
+        {
+          "line": 165,
+          "text": "            \"WEIGHTS\","
+        },
+        {
+          "line": 166,
+          "text": "            weight_arrs[s],"
+        },
+        {
+          "line": 167,
+          "text": "            export_settings,"
+        },
+        {
+          "line": 168,
+          "text": "            component_type=gltf2_io_constants.ComponentType.Float,"
+        },
+        {
+          "line": 169,
+          "text": "            data_type=gltf2_io_constants.DataType.Vec4,"
+        },
+        {
+          "line": 170,
+          "text": "        )"
+        },
+        {
+          "line": 171,
+          "text": "        attributes[weight_id] = weight"
+        },
+        {
+          "line": 172,
+          "text": ""
+        },
+        {
+          "line": 173,
+          "text": "    return attributes"
+        }
+      ]
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/__init__.py",
+      "line_start": 925,
+      "line_end": 971,
+      "lines": [
+        {
+          "line": 925,
+          "text": ""
+        },
+        {
+          "line": 926,
+          "text": "    export_influence_nb: IntProperty("
+        },
+        {
+          "line": 927,
+          "text": "        name='Bone Influences',"
+        },
+        {
+          "line": 928,
+          "text": "        description='Choose how many Bone influences to export',"
+        },
+        {
+          "line": 929,
+          "text": "        default=4,"
+        },
+        {
+          "line": 930,
+          "text": "        min=1"
+        },
+        {
+          "line": 931,
+          "text": "    )"
+        },
+        {
+          "line": 932,
+          "text": ""
+        },
+        {
+          "line": 933,
+          "text": "    export_all_influences: BoolProperty("
+        },
+        {
+          "line": 934,
+          "text": "        name='Include All Bone Influences',"
+        },
+        {
+          "line": 935,
+          "text": "        description='Allow export of all joint vertex influences. Models may appear incorrectly in many viewers',"
+        },
+        {
+          "line": 936,
+          "text": "        default=False"
+        },
+        {
+          "line": 937,
+          "text": "    )"
+        },
+        {
+          "line": 938,
+          "text": ""
+        },
+        {
+          "line": 939,
+          "text": "    export_morph: BoolProperty("
+        },
+        {
+          "line": 940,
+          "text": "        name='Shape Keys',"
+        },
+        {
+          "line": 941,
+          "text": "        description='Export shape keys (morph targets)',"
+        },
+        {
+          "line": 942,
+          "text": "        default=True"
+        },
+        {
+          "line": 943,
+          "text": "    )"
+        },
+        {
+          "line": 944,
+          "text": ""
+        },
+        {
+          "line": 945,
+          "text": "    export_morph_normal: BoolProperty("
+        },
+        {
+          "line": 946,
+          "text": "        name='Shape Key Normals',"
+        },
+        {
+          "line": 947,
+          "text": "        description='Export vertex normals with shape keys (morph targets)',"
+        },
+        {
+          "line": 948,
+          "text": "        default=True"
+        },
+        {
+          "line": 949,
+          "text": "    )"
+        },
+        {
+          "line": 950,
+          "text": ""
+        },
+        {
+          "line": 951,
+          "text": "    export_morph_tangent: BoolProperty("
+        },
+        {
+          "line": 952,
+          "text": "        name='Shape Key Tangents',"
+        },
+        {
+          "line": 953,
+          "text": "        description='Export vertex tangents with shape keys (morph targets)',"
+        },
+        {
+          "line": 954,
+          "text": "        default=False"
+        },
+        {
+          "line": 955,
+          "text": "    )"
+        },
+        {
+          "line": 956,
+          "text": ""
+        },
+        {
+          "line": 957,
+          "text": "    export_morph_animation: BoolProperty("
+        },
+        {
+          "line": 958,
+          "text": "        name='Shape Key Animations',"
+        },
+        {
+          "line": 959,
+          "text": "        description='Export shape keys animations (morph targets)',"
+        },
+        {
+          "line": 960,
+          "text": "        default=True"
+        },
+        {
+          "line": 961,
+          "text": "    )"
+        },
+        {
+          "line": 962,
+          "text": ""
+        },
+        {
+          "line": 963,
+          "text": "    export_morph_reset_sk_data: BoolProperty("
+        },
+        {
+          "line": 964,
+          "text": "        name='Reset Shape Keys Between Actions',"
+        },
+        {
+          "line": 965,
+          "text": "        description=("
+        },
+        {
+          "line": 966,
+          "text": "            \"Reset shape keys between each action exported. \""
+        },
+        {
+          "line": 967,
+          "text": "            \"This is needed when some SK channels are not keyed on some animations\""
+        },
+        {
+          "line": 968,
+          "text": "        ),"
+        },
+        {
+          "line": 969,
+          "text": "        default=True"
+        },
+        {
+          "line": 970,
+          "text": "    )"
+        },
+        {
+          "line": 971,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/__init__.py",
+      "line_start": 1284,
+      "line_end": 1306,
+      "lines": [
+        {
+          "line": 1284,
+          "text": "            export_settings['gltf_anim_slide_to_zero'] = self.export_anim_slide_to_zero"
+        },
+        {
+          "line": 1285,
+          "text": "            export_settings['gltf_export_extra_animations'] = self.export_extra_animations"
+        },
+        {
+          "line": 1286,
+          "text": "        else:"
+        },
+        {
+          "line": 1287,
+          "text": "            export_settings['gltf_export_anim_pointer'] = False"
+        },
+        {
+          "line": 1288,
+          "text": "            export_settings['gltf_trs_w_animation_pointer'] = False"
+        },
+        {
+          "line": 1289,
+          "text": "            export_settings['gltf_frame_range'] = False"
+        },
+        {
+          "line": 1290,
+          "text": "            export_settings['gltf_force_sampling'] = False"
+        },
+        {
+          "line": 1291,
+          "text": "            export_settings['gltf_bake_animation'] = False"
+        },
+        {
+          "line": 1292,
+          "text": "            export_settings['gltf_optimize_animation'] = False"
+        },
+        {
+          "line": 1293,
+          "text": "            export_settings['gltf_optimize_animation_keep_armature'] = False"
+        },
+        {
+          "line": 1294,
+          "text": "            export_settings['gltf_optimize_animation_keep_object'] = False"
+        },
+        {
+          "line": 1295,
+          "text": "            export_settings['gltf_optimize_disable_viewport'] = False"
+        },
+        {
+          "line": 1296,
+          "text": "            export_settings['gltf_export_anim_single_armature'] = False"
+        },
+        {
+          "line": 1297,
+          "text": "            export_settings['gltf_export_reset_pose_bones'] = False"
+        },
+        {
+          "line": 1298,
+          "text": "            export_settings['gltf_export_reset_sk_data'] = False"
+        },
+        {
+          "line": 1299,
+          "text": "            export_settings['gltf_export_extra_animations'] = False"
+        },
+        {
+          "line": 1300,
+          "text": "        export_settings['gltf_skins'] = self.export_skins"
+        },
+        {
+          "line": 1301,
+          "text": "        if self.export_skins:"
+        },
+        {
+          "line": 1302,
+          "text": "            export_settings['gltf_all_vertex_influences'] = self.export_all_influences"
+        },
+        {
+          "line": 1303,
+          "text": "            export_settings['gltf_vertex_influences_nb'] = self.export_influence_nb"
+        },
+        {
+          "line": 1304,
+          "text": "        else:"
+        },
+        {
+          "line": 1305,
+          "text": "            export_settings['gltf_all_vertex_influences'] = False"
+        },
+        {
+          "line": 1306,
+          "text": "            export_settings['gltf_def_bones'] = False"
+        }
+      ]
+    }
+  ]
+}

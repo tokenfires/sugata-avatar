@@ -1,0 +1,70 @@
+{
+  "read_utc": "2026-10-08T05:51:21.874416+00:00",
+  "scope": "Relevant ranges actually read; whole file bytes hashed, no whole-file semantics or code execution claim.",
+  "files": [
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/__init__.py",
+      "bytes": 86974,
+      "sha256": "73d98cf870d69f2aedb0a13798e389688a225efb4c155c5980bbb7ca0436421b"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/primitive_extract.py",
+      "bytes": 87382,
+      "sha256": "55e14cbe849b0c4ec5545c85a1aae3d8c2c7d65eade67de43eb1a43b05738684"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/primitive_attributes.py",
+      "bytes": 10150,
+      "sha256": "815331d39cdf06e73ae110e9921ebfc8cb37825290843cbcbf4d1a7559899e5d"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/nodes.py",
+      "bytes": 25265,
+      "sha256": "4ee23688b86f3250057b305fe9397755e6be1dcb4dd99c7ecc39e879a3f9cbcb"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/skins.py",
+      "bytes": 5412,
+      "sha256": "c37f5a3f3e6338c1e4787d5199cdd41a2527cec62bb72a140847480b92c8388e"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/com/conversion.py",
+      "bytes": 7934,
+      "sha256": "fce2af82a0edcb135ea7ce4198d6819c8873fe42105122ef944cdd7b0a3bd11e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/build_figure.py",
+      "bytes": 130865,
+      "sha256": "270e87d563ab0212835ec2c63b4d6364a1031397979152b0af14bccdc7753065"
+    }
+  ],
+  "called_source_ranges": {
+    "__init__.py": [
+      "590\u2013595 custom attrs optin",
+      "925\u2013937 four influence limit/all switch",
+      "963\u2013971 reset is between exported actions",
+      "1260\u20131304 animationdisabled forcesresetFalse/allinfluence settings"
+    ],
+    "primitive_extract.py": [
+      "175\u2013220 custom underscore attr/domain/type selection",
+      "1122\u20131162 base/morph skin frame/delta/axis",
+      "1558\u20131597 hardcoded weight<=0.0001 prune/joint filter/neutralbone"
+    ],
+    "primitive_attributes.py": [
+      "39\u2013173 allset/cap/sum normalization"
+    ],
+    "nodes.py": [
+      "556\u2013575 nodeweightsNone and swizzle"
+    ],
+    "skins.py": [
+      "73\u2013136 inversebind C*(armatureworld*bonerest) inverse andcol-major storage"
+    ],
+    "conversion.py": [
+      "93\u2013156 INT type asFLOAT encoding references; mapping not fullyread"
+    ],
+    "build_figure.py": [
+      "2449\u20132476 literal15kwrapper"
+    ]
+  },
+  "decision": "STOP strictall-positive-native-influences policy admission at actualhardcoded threshold. No candidateweights eligibility query orGLB export occurred."
+}

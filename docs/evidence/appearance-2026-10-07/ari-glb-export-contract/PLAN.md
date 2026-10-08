@@ -1,0 +1,17 @@
+# Declare the saved-native to GLB boundary
+
+Usable improvement: a concrete export-policy and association contract for the cold-verified retained-topology candidate, with literal option values, source provenance and format checks ready for one later isolated export. No unsupported default export will be promoted.
+
+Research question: can the installed exporter expose exact native vertex/corner association, preserve active macro/morph default semantics and all bone influences, and provide explicit joint/rest/axis/material responsibilities without editing vendor code or product assets?
+
+Decision: inspect only the nominated installed Blender glTF addon export routes and the existing builder's literal15-keyword wrapper, plus current Khronos format definitions when needed. Choose explicit native-to-format predicates and option values, or stop with a source-witnessed unresolved responsibility. No export/native/module execution, constructor, candidate/source save, target/shader/weights/mask edits or render in this source-contract slice. This is a format-policy step, not GLB acceptance.
+
+Bound: at most30 minutes of relevant source/reference/contract work, close2026-10-08T06:15UTC. Stop after one complete declared policy, a concrete inability/ambiguity requiring another contract, or the effort limit. No generic asset/profile census, code inventory beyond called exporter routes, unchanged recipe trial, source/body/rig arithmetic rescue or closed fit/hair routes. One bounded primary format read and directly required exporter files only; no capacity purchase/reset/install/dependency changes.
+
+Inputs: candidate10,811,557B/SHA256 `7493efbb49243131d78c6fa9517c28f3001d5b75c1612bfe5b4ff8cb0ee0eaba`; constructor RESULT2364038B/SHA `0301bd3f82da3dac37551c41495978a1f37810edd2f1ec7f21ba22000dee1368`; cold and six-image packet independently reviewed at local094984f/seal6b6398b; pristine full-helper authoring source SHA6ed771b7… remains authoritative for later coupled Ari shape/refit. Installed Blender5.2.2/MPFB2.0.17 lineage is reused, not re-queried.
+
+Association duties: immutable native owner/point/corner/face and primitive material identity despite glTF seam splitting/triangulation; local position/UV/morph vectors and names/default mixture; declared axis/object hierarchy; every actual bone influence and joint/rest/inverse-bind responsibility; materials/textures/packed image identity with explicit unsupported-feature limits. Native expression slider/mute/interpolation semantics have no automatic full-format equivalence. Numerical checks support later actual GLB images/motion; source descriptions do not qualify appearance.
+
+Alternatives: A declare this boundary before shaping Ari, separating conversion loss from authored deformation at the cost of bounded source work (preferred); B apply Ari targets then audit format conversion, earlier character pixels with confounded target/refit/export causes. Ask independent critic whether A is worthwhile before inspection. Root verifies the handoff and current files independently.
+
+Preserve full AAA expression/wardrobe/representation/fit/motion/performance/VTuber/Mii goals (19 scoped/10 broad open), accepted/runtime assets, original references, all frozen failure/success evidence and unrelated worktrees. Vite825/ACTIVE heartbeat remain. No purchases/reset, models/subscriptions, install/global preferences, push/publication or other projects. Human check-in/pause wins.
