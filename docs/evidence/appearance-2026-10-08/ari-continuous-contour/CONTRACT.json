@@ -1,0 +1,63 @@
+{
+  "authored_utc": "2026-10-08T22:18:32.686084+00:00",
+  "surface": "All676 frozen scalp-source triangles, including previous atlas exclusions; new coverage is authored here, old partition not mutated",
+  "axis": "source head bone head_local x/y; front azimuth atan2(abs(x-axisX),-(y-axisY)); [0,pi]",
+  "head_scale": "H=tail_local.z-head_local.z",
+  "boundary_knots_degree_H": [
+    [
+      0,
+      0.76
+    ],
+    [
+      45,
+      0.67
+    ],
+    [
+      90,
+      0.45
+    ],
+    [
+      135,
+      0.26
+    ],
+    [
+      180,
+      0.2
+    ]
+  ],
+  "interpolation": "piecewise smoothstep s=t*t*(3-2*t), z=headZ+H*lerp(knot heights,s); independent artist choices, not concept metrics",
+  "field": "F(sourceID)=sourceZ-boundaryZ(theta); inside F>=0; linear interpolation of fixed native vertex fields within each source triangle, not analytic re-evaluation at intersections",
+  "zero_epsilon": 1e-12,
+  "zero_case": "abs(F)<=epsilon maps exact original shared native ID; an edge with two zero vertices remains one original edge; adjacent zero-area polygon/duplicate point refuses; no nearzero perturbation",
+  "shared_edge": "canonical ascending nativeID pair, t=F(lo)/(F(lo)-F(hi)); weights (1-t,t), one interpolated coordinate per edge, no duplicate seam points",
+  "normal": "area-weighted average of all incident676 source triangle normals normalized per nativeID; new intersections interpolate these normals and renormalize",
+  "nominal_lifts_m": {
+    "crown": 0.02,
+    "temple": 0.008,
+    "nape": 0.006
+  },
+  "source_triangle_region": "centroid z >= headZ+.86H => crown; else azimuth<=110degrees => temple; else nape",
+  "height": "area-weighted incident source triangle nominal heights per nativeID; new edgepoint uses same canonical linear interpolation",
+  "taper": "BFS distance from new clipped perimeter in new triangulated domain; .15+.85*smoothstep(min(distance/3,1))",
+  "source_coordinates": "Float32 source-native world coordinates; intersection coordinates are Float32 weighted values; source weights/coordinates retained with 1e-6m native association tolerance",
+  "triangulation": "preserve source winding; convex triangle clip polygon, fan triangulation; positive source-normal projected area>1e-14 required; sum clipped areas<=source area plus1e-12",
+  "boundary": "one connected retained domain; all edges one boundary/two opposite interiors; boundary graph all degree2 and exactlyone loop; every boundary point has abs(linear F)<=1e-10 or refuse inherited source-patch border",
+  "mass": "outer clipped points + source-coincident base + boundary walls; shared IDs only; closed two-opposite-incidence polygons",
+  "material_rgba": [
+    0.055,
+    0.07,
+    0.09,
+    1
+  ],
+  "roughness": 0.85,
+  "smooth_faces": true,
+  "bounds": {
+    "mass_vertices": 3000,
+    "mass_triangles": 8000,
+    "all_vertices": 500000,
+    "all_triangles": 1000000
+  },
+  "prospective_gate": "unchanged artist ear boxes/forehead predicates on all outer source-authored triangles; any overlap refuses before native with no diagnostic exception",
+  "stop": "first unowned/degenerate/correspondence/loop/winding/area/envelope failure; one author attempt, no fixed-shape edits/variants; native only after independent preflight",
+  "limits": "C0 mesh-edge continuity only, not visually smooth curve proof or final hairline; source normal/lift coverage differs from old mass and is not old geometry preservation"
+}
