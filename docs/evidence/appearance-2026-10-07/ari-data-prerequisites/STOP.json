@@ -1,0 +1,26 @@
+{
+  "stopped_utc": "2026-10-08T00:03:53.560883+00:00",
+  "decision": "No data/native query admitted in this slice. Source dependency closure and ambiguity-safe observer preflight are incomplete at the fixed23:49:22 gate.",
+  "worth_sha256": "4cb050fe5fe164d902c093f1553156d457bf516ca3dd9f1afe342efb5a15eb95",
+  "root_whole_worth_read": "5ab81323:43:43UTC",
+  "all_initial_five_pins_match": true,
+  "actual_witnesses": [
+    "AssetService181:227 can choose first duplicate basename/suffix/fallback; returned path alone cannot qualify canonical uniqueness.",
+    "LocationService295:297 invokes SceneConfigSet inherited getter; direct property/logging/ObjectService closure and exact source-bound census required.",
+    "Logger54:69 creates/appends logs; getter observation is not process-wide write-free.",
+    "ObjectService805 bodybase path3dobjs/base.obj;836:847 vertexgroups pathmesh_metadata/basemesh_vertex_groups.json; HumanService1571:1574 standardrig path."
+  ],
+  "source_limits": "Getter dependency source read progressed through SceneConfigSet and BlenderConfigSet, but no fully pinned/preflighted query script. No installed asset absence or inability inferred.",
+  "jobs": {
+    "native_data_queries": 0,
+    "scripts_admitted": 0,
+    "human_constructors": 0,
+    "exports_renders_tests": 0,
+    "owned_live_jobs": 0
+  },
+  "alternatives": [
+    "Fresh exact cached-getter/property/logging closure plus a bounded five-root duplicate census; can resolve literal prerequisites but must pass before any data call.",
+    "Concrete canonical-input setup/authoring contract if those exact read-only calls cannot be qualified; preserves whole-source obligations without inventing missing assets."
+  ],
+  "next": "Do not repeat generic owner lists or old source/geometry/native trials. A new concrete ambiguity-safe getter/census contract is required before the first data query. Registered-profile observation remains accepted; complete source/body/rig/Ari recipe still held."
+}

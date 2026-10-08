@@ -1,0 +1,36 @@
+{
+  "checkpoint_utc": "2026-10-08T00:08:06.125835+00:00",
+  "scope": "Source-decision only; fixed preflight gate missed, zero data/native operation.",
+  "payloads": [
+    {
+      "name": "COMMANDS.json",
+      "bytes": 19114,
+      "sha256": "7961619dc6ed0bcb15a50c23d2c69c238842af0dc96b28427afaae3444bb5913"
+    },
+    {
+      "name": "PLAN.json",
+      "bytes": 3526,
+      "sha256": "b6d95c7df6e1428f8d8165f4c38ee74ece16f309171e0cbc8a7875fdf0f222a7"
+    },
+    {
+      "name": "PLAN.with-dependencies.json",
+      "bytes": 4451,
+      "sha256": "5d6ae90ed60661219e771ea344627dca73d7cf3a1b6f8334dab7e9858abad012"
+    },
+    {
+      "name": "README.md",
+      "bytes": 2869,
+      "sha256": "b976da0f347e853e65f3dd41359ebf39db2f000fca52b55177b9b163a5127fa8"
+    },
+    {
+      "name": "STOP.json",
+      "bytes": 1985,
+      "sha256": "73a069aadf71504ff417d2a0295b0daafd4f4eaec14ce2c7da80b586e7aa1d5d"
+    },
+    {
+      "name": "WORTH.md",
+      "bytes": 3877,
+      "sha256": "4cb050fe5fe164d902c093f1553156d457bf516ca3dd9f1afe342efb5a15eb95"
+    }
+  ]
+}
