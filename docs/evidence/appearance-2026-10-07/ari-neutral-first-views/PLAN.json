@@ -1,0 +1,61 @@
+{
+  "created_utc": "2026-10-08T03:17:06.521694+00:00",
+  "usable_improvement": "First actual neutral source front/profile/rear fullbody and head images as visual comparison control",
+  "research_question": "Do visible silhouette/materials and auxiliary face seating show a defect that must precede Ari10targetcandidate?",
+  "decision": "One fixedrenderjob producing6firstimages (3fullbody+3head) withsameCPU Cycles16samples/lighting/exposure, evaluatedbbox-contained orthographicframing. Root/critic inspectactualimages. No retake/tuning onfailure; stoppartial/error.",
+  "bounds": "One rootserialCPU nativeprocess max180s; source/script/argv/camera/preflight first; close04:00UTC. No GPU/browser capture, model/subscription/capacity/install/push/publish/otherproject.",
+  "scope": "Load exactscene inunsavedownedprocess; addexplicitcameras/3arealights/world only; preserveallsourcebody/shape/helper/rest/material/image state andhelpersMASK behaviour. No wardrobe/hair/Ariweights/export/cornea/geometryedits; no source.save.",
+  "source": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/neutral-source-logged.blend",
+    "bytes": 11983694,
+    "sha256": "6ed771b71a99ac8a5cf9c717fef5364ac0a427763e601fecffa984bafd4f53eb"
+  },
+  "warm_receipt": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/LOGGED-SOURCE-RESULT.json",
+    "sha256": "3cc2c2be835b034b81c4c855d4433244a132ce9b0546469d7d4246b055fea7c9"
+  },
+  "view_spec": {
+    "full_resolution": [
+      768,
+      1024
+    ],
+    "head_resolution": [
+      768,
+      768
+    ],
+    "views": [
+      "front",
+      "profile",
+      "rear"
+    ],
+    "renderer": "CYCLES CPU",
+    "samples": 16,
+    "body_frames": "Sharedorthoscale fromunionvisibleevaluatedbbox projectedheight/maxwidth acrossviews +10%margin",
+    "head_frames": "Righead midpoint withorthoscale0.50m, discloseframinglimits ifany; fullbody remainscompletecontrol",
+    "framing_assertion": "Verticalsensorfit; actualworld_to_camera_view NDC beforeeachimage; fullbodyallcornerswithin4%marginpositivez orstopbeforeoutput; headfullbodyprojectionlimits recorded.",
+    "denoiser": "OPENIMAGEDENOISE; denoising_use_gpu=False when supported; actualbackend/flag recorded, unsupportedproperty disclosed"
+  },
+  "preservation": "Frozenneutral.blend/input/evidence originals/acceptedruntimeassets unchanged; fullAAA/19scoped10broadopen retained. Appearancequalified onlyafteractual6images.",
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/neutral-source-logged.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-first-views/render_views.py"
+  ],
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-first-views/render_views.py",
+      "bytes": 6209,
+      "sha256": "5f282f96de8c5fc315999443291cd5938f3619caef7c206ab67c559ea066060d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+      "bytes": 6017,
+      "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+    }
+  ]
+}
