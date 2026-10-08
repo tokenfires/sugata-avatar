@@ -1,0 +1,3 @@
+# Before sole native attempt
+
+Critic identified two source-order/witness gaps. Selected A in each: local stdlib physical pin checks before observer module execution, and finite hit location/normal plus integer in-range Human triangle before witness indexing. The same complete triangle guard now applies to unsigned nearest witnesses. Alternative B would rely on wrapper ordering/narrow raw-field claims, with weaker standalone native witness authority. No recipe, geometry, tolerance or contact predicate changed. Envelope report label also corrected to triangle tests. No native attempt or output exists.

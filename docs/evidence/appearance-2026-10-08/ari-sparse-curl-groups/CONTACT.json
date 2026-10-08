@@ -1,0 +1,47 @@
+{
+  "surface": "Human renderequivalent triangles only",
+  "vertices": 10854,
+  "edges": 21384,
+  "ray_tests": 21384,
+  "degenerate_edges": 0,
+  "minimum_unsigned_distance_m": 0.0015583938220515847,
+  "nearest_witness": {
+    "vertex": 189,
+    "point": [
+      -0.06811297684907913,
+      -0.0531863309442997,
+      1.6047306060791016
+    ],
+    "closest": [
+      -0.06659691780805588,
+      -0.052972257137298584,
+      1.6044402122497559
+    ],
+    "triangle": 1395,
+    "indices": [
+      988,
+      975,
+      987
+    ],
+    "triangle_coordinates": [
+      [
+        -0.0663280263543129,
+        -0.06080996245145798,
+        1.600066900253296
+      ],
+      [
+        -0.06530151516199112,
+        -0.0488334596157074,
+        1.6142524480819702
+      ],
+      [
+        -0.06768453121185303,
+        -0.05026646703481674,
+        1.600757360458374
+      ]
+    ],
+    "distance_m": 0.0015583938220515847
+  },
+  "first_hit": null,
+  "limits": "BVH finite segment hits only; coplanar/endpoint precision unsupported, no formal transverse predicate or solidoccupancy, otheranatomy/selfcontact/motion held."
+}

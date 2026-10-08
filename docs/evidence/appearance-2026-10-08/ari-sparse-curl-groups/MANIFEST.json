@@ -1,0 +1,344 @@
+{
+  "sealed_utc": "2026-10-08T21:19:20.918364+00:00",
+  "payloads": [
+    {
+      "path": ".gitignore",
+      "bytes": 6,
+      "sha256": "61f65dd9598c7421870bf4918332637f83f34abe1f9fc7cc095852ef7a1b44f7"
+    },
+    {
+      "path": "CLEANUP.json",
+      "bytes": 783858,
+      "sha256": "5de5588b2fc876273ddce2d9b18078ca1d6ad9a57e109447d4893e8269da65ce"
+    },
+    {
+      "path": "CONTACT.json",
+      "bytes": 1111,
+      "sha256": "526a0f45e3e53dbc64442070150726ac656e9acf509603b7b7dd0974aaa1a84b"
+    },
+    {
+      "path": "CURVE.json",
+      "bytes": 70843,
+      "sha256": "b8d8c9ad9cd9626d5b128d06a70c430441ed02a87bdd0f3c054819af52712fff"
+    },
+    {
+      "path": "DELIVERY-CHECK.json",
+      "bytes": 951,
+      "sha256": "264eba29658ea4af7614cc650f225362a7ad067314d343db503f14deb4de9408"
+    },
+    {
+      "path": "ENVELOPE.json",
+      "bytes": 108,
+      "sha256": "1e32f686cb55c8166edd710a6f5d4da7ea63d050b5c57fe2bca51d9c1e161fe0"
+    },
+    {
+      "path": "EXEC-PLAN.json",
+      "bytes": 6099,
+      "sha256": "dde9cc7557f0f5a7e8a376f48a17964c4530248c582826b2d348d1383e673da0"
+    },
+    {
+      "path": "GEOMETRY.json",
+      "bytes": 1124,
+      "sha256": "d3f4ae9051268f4dacc3f75f1aafe1a350dab15f914ecdcaee027d5b54200981"
+    },
+    {
+      "path": "INPUTS.json",
+      "bytes": 2995,
+      "sha256": "99ab215e64cf9afe9524617a9cefa8964c9453062b7eed5df6ab2242fc940c78"
+    },
+    {
+      "path": "JOB-start.json",
+      "bytes": 421,
+      "sha256": "80723344c876a626549596bce5c7e6a42fffa2ef0e9f1e7bcbd0478789240bdd"
+    },
+    {
+      "path": "JOB.json",
+      "bytes": 493,
+      "sha256": "6f23d585dd89b4f9927637d8cfdedca7f4b8dd133a60a0243bf9f7f958e0e1c6"
+    },
+    {
+      "path": "PATHS.json",
+      "bytes": 251646,
+      "sha256": "ce92b0100a4a91b5fde4783f40863e866a64be101b4ef8ee312edc1d1a2fbc56"
+    },
+    {
+      "path": "PLAN.md",
+      "bytes": 2456,
+      "sha256": "bb2d0be19cf8ee428c2c41f591005d35e85d70ae13ee69b4b844352d0b8757c1"
+    },
+    {
+      "path": "PREFLIGHT.md",
+      "bytes": 8402,
+      "sha256": "303a6dcd1aaf87cf9a0bfc0f622a5736acdd458dffc08793eee71293d986a51e"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6589,
+      "sha256": "09129f84252e83afc618afab5018d913bf665fcbf30917ce4c2fabb2bf772e80"
+    },
+    {
+      "path": "README.reviewed.md",
+      "bytes": 6407,
+      "sha256": "24eb7674a441a7516b4f9e4231454c1bb7f86a846a07406d71712c7967ec3ade"
+    },
+    {
+      "path": "RECIPE.json",
+      "bytes": 12578,
+      "sha256": "ef0b344af9612c2e80e29c3effdcee9e287df3fe5db84731af979f41e339f477"
+    },
+    {
+      "path": "RECOVERY.json",
+      "bytes": 194,
+      "sha256": "3bf0c3d4df271b3d5581646e8bd8db3946a1d5254c1a3935189e2a44a4e4cbae"
+    },
+    {
+      "path": "REOPEN.json",
+      "bytes": 785100,
+      "sha256": "057b4ea20643a1f9e47ed23d9213f299c82234353df3f9fa0ae76bfa744d4596"
+    },
+    {
+      "path": "RESULT-REVIEW.md",
+      "bytes": 9807,
+      "sha256": "1c52ef1361a1d26dfa5695732f75092c0321cfec718b35e50d25a2b462aaf13c"
+    },
+    {
+      "path": "RESULT.json",
+      "bytes": 3812367,
+      "sha256": "be08d03b7456e99b04d7055e80635482cf6159416ebd27685cc497e3f4aed73c"
+    },
+    {
+      "path": "ROOT-IMAGE-REVIEW.md",
+      "bytes": 2142,
+      "sha256": "00e68d7bbc16db2dfd2392878cfb3a8c828471015f4d3ee554f130faa5a80f3f"
+    },
+    {
+      "path": "ROOT-PREFLIGHT.json",
+      "bytes": 406,
+      "sha256": "e94666b7526cc2ec6d59f72e2f5a0f46e54890a137a0b7a6a4827355850e4064"
+    },
+    {
+      "path": "ROOT-PREPARED.json",
+      "bytes": 349,
+      "sha256": "6d84514908d319544c73317aef80f978985ec2ac3843094742b3b9bbced35d5e"
+    },
+    {
+      "path": "ROOT-READBACK.json",
+      "bytes": 677,
+      "sha256": "b7b8d9f08fa4590edb953f1dcf7908dac093650c1bdf7ee98aec4d4765e61dee"
+    },
+    {
+      "path": "ROOT-RESULT.json",
+      "bytes": 936,
+      "sha256": "742a737e7e66667170541b139a223aa11050446375ff5ff2d90b185323863038"
+    },
+    {
+      "path": "ROOT-SEAL.json",
+      "bytes": 476,
+      "sha256": "1573c6d52501864de5d5d9c2f7400559ad3c0a24947739864d88c6185f55d1b4"
+    },
+    {
+      "path": "ROOT-WORTH-READBACK.json",
+      "bytes": 289,
+      "sha256": "20a1c6cbfc9b52bbb7885e7c0db226943aabcadc904ebae0a29b51d3ed274833"
+    },
+    {
+      "path": "ROOT-WORTH.json",
+      "bytes": 566,
+      "sha256": "2770361865eae35fa634372204b3541d1437d276f5204b7df6388f75841f3d99"
+    },
+    {
+      "path": "SOURCE-CORRECTIONS.md",
+      "bytes": 607,
+      "sha256": "712bbdc8910f6ce4b3bee02fadddffb8960a3998edfc61afb650ec1bb6fc985d"
+    },
+    {
+      "path": "WARM.json",
+      "bytes": 785372,
+      "sha256": "e3d60f1a39e76f9b61b102f9b5d18c9175f67b4c24047fbda2573ca9ce6dc546"
+    },
+    {
+      "path": "WORK-WINDOW.delivered.md",
+      "bytes": 119623,
+      "sha256": "aba7a1ccf9295fc11a986c0e4bc6c8a6d44db73a4e27b60e831c398b8e086e5b"
+    },
+    {
+      "path": "WORTH.md",
+      "bytes": 6788,
+      "sha256": "e5be2854be48912673e21427ebf51d00244aeb5f7deac7e6a368a5f5aea3a863"
+    },
+    {
+      "path": "group_lib.py",
+      "bytes": 6926,
+      "sha256": "e9828005c98d67c0d926937b4cc36f6b015c1eb2155d21ba5617228d81d95a97"
+    },
+    {
+      "path": "groups-front.png",
+      "bytes": 442294,
+      "sha256": "35d4ccfbb96471647c1a68785b037f66e43f398013b578e5c916f59c2f4ada95"
+    },
+    {
+      "path": "groups-profile.png",
+      "bytes": 450162,
+      "sha256": "b7746499f97d7defaecb9e0ee74279b532c090c8996a6a07a5770f501c906374"
+    },
+    {
+      "path": "groups-rear.png",
+      "bytes": 479866,
+      "sha256": "de1203b1f8a746666c8051a2187ccb2a9745b41a4bb4a7e920b1e4d242716083"
+    },
+    {
+      "path": "groups.py",
+      "bytes": 13831,
+      "sha256": "5f0d6039bec9813dabbdb829607885391ba1897f5d839555e295d56bf443d8b2"
+    },
+    {
+      "path": "native.log",
+      "bytes": 7668,
+      "sha256": "b62aa51db37ef4e287e809d43f0cd24dc862f6ce2881a5754bc48efbff7202d4"
+    },
+    {
+      "path": "render_helpers.py",
+      "bytes": 4802,
+      "sha256": "417e800eac0f412f19df583dd5b512ef85be80aa84172400df4bdf47c16ce4c7"
+    },
+    {
+      "path": "review.html",
+      "bytes": 1799,
+      "sha256": "b14ac3777e2ab63b202f0eed27f7b83049977a07e06ba3af350261aaf249bb80"
+    },
+    {
+      "path": "run_native.py",
+      "bytes": 1631,
+      "sha256": "10cc621809a0eaea55d57e63bc5a23f47aa64eb2229540fafc14bc8ff1bb4998"
+    },
+    {
+      "path": "verify_result.py",
+      "bytes": 6045,
+      "sha256": "8cf42636a27f9ce6bbcea8e198236de89631ed9ebfda75da9bdbb8a5b97030be"
+    }
+  ],
+  "external_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-sparse-curl-groups/PLAN.md",
+      "bytes": 2456,
+      "sha256": "bb2d0be19cf8ee428c2c41f591005d35e85d70ae13ee69b4b844352d0b8757c1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-root-flow-atlas/PARTITION.json",
+      "bytes": 955734,
+      "sha256": "04b7f099ac1dc825cb9ac924f33eaf10a6b217529cd360a6fa0e8a11e8b5929f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-root-flow-atlas/LANDMARKS.json",
+      "bytes": 1899,
+      "sha256": "486c94b42d4058009e00a6ef6f084a8aec763e98f20c10da0bbc91c93473cc64"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-root-flow-atlas/RESULT-REVIEW.md",
+      "bytes": 9578,
+      "sha256": "26ae558e014444149217ff4a314b96d89f8b9fbb7a3bd34f11ee1889b73b1215"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-root-flow-atlas/atlas-front.png",
+      "bytes": 443117,
+      "sha256": "68b592dd98485efb87fab72b7b892edf61be31f79bd823a0cc914716d6be1751"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-root-flow-atlas/atlas-profile.png",
+      "bytes": 430808,
+      "sha256": "1e0aebc4987060544dcef257fe583ab5493a7f056c93c9afccb5c63f98f86a9a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-root-flow-atlas/atlas-rear.png",
+      "bytes": 440432,
+      "sha256": "875a911ec5e94785173663231b6829282b8fb534ece2a17707b7a0d528f0e274"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/work/ari-middle-volume.blend",
+      "bytes": 12197092,
+      "sha256": "8d28c905e95f92c1c689df495ee30a4cf4bbe55e069b4cc8ae345c59d3f069a4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/RESULT.json",
+      "bytes": 1682947,
+      "sha256": "dee83ac4f1f85871340fdcf3321595ed11aa2a3064fb0e52b0572f649a5deab8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/views/cold_views.py",
+      "bytes": 11143,
+      "sha256": "2be4976ad807f1d24883a1752d04953c7374ea1634f2fd003b747d643887a825"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+      "bytes": 6017,
+      "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/MacOS/Blender",
+      "bytes": 182900560,
+      "sha256": "f5c1f2a0c0bca3389ec772d355242b700975ea84e66cbb3f5257a7bce8e5adeb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-sparse-curl-groups/WORTH.md",
+      "bytes": 6788,
+      "sha256": "e5be2854be48912673e21427ebf51d00244aeb5f7deac7e6a368a5f5aea3a863"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-sparse-curl-groups/ROOT-WORTH-READBACK.json",
+      "bytes": 289,
+      "sha256": "20a1c6cbfc9b52bbb7885e7c0db226943aabcadc904ebae0a29b51d3ed274833"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-sparse-curl-groups/RECIPE.json",
+      "bytes": 12578,
+      "sha256": "ef0b344af9612c2e80e29c3effdcee9e287df3fe5db84731af979f41e339f477"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-sparse-curl-groups/group_lib.py",
+      "bytes": 6926,
+      "sha256": "e9828005c98d67c0d926937b4cc36f6b015c1eb2155d21ba5617228d81d95a97"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-sparse-curl-groups/groups.py",
+      "bytes": 13831,
+      "sha256": "5f0d6039bec9813dabbdb829607885391ba1897f5d839555e295d56bf443d8b2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-sparse-curl-groups/render_helpers.py",
+      "bytes": 4802,
+      "sha256": "417e800eac0f412f19df583dd5b512ef85be80aa84172400df4bdf47c16ce4c7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-sparse-curl-groups/run_native.py",
+      "bytes": 1631,
+      "sha256": "10cc621809a0eaea55d57e63bc5a23f47aa64eb2229540fafc14bc8ff1bb4998"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-curl-first-study/curl_lib.py",
+      "bytes": 6928,
+      "sha256": "5f935f38e1611922652ce1a8af9ef28389fbdb80157a0d41e36281054056b4a6"
+    }
+  ],
+  "local_ignored_outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-sparse-curl-groups/work/actual-curve.npz",
+      "bytes": 60333,
+      "sha256": "9bd05d030bf1bbfa9a1b90c25e0b7ac33f01fcb974dda88e99d7b827926502f7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-sparse-curl-groups/work/actual-static-geometry.npz",
+      "bytes": 592591,
+      "sha256": "bed6018e70770715c1b9a59177ef47ea075340a4bb78cbac9518ce06a3e69dfe"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-sparse-curl-groups/work/ari-sparse-curl-groups.blend",
+      "bytes": 12214849,
+      "sha256": "71e8dd3059a74b166e5ca969067cd079b1f062717b9c2403015a8521ab0add23"
+    }
+  ]
+}

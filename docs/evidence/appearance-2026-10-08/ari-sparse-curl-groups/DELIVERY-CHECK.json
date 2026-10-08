@@ -1,0 +1,39 @@
+{
+  "utc": "2026-10-08T21:06:56.131603+00:00",
+  "http_review": 200,
+  "local_references": [
+    {
+      "reference": "../ari-root-flow-atlas/review.html",
+      "status": 200
+    },
+    {
+      "reference": "PATHS.json",
+      "status": 200
+    },
+    {
+      "reference": "README.md",
+      "status": 200
+    },
+    {
+      "reference": "RECIPE.json",
+      "status": 200
+    },
+    {
+      "reference": "groups-front.png",
+      "status": 200
+    },
+    {
+      "reference": "groups-profile.png",
+      "status": 200
+    },
+    {
+      "reference": "groups-rear.png",
+      "status": 200
+    }
+  ],
+  "browser_open_status": "queuedonly, no DOM/layout assertion",
+  "whole_native_log_read": true,
+  "no_traceback": true,
+  "three_save_image_lines": true,
+  "native_version_line": "00:02.251  blend            | Read blend: \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/work/ari-middle-volume.blend\""
+}

@@ -1,0 +1,2756 @@
+{
+  "name": "AriSparseOriginalGroups",
+  "data_name": "AriSparseOriginalGroupsData",
+  "object_rna": {
+    "name": "AriSparseOriginalGroups",
+    "use_fake_user": false,
+    "use_extra_user": false,
+    "is_runtime_data": false,
+    "tag": false,
+    "parent_type": "BONE",
+    "parent_vertices": [
+      0,
+      0,
+      0
+    ],
+    "parent_bone": "head",
+    "parent_bone_head_tail_factor": 1.0,
+    "use_parent_final_indices": false,
+    "use_camera_lock_parent": false,
+    "track_axis": "POS_Y",
+    "up_axis": "Z",
+    "active_material_index": 0,
+    "location": [
+      0.0,
+      -1.6589477062225342,
+      -0.1149633377790451
+    ],
+    "rotation_quaternion": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "rotation_axis_angle": [
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    "rotation_euler": [
+      -1.5238972902297974,
+      0.0,
+      0.0
+    ],
+    "rotation_mode": "XYZ",
+    "scale": [
+      1.0,
+      0.9999999403953552,
+      1.0000001192092896
+    ],
+    "dimensions": [
+      0.1622476577758789,
+      0.15946388244628906,
+      0.16356395184993744
+    ],
+    "delta_location": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "delta_rotation_euler": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "delta_rotation_quaternion": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "delta_scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "lock_location": [
+      false,
+      false,
+      false
+    ],
+    "lock_rotation": [
+      false,
+      false,
+      false
+    ],
+    "lock_rotation_w": false,
+    "lock_rotations_4d": true,
+    "lock_scale": [
+      false,
+      false,
+      false
+    ],
+    "matrix_world": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.9999999403953552,
+        1.1920928955078125e-07,
+        0.0
+      ],
+      [
+        0.0,
+        -1.043081283569336e-07,
+        0.9999999403953552,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "matrix_local": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.046881843358278275,
+        0.9989005327224731,
+        -1.6589477062225342
+      ],
+      [
+        0.0,
+        -0.9989003539085388,
+        0.04688185825943947,
+        -0.1149633377790451
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "matrix_basis": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.046881843358278275,
+        0.9989005327224731,
+        -1.6589477062225342
+      ],
+      [
+        0.0,
+        -0.9989003539085388,
+        0.04688185453414917,
+        -0.1149633377790451
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "matrix_parent_inverse": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "empty_display_type": "PLAIN_AXES",
+    "empty_display_size": 1.0,
+    "empty_image_offset": [
+      0.0,
+      0.0
+    ],
+    "empty_image_depth": "DEFAULT",
+    "show_empty_image_perspective": true,
+    "show_empty_image_orthographic": true,
+    "show_empty_image_only_axis_aligned": false,
+    "use_empty_image_alpha": false,
+    "empty_image_side": "DOUBLE_SIDED",
+    "add_rest_position_attribute": false,
+    "pass_index": 0,
+    "color": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "use_simulation_cache": true,
+    "hide_viewport": false,
+    "hide_select": false,
+    "hide_render": false,
+    "hide_probe_volume": false,
+    "hide_probe_sphere": false,
+    "hide_probe_plane": false,
+    "hide_surface_pick": false,
+    "show_instancer_for_render": true,
+    "show_instancer_for_viewport": true,
+    "visible_camera": true,
+    "visible_diffuse": true,
+    "visible_glossy": true,
+    "visible_transmission": true,
+    "visible_volume_scatter": true,
+    "visible_shadow": true,
+    "is_holdout": false,
+    "is_shadow_catcher": false,
+    "visible_raycast": true,
+    "instance_type": "NONE",
+    "use_instance_vertices_rotation": false,
+    "use_instance_faces_scale": false,
+    "instance_faces_scale": 1.0,
+    "display_type": "TEXTURED",
+    "show_bounds": false,
+    "display_bounds_type": "BOX",
+    "show_name": false,
+    "show_axis": false,
+    "show_texture_space": false,
+    "show_wire": false,
+    "show_all_edges": false,
+    "use_grease_pencil_lights": false,
+    "show_transparent": false,
+    "show_in_front": false,
+    "show_only_shape_key": false,
+    "use_shape_key_edit_mode": false,
+    "active_shape_key_index": 0,
+    "use_mesh_mirror_x": false,
+    "use_mesh_mirror_y": false,
+    "use_mesh_mirror_z": false,
+    "lightgroup": "",
+    "shadow_terminator_normal_offset": 0.0,
+    "shadow_terminator_geometry_offset": 0.10000000149011612,
+    "shadow_terminator_shading_offset": 0.0,
+    "active_selection_set": 0,
+    "MPFB_GEN_alternative_material": "",
+    "MPFB_GEN_object_type": "",
+    "MhObjectType": "",
+    "MPFB_GEN_uuid": "",
+    "MPFB_GEN_asset_source": "",
+    "MPFB_GEN_scale_factor": 1.0,
+    "MhScaleFactor": 1.0,
+    "MPFB_HUM_asian": 0.33000001311302185,
+    "MPFB_HUM_muscle": 0.5,
+    "MPFB_HUM_proportions": 0.5,
+    "MPFB_HUM_cupsize": 0.5,
+    "MPFB_HUM_weight": 0.5,
+    "MPFB_HUM_caucasian": 0.33000001311302185,
+    "MPFB_HUM_gender": 0.5,
+    "MPFB_HUM_african": 0.33000001311302185,
+    "MPFB_HUM_firmness": 0.5,
+    "MPFB_HUM_height": 0.5,
+    "MPFB_HUM_material_source": "",
+    "MPFB_HUM_is_human_project": false,
+    "MPFB_HUM_age": 0.5,
+    "MPFB_HAI_other_assets": "basic_lashes_upper",
+    "MPFB_HAI_facial_assets": "wild_beard",
+    "MPFB_HAI_fur_assets": "fur_mane",
+    "MPFB_HAI_eyebrow_assets": "wild_eyebrow",
+    "MPFB_HAI_hair_assets": "basic_short_hair",
+    "MPFB_MS_transparent": false,
+    "MhMsTransparent": false,
+    "MPFB_MS_wireframe": false,
+    "MhMsWireframe": false,
+    "MPFB_MS_sss_enable": false,
+    "MhMsSSSEnable": false,
+    "sssEnabled": false,
+    "MPFB_MS_use_litsphere": true,
+    "MhMsUseLit": true,
+    "MPFB_MS_write_blend_material": false,
+    "MPFB_MS_shadeless": false,
+    "MhMsShadeless": false,
+    "MPFB_MS_name": "new_material",
+    "MhMsName": "new_material",
+    "MPFB_MS_auto_blend": false,
+    "autoBlendSkin": false,
+    "MhMsAutoBlend": false,
+    "MPFB_MS_description": "",
+    "MhMsDescription": "",
+    "MPFB_MS_author": "",
+    "MhMsAuthor": "",
+    "MPFB_MS_litsphere": "lit_leather",
+    "MhMsLitsphere": "lit_leather",
+    "litsphereTexture": "lit_leather",
+    "MPFB_MS_receive_shadows": true,
+    "receiveShadows": true,
+    "MhMsReceiveShadows": true,
+    "MPFB_MS_cast_shadows": true,
+    "castShadows": true,
+    "MhMsCastShadows": true,
+    "MPFB_MS_license": "CC0",
+    "MhMsMatLicense": "CC0",
+    "MPFB_MS_alpha_to_coverage": true,
+    "alphaToCoverage": true,
+    "MhMsAlphaToCoverage": true,
+    "MPFB_MS_tag": "",
+    "MhMsTag": "",
+    "MPFB_MS_homepage": "",
+    "MhMsHomepage": "",
+    "MPFB_MS_textures": "NORMALIZE",
+    "MPFB_MS_depthless": false,
+    "MhMsDepthless": false,
+    "MPFB_MS_backface_culling": true,
+    "backfaceCull": true,
+    "MhMsBackfaceCull": true,
+    "MPFB_MT_name": "PrimaryTarget",
+    "MhPrimaryTargetName": "PrimaryTarget",
+    "MPFB_MC_name": "new_clothes",
+    "MhClothesName": "new_clothes",
+    "MPFB_MC_description": "",
+    "MhClothesDesc": "",
+    "MPFB_MC_author": "",
+    "MhClothesAuthor": "",
+    "MPFB_MC_username": "anonymous",
+    "MPFB_MC_license": "CC0",
+    "MhClothesLicense": "CC0",
+    "MPFB_MC_tag": "",
+    "MhClothesTags": "",
+    "MPFB_MC_uuid": "",
+    "MhClothesUUID": "",
+    "MPFB_MC_delete_group": "Delete",
+    "MhDeleteGroup": "Delete",
+    "MPFB_MC_homepage": "",
+    "MhMcHomepage": "",
+    "MPFB_MC_z_depth": 50,
+    "MhZDepth": 50,
+    "MPFB_rh_eye_mode": "",
+    "MPFB_rh_finger_mode": "",
+    "MPFB_rh_leg_mode": "",
+    "MPFB_rh_arm_mode": ""
+  },
+  "curve_rna": {
+    "name": "AriSparseOriginalGroupsData",
+    "use_fake_user": false,
+    "use_extra_user": false,
+    "is_runtime_data": false,
+    "tag": false,
+    "path_duration": 100,
+    "use_path": false,
+    "use_path_follow": false,
+    "use_path_clamp": false,
+    "use_stretch": false,
+    "use_deform_bounds": false,
+    "use_radius": true,
+    "bevel_mode": "ROUND",
+    "bevel_resolution": 1,
+    "offset": 0.0,
+    "extrude": 0.0,
+    "bevel_depth": 0.0006500000017695129,
+    "resolution_u": 1,
+    "resolution_v": 12,
+    "render_resolution_u": 0,
+    "render_resolution_v": 0,
+    "eval_time": 0.0,
+    "dimensions": "3D",
+    "fill_mode": "FULL",
+    "fill_solver": "SWEEP_LINE",
+    "fill_rule": "EVEN_ODD",
+    "twist_mode": "MINIMUM",
+    "taper_radius_mode": "OVERRIDE",
+    "bevel_factor_mapping_start": "RESOLUTION",
+    "bevel_factor_mapping_end": "RESOLUTION",
+    "twist_smooth": 0.0,
+    "use_fill_caps": true,
+    "use_map_taper": false,
+    "use_auto_texspace": true,
+    "texspace_location": [
+      0.0,
+      -0.03927809000015259,
+      1.5844521522521973
+    ],
+    "texspace_size": [
+      1.0684335231781006,
+      1.0741117000579834,
+      1.0605549812316895
+    ],
+    "bevel_factor_start": 0.0,
+    "bevel_factor_end": 1.0
+  },
+  "parent": "Human.rig",
+  "parent_type": "BONE",
+  "parent_bone": "head",
+  "matrix_world": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.9999999403953552,
+      1.1920928955078125e-07,
+      0.0
+    ],
+    [
+      0.0,
+      -1.043081283569336e-07,
+      0.9999999403953552,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "matrix_parent_inverse": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "matrix_basis": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.046881843358278275,
+      0.9989005327224731,
+      -1.6589477062225342
+    ],
+    [
+      0.0,
+      -0.9989003539085388,
+      0.04688185453414917,
+      -0.1149633377790451
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "matrix_local": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.046881843358278275,
+      0.9989005327224731,
+      -1.6589477062225342
+    ],
+    [
+      0.0,
+      -0.9989003539085388,
+      0.04688185825943947,
+      -0.1149633377790451
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "modifiers": [],
+  "vertex_groups": [],
+  "materials": [
+    "AriSparseDarkBrown"
+  ],
+  "material_records": [
+    {
+      "name": "AriSparseDarkBrown",
+      "rna": {
+        "name": "AriSparseDarkBrown",
+        "use_fake_user": false,
+        "use_extra_user": false,
+        "is_runtime_data": false,
+        "tag": false,
+        "surface_render_method": "DITHERED",
+        "displacement_method": "BUMP",
+        "blend_method": "HASHED",
+        "alpha_threshold": 0.5,
+        "use_transparency_overlap": true,
+        "show_transparent_back": true,
+        "use_backface_culling": false,
+        "use_backface_culling_shadow": false,
+        "use_backface_culling_lightprobe_volume": true,
+        "use_transparent_shadow": true,
+        "use_raytrace_refraction": false,
+        "use_screen_refraction": false,
+        "use_sss_translucency": false,
+        "refraction_depth": 0.0,
+        "thickness_mode": "SPHERE",
+        "use_thickness_from_shadow": false,
+        "volume_intersection_method": "FAST",
+        "max_vertex_displacement": 0.0,
+        "preview_render_type": "SPHERE",
+        "use_preview_world": false,
+        "pass_index": 0,
+        "use_nodes": true,
+        "paint_active_slot": 0,
+        "paint_clone_slot": 0,
+        "diffuse_color": [
+          0.800000011920929,
+          0.800000011920929,
+          0.800000011920929,
+          1.0
+        ],
+        "specular_color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "roughness": 0.4000000059604645,
+        "specular_intensity": 0.5,
+        "metallic": 0.0,
+        "line_color": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "line_priority": 0
+      },
+      "nodes": [
+        {
+          "name": "Principled BSDF",
+          "type": "BSDF_PRINCIPLED",
+          "rna": {
+            "location": [
+              -200.0,
+              100.0
+            ],
+            "location_absolute": [
+              -200.0,
+              100.0
+            ],
+            "width": 240.0,
+            "height": 100.0,
+            "name": "Principled BSDF",
+            "label": "",
+            "warning_propagation": "ALL",
+            "use_custom_color": false,
+            "color": [
+              0.6079999804496765,
+              0.6079999804496765,
+              0.6079999804496765
+            ],
+            "select": true,
+            "show_options": true,
+            "show_preview": false,
+            "hide": false,
+            "mute": false,
+            "show_texture": false,
+            "bl_idname": "ShaderNodeBsdfPrincipled",
+            "bl_label": "Principled BSDF",
+            "bl_description": "Physically-based, easy-to-use shader for rendering surface materials, based on the OpenPBR model",
+            "bl_icon": "NONE",
+            "bl_width_default": 240.0,
+            "bl_width_min": 100.0,
+            "bl_width_max": 700.0,
+            "bl_height_default": 100.0,
+            "bl_height_min": 30.0,
+            "bl_height_max": 3.4028234663852886e+38,
+            "distribution": "MULTI_GGX",
+            "subsurface_method": "RANDOM_WALK"
+          },
+          "inputs": {
+            "Base Color": [
+              0.017999999225139618,
+              0.010999999940395355,
+              0.00800000037997961,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.5199999809265137,
+            "IOR": 1.5,
+            "Alpha": 1.0,
+            "Thin Wall": false,
+            "Normal": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "Weight": 0.0,
+            "Diffuse Roughness": 0.0,
+            "Subsurface Weight": 0.0,
+            "Subsurface Radius": [
+              1.0,
+              0.20000000298023224,
+              0.10000000149011612
+            ],
+            "Subsurface Scale": 0.004999999888241291,
+            "Subsurface IOR": 1.399999976158142,
+            "Subsurface Anisotropy": 0.0,
+            "Specular IOR Level": 0.5,
+            "Specular Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Anisotropic": 0.0,
+            "Anisotropic Rotation": 0.0,
+            "Tangent": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "Transmission Weight": 0.0,
+            "Coat Weight": 0.0,
+            "Coat Roughness": 0.029999999329447746,
+            "Coat IOR": 1.5,
+            "Coat Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Coat Normal": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "Sheen Weight": 0.0,
+            "Sheen Roughness": 0.5,
+            "Sheen Tint": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Emission Color": [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            "Emission Strength": 0.0,
+            "Thin Film Thickness": 0.0,
+            "Thin Film IOR": 1.3300000429153442
+          }
+        },
+        {
+          "name": "Material Output",
+          "type": "OUTPUT_MATERIAL",
+          "rna": {
+            "location": [
+              200.0,
+              100.0
+            ],
+            "location_absolute": [
+              200.0,
+              100.0
+            ],
+            "width": 140.0,
+            "height": 100.0,
+            "name": "Material Output",
+            "label": "",
+            "warning_propagation": "ALL",
+            "use_custom_color": false,
+            "color": [
+              0.6079999804496765,
+              0.6079999804496765,
+              0.6079999804496765
+            ],
+            "select": true,
+            "show_options": true,
+            "show_preview": false,
+            "hide": false,
+            "mute": false,
+            "show_texture": false,
+            "bl_idname": "ShaderNodeOutputMaterial",
+            "bl_label": "Material Output",
+            "bl_description": "Output surface material information for use in rendering",
+            "bl_icon": "NONE",
+            "bl_width_default": 140.0,
+            "bl_width_min": 100.0,
+            "bl_width_max": 700.0,
+            "bl_height_default": 100.0,
+            "bl_height_min": 30.0,
+            "bl_height_max": 3.4028234663852886e+38,
+            "is_active_output": true,
+            "target": "ALL"
+          },
+          "inputs": {
+            "Displacement": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "Thickness": 0.0
+          }
+        }
+      ],
+      "links": [
+        [
+          "Principled BSDF",
+          "BSDF",
+          "Material Output",
+          "Surface"
+        ]
+      ]
+    }
+  ],
+  "splines": [
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "3f367e35d3bc95a20ef845ecc07cdc1a8fd40179cfe5a05d6352e1a2897c5649"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 0
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "b75bc28a86a2edc8bf49d12ee9d7ae0584e93bcd96780eea2b79b3419b1ce605"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 65
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "5031c3d1291742f94f8103172555b36eb6615d900174de082863d5c0120632e8"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 130
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "1d5e1dfdb9d04c979bcbd42c8305807d568dceed642fec66645c755f36c4fed9"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 195
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "1d940fd83fcf448a1a6c31132fdaec0171f2fc2067d918d2822d54c2dff4a128"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 260
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "97dbe4d3757e5d0c42bac7182c56d1a3bf3821fa01c67eba5a6d7f4f5c35b109"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 325
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "79bd08ab6cff3bb973bb28ed94a1683f65d2dc48cf5aad43cadc3378f7774c9b"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 390
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "d43ee4a6d64d8544cb469d2d518a8015f0a951ce2722e896ada40db68e1f558c"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 455
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "53c80b9e77637d9c260793d705da29e8f4c080661a1b14494bd5f151d204990a"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 520
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "498451d239472a23a5f20c8e4e3702264a2e1b67cf0d414343599b8e4793b048"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 585
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "b4028af283ddd8989f40ba5124f50927422c30fd6edcd622f61f5316b6743f8c"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 650
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "42fb038fb27e557c77fc659c9f8b81988af443cc668ccb04c29abfdb0aff6631"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 715
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "84f22cb87f2f1ca7b9917e7f9b7a4f0dd01238d7dc96e4a9ce2ce5ede50aabe3"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 780
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "a22e12e82ebff2ab70522e6c20ce58ac98f8b6aa0d19bd4c9bda4061c88728f0"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 845
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "baa3a5565ef561da55962d42888bc15b497d17bbbf6b134568ee679df3e2eb63"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 910
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "608d52fad68465bb4953635f86b2ca156eb9c7447e542b807a739d1b75965e7d"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 975
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "41c958590ee5e9290f65f9073581a4c9d892abd527e455a91fc2a3652fa81561"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 1040
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "2cf6926f15c605d453a4ed1622c0ceaf732657e8b6098537680ffa85ee8f666b"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 1105
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "72262b3d0e1131013a7f6a0bb585c67620bbae3065b6316d75b59a33ffbc5e9c"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 1170
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "e0f905aef244eb975a6a426c7b7486ccb05c7069219002357d92988b3a23f921"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 1235
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "bdf89339e16ced00bc6a11802122c6807b1b8e96fe0c851a6bcaa2c79b57a348"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 1300
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "7198769ed404263a30767d16a55cdf24bba63b58c8964ec6c6fc0dd15a58fdab"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 1365
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "646723fd0089a0c7f484c704df70ce8d4d3a4d9160ff3ee2ed4748b6435971d9"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 1430
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "6d01b00d80adb155b4390a3206ee34bfac1672143d821d63e93e8810cf6720b9"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 1495
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "be570f5359a3a877067bceda432386b6c1d9ab420782996d4be1211429f7f093"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 1560
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "a6058a9bb4b9ac575f91dbd2fb6158608390705bbb3e878bcc79b00ce296b68c"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 1625
+    },
+    {
+      "type": "POLY",
+      "rna": {
+        "tilt_interpolation": "LINEAR",
+        "radius_interpolation": "LINEAR",
+        "type": "POLY",
+        "order_u": 4,
+        "order_v": 4,
+        "resolution_u": 1,
+        "resolution_v": 12,
+        "use_cyclic_u": false,
+        "use_cyclic_v": false,
+        "use_endpoint_u": false,
+        "use_endpoint_v": false,
+        "use_bezier_u": false,
+        "use_bezier_v": false,
+        "use_smooth": true,
+        "hide": false,
+        "material_index": 0
+      },
+      "arrays": {
+        "co": {
+          "shape": [
+            65,
+            4
+          ],
+          "dtype": "float32",
+          "sha256": "21dba88656638b861544fe89556ce9aeaebc7ef22c4db96e5212666e4ec947b2"
+        },
+        "radius": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "7c6ed10e0b3a05ac86dcf363cd429dc197a73762c3be769759c8410626962bc7"
+        },
+        "tilt": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "weight": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "50dcea41a890a8142f6023e63a0555cf923f19b71810f56a39bd29b318dfe3c2"
+        },
+        "weight_softbody": {
+          "shape": [
+            65
+          ],
+          "dtype": "float32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "hide": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        },
+        "select": {
+          "shape": [
+            65
+          ],
+          "dtype": "int32",
+          "sha256": "9c0095c04ef53d9df41602f3783c90ef3c3e27cc9d0b38262d23930db6313f5a"
+        }
+      },
+      "point_start": 1690
+    }
+  ],
+  "total_controls": 1755
+}
