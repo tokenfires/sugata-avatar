@@ -1,0 +1,447 @@
+{
+  "record": {
+    "name": "AriPaletteSkin",
+    "rna": {
+      "name": "AriPaletteSkin",
+      "use_fake_user": false,
+      "use_extra_user": false,
+      "is_runtime_data": false,
+      "tag": false,
+      "surface_render_method": "DITHERED",
+      "displacement_method": "BUMP",
+      "blend_method": "HASHED",
+      "alpha_threshold": 0.5,
+      "use_transparency_overlap": true,
+      "show_transparent_back": true,
+      "use_backface_culling": false,
+      "use_backface_culling_shadow": false,
+      "use_backface_culling_lightprobe_volume": true,
+      "use_transparent_shadow": true,
+      "use_raytrace_refraction": false,
+      "use_screen_refraction": false,
+      "use_sss_translucency": false,
+      "refraction_depth": 0.0,
+      "thickness_mode": "SPHERE",
+      "use_thickness_from_shadow": false,
+      "volume_intersection_method": "FAST",
+      "max_vertex_displacement": 0.0,
+      "preview_render_type": "SPHERE",
+      "use_preview_world": false,
+      "pass_index": 0,
+      "use_nodes": true,
+      "paint_active_slot": 0,
+      "paint_clone_slot": 0,
+      "diffuse_color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
+      ],
+      "specular_color": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "roughness": 0.4000000059604645,
+      "specular_intensity": 0.5,
+      "metallic": 0.0,
+      "line_color": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "line_priority": 0
+    },
+    "nodes": [
+      {
+        "name": "Material Output",
+        "type": "OUTPUT_MATERIAL",
+        "rna": {
+          "location": [
+            511.9255065917969,
+            322.16461181640625
+          ],
+          "location_absolute": [
+            511.9255065917969,
+            322.16461181640625
+          ],
+          "width": 140.0,
+          "height": 100.0,
+          "name": "Material Output",
+          "label": "",
+          "warning_propagation": "ALL",
+          "use_custom_color": false,
+          "color": [
+            0.6079999804496765,
+            0.6079999804496765,
+            0.6079999804496765
+          ],
+          "select": true,
+          "show_options": true,
+          "show_preview": false,
+          "hide": false,
+          "mute": false,
+          "show_texture": false,
+          "bl_idname": "ShaderNodeOutputMaterial",
+          "bl_label": "Material Output",
+          "bl_description": "Output surface material information for use in rendering",
+          "bl_icon": "NONE",
+          "bl_width_default": 140.0,
+          "bl_width_min": 100.0,
+          "bl_width_max": 700.0,
+          "bl_height_default": 100.0,
+          "bl_height_min": 30.0,
+          "bl_height_max": 3.4028234663852886e+38,
+          "is_active_output": true,
+          "target": "ALL"
+        },
+        "inputs": {
+          "Displacement": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Thickness": 0.0
+        }
+      },
+      {
+        "name": "Principled BSDF",
+        "type": "BSDF_PRINCIPLED",
+        "rna": {
+          "location": [
+            66.85810089111328,
+            305.9093017578125
+          ],
+          "location_absolute": [
+            66.85810089111328,
+            305.9093017578125
+          ],
+          "width": 240.0,
+          "height": 100.0,
+          "name": "Principled BSDF",
+          "label": "Principled BSDF",
+          "warning_propagation": "ALL",
+          "use_custom_color": false,
+          "color": [
+            0.6079999804496765,
+            0.6079999804496765,
+            0.6079999804496765
+          ],
+          "select": true,
+          "show_options": true,
+          "show_preview": false,
+          "hide": false,
+          "mute": false,
+          "show_texture": false,
+          "bl_idname": "ShaderNodeBsdfPrincipled",
+          "bl_label": "Principled BSDF",
+          "bl_description": "Physically-based, easy-to-use shader for rendering surface materials, based on the OpenPBR model",
+          "bl_icon": "NONE",
+          "bl_width_default": 240.0,
+          "bl_width_min": 100.0,
+          "bl_width_max": 700.0,
+          "bl_height_default": 100.0,
+          "bl_height_min": 30.0,
+          "bl_height_max": 3.4028234663852886e+38,
+          "distribution": "MULTI_GGX",
+          "subsurface_method": "RANDOM_WALK"
+        },
+        "inputs": {
+          "Base Color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "Metallic": 0.0,
+          "Roughness": 0.5,
+          "IOR": 1.5,
+          "Alpha": 1.0,
+          "Thin Wall": false,
+          "Normal": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Weight": 0.0,
+          "Diffuse Roughness": 0.0,
+          "Subsurface Weight": 0.0,
+          "Subsurface Radius": [
+            1.0,
+            0.20000000298023224,
+            0.10000000149011612
+          ],
+          "Subsurface Scale": 0.004999999888241291,
+          "Subsurface IOR": 1.399999976158142,
+          "Subsurface Anisotropy": 0.0,
+          "Specular IOR Level": 0.5,
+          "Specular Tint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "Anisotropic": 0.0,
+          "Anisotropic Rotation": 0.0,
+          "Tangent": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Transmission Weight": 0.0,
+          "Coat Weight": 0.0,
+          "Coat Roughness": 0.029999999329447746,
+          "Coat IOR": 1.5,
+          "Coat Tint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "Coat Normal": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Sheen Weight": 0.0,
+          "Sheen Roughness": 0.5,
+          "Sheen Tint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "Emission Color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "Emission Strength": 0.0,
+          "Thin Film Thickness": 0.0,
+          "Thin Film IOR": 1.3300000429153442
+        }
+      },
+      {
+        "name": "DiffuseTexture",
+        "type": "TEX_IMAGE",
+        "rna": {
+          "location": [
+            -522.3278198242188,
+            500.83209228515625
+          ],
+          "location_absolute": [
+            -522.3278198242188,
+            500.83209228515625
+          ],
+          "width": 240.0,
+          "height": 100.0,
+          "name": "DiffuseTexture",
+          "label": "Diffuse texture",
+          "warning_propagation": "ALL",
+          "use_custom_color": false,
+          "color": [
+            0.6079999804496765,
+            0.6079999804496765,
+            0.6079999804496765
+          ],
+          "select": true,
+          "show_options": true,
+          "show_preview": false,
+          "hide": false,
+          "mute": false,
+          "show_texture": false,
+          "bl_idname": "ShaderNodeTexImage",
+          "bl_label": "Image Texture",
+          "bl_description": "Sample an image file as a texture",
+          "bl_icon": "NONE",
+          "bl_width_default": 240.0,
+          "bl_width_min": 100.0,
+          "bl_width_max": 700.0,
+          "bl_height_default": 100.0,
+          "bl_height_min": 30.0,
+          "bl_height_max": 3.4028234663852886e+38,
+          "projection": "FLAT",
+          "interpolation": "Linear",
+          "projection_blend": 0.0,
+          "extension": "REPEAT"
+        },
+        "inputs": {
+          "Vector": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "AlphaMapTexture",
+        "type": "TEX_IMAGE",
+        "rna": {
+          "location": [
+            -526.7584228515625,
+            223.75619506835938
+          ],
+          "location_absolute": [
+            -526.7584228515625,
+            223.75619506835938
+          ],
+          "width": 240.0,
+          "height": 100.0,
+          "name": "AlphaMapTexture",
+          "label": "Alpha map texture",
+          "warning_propagation": "ALL",
+          "use_custom_color": false,
+          "color": [
+            0.6079999804496765,
+            0.6079999804496765,
+            0.6079999804496765
+          ],
+          "select": true,
+          "show_options": true,
+          "show_preview": false,
+          "hide": false,
+          "mute": false,
+          "show_texture": false,
+          "bl_idname": "ShaderNodeTexImage",
+          "bl_label": "Image Texture",
+          "bl_description": "Sample an image file as a texture",
+          "bl_icon": "NONE",
+          "bl_width_default": 240.0,
+          "bl_width_min": 100.0,
+          "bl_width_max": 700.0,
+          "bl_height_default": 100.0,
+          "bl_height_min": 30.0,
+          "bl_height_max": 3.4028234663852886e+38,
+          "projection": "FLAT",
+          "interpolation": "Linear",
+          "projection_blend": 0.0,
+          "extension": "REPEAT"
+        },
+        "inputs": {
+          "Vector": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "name": "AriWarmPalette",
+        "type": "MIX_RGB",
+        "rna": {
+          "location": [
+            0.0,
+            0.0
+          ],
+          "location_absolute": [
+            0.0,
+            0.0
+          ],
+          "width": 140.0,
+          "height": 100.0,
+          "name": "AriWarmPalette",
+          "label": "Ari palette (linear multiplier)",
+          "warning_propagation": "ALL",
+          "use_custom_color": false,
+          "color": [
+            0.6079999804496765,
+            0.6079999804496765,
+            0.6079999804496765
+          ],
+          "select": true,
+          "show_options": true,
+          "show_preview": false,
+          "hide": false,
+          "mute": false,
+          "show_texture": false,
+          "bl_idname": "ShaderNodeMixRGB",
+          "bl_label": "Mix (Legacy)",
+          "bl_description": "Mix two input colors",
+          "bl_icon": "NONE",
+          "bl_width_default": 140.0,
+          "bl_width_min": 100.0,
+          "bl_width_max": 700.0,
+          "bl_height_default": 100.0,
+          "bl_height_min": 30.0,
+          "bl_height_max": 3.4028234663852886e+38,
+          "blend_type": "MULTIPLY",
+          "use_alpha": false,
+          "use_clamp": false
+        },
+        "inputs": {
+          "Fac": 1.0,
+          "Color1": [
+            0.5,
+            0.5,
+            0.5,
+            1.0
+          ],
+          "Color2": [
+            0.30000001192092896,
+            0.23999999463558197,
+            0.20000000298023224,
+            1.0
+          ]
+        }
+      }
+    ],
+    "links": [
+      [
+        "Principled BSDF",
+        "BSDF",
+        "Material Output",
+        "Surface"
+      ],
+      [
+        "AlphaMapTexture",
+        "Alpha",
+        "Principled BSDF",
+        "Alpha"
+      ],
+      [
+        "DiffuseTexture",
+        "Color",
+        "AriWarmPalette",
+        "Color1"
+      ],
+      [
+        "AriWarmPalette",
+        "Color",
+        "Principled BSDF",
+        "Base Color"
+      ]
+    ]
+  },
+  "custom": {},
+  "tree_rna": {
+    "name": "Shader Nodetree",
+    "use_fake_user": false,
+    "use_extra_user": false,
+    "is_runtime_data": false,
+    "tag": false,
+    "color_tag": "NONE",
+    "default_group_node_width": 140,
+    "description": "",
+    "bl_idname": "ShaderNodeTree",
+    "bl_label": "Shader Editor",
+    "bl_description": "Edit materials, lights, and world shading using nodes",
+    "bl_icon": "NODE_MATERIAL",
+    "bl_use_group_interface": true
+  },
+  "tree_custom": {},
+  "nodes_custom": {
+    "Material Output": {},
+    "Principled BSDF": {},
+    "DiffuseTexture": {},
+    "AlphaMapTexture": {},
+    "AriWarmPalette": {}
+  },
+  "image_pointers": {
+    "DiffuseTexture": "young_lightskinned_female_diffuse.png",
+    "AlphaMapTexture": "young_lightskinned_female_diffuse.png"
+  },
+  "users": 1,
+  "fake_user": false
+}

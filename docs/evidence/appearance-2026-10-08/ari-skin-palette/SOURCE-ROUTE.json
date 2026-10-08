@@ -1,0 +1,360 @@
+{
+  "utc": "2026-10-08T22:40:56.312240+00:00",
+  "Human_slots": [
+    "Human.body"
+  ],
+  "owners": [
+    [
+      "Human",
+      0
+    ]
+  ],
+  "skin_material": {
+    "name": "Human.body",
+    "users": 1,
+    "use_nodes": true,
+    "nodes": [
+      {
+        "name": "Material Output",
+        "type": "OUTPUT_MATERIAL",
+        "image": null,
+        "input_defaults": {
+          "Displacement": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Thickness": 0.0
+        },
+        "settings": {}
+      },
+      {
+        "name": "Principled BSDF",
+        "type": "BSDF_PRINCIPLED",
+        "image": null,
+        "input_defaults": {
+          "Base Color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "Metallic": 0.0,
+          "Roughness": 0.5,
+          "IOR": 1.5,
+          "Alpha": 1.0,
+          "Thin Wall": false,
+          "Normal": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Weight": 0.0,
+          "Diffuse Roughness": 0.0,
+          "Subsurface Weight": 0.0,
+          "Subsurface Radius": [
+            1.0,
+            0.20000000298023224,
+            0.10000000149011612
+          ],
+          "Subsurface Scale": 0.004999999888241291,
+          "Subsurface IOR": 1.399999976158142,
+          "Subsurface Anisotropy": 0.0,
+          "Specular IOR Level": 0.5,
+          "Specular Tint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "Anisotropic": 0.0,
+          "Anisotropic Rotation": 0.0,
+          "Tangent": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Transmission Weight": 0.0,
+          "Coat Weight": 0.0,
+          "Coat Roughness": 0.029999999329447746,
+          "Coat IOR": 1.5,
+          "Coat Tint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "Coat Normal": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Sheen Weight": 0.0,
+          "Sheen Roughness": 0.5,
+          "Sheen Tint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "Emission Color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "Emission Strength": 0.0,
+          "Thin Film Thickness": 0.0,
+          "Thin Film IOR": 1.3300000429153442
+        },
+        "settings": {}
+      },
+      {
+        "name": "DiffuseTexture",
+        "type": "TEX_IMAGE",
+        "image": "young_lightskinned_female_diffuse.png",
+        "input_defaults": {
+          "Vector": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "settings": {
+          "interpolation": "Linear",
+          "extension": "REPEAT",
+          "projection": "FLAT"
+        }
+      },
+      {
+        "name": "AlphaMapTexture",
+        "type": "TEX_IMAGE",
+        "image": "young_lightskinned_female_diffuse.png",
+        "input_defaults": {
+          "Vector": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "settings": {
+          "interpolation": "Linear",
+          "extension": "REPEAT",
+          "projection": "FLAT"
+        }
+      }
+    ],
+    "links": [
+      {
+        "from_node": "Principled BSDF",
+        "from_socket": "BSDF",
+        "to_node": "Material Output",
+        "to_socket": "Surface"
+      },
+      {
+        "from_node": "DiffuseTexture",
+        "from_socket": "Color",
+        "to_node": "Principled BSDF",
+        "to_socket": "Base Color"
+      },
+      {
+        "from_node": "AlphaMapTexture",
+        "from_socket": "Alpha",
+        "to_node": "Principled BSDF",
+        "to_socket": "Alpha"
+      }
+    ],
+    "modes": {
+      "blend_method": "HASHED",
+      "surface_render_method": "DITHERED",
+      "use_backface_culling": false,
+      "alpha_threshold": 0.5
+    }
+  },
+  "skin_image": {
+    "name": "young_lightskinned_female_diffuse.png",
+    "filepath": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/user/data/skins/young_caucasian_female/young_lightskinned_female_diffuse.png",
+    "size": [
+      2048,
+      2048
+    ],
+    "colorspace": "sRGB",
+    "packed_files": 1,
+    "packed_sha256": "b2a6ac8cd4f9febdb447368e29c76cd68410bb66e46d9dcfa2d5f75126eea8fc"
+  },
+  "additional_source_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/user/data/skins/young_caucasian_female/young_caucasian_female.mhmat",
+      "bytes": 1464,
+      "sha256": "0bdea7786201f0b1132a24088336a97496ccdc54e9984db65d253a6a6d66f24f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/user/data/skins/young_caucasian_female/young_lightskinned_female_diffuse.png",
+      "bytes": 4391156,
+      "sha256": "b2a6ac8cd4f9febdb447368e29c76cd68410bb66e46d9dcfa2d5f75126eea8fc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/views/RESULT.json",
+      "bytes": 286986,
+      "sha256": "7edee8c9bd63da3ebcd4c69002524cc5910b0c5027504616a286397b875cdcec"
+    }
+  ],
+  "metadata_text": "# This is a material file for MakeHuman\n#\n# This asset was explicitly released as CC0 in september 2020. The license\n# text for CC0 can be found in the root of this repository.\n#\n# The copyright holders at the point of the release to CC0 were:\n#\n# Copyright (C) 2020 Data Collection AB, https://www.datacollection.se\n# Copyright (C) 2020 Joel Palmius\n# Copyright (C) 2020 Jonas Hauquier\n#\n# The primary legal contact for MakeHuman is Data Collection AB.\n#\n# For more information, see homepage at http://www.makehumancommunity.org\n\nname young_caucasian_female\ntag MakeHuman\u2122\nambientColor 0.301960784314 0.278431372549 0.278431372549\ndiffuseColor 1.0 1.0 1.0\nspecularColor 0.0627450980392 0.0509803921569 0.0509803921569\nshininess 0.5\nemissiveColor 0.196078431373 0.101960784314 0.101960784314\nopacity 1.0\ntranslucency 0.0\n\nshadeless False\nwireframe False\ntransparent False\nalphaToCoverage True\nbackfaceCull True\ndepthless False\ncastShadows True\nreceiveShadows True\n\ntag MakeHuman\u2122\ntag young\ntag caucasian\ntag female\n\ndiffuseTexture young_lightskinned_female_diffuse.png\n\nsssEnabled True\nsssRScale 5.0\nsssGScale 2.5\nsssBScale 1.0\n\nshader data/shaders/glsl/litsphere\n\nshaderParam litsphereTexture data/litspheres/lit_standard_skin.png\n\nshaderConfig ambientOcclusion True\nshaderConfig normal False\nshaderConfig bump True\nshaderConfig displacement False\nshaderConfig vertexColors True\nshaderConfig spec True\nshaderConfig transparency True\nshaderConfig diffuse True\n",
+  "frames": {
+    "body": {
+      "center": [
+        0.0,
+        -0.11460304260253906,
+        0.829715676678461
+      ],
+      "scale": 1.8585630820551888,
+      "resolution": [
+        768,
+        1024
+      ],
+      "union_min": [
+        -0.5494645833969116,
+        -0.334472119808197,
+        1.5046680346131325e-08
+      ],
+      "union_max": [
+        0.5494645833969116,
+        0.1052660346031189,
+        1.6594313383102417
+      ]
+    },
+    "head": {
+      "center": [
+        0.0,
+        -0.04541023448109627,
+        1.4983700513839722
+      ],
+      "scale": 0.3849921894073487,
+      "resolution": [
+        768,
+        768
+      ],
+      "union_min": [
+        -0.17187151312828064,
+        -0.15973001718521118,
+        1.3373087644577026
+      ],
+      "union_max": [
+        0.17187151312828064,
+        0.06890954822301865,
+        1.6594313383102417
+      ]
+    }
+  },
+  "look": {
+    "view_transform": "AgX",
+    "look": "None",
+    "display": "sRGB",
+    "exposure": 0.0,
+    "gamma": 1.0,
+    "curve_mapping": false,
+    "compositing": false,
+    "sequencer": false,
+    "pixel_aspect": [
+      1.0,
+      1.0
+    ]
+  },
+  "domains": {
+    "v1": {
+      "counts": {
+        "Human": {
+          "render_vertices": 13380,
+          "head_domain_vertices": 4494,
+          "head_group_ids_names": {
+            "194": "neck_01",
+            "195": "head"
+          }
+        },
+        "Human.eyebrow001": {
+          "render_vertices": 438,
+          "head_domain_vertices": 438,
+          "head_group_ids_names": {
+            "0": "head"
+          }
+        },
+        "Human.eyelashes01": {
+          "render_vertices": 864,
+          "head_domain_vertices": 864,
+          "head_group_ids_names": {
+            "0": "head"
+          }
+        },
+        "Human.high-poly": {
+          "render_vertices": 4164,
+          "head_domain_vertices": 4164,
+          "head_group_ids_names": {
+            "0": "head"
+          }
+        },
+        "Human.teeth_base": {
+          "render_vertices": 14824,
+          "head_domain_vertices": 14824,
+          "head_group_ids_names": {
+            "0": "head"
+          }
+        },
+        "Human.tongue01": {
+          "render_vertices": 898,
+          "head_domain_vertices": 898,
+          "head_group_ids_names": {
+            "0": "head"
+          }
+        }
+      }
+    },
+    "v2": {
+      "counts": {
+        "Human": {
+          "render_vertices": 13380,
+          "head_domain_vertices": 4494,
+          "head_group_ids_names": {
+            "194": "neck_01",
+            "195": "head"
+          }
+        },
+        "Human.eyebrow001": {
+          "render_vertices": 438,
+          "head_domain_vertices": 438,
+          "head_group_ids_names": {
+            "0": "head"
+          }
+        },
+        "Human.eyelashes01": {
+          "render_vertices": 864,
+          "head_domain_vertices": 864,
+          "head_group_ids_names": {
+            "0": "head"
+          }
+        },
+        "Human.high-poly": {
+          "render_vertices": 4164,
+          "head_domain_vertices": 4164,
+          "head_group_ids_names": {
+            "0": "head"
+          }
+        },
+        "Human.teeth_base": {
+          "render_vertices": 14824,
+          "head_domain_vertices": 14824,
+          "head_group_ids_names": {
+            "0": "head"
+          }
+        },
+        "Human.tongue01": {
+          "render_vertices": 898,
+          "head_domain_vertices": 898,
+          "head_group_ids_names": {
+            "0": "head"
+          }
+        }
+      }
+    }
+  },
+  "limits": "Stored-route source evidence; actual full RNA/link/image pointer/users/native mutation preconditions must be observed in the sole program before cloning. No material choice/edit/native yet."
+}

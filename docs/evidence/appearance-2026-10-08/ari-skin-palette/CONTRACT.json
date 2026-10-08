@@ -1,0 +1,129 @@
+{
+  "authored_utc": "2026-10-08T22:44:39.602951+00:00",
+  "source_material": "Human.body",
+  "clone_material": "AriPaletteSkin",
+  "changed_slots": [
+    [
+      "Human",
+      0
+    ]
+  ],
+  "operation": "Clone source material once; insert one ShaderNodeMixRGB MULTIPLY Fac1 between DiffuseTexture.Color and Principled BSDF.Base Color",
+  "linear_multiplier_rgba": [
+    0.3,
+    0.24,
+    0.2,
+    1.0
+  ],
+  "node_name": "AriWarmPalette",
+  "node_label": "Ari palette (linear multiplier)",
+  "amount": 1.0,
+  "use_clamp": false,
+  "artist_intent": "One warm-brown palette direction; not sampled/calibrated concept color or demographic identity",
+  "original_texture": "young_lightskinned_female_diffuse.png",
+  "colorspace": "sRGB; leave image decoder/color-space unchanged, shader constants are linear values",
+  "texture_policy": "No file/pixel/packed/UV/normal/alpha rewrite; original pixel detail may change visible contrast under RGB multiplication and must be judged in first images",
+  "allowed_exceptions": {
+    "Human.materials[0]": [
+      "Human.body",
+      "AriPaletteSkin"
+    ],
+    "source_material.use_fake_user": [
+      false,
+      true
+    ],
+    "source_material.users": "Before1; after clone-slot swap plus retention fake-user1. Explicit lifecycle exception, original node/image/mode data unchanged",
+    "skin_image.users": "Record actual before/after; two copied TEX_IMAGE references add2 users. Other images/users remain exact",
+    "clone": "One copied material/tree, name changes, one added node, old RGB link replaced bytwo ownedRGB links; complete full RNA/defaults/links/image pointers/custom and retention proof retained"
+  },
+  "retention": "Clone before marking original fake-user; cloned fake-user false. Original Human.body marked fake-user true only in isolated variant to persist when unassigned. Sourcefile readonly unchanged. Require original retained after saved reopen",
+  "normal_alpha_displacement": "All original routes/defaults/modes unchanged; AlphaMap.Alpha remains Principled.Alpha; Principled.Normal and MaterialOutput.Displacement unlinked as source. No shader displacement/geometry feedback",
+  "source_preservation": "All oldseven geometry/rest108/252/mixed/UV/modifiers and othermaterial/image data exact; whole snapshot normalized ONLY exactdeclared slot/clone graph/substitution/users/retention fields, raw snapshots and originals separately retained",
+  "views": [
+    [
+      "head",
+      "front"
+    ],
+    [
+      "head",
+      "profile"
+    ],
+    [
+      "body",
+      "front"
+    ]
+  ],
+  "frames": {
+    "body": {
+      "center": [
+        0.0,
+        -0.11460304260253906,
+        0.829715676678461
+      ],
+      "scale": 1.8585630820551888,
+      "resolution": [
+        768,
+        1024
+      ],
+      "union_min": [
+        -0.5494645833969116,
+        -0.334472119808197,
+        1.5046680346131325e-08
+      ],
+      "union_max": [
+        0.5494645833969116,
+        0.1052660346031189,
+        1.6594313383102417
+      ]
+    },
+    "head": {
+      "center": [
+        0.0,
+        -0.04541023448109627,
+        1.4983700513839722
+      ],
+      "scale": 0.3849921894073487,
+      "resolution": [
+        768,
+        768
+      ],
+      "union_min": [
+        -0.17187151312828064,
+        -0.15973001718521118,
+        1.3373087644577026
+      ],
+      "union_max": [
+        0.17187151312828064,
+        0.06890954822301865,
+        1.6594313383102417
+      ]
+    }
+  },
+  "look": {
+    "view_transform": "AgX",
+    "look": "None",
+    "display": "sRGB",
+    "exposure": 0.0,
+    "gamma": 1.0,
+    "curve_mapping": false,
+    "compositing": false,
+    "sequencer": false,
+    "pixel_aspect": [
+      1.0,
+      1.0
+    ]
+  },
+  "lighting_center": [
+    0.0,
+    -0.11460304260253906,
+    0.829715676678461
+  ],
+  "baseline_views": "Exact v2 headfront/profile/bodyfront PNGs; same inherited16sample CPU/lights/settings/sharedframes",
+  "budgets": {
+    "all_vertices": 500000,
+    "all_triangles": 1000000
+  },
+  "stop": "First actual source/route/license/color-space/allowed-diff/user-count/geometry/frame/save/reopen mismatch or actual artist refusal; no alternate multiplier/node/retry",
+  "candidate_promotion": false,
+  "limits": "Isolated palette direction only. No exact complexion/detail/skin/identity/hair/motion/export/runtime/AAA acceptance; same-process reopen only."
+}
