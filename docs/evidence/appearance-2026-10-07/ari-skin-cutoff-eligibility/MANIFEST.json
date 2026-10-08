@@ -1,0 +1,101 @@
+{
+  "created_utc": "2026-10-08T06:46:47.309111+00:00",
+  "files": [
+    {
+      "name": "EXEC-PLAN-before-strict-json.json",
+      "bytes": 3114,
+      "sha256": "99042247e6a6cc1852e77c926caa61bb80735f664f8b3edb909c75325d718484"
+    },
+    {
+      "name": "EXEC-PLAN.json",
+      "bytes": 3171,
+      "sha256": "a464101da62531cc544f4a31db6164c0c112f79ed12496275a1e78102c7c5449"
+    },
+    {
+      "name": "JOB-start.json",
+      "bytes": 576,
+      "sha256": "5573212d422a971a5dac15ebf31471c20b21d3bf816b0af214d0cb22cb350484"
+    },
+    {
+      "name": "JOB.json",
+      "bytes": 648,
+      "sha256": "924cb39117024c30a17373cacdf8c66506c714cd5872417d0d9f20baabccd956"
+    },
+    {
+      "name": "PLAN.md",
+      "bytes": 3642,
+      "sha256": "11c44d79058f01c86f24434b15a520ea5ec0b8302001c4b8dfcc3cc83216164d"
+    },
+    {
+      "name": "PREFLIGHT.md",
+      "bytes": 5115,
+      "sha256": "69cbe38ab2d5fb93a5b4a3d33a11e41bdbbde65818214089de84d36d3e4ddf2e"
+    },
+    {
+      "name": "README.md",
+      "bytes": 4869,
+      "sha256": "417cdf206aa1e5b8d3b82b20cce3d623dfb1cf843f856433725ab590f00e86e3"
+    },
+    {
+      "name": "RESULT-REVIEW.md",
+      "bytes": 6137,
+      "sha256": "a1aa5497505a10d06383181d7522c8258b75dcbdb3db4cb8f7243e230036f44e"
+    },
+    {
+      "name": "RESULT.json",
+      "bytes": 16937297,
+      "sha256": "98e018c7d33ca3ac800fb53a0774233c4239ffbb115193b68a5c2e838c99d53b"
+    },
+    {
+      "name": "ROOT-INFLUENCE-HASHES.json",
+      "bytes": 1897,
+      "sha256": "fc7a8579e010bcd3558dca94e3ec13f5d758f5274bcd69d6a6252aa42d0c2b5d"
+    },
+    {
+      "name": "ROOT-PREFLIGHT.json",
+      "bytes": 394,
+      "sha256": "bee5d81b0fbf9207a8e5715d108c56e0c86200ca973ecc6cf281ebf0b493bbf7"
+    },
+    {
+      "name": "ROOT-READBACK.json",
+      "bytes": 1724,
+      "sha256": "1c20095841cb8901655cbd07c709e034b969e6b67a961016deed726e5bb2f068"
+    },
+    {
+      "name": "ROOT-RESULT.json",
+      "bytes": 3685,
+      "sha256": "cbd401578422ee6b8d59ac5c2d858b42517ca1237b00a6fa4c55bedcf7e81385"
+    },
+    {
+      "name": "ROOT-WORTH.json",
+      "bytes": 203,
+      "sha256": "4b5a4c30ae8ad9d06690475a4fd8c3e2750a30290076048ae950e77ce4496301"
+    },
+    {
+      "name": "WORTH.md",
+      "bytes": 3501,
+      "sha256": "da56b264c4b500967d4077c1eb1dd68d59eb47479747848ce5bc5ff32a55fe28"
+    },
+    {
+      "name": "native.log",
+      "bytes": 868,
+      "sha256": "fbab256a0f3b83e4ea0f8bca078d1403e4fa1cdc75c434e599fe446fd2b7062c"
+    },
+    {
+      "name": "query_weights-before-strict-json.py",
+      "bytes": 7739,
+      "sha256": "b99a030e579880a562bb1fe28850deb7096ad1fe182e07cf804bdc2792185953"
+    },
+    {
+      "name": "query_weights.py",
+      "bytes": 8162,
+      "sha256": "eaaa98aaa01973e34b9d7d1e1eef99972c14ca2a8d78f32fff33090ef12a3e61"
+    },
+    {
+      "name": "run_native.py",
+      "bytes": 1754,
+      "sha256": "b8234a5361b007cb6bbacf781bba499eccc8c0aa45eb2c3bfcb574293a3d2dc8"
+    }
+  ],
+  "scope": "Complete actualROskin eligibility packet; manifest excludes itself."
+}

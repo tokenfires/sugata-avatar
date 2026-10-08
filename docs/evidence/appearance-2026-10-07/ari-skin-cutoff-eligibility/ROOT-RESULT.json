@@ -1,0 +1,133 @@
+{
+  "verified_utc": "2026-10-08T06:36:08.539348+00:00",
+  "result": {
+    "bytes": 16937297,
+    "sha256": "98e018c7d33ca3ac800fb53a0774233c4239ffbb115193b68a5c2e838c99d53b"
+  },
+  "job": {
+    "started_utc": "2026-10-08T06:31:27.465399+00:00",
+    "wrapper_pid": 54286,
+    "argv": [
+      "/Applications/Blender.app/Contents/MacOS/Blender",
+      "--background",
+      "--offline-mode",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/work/neutral-lossless.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-skin-cutoff-eligibility/query_weights.py"
+    ],
+    "timeout_seconds": 120,
+    "timed_out": false,
+    "pid": 54287,
+    "exit_code": 0,
+    "finished_utc": "2026-10-08T06:31:29.424574+00:00"
+  },
+  "strict_json": true,
+  "native_vertices_recomputed": 18912,
+  "raw_memberships_reclassified": 59004,
+  "positive_native_bone_memberships": 30258,
+  "cutoff_participants": 0,
+  "smallest_positive_bone_witness": {
+    "owner": "Human",
+    "vertex": 10652,
+    "bone": "thigh_l",
+    "weight": 0.0001000099946395494
+  },
+  "maximum_influence_witness": {
+    "owner": "Human",
+    "vertex": 1870,
+    "positive_bone_count": 6,
+    "bone_memberships": [
+      {
+        "group_index": 152,
+        "group": "pelvis",
+        "weight": 0.0002999700082000345,
+        "native_bone": "pelvis",
+        "use_deform": true
+      },
+      {
+        "group_index": 153,
+        "group": "spine_01",
+        "weight": 0.005699430126696825,
+        "native_bone": "spine_01",
+        "use_deform": true
+      },
+      {
+        "group_index": 154,
+        "group": "spine_02",
+        "weight": 0.05129486694931984,
+        "native_bone": "spine_02",
+        "use_deform": true
+      },
+      {
+        "group_index": 155,
+        "group": "spine_03",
+        "weight": 0.8952105045318604,
+        "native_bone": "spine_03",
+        "use_deform": true
+      },
+      {
+        "group_index": 175,
+        "group": "clavicle_r",
+        "weight": 0.002599740168079734,
+        "native_bone": "clavicle_r",
+        "use_deform": true
+      },
+      {
+        "group_index": 176,
+        "group": "upperarm_r",
+        "weight": 0.044895511120557785,
+        "native_bone": "upperarm_r",
+        "use_deform": true
+      }
+    ]
+  },
+  "summaries": [
+    {
+      "owner": "Human",
+      "vertices": 13380,
+      "min_bone_sum": 0.999899979273323,
+      "max_bone_sum": 1.000000175088644,
+      "max_positive_bones": 6
+    },
+    {
+      "owner": "Human.eyebrow001",
+      "vertices": 124,
+      "min_bone_sum": 1.0,
+      "max_bone_sum": 1.0,
+      "max_positive_bones": 1
+    },
+    {
+      "owner": "Human.eyelashes01",
+      "vertices": 250,
+      "min_bone_sum": 1.0,
+      "max_bone_sum": 1.0,
+      "max_positive_bones": 1
+    },
+    {
+      "owner": "Human.high-poly",
+      "vertices": 1064,
+      "min_bone_sum": 1.0,
+      "max_bone_sum": 1.0,
+      "max_positive_bones": 1
+    },
+    {
+      "owner": "Human.teeth_base",
+      "vertices": 3868,
+      "min_bone_sum": 1.0,
+      "max_bone_sum": 1.0,
+      "max_positive_bones": 1
+    },
+    {
+      "owner": "Human.tongue01",
+      "vertices": 226,
+      "min_bone_sum": 0.9999998807907104,
+      "max_bone_sum": 1.0,
+      "max_positive_bones": 1
+    }
+  ],
+  "complete_scene_mapping_metadata_and_physical_candidate_unchanged": true,
+  "source_helper_input_pins_match": true,
+  "limits": "Root independently recomputes storedrawgroup/bone/cutoff/sum data; no secondnativequery, no exporterjointtree/binds/normalization/default/material/GLB/motion qualification."
+}

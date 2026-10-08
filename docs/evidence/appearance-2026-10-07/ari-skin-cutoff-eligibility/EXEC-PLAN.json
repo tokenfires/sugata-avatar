@@ -1,0 +1,67 @@
+{
+  "created_utc": "2026-10-08T06:14:39.431218+00:00",
+  "timeout_seconds": 120,
+  "source": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/work/neutral-lossless.blend",
+    "bytes": 10811557,
+    "sha256": "7493efbb49243131d78c6fa9517c28f3001d5b75c1612bfe5b4ff8cb0ee0eaba"
+  },
+  "warm_receipt": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/RESULT.json",
+    "bytes": 2364038,
+    "sha256": "0301bd3f82da3dac37551c41495978a1f37810edd2f1ec7f21ba22000dee1368"
+  },
+  "scene_helper": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+    "bytes": 6017,
+    "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+  },
+  "metadata_helper": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/exact_reconstruction.py",
+    "bytes": 4023,
+    "sha256": "c82fa06abd9bfa14960f931709a191d18ed95f02266fb04a4b894ce5c16da390"
+  },
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/RESULT.json",
+      "bytes": 2364038,
+      "sha256": "0301bd3f82da3dac37551c41495978a1f37810edd2f1ec7f21ba22000dee1368"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+      "bytes": 6017,
+      "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/exact_reconstruction.py",
+      "bytes": 4023,
+      "sha256": "c82fa06abd9bfa14960f931709a191d18ed95f02266fb04a4b894ce5c16da390"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/primitive_extract.py",
+      "bytes": 87382,
+      "sha256": "55e14cbe849b0c4ec5545c85a1aae3d8c2c7d65eade67de43eb1a43b05738684"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-skin-cutoff-eligibility/query_weights.py",
+      "bytes": 8162,
+      "sha256": "eaaa98aaa01973e34b9d7d1e1eef99972c14ca2a8d78f32fff33090ef12a3e61"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-skin-cutoff-eligibility/PLAN.md",
+      "bytes": 3642,
+      "sha256": "11c44d79058f01c86f24434b15a520ea5ec0b8302001c4b8dfcc3cc83216164d"
+    }
+  ],
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/work/neutral-lossless.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-skin-cutoff-eligibility/query_weights.py"
+  ],
+  "pin_refresh_utc": "2026-10-08T06:24:42.398766+00:00"
+}
