@@ -1,0 +1,87 @@
+{
+  "verified_utc": "2026-10-08T11:51:53.189519+00:00",
+  "job": {
+    "started_utc": "2026-10-08T11:37:26.230686+00:00",
+    "wrapper_pid": 98100,
+    "argv": [
+      "/Applications/Blender.app/Contents/MacOS/Blender",
+      "--background",
+      "--offline-mode",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/work/neutral-lossless.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/export_once.py"
+    ],
+    "timeout_seconds": 240,
+    "timed_out": false,
+    "pid": 98101,
+    "exit_code": 0,
+    "finished_utc": "2026-10-08T11:37:30.688089+00:00"
+  },
+  "all551_stored_checks_pass": true,
+  "actual_GLBS_direct_struct_BIN_and_non_graph_JSON_unchanged": true,
+  "all293_accessors_independently_decoded": true,
+  "NPZ_arrays": 278,
+  "all236_morphs_6_mesh_positions_UV_defaults_recomputed": [
+    {
+      "owner": "Human",
+      "primitive": 0,
+      "position_max_m": 0.0,
+      "UV_max": 2.9802322387695312e-08,
+      "morph_max_m": 1.862645149230957e-09,
+      "default_max_m": 5.130365268474625e-07,
+      "morphs": 97
+    },
+    {
+      "owner": "Human.eyebrow001",
+      "primitive": 0,
+      "position_max_m": 0.0,
+      "UV_max": 2.9802322387695312e-08,
+      "morph_max_m": 0,
+      "default_max_m": 2.38912831914782e-07,
+      "morphs": 49
+    },
+    {
+      "owner": "Human.eyelashes01",
+      "primitive": 0,
+      "position_max_m": 0.0,
+      "UV_max": 2.9802322387695312e-08,
+      "morph_max_m": 0,
+      "default_max_m": 2.38912831914782e-07,
+      "morphs": 27
+    },
+    {
+      "owner": "Human.high-poly",
+      "primitive": 0,
+      "position_max_m": 0.0,
+      "UV_max": 2.9802322387695312e-08,
+      "morph_max_m": 0,
+      "default_max_m": 2.38912831914782e-07,
+      "morphs": 8
+    },
+    {
+      "owner": "Human.teeth_base",
+      "primitive": 0,
+      "position_max_m": 0.0,
+      "UV_max": 2.9802322387695312e-08,
+      "morph_max_m": 2.3283064365386963e-10,
+      "default_max_m": 2.3889104820542146e-07,
+      "morphs": 27
+    },
+    {
+      "owner": "Human.tongue01",
+      "primitive": 0,
+      "position_max_m": 0.0,
+      "UV_max": 2.9802322387695312e-08,
+      "morph_max_m": 2.3283064365386963e-10,
+      "default_max_m": 2.3888560196770133e-07,
+      "morphs": 28
+    }
+  ],
+  "complete_before_after_cold_warm_owner_equal": true,
+  "all_source_native_artifact_pins_and_work0444_exact": true,
+  "raw_log_RESULT_match": true,
+  "no_live_native": true,
+  "limits": "Rest numerical artifact only; source normals/material/image/sampler/Three consumer/motion/appearance/performance/Ari held. Carrier unqualified. Actualcastmatrixpoint thresholds unchanged."
+}

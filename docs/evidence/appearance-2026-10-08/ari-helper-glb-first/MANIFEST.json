@@ -1,0 +1,180 @@
+{
+  "created_utc": "2026-10-08T11:55:51.082537+00:00",
+  "files": [
+    {
+      "name": ".gitignore",
+      "bytes": 19,
+      "sha256": "7c0e3807a109f275f04fa607825e26c8d69f2e23f684cf4ca68e03df1173780a"
+    },
+    {
+      "name": "CHANGES.diff",
+      "bytes": 8566,
+      "sha256": "95ad119b1d11e81a6f025b925193498276351423bbe62a198b830f117cc5eb05"
+    },
+    {
+      "name": "COLD-RESULT.json",
+      "bytes": 1573743,
+      "sha256": "6c8480958c108a60215f4efed86996f3b74dece14f37b3493ca1ca023f40b6ab"
+    },
+    {
+      "name": "EXEC-PLAN-before-single-scene.json",
+      "bytes": 2444,
+      "sha256": "18520b127174ad1541bcae8556d49fddb9f1877eebafa51a5fca6ddad4066393"
+    },
+    {
+      "name": "EXEC-PLAN.json",
+      "bytes": 2444,
+      "sha256": "790a755613de1ece5e03bc245d3d5afedb44d57eec471453c12ecbd5bdafb82a"
+    },
+    {
+      "name": "GLB-DOCUMENT.json",
+      "bytes": 260643,
+      "sha256": "6c56d646bb31bd3f3a46d5085cc54cbd53a3e67432dcf9c4561f1d3b6561ede0"
+    },
+    {
+      "name": "GRAPH-TEST.json",
+      "bytes": 483,
+      "sha256": "831c97e8da9238003fddece2f77cfdbd12e2cd1b3a84884194ebef955a53e78e"
+    },
+    {
+      "name": "JOB-start.json",
+      "bytes": 567,
+      "sha256": "31dd64f2454130cdae677efcbeba4905f4d5d356dc1d75f85ddfdf788a4f5561"
+    },
+    {
+      "name": "JOB.json",
+      "bytes": 639,
+      "sha256": "5b44e2acddd7ef78c216c477a6e2968669b72916663bc682e3c3efd4833426e3"
+    },
+    {
+      "name": "NATIVE.json",
+      "bytes": 329425,
+      "sha256": "91d553bc4cd007126c09006e318dd11644eb7620561891f20d54023b82e25855"
+    },
+    {
+      "name": "PLAN.md",
+      "bytes": 3865,
+      "sha256": "bd16eaba9291516f0f40754ca254c6629b55a25f2406913fbb8922327af8ae1e"
+    },
+    {
+      "name": "PREFLIGHT.md",
+      "bytes": 6816,
+      "sha256": "6847877ea6d666afbbae854f3c881000277ef169f2eac4b43af69e8cb66674a2"
+    },
+    {
+      "name": "README.md",
+      "bytes": 4777,
+      "sha256": "38df927dd746ce535a80789c71dfc073e6ca0ea802f25e06303b712a4bcc48e2"
+    },
+    {
+      "name": "RESULT-REVIEW.md",
+      "bytes": 8863,
+      "sha256": "c4bab13fe161cd69b54ddcdd04e1e240aa21f9aca93233ecbef42e395cf412f8"
+    },
+    {
+      "name": "RESULT.json",
+      "bytes": 1394674,
+      "sha256": "30afce7aed8de4ea6f376cdc90c0c26f91cd47574d79ea7b398c6009221d5763"
+    },
+    {
+      "name": "ROOT-PREFLIGHT.json",
+      "bytes": 523,
+      "sha256": "c6daaafba2054900531f72644d2b46f4304bce6edf789e92301e7e70717755c4"
+    },
+    {
+      "name": "ROOT-READBACK.json",
+      "bytes": 3003,
+      "sha256": "cf02fa9318c1309a85c82fee46db336a7a5cfdc4cad061a169d818d1c346c446"
+    },
+    {
+      "name": "ROOT-RESULT.json",
+      "bytes": 2778,
+      "sha256": "1ee3e408de749aaa96d2159633fa8b3286af50cfc113e05c17052cc002483ddd"
+    },
+    {
+      "name": "ROOT-WORTH.json",
+      "bytes": 292,
+      "sha256": "05280103c76b3fb5ce7f69aa7c810db2b726b21600259c5e1549559617ac9317"
+    },
+    {
+      "name": "RUN-PLAN-before-single-scene.json",
+      "bytes": 12172,
+      "sha256": "c88193e98e8b1044f0eafb4a6ade9496030f873057f157035ebc9352b1978ce2"
+    },
+    {
+      "name": "RUN-PLAN.json",
+      "bytes": 12294,
+      "sha256": "05b887c54f2a5fea02fa0a40b175366e9877d40c693b80ee37dc9edc2487a5e0"
+    },
+    {
+      "name": "SCENE-TEST.json",
+      "bytes": 417,
+      "sha256": "c57849110e7315c36f59fdbe44ad2ae4cf187b925fa913c8ed0c84dc0f327bbb"
+    },
+    {
+      "name": "WORTH.md",
+      "bytes": 2995,
+      "sha256": "3d468ea81ca105434e49d1fa11cbf10fd6c21c3f2d8c357904fb3dad8c76302e"
+    },
+    {
+      "name": "export_once-before-single-scene.py",
+      "bytes": 30995,
+      "sha256": "2a7e96eebc00c49816fdbb025fe772e862fff2e48ba765ce2031fc9b8eb0e2d7"
+    },
+    {
+      "name": "export_once-inherited.py",
+      "bytes": 27936,
+      "sha256": "0cddaa29d620a83c7a116c91e9c917b4593970a552d66787173a1aa5b20eb6f1"
+    },
+    {
+      "name": "export_once.py",
+      "bytes": 31107,
+      "sha256": "506d578ce19691c63eebfb0a781ca9b8f247b15d3f0ef6f5c2aaad0a3f0c1ee3"
+    },
+    {
+      "name": "glb_numeric-inherited.py",
+      "bytes": 8670,
+      "sha256": "d1302c603e61c0c5818e26797ae289ce5f06767fafa4127fdf591bde6c959025"
+    },
+    {
+      "name": "glb_numeric.py",
+      "bytes": 8704,
+      "sha256": "94f0ca837918ac3329ded507a6ef9250a39ec45b2e8ef7ac11d997342c481f70"
+    },
+    {
+      "name": "helper_graph-before-single-scene.py",
+      "bytes": 4342,
+      "sha256": "defbfe8b3bbac24add039e2dc0872c17c5428c7587043340c48f535b89f77819"
+    },
+    {
+      "name": "helper_graph.py",
+      "bytes": 4476,
+      "sha256": "1d0cc49dd00aeef06aa115fde387e68b347833429831a47c8367eee08055adfc"
+    },
+    {
+      "name": "native.log",
+      "bytes": 2657,
+      "sha256": "bec7ef3de4f09282467678940463ef6cf396263be0e809fdbaa4f48235ff40d0"
+    },
+    {
+      "name": "rna_values-inherited.py",
+      "bytes": 5470,
+      "sha256": "9738a963c83f78ba95f71d954b73464a9e73283b8735ca8987089b8be3a2123b"
+    },
+    {
+      "name": "rna_values.py",
+      "bytes": 5470,
+      "sha256": "9738a963c83f78ba95f71d954b73464a9e73283b8735ca8987089b8be3a2123b"
+    },
+    {
+      "name": "run_native-inherited.py",
+      "bytes": 2024,
+      "sha256": "79aefd6da3a2e0e0e0e6ba33543cfbb08470332232fecc982f96cd0c55580e59"
+    },
+    {
+      "name": "run_native.py",
+      "bytes": 2044,
+      "sha256": "b7952f7260530872166f8c4b726890311d8d23b1db1f8f3208e8fac8f5d43c18"
+    }
+  ]
+}

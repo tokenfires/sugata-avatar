@@ -1,0 +1,56 @@
+{
+  "created_utc": "2026-10-08T11:12:59.424315+00:00",
+  "timeout_seconds": 240,
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/work/neutral-lossless.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/export_once.py"
+  ],
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/PLAN.md",
+      "bytes": 3865,
+      "sha256": "bd16eaba9291516f0f40754ca254c6629b55a25f2406913fbb8922327af8ae1e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/WORTH.md",
+      "bytes": 2995,
+      "sha256": "3d468ea81ca105434e49d1fa11cbf10fd6c21c3f2d8c357904fb3dad8c76302e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/RUN-PLAN.json",
+      "bytes": 12294,
+      "sha256": "05b887c54f2a5fea02fa0a40b175366e9877d40c693b80ee37dc9edc2487a5e0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/export_once.py",
+      "bytes": 31107,
+      "sha256": "506d578ce19691c63eebfb0a781ca9b8f247b15d3f0ef6f5c2aaad0a3f0c1ee3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/glb_numeric.py",
+      "bytes": 8704,
+      "sha256": "94f0ca837918ac3329ded507a6ef9250a39ec45b2e8ef7ac11d997342c481f70"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/rna_values.py",
+      "bytes": 5470,
+      "sha256": "9738a963c83f78ba95f71d954b73464a9e73283b8735ca8987089b8be3a2123b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/helper_graph.py",
+      "bytes": 4476,
+      "sha256": "1d0cc49dd00aeef06aa115fde387e68b347833429831a47c8367eee08055adfc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/run_native.py",
+      "bytes": 2044,
+      "sha256": "b7952f7260530872166f8c4b726890311d8d23b1db1f8f3208e8fac8f5d43c18"
+    }
+  ]
+}

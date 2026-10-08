@@ -1,0 +1,131 @@
+--- inherited/export_once.py
++++ helper/export_once.py
+@@ -27,6 +27,8 @@
+ MODULES = {}
+ NATIVE = {}
+ ARRAYS = {}
++FACTORS = {}
++FACTOR_INPUT = {}
+ 
+ 
+ def require(condition, message):
+@@ -98,6 +100,7 @@
+     require(np.max(np.abs(matrix(rig.matrix_world)-np.eye(4))) <= 1e-9,
+             "This diagnostic requires native identity rig object frame")
+     require(abs(rig.matrix_world.determinant()) > 1e-8, "Singular rig frame")
++    require(set(FACTORS)==set(names) and set(FACTOR_INPUT)==set(names), "Fixed factor53 named inputs")
+     native_bones = {}
+     for b in bones:
+         require(np.max(np.abs(matrix(rig.pose.bones[b.name].matrix_basis)-np.eye(4))) <= 1e-6,
+@@ -113,10 +116,17 @@
+         expected_global = matrix(C @ rig.matrix_world @ b.matrix_local)
+         expected_ibm = matrix((C @ rig.matrix_world @ b.matrix_local).inverted())
+         require(np.isfinite(expected_global).all(), "Nonfinite bone world")
+-        require(np.max(np.abs(matrix(Matrix.LocRotScale(t,q,s))-matrix(local_v))) <= 1e-6,
+-                "Unrepresentable bone shear")
++        require(matrix(b.matrix_local).tolist()==FACTOR_INPUT[b.name]["input_rest"]
++                and (b.parent.name if b.parent else None)==FACTOR_INPUT[b.name]["parent"],"Exact fixed factor native input")
++        require(expected_global.tolist()==FACTORS[b.name]["raw_global"],"Exact fixed factor world input")
++        legacy_projection=float(np.max(np.abs(matrix(Matrix.LocRotScale(t,q,s))-matrix(local_v))))
++        require(math.isfinite(legacy_projection),"Nonfinite legacy projection observation")
+         native_bones[b.name] = {"parent":b.parent.name if b.parent else None,
+-                               "local":expected_local.tolist(), "global":expected_global.tolist(),
++                               "local":FACTORS[b.name]["raw_local"], "global":expected_global.tolist(),
++                               "legacy_local":matrix(C @ local_v @ C.inverted()).tolist(),
++                               "legacy_projection_residual":legacy_projection,
++                               "legacy_projection_bound_pass":legacy_projection<=1e-6,
++                               "fixed_helpers":{"H1":FACTORS[b.name]["H1"],"H2":FACTORS[b.name]["H2"]},
+                                "inverse_bind":expected_ibm.tolist(), "replay_trs":node}
+     NATIVE["bones"] = native_bones
+     NATIVE["rig_world"] = matrix(C @ rig.matrix_world @ C.inverted()).tolist()
+@@ -220,6 +230,7 @@
+     nodes = d["nodes"]
+     names = [n.get("name") for n in nodes]
+     expected_names = set(NATIVE["meshes"]) | set(NATIVE["bones"]) | {"Human.rig"}
++    expected_names |= {MODULES["graph_helper"].helper_name(n,r) for n in NATIVE["bones"] for r in ("U","V")}
+     require(None not in names and len(set(names))==len(names) and set(names)==expected_names,
+             "Complete native owner/bone node identity")
+     require(glb.reachable==set(range(len(nodes))), "Unreachable native output node")
+@@ -227,13 +238,24 @@
+     ri = byname["Human.rig"]
+     require(ri not in glb.parent and "skin" not in nodes[ri] and "mesh" not in nodes[ri], "Rig root structure")
+     compare("rig_world",glb.worlds[ri],np.asarray(NATIVE["rig_world"]))
++    require(len(nodes)==166,"Exact final166 nodes")
+     for name,b in NATIVE["bones"].items():
+-        i = byname[name]
+-        parent = b["parent"] or "Human.rig"
+-        check("joint_parent:"+name,glb.parent.get(i)==byname[parent],expected_parent=parent,
+-              actual_parent=names[glb.parent[i]] if i in glb.parent else None)
+-        require("mesh" not in nodes[i] and "skin" not in nodes[i], "Joint owns mesh/skin")
+-        compare("joint_local:"+name,decoder.trs(nodes[i]),np.asarray(b["local"]))
++        i=byname[name]
++        un=MODULES["graph_helper"].helper_name(name,"U");vn=MODULES["graph_helper"].helper_name(name,"V")
++        ui,vi=byname[un],byname[vn]
++        parent=b["parent"] or "Human.rig"
++        require(glb.parent.get(i)==vi and glb.parent.get(vi)==ui and glb.parent.get(ui)==byname[parent],"Declared helper/native ancestry")
++        require(nodes[ui].get("children")==[vi] and nodes[vi].get("children")==[i],"Exact helper child roles")
++        for role,idx,kind in [("U",ui,"H1"),("V",vi,"H2")]:
++            n=nodes[idx];spec=b["fixed_helpers"][kind]
++            require(set(n)=={"name","translation","rotation","scale","children","extras"},"Exact helper payload fields")
++            require(n["extras"]=={"sugata_rest_factor_role":role,"sugata_native_joint":name,"sugata_static_helper":True},"Helper role identity")
++            require(n["translation"]==spec["translation"] and n["rotation"]==spec["rotation_xyzw"] and n["scale"]==spec["scale"],"Frozen exact helper TRS")
++        require("mesh" not in nodes[i] and "skin" not in nodes[i] and "matrix" not in nodes[i],"Named joint role")
++        compare("joint_identity_rest:"+name,decoder.trs(nodes[i]),np.eye(4))
++        combined=decoder.trs(nodes[ui])@decoder.trs(nodes[vi])@decoder.trs(nodes[i])
++        compare("joint_combined_raw_local:"+name,combined,np.asarray(b["local"]))
++        compare("joint_combined_legacy_raw_local:"+name,combined,np.asarray(b["legacy_local"]))
+         compare("joint_global_rest:"+name,glb.worlds[i],np.asarray(b["global"]))
+     meshes = d.get("meshes",[])
+     materials = d.get("materials",[])
+@@ -372,7 +394,7 @@
+     require(not OUT.exists() and all(not (HERE/n).exists() for n in
+             ["RESULT.json","COLD-RESULT.json","NATIVE.json","GLB-DOCUMENT.json"]),"First-output directory/record collision")
+     OUT.mkdir()
+-    for name in ("scene_helper","metadata_helper","cold_guard","decoder","rna_helper"):
++    for name in ("scene_helper","metadata_helper","cold_guard","decoder","rna_helper","graph_helper"):
+         MODULES[name]=module("sugata_numeric_"+name,PLAN[name]["path"])
+     decoder=MODULES["decoder"]
+     before=MODULES["scene_helper"].capture_scene()
+@@ -386,6 +408,12 @@
+     options=PLAN["kwargs"]
+     REPORT["RNA"]=[]
+     MODULES["rna_helper"].validate(bpy,options,REPORT["RNA"],PLAN["format_source"])
++    global FACTORS,FACTOR_INPUT
++    factor_doc=json.loads(Path(PLAN["factor_result"]["path"]).read_text())
++    factor_input=json.loads(Path(PLAN["factor_source"]["path"]).read_text())
++    require(factor_doc["nominated"] and factor_input["complete"],"Qualified frozen factor/source witness")
++    FACTORS={r["bone"]:r for r in factor_doc["records"]}
++    FACTOR_INPUT={r["bone"]:r for r in factor_input["records"]}
+     capture_native(meshes,rig,decoder)
+     for o in before["objects"]:
+         if o["type"]=="MESH":
+@@ -410,18 +438,26 @@
+         bpy.context.view_layer.objects.active=rig
+         bpy.context.view_layer.update()
+         require(set(bpy.context.selected_objects)==set(meshes+[rig]),"Exact selected owner set")
+-        outfile=OUT/"candidate.glb"
++        outfile=OUT/"stock-carrier.glb"
+         REPORT["export_started_utc"]=datetime.datetime.now(datetime.timezone.utc).isoformat()
+         REPORT["export_calls"]+=1
+         status=bpy.ops.export_scene.gltf(filepath=str(outfile),**options)
+         REPORT["operator_status"]=sorted(status)
+         require("FINISHED" in status and outfile.is_file(),"Exporter did not finish/save first GLB")
+         require(outfile.stat().st_size <= PLAN["decoder_limits"]["max_glb_bytes"],"First GLB exceeds declared byte budget")
+-        REPORT["candidate_glb"]=identity(outfile)
++        REPORT["unqualified_stock_carrier"]=identity(outfile)
+         raw=outfile.read_bytes()
+         row_budget=max([53]+[n["triangles"]*3 for n in NATIVE["meshes"].values()])
+         REPORT["decoder_limits"]={**PLAN["decoder_limits"],"max_accessor_rows":row_budget}
+-        glb=decoder.GLB(raw,max_accessor_rows=row_budget,**PLAN["decoder_limits"])
++        carrier=decoder.GLB(raw,max_accessor_rows=row_budget,**PLAN["decoder_limits"])
++        encoded,delta=MODULES["graph_helper"].rewrite(carrier,NATIVE,FACTORS,decoder)
++        require(len(encoded)<=PLAN["decoder_limits"]["max_glb_bytes"],"Final byte budget")
++        final=OUT/"candidate.glb"
++        with final.open("xb") as f:f.write(encoded)
++        REPORT["candidate_glb"]=identity(final)
++        REPORT["graph_delta"]=delta
++        require(identity(outfile)==REPORT["unqualified_stock_carrier"],"Stock carrier bytes changed")
++        glb=decoder.GLB(final.read_bytes(),max_accessor_rows=row_budget,**PLAN["decoder_limits"])
+         with (HERE/"GLB-DOCUMENT.json").open("x") as f:
+             json.dump(glb.doc,f,indent=2,allow_nan=False);f.write("\n")
+         audit(glb,decoder)

@@ -1,0 +1,260 @@
+{
+  "source": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/work/neutral-lossless.blend",
+    "bytes": 10811557,
+    "sha256": "7493efbb49243131d78c6fa9517c28f3001d5b75c1612bfe5b4ff8cb0ee0eaba"
+  },
+  "warm_receipt": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/RESULT.json",
+    "bytes": 2364038,
+    "sha256": "0301bd3f82da3dac37551c41495978a1f37810edd2f1ec7f21ba22000dee1368"
+  },
+  "scene_helper": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+    "bytes": 6017,
+    "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+  },
+  "metadata_helper": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/exact_reconstruction.py",
+    "bytes": 4023,
+    "sha256": "c82fa06abd9bfa14960f931709a191d18ed95f02266fb04a4b894ce5c16da390"
+  },
+  "pristine": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/neutral-source-logged.blend",
+    "bytes": 11983694,
+    "sha256": "6ed771b71a99ac8a5cf9c717fef5364ac0a427763e601fecffa984bafd4f53eb"
+  },
+  "cold_guard": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-lossless-cold-views/cold_guard.py",
+    "bytes": 1932,
+    "sha256": "cf3d9c49699c975ef61a256b95e38067d9eaee0c4d7dbcaa4246eb61bfec6506"
+  },
+  "decoder": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/glb_numeric.py",
+    "bytes": 8704,
+    "sha256": "94f0ca837918ac3329ded507a6ef9250a39ec45b2e8ef7ac11d997342c481f70"
+  },
+  "kwargs": {
+    "export_format": "GLB",
+    "use_selection": true,
+    "use_visible": false,
+    "use_renderable": false,
+    "export_apply": false,
+    "export_morph": true,
+    "export_morph_normal": false,
+    "export_morph_tangent": false,
+    "export_morph_animation": false,
+    "export_morph_reset_sk_data": false,
+    "export_try_sparse_sk": true,
+    "export_extras": true,
+    "export_attributes": true,
+    "export_skins": true,
+    "export_all_influences": true,
+    "export_def_bones": false,
+    "export_leaf_bone": false,
+    "export_armature_object_remove": false,
+    "export_hierarchy_flatten_bones": false,
+    "export_hierarchy_flatten_objs": false,
+    "export_rest_position_armature": true,
+    "export_current_frame": true,
+    "export_animations": false,
+    "export_yup": true,
+    "export_materials": "EXPORT",
+    "export_image_format": "AUTO",
+    "export_shared_accessors": false,
+    "export_normals": true,
+    "export_tangents": false,
+    "export_draco_mesh_compression_enable": false,
+    "export_cameras": false,
+    "export_lights": false,
+    "export_texcoords": true,
+    "export_use_gltfpack": false,
+    "export_meshopt_compression_enable": false,
+    "export_vertex_color": "NONE",
+    "export_all_vertex_colors": false,
+    "export_active_vertex_color_when_no_material": false,
+    "use_mesh_edges": false,
+    "use_mesh_vertices": false,
+    "will_save_settings": false,
+    "export_hierarchy_full_collections": false
+  },
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/PLAN.md",
+      "bytes": 3865,
+      "sha256": "bd16eaba9291516f0f40754ca254c6629b55a25f2406913fbb8922327af8ae1e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/WORTH.md",
+      "bytes": 2995,
+      "sha256": "3d468ea81ca105434e49d1fa11cbf10fd6c21c3f2d8c357904fb3dad8c76302e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/export_once.py",
+      "bytes": 31107,
+      "sha256": "506d578ce19691c63eebfb0a781ca9b8f247b15d3f0ef6f5c2aaad0a3f0c1ee3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/glb_numeric.py",
+      "bytes": 8704,
+      "sha256": "94f0ca837918ac3329ded507a6ef9250a39ec45b2e8ef7ac11d997342c481f70"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/rna_values.py",
+      "bytes": 5470,
+      "sha256": "9738a963c83f78ba95f71d954b73464a9e73283b8735ca8987089b8be3a2123b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/helper_graph.py",
+      "bytes": 4476,
+      "sha256": "1d0cc49dd00aeef06aa115fde387e68b347833429831a47c8367eee08055adfc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/RESULT.json",
+      "bytes": 2364038,
+      "sha256": "0301bd3f82da3dac37551c41495978a1f37810edd2f1ec7f21ba22000dee1368"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+      "bytes": 6017,
+      "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/exact_reconstruction.py",
+      "bytes": 4023,
+      "sha256": "c82fa06abd9bfa14960f931709a191d18ed95f02266fb04a4b894ce5c16da390"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-lossless-cold-views/cold_guard.py",
+      "bytes": 1932,
+      "sha256": "cf3d9c49699c975ef61a256b95e38067d9eaee0c4d7dbcaa4246eb61bfec6506"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/__init__.py",
+      "bytes": 86974,
+      "sha256": "73d98cf870d69f2aedb0a13798e389688a225efb4c155c5980bbb7ca0436421b"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/obj_data.py",
+      "bytes": 6545,
+      "sha256": "eadd96a3b5ee96586ca4c400089b943e52dfe2af5073a77f2af6b8688a00abc8"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/com/data_path.py",
+      "bytes": 3274,
+      "sha256": "13af69efa34e6b85ad02feb4bca4cfa2f999600ce542ce01775d00d0989bad4c"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/tree.py",
+      "bytes": 50060,
+      "sha256": "0abdc591b3542fe91eb33f8b0efa872b2b70a1a7b07f7ebd7fede1683f100fc6"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/joints.py",
+      "bytes": 4044,
+      "sha256": "d47c355ec378925a75b910f843855f6fbf41ae048292d1d1a24b3861b67dbfc6"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/skins.py",
+      "bytes": 5412,
+      "sha256": "c37f5a3f3e6338c1e4787d5199cdd41a2527cec62bb72a140847480b92c8388e"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/primitive_extract.py",
+      "bytes": 87382,
+      "sha256": "55e14cbe849b0c4ec5545c85a1aae3d8c2c7d65eade67de43eb1a43b05738684"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/primitive_attributes.py",
+      "bytes": 10150,
+      "sha256": "815331d39cdf06e73ae110e9921ebfc8cb37825290843cbcbf4d1a7559899e5d"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/com/conversion.py",
+      "bytes": 7934,
+      "sha256": "fce2af82a0edcb135ea7ce4198d6819c8873fe42105122ef944cdd7b0a3bd11e"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/nodes.py",
+      "bytes": 25265,
+      "sha256": "4ee23688b86f3250057b305fe9397755e6be1dcb4dd99c7ecc39e879a3f9cbcb"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/material/materials.py",
+      "bytes": 36566,
+      "sha256": "484e77e10a60d9fed663e3c5e0381bb4acb7a3f47deaa5200c54680080179fc0"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/material/image.py",
+      "bytes": 21376,
+      "sha256": "8992ede92c75254e47568af6cc0bd7a0fe24884531c2c45161d745922aa9ca07"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/material/encode_image.py",
+      "bytes": 19162,
+      "sha256": "724a9e64e80f10d8458b7df8046e900789384534cf6c63289f7a214701424ddd"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/material/pbr_metallic_roughness.py",
+      "bytes": 11592,
+      "sha256": "779006011a28495b9d03d90adce675f79824bb5bfd8336de51c829bc0db032fc"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/material/texture.py",
+      "bytes": 9536,
+      "sha256": "f5a4d449c2aa958d68c569de2b6994b942926261a7317764978e5f885f0ca499"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/blender/exp/material/texture_info.py",
+      "bytes": 11187,
+      "sha256": "a1494dee92e421d4a56af2fc2bb118ae3e0ef0c690f3124af026464f7e2745c1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-affine-eligibility/FACTOR-RESULT.json",
+      "bytes": 415179,
+      "sha256": "ab5c737bb37abf479b107096641cf6211020500ff87cb5c9784b3981fd89ccd3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bone-trs-witness/RESULT.json",
+      "bytes": 250689,
+      "sha256": "fffac2efb0a424753afc90ee05680ee36fe7ea3fd4d81989abc0a4c0ed03d3c0"
+    }
+  ],
+  "numeric_bounds": {
+    "positions_and_morph_norm_m": 1e-06,
+    "UV_weights_matrix_elements": 1e-06
+  },
+  "primary_read_limit": "KHRONOS-RAW.json contains only headings; no raw normative content obtained or used",
+  "decoder_limits": {
+    "max_glb_bytes": 268435456,
+    "max_decoded_bytes": 536870912
+  },
+  "decoder_row_budget": "derived in native: maximum of53 and all captured native triangle-index counts",
+  "scene_frame_scope": "Guard native rig/all6 mesh object-world identity within1e-9; installed skinned-node TRS omitted. Compare actual local/global mesh identity at1e-6, require invertibility, and include inverse(mesh_world) joint action then mesh-world placement in decoded weighted rest action.",
+  "rna_helper": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/rna_values.py",
+    "bytes": 5470,
+    "sha256": "9738a963c83f78ba95f71d954b73464a9e73283b8735ca8987089b8be3a2123b"
+  },
+  "format_source": {
+    "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/__init__.py",
+    "bytes": 86974,
+    "sha256": "73d98cf870d69f2aedb0a13798e389688a225efb4c155c5980bbb7ca0436421b"
+  },
+  "graph_helper": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/helper_graph.py",
+    "bytes": 4476,
+    "sha256": "1d0cc49dd00aeef06aa115fde387e68b347833429831a47c8367eee08055adfc"
+  },
+  "factor_result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-affine-eligibility/FACTOR-RESULT.json",
+    "bytes": 415179,
+    "sha256": "ab5c737bb37abf479b107096641cf6211020500ff87cb5c9784b3981fd89ccd3"
+  },
+  "factor_source": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bone-trs-witness/RESULT.json",
+    "bytes": 250689,
+    "sha256": "fffac2efb0a424753afc90ee05680ee36fe7ea3fd4d81989abc0a4c0ed03d3c0"
+  },
+  "scene_scope": "Exact one original/active scene; refuse all multi-scene carriers/finals rather than unowned traversal"
+}
