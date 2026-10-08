@@ -1,0 +1,19 @@
+{
+  "executed_command": "python3 docs/evidence/appearance-2026-10-08/ari-numeric-glb-first/test_decoder.py",
+  "command_chunk": "24b2f8",
+  "exit_code": 0,
+  "checks": 12,
+  "all_pass": true,
+  "numpy_version": "2.4.6",
+  "script": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-first/test_decoder.py",
+    "bytes": 3501,
+    "sha256": "88f0267e0f7c3c2d6449612b112296e6c3e942a09c9e456e8c3481b7a407e72f"
+  },
+  "decoder": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-first/glb_numeric.py",
+    "bytes": 7924,
+    "sha256": "88b02b01bdbf61e6fcf3dcb0312497f120ae83c16a5b0fba5f9fb32c14cb5cb2"
+  },
+  "limit": "Pure synthetic decoder fixtures; no actual GLB/native/export acceptance"
+}

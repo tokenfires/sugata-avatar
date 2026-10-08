@@ -1,0 +1,332 @@
+{
+  "observed_utc": "2026-10-08T08:12:26.387224+00:00",
+  "input": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/RESULT.json",
+    "bytes": 2364038,
+    "sha256": "0301bd3f82da3dac37551c41495978a1f37810edd2f1ec7f21ba22000dee1368"
+  },
+  "purpose": "Independent frame-algebra static check on stored native matrices; does not run mathutils decomposition or an exporter",
+  "records": [
+    {
+      "bone": "Root",
+      "parent": null,
+      "chain_vs_direct_max": 0.0,
+      "float32_IBM_rest_identity_max": 0.0
+    },
+    {
+      "bone": "pelvis",
+      "parent": "Root",
+      "chain_vs_direct_max": 0.0,
+      "float32_IBM_rest_identity_max": 2.0068164019448886e-08
+    },
+    {
+      "bone": "spine_01",
+      "parent": "pelvis",
+      "chain_vs_direct_max": 1.1102230246251565e-16,
+      "float32_IBM_rest_identity_max": 2.2806324273538792e-08
+    },
+    {
+      "bone": "spine_02",
+      "parent": "spine_01",
+      "chain_vs_direct_max": 1.1102230246251565e-16,
+      "float32_IBM_rest_identity_max": 4.0075586181932514e-08
+    },
+    {
+      "bone": "spine_03",
+      "parent": "spine_02",
+      "chain_vs_direct_max": 1.1102230246251565e-16,
+      "float32_IBM_rest_identity_max": 7.627558142389579e-09
+    },
+    {
+      "bone": "clavicle_l",
+      "parent": "spine_03",
+      "chain_vs_direct_max": 2.220446049250313e-16,
+      "float32_IBM_rest_identity_max": 5.157292970459082e-08
+    },
+    {
+      "bone": "upperarm_l",
+      "parent": "clavicle_l",
+      "chain_vs_direct_max": 2.220446049250313e-16,
+      "float32_IBM_rest_identity_max": 2.0264782962797767e-08
+    },
+    {
+      "bone": "lowerarm_l",
+      "parent": "upperarm_l",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 3.137325427227111e-08
+    },
+    {
+      "bone": "hand_l",
+      "parent": "lowerarm_l",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 4.434529310426427e-08
+    },
+    {
+      "bone": "index_01_l",
+      "parent": "hand_l",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 2.5600478181786457e-08
+    },
+    {
+      "bone": "index_02_l",
+      "parent": "index_01_l",
+      "chain_vs_direct_max": 4.440892098500626e-16,
+      "float32_IBM_rest_identity_max": 2.628236872581624e-08
+    },
+    {
+      "bone": "index_03_l",
+      "parent": "index_02_l",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 3.123490538436968e-08
+    },
+    {
+      "bone": "middle_01_l",
+      "parent": "hand_l",
+      "chain_vs_direct_max": 2.220446049250313e-16,
+      "float32_IBM_rest_identity_max": 2.0594724037259482e-08
+    },
+    {
+      "bone": "middle_02_l",
+      "parent": "middle_01_l",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 2.607688198708047e-08
+    },
+    {
+      "bone": "middle_03_l",
+      "parent": "middle_02_l",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 2.4763123773752227e-08
+    },
+    {
+      "bone": "pinky_01_l",
+      "parent": "hand_l",
+      "chain_vs_direct_max": 2.498001805406602e-16,
+      "float32_IBM_rest_identity_max": 2.5819596238818576e-08
+    },
+    {
+      "bone": "pinky_02_l",
+      "parent": "pinky_01_l",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 2.8290498832461708e-08
+    },
+    {
+      "bone": "pinky_03_l",
+      "parent": "pinky_02_l",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 2.3101411450454634e-08
+    },
+    {
+      "bone": "ring_01_l",
+      "parent": "hand_l",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 2.554798550491455e-08
+    },
+    {
+      "bone": "ring_02_l",
+      "parent": "ring_01_l",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 2.609309868173426e-08
+    },
+    {
+      "bone": "ring_03_l",
+      "parent": "ring_02_l",
+      "chain_vs_direct_max": 4.440892098500626e-16,
+      "float32_IBM_rest_identity_max": 2.1812985195879264e-08
+    },
+    {
+      "bone": "thumb_01_l",
+      "parent": "hand_l",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 2.245047936444422e-08
+    },
+    {
+      "bone": "thumb_02_l",
+      "parent": "thumb_01_l",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 2.5960930960522433e-08
+    },
+    {
+      "bone": "thumb_03_l",
+      "parent": "thumb_02_l",
+      "chain_vs_direct_max": 4.440892098500626e-16,
+      "float32_IBM_rest_identity_max": 2.4462319392348775e-08
+    },
+    {
+      "bone": "clavicle_r",
+      "parent": "spine_03",
+      "chain_vs_direct_max": 2.220446049250313e-16,
+      "float32_IBM_rest_identity_max": 5.157292970459082e-08
+    },
+    {
+      "bone": "upperarm_r",
+      "parent": "clavicle_r",
+      "chain_vs_direct_max": 2.220446049250313e-16,
+      "float32_IBM_rest_identity_max": 2.0264782962797767e-08
+    },
+    {
+      "bone": "lowerarm_r",
+      "parent": "upperarm_r",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 3.137325427227111e-08
+    },
+    {
+      "bone": "hand_r",
+      "parent": "lowerarm_r",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 4.434529310426427e-08
+    },
+    {
+      "bone": "index_01_r",
+      "parent": "hand_r",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 2.5600478181786457e-08
+    },
+    {
+      "bone": "index_02_r",
+      "parent": "index_01_r",
+      "chain_vs_direct_max": 4.440892098500626e-16,
+      "float32_IBM_rest_identity_max": 2.628236872581624e-08
+    },
+    {
+      "bone": "index_03_r",
+      "parent": "index_02_r",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 3.123490538436968e-08
+    },
+    {
+      "bone": "middle_01_r",
+      "parent": "hand_r",
+      "chain_vs_direct_max": 2.220446049250313e-16,
+      "float32_IBM_rest_identity_max": 2.0594724037259482e-08
+    },
+    {
+      "bone": "middle_02_r",
+      "parent": "middle_01_r",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 2.607688198708047e-08
+    },
+    {
+      "bone": "middle_03_r",
+      "parent": "middle_02_r",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 2.4763123773752227e-08
+    },
+    {
+      "bone": "pinky_01_r",
+      "parent": "hand_r",
+      "chain_vs_direct_max": 2.498001805406602e-16,
+      "float32_IBM_rest_identity_max": 2.5819596238818576e-08
+    },
+    {
+      "bone": "pinky_02_r",
+      "parent": "pinky_01_r",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 2.8290498832461708e-08
+    },
+    {
+      "bone": "pinky_03_r",
+      "parent": "pinky_02_r",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 2.3101411450454634e-08
+    },
+    {
+      "bone": "ring_01_r",
+      "parent": "hand_r",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 2.554798550491455e-08
+    },
+    {
+      "bone": "ring_02_r",
+      "parent": "ring_01_r",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 2.609309868173426e-08
+    },
+    {
+      "bone": "ring_03_r",
+      "parent": "ring_02_r",
+      "chain_vs_direct_max": 4.440892098500626e-16,
+      "float32_IBM_rest_identity_max": 2.1812985195879264e-08
+    },
+    {
+      "bone": "thumb_01_r",
+      "parent": "hand_r",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 2.245047936444422e-08
+    },
+    {
+      "bone": "thumb_02_r",
+      "parent": "thumb_01_r",
+      "chain_vs_direct_max": 3.3306690738754696e-16,
+      "float32_IBM_rest_identity_max": 2.5960930960522433e-08
+    },
+    {
+      "bone": "thumb_03_r",
+      "parent": "thumb_02_r",
+      "chain_vs_direct_max": 4.440892098500626e-16,
+      "float32_IBM_rest_identity_max": 2.4462319392348775e-08
+    },
+    {
+      "bone": "neck_01",
+      "parent": "spine_03",
+      "chain_vs_direct_max": 2.220446049250313e-16,
+      "float32_IBM_rest_identity_max": 3.1577012504779844e-08
+    },
+    {
+      "bone": "head",
+      "parent": "neck_01",
+      "chain_vs_direct_max": 2.220446049250313e-16,
+      "float32_IBM_rest_identity_max": 1.1101069619101622e-08
+    },
+    {
+      "bone": "thigh_l",
+      "parent": "pelvis",
+      "chain_vs_direct_max": 1.1102230246251565e-16,
+      "float32_IBM_rest_identity_max": 1.1664065713290483e-08
+    },
+    {
+      "bone": "calf_l",
+      "parent": "thigh_l",
+      "chain_vs_direct_max": 1.3574211199518516e-16,
+      "float32_IBM_rest_identity_max": 2.967713585988463e-08
+    },
+    {
+      "bone": "foot_l",
+      "parent": "calf_l",
+      "chain_vs_direct_max": 1.3552527156068805e-16,
+      "float32_IBM_rest_identity_max": 2.8356428538600653e-08
+    },
+    {
+      "bone": "ball_l",
+      "parent": "foot_l",
+      "chain_vs_direct_max": 2.220446049250313e-16,
+      "float32_IBM_rest_identity_max": 2.646757391033816e-08
+    },
+    {
+      "bone": "thigh_r",
+      "parent": "pelvis",
+      "chain_vs_direct_max": 1.1102230246251565e-16,
+      "float32_IBM_rest_identity_max": 1.1664065713290483e-08
+    },
+    {
+      "bone": "calf_r",
+      "parent": "thigh_r",
+      "chain_vs_direct_max": 1.3574211199518516e-16,
+      "float32_IBM_rest_identity_max": 2.967713585988463e-08
+    },
+    {
+      "bone": "foot_r",
+      "parent": "calf_r",
+      "chain_vs_direct_max": 1.3552527156068805e-16,
+      "float32_IBM_rest_identity_max": 2.8356428538600653e-08
+    },
+    {
+      "bone": "ball_r",
+      "parent": "foot_r",
+      "chain_vs_direct_max": 2.220446049250313e-16,
+      "float32_IBM_rest_identity_max": 2.646757391033816e-08
+    }
+  ],
+  "wrong_post_axis_control_max": 1.0457823574543,
+  "all_pass": true,
+  "limit": "Actual mathutils-decomposed output locals and decoded weighted rest action still require the one native/export test"
+}

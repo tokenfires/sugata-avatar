@@ -1,0 +1,30 @@
+{
+  "observed_utc": "2026-10-08T08:39:31.681343+00:00",
+  "source_sha256": "03d87a9aba48b85889df060ef49d237eb951eba2462575c848cb8166f47210f0",
+  "scope": "AST-extracted actual require/check/compare functions only; no bpy/native/export module execution",
+  "overflow_refused_before_report_field": "Nonfinite computed residual: overflow-control",
+  "finite_control": {
+    "checks": [
+      {
+        "name": "finite-control",
+        "pass": true,
+        "max_error": 0.0,
+        "bound": 1e-06,
+        "max_index": [
+          0
+        ],
+        "actual_at_max": [
+          1.0,
+          2.0,
+          3.0
+        ],
+        "expected_at_max": [
+          1.0,
+          2.0,
+          3.0
+        ]
+      }
+    ]
+  },
+  "strict_JSON_pass": true
+}

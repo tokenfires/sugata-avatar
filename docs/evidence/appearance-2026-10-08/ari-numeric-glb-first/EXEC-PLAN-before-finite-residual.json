@@ -1,0 +1,46 @@
+{
+  "created_utc": "2026-10-08T08:11:00.505445+00:00",
+  "timeout_seconds": 180,
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/work/neutral-lossless.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-first/export_once.py"
+  ],
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-first/PLAN.md",
+      "bytes": 3604,
+      "sha256": "aa7bd5e79d77e93af724ef306d7a6eace27f20fa190d2b9ec1c2eba3214b7549"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-first/WORTH.md",
+      "bytes": 3715,
+      "sha256": "f567a312b09799ed87e8b77667e419d0941b2363d5c9ef2a7cbd234675337de6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-first/RUN-PLAN.json",
+      "bytes": 9965,
+      "sha256": "40a709b26c3f898b78b9200457251e762dbcc392bba0f8027ff64bb8e79e2cea"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-first/export_once.py",
+      "bytes": 28443,
+      "sha256": "2e3b365369510b052ea60d519eeaec18751f626933e9eded050296fdf5d472f3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-first/glb_numeric.py",
+      "bytes": 8670,
+      "sha256": "d1302c603e61c0c5818e26797ae289ce5f06767fafa4127fdf591bde6c959025"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-first/run_native.py",
+      "bytes": 2024,
+      "sha256": "0c3711f2497e31f00340d09bb25b49ee512cc29de678927b608d807c4cd7a4ef"
+    }
+  ]
+}

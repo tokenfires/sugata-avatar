@@ -1,0 +1,36 @@
+{
+  "verified_utc": "2026-10-08T08:53:07.297968+00:00",
+  "one_native_pid": 62727,
+  "wrapper_pid": 62726,
+  "job": {
+    "started_utc": "2026-10-08T08:49:13.831933+00:00",
+    "wrapper_pid": 62726,
+    "argv": [
+      "/Applications/Blender.app/Contents/MacOS/Blender",
+      "--background",
+      "--offline-mode",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-lossless-reconstruction/work/neutral-lossless.blend",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-first/export_once.py"
+    ],
+    "timeout_seconds": 180,
+    "timed_out": false,
+    "pid": 62727,
+    "exit_code": 1,
+    "finished_utc": "2026-10-08T08:49:15.090829+00:00"
+  },
+  "exit_code": 1,
+  "timed_out": false,
+  "exports": 0,
+  "GLB_NAT_native_arrays_absent": true,
+  "cold_three_exact_comparisons_pass": true,
+  "raw_log_RESULT_exact": true,
+  "all_pins_candidate_pristine_unchanged": true,
+  "no_background_native": true,
+  "classification": "Instrument enum-validation refusal before mutation/export; not GLB incompatibility or geometry failure",
+  "limit": "Actual runtime enum type/items not recorded; no after-owner capture because guard precedes mutation/finally block; cold original state and physical native preservation verified",
+  "source_callback_witness_chunk": "461a55",
+  "next": "Fresh dynamic-enum callback contract; no retry under this one-process slice"
+}

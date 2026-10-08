@@ -1,0 +1,11 @@
+{
+  "started_utc": "2026-10-08T08:49:14.495305+00:00",
+  "pid": 62727,
+  "checks": [],
+  "export_calls": 0,
+  "passed": false,
+  "scope": "Numerical neutral GLB only; materials/images/shaders/appearance/motion/Ari held",
+  "exception": "RuntimeError('RNA enum/value: export_format')",
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-first/export_once.py\", line 464, in <module>\n    run()\n    ~~~^^\n  File \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-first/export_once.py\", line 395, in run\n    require(p.type==\"ENUM\" and value in p.enum_items.keys(),\"RNA enum/value: \"+name)\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-numeric-glb-first/export_once.py\", line 34, in require\n    raise RuntimeError(message)\nRuntimeError: RNA enum/value: export_format\n",
+  "finished_utc": "2026-10-08T08:49:15.021183+00:00"
+}

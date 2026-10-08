@@ -1,0 +1,11 @@
+{
+  "command": "python3 docs/evidence/appearance-2026-10-08/ari-numeric-glb-first/test_decoder.py",
+  "execution": {
+    "chunk_id": "034481",
+    "wall_time_seconds": 0.000006208,
+    "exit_code": 0,
+    "original_token_count": 292,
+    "output": "{\n  \"checks\": [\n    {\n      \"name\": \"strided_VEC3_skips_canaries\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"out_of_view_dense_count\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"unaligned_dense_offset\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"wrong_total_header_size\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"sparse_zero_base_overwrite\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"huge_sparse_count_before_allocation\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"aggregate_decoded_byte_budget\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"raw_GLB_byte_budget\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"sparse_out_of_range\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"duplicate_sparse_indices\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"signed_normalization_negative_endpoint\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"TRS_order_and_xyzw_quaternion\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"column_major_translation_matrix\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"nonunit_quaternion\",\n      \"pass\": true\n    },\n    {\n      \"name\": \"nonfinite_node\",\n      \"pass\": true\n    }\n  ],\n  \"passed\": true\n}\n"
+  },
+  "reason": "New sparse-allocation and raw/aggregate byte bounds need three adversarial refusal fixtures"
+}

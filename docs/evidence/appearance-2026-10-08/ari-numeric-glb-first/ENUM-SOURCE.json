@@ -1,0 +1,140 @@
+{
+  "captured_utc": "2026-10-08T08:58:02.014800+00:00",
+  "source_pin": {
+    "path": "/Applications/Blender.app/Contents/Resources/5.2/scripts/addons_core/io_scene_gltf2/__init__.py",
+    "bytes": 86974,
+    "sha256": "73d98cf870d69f2aedb0a13798e389688a225efb4c155c5980bbb7ca0436421b"
+  },
+  "ranges": [
+    {
+      "start": 139,
+      "end": 157,
+      "lines": [
+        {
+          "line": 139,
+          "text": "def get_format_items(scene, context):"
+        },
+        {
+          "line": 140,
+          "text": ""
+        },
+        {
+          "line": 141,
+          "text": "    items = (('GLB', n_('glTF Binary (.glb)'),"
+        },
+        {
+          "line": 142,
+          "text": "              n_('Exports a single file, with all data packed in binary form. '"
+        },
+        {
+          "line": 143,
+          "text": "                 'Most efficient and portable, but more difficult to edit later')),"
+        },
+        {
+          "line": 144,
+          "text": "             ('GLTF_SEPARATE', n_('glTF Separate (.gltf + .bin + textures)'),"
+        },
+        {
+          "line": 145,
+          "text": "              n_('Exports multiple files, with separate JSON, binary and texture data. '"
+        },
+        {
+          "line": 146,
+          "text": "                 'Easiest to edit later')))"
+        },
+        {
+          "line": 147,
+          "text": ""
+        },
+        {
+          "line": 148,
+          "text": "    addon_preferences = bpy.context.preferences.addons['io_scene_gltf2'].preferences"
+        },
+        {
+          "line": 149,
+          "text": "    if addon_preferences and addon_preferences.allow_embedded_format:"
+        },
+        {
+          "line": 150,
+          "text": "        # At initialization, the preferences are not yet loaded"
+        },
+        {
+          "line": 151,
+          "text": "        # The second line check is needed until the PR is merge in Blender, for github CI tests"
+        },
+        {
+          "line": 152,
+          "text": "        items += (('GLTF_EMBEDDED', n_('glTF Embedded (.gltf)'),"
+        },
+        {
+          "line": 153,
+          "text": "                   n_('Exports a single file, with all data packed in JSON. '"
+        },
+        {
+          "line": 154,
+          "text": "                      'Less efficient than binary, but easier to edit later')"
+        },
+        {
+          "line": 155,
+          "text": "                   ),)"
+        },
+        {
+          "line": 156,
+          "text": ""
+        },
+        {
+          "line": 157,
+          "text": "    return items"
+        }
+      ]
+    },
+    {
+      "start": 327,
+      "end": 336,
+      "lines": [
+        {
+          "line": 327,
+          "text": "    export_format: EnumProperty("
+        },
+        {
+          "line": 328,
+          "text": "        name='Format',"
+        },
+        {
+          "line": 329,
+          "text": "        items=get_format_items,"
+        },
+        {
+          "line": 330,
+          "text": "        description=("
+        },
+        {
+          "line": 331,
+          "text": "            'Output format. Binary is most efficient, '"
+        },
+        {
+          "line": 332,
+          "text": "            'but JSON may be easier to edit later'"
+        },
+        {
+          "line": 333,
+          "text": "        ),"
+        },
+        {
+          "line": 334,
+          "text": "        default=0,  # Warning => If you change the default, need to change the default filter too"
+        },
+        {
+          "line": 335,
+          "text": "        update=on_export_format_changed,"
+        },
+        {
+          "line": 336,
+          "text": "    )"
+        }
+      ]
+    }
+  ],
+  "observed_failure": "RESULT export_calls0 at static ENUM guard; actual p.type/enum-items not recorded",
+  "classification": "Source declares GLB in a callback. This does not prove actual current context callback values; static reflection was insufficient admission evidence."
+}
