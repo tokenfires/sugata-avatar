@@ -1,0 +1,72 @@
+{
+  "checked_utc": "2026-10-08T15:58:51.899490+00:00",
+  "original_images_inspected": [
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/neutral-body-front.png",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/neutral-body-profile.png",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/neutral-body-rear.png",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/neutral-head-front.png",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/neutral-head-profile.png",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/neutral-head-rear.png",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/ari-body-front.png",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/ari-body-profile.png",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/ari-body-rear.png",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/ari-head-front.png",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/ari-head-profile.png",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/ari-head-rear.png"
+  ],
+  "concept_inspected": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+  "job": {
+    "started_utc": "2026-10-08T15:57:01.946263+00:00",
+    "wrapper_pid": 45383,
+    "argv": [
+      "/Applications/Blender.app/Contents/MacOS/Blender",
+      "--background",
+      "--offline-mode",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-form-views/cold_views.py"
+    ],
+    "timeout_seconds": 240,
+    "timed_out": false,
+    "pid": 45391,
+    "exit_code": 0,
+    "finished_utc": "2026-10-08T15:57:26.816220+00:00"
+  },
+  "cold_count": 4,
+  "all12original_hashes_exact": true,
+  "all15physical_source_pins_exact": true,
+  "visual_decision": "Retain isolated first-form source as a working baseline, refuse concept-body appearance qualification: directional changes visible but modest.",
+  "findings": [
+    {
+      "witness": [
+        "ari-body-front.png",
+        "neutral-body-front.png",
+        "ari-body-profile.png",
+        "neutral-body-profile.png",
+        "ari-body-rear.png",
+        "neutral-body-rear.png",
+        "concept-v1.png"
+      ],
+      "explanation": "Matched actual originals show fuller waist/middle, hips/seat and upper limbs, while preserving a strongly narrowed waist and comparatively lean limbs; the clothed concept shows a substantially broader middle/upper-limb mass. Clothing and pose prevent exact anatomy measurement.",
+      "alternatives": [
+        "Fresh explicit broader body recipe with complete refit/one matched view set: advances silhouette but needs new complete native validation.",
+        "Keep exact form and start wardrobe/face/hair: progresses recognition but risks tailoring to an unresolved body form."
+      ]
+    },
+    {
+      "witness": [
+        "ari-head-front.png",
+        "ari-head-profile.png",
+        "ari-head-rear.png",
+        "concept-v1.png"
+      ],
+      "explanation": "Head crop includes crown/ears/chin; source face and pale skin/stubble remain generic and lack the concept curls/complexion/facial mass. Shoulders extend outside the head crop by design; no clipped crown/ear observed.",
+      "alternatives": [
+        "Separate face/skin/curl design contract after body decision: retains consistent identity work but delays likeness.",
+        "Parallel conceptual facial brief without new geometry: clarifies landmarks while body work proceeds, but cannot qualify appearance."
+      ]
+    }
+  ],
+  "limits": "No concept identity, material, hairstyle, wardrobe, expression, motion, complete-influence runtime, coupled fit or AAA acceptance. All source images preserved, no retune/retry."
+}
