@@ -1,0 +1,234 @@
+"""One fixed original main-panel construction. No body or physical observers."""
+import collections, datetime, hashlib, json, math, pathlib, time
+from fractions import Fraction as F
+import numpy as np
+
+P = pathlib.Path(__file__).resolve().parent
+START = time.monotonic()
+C = json.loads((P/'EXEC.json').read_text())
+R = json.loads(pathlib.Path(C['recipe']).read_text())
+A = json.loads(pathlib.Path(C['architecture']).read_text())
+vertices, owners, faces, roles, panels, grids, cache = [], [], [], [], [], {}, {}
+panel_ids = {'FR':0,'FL':1,'B':2,'SR':3,'SL':4,'rim':5}
+BOUNDARY_REQUESTS = 0
+
+def tick():
+    if time.monotonic()-START > 55:
+        raise RuntimeError('worker55second safety stop')
+
+def save(name, value):
+    def safe(x):
+        if isinstance(x,float) and not math.isfinite(x):return repr(x)
+        if isinstance(x,dict):return {k:safe(v) for k,v in x.items()}
+        if isinstance(x,list):return [safe(v) for v in x]
+        return x
+    with (P/name).open('x') as f:
+        json.dump(safe(value), f, indent=2, allow_nan=False)
+        f.write('\n')
+
+def raw(a):
+    return hashlib.sha256(np.ascontiguousarray(a).tobytes()).hexdigest()
+
+def point(layer, name):
+    side, key = name.split('.',1)
+    if key.endswith('.u0'):
+        return sample(layer, side+'.'+key[:-3], F(0))
+    p = np.asarray(R['layers'][layer]['right_points'][key], np.float64)
+    if side == 'L': p = p*np.array([-1.,1.,1.])
+    return layer+'|point|'+name, p
+
+def sample(layer, spec, t):
+    """Exact rational ownership before floating evaluation; no nearest weld."""
+    assert F(0) <= t <= F(1)
+    if isinstance(spec, dict):
+        if 'reverse' in spec: return sample(layer, spec['reverse'], 1-t)
+        if 'concat' in spec:
+            parts=spec['concat']; z=t*len(parts)
+            k=min(z.numerator//z.denominator,len(parts)-1)
+            return sample(layer,parts[k],z-k)
+        if 'line' in spec:
+            a,b=spec['line']
+            if t==0: return point(layer,a)
+            if t==1: return point(layer,b)
+            return layer+'|line|'+a+'>'+b+'|'+str(t), (1-float(t))*point(layer,a)[1]+float(t)*point(layer,b)[1]
+        raise RuntimeError('unsupported curve dictionary')
+    if spec in R['derived_owned_curves_per_layer']:
+        return sample(layer,{'concat':R['derived_owned_curves_per_layer'][spec]['parts']},t)
+    data=R['layers'][layer]
+    if spec in data['back_cubics']:
+        q=data['back_cubics'][spec]; mirror=False
+    else:
+        side,key=spec.split('.',1);mirror=side=='L'
+        if key in data['right_rings']:
+            if t==1:t=F(0)
+            ring=data['right_rings'][key]
+            center=np.asarray(ring['center'],np.float64)
+            d=np.array([1/math.sqrt(2),0,-1/math.sqrt(2)])
+            f=np.array([0.,-1.,0.]); angle=2*math.pi*float(t)
+            p=center+ring['rd']*math.cos(angle)*d+ring['rf']*math.sin(angle)*f
+            if mirror:p=p*np.array([-1.,1.,1.])
+            return (layer+'|point|'+side+'.'+key+'.u0' if t==0 else layer+'|curve|'+spec+'|'+str(t)),p
+        q=data['right_cubics'][key]
+    a=q['from']; b=q['to']
+    if mirror:a=a.replace('R.','L.');b=b.replace('R.','L.')
+    if t==0:return point(layer,a)
+    if t==1:return point(layer,b)
+    controls=np.asarray(q['controls'],np.float64)
+    if mirror:controls=controls*np.array([-1.,1.,1.])
+    x=float(t);p=(1-x)**3*point(layer,a)[1]+3*(1-x)**2*x*controls[0]+3*(1-x)*x*x*controls[1]+x**3*point(layer,b)[1]
+    return layer+'|curve|'+spec+'|'+str(t),p
+
+def register(key, p):
+    global BOUNDARY_REQUESTS
+    if key in cache:
+        BOUNDARY_REQUESTS += 1
+        idx=cache[key]
+        if not np.array_equal(vertices[idx],p):
+            save('OWNER-FAILURE.json',{'owner':key,'first':vertices[idx].tolist(),'later':p.tolist()})
+            raise RuntimeError('canonical owner coordinate disagreement')
+        return idx
+    idx=len(vertices);cache[key]=idx;owners.append(key);vertices.append(p)
+    return idx
+
+def torso(layer, q, i, j):
+    u=F(i,q['nu']);v=F(j,q['nv'])
+    if j==0:return sample(layer,q['B'],u)
+    if j==q['nv']:return sample(layer,q['T'],u)
+    if i==0:return sample(layer,q['L'],v)
+    if i==q['nu']:return sample(layer,q['R'],v)
+    x,y=float(u),float(v)
+    corners=[point(layer,n)[1] for n in q['corners']]
+    correction=(1-x)*(1-y)*corners[0]+x*(1-y)*corners[1]+(1-x)*y*corners[2]+x*y*corners[3]
+    p=(1-x)*sample(layer,q['L'],v)[1]+x*sample(layer,q['R'],v)[1]+(1-y)*sample(layer,q['B'],u)[1]+y*sample(layer,q['T'],u)[1]-correction
+    return layer+'|interior|'+q['id']+'|'+str(i)+'|'+str(j),p
+
+def sleeve(layer,q,i,j):
+    u=F(i,q['nu']);v=F(j,q['nv'])
+    if j==0:return sample(layer,q['bottom'],u)
+    if j==q['nv']:return sample(layer,q['top'],u)
+    if i in (0,q['nu']):
+        global_v=F(q['global_sleeve_v'][0])+v*F(1,2)
+        return sample(layer,('R' if q['panel']=='SR' else 'L')+'.underSleeve',1-global_v)
+    p=(1-float(v))*sample(layer,q['bottom'],u)[1]+float(v)*sample(layer,q['top'],u)[1]
+    return layer+'|interior|'+q['id']+'|'+str(i)+'|'+str(j),p
+
+def build():
+    for layer in ('O','I'):
+        for kind,entries in (('torso',R['torso_patches_per_layer']),('sleeve',R['sleeve_bands_per_layer'])):
+            for q in entries:
+                tick();g=[]
+                for j in range(q['nv']+1):
+                    row=[]
+                    for i in range(q['nu']+1):
+                        key,p=(torso if kind=='torso' else sleeve)(layer,q,i,j)
+                        row.append(register(key,p))
+                    g.append(row)
+                grids[layer+'.'+q['id']]=g
+                winding=q['outer_chart_winding']*(1 if layer=='O' else -1)
+                for j in range(q['nv']):
+                    for i in range(q['nu']):
+                        a,b,c,d=g[j][i],g[j][i+1],g[j+1][i+1],g[j+1][i]
+                        for tri in ((a,b,c),(a,c,d)):
+                            faces.append(tri if winding==1 else tri[::-1]);roles.append(0 if layer=='O' else 1);panels.append(panel_ids[q['panel']])
+    edges={}
+    for layer in ('O','I'):
+        for edge,spec in R['edge_aliases_per_layer'].items():
+            n=R['edge_interval_counts_per_layer'][edge]
+            edges[layer+'.'+edge]=[register(*sample(layer,spec,F(j,n))) for j in range(n+1)]
+    # Any boundary owner missing from patch assembly is a construction failure,
+    # even though diagnostic arrays are persisted before final eligibility.
+    for cycle in A['free_boundary_cycles_per_layer']:
+        for edge in cycle['edges']:
+            o,inn=edges['O.'+edge],edges['I.'+edge]
+            for j in range(len(o)-1):
+                faces.extend(((o[j+1],o[j],inn[j]),(o[j+1],inn[j],inn[j+1])))
+                roles.extend((2,2));panels.extend((5,5))
+    return edges
+
+def census(world, tri, edges):
+    edge=collections.defaultdict(list); links=collections.defaultdict(list)
+    for fi,t in enumerate(tri):
+        if fi%1024==0:tick()
+        a,b,c=map(int,t)
+        for x,y in ((a,b),(b,c),(c,a)):edge[min(x,y),max(x,y)].append((x,y,fi))
+        for x,y,z in ((a,b,c),(b,c,a),(c,a,b)):links[x].append((y,z))
+    badedge=[]
+    for k,rows in edge.items():
+        if len(rows)!=2 or rows[0][:2]!=rows[1][:2][::-1]:
+            badedge.append({'edge':list(k),'incidences':[list(r) for r in rows]})
+    badlink=[]
+    for v in range(len(world)):
+        arcs=links[v];ins=collections.Counter(b for a,b in arcs);outs=collections.Counter(a for a,b in arcs)
+        nxt={a:b for a,b in arcs};nodes=set(ins)|set(outs);seen=set();x=min(nodes) if nodes else None
+        while x is not None and x not in seen:
+            seen.add(x);x=nxt.get(x)
+        if not nodes or set(ins)!=set(outs) or any(ins[k]!=1 or outs[k]!=1 for k in nodes) or seen!=nodes or x!=min(nodes):
+            badlink.append({'vertex':v,'arcs':[list(a) for a in arcs],'seen':sorted(seen)})
+    adj=collections.defaultdict(set)
+    for a,b in edge:adj[a].add(b);adj[b].add(a)
+    remaining=set(range(len(world)));components=[]
+    while remaining:
+        stack=[min(remaining)];seen=set()
+        while stack:
+            v=stack.pop()
+            if v in seen:continue
+            seen.add(v);stack.extend(adj[v]-seen)
+        remaining-=seen;components.append(len(seen))
+    seam_bad=[];mandatory=0
+    for layer in ('O','I'):
+        for seam in A['seam_template_per_layer']:
+            a,b=edges[layer+'.'+seam['a']],edges[layer+'.'+seam['b']]
+            if a!=b[::-1]:seam_bad.append({'layer':layer,'seam':seam,'a':a,'b':b})
+        for name,spec in R['edge_aliases_per_layer'].items():
+            n=R['edge_interval_counts_per_layer'][name]
+            assert n%16==0
+            for k in range(17):
+                key,p=sample(layer,spec,F(k,16));idx=edges[layer+'.'+name][k*(n//16)]
+                assert owners[idx]==key and np.array_equal(world[idx],p)
+                mandatory+=1
+    first_area={};mins={};badareas={}
+    for label,w in (('F64',world),('F32',world.astype(np.float32).astype(np.float64))):
+        cross=np.cross(w[tri[:,1]]-w[tri[:,0]],w[tri[:,2]]-w[tri[:,0]])
+        double=np.linalg.norm(cross,axis=1);bad=np.flatnonzero(~np.isfinite(double)|(double<=2e-12))
+        mins[label]=float(double.min());badareas[label]=int(len(bad))
+        if len(bad):
+            i=int(bad[0]);first_area[label]={'triangle':i,'vertex_ids':tri[i].tolist(),'points':w[tri[i]].tolist(),'doublearea':float(double[i])}
+    return {'edges':len(edge),'euler':len(world)-len(edge)+len(tri),'components':components,'bad_edge_count':len(badedge),'first_bad_edge':badedge[:1],'bad_vertex_link_count':len(badlink),'first_bad_vertex_link':badlink[:1],'bad_seam_count':len(seam_bad),'first_bad_seam':seam_bad[:1],'mandatory_parameters':mandatory,'minimum_doublearea':mins,'bad_area_counts':badareas,'first_bad_area':first_area}
+
+def main():
+    edges=build();world=np.asarray(vertices,np.float64);tri=np.asarray(faces,np.int32);w32=world.astype(np.float32)
+    arrays={'world64':world,'world32':w32,'triangles':tri,'face_role':np.asarray(roles,np.uint8),'face_panel':np.asarray(panels,np.uint8)}
+    if len(world)>20000 or len(tri)>40000:
+        save('OBSERVED.json',{'discrete_eligible':False,'refusal':'output count safety cap','vertices':len(world),'triangles':len(tri)})
+        raise RuntimeError('count safety cap; no oversized output written')
+    with (P/'mesh.npz').open('xb') as f:np.savez_compressed(f,**arrays)
+    save('OWNERS.json',{'vertices':owners,'patch_grids':grids,'edge_indices':edges,'role_codes':{'outer':0,'inner':1,'rim':2},'panel_codes':panel_ids})
+    with (P/'main-panels.obj').open('x') as f:
+        f.write('# DIAGNOSTIC ONLY: fit/contact/coverage/appearance UNKNOWN; main panels/plain rims, unfinished extensions\n')
+        for x,y,z in w32:f.write(f'v {float(x):.9g} {float(y):.9g} {float(z):.9g}\n')
+        last=None
+        for t,role,panel in zip(tri,roles,panels):
+            group=(role,panel)
+            if group!=last:f.write(f'g role{role}_panel{panel}\n');last=group
+            f.write('f '+' '.join(str(int(i)+1) for i in t)+'\n')
+    invalid=[]
+    for name,a in arrays.items():
+        bad=np.argwhere(~np.isfinite(a))
+        if len(bad):invalid.append({'array':name,'count':int(len(bad)),'first_index':bad[0].tolist(),'first_value':repr(float(a[tuple(bad[0])] ))})
+    bad_index=np.argwhere((tri<0)|(tri>=len(world)))
+    if invalid or len(bad_index):
+        report={'scope':'GEOMETRY ONLY; physical/fit/appearance UNKNOWN','discrete_eligible':False,'nonfinite':invalid,'first_invalid_index':bad_index[:1].tolist()}
+        save('OBSERVED.json',report);save('RESULT.json',report)
+        raise RuntimeError('finite/index eligibility refused; raw mesh/witness persisted')
+    stats=census(world,tri,edges);cast=float(np.max(np.abs(world-w32.astype(np.float64))))
+    checks={'expected_vertices':len(world)==11550,'expected_triangles':len(tri)==23104,'index_range':int(tri.min())>=0 and int(tri.max())<len(world),'distinct_corners':bool(np.all((tri[:,0]!=tri[:,1])&(tri[:,1]!=tri[:,2])&(tri[:,2]!=tri[:,0]))),'cast_error':cast<=1e-7,'all_vertices_used':len(np.unique(tri))==len(world),'oriented_closed_edges':stats['bad_edge_count']==0,'vertex_link_cycles':stats['bad_vertex_link_count']==0,'one_component':stats['components']==[len(world)],'euler_minus_two':stats['euler']==-2,'seam_owners':stats['bad_seam_count']==0,'F64_area':stats['bad_area_counts']['F64']==0,'F32_area':stats['bad_area_counts']['F32']==0}
+    report={'scope':'GEOMETRY ONLY; no body/target decoded; all physical/coverage/appearance/motion UNKNOWN','body_intent_origin':'UNADMITTED producer; no consumption by this build','vertices':len(world),'triangles':len(tri),'face_role_counts':dict(collections.Counter(map(str,roles))),'cast_error':cast,'canonical_reuse_requests':BOUNDARY_REQUESTS,'stats':stats,'arrays':{k:{'shape':list(a.shape),'dtype':str(a.dtype),'raw_sha256':raw(a)} for k,a in arrays.items()},'checks':checks,'discrete_eligible':all(checks.values()),'fit':'UNKNOWN','finished_wardrobe':False,'elapsed_seconds':time.monotonic()-START}
+    save('OBSERVED.json',report)
+    tick()
+    for name in ('mesh.npz','OWNERS.json','main-panels.obj'):
+        if (P/name).stat().st_size>8*1024*1024:raise RuntimeError('output8MiBcap '+name)
+    save('RESULT.json',report)
+    print(json.dumps({'discrete_eligible':report['discrete_eligible'],'vertices':len(world),'triangles':len(tri),'checks':checks}))
+    if not all(checks.values()):raise RuntimeError('fixed preset discrete eligibility refused; witnesses saved')
+
+if __name__=='__main__':main()

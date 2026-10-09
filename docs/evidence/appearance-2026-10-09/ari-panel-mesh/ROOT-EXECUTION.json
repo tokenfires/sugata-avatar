@@ -1,0 +1,61 @@
+{
+  "clock": "2026-10-09T17:19:59.819422+00:00",
+  "admission_job_chain_verified": true,
+  "pins_preserved": 21,
+  "owned_pids_absent_postrun_only": true,
+  "output_pins": [
+    {
+      "file": "RESULT.json",
+      "bytes": 2304,
+      "sha256": "13a7a5515b09117eade28f10e6fa3cb28ea8b1ae6c5bb72855c7a1a646a6f38e"
+    },
+    {
+      "file": "OBSERVED.json",
+      "bytes": 2304,
+      "sha256": "13a7a5515b09117eade28f10e6fa3cb28ea8b1ae6c5bb72855c7a1a646a6f38e"
+    },
+    {
+      "file": "mesh.npz",
+      "bytes": 278119,
+      "sha256": "d5d01e21dc21878ba6d0ff5594df3ad8066eb5200687d6d93476aae100021329"
+    },
+    {
+      "file": "OWNERS.json",
+      "bytes": 562827,
+      "sha256": "4c12fff3663d96c6ae94d31152fd0b6382af1bc7814c53dbead1d36d59c46576"
+    },
+    {
+      "file": "main-panels.obj",
+      "bytes": 841876,
+      "sha256": "2ebb0f44de219d2cbdb94cbddfc41b9be2d8fb4af4fc132971dbe7506d6d73a9"
+    },
+    {
+      "file": "JOB.json",
+      "bytes": 706,
+      "sha256": "7068041fbe15dfb3dd7c9d9b588dd2c6b85b6135351b3a90f3e25fbb6bca2d21"
+    },
+    {
+      "file": "JOB-start.json",
+      "bytes": 507,
+      "sha256": "a49d95f55aa78f2a90ce8c85314109c248a50f3b084bcc4d9f599010f60a4955"
+    },
+    {
+      "file": "build.log",
+      "bytes": 392,
+      "sha256": "fcbe0f6e685eaf3acd26b21b923b9e5d4e6652a81722a1e337a7f6d5e98cac1b"
+    },
+    {
+      "file": "ROOT-RESULT.json",
+      "bytes": 545,
+      "sha256": "536e181e9596bd9020b9793990d20fc361373c48f8a932a7629faa57186f95de"
+    }
+  ],
+  "helper_tool_chunk": "334244",
+  "helper_actual_exit": 0,
+  "build_tool_chunk": "025958",
+  "build_actual_exit": 0,
+  "independent_verifier_tool_chunk": "efe34e",
+  "independent_verifier_actual_exit": 0,
+  "no_body_or_targets_consumed": true,
+  "no_native_or_capture": true
+}

@@ -1,0 +1,262 @@
+{
+  "payloads": [
+    {
+      "file": "ADMISSION.json",
+      "bytes": 6070,
+      "sha256": "47d52624ac5a78c833905bda2e0eb92a0a4383f74dc82288b30642cc7b9607ac"
+    },
+    {
+      "file": "EXEC.json",
+      "bytes": 5698,
+      "sha256": "74d01485951bf921f56e053f6228d5203af6b4334a1ad843f979ef942c7ef52b"
+    },
+    {
+      "file": "EXEC.json.before-census-fix.txt",
+      "bytes": 5193,
+      "sha256": "a1db55300e5b9b042ac6b8ecebd64fbb18ebda4223ab27b28df3e46e1268429c"
+    },
+    {
+      "file": "EXEC.json.before-witness-fix.txt",
+      "bytes": 4220,
+      "sha256": "77ca75993b0ae9b11d4f6f04d66dab56427dbd76eadad63c9645359e48743ef3"
+    },
+    {
+      "file": "INPUTS.json",
+      "bytes": 1606,
+      "sha256": "c14e8b54913aec6de090c417fca627d0f47d3a88dd021c02fb4f9cb43aa3837e"
+    },
+    {
+      "file": "JOB-start.json",
+      "bytes": 507,
+      "sha256": "a49d95f55aa78f2a90ce8c85314109c248a50f3b084bcc4d9f599010f60a4955"
+    },
+    {
+      "file": "JOB.json",
+      "bytes": 706,
+      "sha256": "7068041fbe15dfb3dd7c9d9b588dd2c6b85b6135351b3a90f3e25fbb6bca2d21"
+    },
+    {
+      "file": "OBSERVED.json",
+      "bytes": 2304,
+      "sha256": "13a7a5515b09117eade28f10e6fa3cb28ea8b1ae6c5bb72855c7a1a646a6f38e"
+    },
+    {
+      "file": "OWNERS.json",
+      "bytes": 562827,
+      "sha256": "4c12fff3663d96c6ae94d31152fd0b6382af1bc7814c53dbead1d36d59c46576"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 3156,
+      "sha256": "93d36e0c959de24ceaa4e419ff90d0af64a1f3139331221cc0ee0e22c5400314"
+    },
+    {
+      "file": "PREFLIGHT.md",
+      "bytes": 8120,
+      "sha256": "fe3256f116bdef9ba6f1b0b27824324716f91f08fc12cc839f36f1c4a57145e0"
+    },
+    {
+      "file": "README.md",
+      "bytes": 4624,
+      "sha256": "b51919a7148418fe5117fc09578eb8165e84ecc7aad5087d92a687f8b19eb089"
+    },
+    {
+      "file": "RESULT-REVIEW.md",
+      "bytes": 7324,
+      "sha256": "92eec6b92b47b93d9f097c62e78cbc47eeb2dcd8e6d5babe9fb0e9550270ab77"
+    },
+    {
+      "file": "RESULT.json",
+      "bytes": 2304,
+      "sha256": "13a7a5515b09117eade28f10e6fa3cb28ea8b1ae6c5bb72855c7a1a646a6f38e"
+    },
+    {
+      "file": "ROOT-EXECUTION.json",
+      "bytes": 1778,
+      "sha256": "5d3cece7d26c2c014c79186f46e1663fba5a92e0cb0b293a66c0d1d9ee245235"
+    },
+    {
+      "file": "ROOT-PREFLIGHT.json",
+      "bytes": 705,
+      "sha256": "1f8f555162bf4f46a4fb5a336615f13b6358f921629682b2ad3b8579fd55ef53"
+    },
+    {
+      "file": "ROOT-READBACK.json",
+      "bytes": 931,
+      "sha256": "0c84c104d50b6f8254dc52891e58007c9073ca9e068502e0649dcde48d2f0fce"
+    },
+    {
+      "file": "ROOT-RESULT.json",
+      "bytes": 545,
+      "sha256": "536e181e9596bd9020b9793990d20fc361373c48f8a932a7629faa57186f95de"
+    },
+    {
+      "file": "ROOT-WORTH.json",
+      "bytes": 311,
+      "sha256": "855d8a0c36381f7fbb9e4d43f5253c30ac42d034683ece6b66c325ece400e49d"
+    },
+    {
+      "file": "WITNESS-FIX.md",
+      "bytes": 594,
+      "sha256": "5a5f04fcde4d823064679ee38e04489b260af9c2618723238cacaef9991a3888"
+    },
+    {
+      "file": "WORTH.md",
+      "bytes": 4222,
+      "sha256": "6672748d64e2a37673ebda8721c0711a3abcc2eefa03c0e887c730720c4d4661"
+    },
+    {
+      "file": "admit.py",
+      "bytes": 2915,
+      "sha256": "41d8aa7665650770d66659ff7dcb7ebf23d29f89c510325176197f5870c329d5"
+    },
+    {
+      "file": "admit.py.before-census-fix.txt",
+      "bytes": 2854,
+      "sha256": "1816cda089e8148f2fa847927e6b2d90d9eab4348ae8dd3342c55d151f4aa6a6"
+    },
+    {
+      "file": "build.log",
+      "bytes": 392,
+      "sha256": "fcbe0f6e685eaf3acd26b21b923b9e5d4e6652a81722a1e337a7f6d5e98cac1b"
+    },
+    {
+      "file": "build.py",
+      "bytes": 13520,
+      "sha256": "babfe3f0dc015b5624daac44717c133ba28e3dfbe3d6bc68714f7390f6f4d65b"
+    },
+    {
+      "file": "build.py.before-witness-fix.txt",
+      "bytes": 12486,
+      "sha256": "0da96f2e422517cae46fbd1f5decbdb2206a93dfe866bd6b6d19a40a10ecb1fb"
+    },
+    {
+      "file": "main-panels.obj",
+      "bytes": 841876,
+      "sha256": "2ebb0f44de219d2cbdb94cbddfc41b9be2d8fb4af4fc132971dbe7506d6d73a9"
+    },
+    {
+      "file": "mesh.npz",
+      "bytes": 278119,
+      "sha256": "d5d01e21dc21878ba6d0ff5594df3ad8066eb5200687d6d93476aae100021329"
+    },
+    {
+      "file": "run_build.py",
+      "bytes": 3388,
+      "sha256": "b4847f0d78ddafc882aae069818f7e2a9c52c0e5caa17e885a86a2811ae1c310"
+    },
+    {
+      "file": "verify.py",
+      "bytes": 7213,
+      "sha256": "8b87a1fe443d478801093d64d03539ab35eff53c2826ef9e71edcda9cb501579"
+    }
+  ],
+  "execution_input_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-literal-surface/WORLD-RECIPE.json",
+      "bytes": 12656,
+      "sha256": "889aa31625933b8fad235f5204fb5edd7afb5259fe24e56ef886666808c93dfd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-literal-surface/OPERATOR.md",
+      "bytes": 3839,
+      "sha256": "3aab94b7dc12b31255a5da0741d82de1e2c8c9642dcb603ffaf503719174eece"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-literal-surface/REVIEW.md",
+      "bytes": 6628,
+      "sha256": "f5d9bd7232ad38022021a721625e8f3d80d5f2c3b4a19b41957c7950b7cf3de8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-architecture/PANELS.json",
+      "bytes": 7769,
+      "sha256": "59c94f1c2db5add5c0684038fc823425e31bc8f86a5d64c565b082802d15d61a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/STATUS.json",
+      "bytes": 1131,
+      "sha256": "dbd2991028afa53d51e0bd2242d8c153bcdd847658c5c8b4c2222ed52aedff18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/RESULT-REVIEW.md",
+      "bytes": 7037,
+      "sha256": "e4c32b3afb1f650467ca5ad742e5bf080fdea484226ee069e4c4d1e7cb587fd1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/DISPATCH-ERROR.md",
+      "bytes": 2156,
+      "sha256": "27efc3c26fc9282a960ca3ee3134fcd6403386148af45864eafbef21384cf44a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-mesh/PLAN.md",
+      "bytes": 3156,
+      "sha256": "93d36e0c959de24ceaa4e419ff90d0af64a1f3139331221cc0ee0e22c5400314"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-mesh/INPUTS.json",
+      "bytes": 1606,
+      "sha256": "c14e8b54913aec6de090c417fca627d0f47d3a88dd021c02fb4f9cb43aa3837e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-mesh/WORTH.md",
+      "bytes": 4222,
+      "sha256": "6672748d64e2a37673ebda8721c0711a3abcc2eefa03c0e887c730720c4d4661"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-mesh/ROOT-WORTH.json",
+      "bytes": 311,
+      "sha256": "855d8a0c36381f7fbb9e4d43f5253c30ac42d034683ece6b66c325ece400e49d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-mesh/build.py",
+      "bytes": 13520,
+      "sha256": "babfe3f0dc015b5624daac44717c133ba28e3dfbe3d6bc68714f7390f6f4d65b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-mesh/run_build.py",
+      "bytes": 3388,
+      "sha256": "b4847f0d78ddafc882aae069818f7e2a9c52c0e5caa17e885a86a2811ae1c310"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "bytes": 34640,
+      "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+    },
+    {
+      "path": "/opt/homebrew/lib/python3.14/site-packages/numpy/__init__.py",
+      "bytes": 26277,
+      "sha256": "92a46f791e453926d3292af2582b89995a289475f0eaaea71a949823200b838a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-mesh/build.py.before-witness-fix.txt",
+      "bytes": 12486,
+      "sha256": "0da96f2e422517cae46fbd1f5decbdb2206a93dfe866bd6b6d19a40a10ecb1fb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-mesh/EXEC.json.before-witness-fix.txt",
+      "bytes": 4220,
+      "sha256": "77ca75993b0ae9b11d4f6f04d66dab56427dbd76eadad63c9645359e48743ef3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-mesh/admit.py",
+      "bytes": 2915,
+      "sha256": "41d8aa7665650770d66659ff7dcb7ebf23d29f89c510325176197f5870c329d5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-mesh/WITNESS-FIX.md",
+      "bytes": 594,
+      "sha256": "5a5f04fcde4d823064679ee38e04489b260af9c2618723238cacaef9991a3888"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-mesh/admit.py.before-census-fix.txt",
+      "bytes": 2854,
+      "sha256": "1816cda089e8148f2fa847927e6b2d90d9eab4348ae8dd3342c55d151f4aa6a6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-mesh/EXEC.json.before-census-fix.txt",
+      "bytes": 5193,
+      "sha256": "a1db55300e5b9b042ac6b8ecebd64fbb18ebda4223ab27b28df3e46e1268429c"
+    }
+  ],
+  "qualification": "Discrete geometry only; physical/coverage/appearance UNKNOWN"
+}
