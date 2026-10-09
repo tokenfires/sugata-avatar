@@ -1,0 +1,64 @@
+{
+  "utc": "2026-10-09T02:40:08.272850+00:00",
+  "whole_handoff_read": true,
+  "review": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-first-expression/RESULT-REVIEW.md",
+    "bytes": 5577,
+    "sha256": "fbf57c647fbcfb13c890eac27a6621f36e62ec4e392a8e5b74456543761d10b7"
+  },
+  "bindings": 7,
+  "physical_pins": 22,
+  "independent_fixed_source_reconstruction": [
+    {
+      "owner": "Human",
+      "active_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "prospective_indices": [
+        99,
+        100
+      ]
+    },
+    {
+      "owner": "Human.eyebrow001",
+      "active_indices": [],
+      "prospective_indices": [
+        44,
+        45
+      ]
+    },
+    {
+      "owner": "Human.eyelashes01",
+      "active_indices": [],
+      "prospective_indices": [
+        22,
+        23
+      ]
+    }
+  ],
+  "available_arrays": 9,
+  "missing_arrays": 18,
+  "total_arrays": 27,
+  "additional_scalars": 1034532,
+  "total_scalars": 1210320,
+  "decision": "Current 8-cap nomination CLOSED at source-only gate; no coefficient/expression programme/native/render/image",
+  "provenance_limit": "First metadata helper asserted before persistence; same-input diagnostic and witness persistence recorded; no native rerun",
+  "next_worth": "Conditional NEW exact18-active-input native-order Float64 compiler closure and baseline SHA proof; alternate wardrobe/form. No next operation admitted."
+}

@@ -1,0 +1,870 @@
+{
+  "utc": "2026-10-09T02:21:27.308814+00:00",
+  "query_pid": 55288,
+  "authority": "Existing pinned COLD metadata/raw-key fingerprints and SUPPORT array identity mapping only; no raw coordinate/native read",
+  "owners": [
+    {
+      "owner": "Human",
+      "basis": "Basis",
+      "same_native_order": true,
+      "original_order_terms": [
+        {
+          "index": 1,
+          "metadata": {
+            "name": "$md-$as-$fe-$yn",
+            "relative": "Basis",
+            "value": 0.16500000655651093,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "$md-$as-$fe-$yn",
+            "vertices": 19158,
+            "value": 0.16500000655651093,
+            "relative_key": "Basis",
+            "coordinates_sha256": "2302e3d6c38819b2a0987e0455365c86f2da92b82db14c019d0d63f98aacba4c"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 2,
+          "metadata": {
+            "name": "$md-$as-$ma-$yn",
+            "relative": "Basis",
+            "value": 0.16500000655651093,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "$md-$as-$ma-$yn",
+            "vertices": 19158,
+            "value": 0.16500000655651093,
+            "relative_key": "Basis",
+            "coordinates_sha256": "01ef550b89a061050e32ba982f63bd5aa90791efd5fa04393a205cd07a78c59d"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 3,
+          "metadata": {
+            "name": "$md-$ca-$fe-$yn",
+            "relative": "Basis",
+            "value": 0.16500000655651093,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "$md-$ca-$fe-$yn",
+            "vertices": 19158,
+            "value": 0.16500000655651093,
+            "relative_key": "Basis",
+            "coordinates_sha256": "8f21875dfc1f3381c27805b36f8bdff95040c2d850ea3ee861411cbcf7bd908c"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 4,
+          "metadata": {
+            "name": "$md-$ca-$ma-$yn",
+            "relative": "Basis",
+            "value": 0.16500000655651093,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "$md-$ca-$ma-$yn",
+            "vertices": 19158,
+            "value": 0.16500000655651093,
+            "relative_key": "Basis",
+            "coordinates_sha256": "69be818726bed3c67e545d145d60c7a5be3426f8cb9a839b5e837ab8d5abe9fa"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 5,
+          "metadata": {
+            "name": "$md-$af-$fe-$yn",
+            "relative": "Basis",
+            "value": 0.16500000655651093,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "$md-$af-$fe-$yn",
+            "vertices": 19158,
+            "value": 0.16500000655651093,
+            "relative_key": "Basis",
+            "coordinates_sha256": "897f0059f159f18e7daef4d01551fc38d62e2aa92437a12defeba958d8732990"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 6,
+          "metadata": {
+            "name": "$md-$af-$ma-$yn",
+            "relative": "Basis",
+            "value": 0.16500000655651093,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "$md-$af-$ma-$yn",
+            "vertices": 19158,
+            "value": 0.16500000655651093,
+            "relative_key": "Basis",
+            "coordinates_sha256": "cda3606c97467148ca7d13c627d756b378d9a75660948c382c68cfd1f2baa419"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 7,
+          "metadata": {
+            "name": "$md-universal-$fe-$yn-$av$mu-$av$wg",
+            "relative": "Basis",
+            "value": 0.5,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "$md-universal-$fe-$yn-$av$mu-$av$wg",
+            "vertices": 19158,
+            "value": 0.5,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 8,
+          "metadata": {
+            "name": "$md-universal-$ma-$yn-$av$mu-$av$wg",
+            "relative": "Basis",
+            "value": 0.5,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "$md-universal-$ma-$yn-$av$mu-$av$wg",
+            "vertices": 19158,
+            "value": 0.5,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 9,
+          "metadata": {
+            "name": "torso/torso-scale-horiz-incr",
+            "relative": "Basis",
+            "value": 0.699999988079071,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "torso/torso-scale-horiz-incr",
+            "vertices": 19158,
+            "value": 0.699999988079071,
+            "relative_key": "Basis",
+            "coordinates_sha256": "d6208efe6244f1d8c0033ab7d23bdbfea7ba41bedf1f475e0795d57194a7c309"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 10,
+          "metadata": {
+            "name": "torso/torso-scale-depth-incr",
+            "relative": "Basis",
+            "value": 0.699999988079071,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "torso/torso-scale-depth-incr",
+            "vertices": 19158,
+            "value": 0.699999988079071,
+            "relative_key": "Basis",
+            "coordinates_sha256": "db2fb1fb16a01a05226755cce4597a49d0fbfd664a9e260610e2c5e4a5f85b79"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 11,
+          "metadata": {
+            "name": "torso/measure-waist-circ-incr",
+            "relative": "Basis",
+            "value": 0.75,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "torso/measure-waist-circ-incr",
+            "vertices": 19158,
+            "value": 0.75,
+            "relative_key": "Basis",
+            "coordinates_sha256": "79eea31d52f75b5b1a58e7f79f4d12ec8e5cfb464a398617c0066c10ed390c4e"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 12,
+          "metadata": {
+            "name": "hip/hip-scale-horiz-incr",
+            "relative": "Basis",
+            "value": 0.20000000298023224,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "hip/hip-scale-horiz-incr",
+            "vertices": 19158,
+            "value": 0.20000000298023224,
+            "relative_key": "Basis",
+            "coordinates_sha256": "945140288dfa2e3a5a9699d9ba333e5e5037bef743482bddcb6749f7547bcbff"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 13,
+          "metadata": {
+            "name": "hip/hip-scale-depth-incr",
+            "relative": "Basis",
+            "value": 0.20000000298023224,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "hip/hip-scale-depth-incr",
+            "vertices": 19158,
+            "value": 0.20000000298023224,
+            "relative_key": "Basis",
+            "coordinates_sha256": "09abf94d7bc9a3a34acafd7a0a7bf86bcfced98b376375e0ecffc50bed0f0736"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 14,
+          "metadata": {
+            "name": "buttocks/buttocks-volume-incr",
+            "relative": "Basis",
+            "value": 0.15000000596046448,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "buttocks/buttocks-volume-incr",
+            "vertices": 19158,
+            "value": 0.15000000596046448,
+            "relative_key": "Basis",
+            "coordinates_sha256": "e841119e0fe38a9523452a2ebe2a9204b4d6bd6eda9ee1c4c05f49358f6d8e51"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 15,
+          "metadata": {
+            "name": "arms/l-upperarm-fat-incr",
+            "relative": "Basis",
+            "value": 0.20000000298023224,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "arms/l-upperarm-fat-incr",
+            "vertices": 19158,
+            "value": 0.20000000298023224,
+            "relative_key": "Basis",
+            "coordinates_sha256": "105d01b69cd10ed4036f5fefa2635e92a2a2c5e2a394ab065a6e185b17fe63cc"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 16,
+          "metadata": {
+            "name": "arms/r-upperarm-fat-incr",
+            "relative": "Basis",
+            "value": 0.20000000298023224,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "arms/r-upperarm-fat-incr",
+            "vertices": 19158,
+            "value": 0.20000000298023224,
+            "relative_key": "Basis",
+            "coordinates_sha256": "277962214da689cbe78f108023490b5c8bb85856da8fb31c82f42c66a927b31f"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 17,
+          "metadata": {
+            "name": "legs/l-upperleg-fat-incr",
+            "relative": "Basis",
+            "value": 0.20000000298023224,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "legs/l-upperleg-fat-incr",
+            "vertices": 19158,
+            "value": 0.20000000298023224,
+            "relative_key": "Basis",
+            "coordinates_sha256": "a4da55038b5d0dcdefbb565e4c6fe8ec045aa361b9b74526c11b2868d775e2c9"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 18,
+          "metadata": {
+            "name": "legs/r-upperleg-fat-incr",
+            "relative": "Basis",
+            "value": 0.20000000298023224,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "legs/r-upperleg-fat-incr",
+            "vertices": 19158,
+            "value": 0.20000000298023224,
+            "relative_key": "Basis",
+            "coordinates_sha256": "a581b2a290b95476a4524f127799cf645d3299a55ad765df0133bc6c46744c77"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 99,
+          "metadata": {
+            "name": "mouthSmileLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "mouthSmileLeft",
+            "vertices": 19158,
+            "value": 0.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "916594c440fd0be89692e3ba7bc016336b01ba7446c055b60a43d4bbc6292cfe"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        },
+        {
+          "index": 100,
+          "metadata": {
+            "name": "mouthSmileRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "mouthSmileRight",
+            "vertices": 19158,
+            "value": 0.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "5cacaea7dc5a7ed090b16d0e6621d0a66499d58668b813a1a638764546ec0f46"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 19158,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+          }
+        }
+      ]
+    },
+    {
+      "owner": "Human.eyebrow001",
+      "basis": "Basis",
+      "same_native_order": true,
+      "original_order_terms": [
+        {
+          "index": 44,
+          "metadata": {
+            "name": "mouthSmileLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "mouthSmileLeft",
+            "vertices": 124,
+            "value": 0.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "fbeb946624d52851532bec9c2251a6d05f15949033e9d5597c541b5db3ce6d07"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 124,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "9d3f48226235de9f2902d7a2f84f984f93c5c3e288c1e79252169c79563e2288"
+          }
+        },
+        {
+          "index": 45,
+          "metadata": {
+            "name": "mouthSmileRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "mouthSmileRight",
+            "vertices": 124,
+            "value": 0.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "9b0e33066d98c17bb4a07f07910faaf47144b854fdb23d0a0eb93bd447e7a4b5"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 124,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "9d3f48226235de9f2902d7a2f84f984f93c5c3e288c1e79252169c79563e2288"
+          }
+        }
+      ]
+    },
+    {
+      "owner": "Human.eyelashes01",
+      "basis": "Basis",
+      "same_native_order": true,
+      "original_order_terms": [
+        {
+          "index": 22,
+          "metadata": {
+            "name": "mouthSmileLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "mouthSmileLeft",
+            "vertices": 250,
+            "value": 0.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "12c992cc25a9a5973ca13ea733ac45785239129adb6e035746b1396ea4917b03"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 250,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "396b2dcf028c0f0d4085d8032f038c997e604e82779ce70e80dd75e0b6222c9b"
+          }
+        },
+        {
+          "index": 23,
+          "metadata": {
+            "name": "mouthSmileRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "key_record": {
+            "name": "mouthSmileRight",
+            "vertices": 250,
+            "value": 0.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "fb3c4bfface4659274532f3908602c4d4f1eb43ca279f216b9dd93709511334f"
+          },
+          "relative_record": {
+            "name": "Basis",
+            "vertices": 250,
+            "value": 1.0,
+            "relative_key": "Basis",
+            "coordinates_sha256": "396b2dcf028c0f0d4085d8032f038c997e604e82779ce70e80dd75e0b6222c9b"
+          }
+        }
+      ]
+    }
+  ],
+  "available_arrays": 9,
+  "required_total_arrays": 27,
+  "required_additional_arrays": [
+    {
+      "owner": "Human",
+      "key_record": {
+        "name": "$md-$af-$fe-$yn",
+        "vertices": 19158,
+        "value": 0.16500000655651093,
+        "relative_key": "Basis",
+        "coordinates_sha256": "897f0059f159f18e7daef4d01551fc38d62e2aa92437a12defeba958d8732990"
+      }
+    },
+    {
+      "owner": "Human",
+      "key_record": {
+        "name": "$md-$af-$ma-$yn",
+        "vertices": 19158,
+        "value": 0.16500000655651093,
+        "relative_key": "Basis",
+        "coordinates_sha256": "cda3606c97467148ca7d13c627d756b378d9a75660948c382c68cfd1f2baa419"
+      }
+    },
+    {
+      "owner": "Human",
+      "key_record": {
+        "name": "$md-$as-$fe-$yn",
+        "vertices": 19158,
+        "value": 0.16500000655651093,
+        "relative_key": "Basis",
+        "coordinates_sha256": "2302e3d6c38819b2a0987e0455365c86f2da92b82db14c019d0d63f98aacba4c"
+      }
+    },
+    {
+      "owner": "Human",
+      "key_record": {
+        "name": "$md-$as-$ma-$yn",
+        "vertices": 19158,
+        "value": 0.16500000655651093,
+        "relative_key": "Basis",
+        "coordinates_sha256": "01ef550b89a061050e32ba982f63bd5aa90791efd5fa04393a205cd07a78c59d"
+      }
+    },
+    {
+      "owner": "Human",
+      "key_record": {
+        "name": "$md-$ca-$fe-$yn",
+        "vertices": 19158,
+        "value": 0.16500000655651093,
+        "relative_key": "Basis",
+        "coordinates_sha256": "8f21875dfc1f3381c27805b36f8bdff95040c2d850ea3ee861411cbcf7bd908c"
+      }
+    },
+    {
+      "owner": "Human",
+      "key_record": {
+        "name": "$md-$ca-$ma-$yn",
+        "vertices": 19158,
+        "value": 0.16500000655651093,
+        "relative_key": "Basis",
+        "coordinates_sha256": "69be818726bed3c67e545d145d60c7a5be3426f8cb9a839b5e837ab8d5abe9fa"
+      }
+    },
+    {
+      "owner": "Human",
+      "key_record": {
+        "name": "$md-universal-$fe-$yn-$av$mu-$av$wg",
+        "vertices": 19158,
+        "value": 0.5,
+        "relative_key": "Basis",
+        "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+      }
+    },
+    {
+      "owner": "Human",
+      "key_record": {
+        "name": "$md-universal-$ma-$yn-$av$mu-$av$wg",
+        "vertices": 19158,
+        "value": 0.5,
+        "relative_key": "Basis",
+        "coordinates_sha256": "71a83547e760190489fcf6e3c9bbccb2cb35ea233e7c32429c10a11a1d83dfd8"
+      }
+    },
+    {
+      "owner": "Human",
+      "key_record": {
+        "name": "arms/l-upperarm-fat-incr",
+        "vertices": 19158,
+        "value": 0.20000000298023224,
+        "relative_key": "Basis",
+        "coordinates_sha256": "105d01b69cd10ed4036f5fefa2635e92a2a2c5e2a394ab065a6e185b17fe63cc"
+      }
+    },
+    {
+      "owner": "Human",
+      "key_record": {
+        "name": "arms/r-upperarm-fat-incr",
+        "vertices": 19158,
+        "value": 0.20000000298023224,
+        "relative_key": "Basis",
+        "coordinates_sha256": "277962214da689cbe78f108023490b5c8bb85856da8fb31c82f42c66a927b31f"
+      }
+    },
+    {
+      "owner": "Human",
+      "key_record": {
+        "name": "buttocks/buttocks-volume-incr",
+        "vertices": 19158,
+        "value": 0.15000000596046448,
+        "relative_key": "Basis",
+        "coordinates_sha256": "e841119e0fe38a9523452a2ebe2a9204b4d6bd6eda9ee1c4c05f49358f6d8e51"
+      }
+    },
+    {
+      "owner": "Human",
+      "key_record": {
+        "name": "hip/hip-scale-depth-incr",
+        "vertices": 19158,
+        "value": 0.20000000298023224,
+        "relative_key": "Basis",
+        "coordinates_sha256": "09abf94d7bc9a3a34acafd7a0a7bf86bcfced98b376375e0ecffc50bed0f0736"
+      }
+    },
+    {
+      "owner": "Human",
+      "key_record": {
+        "name": "hip/hip-scale-horiz-incr",
+        "vertices": 19158,
+        "value": 0.20000000298023224,
+        "relative_key": "Basis",
+        "coordinates_sha256": "945140288dfa2e3a5a9699d9ba333e5e5037bef743482bddcb6749f7547bcbff"
+      }
+    },
+    {
+      "owner": "Human",
+      "key_record": {
+        "name": "legs/l-upperleg-fat-incr",
+        "vertices": 19158,
+        "value": 0.20000000298023224,
+        "relative_key": "Basis",
+        "coordinates_sha256": "a4da55038b5d0dcdefbb565e4c6fe8ec045aa361b9b74526c11b2868d775e2c9"
+      }
+    },
+    {
+      "owner": "Human",
+      "key_record": {
+        "name": "legs/r-upperleg-fat-incr",
+        "vertices": 19158,
+        "value": 0.20000000298023224,
+        "relative_key": "Basis",
+        "coordinates_sha256": "a581b2a290b95476a4524f127799cf645d3299a55ad765df0133bc6c46744c77"
+      }
+    },
+    {
+      "owner": "Human",
+      "key_record": {
+        "name": "torso/measure-waist-circ-incr",
+        "vertices": 19158,
+        "value": 0.75,
+        "relative_key": "Basis",
+        "coordinates_sha256": "79eea31d52f75b5b1a58e7f79f4d12ec8e5cfb464a398617c0066c10ed390c4e"
+      }
+    },
+    {
+      "owner": "Human",
+      "key_record": {
+        "name": "torso/torso-scale-depth-incr",
+        "vertices": 19158,
+        "value": 0.699999988079071,
+        "relative_key": "Basis",
+        "coordinates_sha256": "db2fb1fb16a01a05226755cce4597a49d0fbfd664a9e260610e2c5e4a5f85b79"
+      }
+    },
+    {
+      "owner": "Human",
+      "key_record": {
+        "name": "torso/torso-scale-horiz-incr",
+        "vertices": 19158,
+        "value": 0.699999988079071,
+        "relative_key": "Basis",
+        "coordinates_sha256": "d6208efe6244f1d8c0033ab7d23bdbfea7ba41bedf1f475e0795d57194a7c309"
+      }
+    }
+  ],
+  "required_additional_count": 18,
+  "additional_coordinate_scalars": 1034532,
+  "total_required_coordinate_scalars": 1210320,
+  "declared_additional_cap": 8,
+  "within_cap": false,
+  "unowned_other_issues": [],
+  "passed": false,
+  "decision": "REFUSED before coefficient/contract/programme/native; required18 arrays exceed8. Current nomination CLOSED; no cap extension/retry",
+  "root_gate_failure": "First pure gate used assert before persisting refusal (tool20f393 exit1). A read-only diagnostic identified18-vs8; this receipt persists the complete same fixed-input witness. No native collector/programme/artist coefficient ever created",
+  "limits": "No smile/morphology/appearance refusal or source incapability. F32 baseline/evaluated arrays cannot substitute for original-order F64 accumulation. Source query closed; any future broader ownership requires a new explicit contract"
+}
