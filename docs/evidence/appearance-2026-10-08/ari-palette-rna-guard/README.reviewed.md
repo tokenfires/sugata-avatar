@@ -1,0 +1,9 @@
+# Type-owned RNA proposal: reference lookup stopped
+
+**STOPPED before code or native job.** Root whole criticWORTH/21physicalpins/two table bindings verified before inquiry. At 2026-10-09 00:15UTC, sole web tool call opens two distinct official references: https://docs.blender.org/api/current/bpy.types.FloatProperty.html and https://docs.blender.org/api/current/bpy.types.StringProperty.html. Both return HTTP402 Payment Required; exact returned tool result is API-ATTEMPT.json. No successful page content or API schema verification was obtained. No retry, search, alternative connector, download or capacity purchase/reset was attempted.
+
+Plan stop for unsupported reference/capability applies. No observer correction, source code/EXEC/preflight/native job, descriptor census, save, capture, new image or palette/geometry edit occurred. Actual prior StringProperty failure still supports a narrow future correction nomination, but the new API responsibility was not established by these blocked lookups. Every21input pin remains exact; candidate remains physically unchanged. Previous closed observer/fullnamespace/other rejected experiments stay frozen.
+
+Next action: checkpoint and retain recovery state; do not repeat blocked web requests or silently admit API handling. A future explicit contract may select an already available local primary runtime/source witness if it changes the decision within allowance, or keep the source-only palette. No next operation admitted here. Full AAA character/expression/wardrobe/representation work remains open; accepted defaults, source/native/rawGiB/reference/unrelated work retained. No purchases/reset/model/subscription/install/preferences/push/publish/otherprojects. Vite retained, recovery ACTIVE; human steering wins.
+
+Independent stored closure review pending. This is a reference-access failure, not a native palette or geometry result and not an artist refusal. No images yet.
