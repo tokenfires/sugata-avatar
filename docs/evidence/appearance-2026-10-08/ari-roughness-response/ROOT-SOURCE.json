@@ -1,0 +1,44 @@
+{
+  "utc": "2026-10-09T00:48:47.197926+00:00",
+  "60pins_exact": true,
+  "all_inherited_observer_function_AST_exact": [
+    "require",
+    "write",
+    "load",
+    "safe_value",
+    "descriptor_refusal",
+    "scalar_rna",
+    "material",
+    "image_records",
+    "native_route",
+    "evaluated_route",
+    "state",
+    "preserved"
+  ],
+  "only_new_functions": [
+    "response_expected",
+    "owned_socket"
+  ],
+  "literal_full_state_delta_exact": [
+    [
+      "scene",
+      "materials",
+      0,
+      "nodes",
+      1,
+      "input_defaults",
+      "Roughness"
+    ],
+    [
+      "owned",
+      "record",
+      "nodes",
+      1,
+      "inputs",
+      "Roughness"
+    ]
+  ],
+  "literal_variant": 0.75,
+  "syntax_only": true,
+  "no_owned_native_or_images": true
+}

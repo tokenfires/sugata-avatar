@@ -1,0 +1,71 @@
+--- /Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-palette-link-boundary/views.py
++++ /Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-roughness-response/response.py
+@@ -1,4 +1,4 @@
+-"""Read saved palette; qualify source-owned state; first three fixed views. No save."""
++"""One in-memory roughness response; full baseline/variant/restoration guards. No save."""
+ from pathlib import Path
+ import sys,json,hashlib,datetime,ast,importlib.util,copy,math
+ sys.dont_write_bytecode=True
+@@ -7,7 +7,7 @@
+ from mathutils import Vector
+ from bpy_extras.object_utils import world_to_camera_view
+ P=Path(__file__).resolve().parent
+-E=json.loads((P/'EXEC-PLAN.json').read_text());K=json.loads(Path(E['contract']).read_text())
++E=json.loads((P/'EXEC-PLAN.json').read_text());K=json.loads(Path(E['contract']).read_text());R=json.loads(Path(E['response_contract']).read_text())
+ REPORT={'started_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'passed':False,'candidate_promotion':False,'outputs':[],'checks':[]}
+ def require(v,label):
+  if not v:raise RuntimeError(label)
+@@ -92,6 +92,20 @@
+  return {'scene':helper.capture_scene(),'original_materials':mats,'owned':owned,'images':images,'metadata':C.meta(),'extras':C.original_extras(old_names),'native_route':native_route(),'mixed_sha256':C.digest(C.mixed(bpy.data.objects['Human']))}
+ def preserved(actual):
+  require(actual==EXPECTED,'Complete NEW source-owned state equality')
++def response_expected(base,value):
++ out=copy.deepcopy(base)
++ require(len(R['allowed_state_paths'])==2,'Exactly two copies of one socket')
++ for path in R['allowed_state_paths']:
++  cur=out
++  for part in path[:-1]:cur=cur[part]
++  require(cur[path[-1]]==R['baseline'],'Exact observed baseline response copy');cur[path[-1]]=value
++ return out
++def owned_socket():
++ require(R['owner']=='AriPaletteSkin' and R['node']=='Principled BSDF' and R['socket']=='Roughness' and R['baseline']==0.5 and R['variant']==0.75,'Literal fixed response contract')
++ m=bpy.data.materials[R['owner']];n=m.node_tree.nodes[R['node']];s=n.inputs[R['socket']]
++ require(n.type==R['node_type'] and s.identifier==R['socket_identifier'] and s.type==R['socket_type'] and not s.is_linked and isinstance(s.default_value,float),'Actual named unlinked scalar socket type')
++ require(not any(l.to_socket==s for l in m.node_tree.links),'No response link endpoint')
++ return s
+ try:
+  require(bpy.app.background and not bpy.app.online_access,'Offline background CPU')
+  for r in E['pins']:
+@@ -113,23 +127,29 @@
+  cold=state();write('COLD-OBSERVED.json',cold);preserved(cold)
+  meshes=sorted(o.name for o in bpy.data.objects if o.type=='MESH');geometry,arrays=C.evaluated(meshes,500000,1000000);require(geometry==W['geometry'],'All eighteen evaluated geometry signatures exact')
+  work=P/'work';require(not work.exists(),'Exclusive geometry archive');work.mkdir();np.savez_compressed(work/'cold-geometry.npz',**arrays);(work/'cold-geometry.npz').chmod(0o444)
++ BASE_EXPECTED=copy.deepcopy(EXPECTED);require(cold==json.loads(Path(E['baseline_state']).read_text()),'Literal prior complete baseline state')
++ response_socket=owned_socket();require(response_socket.default_value==R['baseline'],'Actual baseline0.5 before single edit');response_socket.default_value=R['variant'];require(response_socket.default_value==R['variant'],'Exactly represented single0.75 response');bpy.context.view_layer.update()
++ EXPECTED=response_expected(BASE_EXPECTED,R['variant']);variant=state();write('VARIANT-OBSERVED.json',variant);preserved(variant);variant_geometry,variant_arrays=C.evaluated(meshes,500000,1000000);require(variant_geometry==geometry,'All eighteen variant evaluated geometry signatures exact');np.savez_compressed(work/'variant-geometry.npz',**variant_arrays);(work/'variant-geometry.npz').chmod(0o444)
++ REPORT['response']={'owner':R['owner'],'node':R['node'],'socket':R['socket'],'baseline':R['baseline'],'variant':R['variant'],'allowed_state_paths':R['allowed_state_paths'],'baseline_full_equal':True,'variant_full_equal':True,'geometry_equal':True,'restore_complete':False}
+  nodes=ast.parse(Path(E['renderer']).read_text()).body;names={'render_domain','restore','bbox','orient','settings'};selected=[n for n in nodes if isinstance(n,ast.FunctionDef) and n.name in names];require({n.name for n in selected}==names,'Exact frozen five renderer functions');exec(compile(ast.Module(body=selected,type_ignores=[]),E['renderer'],'exec'),globals())
+  points,heads,counts,saved=render_domain();require(counts==W['domains'],'Full original render domains');require(evaluated_route()==json.loads(Path(E['evaluated_route']).read_text()),'Actual evaluated skin indices/material route');restore(saved);preserved(state());write('RNA-DESCRIPTORS.json',{'classes':REPORT['rna_descriptor_classes'],'scope':'Visited required material/tree/node reads only; numeric metadata before getters, not global API coverage'});write('COLD.json',{'state':cold,'geometry':geometry,'domains':counts,'fresh_process_open':True,'dynamic_pixel_equality':False})
+  REPORT['shared_look']=K['look'];scene=bpy.context.scene;oldworld=scene.world;oldcamera=scene.camera;camera,diag,world=settings(scene,K['lighting_center']);require(len(diag)==4 and not set(diag)&old_names,'Exclusive diagnostic owners');points,heads,counts2,saved=render_domain();require(counts2==counts,'Render domains after settings exact')
+  lighting={'world_rna':scalar_rna(world),'background':{'color':list(world.node_tree.nodes['Background'].inputs['Color'].default_value),'strength':world.node_tree.nodes['Background'].inputs['Strength'].default_value},'objects':{n:{'rna':scalar_rna(bpy.data.objects[n]),'matrix_world':[list(r) for r in bpy.data.objects[n].matrix_world],'data':scalar_rna(bpy.data.objects[n].data)} for n in diag},'look':REPORT['shared_look'],'cpu':{'device':scene.cycles.device,'samples':scene.cycles.samples,'threads':scene.render.threads,'seed':scene.cycles.seed,'denoiser':scene.cycles.denoiser}};write('LIGHTING.json',lighting)
+  for framing,view in K['views']:
+-  f=K['frames'][framing];scene.render.resolution_x,scene.render.resolution_y=f['resolution'];camera.data.ortho_scale=f['scale'];target=Vector(f['center']);direction=(0,-1,0) if view=='front' else (1,0,0);camera.location=target+Vector(direction)*5;orient(camera,target);bpy.context.view_layer.update();domain=points if framing=='body' else heads;projected=[world_to_camera_view(scene,camera,Vector(p)) for p in domain];require(all(.04<=p.x<=.96 and .04<=p.y<=.96 and p.z>0 for p in projected),'Every source point framed '+framing+view);png=P/('palette-'+framing+'-'+view+'.png');require(not png.exists(),'First exclusive original');scene.render.filepath=str(png);require(bpy.ops.render.render(write_still=True)=={'FINISHED'} and png.is_file(),'First original complete');png.chmod(0o444);REPORT['outputs'].append({'framing':framing,'view':view,'path':str(png),'bytes':png.stat().st_size,'sha256':hashlib.sha256(png.read_bytes()).hexdigest(),'resolution':f['resolution'],'camera':list(camera.location),'target':f['center'],'scale':f['scale'],'point_count':len(domain),'projection':{'minx':min(p.x for p in projected),'maxx':max(p.x for p in projected),'miny':min(p.y for p in projected),'maxy':max(p.y for p in projected)}})
++  f=K['frames'][framing];scene.render.resolution_x,scene.render.resolution_y=f['resolution'];camera.data.ortho_scale=f['scale'];target=Vector(f['center']);direction=(0,-1,0) if view=='front' else (1,0,0);camera.location=target+Vector(direction)*5;orient(camera,target);bpy.context.view_layer.update();domain=points if framing=='body' else heads;projected=[world_to_camera_view(scene,camera,Vector(p)) for p in domain];require(all(.04<=p.x<=.96 and .04<=p.y<=.96 and p.z>0 for p in projected),'Every source point framed '+framing+view);png=P/('roughness-'+framing+'-'+view+'.png');require(not png.exists(),'First exclusive original');scene.render.filepath=str(png);require(bpy.ops.render.render(write_still=True)=={'FINISHED'} and png.is_file(),'First original complete');png.chmod(0o444);REPORT['outputs'].append({'framing':framing,'view':view,'path':str(png),'bytes':png.stat().st_size,'sha256':hashlib.sha256(png.read_bytes()).hexdigest(),'resolution':f['resolution'],'camera':list(camera.location),'target':f['center'],'scale':f['scale'],'point_count':len(domain),'projection':{'minx':min(p.x for p in projected),'maxx':max(p.x for p in projected),'miny':min(p.y for p in projected),'maxy':max(p.y for p in projected)}})
+  restore(saved)
+  for n in diag:
+   o=bpy.data.objects[n];d=o.data;bpy.data.objects.remove(o,do_unlink=True)
+   if isinstance(d,bpy.types.Camera):bpy.data.cameras.remove(d)
+   else:bpy.data.lights.remove(d)
+- scene.world=oldworld;scene.camera=oldcamera;bpy.data.worlds.remove(world);clean=state();write('CLEANUP-OBSERVED.json',clean);preserved(clean);after,after_arrays=C.evaluated(meshes,500000,1000000);require(after==geometry,'Post-render all evaluated geometry exact');write('CLEANUP.json',{'state':clean,'geometry':after})
++ scene.world=oldworld;scene.camera=oldcamera;bpy.data.worlds.remove(world);variant_clean=state();write('VARIANT-CLEANUP.json',variant_clean);preserved(variant_clean)
++ require(owned_socket()==response_socket and response_socket.default_value==R['variant'],'Same owned socket before restoration');response_socket.default_value=R['baseline'];require(response_socket.default_value==R['baseline'],'Exact response restoration');bpy.context.view_layer.update();EXPECTED=BASE_EXPECTED;clean=state();write('CLEANUP-OBSERVED.json',clean);preserved(clean);after,after_arrays=C.evaluated(meshes,500000,1000000);require(after==geometry,'Post-render all evaluated geometry exact');write('CLEANUP.json',{'state':clean,'geometry':after})
+  for r in E['pins']:
+   b=Path(r['path']).read_bytes();require(len(b)==r['bytes'] and hashlib.sha256(b).hexdigest()==r['sha256'],'Post physical pin '+r['path'])
+  require(Path(E['source']['path']).stat().st_mode&0o222==0,'Post immutable input')
++ REPORT['response']['restore_complete']=True
+  REPORT.update({'passed':True,'geometry':geometry,'domains':counts,'source_sha256':E['source']['sha256'],'fresh_process_open':True,'saved':False,'dynamic_pixel_equality':False})
+ except Exception as ex:REPORT['exception']=repr(ex)
+ finally:
+- REPORT['finished_utc']=datetime.datetime.now(datetime.timezone.utc).isoformat();REPORT['limits']='NEW source-owned preservation only; original failed fullnamespace promise held. Packed source+metadata, not dynamic pixel equality. One immutable fixed palette/first views; no save, calibrated complexion, identity, fine skin, hair, motion, export, runtime or AAA acceptance.';write('RESULT.json',REPORT);print('SUGATA_PALETTE_FIRST_VIEWS '+json.dumps({k:v for k,v in REPORT.items() if k!='checks'}),flush=True)
++ REPORT['finished_utc']=datetime.datetime.now(datetime.timezone.utc).isoformat();REPORT['limits']='NEW source-owned preservation only; original failed fullnamespace promise held. Packed source+metadata, not dynamic pixel equality. One fixed in-memory roughness response with restored palette; no save, calibrated complexion, identity, fine skin, hair, motion, export, runtime or AAA acceptance.';write('RESULT.json',REPORT);print('SUGATA_ROUGHNESS_RESPONSE '+json.dumps({k:v for k,v in REPORT.items() if k!='checks'}),flush=True)
+ if not REPORT['passed']:raise SystemExit(1)

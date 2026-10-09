@@ -1,0 +1,53 @@
+{
+  "utc": "2026-10-09T00:47:25.010107+00:00",
+  "owner": "AriPaletteSkin",
+  "node": "Principled BSDF",
+  "node_type": "BSDF_PRINCIPLED",
+  "socket": "Roughness",
+  "socket_identifier": "Roughness",
+  "socket_type": "VALUE",
+  "baseline": 0.5,
+  "variant": 0.75,
+  "rationale": "one artist-selected higher-roughness diagnostic response, exactly representable Float32; no tuned optimum or physical skin claim",
+  "unlinked_required": true,
+  "allowed_state_paths": [
+    [
+      "owned",
+      "record",
+      "nodes",
+      1,
+      "inputs",
+      "Roughness"
+    ],
+    [
+      "scene",
+      "materials",
+      0,
+      "nodes",
+      1,
+      "input_defaults",
+      "Roughness"
+    ]
+  ],
+  "source_expected": "ari-palette-link-boundary full source-owned COLD baseline",
+  "geometry_and_frames": "all previous responsibilities unchanged",
+  "save": false,
+  "restore": true,
+  "views": [
+    [
+      "head",
+      "front"
+    ],
+    [
+      "head",
+      "profile"
+    ],
+    [
+      "body",
+      "front"
+    ]
+  ],
+  "timeout_seconds": 240,
+  "launch_before": "2026-10-09T01:10:00+00:00",
+  "close": "2026-10-09T01:30:00+00:00"
+}

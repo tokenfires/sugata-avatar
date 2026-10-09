@@ -1,0 +1,85 @@
+{
+  "classes": {
+    "STRING|StringProperty": {
+      "type": "STRING",
+      "property_class": "StringProperty",
+      "numeric_capabilities_required": false,
+      "numeric_capabilities_observed": false,
+      "visits": 561,
+      "array_visits": 0,
+      "maximum_array_length": 0,
+      "first_context": {
+        "owner_class": "Material",
+        "owner_name": "Human.high-poly",
+        "identifier": "name",
+        "property_class": "StringProperty",
+        "type": "STRING"
+      }
+    },
+    "BOOLEAN|BoolProperty": {
+      "type": "BOOLEAN",
+      "property_class": "BoolProperty",
+      "numeric_capabilities_required": true,
+      "numeric_capabilities_observed": true,
+      "visits": 1077,
+      "array_visits": 0,
+      "maximum_array_length": 0,
+      "first_context": {
+        "owner_class": "Material",
+        "owner_name": "Human.high-poly",
+        "identifier": "use_fake_user",
+        "property_class": "BoolProperty",
+        "type": "BOOLEAN"
+      }
+    },
+    "ENUM|EnumProperty": {
+      "type": "ENUM",
+      "property_class": "EnumProperty",
+      "numeric_capabilities_required": false,
+      "numeric_capabilities_observed": false,
+      "visits": 534,
+      "array_visits": 0,
+      "maximum_array_length": 0,
+      "first_context": {
+        "owner_class": "Material",
+        "owner_name": "Human.high-poly",
+        "identifier": "surface_render_method",
+        "property_class": "EnumProperty",
+        "type": "ENUM"
+      }
+    },
+    "FLOAT|FloatProperty": {
+      "type": "FLOAT",
+      "property_class": "FloatProperty",
+      "numeric_capabilities_required": true,
+      "numeric_capabilities_observed": true,
+      "visits": 1188,
+      "array_visits": 324,
+      "maximum_array_length": 4,
+      "first_context": {
+        "owner_class": "Material",
+        "owner_name": "Human.high-poly",
+        "identifier": "alpha_threshold",
+        "property_class": "FloatProperty",
+        "type": "FLOAT"
+      }
+    },
+    "INT|IntProperty": {
+      "type": "INT",
+      "property_class": "IntProperty",
+      "numeric_capabilities_required": true,
+      "numeric_capabilities_observed": true,
+      "visits": 105,
+      "array_visits": 0,
+      "maximum_array_length": 0,
+      "first_context": {
+        "owner_class": "Material",
+        "owner_name": "Human.high-poly",
+        "identifier": "pass_index",
+        "property_class": "IntProperty",
+        "type": "INT"
+      }
+    }
+  },
+  "scope": "Visited required material/tree/node reads only; numeric metadata before getters, not global API coverage"
+}
