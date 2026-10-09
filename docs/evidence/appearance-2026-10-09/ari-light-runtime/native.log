@@ -1,0 +1,21 @@
+/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-light-runtime/probe.py:27: DeprecationWarning: 'AreaLight.use_nodes' is expected to be removed in Blender 6.0
+  try:out['legacy_use_nodes']=d.use_nodes
+Traceback (most recent call last):
+  File "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-light-runtime/probe.py", line 61, in <module>
+    check(name+':supported None or empty-tree branch',{'supported':supported,'representation':rep},{'supported':True,'representation':rep})
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-light-runtime/probe.py", line 16, in check
+    if actual!=expected:raise RuntimeError(name)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: GlobalKey:supported None or empty-tree branch
+Traceback (most recent call last):
+  File "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-light-runtime/probe.py", line 69, in <module>
+    if not R['passed']:raise RuntimeError('Light-schema witness refused; no retry')
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Light-schema witness refused; no retry
+ARI_LIGHT_SCHEMA_RESULT={"passed": false, "observations": 3, "error": {"type": "RuntimeError", "message": "GlobalKey:supported None or empty-tree branch"}}
+
+Error: script failed, file: '/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-light-runtime/probe.py', exiting.
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:49:19)
+
+Blender quit

@@ -1,0 +1,80 @@
+{
+  "utc": "2026-10-09T14:01:37.121116+00:00",
+  "actual_controller_session": 28802,
+  "actual_controller_exit": 1,
+  "classification": "Bounded research witness obtained; None/empty ownership branch REFUSED",
+  "worker_reached": "all3default/configured/repeat records +version/names/repeat +GlobalKey18fields/position/scale; firstrepresentationguard refused",
+  "worker_unreached": "GlobalFill/Rear individual guards and worker post-success pin pass",
+  "independent_root_checks": "All54configured field values;3default and3configured and3repeat graph structures/getters; beforeguardprojection;23externalpins; exits/timing/log/PIDs; vector-matrix directions",
+  "matrix_proof": [
+    {
+      "name": "GlobalKey",
+      "orthonormal_max_error": 5.805929204072413e-08,
+      "negative_Z_to_target_max_error": 1.0512770520776371e-07
+    },
+    {
+      "name": "GlobalFill",
+      "orthonormal_max_error": 4.1166884900967204e-08,
+      "negative_Z_to_target_max_error": 1.319542332067769e-07
+    },
+    {
+      "name": "GlobalRear",
+      "orthonormal_max_error": 2.2657143050608397e-08,
+      "negative_Z_to_target_max_error": 6.498179117020442e-08
+    }
+  ],
+  "exact_observed_representation": {
+    "kind": "NodeTree",
+    "node_count": 2,
+    "link_count": 1,
+    "nodes": [
+      [
+        "Emission",
+        "ShaderNodeEmission"
+      ],
+      [
+        "Light Output",
+        "ShaderNodeOutputLight"
+      ]
+    ],
+    "links": [
+      [
+        "Emission",
+        "Emission",
+        "Light Output",
+        "Surface"
+      ]
+    ],
+    "truncated": false
+  },
+  "effective_lighting": "UNKNOWN; node socket defaults/active-output/renderer behavior unobserved",
+  "native_retries": 0,
+  "images": [],
+  "outputs": [
+    {
+      "file": "RESULT.json",
+      "bytes": 47537,
+      "sha256": "55641863f020754d406a8ec77a868c6b938c33be8825c0a53069626c9a91f013"
+    },
+    {
+      "file": "OBSERVED.json",
+      "bytes": 28478,
+      "sha256": "ebe99d4085bb27441221d8bb17ee2cb8e05603cd5a33f72d75211a1906c50a61"
+    },
+    {
+      "file": "NATIVE-JOB.json",
+      "bytes": 950,
+      "sha256": "482271b44209bbf70546316d8c3e86fa3e58bcf791b6f2afbbfe5b8c31a62289"
+    },
+    {
+      "file": "NATIVE-JOB-start.json",
+      "bytes": 550,
+      "sha256": "7f9a58c77c069fef87d2504be46373ab2f6c744b181e231cafbc8dcbf5f3b646"
+    },
+    {
+      "file": "native.log",
+      "bytes": 1718,
+      "sha256": "212ab7569236b960c63cd3cb74d3e11e68575a2c5ae6110797877e5b1b691a33"
+    }
+  ]
+}
