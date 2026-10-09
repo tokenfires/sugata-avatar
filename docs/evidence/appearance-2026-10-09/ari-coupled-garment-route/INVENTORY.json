@@ -1,0 +1,34 @@
+{
+  "started": "2026-10-09T22:44:08.997283+00:00",
+  "finished": "2026-10-09T22:44:09.011651+00:00",
+  "elapsed": 0.014374000020325184,
+  "parent_pid": 29289,
+  "rg_pid": 29291,
+  "argv": [
+    "rg",
+    "--files",
+    "--hidden",
+    "--no-ignore",
+    "-g",
+    "*.mhclo",
+    "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data"
+  ],
+  "roots": [
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/datafiles",
+      "exists": false
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data",
+      "exists": true
+    }
+  ],
+  "returncode": 1,
+  "reason": "completed",
+  "retained_paths": [],
+  "retained_count": 0,
+  "stdout_bytes": 0,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "trailing_unparsed_bytes": 0,
+  "limits": "Filenames only, no symlink follow, no file/header/geometry read. Outside roots/unlisted data UNKNOWN; capped/error scan cannot establish absence."
+}

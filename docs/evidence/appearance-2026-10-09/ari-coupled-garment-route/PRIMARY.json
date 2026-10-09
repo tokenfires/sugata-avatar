@@ -1,0 +1,71 @@
+{
+  "request": {
+    "url": "https://static.makehumancommunity.org/mpfb/docs/getting_started.html",
+    "formats": [
+      "query"
+    ],
+    "queryOptions": {
+      "mode": "directQuote",
+      "prompt": "Extract only the short source passages explaining whether the MPFB extension includes clothing/hair/skin assets or requires separate asset packs, and which asset pack is required or recommended to get started. At most 150 words total. Do not follow links or retrieve/download asset packs."
+    },
+    "maxAge": 0,
+    "onlyMainContent": true,
+    "timeout": 20000
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"metadata\": {\n    \"ogTitle\": \"Getting started :: MakeHuman Community\",\n    \"generator\": [\n      \"Hugo 0.161.1\",\n      \"Relearn 9.0.3\"\n    ],\n    \"description\": \"Getting started with MPFB: how to install the Blender character creator addon, add asset packs and create your first rigged, textured human character., Getting started with MPFB: how to install the Blender character creator addon, add asset packs and create your first rigged, textured human character.\",\n    \"title\": \"Getting started :: MakeHuman Community\",\n    \"twitter:description\": \"Getting started with MPFB: how to install the Blender character creator addon, add asset packs and create your first rigged, textured human character.\",\n    \"name\": \"Getting started :: MakeHuman Community\",\n    \"ogDescription\": \"Getting started with MPFB: how to install the Blender character creator addon, add asset packs and create your first rigged, textured human character.\",\n    \"ogSiteName\": \"MakeHuman Community\",\n    \"author\": \"\",\n    \"wordCount\": \"787\",\n    \"article:section\": \"MPFB\",\n    \"ogLocale\": \"en_us\",\n    \"og:title\": \"Getting started :: MakeHuman Community\",\n    \"language\": \"en-us\",\n    \"og:locale\": \"en_us\",\n    \"twitter:card\": \"summary\",\n    \"position\": [\n      \"1\",\n      \"2\",\n      \"3\",\n      \"4\"\n    ],\n    \"og:type\": \"article\",\n    \"viewport\": \"height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0\",\n    \"og:site_name\": \"MakeHuman Community\",\n    \"og:url\": \"https://static.makehumancommunity.org/mpfb/docs/getting_started.html\",\n    \"ogUrl\": \"https://static.makehumancommunity.org/mpfb/docs/getting_started.html\",\n    \"twitter:title\": \"Getting started :: MakeHuman Community\",\n    \"og:description\": \"Getting started with MPFB: how to install the Blender character creator addon, add asset packs and create your first rigged, textured human character.\",\n    \"scrapeId\": \"01a122d8-fd15-7669-8f08-708f8034ba0e\",\n    \"sourceURL\": \"https://static.makehumancommunity.org/mpfb/docs/getting_started.html\",\n    \"url\": \"https://static.makehumancommunity.org/mpfb/docs/getting_started.html\",\n    \"statusCode\": 200,\n    \"contentType\": \"text/html\",\n    \"timezone\": \"America/New_York\",\n    \"proxyUsed\": \"basic\",\n    \"indexId\": \"8d93e6c6-2807-4184-af49-c22bc9bf37e6\",\n    \"creditsUsed\": 5,\n    \"concurrencyLimited\": false\n  },\n  \"answer\": \"You will want at least the “makehuman system assets”, which contains skins, eyes, teeth and similar.\\n\\nThe first thing you should do is install the “makehuman system assets”. You might as well also install any other asset packs you have downloaded.\"\n}"
+      }
+    ],
+    "structuredContent": {
+      "answer": "You will want at least the “makehuman system assets”, which contains skins, eyes, teeth and similar.\n\nThe first thing you should do is install the “makehuman system assets”. You might as well also install any other asset packs you have downloaded.",
+      "metadata": {
+        "ogTitle": "Getting started :: MakeHuman Community",
+        "generator": [
+          "Hugo 0.161.1",
+          "Relearn 9.0.3"
+        ],
+        "description": "Getting started with MPFB: how to install the Blender character creator addon, add asset packs and create your first rigged, textured human character., Getting started with MPFB: how to install the Blender character creator addon, add asset packs and create your first rigged, textured human character.",
+        "title": "Getting started :: MakeHuman Community",
+        "twitter:description": "Getting started with MPFB: how to install the Blender character creator addon, add asset packs and create your first rigged, textured human character.",
+        "name": "Getting started :: MakeHuman Community",
+        "ogDescription": "Getting started with MPFB: how to install the Blender character creator addon, add asset packs and create your first rigged, textured human character.",
+        "ogSiteName": "MakeHuman Community",
+        "author": "",
+        "wordCount": "787",
+        "article:section": "MPFB",
+        "ogLocale": "en_us",
+        "og:title": "Getting started :: MakeHuman Community",
+        "language": "en-us",
+        "og:locale": "en_us",
+        "twitter:card": "summary",
+        "position": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "og:type": "article",
+        "viewport": "height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0",
+        "og:site_name": "MakeHuman Community",
+        "og:url": "https://static.makehumancommunity.org/mpfb/docs/getting_started.html",
+        "ogUrl": "https://static.makehumancommunity.org/mpfb/docs/getting_started.html",
+        "twitter:title": "Getting started :: MakeHuman Community",
+        "og:description": "Getting started with MPFB: how to install the Blender character creator addon, add asset packs and create your first rigged, textured human character.",
+        "scrapeId": "01a122d8-fd15-7669-8f08-708f8034ba0e",
+        "sourceURL": "https://static.makehumancommunity.org/mpfb/docs/getting_started.html",
+        "url": "https://static.makehumancommunity.org/mpfb/docs/getting_started.html",
+        "statusCode": 200,
+        "contentType": "text/html",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "indexId": "8d93e6c6-2807-4184-af49-c22bc9bf37e6",
+        "creditsUsed": 5,
+        "concurrencyLimited": false
+      }
+    },
+    "isError": false
+  }
+}

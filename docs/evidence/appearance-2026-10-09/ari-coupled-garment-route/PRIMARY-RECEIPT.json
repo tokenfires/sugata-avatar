@@ -1,0 +1,28 @@
+{
+  "utc": "2026-10-09T22:48:16.014321+00:00",
+  "request": {
+    "url": "https://static.makehumancommunity.org/mpfb/docs/getting_started.html",
+    "formats": [
+      "query"
+    ],
+    "queryOptions": {
+      "mode": "directQuote",
+      "prompt": "Extract only the short source passages explaining whether the MPFB extension includes clothing/hair/skin assets or requires separate asset packs, and which asset pack is required or recommended to get started. At most 150 words total. Do not follow links or retrieve/download asset packs."
+    },
+    "maxAge": 0,
+    "onlyMainContent": true,
+    "timeout": 20000
+  },
+  "page_http": 200,
+  "content_type": "text/html",
+  "credits_used": 5,
+  "extracted_answer_bytes": 255,
+  "extracted_answer_sha256": "fe3406bb470dd94e57ee8b7d68eaa69b1e905264658dcc6e5870faa6e5e82e7e",
+  "sourceURL": "https://static.makehumancommunity.org/mpfb/docs/getting_started.html",
+  "scrapeId": "01a122d8-fd15-7669-8f08-708f8034ba0e",
+  "full_page_read": false,
+  "actual_scope": "ONE targeted primary document extraction, two returned passages only; no links/assets/followup. Header reads0, decoded assets0, filename scan once.",
+  "primary_limits": "Documents separately installed system assets (skin/eyes/teeth/similar); does not identify or qualify a whole garment or local installation.",
+  "inventory_scope": "Only nominated MPFB bundled data/datafiles roots; outside/custom roots UNKNOWN",
+  "owned_inventory_jobs_gone": true
+}
