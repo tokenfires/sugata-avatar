@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-09T12:33:20.540396+00:00",
+  "source_witness": "Current native loop checks finalPNG absence then render(write_still=True) writes finalfilepath directly; it does not atomically reservefinalname",
+  "selected_A": "Render to fresh ownedprivate directory then exclusiveos.link finalPNG; preserve privateoutput on failure. Explicit AREA/non-node light and builtinfont ownership guards also close defaults beforepixels.",
+  "alternative_B": "Declare only guarded names in isolatednamespace, less stringent than atomicexclusive output; retain defaultfont/light fields as held",
+  "scope": "Preexecution observer ownership/output only, no geometry/material/color/frame/threshold changes or image retry",
+  "preserved": [
+    {
+      "file": "native.py.before-output-fix.txt",
+      "bytes": 21267,
+      "sha256": "3a4887617b802e74621f71d9e62fc090153a88a787320a0c96f06ee00327d079"
+    },
+    {
+      "file": "run_native.py.before-output-fix.txt",
+      "bytes": 3790,
+      "sha256": "2fec0aab929387d04aa819dcd6e423664dda178580d7fec986d5b13a0f8a6411"
+    },
+    {
+      "file": "EXEC.json.before-output-fix.txt",
+      "bytes": 5038,
+      "sha256": "ae556e5e3f4d723f4663e48a7fe5f4ac34ba24a87dba0442b018a4a441d25404"
+    }
+  ]
+}

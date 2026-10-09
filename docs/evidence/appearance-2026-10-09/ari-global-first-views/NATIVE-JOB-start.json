@@ -1,0 +1,19 @@
+{
+  "utc_started": "2026-10-09T12:51:52.786219+00:00",
+  "utc_Popen_return": "2026-10-09T12:51:52.799576+00:00",
+  "wrapper_pid": 98427,
+  "native_pid": 98429,
+  "owned_process_group": 98429,
+  "command": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--factory-startup",
+    "--offline-mode",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-global-first-views/native.py"
+  ],
+  "allocated_seconds": 240,
+  "launch_within_gates": true
+}

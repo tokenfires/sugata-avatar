@@ -1,0 +1,97 @@
+{
+  "schema": "ari-global-first-native-v1",
+  "body_gray": [
+    0.42,
+    0.42,
+    0.42
+  ],
+  "materials": {
+    "outer": [
+      0.38,
+      0.14,
+      0.075
+    ],
+    "lining": [
+      0.16,
+      0.06,
+      0.035
+    ],
+    "rim": [
+      0.26,
+      0.1,
+      0.055
+    ],
+    "cuff": [
+      0.22,
+      0.08,
+      0.04
+    ]
+  },
+  "material_roughness": 0.65,
+  "views": {
+    "front": [
+      0,
+      -1,
+      0
+    ],
+    "front-left": [
+      1,
+      -1,
+      0
+    ],
+    "rear": [
+      0,
+      1,
+      0
+    ]
+  },
+  "resolution": [
+    768,
+    1024
+  ],
+  "pad_each_side": 0.04,
+  "smoothing": "bodyalltrue; shell outer/liningtrue, allrimfalse; no modifiers",
+  "uv": "Absent; no UV or texture qualification",
+  "labels": [
+    {
+      "name": "Global-FIT-REFUSED",
+      "text": "FIT REFUSED: 2189 BODY / 36 SELF TRIANGLE PAIRS",
+      "font_size": 0.026,
+      "top_offset": 0.038
+    },
+    {
+      "name": "Global-SAMPLED-LIMITS",
+      "text": "RAY SAMPLES ONLY; FULL COVERAGE + OCCUPANCY UNKNOWN",
+      "font_size": 0.02,
+      "top_offset": 0.063
+    }
+  ],
+  "owner_slot": {
+    "lining-sleeve-left": 1,
+    "lining-sleeve-right": 1,
+    "lining-torso": 1,
+    "outer-sleeve-left": 0,
+    "outer-sleeve-right": 0,
+    "outer-torso": 0,
+    "rim-front-left": 2,
+    "rim-front-right": 2,
+    "rim-hem": 2,
+    "rim-neckline": 2,
+    "rim-wrist-left": 3,
+    "rim-wrist-right": 3
+  },
+  "expected_pair_counts": {
+    "body": 2189,
+    "self": 36
+  },
+  "renderer": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 16,
+    "seed": 0,
+    "requested_threads": 16,
+    "OIDN_gpu": false,
+    "display": "AgX/None/sRGB exposure0 gamma1"
+  },
+  "persistence": "exclusiveprivate save + hardlink final + one SAME-PROCESS ownedoutput cold reopen, listedstate only"
+}

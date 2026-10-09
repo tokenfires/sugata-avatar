@@ -1,0 +1,87 @@
+{
+  "utc_started": "2026-10-09T12:51:53.707706+00:00",
+  "passed": false,
+  "outputs": [],
+  "fit": "REFUSED",
+  "appearance": "FIRST DIAGNOSTIC ONLY",
+  "source_mutation": false,
+  "omitted": "Auxiliary eyes/hair/native rig/shape keys, UV/texture/finish; gray archived Human observer, not whole Ari",
+  "blender_version": "5.2.2 LTS",
+  "source_selection": {
+    "body_arrays": [
+      "Human_world",
+      "Human_triangles"
+    ],
+    "candidate_arrays": [
+      "world",
+      "triangles"
+    ],
+    "source_archive_sha256": "10f646e42a868fe84ab14d6e3022918a70e6b0aeec30781f270037b79be2f024",
+    "candidate_archive_sha256": "2eaa4bbf90367fe3ed5b0a4200a629c231688a2a31749e17f3ae44a855f0c295",
+    "owner_slot": {
+      "lining-sleeve-left": 1,
+      "lining-sleeve-right": 1,
+      "lining-torso": 1,
+      "outer-sleeve-left": 0,
+      "outer-sleeve-right": 0,
+      "outer-torso": 0,
+      "rim-front-left": 2,
+      "rim-front-right": 2,
+      "rim-hem": 2,
+      "rim-neckline": 2,
+      "rim-wrist-left": 3,
+      "rim-wrist-right": 3
+    },
+    "UVs": "Absent"
+  },
+  "geometry_baseline": {
+    "GlobalSourceBody": {
+      "vertices": 13380,
+      "triangles": 26756,
+      "vertex_sha256": "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c",
+      "triangle_sha256": "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4",
+      "material_index_sha256": "8c0537de3aaae9866b5bff568345e6c8580a2ddf50f8012feb7f1e014df5d285",
+      "smoothing_sha256": "9d6dc4d7177fb8025266a7af54d6abd124cbad8cd83aa230b7c128c96ac3266f",
+      "slots": [
+        "GlobalBody-gray"
+      ],
+      "UV_layers": 0
+    },
+    "AriGlobalShell-UNQUALIFIED": {
+      "vertices": 806,
+      "triangles": 1616,
+      "vertex_sha256": "4f88cc2e54e549da0364ce21475295c4da6ba586cf3352dd895461ccfdd04800",
+      "triangle_sha256": "6b54d991e1137101974c9b4c588f3d9869e3b79adf2ace0f0874fdd2110c8bb5",
+      "material_index_sha256": "b71d0dcd5e191e5b32e50ade01ef3ee11f2eca038a9837b9d47c6ce95724671d",
+      "smoothing_sha256": "d9a910826900b19d9031f14c1973fa41bf71d9d46a37641fc232301f12fc2ef1",
+      "slots": [
+        "Global-outer",
+        "Global-lining",
+        "Global-rim",
+        "Global-cuff"
+      ],
+      "UV_layers": 0
+    }
+  },
+  "frame": {
+    "target": [
+      0.0,
+      -0.11460304260253906,
+      0.829715676678461
+    ],
+    "scale": 1.8037314414978027,
+    "resolution": [
+      768,
+      1024
+    ],
+    "pad_each_side": 0.04,
+    "complete_body_shell_points": 14186,
+    "annotation": "Two camera-localFONT lines, separately framed above the completebody/shell cloud"
+  },
+  "error": {
+    "type": "RuntimeError",
+    "message": "Owned scalar AREA lights without shader nodes"
+  },
+  "utc_finished": "2026-10-09T12:51:54.809789+00:00",
+  "elapsed": 1.1020937080029398
+}

@@ -1,0 +1,36 @@
+{
+  "utc": "2026-10-09T13:00:42.537722+00:00",
+  "captured_session": 58847,
+  "captured_exit": 1,
+  "owned_wrapper_native_PIDs_absent": [
+    98427,
+    98429
+  ],
+  "actual_launch_wall_flags": true,
+  "timeout": false,
+  "input_pins_exact": 27,
+  "reached_native_geometry_role_smoothing_buffers_independently_exact": true,
+  "first_paths_absent": [
+    "global-front.png",
+    "global-front-left.png",
+    "global-rear.png",
+    "editable.blend",
+    "private-save",
+    "private-render"
+  ],
+  "error": {
+    "type": "RuntimeError",
+    "message": "Owned scalar AREA lights without shader nodes"
+  },
+  "unreached": [
+    "display_baseline",
+    "perviewNDC/glyphframes",
+    "pixels",
+    "save",
+    "coldreopen"
+  ],
+  "operand_values": "Combinedguard didnotrecordtype/use_nodes separately; exactobservedoperandvaluesUNKNOWN",
+  "primary_explanation": "5.2officialLight API says setterhasnoeffect/getteralwaysTrue; notuse_nodes is incompatible withdocumentedsemantics. Consistentinference, not separatelyloggedgetter.",
+  "decision": "Firstnative observer CLOSED beforepixels. No light-output/garment/appearance failure inferred; no retry here. New supportedlightingownership contract requiresfreshworth/preflight.",
+  "root_native_probes_rerenders_candidate_edits": 0
+}

@@ -1,0 +1,157 @@
+"""FIRST native observer of immutable connected diagnostic geometry; no reconstruction."""
+import sys
+sys.dont_write_bytecode=True
+from pathlib import Path
+import json,hashlib,datetime,struct,os,time
+import bpy,numpy as np
+from mathutils import Vector
+from bpy_extras.object_utils import world_to_camera_view
+H=Path(__file__).resolve().parent
+START=time.monotonic()
+R={'utc_started':datetime.datetime.now(datetime.timezone.utc).isoformat(),'passed':False,'outputs':[],'fit':'REFUSED','appearance':'FIRST DIAGNOSTIC ONLY','source_mutation':False,'omitted':'Auxiliary eyes/hair/native rig/shape keys, UV/texture/finish; gray archived Human observer, not whole Ari'}
+sha=lambda a:hashlib.sha256(a.tobytes(order='C')).hexdigest()
+def require(ok,msg):
+ if not bool(ok):raise RuntimeError(msg)
+def clock(stage):require(time.monotonic()-START<240,'Worker240sclock: '+stage)
+def pins():
+ for row in json.loads((H/'EXEC.json').read_text())['pins']:
+  f=Path(row['path']);data=f.read_bytes();require(len(data)==row['bytes'] and hashlib.sha256(data).hexdigest()==row['sha256'],'Changed pin: '+str(f))
+def orient(obj,target):obj.rotation_euler=(Vector(target)-obj.location).to_track_quat('-Z','Y').to_euler()
+def material(name,color,roughness,specular):
+ m=bpy.data.materials.new(name);m.use_nodes=True;n=m.node_tree.nodes['Principled BSDF'];n.inputs['Base Color'].default_value=(*color,1);n.inputs['Roughness'].default_value=roughness;n.inputs['Metallic'].default_value=0;n.inputs['Specular IOR Level'].default_value=specular
+ return m
+def mesh_arrays(obj):
+ me=obj.data;v=np.empty((len(me.vertices),3),np.float32);me.vertices.foreach_get('co',v.ravel());t=np.array([tuple(p.vertices) for p in me.polygons],np.int32);m=np.empty(len(me.polygons),np.int32);me.polygons.foreach_get('material_index',m);smooth=np.array([p.use_smooth for p in me.polygons],bool)
+ require(np.array_equal(np.array(obj.matrix_world),np.eye(4)) and obj.parent is None and not obj.modifiers and me.shape_keys is None,'Owned identity/unrigged mesh: '+obj.name)
+ return v,t,m,smooth
+def shader_routing(owner,kind):
+ require(owner.use_nodes,'Owned enabled shader nodes: '+owner.name)
+ if kind=='world':expected_nodes=[('Background','ShaderNodeBackground'),('World Output','ShaderNodeOutputWorld')];expected_links=[('Background','Background','World Output','Surface')];outname='World Output'
+ elif kind=='label':expected_nodes=[('Emission','ShaderNodeEmission'),('Material Output','ShaderNodeOutputMaterial')];expected_links=[('Emission','Emission','Material Output','Surface')];outname='Material Output'
+ else:expected_nodes=[('Principled BSDF','ShaderNodeBsdfPrincipled'),('Material Output','ShaderNodeOutputMaterial')];expected_links=[('Principled BSDF','BSDF','Material Output','Surface')];outname='Material Output'
+ nodes=sorted((n.name,n.bl_idname) for n in owner.node_tree.nodes);links=sorted((x.from_node.name,x.from_socket.name,x.to_node.name,x.to_socket.name) for x in owner.node_tree.links)
+ require(nodes==sorted(expected_nodes) and links==expected_links,'Exact bounded owned shader graph: '+owner.name)
+ output=owner.node_tree.nodes[outname];target=getattr(output,'target',None);require(output.is_active_output and target in [None,'ALL'],'Owned active all-renderer output where target provided: '+owner.name)
+ return {'use_nodes':True,'nodes':nodes,'links':links,'active_output':outname,'output_target':target}
+
+def geometry_readback(body_v,body_t,shell_v,shell_t,slots,smooth):
+ records={}
+ for name,v,t,indices,flags,materials in [('GlobalSourceBody',body_v,body_t,np.zeros(len(body_t),np.int32),np.ones(len(body_t),bool),['GlobalBody-gray']),('AriGlobalShell-UNQUALIFIED',shell_v,shell_t,slots,smooth,['Global-outer','Global-lining','Global-rim','Global-cuff'])]:
+  obj=bpy.data.objects[name];actual_v,actual_t,actual_slots,actual_smooth=mesh_arrays(obj)
+  require(np.array_equal(v,actual_v) and np.array_equal(t,actual_t) and np.array_equal(indices,actual_slots) and np.array_equal(flags,actual_smooth),'Exact native geometry/roles/smoothing: '+name)
+  require([m.name for m in obj.data.materials]==materials and len(obj.data.uv_layers)==0,'Owned slots and absent UVs: '+name)
+  records[name]={'vertices':len(v),'triangles':len(t),'vertex_sha256':sha(actual_v),'triangle_sha256':sha(actual_t),'material_index_sha256':sha(actual_slots),'smoothing_sha256':sha(actual_smooth),'slots':materials,'UV_layers':0}
+ shell=bpy.data.objects['AriGlobalShell-UNQUALIFIED']
+ require(shell['fit_status']=='REFUSED' and shell['body_crossing_pairs']==2189 and shell['self_crossing_pairs']==36 and shell['whole_bomber']==False,'Shell refusal metadata')
+ return records
+
+def display_readback(cfg,scene,lights,scale):
+ expected={'GlobalSourceBody','AriGlobalShell-UNQUALIFIED','GlobalKey','GlobalFill','GlobalRear','GlobalCamera'}|{label['name'] for label in cfg['labels']}
+ require(set(bpy.data.objects.keys())==expected,'Eight owned objects only')
+ colors={'GlobalBody-gray':(cfg['body_gray'],1,0)}
+ colors.update({'Global-'+name:(color,cfg['material_roughness'],.2) for name,color in cfg['materials'].items()})
+ require(set(bpy.data.materials.keys())==set(colors)|{'GlobalDiagnosticLabel'},'Six owned materials only')
+ material_records=[]
+ for name,(color,rough,spec) in colors.items():
+  owner=bpy.data.materials[name];node=owner.node_tree.nodes['Principled BSDF'];rgba=list(node.inputs['Base Color'].default_value)
+  require(np.array_equal(np.array(rgba,np.float32),np.array([*color,1],np.float32)) and node.inputs['Roughness'].default_value==float(np.float32(rough)) and node.inputs['Metallic'].default_value==0 and node.inputs['Specular IOR Level'].default_value==float(np.float32(spec)),'Fixed diagnostic shader scalars: '+name)
+  material_records.append({'name':name,'rgba':rgba,'roughness':float(node.inputs['Roughness'].default_value),'metallic':0,'specular':float(node.inputs['Specular IOR Level'].default_value),'routing':shader_routing(owner,'principled')})
+ for row in lights:
+  obj=bpy.data.objects[row['name']];d=obj.data
+  require(d.type=='AREA' and not d.use_nodes,'Owned scalar AREA lights without shader nodes')
+  actual={'name':obj.name,'position':list(obj.location),'energy':float(d.energy),'size':float(d.size),'shape':d.shape,'color':list(d.color),'matrix_world':[list(x) for x in obj.matrix_world]}
+  require(actual==row,'Fixed white light: '+obj.name)
+ world=scene.world
+ require(world.name=='GlobalWorld' and list(world.node_tree.nodes['Background'].inputs['Color'].default_value)==list(map(float,np.array([.2,.2,.2,1],np.float32))) and world.node_tree.nodes['Background'].inputs['Strength'].default_value==float(np.float32(.4)),'Fixed neutral world')
+ require(scene.render.engine=='CYCLES' and scene.cycles.device=='CPU' and scene.cycles.samples==16 and scene.cycles.seed==0 and scene.cycles.use_denoising and scene.cycles.denoiser=='OPENIMAGEDENOISE' and not scene.cycles.denoising_use_gpu,'CPU16sample renderer')
+ require(scene.render.threads_mode=='FIXED' and scene.render.threads==16 and scene.render.resolution_x==768 and scene.render.resolution_y==1024 and scene.render.resolution_percentage==100 and scene.render.pixel_aspect_x==scene.render.pixel_aspect_y==1,'Fixed render domain/requested threads')
+ require(scene.render.film_transparent and not scene.render.use_compositing and not scene.render.use_sequencer and scene.render.image_settings.file_format=='PNG' and scene.render.image_settings.color_mode=='RGBA','Transparent PNG pipeline')
+ require(scene.view_settings.view_transform=='AgX' and scene.view_settings.look=='None' and scene.display_settings.display_device=='sRGB' and scene.view_settings.exposure==0 and scene.view_settings.gamma==1 and not scene.view_settings.use_curve_mapping,'Fixed AgX display')
+ camera=scene.camera
+ require(camera.name=='GlobalCamera' and camera.data.type=='ORTHO' and camera.data.sensor_fit=='VERTICAL' and camera.data.ortho_scale==scale and camera.data.clip_start==float(np.float32(.01)) and camera.data.clip_end==100,'Fixed orthographic frame')
+ labels=[]
+ for row in cfg['labels']:
+  obj=bpy.data.objects[row['name']];font=obj.data
+  require(obj.type=='FONT' and obj.parent==camera and not obj.modifiers and font.body==row['text'] and font.size==float(np.float32(row['font_size'])) and font.align_x=='CENTER' and font.align_y=='BOTTOM' and font.extrude==font.bevel_depth==0 and font.font.name=='Bfont','Owned label text/geometry/builtinfont')
+  require(np.array_equal(np.array(obj.location,np.float32),np.array([0,scale/2-row['top_offset'],-1],np.float32)) and tuple(obj.rotation_euler)==(0,0,0) and list(obj.scale)==[1,1,1],'Fixed camera-local label')
+  require([m.name for m in font.materials]==['GlobalDiagnosticLabel'],'Owned label material')
+  labels.append({'name':obj.name,'body':font.body,'size':float(font.size),'matrix_basis':[list(x) for x in obj.matrix_basis]})
+ labelmaterial=bpy.data.materials['GlobalDiagnosticLabel'];em=labelmaterial.node_tree.nodes['Emission']
+ require(np.array_equal(np.array(em.inputs['Color'].default_value,np.float32),np.array([.8,.03,.015,1],np.float32)) and em.inputs['Strength'].default_value==1,'Fixed label emission')
+ require(scene['fit_status']=='REFUSED' and scene['body_crossing_pairs']==2189 and scene['self_crossing_pairs']==36 and bpy.data.texts['GLOBAL-SHELL-README'].as_string()==NOTE,'Exact scene/text qualification')
+ return {'materials':material_records,'lights':lights,'labels':labels,'label_rgba':list(em.inputs['Color'].default_value),'label_routing':shader_routing(labelmaterial,'label'),'world_routing':shader_routing(world,'world'),'camera_scale':scale,'render_contract_exact':True}
+
+def project_cloud(scene,camera,points):return np.array([tuple(world_to_camera_view(scene,camera,Vector(point))) for point in points])
+
+def annotation_frame(scene,camera,cfg,body_max_y):
+ records=[];graph=bpy.context.evaluated_depsgraph_get()
+ for row in cfg['labels']:
+  evaluated=bpy.data.objects[row['name']].evaluated_get(graph);mesh=evaluated.to_mesh()
+  try:
+   require(mesh is not None and len(mesh.vertices)>0,'Nonempty evaluated label glyphs')
+   points=[tuple(evaluated.matrix_world@v.co) for v in mesh.vertices];projected=project_cloud(scene,camera,points)
+   require(np.isfinite(projected).all() and (projected[:,2]>0).all() and (projected[:,:2]>=.005).all() and (projected[:,:2]<=.995).all(),'Label glyphs fully framed')
+   require(projected[:,1].min()>body_max_y+.001,'Label above complete body/shell bounding cloud')
+   records.append({'name':row['name'],'vertices':len(points),'projected_min':projected.min(axis=0).tolist(),'projected_max':projected.max(axis=0).tolist()})
+  finally:evaluated.to_mesh_clear()
+ return records
+
+NOTE='Exact isolated connected shell diagnostic. FIT REFUSED:2189 body and36 non-topological garment TRIANGLE PAIRS;34 coplanar cases held.17998 centroid-ray samples are not visible localconcealment/fullsurfacecoverage; handrays canhitopposite sleeve. Not fitted/wearable/nonintersecting/liningseparated. No completeAri/rig/morph/motion/materialUV/finish/export/runtime qualification. FullgrayHuman observer only, auxiliaryeyes/hair/rig/keys omitted. Original/default files preserved; no map/contact recomputation or rescue. Same-process cold reopen proves only listed owneddata/state.\n'
+try:
+ pins();require(bpy.app.version[:3]==(5,2,2),'Pinned Blender API version');R['blender_version']=bpy.app.version_string
+ require(not any((H/n).exists() for n in ['NATIVE-RESULT.json','editable.blend','global-front.png','global-front-left.png','global-rear.png','private-save','private-render']),'First native outputs only')
+ cfg=json.loads((H/'DISPLAY.json').read_text());inputrows=json.loads((H/'INPUTS.json').read_text());paths={Path(row['path']).name:Path(row['path']) for row in inputrows}
+ source=json.loads(paths['RESULT.json'].read_text());topo=json.loads(paths['TOPOLOGY.json'].read_text())
+ require(source['completion']=='COMPLETE_BOUNDED_OBSERVERS' and source['fit']=='REFUSED' and source['body_contact']['counts']['strict_transverse']==2189 and source['self_contact']['counts']['strict_transverse']==36,'Exact qualified diagnostic/refused input')
+ with np.load(paths['after-geometry.npz'],allow_pickle=False) as z:body_v=z['Human_world'];body_t=z['Human_triangles']
+ require(body_v.dtype==np.float32 and body_v.shape==(13380,3) and body_t.dtype==np.int32 and body_t.shape==(26756,3) and sha(body_v)==source['source']['body_raw_hashes']['Human_world'] and sha(body_t)==source['source']['body_raw_hashes']['Human_triangles'],'Exact full Human source observer')
+ with np.load(paths['geometry.npz'],allow_pickle=False) as z:shell_v=z['world'];shell_t=z['triangles']
+ require(shell_v.dtype==np.float32 and shell_v.shape==(806,3) and shell_t.dtype==np.int32 and shell_t.shape==(1616,3) and shell_t.tolist()==topo['triangles'] and np.isfinite(shell_v).all(),'Exact connected candidate selectors')
+ slots=np.array([cfg['owner_slot'][owner] for owner in topo['triangle_owners']],np.int32);smooth=np.array([owner.startswith(('outer-','lining-')) for owner in topo['triangle_owners']],bool)
+ R['source_selection']={'body_arrays':['Human_world','Human_triangles'],'candidate_arrays':['world','triangles'],'source_archive_sha256':hashlib.sha256(paths['after-geometry.npz'].read_bytes()).hexdigest(),'candidate_archive_sha256':hashlib.sha256(paths['geometry.npz'].read_bytes()).hexdigest(),'owner_slot':cfg['owner_slot'],'UVs':'Absent'}
+ clock('source');bpy.ops.wm.read_factory_settings(use_empty=True);require(not bpy.data.objects and not bpy.data.meshes,'Empty factory scene');scene=bpy.context.scene
+ me=bpy.data.meshes.new('GlobalSourceBodyMesh');me.from_pydata(body_v.tolist(),[],body_t.tolist());me.update();obj=bpy.data.objects.new('GlobalSourceBody',me);scene.collection.objects.link(obj);me.materials.append(material('GlobalBody-gray',cfg['body_gray'],1,0));me.polygons.foreach_set('use_smooth',np.ones(len(body_t),bool))
+ mats=[material('Global-'+role,cfg['materials'][role],cfg['material_roughness'],.2) for role in ['outer','lining','rim','cuff']]
+ me=bpy.data.meshes.new('GlobalShellMesh');me.from_pydata(shell_v.tolist(),[],shell_t.tolist());me.update();obj=bpy.data.objects.new('AriGlobalShell-UNQUALIFIED',me);scene.collection.objects.link(obj)
+ for m in mats:me.materials.append(m)
+ me.polygons.foreach_set('material_index',slots);me.polygons.foreach_set('use_smooth',smooth);obj['fit_status']='REFUSED';obj['body_crossing_pairs']=2189;obj['self_crossing_pairs']=36;obj['whole_bomber']=False
+ scene['fit_status']='REFUSED';scene['body_crossing_pairs']=2189;scene['self_crossing_pairs']=36;bpy.data.texts.new('GLOBAL-SHELL-README').write(NOTE)
+ R['geometry_baseline']=geometry_readback(body_v,body_t,shell_v,shell_t,slots,smooth)
+ scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=16;scene.cycles.seed=0;scene.cycles.use_denoising=True;scene.cycles.denoiser='OPENIMAGEDENOISE';scene.cycles.denoising_use_gpu=False
+ scene.render.threads_mode='FIXED';scene.render.threads=16;scene.render.resolution_x=768;scene.render.resolution_y=1024;scene.render.resolution_percentage=100;scene.render.pixel_aspect_x=scene.render.pixel_aspect_y=1;scene.render.film_transparent=True;scene.render.use_compositing=False;scene.render.use_sequencer=False;scene.render.image_settings.file_format='PNG';scene.render.image_settings.color_mode='RGBA'
+ scene.view_settings.view_transform='AgX';scene.view_settings.look='None';scene.view_settings.exposure=0;scene.view_settings.gamma=1;scene.view_settings.use_curve_mapping=False;scene.display_settings.display_device='sRGB'
+ allpoints=np.concatenate([body_v,shell_v]).astype(np.float64);require(len(allpoints)==14186,'Whole14186point frame domain');target=(body_v.min(axis=0).astype(float)+body_v.max(axis=0).astype(float))/2
+ wd=bpy.data.worlds.new('GlobalWorld');wd.use_nodes=True;wd.node_tree.nodes['Background'].inputs['Color'].default_value=(.2,.2,.2,1);wd.node_tree.nodes['Background'].inputs['Strength'].default_value=.4;scene.world=wd
+ lights=[]
+ for name,pos,energy in [('Key',(-3,-4,4),700),('Fill',(3,-2,3),450),('Rear',(0,4,4),600)]:
+  d=bpy.data.lights.new('Global'+name,'AREA');d.use_nodes=False;d.shape='DISK';d.size=4;d.energy=energy;d.color=(1,1,1);obj=bpy.data.objects.new(d.name,d);scene.collection.objects.link(obj);obj.location=pos;orient(obj,target);bpy.context.view_layer.update();lights.append({'name':obj.name,'position':list(obj.location),'energy':float(d.energy),'size':float(d.size),'shape':d.shape,'color':list(d.color),'matrix_world':[list(x) for x in obj.matrix_world]})
+ cd=bpy.data.cameras.new('GlobalCamera');cd.type='ORTHO';cd.sensor_fit='VERTICAL';cd.clip_start=.01;cd.clip_end=100;camera=bpy.data.objects.new('GlobalCamera',cd);scene.collection.objects.link(camera);scene.camera=camera;spans=[]
+ for direction in cfg['views'].values():
+  camera.location=Vector(target)+Vector(direction).normalized()*5;orient(camera,target);bpy.context.view_layer.update();local=np.c_[allpoints,np.ones(len(allpoints))]@np.array(camera.matrix_world.inverted()).T;spans.append(max(2*np.abs(local[:,1]).max(),2*np.abs(local[:,0]).max()/(768/1024)))
+ cd.ortho_scale=float(max(spans)/.92);scale=float(cd.ortho_scale)
+ lm=bpy.data.materials.new('GlobalDiagnosticLabel');lm.use_nodes=True;nodes=lm.node_tree.nodes;nodes.clear();em=nodes.new('ShaderNodeEmission');em.inputs['Color'].default_value=(.8,.03,.015,1);em.inputs['Strength'].default_value=1;out=nodes.new('ShaderNodeOutputMaterial');lm.node_tree.links.new(em.outputs['Emission'],out.inputs['Surface'])
+ for row in cfg['labels']:
+  font=bpy.data.curves.new(row['name']+'Font','FONT');font.body=row['text'];font.size=row['font_size'];font.align_x='CENTER';font.align_y='BOTTOM';font.extrude=font.bevel_depth=0;label=bpy.data.objects.new(row['name'],font);scene.collection.objects.link(label);label.parent=camera;label.location=(0,scale/2-row['top_offset'],-1);font.materials.append(lm)
+ bpy.context.view_layer.update();R['frame']={'target':target.tolist(),'scale':scale,'resolution':[768,1024],'pad_each_side':.04,'complete_body_shell_points':14186,'annotation':'Two camera-localFONT lines, separately framed above the completebody/shell cloud'};R['display_baseline']=display_readback(cfg,scene,lights,scale)
+ for name,direction in cfg['views'].items():
+  clock('beforefirstpixels-'+name);camera.location=Vector(target)+Vector(direction).normalized()*5;orient(camera,target);bpy.context.view_layer.update()
+  require(geometry_readback(body_v,body_t,shell_v,shell_t,slots,smooth)==R['geometry_baseline'] and display_readback(cfg,scene,lights,scale)==R['display_baseline'],'Exact pre-pixel owned state')
+  projected=project_cloud(scene,camera,allpoints);require(np.isfinite(projected).all() and (projected[:,2]>0).all() and (projected[:,:2]>=.039999).all() and (projected[:,:2]<=.960001).all(),'Completebody/shell4%frame')
+  label_bounds=annotation_frame(scene,camera,cfg,float(projected[:,1].max()));path=H/('global-'+name+'.png');require(not path.exists(),'Exclusive firstPNG');private_render=H/'private-render';private_render.mkdir();temp_render=private_render/path.name;scene.render.filepath=str(temp_render);require(bpy.ops.render.render(write_still=True)=={'FINISHED'} and temp_render.is_file(),'FirstnativePNG complete');clock('afterpixels-'+name)
+  data=temp_render.read_bytes();require(0<len(data)<=10485760 and data[:8]==b'\x89PNG\r\n\x1a\n' and struct.unpack('>II',data[16:24])==(768,1024),'FirstPNG bounded/domain');os.link(temp_render,path);temp_render.unlink();private_render.rmdir()
+  R['outputs'].append({'name':name,'file':path.name,'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest(),'camera_position':list(camera.location),'camera_matrix_world':[list(x) for x in camera.matrix_world],'projected_min':projected.min(axis=0).tolist(),'projected_max':projected.max(axis=0).tolist(),'annotation_bounds':label_bounds})
+  require(geometry_readback(body_v,body_t,shell_v,shell_t,slots,smooth)==R['geometry_baseline'] and display_readback(cfg,scene,lights,scale)==R['display_baseline'],'Exact post-pixel owned state');require(annotation_frame(scene,camera,cfg,float(projected[:,1].max()))==label_bounds,'Exact annotationbounds afterpixels')
+ require(len(R['outputs'])==3,'Exactly3firstviews');clock('beforesave');scene.render.filepath=str(H/'future-editable-render');saved_render_path=scene.render.filepath
+ private=H/'private-save';private.mkdir();temp=private/'candidate.blend';require(bpy.ops.wm.save_as_mainfile(filepath=str(temp),copy=True,relative_remap=False,compress=True,check_existing=False)=={'FINISHED'} and temp.is_file(),'Private newfile save')
+ payload=temp.read_bytes();require(0<len(payload)<=67108864,'Bounded editableartifact');targetpath=H/'editable.blend';os.link(temp,targetpath);temp.unlink();private.rmdir();R['editable']={'file':targetpath.name,'bytes':len(payload),'sha256':hashlib.sha256(payload).hexdigest(),'exclusive_final_link':True}
+ require(bpy.ops.wm.open_mainfile(filepath=str(targetpath))=={'FINISHED'},'One ownedoutput same-process cold reopen');scene=bpy.context.scene;bpy.context.view_layer.update();require(geometry_readback(body_v,body_t,shell_v,shell_t,slots,smooth)==R['geometry_baseline'] and display_readback(cfg,scene,lights,scale)==R['display_baseline'],'Coldlisteddata/state roundtrip')
+ camera=scene.camera;last=R['outputs'][-1];cold_projection=project_cloud(scene,camera,allpoints)
+ require([list(x) for x in camera.matrix_world]==last['camera_matrix_world'] and cold_projection.min(axis=0).tolist()==last['projected_min'] and cold_projection.max(axis=0).tolist()==last['projected_max'] and annotation_frame(scene,camera,cfg,float(cold_projection[:,1].max()))==last['annotation_bounds'],'Coldactual rear camera/frame/glyph state')
+ require(scene.render.filepath==saved_render_path and hashlib.sha256(targetpath.read_bytes()).hexdigest()==R['editable']['sha256'] and targetpath.stat().st_size==R['editable']['bytes'],'Ownednative bytes unchanged aftercoldopen/distinct future-render path');R['same_process_cold_reopen_exact']=True;R['editable']['post_cold_bytes_exact']=True;R['editable']['future_render_filepath']=saved_render_path
+ clock('overallcompletion');pins();R['post_pins_exact']=True;R['passed']=True
+except Exception as e:R['error']={'type':type(e).__name__,'message':str(e)};print('NATIVE ERROR',str(e))
+finally:
+ R['utc_finished']=datetime.datetime.now(datetime.timezone.utc).isoformat();R['elapsed']=time.monotonic()-START
+ with (H/'NATIVE-RESULT.json').open('x') as f:json.dump(R,f,indent=2);f.write('\n')
+ print(json.dumps({'passed':R['passed'],'outputs':len(R['outputs']),'fit':R['fit'],'error':R.get('error')}))
+ if not R['passed']:raise SystemExit(1)

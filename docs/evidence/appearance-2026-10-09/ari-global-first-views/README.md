@@ -1,0 +1,20 @@
+# First global-view observer: stopped before pixels
+
+The sole native attempt stopped at its display-ownership guard. **No PNG, editable .blend, per-view glyph/frame qualification or cold-open proof was produced.** This is an observer-contract failure, not evidence about the jacket's appearance or actual light output. The underlying isolated geometry and its body/self fit refusal are unchanged.
+
+The command was `python3 docs/evidence/appearance-2026-10-09/ari-global-first-views/run_native.py`. Wrapper98427/native98429/ownedgroup98429 ran12:51:52.786219–12:51:54.848053UTC,2.061642s, captured session58847 exit1. Launch/full-wall gates pass, no timeout/interrupt or log truncation. The error is `Owned scalar AREA lights without shader nodes`, at native.py61. Both owned PIDs were absent at root readback; no retry followed.
+
+The root-added guard checks `d.type=='AREA' and not d.use_nodes` after setting use_nodes=False. It lacks a before-assert witness of those two actual operand values, so their separately observed values remain unknown. The native log records AreaLight.use_nodes deprecation and the combined guard failure. The [official Blender5.2 Light reference](https://docs.blender.org/api/5.2/bpy.types.Light.html#bpy.types.Light.use_nodes) documents a compatibility property whose setter has no effect and getter returns True. That documented behavior makes the non-node policy incompatible and explains the observed failure by inference; this was not a separate live getter measurement. Light.node_tree is separately documented as optional/read-only, so a compatibility flag cannot establish its actual structure or effective lighting behavior.
+
+One bounded Firecrawl retrieval of that primary page returned HTTP200/cached content,1 existingcredit, with post-retrieval toolclock12:54:58UTC before the12:55 inquiry gate. [Exact source](LIGHT-API-SOURCE.json) retains URL/cache metadata/content. No second page, runtime API probe, render or corrective native attempt followed. No capacity was purchased or settings/models changed.
+
+The returned geometry baseline contains exact full Human13380V/26756T and shell806V/1616T co/triangle/role/smoothing hashes, identity/unrigged/no-modifier checks and zero UVs. [Root failure proof](ROOT-NATIVE-FAILURE.json) independently matches those recorded buffers, all27 input pins, raw log/hash, actual controller flags and output/PID absence. The shared14186-point scale was prepared, but display_baseline failed before its assignment; per-view NDC/glyph checks, rendering, save and cold reopen were never reached. The separately prepared successful-result verifier was not run against this failed result.
+
+| Output | Bytes | SHA256 |
+|---|---:|---|
+| NATIVE-RESULT.json |2798|aa9bbda5ba399aa5f795efd7b0971059264cb01f173dbafc8663848a26786f4b|
+| native.log |2870|fb2342f15b6ce24f007c0bdd1364f2de0d02fb4d3d39b84d48c14057e760451d|
+
+The [source preflight](NATIVE-PREFLIGHT.md),7654B/SHA0939d170569d572048de34179353f4ed799627c39854afb1c6bee9a6643653f8, and root admitted this unproven light-state policy. Source-level acceptance did not prove API behavior. Original observer/EXEC copies and the pre-execution output/persistence corrections remain exact; those changes did not alter model geometry, camera directions, material colours, frame or contact thresholds. No code was patched after the actual failure.
+
+Independent failure review is pending. A: a genuinely new, narrow5.2 supported-lighting ownership contract, primary/version-bound and with actual type/legacy-flag/optional-node-tree/effective representation witnesses before assertions; keep exact geometry/frame/positions/power/colours. B: close with source-only evidence or select an independent pattern/asset; avoids another observer job but leaves silhouette unobserved. Neither is a same-plan retry or geometry/camera/threshold rescue. Current observer is CLOSED. Full bomber, complete Ari, rig/morph/motion/materialUV/export/runtime and broader AAA programme remain open; accepted/default/source/frozen references/unrelated worktrees/review server/recovery are retained.
