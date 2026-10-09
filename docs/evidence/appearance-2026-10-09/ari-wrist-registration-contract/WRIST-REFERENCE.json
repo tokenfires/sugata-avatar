@@ -1,0 +1,562 @@
+{
+  "id": "ari-successor-wrist-reference-v1",
+  "authored_utc": "2026-10-09T19:54:24.612388+00:00",
+  "status": "SOURCE REFERENCE ASSOCIATION ONLY; NO CONSTRUCTOR OR CANDIDATE",
+  "source_domain": {
+    "object": "Human",
+    "frame": "Archived evaluated world, native units; identity body/rig matrices",
+    "geometry": {
+      "vertices": 13380,
+      "triangles": 26756,
+      "edges": 26756,
+      "world_sha256": "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c",
+      "triangles_sha256": "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4",
+      "edges_sha256": "4868a68df9fd81f55219cbbfbcf224be6a1ab96bf699d5677a3bc4aedeaba24b",
+      "min": [
+        -0.5494645833969116,
+        -0.334472119808197,
+        1.5046680346131325e-08
+      ],
+      "max": [
+        0.5494645833969116,
+        0.1052660346031189,
+        1.6594313383102417
+      ]
+    },
+    "archive_identity_only": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/after-geometry.npz",
+      "bytes": 840170,
+      "sha256": "10f646e42a868fe84ab14d6e3022918a70e6b0aeec30781f270037b79be2f024"
+    },
+    "qualified_cold": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-palette-link-boundary/COLD.json",
+      "bytes": 873228,
+      "sha256": "3729e57a0c9b86649c70a43170830336378999cdab3b1e8c668132a7a7e46c45"
+    }
+  },
+  "reference_semantics": "Existing authored cuff stations and qualified source courses, not contour centroids, anatomical/calibrated wrist centres or evaluated-rest equivalence. Sixteen sampled associations do not prove global star-shapedness.",
+  "registrations": [
+    {
+      "side": "r",
+      "panel_role": "SR",
+      "boundary_roles": [
+        "O.SR.wrist",
+        "I.SR.wrist"
+      ],
+      "historical_edge_alias": {
+        "reverse": "R.wrist"
+      },
+      "abstract_free_cycle": "wristR",
+      "source_course_file": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-sleeve-sections/DISTAL-MANIFEST.json",
+        "bytes": 288589,
+        "sha256": "f8c49cde1f313e99a5748a19c7ad68100362c31dad283d558600f1093d99e4df"
+      },
+      "source_course_selector": {
+        "sections.name": "cuff-r"
+      },
+      "reference_origin": [
+        -0.4770350456237793,
+        -0.1832285225391388,
+        1.0155318975448608
+      ],
+      "reference_plane_normal": [
+        -0.5112645687989267,
+        -0.6842041407617481,
+        -0.5200704129782098
+      ],
+      "source_signed_meridian_basis": {
+        "u_front": [
+          0.47965702987056663,
+          -0.7292905413924398,
+          0.48791847672666416
+        ],
+        "v_down": [
+          0.7131182751736166,
+          -0.0,
+          -0.7010437401570646
+        ],
+        "normal": [
+          -0.5112645687989267,
+          -0.6842041407617481,
+          -0.5200704129782098
+        ],
+        "handedness": -1.0
+      },
+      "canonical_source_edges": [
+        [
+          3549,
+          3883
+        ],
+        [
+          3549,
+          3884
+        ],
+        [
+          3555,
+          3884
+        ],
+        [
+          3555,
+          3893
+        ],
+        [
+          3550,
+          3893
+        ],
+        [
+          3550,
+          3894
+        ],
+        [
+          3551,
+          3894
+        ],
+        [
+          3551,
+          3897
+        ],
+        [
+          3771,
+          3897
+        ],
+        [
+          3771,
+          3900
+        ],
+        [
+          3771,
+          3888
+        ],
+        [
+          3552,
+          3771
+        ],
+        [
+          3552,
+          3922
+        ],
+        [
+          3552,
+          3921
+        ],
+        [
+          3553,
+          3921
+        ],
+        [
+          3553,
+          3920
+        ],
+        [
+          3554,
+          3920
+        ],
+        [
+          3554,
+          3919
+        ],
+        [
+          3564,
+          3919
+        ],
+        [
+          3564,
+          3918
+        ],
+        [
+          3563,
+          3918
+        ],
+        [
+          3563,
+          3917
+        ],
+        [
+          3562,
+          3917
+        ],
+        [
+          3562,
+          3916
+        ],
+        [
+          3869,
+          3916
+        ],
+        [
+          3869,
+          3915
+        ],
+        [
+          3806,
+          3869
+        ],
+        [
+          3806,
+          3902
+        ],
+        [
+          3806,
+          3901
+        ],
+        [
+          3565,
+          3901
+        ],
+        [
+          3565,
+          3890
+        ],
+        [
+          3561,
+          3890
+        ],
+        [
+          3561,
+          3889
+        ],
+        [
+          3560,
+          3889
+        ],
+        [
+          3560,
+          3885
+        ],
+        [
+          3556,
+          3885
+        ],
+        [
+          3556,
+          3886
+        ],
+        [
+          3557,
+          3886
+        ],
+        [
+          3557,
+          3899
+        ],
+        [
+          3558,
+          3899
+        ],
+        [
+          3558,
+          3896
+        ],
+        [
+          3559,
+          3896
+        ],
+        [
+          3559,
+          3883
+        ]
+      ],
+      "ordered_source_crossing_count": 43,
+      "finite_sample_association_count": 16,
+      "historical_relation": [
+        {
+          "layer": "O",
+          "source_pointer": "/layers/O/right_rings/wrist/center",
+          "left_mirror_if_applicable": false,
+          "world_ring_centre": [
+            -0.49,
+            -0.03,
+            0.99
+          ],
+          "reference_origin_distinct": true,
+          "plane_nonparallel_certificate": "Authored d/f ring normal has Y=0; declared cuff-reference normal has Y!=0, so not parallel even up to sign. No sampled geometric aperture/contact measurement."
+        },
+        {
+          "layer": "I",
+          "source_pointer": "/layers/I/right_rings/wrist/center",
+          "left_mirror_if_applicable": false,
+          "world_ring_centre": [
+            -0.49,
+            -0.03,
+            0.99
+          ],
+          "reference_origin_distinct": true,
+          "plane_nonparallel_certificate": "Authored d/f ring normal has Y=0; declared cuff-reference normal has Y!=0, so not parallel even up to sign. No sampled geometric aperture/contact measurement."
+        }
+      ],
+      "successor_obligation": "Declare placement relative to this source origin/plane; retain full source course association. Do not independently guess global wrist coordinates. Actual opening shape/offset/roll/phase/lining/cuff and coupling must be separately authored before construction.",
+      "source_basis_is_not_automatically_a_proper_rotation": true
+    },
+    {
+      "side": "l",
+      "panel_role": "SL",
+      "boundary_roles": [
+        "O.SL.wrist",
+        "I.SL.wrist"
+      ],
+      "historical_edge_alias": "L.wrist",
+      "abstract_free_cycle": "wristL",
+      "source_course_file": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-sleeve-sections/DISTAL-MANIFEST.json",
+        "bytes": 288589,
+        "sha256": "f8c49cde1f313e99a5748a19c7ad68100362c31dad283d558600f1093d99e4df"
+      },
+      "source_course_selector": {
+        "sections.name": "cuff-l"
+      },
+      "reference_origin": [
+        0.4770350456237793,
+        -0.1832285225391388,
+        1.0155318975448608
+      ],
+      "reference_plane_normal": [
+        0.5112645687989267,
+        -0.6842041407617481,
+        -0.5200704129782098
+      ],
+      "source_signed_meridian_basis": {
+        "u_front": [
+          -0.47965702987056663,
+          -0.7292905413924398,
+          0.48791847672666416
+        ],
+        "v_down": [
+          -0.7131182751736166,
+          0.0,
+          -0.7010437401570646
+        ],
+        "normal": [
+          0.5112645687989267,
+          -0.6842041407617481,
+          -0.5200704129782098
+        ],
+        "handedness": 1.0
+      },
+      "canonical_source_edges": [
+        [
+          10217,
+          10548
+        ],
+        [
+          10217,
+          10549
+        ],
+        [
+          10223,
+          10549
+        ],
+        [
+          10223,
+          10558
+        ],
+        [
+          10218,
+          10558
+        ],
+        [
+          10218,
+          10559
+        ],
+        [
+          10219,
+          10559
+        ],
+        [
+          10219,
+          10562
+        ],
+        [
+          10438,
+          10562
+        ],
+        [
+          10438,
+          10565
+        ],
+        [
+          10438,
+          10553
+        ],
+        [
+          10220,
+          10438
+        ],
+        [
+          10220,
+          10587
+        ],
+        [
+          10220,
+          10586
+        ],
+        [
+          10221,
+          10586
+        ],
+        [
+          10221,
+          10585
+        ],
+        [
+          10222,
+          10585
+        ],
+        [
+          10222,
+          10584
+        ],
+        [
+          10232,
+          10584
+        ],
+        [
+          10232,
+          10583
+        ],
+        [
+          10231,
+          10583
+        ],
+        [
+          10231,
+          10582
+        ],
+        [
+          10230,
+          10582
+        ],
+        [
+          10230,
+          10581
+        ],
+        [
+          10534,
+          10581
+        ],
+        [
+          10534,
+          10580
+        ],
+        [
+          10472,
+          10534
+        ],
+        [
+          10472,
+          10567
+        ],
+        [
+          10472,
+          10566
+        ],
+        [
+          10233,
+          10566
+        ],
+        [
+          10233,
+          10555
+        ],
+        [
+          10229,
+          10555
+        ],
+        [
+          10229,
+          10554
+        ],
+        [
+          10228,
+          10554
+        ],
+        [
+          10228,
+          10550
+        ],
+        [
+          10224,
+          10550
+        ],
+        [
+          10224,
+          10551
+        ],
+        [
+          10225,
+          10551
+        ],
+        [
+          10225,
+          10564
+        ],
+        [
+          10226,
+          10564
+        ],
+        [
+          10226,
+          10561
+        ],
+        [
+          10227,
+          10561
+        ],
+        [
+          10227,
+          10548
+        ]
+      ],
+      "ordered_source_crossing_count": 43,
+      "finite_sample_association_count": 16,
+      "historical_relation": [
+        {
+          "layer": "O",
+          "source_pointer": "/layers/O/right_rings/wrist/center",
+          "left_mirror_if_applicable": true,
+          "world_ring_centre": [
+            0.49,
+            -0.03,
+            0.99
+          ],
+          "reference_origin_distinct": true,
+          "plane_nonparallel_certificate": "Authored d/f ring normal has Y=0; declared cuff-reference normal has Y!=0, so not parallel even up to sign. No sampled geometric aperture/contact measurement."
+        },
+        {
+          "layer": "I",
+          "source_pointer": "/layers/I/right_rings/wrist/center",
+          "left_mirror_if_applicable": true,
+          "world_ring_centre": [
+            0.49,
+            -0.03,
+            0.99
+          ],
+          "reference_origin_distinct": true,
+          "plane_nonparallel_certificate": "Authored d/f ring normal has Y=0; declared cuff-reference normal has Y!=0, so not parallel even up to sign. No sampled geometric aperture/contact measurement."
+        }
+      ],
+      "successor_obligation": "Declare placement relative to this source origin/plane; retain full source course association. Do not independently guess global wrist coordinates. Actual opening shape/offset/roll/phase/lining/cuff and coupling must be separately authored before construction.",
+      "source_basis_is_not_automatically_a_proper_rotation": true
+    }
+  ],
+  "construction_hold": [
+    "actual usable inner aperture shape and inside/outside orientation",
+    "roll/phase and signed basis to garment mapping",
+    "deliberate opening placement/length/ease and cuff finish",
+    "full sleeve coverage/exposure and independently owned targets",
+    "outer/inner/plain-rim separation and intended gap",
+    "shoulder/axilla/torso relationship and complete finishing interfaces",
+    "whole-body/self/lining contact and clearance/occupancy assumptions",
+    "rig/rest/morph/pose/motion/materialUV/export/runtime qualification"
+  ],
+  "prohibitions": [
+    "No WORLD/32x5/harmonic/phase/ease/offset/mask/colour/lighting retune",
+    "No body-course copy automatically treated as garment boundary",
+    "No automatic O/I coincidence or mirrored source handedness normalization",
+    "No constructor/sourcebody mutation/contact query/native/save/render admitted"
+  ],
+  "existing_fit_status": "REFUSED_TRANSVERSE unchanged",
+  "new_geometry": false,
+  "new_query": false,
+  "limits": "Noncoincidence is an exact literal source relationship. It does not prove causation for image exposure, penetration depth, containment, aperture size, anatomical accuracy or current/successor fit. Full AAA roadmap preserved."
+}
