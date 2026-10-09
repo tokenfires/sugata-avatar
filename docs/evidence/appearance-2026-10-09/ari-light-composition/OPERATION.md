@@ -1,0 +1,21 @@
+# Cycles light-data synchronization: exact operation, shader boundary
+
+**Source-only result; no collector admission.** The nominated v5.2.2 light.cpp defines the RNA light-data strength operation, but does not define the required shader-input composition or attach the light's node shader in sync_light. The one-source inquiry is exhausted. The missing responsibility remains UNKNOWN and closes this allocation before collector preparation. No adjacent file, search, source retry, socket probe or render follows.
+
+The exact saved [Blender release-tag file](https://raw.githubusercontent.com/blender/blender/v5.2.2/intern/cycles/blender/light.cpp), function BlenderSync::sync_light, first constructs a three-component color from Light.r/g/b. When temperature is enabled it multiplies that color by the RNA temperature_color triple. It then computes:
+
+```
+data_strength = resulting_color * Light.energy * 2**Light.exposure
+```
+
+It passes that vector to the Cycles light strength setter. This equation describes the source's data-sync value, **not total emitted power after shader evaluation**. The file also forwards normalization and shape parameters. For AREA/DISK it gives the second area size the same value as the first and enables the ellipse flag, rather than using area_sizey. This is version-bound source behavior, not new local runtime evidence or geometry/calibration acceptance. Release-tag equivalence to installed buildd13f752e3b9c remains unverified.
+
+For the already-recorded fixtures, temperature disabled, color[1,1,1], exposure0 and energy700/450/600 imply source-level synchronized vectors [700,700,700], [450,450,450], [600,600,600]. These are derived predictions under the retrieved code, not observed Cycles internal values, measured radiance or an energy-times-node-strength formula. Record provenance as inferred from source; do not rename them effective emitted watts. Normalization is forwarded to another implementation, whose evaluation is unexamined.
+
+The whole sync_light body contains data/shape/shadow/settings synchronization and tagging. It does not inspect the Emission Color/Strength sockets, choose the active Light Output, or evaluate/multiply the shader with that data-strength vector. sync_background_light sets a background shader, which is a separate world path and does not establish the object-light operation. Header/include names and setter calls cannot prove omitted renderer behavior. The prior Cycles manual supplies documented shader/data roles and ordering; combining that prose with this partial equation still does not own the complete numeric composition required by this plan.
+
+Witnesses: saved CYCLES-LIGHT-SOURCE.json whole sync_light body and separate background function; previous ../ari-light-graph-contract/CYCLES-LIGHT-SOURCE.json Nodes/Emission Shader/Light Output sections; original ../ari-light-runtime/RESULT.json representation records lack socket/output values. No fresh access to those Blender properties occurred.
+
+A: retain this precise source-level data-sync equation and choose a new explicit decision contract only if later evidence makes a different operation worth investigating. More renderer investigation would cost additional sources and could become an unproductive chain; the current source cap forbids it. B, selected now: preserve the equation and unresolved shader boundary, hold this shell's captures and move the next substantial slice to an independent original garment pattern contract. That can improve shape architecture, though it cannot qualify this exact shell's appearance or resolve lighting. Ask the critic whether that next pattern slice is worth doing before preparing it. No new source/body/pattern operation is admitted here.
+
+Current old observers/None-empty branch, prior three-page inquiry and this single-file inquiry remain CLOSED. No socket defaults, white/Strength1 neutral-multiplier equivalence, output property/target values or initialization cause inferred. Preserve exact source assets, scalar values, positions, frame, frozen evidence, accepted defaults and Vite/automation. Fit remains refused2189body/36self pairs with34coplanar/fullsurface/occupancy/motion limits; the full AAA expression/wardrobe/representation/rig/morph/materialUV/export/runtime roadmap remains intact.
