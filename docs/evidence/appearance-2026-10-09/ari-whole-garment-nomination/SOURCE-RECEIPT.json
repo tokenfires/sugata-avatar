@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-09T23:10:45.278612+00:00",
+  "search_requests": 1,
+  "search_results": 2,
+  "search_credits": 2,
+  "search_extracted_bytes": 591,
+  "primary_documents": [
+    {
+      "file": "CATALOG.json",
+      "sourceURL": "http://www.makehumancommunity.org/clothes.html",
+      "HTTP": 200,
+      "markdown_utf8_bytes": 10147,
+      "credits": 1,
+      "scrapeId": "01a122ea-53ae-765b-8266-bbed4e517fdd"
+    },
+    {
+      "file": "NOMINEE-PRIMARY.json",
+      "sourceURL": "http://www.makehumancommunity.org/clothes/sr_tight_top_01.html",
+      "HTTP": 200,
+      "markdown_utf8_bytes": 1725,
+      "credits": 1,
+      "scrapeId": "01a122eb-6265-77cb-8b81-a39ae3d85132"
+    }
+  ],
+  "credits_total": 4,
+  "candidate_images_attempted": 1,
+  "actual_images_seen": 0,
+  "image_failure": "Web open returned inaccessible/Internal Error; no retry/capture/download workaround",
+  "asset_requests": 0,
+  "source_caps_exhausted": true,
+  "no_further_source_operation": true,
+  "limits": "Published entries/links/assertions only, not downloaded content proof or image/mesh/base/fit qualification"
+}

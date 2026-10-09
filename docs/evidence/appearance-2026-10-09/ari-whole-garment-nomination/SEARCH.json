@@ -1,0 +1,47 @@
+{
+  "request": {
+    "query": "makehuman bomber jacket clothing asset mhclo",
+    "includeDomains": [
+      "makehumancommunity.org"
+    ],
+    "limit": 3,
+    "sources": [
+      "web"
+    ],
+    "domainTools": false,
+    "highlights": true
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"http://www.makehumancommunity.org/clothes.html\",\"title\":\"Clothes | www.makehumancommunity.org\",\"description\":\"These are user contributed clothes for MakeHuman. you can download assets from within MakeHuman instead of doing so manually.\",\"position\":1},{\"url\":\"https://static.makehumancommunity.org/assets/assetpacks.html\",\"title\":\"Asset Packs - MakeHuman Community\",\"description\":\"Asset packs are zip files with checked assets from MakeHuman and the asset repositories. You can download these to quickly get up and running with a basic set ...\",\"position\":2}]},\"creditsUsed\":2,\"id\":\"01a122e9-f016-7309-84b9-bcdd79cba49f\",\"agent_hints\":[\"All 2 web results are excerpts only (#1 \\\"http://www.makehumancommunity.org/clothes.html\\\", #2 \\\"https://static.makehumancommunity.org/assets/assetpacks.html\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "agent_hints": [
+        "All 2 web results are excerpts only (#1 \"http://www.makehumancommunity.org/clothes.html\", #2 \"https://static.makehumancommunity.org/assets/assetpacks.html\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+      ],
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "http://www.makehumancommunity.org/clothes.html",
+            "title": "Clothes | www.makehumancommunity.org",
+            "description": "These are user contributed clothes for MakeHuman. you can download assets from within MakeHuman instead of doing so manually.",
+            "position": 1
+          },
+          {
+            "url": "https://static.makehumancommunity.org/assets/assetpacks.html",
+            "title": "Asset Packs - MakeHuman Community",
+            "description": "Asset packs are zip files with checked assets from MakeHuman and the asset repositories. You can download these to quickly get up and running with a basic set ...",
+            "position": 2
+          }
+        ]
+      },
+      "id": "01a122e9-f016-7309-84b9-bcdd79cba49f",
+      "creditsUsed": 2
+    },
+    "isError": false
+  }
+}
