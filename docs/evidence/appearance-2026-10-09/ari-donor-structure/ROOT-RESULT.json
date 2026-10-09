@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-09T23:37:30.362023+00:00",
+  "acquisition_job_and_raw_hashes_exact": true,
+  "alternate_regex_DSU_edge_boundary_reference_census": "PASS",
+  "original_three_targets_readonly_exact": true,
+  "owned_pids_absent": true,
+  "decision": "Connected generic source mechanism only; no labelled sleeves/base byte ownership, no Ari selection/import/appearance",
+  "payloads": [
+    {
+      "path": "STRUCTURE.json",
+      "bytes": 4730,
+      "sha256": "5a189b3c65ec2b4cf73f9d03ec8ce1b1ab44f2f4f6dcfaf134afa9041e3395d8"
+    },
+    {
+      "path": "JOB.json",
+      "bytes": 588,
+      "sha256": "971fa5c9237c9397d3a3ddc47415323d72a996417b3f554e289793e9a64729f4"
+    },
+    {
+      "path": "ACQUISITION.json",
+      "bytes": 2017,
+      "sha256": "f8d6fe68fbdaef52253d3de6e35fe590b1e132fe0e32835e1829b85046fe7ebe"
+    },
+    {
+      "path": "audit.py",
+      "bytes": 5923,
+      "sha256": "06dc49d09ba98fc2d8f942a332975b29ed789694d1ce419c58c1c6611b7da2de"
+    },
+    {
+      "path": "source.mhclo",
+      "bytes": 32728,
+      "sha256": "0c62f35555b0c7b9462bc2ab971668422eb0eaa729d99ba975c15c91a162fd84"
+    },
+    {
+      "path": "source.obj",
+      "bytes": 108134,
+      "sha256": "ea8c7ebbe2cde34504e1b9c87aac1fd87122a10fe10d3bf673d3e588c6d97c08"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "pid": 21804,
+  "start": "2026-10-09T23:34:59.049793+00:00",
+  "requests": [
+    {
+      "kind": "mhclo",
+      "url": "http://www.makehumancommunity.org/sites/default/files/clothes/6454/150339817/sr_tight_top_01.mhclo",
+      "start": "2026-10-09T23:34:59.057361+00:00",
+      "status": 200,
+      "final_url": "http://www.makehumancommunity.org/sites/default/files/clothes/6454/150339817/sr_tight_top_01.mhclo",
+      "headers": {
+        "Date": "Fri, 09 Oct 2026 23:35:02 GMT",
+        "Server": "Apache/2.4.7 (Ubuntu)",
+        "Last-Modified": "Sat, 31 Jan 2026 08:59:21 GMT",
+        "ETag": "\"7fd8-649ab4e4105d6\"",
+        "Accept-Ranges": "bytes",
+        "Content-Length": "32728",
+        "Connection": "close"
+      },
+      "end": "2026-10-09T23:35:02.990331+00:00",
+      "bytes": 32728,
+      "sha256": "0c62f35555b0c7b9462bc2ab971668422eb0eaa729d99ba975c15c91a162fd84",
+      "saved": "source.mhclo"
+    },
+    {
+      "kind": "obj",
+      "url": "http://www.makehumancommunity.org/sites/default/files/clothes/6454/201662187/sr_tight_top_01.obj",
+      "start": "2026-10-09T23:35:02.997824+00:00",
+      "status": 200,
+      "final_url": "http://www.makehumancommunity.org/sites/default/files/clothes/6454/201662187/sr_tight_top_01.obj",
+      "headers": {
+        "Date": "Fri, 09 Oct 2026 23:35:06 GMT",
+        "Server": "Apache/2.4.7 (Ubuntu)",
+        "Last-Modified": "Sat, 31 Jan 2026 08:59:26 GMT",
+        "ETag": "\"1a666-649ab4e8ff1aa\"",
+        "Accept-Ranges": "bytes",
+        "Content-Length": "108134",
+        "Connection": "close"
+      },
+      "end": "2026-10-09T23:35:07.052083+00:00",
+      "bytes": 108134,
+      "sha256": "ea8c7ebbe2cde34504e1b9c87aac1fd87122a10fe10d3bf673d3e588c6d97c08",
+      "saved": "source.obj"
+    }
+  ],
+  "scope": "two published text sources, different donor, no import",
+  "nomination_sha256": "616b2106e6176b46b5969d7ab6b0392d527adbd52756d69607916bdd11abb27d",
+  "outcome": "ACQUIRED_TEXT_ONLY",
+  "end": "2026-10-09T23:35:07.054866+00:00"
+}

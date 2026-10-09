@@ -1,0 +1,299 @@
+{
+  "utc": "2026-10-09T23:36:00.544744+00:00",
+  "elapsed_seconds": 0.006102999963331968,
+  "sources": {
+    "source.obj": {
+      "bytes": 108134,
+      "sha256": "ea8c7ebbe2cde34504e1b9c87aac1fd87122a10fe10d3bf673d3e588c6d97c08"
+    },
+    "source.mhclo": {
+      "bytes": 32728,
+      "sha256": "0c62f35555b0c7b9462bc2ab971668422eb0eaa729d99ba975c15c91a162fd84"
+    }
+  },
+  "vertices": 836,
+  "faces": 792,
+  "face_arities": {
+    "4": 792
+  },
+  "edges": 1628,
+  "edge_incidence": {
+    "2": 1540,
+    "1": 88
+  },
+  "same_directed_two_owner_edges": 0,
+  "vertex_component_sizes": [
+    836
+  ],
+  "edge_connected_face_component_sizes": [
+    792
+  ],
+  "unused_vertices": [],
+  "euler_polygon_census": 0,
+  "bounds": [
+    [
+      -0.115424,
+      0.115424
+    ],
+    [
+      1.041511,
+      1.260804
+    ],
+    [
+      -0.05068,
+      0.177999
+    ]
+  ],
+  "boundary_loops": [
+    {
+      "obj_zero_based_ids": [
+        0,
+        31,
+        29,
+        27,
+        25,
+        23,
+        21,
+        40,
+        33,
+        35,
+        37,
+        263,
+        264,
+        275,
+        266,
+        270,
+        265,
+        267,
+        271,
+        274,
+        272,
+        273,
+        269,
+        268,
+        544,
+        548,
+        547,
+        549,
+        546,
+        543,
+        541,
+        545,
+        542,
+        550,
+        540,
+        539,
+        322,
+        320,
+        318,
+        325,
+        306,
+        308,
+        310,
+        312,
+        314,
+        316
+      ],
+      "vertices": 46,
+      "bounds": [
+        [
+          -0.115424,
+          0.115424
+        ],
+        [
+          1.21059,
+          1.260804
+        ],
+        [
+          -0.05068,
+          0.088208
+        ]
+      ],
+      "anatomical_role": "UNKNOWN; no body correspondence or pixels"
+    },
+    {
+      "obj_zero_based_ids": [
+        10,
+        143,
+        147,
+        142,
+        161,
+        162,
+        148,
+        165,
+        139,
+        141,
+        140,
+        145,
+        144,
+        166,
+        146,
+        170,
+        171,
+        172,
+        167,
+        168,
+        169,
+        13,
+        454,
+        453,
+        452,
+        457,
+        456,
+        455,
+        431,
+        451,
+        429,
+        430,
+        425,
+        426,
+        424,
+        450,
+        433,
+        447,
+        446,
+        427,
+        432,
+        428
+      ],
+      "vertices": 42,
+      "bounds": [
+        [
+          -0.081843,
+          0.081843
+        ],
+        [
+          1.041511,
+          1.05183
+        ],
+        [
+          -0.012241,
+          0.118287
+        ]
+      ],
+      "anatomical_role": "UNKNOWN; no body correspondence or pixels"
+    }
+  ],
+  "obj_declarations": [
+    {
+      "line": 3,
+      "declaration": "o clothes.004"
+    }
+  ],
+  "mhclo_header": [
+    "# MHCLO asset for MakeHuman and MPFB, created using MPFB2",
+    "#",
+    "# author: spamrakuen",
+    "# license: CC0",
+    "# description: SR Tight Top 01",
+    "basemesh hm08",
+    "",
+    "# Basic info:",
+    "name sr_tight_top_01",
+    "uuid 41fb3cf8-65fd-45c4-8a6e-068845efcf2f",
+    "obj_file sr_tight_top_01.obj",
+    "material sr_tight_top_01.mhmat",
+    "",
+    "# Scale references:",
+    "x_scale 3924 10589 2.1384",
+    "y_scale 1524 4370 4.8040",
+    "z_scale 1892 3946 1.5302",
+    "",
+    "max_pole 5",
+    "",
+    "z_depth 50",
+    "",
+    "# The following are matches between clothes vertices and body vertices:",
+    "verts 0"
+  ],
+  "reference_rows": 836,
+  "reference_row_arities": {
+    "1": 358,
+    "3": 478
+  },
+  "body_index_range": [
+    1362,
+    17880
+  ],
+  "negative_weight_rows": [
+    40,
+    114,
+    151,
+    168,
+    188,
+    202,
+    206,
+    211,
+    217,
+    227,
+    228,
+    229,
+    242,
+    246,
+    248,
+    256,
+    258,
+    272,
+    283,
+    285,
+    303,
+    306,
+    313,
+    317,
+    325,
+    399,
+    436,
+    453,
+    473,
+    486,
+    490,
+    494,
+    500,
+    509,
+    510,
+    522,
+    526,
+    535,
+    549,
+    559,
+    561,
+    580,
+    590,
+    602,
+    603,
+    604,
+    611,
+    612,
+    614,
+    624,
+    625,
+    626,
+    632,
+    633,
+    634,
+    647,
+    671,
+    712,
+    713,
+    720,
+    755,
+    772,
+    789,
+    791,
+    798,
+    800,
+    801,
+    802,
+    813,
+    820,
+    838,
+    843,
+    845,
+    846,
+    847
+  ],
+  "mask_declaration_line": 863,
+  "mask_applied": false,
+  "decision": "CONNECTED SOURCE AND DECLARED hm08 REFERENCE MECHANISM ONLY; sleeve/body/design/inner/rig ownership HOLD",
+  "limits": "Source row syntax/cardinality only; exact base topology/coordinate transform, anatomical boundaries, physical embedding/fit/coverage/occupancy/pose and appearance UNKNOWN. No reconstruction or mask application."
+}
