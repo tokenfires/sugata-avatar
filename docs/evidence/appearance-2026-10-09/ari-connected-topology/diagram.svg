@@ -1,0 +1,631 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="540" viewBox="0 0 720 540" role="img" aria-labelledby="title desc">
+<title id="title">Ari connected topology schematic</title>
+<desc id="desc">Symbolic torso parameter grid with two armhole loops. Separate display rectangles show sleeve strips; their first vertex indices are shared with the torso. Not a 3D garment or sewing pattern.</desc>
+<rect width="720" height="540" fill="#faf7f1"/>
+<g font-family="sans-serif" fill="#302c28">
+<text x="24" y="30" font-size="20" font-weight="bold">Ari: one shared torso / sleeve structure</text>
+<text x="24" y="52" font-size="13">SCHEMATIC ONLY · no 3D positions, physical pattern or fit</text>
+<text x="45" y="91" font-size="13">neckline perimeter (collar extension still absent)</text>
+<rect x="45" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 0,1,2,3; lining IDs 403,404,405,406</title></rect>
+<path d="M45,302L69,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="69" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 1,4,5,2; lining IDs 404,407,408,405</title></rect>
+<path d="M69,302L93,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="93" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 4,6,7,5; lining IDs 407,409,410,408</title></rect>
+<path d="M93,302L117,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="117" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 6,8,9,7; lining IDs 409,411,412,410</title></rect>
+<path d="M117,302L141,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="141" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 8,10,11,9; lining IDs 411,413,414,412</title></rect>
+<path d="M141,302L165,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="165" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 10,12,13,11; lining IDs 413,415,416,414</title></rect>
+<path d="M165,302L189,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="189" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 12,14,15,13; lining IDs 415,417,418,416</title></rect>
+<path d="M189,302L213,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="213" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 14,16,17,15; lining IDs 417,419,420,418</title></rect>
+<path d="M213,302L237,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="237" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 16,18,19,17; lining IDs 419,421,422,420</title></rect>
+<path d="M237,302L261,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="261" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 18,20,21,19; lining IDs 421,423,424,422</title></rect>
+<path d="M261,302L285,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="285" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 20,22,23,21; lining IDs 423,425,426,424</title></rect>
+<path d="M285,302L309,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="309" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 22,24,25,23; lining IDs 425,427,428,426</title></rect>
+<path d="M309,302L333,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="333" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 24,26,27,25; lining IDs 427,429,430,428</title></rect>
+<path d="M333,302L357,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="357" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 26,28,29,27; lining IDs 429,431,432,430</title></rect>
+<path d="M357,302L381,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="381" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 28,30,31,29; lining IDs 431,433,434,432</title></rect>
+<path d="M381,302L405,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="405" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 30,32,33,31; lining IDs 433,435,436,434</title></rect>
+<path d="M405,302L429,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="429" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 32,34,35,33; lining IDs 435,437,438,436</title></rect>
+<path d="M429,302L453,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="453" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 34,36,37,35; lining IDs 437,439,440,438</title></rect>
+<path d="M453,302L477,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="477" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 36,38,39,37; lining IDs 439,441,442,440</title></rect>
+<path d="M477,302L501,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="501" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 38,40,41,39; lining IDs 441,443,444,442</title></rect>
+<path d="M501,302L525,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="525" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 40,42,43,41; lining IDs 443,445,446,444</title></rect>
+<path d="M525,302L549,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="549" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 42,44,45,43; lining IDs 445,447,448,446</title></rect>
+<path d="M549,302L573,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="573" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 44,46,47,45; lining IDs 447,449,450,448</title></rect>
+<path d="M573,302L597,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="597" y="286" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 46,48,49,47; lining IDs 449,451,452,450</title></rect>
+<path d="M597,302L621,286" stroke="#b37755" stroke-width=".4"/>
+<rect x="45" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 3,2,50,51; lining IDs 406,405,453,454</title></rect>
+<path d="M45,286L69,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="69" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 2,5,52,50; lining IDs 405,408,455,453</title></rect>
+<path d="M69,286L93,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="93" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 5,7,53,52; lining IDs 408,410,456,455</title></rect>
+<path d="M93,286L117,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="117" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 7,9,54,53; lining IDs 410,412,457,456</title></rect>
+<path d="M117,286L141,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="141" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 9,11,55,54; lining IDs 412,414,458,457</title></rect>
+<path d="M141,286L165,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="165" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 11,13,56,55; lining IDs 414,416,459,458</title></rect>
+<path d="M165,286L189,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="189" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 13,15,57,56; lining IDs 416,418,460,459</title></rect>
+<path d="M189,286L213,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="213" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 15,17,58,57; lining IDs 418,420,461,460</title></rect>
+<path d="M213,286L237,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="237" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 17,19,59,58; lining IDs 420,422,462,461</title></rect>
+<path d="M237,286L261,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="261" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 19,21,60,59; lining IDs 422,424,463,462</title></rect>
+<path d="M261,286L285,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="285" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 21,23,61,60; lining IDs 424,426,464,463</title></rect>
+<path d="M285,286L309,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="309" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 23,25,62,61; lining IDs 426,428,465,464</title></rect>
+<path d="M309,286L333,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="333" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 25,27,63,62; lining IDs 428,430,466,465</title></rect>
+<path d="M333,286L357,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="357" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 27,29,64,63; lining IDs 430,432,467,466</title></rect>
+<path d="M357,286L381,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="381" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 29,31,65,64; lining IDs 432,434,468,467</title></rect>
+<path d="M381,286L405,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="405" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 31,33,66,65; lining IDs 434,436,469,468</title></rect>
+<path d="M405,286L429,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="429" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 33,35,67,66; lining IDs 436,438,470,469</title></rect>
+<path d="M429,286L453,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="453" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 35,37,68,67; lining IDs 438,440,471,470</title></rect>
+<path d="M453,286L477,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="477" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 37,39,69,68; lining IDs 440,442,472,471</title></rect>
+<path d="M477,286L501,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="501" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 39,41,70,69; lining IDs 442,444,473,472</title></rect>
+<path d="M501,286L525,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="525" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 41,43,71,70; lining IDs 444,446,474,473</title></rect>
+<path d="M525,286L549,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="549" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 43,45,72,71; lining IDs 446,448,475,474</title></rect>
+<path d="M549,286L573,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="573" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 45,47,73,72; lining IDs 448,450,476,475</title></rect>
+<path d="M573,286L597,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="597" y="270" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 47,49,74,73; lining IDs 450,452,477,476</title></rect>
+<path d="M597,286L621,270" stroke="#b37755" stroke-width=".4"/>
+<rect x="45" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 51,50,75,76; lining IDs 454,453,478,479</title></rect>
+<path d="M45,270L69,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="69" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 50,52,77,75; lining IDs 453,455,480,478</title></rect>
+<path d="M69,270L93,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="93" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 52,53,78,77; lining IDs 455,456,481,480</title></rect>
+<path d="M93,270L117,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="117" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 53,54,79,78; lining IDs 456,457,482,481</title></rect>
+<path d="M117,270L141,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="141" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 54,55,80,79; lining IDs 457,458,483,482</title></rect>
+<path d="M141,270L165,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="165" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 55,56,81,80; lining IDs 458,459,484,483</title></rect>
+<path d="M165,270L189,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="189" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 56,57,82,81; lining IDs 459,460,485,484</title></rect>
+<path d="M189,270L213,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="213" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 57,58,83,82; lining IDs 460,461,486,485</title></rect>
+<path d="M213,270L237,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="237" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 58,59,84,83; lining IDs 461,462,487,486</title></rect>
+<path d="M237,270L261,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="261" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 59,60,85,84; lining IDs 462,463,488,487</title></rect>
+<path d="M261,270L285,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="285" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 60,61,86,85; lining IDs 463,464,489,488</title></rect>
+<path d="M285,270L309,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="309" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 61,62,87,86; lining IDs 464,465,490,489</title></rect>
+<path d="M309,270L333,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="333" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 62,63,88,87; lining IDs 465,466,491,490</title></rect>
+<path d="M333,270L357,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="357" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 63,64,89,88; lining IDs 466,467,492,491</title></rect>
+<path d="M357,270L381,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="381" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 64,65,90,89; lining IDs 467,468,493,492</title></rect>
+<path d="M381,270L405,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="405" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 65,66,91,90; lining IDs 468,469,494,493</title></rect>
+<path d="M405,270L429,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="429" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 66,67,92,91; lining IDs 469,470,495,494</title></rect>
+<path d="M429,270L453,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="453" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 67,68,93,92; lining IDs 470,471,496,495</title></rect>
+<path d="M453,270L477,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="477" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 68,69,94,93; lining IDs 471,472,497,496</title></rect>
+<path d="M477,270L501,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="501" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 69,70,95,94; lining IDs 472,473,498,497</title></rect>
+<path d="M501,270L525,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="525" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 70,71,96,95; lining IDs 473,474,499,498</title></rect>
+<path d="M525,270L549,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="549" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 71,72,97,96; lining IDs 474,475,500,499</title></rect>
+<path d="M549,270L573,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="573" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 72,73,98,97; lining IDs 475,476,501,500</title></rect>
+<path d="M573,270L597,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="597" y="254" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 73,74,99,98; lining IDs 476,477,502,501</title></rect>
+<path d="M597,270L621,254" stroke="#b37755" stroke-width=".4"/>
+<rect x="45" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 76,75,100,101; lining IDs 479,478,503,504</title></rect>
+<path d="M45,254L69,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="69" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 75,77,102,100; lining IDs 478,480,505,503</title></rect>
+<path d="M69,254L93,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="93" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 77,78,103,102; lining IDs 480,481,506,505</title></rect>
+<path d="M93,254L117,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="117" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 78,79,104,103; lining IDs 481,482,507,506</title></rect>
+<path d="M117,254L141,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="141" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 79,80,105,104; lining IDs 482,483,508,507</title></rect>
+<path d="M141,254L165,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="165" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 80,81,106,105; lining IDs 483,484,509,508</title></rect>
+<path d="M165,254L189,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="189" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 81,82,107,106; lining IDs 484,485,510,509</title></rect>
+<path d="M189,254L213,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="213" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 82,83,108,107; lining IDs 485,486,511,510</title></rect>
+<path d="M213,254L237,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="237" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 83,84,109,108; lining IDs 486,487,512,511</title></rect>
+<path d="M237,254L261,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="261" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 84,85,110,109; lining IDs 487,488,513,512</title></rect>
+<path d="M261,254L285,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="285" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 85,86,111,110; lining IDs 488,489,514,513</title></rect>
+<path d="M285,254L309,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="309" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 86,87,112,111; lining IDs 489,490,515,514</title></rect>
+<path d="M309,254L333,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="333" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 87,88,113,112; lining IDs 490,491,516,515</title></rect>
+<path d="M333,254L357,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="357" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 88,89,114,113; lining IDs 491,492,517,516</title></rect>
+<path d="M357,254L381,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="381" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 89,90,115,114; lining IDs 492,493,518,517</title></rect>
+<path d="M381,254L405,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="405" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 90,91,116,115; lining IDs 493,494,519,518</title></rect>
+<path d="M405,254L429,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="429" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 91,92,117,116; lining IDs 494,495,520,519</title></rect>
+<path d="M429,254L453,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="453" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 92,93,118,117; lining IDs 495,496,521,520</title></rect>
+<path d="M453,254L477,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="477" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 93,94,119,118; lining IDs 496,497,522,521</title></rect>
+<path d="M477,254L501,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="501" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 94,95,120,119; lining IDs 497,498,523,522</title></rect>
+<path d="M501,254L525,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="525" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 95,96,121,120; lining IDs 498,499,524,523</title></rect>
+<path d="M525,254L549,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="549" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 96,97,122,121; lining IDs 499,500,525,524</title></rect>
+<path d="M549,254L573,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="573" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 97,98,123,122; lining IDs 500,501,526,525</title></rect>
+<path d="M573,254L597,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="597" y="238" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 98,99,124,123; lining IDs 501,502,527,526</title></rect>
+<path d="M597,254L621,238" stroke="#b37755" stroke-width=".4"/>
+<rect x="45" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 101,100,125,126; lining IDs 504,503,528,529</title></rect>
+<path d="M45,238L69,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="69" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 100,102,127,125; lining IDs 503,505,530,528</title></rect>
+<path d="M69,238L93,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="93" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 102,103,128,127; lining IDs 505,506,531,530</title></rect>
+<path d="M93,238L117,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="117" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 103,104,129,128; lining IDs 506,507,532,531</title></rect>
+<path d="M117,238L141,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="141" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 104,105,130,129; lining IDs 507,508,533,532</title></rect>
+<path d="M141,238L165,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="165" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 105,106,131,130; lining IDs 508,509,534,533</title></rect>
+<path d="M165,238L189,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="189" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 106,107,132,131; lining IDs 509,510,535,534</title></rect>
+<path d="M189,238L213,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="213" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 107,108,133,132; lining IDs 510,511,536,535</title></rect>
+<path d="M213,238L237,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="237" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 108,109,134,133; lining IDs 511,512,537,536</title></rect>
+<path d="M237,238L261,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="261" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 109,110,135,134; lining IDs 512,513,538,537</title></rect>
+<path d="M261,238L285,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="285" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 110,111,136,135; lining IDs 513,514,539,538</title></rect>
+<path d="M285,238L309,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="309" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 111,112,137,136; lining IDs 514,515,540,539</title></rect>
+<path d="M309,238L333,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="333" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 112,113,138,137; lining IDs 515,516,541,540</title></rect>
+<path d="M333,238L357,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="357" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 113,114,139,138; lining IDs 516,517,542,541</title></rect>
+<path d="M357,238L381,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="381" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 114,115,140,139; lining IDs 517,518,543,542</title></rect>
+<path d="M381,238L405,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="405" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 115,116,141,140; lining IDs 518,519,544,543</title></rect>
+<path d="M405,238L429,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="429" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 116,117,142,141; lining IDs 519,520,545,544</title></rect>
+<path d="M429,238L453,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="453" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 117,118,143,142; lining IDs 520,521,546,545</title></rect>
+<path d="M453,238L477,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="477" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 118,119,144,143; lining IDs 521,522,547,546</title></rect>
+<path d="M477,238L501,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="501" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 119,120,145,144; lining IDs 522,523,548,547</title></rect>
+<path d="M501,238L525,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="525" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 120,121,146,145; lining IDs 523,524,549,548</title></rect>
+<path d="M525,238L549,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="549" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 121,122,147,146; lining IDs 524,525,550,549</title></rect>
+<path d="M549,238L573,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="573" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 122,123,148,147; lining IDs 525,526,551,550</title></rect>
+<path d="M573,238L597,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="597" y="222" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 123,124,149,148; lining IDs 526,527,552,551</title></rect>
+<path d="M597,238L621,222" stroke="#b37755" stroke-width=".4"/>
+<rect x="45" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 126,125,150,151; lining IDs 529,528,553,554</title></rect>
+<path d="M45,222L69,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="69" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 125,127,152,150; lining IDs 528,530,555,553</title></rect>
+<path d="M69,222L93,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="93" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 127,128,153,152; lining IDs 530,531,556,555</title></rect>
+<path d="M93,222L117,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="117" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 128,129,154,153; lining IDs 531,532,557,556</title></rect>
+<path d="M117,222L141,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="141" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 129,130,155,154; lining IDs 532,533,558,557</title></rect>
+<path d="M141,222L165,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="165" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 130,131,156,155; lining IDs 533,534,559,558</title></rect>
+<path d="M165,222L189,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="189" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 131,132,157,156; lining IDs 534,535,560,559</title></rect>
+<path d="M189,222L213,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="213" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 132,133,158,157; lining IDs 535,536,561,560</title></rect>
+<path d="M213,222L237,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="237" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 133,134,159,158; lining IDs 536,537,562,561</title></rect>
+<path d="M237,222L261,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="261" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 134,135,160,159; lining IDs 537,538,563,562</title></rect>
+<path d="M261,222L285,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="285" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 135,136,161,160; lining IDs 538,539,564,563</title></rect>
+<path d="M285,222L309,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="309" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 136,137,162,161; lining IDs 539,540,565,564</title></rect>
+<path d="M309,222L333,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="333" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 137,138,163,162; lining IDs 540,541,566,565</title></rect>
+<path d="M333,222L357,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="357" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 138,139,164,163; lining IDs 541,542,567,566</title></rect>
+<path d="M357,222L381,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="381" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 139,140,165,164; lining IDs 542,543,568,567</title></rect>
+<path d="M381,222L405,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="405" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 140,141,166,165; lining IDs 543,544,569,568</title></rect>
+<path d="M405,222L429,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="429" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 141,142,167,166; lining IDs 544,545,570,569</title></rect>
+<path d="M429,222L453,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="453" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 142,143,168,167; lining IDs 545,546,571,570</title></rect>
+<path d="M453,222L477,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="477" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 143,144,169,168; lining IDs 546,547,572,571</title></rect>
+<path d="M477,222L501,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="501" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 144,145,170,169; lining IDs 547,548,573,572</title></rect>
+<path d="M501,222L525,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="525" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 145,146,171,170; lining IDs 548,549,574,573</title></rect>
+<path d="M525,222L549,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="549" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 146,147,172,171; lining IDs 549,550,575,574</title></rect>
+<path d="M549,222L573,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="573" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 147,148,173,172; lining IDs 550,551,576,575</title></rect>
+<path d="M573,222L597,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="597" y="206" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 148,149,174,173; lining IDs 551,552,577,576</title></rect>
+<path d="M597,222L621,206" stroke="#b37755" stroke-width=".4"/>
+<rect x="45" y="190" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 151,150,175,176; lining IDs 554,553,578,579</title></rect>
+<path d="M45,206L69,190" stroke="#b37755" stroke-width=".4"/>
+<rect x="69" y="190" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 150,152,177,175; lining IDs 553,555,580,578</title></rect>
+<path d="M69,206L93,190" stroke="#b37755" stroke-width=".4"/>
+<rect x="93" y="190" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 152,153,178,177; lining IDs 555,556,581,580</title></rect>
+<path d="M93,206L117,190" stroke="#b37755" stroke-width=".4"/>
+<rect x="117" y="190" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 153,154,179,178; lining IDs 556,557,582,581</title></rect>
+<path d="M117,206L141,190" stroke="#b37755" stroke-width=".4"/>
+<rect x="237" y="190" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 158,159,180,181; lining IDs 561,562,583,584</title></rect>
+<path d="M237,206L261,190" stroke="#b37755" stroke-width=".4"/>
+<rect x="261" y="190" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 159,160,182,180; lining IDs 562,563,585,583</title></rect>
+<path d="M261,206L285,190" stroke="#b37755" stroke-width=".4"/>
+<rect x="285" y="190" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 160,161,183,182; lining IDs 563,564,586,585</title></rect>
+<path d="M285,206L309,190" stroke="#b37755" stroke-width=".4"/>
+<rect x="309" y="190" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 161,162,184,183; lining IDs 564,565,587,586</title></rect>
+<path d="M309,206L333,190" stroke="#b37755" stroke-width=".4"/>
+<rect x="333" y="190" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 162,163,185,184; lining IDs 565,566,588,587</title></rect>
+<path d="M333,206L357,190" stroke="#b37755" stroke-width=".4"/>
+<rect x="357" y="190" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 163,164,186,185; lining IDs 566,567,589,588</title></rect>
+<path d="M357,206L381,190" stroke="#b37755" stroke-width=".4"/>
+<rect x="381" y="190" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 164,165,187,186; lining IDs 567,568,590,589</title></rect>
+<path d="M381,206L405,190" stroke="#b37755" stroke-width=".4"/>
+<rect x="405" y="190" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 165,166,188,187; lining IDs 568,569,591,590</title></rect>
+<path d="M405,206L429,190" stroke="#b37755" stroke-width=".4"/>
+<rect x="525" y="190" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 170,171,189,190; lining IDs 573,574,592,593</title></rect>
+<path d="M525,206L549,190" stroke="#b37755" stroke-width=".4"/>
+<rect x="549" y="190" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 171,172,191,189; lining IDs 574,575,594,592</title></rect>
+<path d="M549,206L573,190" stroke="#b37755" stroke-width=".4"/>
+<rect x="573" y="190" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 172,173,192,191; lining IDs 575,576,595,594</title></rect>
+<path d="M573,206L597,190" stroke="#b37755" stroke-width=".4"/>
+<rect x="597" y="190" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 173,174,193,192; lining IDs 576,577,596,595</title></rect>
+<path d="M597,206L621,190" stroke="#b37755" stroke-width=".4"/>
+<rect x="45" y="174" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 176,175,194,195; lining IDs 579,578,597,598</title></rect>
+<path d="M45,190L69,174" stroke="#b37755" stroke-width=".4"/>
+<rect x="69" y="174" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 175,177,196,194; lining IDs 578,580,599,597</title></rect>
+<path d="M69,190L93,174" stroke="#b37755" stroke-width=".4"/>
+<rect x="93" y="174" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 177,178,197,196; lining IDs 580,581,600,599</title></rect>
+<path d="M93,190L117,174" stroke="#b37755" stroke-width=".4"/>
+<rect x="117" y="174" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 178,179,198,197; lining IDs 581,582,601,600</title></rect>
+<path d="M117,190L141,174" stroke="#b37755" stroke-width=".4"/>
+<rect x="237" y="174" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 181,180,199,200; lining IDs 584,583,602,603</title></rect>
+<path d="M237,190L261,174" stroke="#b37755" stroke-width=".4"/>
+<rect x="261" y="174" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 180,182,201,199; lining IDs 583,585,604,602</title></rect>
+<path d="M261,190L285,174" stroke="#b37755" stroke-width=".4"/>
+<rect x="285" y="174" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 182,183,202,201; lining IDs 585,586,605,604</title></rect>
+<path d="M285,190L309,174" stroke="#b37755" stroke-width=".4"/>
+<rect x="309" y="174" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 183,184,203,202; lining IDs 586,587,606,605</title></rect>
+<path d="M309,190L333,174" stroke="#b37755" stroke-width=".4"/>
+<rect x="333" y="174" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 184,185,204,203; lining IDs 587,588,607,606</title></rect>
+<path d="M333,190L357,174" stroke="#b37755" stroke-width=".4"/>
+<rect x="357" y="174" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 185,186,205,204; lining IDs 588,589,608,607</title></rect>
+<path d="M357,190L381,174" stroke="#b37755" stroke-width=".4"/>
+<rect x="381" y="174" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 186,187,206,205; lining IDs 589,590,609,608</title></rect>
+<path d="M381,190L405,174" stroke="#b37755" stroke-width=".4"/>
+<rect x="405" y="174" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 187,188,207,206; lining IDs 590,591,610,609</title></rect>
+<path d="M405,190L429,174" stroke="#b37755" stroke-width=".4"/>
+<rect x="525" y="174" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 190,189,208,209; lining IDs 593,592,611,612</title></rect>
+<path d="M525,190L549,174" stroke="#b37755" stroke-width=".4"/>
+<rect x="549" y="174" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 189,191,210,208; lining IDs 592,594,613,611</title></rect>
+<path d="M549,190L573,174" stroke="#b37755" stroke-width=".4"/>
+<rect x="573" y="174" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 191,192,211,210; lining IDs 594,595,614,613</title></rect>
+<path d="M573,190L597,174" stroke="#b37755" stroke-width=".4"/>
+<rect x="597" y="174" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 192,193,212,211; lining IDs 595,596,615,614</title></rect>
+<path d="M597,190L621,174" stroke="#b37755" stroke-width=".4"/>
+<rect x="45" y="158" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 195,194,213,214; lining IDs 598,597,616,617</title></rect>
+<path d="M45,174L69,158" stroke="#b37755" stroke-width=".4"/>
+<rect x="69" y="158" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 194,196,215,213; lining IDs 597,599,618,616</title></rect>
+<path d="M69,174L93,158" stroke="#b37755" stroke-width=".4"/>
+<rect x="93" y="158" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 196,197,216,215; lining IDs 599,600,619,618</title></rect>
+<path d="M93,174L117,158" stroke="#b37755" stroke-width=".4"/>
+<rect x="117" y="158" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 197,198,217,216; lining IDs 600,601,620,619</title></rect>
+<path d="M117,174L141,158" stroke="#b37755" stroke-width=".4"/>
+<rect x="237" y="158" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 200,199,218,219; lining IDs 603,602,621,622</title></rect>
+<path d="M237,174L261,158" stroke="#b37755" stroke-width=".4"/>
+<rect x="261" y="158" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 199,201,220,218; lining IDs 602,604,623,621</title></rect>
+<path d="M261,174L285,158" stroke="#b37755" stroke-width=".4"/>
+<rect x="285" y="158" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 201,202,221,220; lining IDs 604,605,624,623</title></rect>
+<path d="M285,174L309,158" stroke="#b37755" stroke-width=".4"/>
+<rect x="309" y="158" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 202,203,222,221; lining IDs 605,606,625,624</title></rect>
+<path d="M309,174L333,158" stroke="#b37755" stroke-width=".4"/>
+<rect x="333" y="158" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 203,204,223,222; lining IDs 606,607,626,625</title></rect>
+<path d="M333,174L357,158" stroke="#b37755" stroke-width=".4"/>
+<rect x="357" y="158" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 204,205,224,223; lining IDs 607,608,627,626</title></rect>
+<path d="M357,174L381,158" stroke="#b37755" stroke-width=".4"/>
+<rect x="381" y="158" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 205,206,225,224; lining IDs 608,609,628,627</title></rect>
+<path d="M381,174L405,158" stroke="#b37755" stroke-width=".4"/>
+<rect x="405" y="158" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 206,207,226,225; lining IDs 609,610,629,628</title></rect>
+<path d="M405,174L429,158" stroke="#b37755" stroke-width=".4"/>
+<rect x="525" y="158" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 209,208,227,228; lining IDs 612,611,630,631</title></rect>
+<path d="M525,174L549,158" stroke="#b37755" stroke-width=".4"/>
+<rect x="549" y="158" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 208,210,229,227; lining IDs 611,613,632,630</title></rect>
+<path d="M549,174L573,158" stroke="#b37755" stroke-width=".4"/>
+<rect x="573" y="158" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 210,211,230,229; lining IDs 613,614,633,632</title></rect>
+<path d="M573,174L597,158" stroke="#b37755" stroke-width=".4"/>
+<rect x="597" y="158" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 211,212,231,230; lining IDs 614,615,634,633</title></rect>
+<path d="M597,174L621,158" stroke="#b37755" stroke-width=".4"/>
+<rect x="45" y="142" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 214,213,232,233; lining IDs 617,616,635,636</title></rect>
+<path d="M45,158L69,142" stroke="#b37755" stroke-width=".4"/>
+<rect x="69" y="142" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 213,215,234,232; lining IDs 616,618,637,635</title></rect>
+<path d="M69,158L93,142" stroke="#b37755" stroke-width=".4"/>
+<rect x="93" y="142" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 215,216,235,234; lining IDs 618,619,638,637</title></rect>
+<path d="M93,158L117,142" stroke="#b37755" stroke-width=".4"/>
+<rect x="117" y="142" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 216,217,236,235; lining IDs 619,620,639,638</title></rect>
+<path d="M117,158L141,142" stroke="#b37755" stroke-width=".4"/>
+<rect x="237" y="142" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 219,218,237,238; lining IDs 622,621,640,641</title></rect>
+<path d="M237,158L261,142" stroke="#b37755" stroke-width=".4"/>
+<rect x="261" y="142" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 218,220,239,237; lining IDs 621,623,642,640</title></rect>
+<path d="M261,158L285,142" stroke="#b37755" stroke-width=".4"/>
+<rect x="285" y="142" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 220,221,240,239; lining IDs 623,624,643,642</title></rect>
+<path d="M285,158L309,142" stroke="#b37755" stroke-width=".4"/>
+<rect x="309" y="142" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 221,222,241,240; lining IDs 624,625,644,643</title></rect>
+<path d="M309,158L333,142" stroke="#b37755" stroke-width=".4"/>
+<rect x="333" y="142" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 222,223,242,241; lining IDs 625,626,645,644</title></rect>
+<path d="M333,158L357,142" stroke="#b37755" stroke-width=".4"/>
+<rect x="357" y="142" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 223,224,243,242; lining IDs 626,627,646,645</title></rect>
+<path d="M357,158L381,142" stroke="#b37755" stroke-width=".4"/>
+<rect x="381" y="142" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 224,225,244,243; lining IDs 627,628,647,646</title></rect>
+<path d="M381,158L405,142" stroke="#b37755" stroke-width=".4"/>
+<rect x="405" y="142" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 225,226,245,244; lining IDs 628,629,648,647</title></rect>
+<path d="M405,158L429,142" stroke="#b37755" stroke-width=".4"/>
+<rect x="525" y="142" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 228,227,246,247; lining IDs 631,630,649,650</title></rect>
+<path d="M525,158L549,142" stroke="#b37755" stroke-width=".4"/>
+<rect x="549" y="142" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 227,229,248,246; lining IDs 630,632,651,649</title></rect>
+<path d="M549,158L573,142" stroke="#b37755" stroke-width=".4"/>
+<rect x="573" y="142" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 229,230,249,248; lining IDs 632,633,652,651</title></rect>
+<path d="M573,158L597,142" stroke="#b37755" stroke-width=".4"/>
+<rect x="597" y="142" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 230,231,250,249; lining IDs 633,634,653,652</title></rect>
+<path d="M597,158L621,142" stroke="#b37755" stroke-width=".4"/>
+<rect x="45" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 233,232,251,252; lining IDs 636,635,654,655</title></rect>
+<path d="M45,142L69,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="69" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 232,234,253,251; lining IDs 635,637,656,654</title></rect>
+<path d="M69,142L93,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="93" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 234,235,254,253; lining IDs 637,638,657,656</title></rect>
+<path d="M93,142L117,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="117" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 235,236,255,254; lining IDs 638,639,658,657</title></rect>
+<path d="M117,142L141,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="141" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 236,256,257,255; lining IDs 639,659,660,658</title></rect>
+<path d="M141,142L165,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="165" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 256,258,259,257; lining IDs 659,661,662,660</title></rect>
+<path d="M165,142L189,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="189" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 258,260,261,259; lining IDs 661,663,664,662</title></rect>
+<path d="M189,142L213,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="213" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 260,238,262,261; lining IDs 663,641,665,664</title></rect>
+<path d="M213,142L237,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="237" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 238,237,263,262; lining IDs 641,640,666,665</title></rect>
+<path d="M237,142L261,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="261" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 237,239,264,263; lining IDs 640,642,667,666</title></rect>
+<path d="M261,142L285,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="285" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 239,240,265,264; lining IDs 642,643,668,667</title></rect>
+<path d="M285,142L309,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="309" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 240,241,266,265; lining IDs 643,644,669,668</title></rect>
+<path d="M309,142L333,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="333" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 241,242,267,266; lining IDs 644,645,670,669</title></rect>
+<path d="M333,142L357,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="357" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 242,243,268,267; lining IDs 645,646,671,670</title></rect>
+<path d="M357,142L381,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="381" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 243,244,269,268; lining IDs 646,647,672,671</title></rect>
+<path d="M381,142L405,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="405" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 244,245,270,269; lining IDs 647,648,673,672</title></rect>
+<path d="M405,142L429,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="429" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 245,271,272,270; lining IDs 648,674,675,673</title></rect>
+<path d="M429,142L453,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="453" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 271,273,274,272; lining IDs 674,676,677,675</title></rect>
+<path d="M453,142L477,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="477" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 273,275,276,274; lining IDs 676,678,679,677</title></rect>
+<path d="M477,142L501,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="501" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 275,247,277,276; lining IDs 678,650,680,679</title></rect>
+<path d="M501,142L525,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="525" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 247,246,278,277; lining IDs 650,649,681,680</title></rect>
+<path d="M525,142L549,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="549" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 246,248,279,278; lining IDs 649,651,682,681</title></rect>
+<path d="M549,142L573,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="573" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 248,249,280,279; lining IDs 651,652,683,682</title></rect>
+<path d="M573,142L597,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="597" y="126" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 249,250,281,280; lining IDs 652,653,684,683</title></rect>
+<path d="M597,142L621,126" stroke="#b37755" stroke-width=".4"/>
+<rect x="45" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 252,251,282,283; lining IDs 655,654,685,686</title></rect>
+<path d="M45,126L69,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="69" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 251,253,284,282; lining IDs 654,656,687,685</title></rect>
+<path d="M69,126L93,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="93" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 253,254,285,284; lining IDs 656,657,688,687</title></rect>
+<path d="M93,126L117,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="117" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 254,255,286,285; lining IDs 657,658,689,688</title></rect>
+<path d="M117,126L141,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="141" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 255,257,287,286; lining IDs 658,660,690,689</title></rect>
+<path d="M141,126L165,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="165" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 257,259,288,287; lining IDs 660,662,691,690</title></rect>
+<path d="M165,126L189,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="189" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 259,261,289,288; lining IDs 662,664,692,691</title></rect>
+<path d="M189,126L213,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="213" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 261,262,290,289; lining IDs 664,665,693,692</title></rect>
+<path d="M213,126L237,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="237" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 262,263,291,290; lining IDs 665,666,694,693</title></rect>
+<path d="M237,126L261,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="261" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 263,264,292,291; lining IDs 666,667,695,694</title></rect>
+<path d="M261,126L285,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="285" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 264,265,293,292; lining IDs 667,668,696,695</title></rect>
+<path d="M285,126L309,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="309" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 265,266,294,293; lining IDs 668,669,697,696</title></rect>
+<path d="M309,126L333,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="333" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 266,267,295,294; lining IDs 669,670,698,697</title></rect>
+<path d="M333,126L357,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="357" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 267,268,296,295; lining IDs 670,671,699,698</title></rect>
+<path d="M357,126L381,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="381" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 268,269,297,296; lining IDs 671,672,700,699</title></rect>
+<path d="M381,126L405,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="405" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 269,270,298,297; lining IDs 672,673,701,700</title></rect>
+<path d="M405,126L429,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="429" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 270,272,299,298; lining IDs 673,675,702,701</title></rect>
+<path d="M429,126L453,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="453" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 272,274,300,299; lining IDs 675,677,703,702</title></rect>
+<path d="M453,126L477,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="477" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 274,276,301,300; lining IDs 677,679,704,703</title></rect>
+<path d="M477,126L501,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="501" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 276,277,302,301; lining IDs 679,680,705,704</title></rect>
+<path d="M501,126L525,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="525" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 277,278,303,302; lining IDs 680,681,706,705</title></rect>
+<path d="M525,126L549,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="549" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 278,279,304,303; lining IDs 681,682,707,706</title></rect>
+<path d="M549,126L573,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="573" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 279,280,305,304; lining IDs 682,683,708,707</title></rect>
+<path d="M573,126L597,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="597" y="110" width="24" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-torso quad vertex IDs 280,281,306,305; lining IDs 683,684,709,708</title></rect>
+<path d="M597,126L621,110" stroke="#b37755" stroke-width=".4"/>
+<rect x="141" y="142" width="96" height="64" fill="none" stroke="#246a88" stroke-width="3"/>
+<text x="189" y="169" text-anchor="middle" font-size="12">left</text><text x="189" y="187" text-anchor="middle" font-size="12">16 shared edges</text>
+<rect x="429" y="142" width="96" height="64" fill="none" stroke="#246a88" stroke-width="3"/>
+<text x="477" y="169" text-anchor="middle" font-size="12">right</text><text x="477" y="187" text-anchor="middle" font-size="12">16 shared edges</text>
+<text x="45" y="325" font-size="13">hem perimeter</text>
+<text x="24" y="350" font-size="13">Front edges stay separate. Top two grid rows own shoulder bridges.</text>
+<text x="24" y="375" font-size="13">Unwrapped sleeve displays below share their top indices with the holes above.</text>
+<text x="45" y="400" font-size="13">left sleeve · no proximal annular cap</text>
+<rect x="45" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [179, 154, 307, 308]; lining IDs [582, 557, 710, 711]</title></rect>
+<rect x="61" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [198, 179, 308, 309]; lining IDs [601, 582, 711, 712]</title></rect>
+<rect x="77" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [217, 198, 309, 310]; lining IDs [620, 601, 712, 713]</title></rect>
+<rect x="93" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [236, 217, 310, 311]; lining IDs [639, 620, 713, 714]</title></rect>
+<rect x="109" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [256, 236, 311, 312]; lining IDs [659, 639, 714, 715]</title></rect>
+<rect x="125" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [258, 256, 312, 313]; lining IDs [661, 659, 715, 716]</title></rect>
+<rect x="141" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [260, 258, 313, 314]; lining IDs [663, 661, 716, 717]</title></rect>
+<rect x="157" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [238, 260, 314, 315]; lining IDs [641, 663, 717, 718]</title></rect>
+<rect x="173" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [219, 238, 315, 316]; lining IDs [622, 641, 718, 719]</title></rect>
+<rect x="189" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [200, 219, 316, 317]; lining IDs [603, 622, 719, 720]</title></rect>
+<rect x="205" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [181, 200, 317, 318]; lining IDs [584, 603, 720, 721]</title></rect>
+<rect x="221" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [158, 181, 318, 319]; lining IDs [561, 584, 721, 722]</title></rect>
+<rect x="237" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [157, 158, 319, 320]; lining IDs [560, 561, 722, 723]</title></rect>
+<rect x="253" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [156, 157, 320, 321]; lining IDs [559, 560, 723, 724]</title></rect>
+<rect x="269" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [155, 156, 321, 322]; lining IDs [558, 559, 724, 725]</title></rect>
+<rect x="285" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [154, 155, 322, 307]; lining IDs [557, 558, 725, 710]</title></rect>
+<rect x="45" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [308, 307, 323, 324]; lining IDs [711, 710, 726, 727]</title></rect>
+<rect x="61" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [309, 308, 324, 325]; lining IDs [712, 711, 727, 728]</title></rect>
+<rect x="77" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [310, 309, 325, 326]; lining IDs [713, 712, 728, 729]</title></rect>
+<rect x="93" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [311, 310, 326, 327]; lining IDs [714, 713, 729, 730]</title></rect>
+<rect x="109" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [312, 311, 327, 328]; lining IDs [715, 714, 730, 731]</title></rect>
+<rect x="125" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [313, 312, 328, 329]; lining IDs [716, 715, 731, 732]</title></rect>
+<rect x="141" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [314, 313, 329, 330]; lining IDs [717, 716, 732, 733]</title></rect>
+<rect x="157" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [315, 314, 330, 331]; lining IDs [718, 717, 733, 734]</title></rect>
+<rect x="173" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [316, 315, 331, 332]; lining IDs [719, 718, 734, 735]</title></rect>
+<rect x="189" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [317, 316, 332, 333]; lining IDs [720, 719, 735, 736]</title></rect>
+<rect x="205" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [318, 317, 333, 334]; lining IDs [721, 720, 736, 737]</title></rect>
+<rect x="221" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [319, 318, 334, 335]; lining IDs [722, 721, 737, 738]</title></rect>
+<rect x="237" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [320, 319, 335, 336]; lining IDs [723, 722, 738, 739]</title></rect>
+<rect x="253" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [321, 320, 336, 337]; lining IDs [724, 723, 739, 740]</title></rect>
+<rect x="269" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [322, 321, 337, 338]; lining IDs [725, 724, 740, 741]</title></rect>
+<rect x="285" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [307, 322, 338, 323]; lining IDs [710, 725, 741, 726]</title></rect>
+<rect x="45" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [324, 323, 339, 340]; lining IDs [727, 726, 742, 743]</title></rect>
+<rect x="61" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [325, 324, 340, 341]; lining IDs [728, 727, 743, 744]</title></rect>
+<rect x="77" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [326, 325, 341, 342]; lining IDs [729, 728, 744, 745]</title></rect>
+<rect x="93" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [327, 326, 342, 343]; lining IDs [730, 729, 745, 746]</title></rect>
+<rect x="109" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [328, 327, 343, 344]; lining IDs [731, 730, 746, 747]</title></rect>
+<rect x="125" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [329, 328, 344, 345]; lining IDs [732, 731, 747, 748]</title></rect>
+<rect x="141" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [330, 329, 345, 346]; lining IDs [733, 732, 748, 749]</title></rect>
+<rect x="157" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [331, 330, 346, 347]; lining IDs [734, 733, 749, 750]</title></rect>
+<rect x="173" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [332, 331, 347, 348]; lining IDs [735, 734, 750, 751]</title></rect>
+<rect x="189" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [333, 332, 348, 349]; lining IDs [736, 735, 751, 752]</title></rect>
+<rect x="205" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [334, 333, 349, 350]; lining IDs [737, 736, 752, 753]</title></rect>
+<rect x="221" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [335, 334, 350, 351]; lining IDs [738, 737, 753, 754]</title></rect>
+<rect x="237" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [336, 335, 351, 352]; lining IDs [739, 738, 754, 755]</title></rect>
+<rect x="253" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [337, 336, 352, 353]; lining IDs [740, 739, 755, 756]</title></rect>
+<rect x="269" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [338, 337, 353, 354]; lining IDs [741, 740, 756, 757]</title></rect>
+<rect x="285" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-left quad IDs [323, 338, 354, 339]; lining IDs [726, 741, 757, 742]</title></rect>
+<path d="M45,410H301" stroke="#246a88" stroke-width="3"/><path d="M45,458H301" stroke="#6b4835" stroke-width="3"/>
+<text x="45" y="480" font-size="12">Wrist rim joins outer to lining.</text>
+<text x="380" y="400" font-size="13">right sleeve · no proximal annular cap</text>
+<rect x="380" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [188, 166, 355, 356]; lining IDs [591, 569, 758, 759]</title></rect>
+<rect x="396" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [207, 188, 356, 357]; lining IDs [610, 591, 759, 760]</title></rect>
+<rect x="412" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [226, 207, 357, 358]; lining IDs [629, 610, 760, 761]</title></rect>
+<rect x="428" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [245, 226, 358, 359]; lining IDs [648, 629, 761, 762]</title></rect>
+<rect x="444" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [271, 245, 359, 360]; lining IDs [674, 648, 762, 763]</title></rect>
+<rect x="460" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [273, 271, 360, 361]; lining IDs [676, 674, 763, 764]</title></rect>
+<rect x="476" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [275, 273, 361, 362]; lining IDs [678, 676, 764, 765]</title></rect>
+<rect x="492" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [247, 275, 362, 363]; lining IDs [650, 678, 765, 766]</title></rect>
+<rect x="508" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [228, 247, 363, 364]; lining IDs [631, 650, 766, 767]</title></rect>
+<rect x="524" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [209, 228, 364, 365]; lining IDs [612, 631, 767, 768]</title></rect>
+<rect x="540" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [190, 209, 365, 366]; lining IDs [593, 612, 768, 769]</title></rect>
+<rect x="556" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [170, 190, 366, 367]; lining IDs [573, 593, 769, 770]</title></rect>
+<rect x="572" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [169, 170, 367, 368]; lining IDs [572, 573, 770, 771]</title></rect>
+<rect x="588" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [168, 169, 368, 369]; lining IDs [571, 572, 771, 772]</title></rect>
+<rect x="604" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [167, 168, 369, 370]; lining IDs [570, 571, 772, 773]</title></rect>
+<rect x="620" y="410" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [166, 167, 370, 355]; lining IDs [569, 570, 773, 758]</title></rect>
+<rect x="380" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [356, 355, 371, 372]; lining IDs [759, 758, 774, 775]</title></rect>
+<rect x="396" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [357, 356, 372, 373]; lining IDs [760, 759, 775, 776]</title></rect>
+<rect x="412" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [358, 357, 373, 374]; lining IDs [761, 760, 776, 777]</title></rect>
+<rect x="428" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [359, 358, 374, 375]; lining IDs [762, 761, 777, 778]</title></rect>
+<rect x="444" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [360, 359, 375, 376]; lining IDs [763, 762, 778, 779]</title></rect>
+<rect x="460" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [361, 360, 376, 377]; lining IDs [764, 763, 779, 780]</title></rect>
+<rect x="476" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [362, 361, 377, 378]; lining IDs [765, 764, 780, 781]</title></rect>
+<rect x="492" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [363, 362, 378, 379]; lining IDs [766, 765, 781, 782]</title></rect>
+<rect x="508" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [364, 363, 379, 380]; lining IDs [767, 766, 782, 783]</title></rect>
+<rect x="524" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [365, 364, 380, 381]; lining IDs [768, 767, 783, 784]</title></rect>
+<rect x="540" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [366, 365, 381, 382]; lining IDs [769, 768, 784, 785]</title></rect>
+<rect x="556" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [367, 366, 382, 383]; lining IDs [770, 769, 785, 786]</title></rect>
+<rect x="572" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [368, 367, 383, 384]; lining IDs [771, 770, 786, 787]</title></rect>
+<rect x="588" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [369, 368, 384, 385]; lining IDs [772, 771, 787, 788]</title></rect>
+<rect x="604" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [370, 369, 385, 386]; lining IDs [773, 772, 788, 789]</title></rect>
+<rect x="620" y="426" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [355, 370, 386, 371]; lining IDs [758, 773, 789, 774]</title></rect>
+<rect x="380" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [372, 371, 387, 388]; lining IDs [775, 774, 790, 791]</title></rect>
+<rect x="396" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [373, 372, 388, 389]; lining IDs [776, 775, 791, 792]</title></rect>
+<rect x="412" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [374, 373, 389, 390]; lining IDs [777, 776, 792, 793]</title></rect>
+<rect x="428" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [375, 374, 390, 391]; lining IDs [778, 777, 793, 794]</title></rect>
+<rect x="444" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [376, 375, 391, 392]; lining IDs [779, 778, 794, 795]</title></rect>
+<rect x="460" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [377, 376, 392, 393]; lining IDs [780, 779, 795, 796]</title></rect>
+<rect x="476" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [378, 377, 393, 394]; lining IDs [781, 780, 796, 797]</title></rect>
+<rect x="492" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [379, 378, 394, 395]; lining IDs [782, 781, 797, 798]</title></rect>
+<rect x="508" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [380, 379, 395, 396]; lining IDs [783, 782, 798, 799]</title></rect>
+<rect x="524" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [381, 380, 396, 397]; lining IDs [784, 783, 799, 800]</title></rect>
+<rect x="540" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [382, 381, 397, 398]; lining IDs [785, 784, 800, 801]</title></rect>
+<rect x="556" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [383, 382, 398, 399]; lining IDs [786, 785, 801, 802]</title></rect>
+<rect x="572" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [384, 383, 399, 400]; lining IDs [787, 786, 802, 803]</title></rect>
+<rect x="588" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [385, 384, 400, 401]; lining IDs [788, 787, 803, 804]</title></rect>
+<rect x="604" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [386, 385, 401, 402]; lining IDs [789, 788, 804, 805]</title></rect>
+<rect x="620" y="442" width="16" height="16" fill="#c99575" stroke="#b37755" stroke-width=".5"><title>outer-sleeve-right quad IDs [371, 386, 402, 387]; lining IDs [774, 789, 805, 790]</title></rect>
+<path d="M380,410H636" stroke="#246a88" stroke-width="3"/><path d="M380,458H636" stroke="#6b4835" stroke-width="3"/>
+<text x="380" y="480" font-size="12">Wrist rim joins outer to lining.</text>
+<text x="24" y="514" font-size="13">806 symbolic vertices · 1616 triangles · topology verified; embedding unknown</text>
+</g></svg>

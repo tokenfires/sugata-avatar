@@ -1,0 +1,170 @@
+{
+  "utc": "2026-10-09T10:37:00.167645+00:00",
+  "payloads": [
+    {
+      "file": "EXEC-before-deadline-fix.json",
+      "bytes": 3475,
+      "sha256": "d6b28af5db7a827a3c277dd8b4490f98aa8828e8fc8106cdfe0e6422737e1022",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "EXEC.json",
+      "bytes": 4217,
+      "sha256": "d0ec43bd1f62d3900ed6c36ec7fa89488ec71c66f38948089de0ad07b7671073",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "INPUTS.json",
+      "bytes": 1862,
+      "sha256": "2e6095946d7d1d31b312ef2164dacd37adb82624b3e9b40aabbd5e140f9ca62a",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "JOB.json",
+      "bytes": 565,
+      "sha256": "4861b9e0742d63a0537376fe38b3533b16cd87ff412b055137abbbcc24a320b1",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 3735,
+      "sha256": "804904d11c2988a19ee6049a2cb9c766f9dbde6ef8363c573d34a04663142cd5",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "PRE-EXEC-CORRECTION.json",
+      "bytes": 494,
+      "sha256": "977e7382245171fb4dee8f1a035583ee644d29ecbcf50d1a3a1c7f08a2e77e38",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "PREFLIGHT.md",
+      "bytes": 5330,
+      "sha256": "69ed688b18ab753d204d2a4356880583f1867c4a8feb7a197907f2ac13596693",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "PRESERVATION.json",
+      "bytes": 298,
+      "sha256": "165861fa5e598cefce9d2b6030c8e3d081374b8ed21a2984c854ad7f6b359992",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "README.md",
+      "bytes": 5891,
+      "sha256": "fdb0a7e2417412c3dbd566994f8b670a2b132868be6bee6428114d288c0b0e7f",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "RESULT.json",
+      "bytes": 910,
+      "sha256": "e4548f645c8ee15a60b5656ea0ef2366ba3960c24b707465d5574c0dd940d932",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "REVIEW.md",
+      "bytes": 6713,
+      "sha256": "6da001ee17c9b9264c3f018c2fd5d09dc030c80627f69dcda695b93e8eb56577",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "REVIEWED-README.md",
+      "bytes": 5614,
+      "sha256": "c50e6ea1910ad33f68a3ce3fa5fb986ed70e14035727135a82ae3b646c472461",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-DELIVERY.json",
+      "bytes": 575,
+      "sha256": "93bc6ab85b07b554eaeb1fab0909d9b51e7abef644f425e0e9a3d33c328be32f",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-PREFLIGHT.json",
+      "bytes": 303,
+      "sha256": "a8f4dc7fd3113fd4d2f9e75cf824d7b6bdfc653ddc1064db4473ee10a8611260",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-READBACK.json",
+      "bytes": 827,
+      "sha256": "1400c7d56ad74241d32eab8cb9321763c49bbf95d2dc6a422ced3cfc33d254e2",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-RESULT.json",
+      "bytes": 367,
+      "sha256": "5c57fab2720f3df9f36f6cbf2e93a6af3e30ac483c30cc87b39b083ae8c0d399",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-WITNESS.json",
+      "bytes": 450,
+      "sha256": "397de51e912b02b1e2c3b55e8ad38dc362b0e2272a75fcf993e1ee4701aa67da",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-WORTH.json",
+      "bytes": 285,
+      "sha256": "a2b4da9574a40e7e6d2644986e2db08511ae4c7441c9419730883057ac4f0b3a",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "TOPOLOGY.json",
+      "bytes": 176566,
+      "sha256": "380be1948657e9d7fb6045a772cfd77cc179283a63feb49331ceccbdb5e09cd2",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "WORTH.md",
+      "bytes": 4747,
+      "sha256": "44ff168e162cd0dbb8b2bc503e159e7c2fd9ce375523edfe00b07f60696b9725",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "diagram.svg",
+      "bytes": 85603,
+      "sha256": "5bc0f4778070a82f185dcdbee3179d283053068a090d8cb1ea8d284703d83608",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "generate.py",
+      "bytes": 8711,
+      "sha256": "5e4eb754f65014673bf85ab697fa7b80d277325eedb7a8cfed89f911a2891b73",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "generation.log",
+      "bytes": 97,
+      "sha256": "8af18a45ac3400c56f955035c2f49095f6ce66ded99e947bde1bb99d6cfa89b2",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "review.html",
+      "bytes": 2917,
+      "sha256": "6c077fcd93eeadd53189d33f7892ecc70bcc1d5a7db1f234f0c3d2ddee782430",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "run-before-deadline-fix.py.txt",
+      "bytes": 1509,
+      "sha256": "ac58eee7d6f1717ba3294bf3c511749b4233afea20c9d585c26299c5744c909a",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "run.py",
+      "bytes": 1695,
+      "sha256": "55a4021e04fdae437829fc3a8a947b08d488679f6f8d85aa990954ca6e41f2db",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "verify.py",
+      "bytes": 5125,
+      "sha256": "e267da4e9c9c92e54fb956a0120c7b3ffa81130634f44cf48b602e1ee7a1b56f",
+      "physical_mode": "0444"
+    }
+  ],
+  "decision": "Closed shared-index symbolic topology architecture; no physical geometry/fit acceptance",
+  "jobs": "One generation11921/11922exit0collected; zero native/capture/network",
+  "next": "Complete global 3D coordinate and physical-coupling contract before constructor; no operation admitted"
+}

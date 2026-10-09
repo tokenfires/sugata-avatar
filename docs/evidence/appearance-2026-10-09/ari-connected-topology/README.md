@@ -1,0 +1,29 @@
+# Ari: connected torso/sleeve incidence blueprint
+
+**Select the original shared-index architecture for a later 3D authoring contract.** The executable [connectivity JSON](TOPOLOGY.json) owns one torso, two sleeves and corresponding full lining, with no proximal annular caps. This is symbolic incidence, not a world-space garment, calibrated pattern or new fit result. The [diagram](review.html) distinguishes its schematic from the prior actual refused-fit rear image. Existing Ari assets/defaults remain unchanged.
+
+The fixed 24×12 torso grid omits two 4×4 holes. Each 16-edge hole supplies the SAME vertex IDs to its first sleeve ring. Three later rings use new sleeve symbols. The full outer surface is duplicated with reversed triangle orientation for lining. Only the external neck/front/hem perimeter and two wrists receive rims. Columns0 and24 have separate front symbols. Exact outer/inner shared pairs, edge/triangle witnesses, all1616 triangles and their owners are stored. Parameter rows/columns and left/right labels are authored template roles, not anatomy, world directions or sewing dimensions.
+
+One original pure generation: command `python3 docs/evidence/appearance-2026-10-09/ari-connected-topology/run.py`; wrapper11921/child11922,owned group11922, 2026-10-09T10:27:47.295002+00:00–2026-10-09T10:27:47.341146+00:00,exit0/no timeout30s/within10:55 hard gate. Child uses /opt/homebrew/opt/python@3.14/bin/python3.14; log97B/SHA8af18a45ac3400c56f955035c2f49095f6ce66ded99e947bde1bb99d6cfa89b2. No body/archive/source query, Blender/native/GPU/browser capture, network or 3D coordinate generation. Full job/output records are retained.
+
+Outer403 symbolic vertices/704triangles/1108edges, one surface with boundary lengths16/16/72 and Euler−1. Complete material-boundary incidence806vertices/1616triangles/2424edges, one connected component/no boundary/Euler−2. All806 vertex links are cycles; paired edges have opposite orientation. Outer hem24/neckline24/front-left12/front-right12/wrist-left16/wrist-right16 edges are explicitly owned. These counts describe an abstract manifold; no positive areas, thickness, physical inside/outside or valid embedding can be evaluated without new coordinates.
+
+Root independently verifies the complete literal symbolic face census, separately authored clockwise hole courses, all outer/lining seam edge ownership, exact104rim edges and every closed vertex-star permutation plus union-find connectivity. `python3 docs/evidence/appearance-2026-10-09/ari-connected-topology/verify.py` passed at 2026-10-09T10:27:54.239363+00:00; [root result](ROOT-RESULT.json). Producer uses vertex-link graphs and face traversal; root uses a full independently reconstructed oriented face multiset and star permutations. Neither verification generated a second candidate. [Worth](WORTH.md), [source preflight](PREFLIGHT.md) and [root admission](ROOT-PREFLIGHT.json) bind18 unchanged execution inputs. Prior wrapper/EXEC before the fresh-launch-deadline fix are preserved; this was an unexecuted source enforcement correction, no layout/count rescue.
+
+| Exact output | Bytes | SHA256 |
+|---|---:|---|
+| TOPOLOGY.json | 176566 | `380be1948657e9d7fb6045a772cfd77cc179283a63feb49331ceccbdb5e09cd2` |
+| RESULT.json | 910 | `e4548f645c8ee15a60b5656ea0ef2366ba3960c24b707465d5574c0dd940d932` |
+| JOB.json | 565 | `4861b9e0742d63a0537376fe38b3533b16cd87ff412b055137abbbcc24a320b1` |
+| generation.log | 97 | `8af18a45ac3400c56f955035c2f49095f6ce66ded99e947bde1bb99d6cfa89b2` |
+| ROOT-RESULT.json | 367 | `5c57fab2720f3df9f36f6cbf2e93a6af3e30ac483c30cc87b39b083ae8c0d399` |
+| diagram.svg | 85603 | `5bc0f4778070a82f185dcdbee3179d283053068a090d8cb1ea8d284703d83608` |
+| review.html | 2917 | `6c077fcd93eeadd53189d33f7892ecc70bcc1d5a7db1f234f0c3d2ddee782430` |
+
+The diagram's352quads and32outer/lining pair labels agree with the stored symbols; all local review links resolve. It is a static schematic, with no browser-render/layout or appearance qualification. Root has independently viewed the earlier actual rear/oblique sleeves and bomber original; the raised tips/tabs/rims and prior104strict crossing TRIANGLE PAIRS remain refused. No claim that the old rim caused every tab/contact, or that this topology repairs contact.
+
+**Current incidence question CLOSED/PASS; physical construction remains unqualified.** Next worthwhile slice is a fresh global 3D authoring contract for this connected architecture, with explicit world coordinates and shoulder/axilla course, full outer/lining separation, unchanged evaluated-body associations, independent center-front exposure/coverage targets and complete body-contact/self-contact/occupancy assumptions. It must stop at the first missing owner before any native appearance trial. No old32×5 sleeve/ease/phase/offset/material/mask/threshold/body/camera retake or local rescue. This16-column symbolic template supplies no inherited sleeve station/radius/ease prescription.
+
+Collar, gathered hem/cuffs, real pocket cuts/bags, facings and left guard are absent and remain required extensions; a cosmetic line will not fulfill the pocket duty. Full character/skin/hair/expression/representation/body range/wardrobe, rig/morph/motion, finish/UV/export/runtime/performance and VTuber/Mii roadmap stay open. Preserve accepted assets, readonly frozen evidence, original references and unrelated worktrees. Vite825 and ACTIVE10min recovery retained. No capacity purchase/reset/install/model/subscription/push/publish/other-project work.
+
+Independent [result review](REVIEW.md) is complete. Root read the whole stable handoff and verified all13review bindings and18execution inputs, alongside its independently reconstructed face/ownership proof. [Closure](ROOT-READBACK.json). The exact pending-reviewed README is preserved in REVIEWED-README.md. No next geometry or native programme/job is admitted by this blueprint.

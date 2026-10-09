@@ -1,0 +1,17 @@
+{
+  "wrapper_pid": 11921,
+  "child_pid": 11922,
+  "owned_group": 11922,
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-connected-topology/generate.py"
+  ],
+  "started_utc": "2026-10-09T10:27:47.295002+00:00",
+  "finished_utc": "2026-10-09T10:27:47.341146+00:00",
+  "exit_code": 0,
+  "timeout_seconds": 30,
+  "timed_out": false,
+  "finished_within_gate": true,
+  "log_bytes": 97,
+  "log_sha256": "8af18a45ac3400c56f955035c2f49095f6ce66ded99e947bde1bb99d6cfa89b2"
+}

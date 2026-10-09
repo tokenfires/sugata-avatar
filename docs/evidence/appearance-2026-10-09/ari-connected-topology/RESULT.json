@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-09T10:27:47.333711+00:00",
+  "pid": 11922,
+  "elapsed_seconds": 0.012974707991816103,
+  "outer": {
+    "vertices": 403,
+    "triangles": 704,
+    "edges": 1108,
+    "euler": -1,
+    "boundary_lengths": [
+      16,
+      16,
+      72
+    ],
+    "connected_faces": 704,
+    "vertex_links_checked": 403
+  },
+  "closed_material_boundary": {
+    "vertices": 806,
+    "triangles": 1616,
+    "edges": 2424,
+    "euler": -2,
+    "boundary_lengths": [],
+    "connected_faces": 1616,
+    "vertex_links_checked": 806
+  },
+  "shared_edges": 32,
+  "proximal_caps": 0,
+  "boundary_role_counts": {
+    "hem": 24,
+    "front-right": 12,
+    "neckline": 24,
+    "front-left": 12,
+    "wrist-left": 16,
+    "wrist-right": 16
+  },
+  "topology_bytes": 176566,
+  "topology_sha256": "380be1948657e9d7fb6045a772cfd77cc179283a63feb49331ceccbdb5e09cd2",
+  "decision": "PASS incidence only; no 3D or fit admitted"
+}
