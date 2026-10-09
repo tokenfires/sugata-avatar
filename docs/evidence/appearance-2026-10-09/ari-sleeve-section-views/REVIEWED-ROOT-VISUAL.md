@@ -1,0 +1,9 @@
+# Root whole-image judgment
+
+Root independently viewed the three original 768×1024 PNGs, without crop/retake. Front: two blue courses bracket the arm bends; two rust courses sit at the wrist transitions. Oblique: near and far elbow/wrist courses remain distinct, with the nearer blue contour wrapping visibly around the lateral bend. Rear: blue lower arcs and rust wrist arcs remain visible in corresponding positions. These actual image witnesses support retaining all four as distal **body-source artist references**.
+
+The .002 touching tubes are display marks, not cuffs or sleeve geometry. Visible arcs do not establish all circumference visibility, exact anatomy/fold placement, garment radius/ease, 64 sample phase readability, clearance/coverage/physical occupancy, finished Ari appearance or motion. Auxiliary eyes/hair/rig/keys/materials are intentionally omitted; the grey body is only the source-chart observer. Numeric single-hit phase correspondence stays source-only.
+
+A, selected: use these retained positions to author independent original sleeve shape, phase joins, ease and complete inner/outer topology. This uses the resolved source roles but still requires exposure/contact/rig-morph-pose qualification. B: draft freely shaped sleeve sections with direct registration; more silhouette freedom with greater association/coupling duties. Do not cut/copy body contour tessellation into garment topology or convert touching tubes into fitted cuffs. No further source query, plane/radius/sample/display/camera tuning or native retake in this contract.
+
+Root raw-source/control/material/stored-frame/PNGCRC verifier passes. Native preservation/evaluated marker hashes are worker-attributed, not independently rebuilt. Independent critic actual-image review pending at this save.

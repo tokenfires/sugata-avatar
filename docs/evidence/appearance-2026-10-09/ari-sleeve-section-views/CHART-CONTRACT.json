@@ -1,0 +1,67 @@
+{
+  "body_materials": {
+    "gray": [
+      0.42,
+      0.42,
+      0.42
+    ],
+    "l": [
+      0.04,
+      0.3,
+      0.7
+    ],
+    "r": [
+      0.75,
+      0.12,
+      0.04
+    ]
+  },
+  "unused_owned_body_slots": [
+    "l",
+    "r"
+  ],
+  "marker_materials": {
+    "elbow-l": [
+      0.025,
+      0.2,
+      0.55
+    ],
+    "cuff-l": [
+      0.65,
+      0.12,
+      0.025
+    ],
+    "elbow-r": [
+      0.025,
+      0.2,
+      0.55
+    ],
+    "cuff-r": [
+      0.65,
+      0.12,
+      0.025
+    ]
+  },
+  "marker_radius": 0.002,
+  "body_roughness": 1,
+  "view_directions": {
+    "front": [
+      0,
+      -1,
+      0
+    ],
+    "front-left": [
+      1,
+      -1,
+      0
+    ],
+    "rear": [
+      0,
+      1,
+      0
+    ]
+  },
+  "pad_each_side": 0.04,
+  "question": "Actualdistalstation sourceassociation/readability only, no fittedcuff/sleeve",
+  "scope": "Fourvariable48/43pointPOLY sourcecontours, sourcebodygray/allzeroindices; redundantprivate unusedbodyslots retainedfromcheckedprotocol; no acceptedsource blend/garment/retake"
+}

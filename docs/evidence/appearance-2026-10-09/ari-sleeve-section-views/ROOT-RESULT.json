@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-09T08:41:06.890033+00:00",
+  "passed": true,
+  "pins": 37,
+  "source_world_and_triangles_exact": true,
+  "all_source_face_indices_zero": true,
+  "four_controls_independently_reconstructed": true,
+  "max_display_conversion_error": 5.870900965376791e-08,
+  "stored_render_material_frame_checks": true,
+  "complete_png_crcs": [
+    {
+      "file": "chart-front.png",
+      "chunks": 70,
+      "bytes": 414607,
+      "sha256": "3c53f16f996af1a4424460cdda359c4132963fc9e033bb772b14c98e1f92d276"
+    },
+    {
+      "file": "chart-front-left.png",
+      "chunks": 71,
+      "bytes": 420001,
+      "sha256": "331df547adb363b3a1a80166756c447e8b4d99f178dd9df1ca67f8336058c53c"
+    },
+    {
+      "file": "chart-rear.png",
+      "chunks": 71,
+      "bytes": 424160,
+      "sha256": "5785ce40d2a87dd22b36dbec4f008549af295c7fa7e122c1ceb2bb8a663116ce"
+    }
+  ],
+  "limits": "Observed preservation guards attributed to native worker; evaluated marker mesh hashes not independently rebuilt. Actual images require separate whole-image judgment. No garment, anatomy, clearance, appearance or motion qualification."
+}

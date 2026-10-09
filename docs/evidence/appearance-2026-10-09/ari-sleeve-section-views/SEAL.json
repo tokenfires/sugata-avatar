@@ -1,0 +1,170 @@
+{
+  "utc": "2026-10-09T08:51:40.223885+00:00",
+  "payloads": [
+    {
+      "file": "CHART-CONTRACT.json",
+      "bytes": 1040,
+      "sha256": "adb1f9a494200e244e44f19f45cbc0ab7839895dc4c37e70a44b110d63dafe4a",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "CHART-JOB-start.json",
+      "bytes": 524,
+      "sha256": "1c89e58ab4166330db49764cc65aa79b04b694bfc96de14d82e7f6ff34af3795",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "CHART-JOB.json",
+      "bytes": 749,
+      "sha256": "4567507f677843134e5ef90575bac890d8ab19a8b6b861efdc0b60f6d6bef784",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "CHART-RESULT.json",
+      "bytes": 14273,
+      "sha256": "456be08ac1df00252a1a7729b1f29bb2f9418771fc3778b6a859a39245c76309",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "COPY-RECEIPT.json",
+      "bytes": 1643,
+      "sha256": "c4a1f4cce45b8c694771cff751e3b0b11234f4cda620c2b79caf081b78b39534",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "EXEC-CHART.json",
+      "bytes": 9065,
+      "sha256": "e6704ae148cf6259462e87cd6408f9aa5687b8667dd324d62244f9d9d19f3588",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "INPUTS.json",
+      "bytes": 2834,
+      "sha256": "4b09c59620294f695f6d5e7f5017f21fabfb19761b12707a882de97bad497428",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 2023,
+      "sha256": "b3f242d6aae42dae9bf8d1c1e288fe8fde5185bfe11aaeff096edd7ec27f5ec2",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "PREFLIGHT.md",
+      "bytes": 5066,
+      "sha256": "2f62659c76e57cff100f8f3d70b056506812930a1f3c179b2bfdeb058d56ab1a",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "PRESERVATION.json",
+      "bytes": 247,
+      "sha256": "3dfd4e9e044458b0c27a64cd8de9ab73441c1052aef43af1b9d9f08dfc396366",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "README.md",
+      "bytes": 3928,
+      "sha256": "5322f37dc1311e118ffccf3500585edcaa2a9f819e48fbf658a8063a989af2ba",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "RESULT.json",
+      "bytes": 697255,
+      "sha256": "8b00169855f2fa7a4624d7f72ed5550509d991d5fdeae32f51d31a3df7af19d0",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "REVIEW.md",
+      "bytes": 5321,
+      "sha256": "43ba923b2cf0766af8d0af7c5fcabc7fe17f68150325490c6ad7a3492bcc90da",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "REVIEWED-README.md",
+      "bytes": 3576,
+      "sha256": "0ca74148b4a7c2b16a06fd8bb51564856bd07a1b5f8e50263e6f4a3891b566a6",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "REVIEWED-ROOT-VISUAL.md",
+      "bytes": 1794,
+      "sha256": "2d64bfc5eac947a50b000f0140c4f39078a8d14b0192c3984c9e4113d7e2d540",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-CHART-PREFLIGHT.json",
+      "bytes": 495,
+      "sha256": "e91f59c343ecd9a52d5aaaa8968e99ca0f629264ca02b2fdf36b89f250ab8ea4",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-READBACK.json",
+      "bytes": 717,
+      "sha256": "e5e8a721c2f4bdfae55cde91c2d5f8d285f57d227e15c160abe12372034a309c",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-RESULT.json",
+      "bytes": 1120,
+      "sha256": "52f009afc3a350d61336fc60bf7b69ccb5d1c478732c0ed8232cdebd4eeb93cb",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-VISUAL.md",
+      "bytes": 1840,
+      "sha256": "1cad6c1b5b86004a85d65d0ad27bdc173bec8ea718e524bcd3b66a4c12f47279",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "chart-front-left.png",
+      "bytes": 420001,
+      "sha256": "331df547adb363b3a1a80166756c447e8b4d99f178dd9df1ca67f8336058c53c",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "chart-front.png",
+      "bytes": 414607,
+      "sha256": "3c53f16f996af1a4424460cdda359c4132963fc9e033bb772b14c98e1f92d276",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "chart-rear.png",
+      "bytes": 424160,
+      "sha256": "5785ce40d2a87dd22b36dbec4f008549af295c7fa7e122c1ceb2bb8a663116ce",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "chart.log",
+      "bytes": 1444,
+      "sha256": "67dbeab417a01f15c070e0d94bddf649215d018278c4a122b72cba671366ccb6",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "chart.py",
+      "bytes": 17091,
+      "sha256": "4dd51c1339a5239dec730288f5b2eed8e54d7d6946bbb3f11d34ea239668775c",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "review.html",
+      "bytes": 1854,
+      "sha256": "11b35a0e41e4d2ed48244a4f306be23711eafbd1fb86234b215cd83fca996d8c",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "run_chart.py",
+      "bytes": 2429,
+      "sha256": "558024025c59edec53aa3d874908f7a639a49ee8e99f6099f8218d64c8fb688c",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "verify_chart.py",
+      "bytes": 4858,
+      "sha256": "52b9face55f9b4901891cb77022826935a3663d8ad8428728fa7df5d8d988a21",
+      "physical_mode": "0444"
+    }
+  ],
+  "decision": "Retain four distal source artist references; no anatomy/ease/fit/appearance/motion acceptance",
+  "job": "26345/26349 collected exit0; first3originals",
+  "next": "Original editable jacket shape/ease/phase/openings/full interior/exposure/contact authoring under a fresh finite contract"
+}
