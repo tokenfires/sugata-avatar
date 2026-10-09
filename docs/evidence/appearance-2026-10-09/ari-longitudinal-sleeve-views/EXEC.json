@@ -1,0 +1,416 @@
+{
+  "authored": "2026-10-09T21:55:59.146555+00:00",
+  "inputs": {
+    "actor": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/ari-skin-palette.blend",
+      "bytes": 12195105,
+      "sha256": "ffbda17705259aa61bf1baf8070ecd1c6bb41066061c2665f7338e8daae7d7e0"
+    },
+    "geometry": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/after-geometry.npz",
+      "bytes": 840170,
+      "sha256": "10f646e42a868fe84ab14d6e3022918a70e6b0aeec30781f270037b79be2f024"
+    },
+    "cold": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-palette-link-boundary/COLD.json",
+      "bytes": 873228,
+      "sha256": "3729e57a0c9b86649c70a43170830336378999cdab3b1e8c668132a7a7e46c45"
+    },
+    "renderer": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/views/cold_views.py",
+      "bytes": 11143,
+      "sha256": "2be4976ad807f1d24883a1752d04953c7374ea1634f2fd003b747d643887a825"
+    },
+    "helper": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+      "bytes": 6017,
+      "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+    },
+    "lib": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/palette_lib.py",
+      "bytes": 6926,
+      "sha256": "e9828005c98d67c0d926937b4cc36f6b015c1eb2155d21ba5617228d81d95a97"
+    },
+    "bomber": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/original-first.jpg",
+      "bytes": 133854,
+      "sha256": "6b177483ed331b187d66146ae3f17296eaa2604a176a84de4e0abb40772ca93d"
+    },
+    "concept": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+    },
+    "control": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-palette-link-boundary/palette-body-front.png",
+      "bytes": 466060,
+      "sha256": "bc49440723ec21273ef838b8910a2d0eb8f24350057f8001100193f70ac6596f"
+    },
+    "contract": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/CONTRACT.json",
+      "bytes": 4362,
+      "sha256": "9769f10758f4de31a24d8b10036f66157737f737817389e055129ebd2532f778"
+    },
+    "blender": {
+      "path": "/Applications/Blender.app/Contents/MacOS/Blender",
+      "bytes": 182900560,
+      "sha256": "f5c1f2a0c0bca3389ec772d355242b700975ea84e66cbb3f5257a7bce8e5adeb"
+    },
+    "sleeves": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-mesh/mesh.npz",
+      "bytes": 495221,
+      "sha256": "51459f8ff9233c48c8ee4fa8d6093d20c6975c1e8432d1d937e07766cafdfe22"
+    },
+    "sleeve_result": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-mesh/RESULT.json",
+      "bytes": 2013374,
+      "sha256": "eec1055db59031786c473198a98a0cc608627c137b1a7c0b8246666ecb8228c7"
+    },
+    "witness": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-crossing/WITNESS.json",
+      "bytes": 9614,
+      "sha256": "84604ce72b12c9d5f4b64fe6f9c519e40be284fd21c381bfe565b15f35c00788"
+    }
+  },
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/ari-skin-palette.blend",
+      "bytes": 12195105,
+      "sha256": "ffbda17705259aa61bf1baf8070ecd1c6bb41066061c2665f7338e8daae7d7e0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/after-geometry.npz",
+      "bytes": 840170,
+      "sha256": "10f646e42a868fe84ab14d6e3022918a70e6b0aeec30781f270037b79be2f024"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-palette-link-boundary/COLD.json",
+      "bytes": 873228,
+      "sha256": "3729e57a0c9b86649c70a43170830336378999cdab3b1e8c668132a7a7e46c45"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-middle-volume/views/cold_views.py",
+      "bytes": 11143,
+      "sha256": "2be4976ad807f1d24883a1752d04953c7374ea1634f2fd003b747d643887a825"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+      "bytes": 6017,
+      "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/palette_lib.py",
+      "bytes": 6926,
+      "sha256": "e9828005c98d67c0d926937b4cc36f6b015c1eb2155d21ba5617228d81d95a97"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/original-first.jpg",
+      "bytes": 133854,
+      "sha256": "6b177483ed331b187d66146ae3f17296eaa2604a176a84de4e0abb40772ca93d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-palette-link-boundary/palette-body-front.png",
+      "bytes": 466060,
+      "sha256": "bc49440723ec21273ef838b8910a2d0eb8f24350057f8001100193f70ac6596f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/CONTRACT.json",
+      "bytes": 4362,
+      "sha256": "9769f10758f4de31a24d8b10036f66157737f737817389e055129ebd2532f778"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/MacOS/Blender",
+      "bytes": 182900560,
+      "sha256": "f5c1f2a0c0bca3389ec772d355242b700975ea84e66cbb3f5257a7bce8e5adeb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-mesh/mesh.npz",
+      "bytes": 495221,
+      "sha256": "51459f8ff9233c48c8ee4fa8d6093d20c6975c1e8432d1d937e07766cafdfe22"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-mesh/RESULT.json",
+      "bytes": 2013374,
+      "sha256": "eec1055db59031786c473198a98a0cc608627c137b1a7c0b8246666ecb8228c7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-crossing/WITNESS.json",
+      "bytes": 9614,
+      "sha256": "84604ce72b12c9d5f4b64fe6f9c519e40be284fd21c381bfe565b15f35c00788"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-mesh/OWNERS.json",
+      "bytes": 1941687,
+      "sha256": "1baa2001d965decf8d2bc647885b68c3ec899f11ab252a46f05680d4d7bce32f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-mesh/RESULT-REVIEW.md",
+      "bytes": 7835,
+      "sha256": "cbc1013f2aac53a138bdfb1ccb8b07a00cb92d15d1dec6e2574cea389ab267bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-mesh/ROOT-RESULT.json",
+      "bytes": 589,
+      "sha256": "bb1294ef3d0f80f0e1d35ac17b45f84383b57f04e540ad4efe4c1e83c0eee3d8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-crossing/RESULT.json",
+      "bytes": 24620,
+      "sha256": "b082f58df1f31ccadcf5539c37bdefe6e2dae0356a9af00dc2765f7e84b5d22b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-crossing/RESULT-REVIEW.md",
+      "bytes": 7078,
+      "sha256": "4bcbda67d2b47b6060c151806f08135846018e099b9e3bb4b17ad17a56bc44a9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-crossing/ROOT-READBACK.json",
+      "bytes": 806,
+      "sha256": "53460f1db5dce25f6616fe7f6436e1434e51a65f7efb5e93632493deaced8569"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-cycles-diagnostic/native.py",
+      "bytes": 17313,
+      "sha256": "fc614149ad473dc11273e6b99f00f38230698e59b68ae7338a08f07d1c5df345"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-cycles-diagnostic/run_native.py",
+      "bytes": 3765,
+      "sha256": "999a97fca95cafb337d1f38145392c13dbf2bd7961d6badffc6128eaa6978301"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-cycles-diagnostic/RESULT-REVIEW.md",
+      "bytes": 7355,
+      "sha256": "34c9eec9c76a8d27c66279363f0415245431031e59bde7e4045ed47dc30207a1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-sleeve-draft/native.py",
+      "bytes": 19723,
+      "sha256": "cb0e9ebdca34d1d2b4d6e337a7e9e00467567e83b9ab6a0dc0e5f50a5468cfa1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-crossing/admit.py",
+      "bytes": 2915,
+      "sha256": "41d8aa7665650770d66659ff7dcb7ebf23d29f89c510325176197f5870c329d5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-crossing/run_query.py",
+      "bytes": 4205,
+      "sha256": "e7634b33d5d644cfa1fd92e1430430f320d668477ee96428ec601880426b8958"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/PLAN.md",
+      "bytes": 4276,
+      "sha256": "79aad2ea8d7a2926430247f8a0eaa494abdca921c27b88a3bd47eed1b00bab57"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/WORTH.md",
+      "bytes": 4536,
+      "sha256": "09be371a7f4404b354cba57a96d85906a85ec5db8967a427b6c234803e5452c4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/ROOT-WORTH.json",
+      "bytes": 343,
+      "sha256": "1da87040c0d424fd094675bc40085f1f900c533dcebd0e8478c09c0a1c9a759f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/native.py",
+      "bytes": 22563,
+      "sha256": "ad5942d851546eeaf6c13297bc790bc3d138edadf4c6dd2af8195fd218c997dd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/admit.py",
+      "bytes": 3028,
+      "sha256": "94d3cadd0245bff48d6244671376ac002288526c0ca1fd0c81b25f15fdaec786"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/run_native.py",
+      "bytes": 4268,
+      "sha256": "88e8425bf86b28e4f56340f3b96545c37a4d5410dcbf49cbb609c4ec51aaaab7"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "bytes": 34640,
+      "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/native.py.before-glyph-evaluation",
+      "bytes": 21274,
+      "sha256": "63b57f79086d00525c692af37190bea6079f9ef2a5553e25c6895cf7f9de4b4f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/EXEC.json.before-glyph-evaluation",
+      "bytes": 14062,
+      "sha256": "f78d374a3ac61f4c8f8f250d1e5b496d81aa279cacfd49c5f83e3beb6ed8332d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/SOURCE-FREEZE.json.before-glyph-evaluation",
+      "bytes": 441,
+      "sha256": "f5db51128b8887e45517b0f1cd34910399e564ffeaaef72b4b8ef76ae7868cc8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/verify.py",
+      "bytes": 7376,
+      "sha256": "677f3be9c6cd33ee7a55aca4c8b35f8861c9ac31e67c9eb0f473562959f2f795"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/EXEC.json.before-verifier",
+      "bytes": 14882,
+      "sha256": "ae7845f55e9b48e969f85f010a50cd036fc7eac640e7ea66680c6865d0ad155a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/SOURCE-FREEZE.json.before-verifier",
+      "bytes": 602,
+      "sha256": "165e2667b2e07bfc0fd1ad3b85783b25a60bc1d0051195c72027acbc649847ae"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/verify.py.before-count-guards",
+      "bytes": 6417,
+      "sha256": "db9d807d83b9ad6f83e7faea0ccc01f83838542ce7431178fc0149203d042617"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/native.py.before-core-display-guards",
+      "bytes": 21499,
+      "sha256": "f5d8b933c26a32ad19a3b72c0863019b7d8b3bf99d606b838308c4accbee52a9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/verify.py.before-core-display-guards",
+      "bytes": 6574,
+      "sha256": "d39abc42ce17d6cec74026db316d14e0fc6ff46eff273137ba7069eb2a21b105"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/EXEC.json.before-core-display-guards",
+      "bytes": 15927,
+      "sha256": "762d96e6c2408c91a37483c2618506bee80bb5855f59f985446b0aef8688c1ee"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/SOURCE-FREEZE.json.before-core-display-guards",
+      "bytes": 396,
+      "sha256": "3efafcf19567b7376e61b1eb95f97f243c92fbd189e32b3cd576ce1b1eaf2d37"
+    }
+  ],
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/native.py"
+  ],
+  "materials": {
+    "SugataSleeveOuter": [
+      0.45,
+      0.16,
+      0.065,
+      1
+    ],
+    "SugataSleeveLining": [
+      0.72,
+      0.55,
+      0.38,
+      1
+    ],
+    "SugataSleeveProximalRim": [
+      0.12,
+      0.045,
+      0.025,
+      1
+    ],
+    "SugataSleeveWristRim": [
+      0.12,
+      0.045,
+      0.025,
+      1
+    ]
+  },
+  "views": [
+    [
+      "front",
+      [
+        0,
+        -1,
+        0
+      ]
+    ],
+    [
+      "oblique",
+      [
+        1,
+        -1,
+        0
+      ]
+    ],
+    [
+      "rear",
+      [
+        0,
+        1,
+        0
+      ]
+    ]
+  ],
+  "look": {
+    "view_transform": "AgX",
+    "look": "None",
+    "display": "sRGB",
+    "exposure": 0.0,
+    "gamma": 1.0,
+    "curve_mapping": false,
+    "compositing": false,
+    "sequencer": false,
+    "pixel_aspect": [
+      1.0,
+      1.0
+    ]
+  },
+  "lighting_center": [
+    0.0,
+    -0.11460304260253906,
+    0.829715676678461
+  ],
+  "launch_before": "2026-10-09T22:25:00+00:00",
+  "finish_before": "2026-10-09T22:29:00+00:00",
+  "close_before": "2026-10-09T23:00:00+00:00",
+  "label": {
+    "object": "STANDALONE-SLEEVES-FIT-REFUSED",
+    "material": "SugataSleeveRefusalLabel",
+    "body": "STANDALONE SLEEVES | FIT REFUSED\nCERTIFIED CROSSING 3072 / 8104",
+    "size": 0.026,
+    "y_fraction": 0.435,
+    "rgba": [
+      0.8,
+      0.03,
+      0.015,
+      1
+    ]
+  },
+  "author_stop": "2026-10-09T22:10:00+00:00",
+  "finish_by": "2026-10-09T22:29:00+00:00",
+  "python": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+  "first_outputs": [
+    "JOB-start.json",
+    "JOB.json",
+    "native.log",
+    "RESULT.json",
+    "SOURCE-OBSERVED.json",
+    "SLEEVE-OBSERVED.json",
+    "LABEL-OBSERVED.json",
+    "RESTORED.json",
+    "actor-geometry.npz",
+    "post-actor-geometry.npz",
+    "private-render",
+    "front.png",
+    "oblique.png",
+    "rear.png",
+    "PRE-front.json",
+    "PRE-oblique.json",
+    "PRE-rear.json",
+    "CLEANUP-SOURCE-BEFORE-REMOVAL.json"
+  ]
+}

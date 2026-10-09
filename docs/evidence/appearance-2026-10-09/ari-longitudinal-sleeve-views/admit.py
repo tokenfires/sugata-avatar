@@ -1,0 +1,37 @@
+"""Parent admission only; never launches the producer."""
+import datetime, hashlib, json, os, pathlib, shlex, subprocess, sys
+P=pathlib.Path(__file__).resolve().parent
+digest=lambda b:hashlib.sha256(b).hexdigest()
+C=json.loads((P/'EXEC.json').read_text())
+root=json.loads((P/'ROOT-PREFLIGHT.json').read_text())
+pre=(P/'PREFLIGHT.md').read_bytes()
+if root['whole_read'] is not True or root['decision']!='ADMIT ONE BUILD' or root['preflight_sha256']!=digest(pre) or root['exec_sha256']!=digest((P/'EXEC.json').read_bytes()):
+    raise RuntimeError('root whole preflight readback absent/mismatch')
+if str(pathlib.Path(sys.executable).resolve())!=C['python']:raise RuntimeError('admission interpreter')
+if pathlib.Path(C['inputs']['actor']['path']).stat().st_mode&0o222:raise RuntimeError('original actor writable')
+for row in C['pins']:
+    b=pathlib.Path(row['path']).read_bytes()
+    if len(b)!=row['bytes'] or digest(b)!=row['sha256']:raise RuntimeError('pin '+row['path'])
+for name in C['first_outputs']:
+    if (P/name).exists():raise RuntimeError('first outputs absent '+name)
+raw=subprocess.check_output(['ps','-axo','pid=,args='])
+text=raw.decode('utf-8',errors='replace')
+matches=[];scoped=[]
+for line in text.splitlines():
+    parts=line.strip().split(None,1)
+    if len(parts)!=2:continue
+    pid=int(parts[0]);args=parts[1]
+    if pid in (os.getpid(),os.getppid()):continue
+    comm=args.split(None,1)[0]
+    if not ('python' in pathlib.Path(comm).name.lower() or pathlib.Path(comm).name=='Blender'):continue
+    tokens=shlex.split(args)
+    scripts=[x for x in tokens if x.endswith('.py')]
+    if pathlib.Path(comm).name=='Blender' or any('/sugata-avatar/' in x and '/ari-' in x and pathlib.Path(x).name.startswith(('build','run_','query','native','chart')) for x in scripts):
+        matches.append({'pid':pid,'comm':comm,'args':args})
+    if str(P) in args:scoped.append({'pid':pid,'comm':comm,'args':args})
+if matches:raise RuntimeError('live native/producer '+json.dumps(matches))
+clock=datetime.datetime.now(datetime.timezone.utc)
+if clock>=datetime.datetime.fromisoformat(C['launch_before']):raise RuntimeError('admission launch cutoff')
+record={'execution_admitted':True,'clock':clock.isoformat(),'exec_sha256':digest((P/'EXEC.json').read_bytes()),'preflight_sha256':digest(pre),'root_readback_sha256':digest((P/'ROOT-PREFLIGHT.json').read_bytes()),'pins':C['pins'],'scoped_jobs_absent':True,'process_census':{'command':['ps','-axo','pid=,args='],'raw_bytes':len(raw),'raw_sha256':digest(raw),'decode':'utf8 errors=replace','native_or_ari_producer_matches':matches,'scoped_executors':scoped,'scope':'Python .py argv producer names under Sugata ari evidence, any Blender; executable from args first token avoids truncated comm; excludes self/parent. Not all host tasks.'},'outputs_absent':C['first_outputs']}
+with (P/'ADMISSION.json').open('x') as f:json.dump(record,f,indent=2);f.write('\n')
+print(json.dumps({'execution_admitted':True,'clock':record['clock'],'pins':len(C['pins']),'scoped_jobs_absent':True}))

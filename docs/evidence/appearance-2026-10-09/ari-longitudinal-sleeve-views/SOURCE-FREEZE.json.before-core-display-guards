@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-09T21:59:34.798152+00:00",
+  "exec_sha256": "762d96e6c2408c91a37483c2618506bee80bb5855f59f985446b0aef8688c1ee",
+  "pins": 40,
+  "AST_only": true,
+  "native_or_arrays": false,
+  "addition": "Stored consumer now explicitly guards four graph/three image cardinalities, avoiding zip truncation; its prior source retained. No producer/control changes since evaluated-glyph fix."
+}

@@ -1,0 +1,135 @@
+{
+  "body": "STANDALONE SLEEVES | FIT REFUSED\nCERTIFIED CROSSING 3072 / 8104",
+  "size": 0.026000000536441803,
+  "align": [
+    "CENTER",
+    "BOTTOM"
+  ],
+  "extrude": 0.0,
+  "bevel": 0.0,
+  "matrix_basis": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      0.8662239909172058
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      -1.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "parent": "SugataSharedCamera",
+  "font_observed": "Bfont Regular",
+  "actual_local_corners": [
+    [
+      -0.2162550389766693,
+      0.004966001026332378,
+      0.0
+    ],
+    [
+      -0.2162550389766693,
+      0.004966001026332378,
+      0.0
+    ],
+    [
+      -0.2162550389766693,
+      0.0491660013794899,
+      0.0
+    ],
+    [
+      -0.2162550389766693,
+      0.0491660013794899,
+      0.0
+    ],
+    [
+      0.21609902381896973,
+      0.004966001026332378,
+      0.0
+    ],
+    [
+      0.21609902381896973,
+      0.004966001026332378,
+      0.0
+    ],
+    [
+      0.21609902381896973,
+      0.0491660013794899,
+      0.0
+    ],
+    [
+      0.21609902381896973,
+      0.0491660013794899,
+      0.0
+    ]
+  ],
+  "graph": {
+    "name": "SugataSleeveRefusalLabel",
+    "diffuse_color": [
+      0.800000011920929,
+      0.029999999329447746,
+      0.014999999664723873,
+      1.0
+    ],
+    "use_nodes": true,
+    "backface_culling": false,
+    "nodes": [
+      {
+        "name": "RefusalEmission",
+        "id": "ShaderNodeEmission",
+        "mute": false,
+        "parent": null,
+        "active": null,
+        "target": null,
+        "inputs": {
+          "Color": [
+            0.800000011920929,
+            0.029999999329447746,
+            0.014999999664723873,
+            1.0
+          ],
+          "Strength": 1.0,
+          "Weight": 0.0
+        }
+      },
+      {
+        "name": "RefusalOutput",
+        "id": "ShaderNodeOutputMaterial",
+        "mute": false,
+        "parent": null,
+        "active": true,
+        "target": "ALL",
+        "inputs": {
+          "Displacement": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Thickness": 0.0
+        }
+      }
+    ],
+    "links": [
+      [
+        "RefusalEmission",
+        "Emission",
+        "RefusalOutput",
+        "Surface"
+      ]
+    ]
+  }
+}

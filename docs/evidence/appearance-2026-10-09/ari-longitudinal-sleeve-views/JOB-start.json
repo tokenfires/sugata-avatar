@@ -1,0 +1,20 @@
+{
+  "wrapper_pid": 69861,
+  "started": "2026-10-09T22:12:32.259885+00:00",
+  "command": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-views/native.py"
+  ],
+  "admission_sha256": "c19b3ff3c3c439ecb1d9f9f7ed26bfc57612bc8ed728ae97d231a05ecbf10813",
+  "cap_seconds": 180,
+  "timed_out": false,
+  "interrupted": false,
+  "child_pid": 69862,
+  "process_group": 69862,
+  "spawn_returned": "2026-10-09T22:12:32.275985+00:00"
+}

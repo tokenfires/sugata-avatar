@@ -1,0 +1,293 @@
+{
+  "v": "13b8c96ed2421a0b89fa68daa692067e5349f1312cc12106104485f9dc3385f1",
+  "tri": "0c4b99c4492b237a97bbad3b2cdd6fd0e8dc40756eac65bde64ccb9f866740df",
+  "role": "84e1dde40a8edac6207e546c25f7e0faa993f2be3a68f2180aeb11e4f442d4ae",
+  "smoothing": "6e518d91f6377902efdaddf84452e41cb154509e7074e741e9c42a4f629cdf75",
+  "matrix": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "slots": [
+    [
+      "DATA",
+      "SugataSleeveOuter"
+    ],
+    [
+      "DATA",
+      "SugataSleeveLining"
+    ],
+    [
+      "DATA",
+      "SugataSleeveProximalRim"
+    ],
+    [
+      "DATA",
+      "SugataSleeveWristRim"
+    ]
+  ],
+  "fit_status": "REFUSED_TRANSVERSE",
+  "graphs": [
+    {
+      "name": "SugataSleeveOuter",
+      "diffuse_color": [
+        0.44999998807907104,
+        0.1599999964237213,
+        0.06499999761581421,
+        1.0
+      ],
+      "use_nodes": true,
+      "backface_culling": false,
+      "nodes": [
+        {
+          "name": "DiagnosticDiffuse",
+          "id": "ShaderNodeBsdfDiffuse",
+          "mute": false,
+          "parent": null,
+          "active": null,
+          "target": null,
+          "inputs": {
+            "Color": [
+              0.44999998807907104,
+              0.1599999964237213,
+              0.06499999761581421,
+              1.0
+            ],
+            "Roughness": 0.6000000238418579,
+            "Normal": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "Weight": 0.0
+          }
+        },
+        {
+          "name": "DiagnosticOutput",
+          "id": "ShaderNodeOutputMaterial",
+          "mute": false,
+          "parent": null,
+          "active": true,
+          "target": "ALL",
+          "inputs": {
+            "Displacement": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "Thickness": 0.0
+          }
+        }
+      ],
+      "links": [
+        [
+          "DiagnosticDiffuse",
+          "BSDF",
+          "DiagnosticOutput",
+          "Surface"
+        ]
+      ]
+    },
+    {
+      "name": "SugataSleeveLining",
+      "diffuse_color": [
+        0.7200000286102295,
+        0.550000011920929,
+        0.3799999952316284,
+        1.0
+      ],
+      "use_nodes": true,
+      "backface_culling": false,
+      "nodes": [
+        {
+          "name": "DiagnosticDiffuse",
+          "id": "ShaderNodeBsdfDiffuse",
+          "mute": false,
+          "parent": null,
+          "active": null,
+          "target": null,
+          "inputs": {
+            "Color": [
+              0.7200000286102295,
+              0.550000011920929,
+              0.3799999952316284,
+              1.0
+            ],
+            "Roughness": 0.6000000238418579,
+            "Normal": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "Weight": 0.0
+          }
+        },
+        {
+          "name": "DiagnosticOutput",
+          "id": "ShaderNodeOutputMaterial",
+          "mute": false,
+          "parent": null,
+          "active": true,
+          "target": "ALL",
+          "inputs": {
+            "Displacement": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "Thickness": 0.0
+          }
+        }
+      ],
+      "links": [
+        [
+          "DiagnosticDiffuse",
+          "BSDF",
+          "DiagnosticOutput",
+          "Surface"
+        ]
+      ]
+    },
+    {
+      "name": "SugataSleeveProximalRim",
+      "diffuse_color": [
+        0.11999999731779099,
+        0.04500000178813934,
+        0.02500000037252903,
+        1.0
+      ],
+      "use_nodes": true,
+      "backface_culling": false,
+      "nodes": [
+        {
+          "name": "DiagnosticDiffuse",
+          "id": "ShaderNodeBsdfDiffuse",
+          "mute": false,
+          "parent": null,
+          "active": null,
+          "target": null,
+          "inputs": {
+            "Color": [
+              0.11999999731779099,
+              0.04500000178813934,
+              0.02500000037252903,
+              1.0
+            ],
+            "Roughness": 0.6000000238418579,
+            "Normal": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "Weight": 0.0
+          }
+        },
+        {
+          "name": "DiagnosticOutput",
+          "id": "ShaderNodeOutputMaterial",
+          "mute": false,
+          "parent": null,
+          "active": true,
+          "target": "ALL",
+          "inputs": {
+            "Displacement": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "Thickness": 0.0
+          }
+        }
+      ],
+      "links": [
+        [
+          "DiagnosticDiffuse",
+          "BSDF",
+          "DiagnosticOutput",
+          "Surface"
+        ]
+      ]
+    },
+    {
+      "name": "SugataSleeveWristRim",
+      "diffuse_color": [
+        0.11999999731779099,
+        0.04500000178813934,
+        0.02500000037252903,
+        1.0
+      ],
+      "use_nodes": true,
+      "backface_culling": false,
+      "nodes": [
+        {
+          "name": "DiagnosticDiffuse",
+          "id": "ShaderNodeBsdfDiffuse",
+          "mute": false,
+          "parent": null,
+          "active": null,
+          "target": null,
+          "inputs": {
+            "Color": [
+              0.11999999731779099,
+              0.04500000178813934,
+              0.02500000037252903,
+              1.0
+            ],
+            "Roughness": 0.6000000238418579,
+            "Normal": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "Weight": 0.0
+          }
+        },
+        {
+          "name": "DiagnosticOutput",
+          "id": "ShaderNodeOutputMaterial",
+          "mute": false,
+          "parent": null,
+          "active": true,
+          "target": "ALL",
+          "inputs": {
+            "Displacement": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "Thickness": 0.0
+          }
+        }
+      ],
+      "links": [
+        [
+          "DiagnosticDiffuse",
+          "BSDF",
+          "DiagnosticOutput",
+          "Surface"
+        ]
+      ]
+    }
+  ]
+}
