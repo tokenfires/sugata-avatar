@@ -1,0 +1,65 @@
+{
+  "body_world": {
+    "dtype": "float32",
+    "shape": [
+      13380,
+      3
+    ],
+    "raw_sha256": "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c"
+  },
+  "body_triangles": {
+    "dtype": "int32",
+    "shape": [
+      26756,
+      3
+    ],
+    "raw_sha256": "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4"
+  },
+  "mesh_world": {
+    "dtype": "float32",
+    "shape": [
+      11550,
+      3
+    ],
+    "raw_sha256": "9cd743b50b3f2171eb6d822f15d59647ad24eaac78dfbf8eb870c3c5ba0e8b6d"
+  },
+  "mesh_triangles": {
+    "dtype": "int32",
+    "shape": [
+      23104,
+      3
+    ],
+    "raw_sha256": "da4fa75d32acfd1535a8bebccf823b0615036da27b67037bd1d009c6d18a182c"
+  },
+  "face_role": {
+    "dtype": "uint8",
+    "shape": [
+      23104
+    ],
+    "raw_sha256": "14cf3805daaaed6d2be8c75f94b6cc1255eb1696026a2e6bcca4bb9d5040b565"
+  },
+  "face_panel": {
+    "dtype": "uint8",
+    "shape": [
+      23104
+    ],
+    "raw_sha256": "48c1b77b80a14abc733205e2cb8501c2d5aa1dfa8e1e96affc162515264e14d4"
+  },
+  "minimum_doubleareas": {
+    "body": 1.7412600607914935e-07,
+    "cloth": 1.5621327074130212e-05
+  },
+  "decoded_members": {
+    "body": [
+      "Human_world",
+      "Human_triangles"
+    ],
+    "mesh": [
+      "world32",
+      "triangles",
+      "face_role",
+      "face_panel"
+    ]
+  },
+  "authoritative_precision": "F32 source coordinates, exactly promoted to F64; exact dyadic positive-witness certificate"
+}

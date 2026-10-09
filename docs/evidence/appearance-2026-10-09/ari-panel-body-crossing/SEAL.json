@@ -1,0 +1,140 @@
+{
+  "time_utc": "2026-10-09T18:03:54.770028+00:00",
+  "files": [
+    {
+      "file": "ADMISSION.json",
+      "bytes": 5878,
+      "sha256": "e73f82bec47f1346f7feb87d95a2bb9be18d1519feb69e0a1369e7a04cf8bf96"
+    },
+    {
+      "file": "CANDIDATES.jsonl",
+      "bytes": 6590,
+      "sha256": "f73435ddeed92bce8a333d7a28f915b7f56a0e4733ca113b4dad12eba1cb6750"
+    },
+    {
+      "file": "CERTIFICATION.md",
+      "bytes": 1578,
+      "sha256": "9418704885376371edb68c133e169246fdb405f4743f7603c1b24f8d2b6c0c6b"
+    },
+    {
+      "file": "EXEC.json",
+      "bytes": 6873,
+      "sha256": "7983313ec0bd0342dcb3cedfcb96efbeea1ae94b80591df13904607ce41f50d9"
+    },
+    {
+      "file": "INPUTS.json",
+      "bytes": 1833,
+      "sha256": "239e0c0b24565134347bf6a6f5240fb725d5f862880a5c0e69076526ff360a26"
+    },
+    {
+      "file": "JOB-start.json",
+      "bytes": 517,
+      "sha256": "4d1336566dc64128cf3d73ce2a07aa99b21bb7e7c1c3bd9cef2133690002408f"
+    },
+    {
+      "file": "JOB.json",
+      "bytes": 716,
+      "sha256": "f59fbff69837fc07a520035bb3e835ca36f95c5139a1a46db9144bf0fd743a35"
+    },
+    {
+      "file": "OBSERVED.json",
+      "bytes": 23471,
+      "sha256": "7401791a6e0f45edcc73b0fe025fc1b42a9aa7130ba87f3034daf8ef5658fd53"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 3948,
+      "sha256": "bfd0a8ce4a198153126ac24b76c05f4680ccdab94486f951f039675178f66ea1"
+    },
+    {
+      "file": "PREFLIGHT.md",
+      "bytes": 8041,
+      "sha256": "d9cdfefac4f856db81050e4dfd8d66196299d178c3bba00498cc92b42b4e5c09"
+    },
+    {
+      "file": "README.md",
+      "bytes": 7864,
+      "sha256": "6d2c522e499b52f45c83c92c131a40b6e9c501e30246974a6769b1cb29521ee6"
+    },
+    {
+      "file": "RESULT-REVIEW.md",
+      "bytes": 7771,
+      "sha256": "a85135963d0f73998b5f170c3b9a1914c17b50ee566eaaa358955d9547c1c925"
+    },
+    {
+      "file": "RESULT.json",
+      "bytes": 23471,
+      "sha256": "7401791a6e0f45edcc73b0fe025fc1b42a9aa7130ba87f3034daf8ef5658fd53"
+    },
+    {
+      "file": "ROOT-EXECUTION.json",
+      "bytes": 1979,
+      "sha256": "11ce91303154015646e2bd80c13d5ac9a96df099ca1bdf94228d3a720a07f692"
+    },
+    {
+      "file": "ROOT-PREFLIGHT.json",
+      "bytes": 884,
+      "sha256": "86beebf8d1d414d38e0b9573e5fb3f000d4fddfb9a9a79261c01ac2ccbd03c1e"
+    },
+    {
+      "file": "ROOT-READBACK.json",
+      "bytes": 743,
+      "sha256": "a99247c353618d17418407555db42de9803858cf8e235e3b77d5303746a209be"
+    },
+    {
+      "file": "ROOT-RESULT.json",
+      "bytes": 705,
+      "sha256": "a5733f7e32e3753e506b4d5c8453adc164fcfbbe87b58af6290f9c8b97f653cf"
+    },
+    {
+      "file": "ROOT-WORTH.json",
+      "bytes": 274,
+      "sha256": "8da7e8a5a042d0299cde51ee08742ab07102877a4a99e364768d9ef2444e695a"
+    },
+    {
+      "file": "SOURCE.json",
+      "bytes": 1449,
+      "sha256": "a5913e62c1034ae66524a2e48d703f4844cdee358303ed5f43a8c54521556c20"
+    },
+    {
+      "file": "WITNESS.json",
+      "bytes": 9350,
+      "sha256": "d4f6a11580f9d0dd3d601d5b459e652056d7acbc621ace039158371cbd015e8f"
+    },
+    {
+      "file": "WORTH.md",
+      "bytes": 4267,
+      "sha256": "e63a48258f81ca76872a92919099c6b989a25854536caf63a2b521295684a4e6"
+    },
+    {
+      "file": "admit.py",
+      "bytes": 2915,
+      "sha256": "41d8aa7665650770d66659ff7dcb7ebf23d29f89c510325176197f5870c329d5"
+    },
+    {
+      "file": "query.log",
+      "bytes": 152,
+      "sha256": "4ece03453bc9daebd8b03e1510ac518e7d93bb8e4811fba09d435370019dbdf4"
+    },
+    {
+      "file": "query.py",
+      "bytes": 10696,
+      "sha256": "fea266d2fa8542870dec477e27d1898092865f993b3a47c1da48b0c682c79ea5"
+    },
+    {
+      "file": "run_query.py",
+      "bytes": 3391,
+      "sha256": "2aba0878d2ac23a2ce2ffa39a62493de881aede40681f427cca40657482c2bd5"
+    },
+    {
+      "file": "verify.py",
+      "bytes": 5110,
+      "sha256": "1b68d6c31efa05271355cc8b2c38c7eb8be99bd03b7ab1368a1388bf6a518eca"
+    },
+    {
+      "file": "witness.obj",
+      "bytes": 618,
+      "sha256": "9ad7331f800ec0ccb0ec3aaed57e0507c997d2a2787d158bc210ccc42c80921e"
+    }
+  ]
+}

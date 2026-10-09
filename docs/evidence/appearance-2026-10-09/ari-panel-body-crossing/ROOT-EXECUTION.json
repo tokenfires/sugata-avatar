@@ -1,0 +1,68 @@
+{
+  "clock": "2026-10-09T17:50:41.016758+00:00",
+  "admission_job_chain_verified": true,
+  "pins_preserved": 20,
+  "owned_pids_absent_postrun_only": true,
+  "Vite825_retained": true,
+  "output_pins": [
+    {
+      "file": "RESULT.json",
+      "bytes": 23471,
+      "sha256": "7401791a6e0f45edcc73b0fe025fc1b42a9aa7130ba87f3034daf8ef5658fd53"
+    },
+    {
+      "file": "OBSERVED.json",
+      "bytes": 23471,
+      "sha256": "7401791a6e0f45edcc73b0fe025fc1b42a9aa7130ba87f3034daf8ef5658fd53"
+    },
+    {
+      "file": "SOURCE.json",
+      "bytes": 1449,
+      "sha256": "a5913e62c1034ae66524a2e48d703f4844cdee358303ed5f43a8c54521556c20"
+    },
+    {
+      "file": "WITNESS.json",
+      "bytes": 9350,
+      "sha256": "d4f6a11580f9d0dd3d601d5b459e652056d7acbc621ace039158371cbd015e8f"
+    },
+    {
+      "file": "witness.obj",
+      "bytes": 618,
+      "sha256": "9ad7331f800ec0ccb0ec3aaed57e0507c997d2a2787d158bc210ccc42c80921e"
+    },
+    {
+      "file": "CANDIDATES.jsonl",
+      "bytes": 6590,
+      "sha256": "f73435ddeed92bce8a333d7a28f915b7f56a0e4733ca113b4dad12eba1cb6750"
+    },
+    {
+      "file": "JOB.json",
+      "bytes": 716,
+      "sha256": "f59fbff69837fc07a520035bb3e835ca36f95c5139a1a46db9144bf0fd743a35"
+    },
+    {
+      "file": "JOB-start.json",
+      "bytes": 517,
+      "sha256": "4d1336566dc64128cf3d73ce2a07aa99b21bb7e7c1c3bd9cef2133690002408f"
+    },
+    {
+      "file": "query.log",
+      "bytes": 152,
+      "sha256": "4ece03453bc9daebd8b03e1510ac518e7d93bb8e4811fba09d435370019dbdf4"
+    },
+    {
+      "file": "ROOT-RESULT.json",
+      "bytes": 705,
+      "sha256": "a5733f7e32e3753e506b4d5c8453adc164fcfbbe87b58af6290f9c8b97f653cf"
+    }
+  ],
+  "helper_tool_chunk": "1ce4b5",
+  "helper_actual_exit": 0,
+  "query_tool_chunk": "bb2784",
+  "query_actual_exit": 0,
+  "independent_verifier_tool_chunk": "438a45",
+  "independent_verifier_actual_exit": 0,
+  "constructor_not_rerun": true,
+  "intent_targets_unused": true,
+  "no_native_or_capture": true
+}
