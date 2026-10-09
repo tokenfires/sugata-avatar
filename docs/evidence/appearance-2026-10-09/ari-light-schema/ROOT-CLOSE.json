@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-09T13:41:19.963318+00:00",
+  "status": "UNEXECUTED; launch gate expired",
+  "reason": "Independent source preflight not delivered before13:40UTC, root admission never written",
+  "runtime_commands": [],
+  "runtime_jobs": [],
+  "outputs_absent": [
+    "ROOT-ADMISSION.json",
+    "RESULT.json",
+    "OBSERVED.json",
+    "NATIVE-JOB-start.json",
+    "NATIVE-JOB.json",
+    "native.log"
+  ],
+  "execution_pins_exact": 17,
+  "deadline_extension": false,
+  "probe_or_capture_retries": 0,
+  "source_change_after_preparation_stop": false,
+  "runtime_lighting_state": "UNKNOWN",
+  "future_capture_admitted": false,
+  "geometry_fit": "unchanged REFUSED;2189body/36self pairs,34cop unknown",
+  "next": "Finish bounded source review; source-only checkpoint. Next native ownership/capture decision requires fresh critic worth and complete new contract."
+}

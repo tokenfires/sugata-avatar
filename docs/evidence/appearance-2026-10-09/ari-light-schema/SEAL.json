@@ -1,0 +1,101 @@
+{
+  "utc": "2026-10-09T13:47:27.770712+00:00",
+  "status": "source PASS only; UNEXECUTED",
+  "payloads": [
+    {
+      "file": "AREA-API-SOURCE.json",
+      "bytes": 20204,
+      "sha256": "4ba741a8d6a8ec6c37c18c1255ce9e496fef64c2bb87359866e000c0e06d6496"
+    },
+    {
+      "file": "EXEC-initial.json",
+      "bytes": 3488,
+      "sha256": "501942e8b3976b46cb3498448a6f19a0c780a907f20941cf406063a9c6aad2ad"
+    },
+    {
+      "file": "EXEC.json",
+      "bytes": 4212,
+      "sha256": "0fe7d12ddfbb45e85dc63ac9e43c152b8a01fc07c7111c79dd65744acfc6ea89"
+    },
+    {
+      "file": "FINAL-RECEIPT.md",
+      "bytes": 2127,
+      "sha256": "81c1e6b8ced948718c69b3c75ecad45cc7bbe1e548925040ee7ff1989e0b6770"
+    },
+    {
+      "file": "INPUTS.json",
+      "bytes": 1511,
+      "sha256": "452c9471ab69ea04c209e627534fc90ca20e72e7a4316547e714fc21f1d3b551"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 2184,
+      "sha256": "27e1cdf70a71a99f3b7c460f9e9e96727c37c3cabe1d7d1f2098b970b40ff6f3"
+    },
+    {
+      "file": "PRE-EXECUTION-CAP.md",
+      "bytes": 636,
+      "sha256": "b0346e50dbf9cebe8aceea126a68e029314cbc096ece81df12b7e7d50fdd0dd7"
+    },
+    {
+      "file": "PREFLIGHT.md",
+      "bytes": 2827,
+      "sha256": "3547f4b1549fa9294a53689b2e44fc6fe3a8c036207cec8c8184bd808f7e0c4d"
+    },
+    {
+      "file": "README.md",
+      "bytes": 3176,
+      "sha256": "08d773da9332c4fa55533659d1ab5215a091cf3021fcf35d127a299a9bf8d2cb"
+    },
+    {
+      "file": "ROOT-CLOSE.json",
+      "bytes": 863,
+      "sha256": "cb5537f1aa8382f12d542be083a48ed708504f50747a6813e749b9c99f860b1d"
+    },
+    {
+      "file": "ROOT-PREFLIGHT.json",
+      "bytes": 464,
+      "sha256": "0a94a4a35151e7aeb8170e44c115fd8a7ae44887dcd3d671990329e9d754337a"
+    },
+    {
+      "file": "ROOT-READBACK.json",
+      "bytes": 569,
+      "sha256": "7d64d2efa2c0ce9c0ce40bc2fbc2153e89d782bc484f1655af2ac6350e764468"
+    },
+    {
+      "file": "ROOT-WORTH.json",
+      "bytes": 272,
+      "sha256": "edc11144b648320265e41c9603434c1d3310810412b4c3889790add92bd745ca"
+    },
+    {
+      "file": "STATE.json",
+      "bytes": 901,
+      "sha256": "5abd3d4c6bd7f7f6dad0108017cf9a4c699a7e4658378c588480fecb81f61424"
+    },
+    {
+      "file": "STOP-REVIEW.md",
+      "bytes": 3400,
+      "sha256": "ef46b2f038a183ee3efc9fbff5fd7048fc6848c05b998f75ff2994d01a0ff881"
+    },
+    {
+      "file": "WORTH.md",
+      "bytes": 3657,
+      "sha256": "d994f93afe0693e779627cf0003120f1c4f0bf910eda18cbf3a22b5947e93881"
+    },
+    {
+      "file": "probe-initial.py",
+      "bytes": 5023,
+      "sha256": "314c189403fdce093766a38aa54e8fd933eb0ae73d20c53eebb64fbeae9a470f"
+    },
+    {
+      "file": "probe.py",
+      "bytes": 5052,
+      "sha256": "bcf2c6a1a8736bce3e381b615871574ea3fbe3e18a5096fe181cfef10fcfabdb"
+    },
+    {
+      "file": "run_probe.py",
+      "bytes": 3693,
+      "sha256": "a2d877a1bb73a34556a30b60fd260d9be59cbfa9508e051e1ff88198443031a8"
+    }
+  ]
+}

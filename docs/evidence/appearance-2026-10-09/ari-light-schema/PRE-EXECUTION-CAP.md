@@ -1,0 +1,3 @@
+# Bounded graph iteration before execution
+
+Root source witness: probe-initial.py snapshot used list(t.nodes)[:16] / list(t.links)[:16], allocating whole collections before slicing. No runtime exists, so no oversized actual tree is asserted. A selected: itertools.islice limits identifiers visited to16 per collection while separately recording counts/truncation. B: record counts only; cheaper but loses useful first unsupported node/link witness. Literal field list contains18 fields, correcting root message19. None/empty-tree only admission and all values/deadlines unchanged. Initial probe/EXEC preserved, no runtime rescue/retry.

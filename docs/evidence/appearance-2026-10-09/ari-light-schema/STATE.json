@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-09T13:43:01.088921+00:00",
+  "automation": {
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "saved_sha256": "47f002a03c3f6e3627fd20eae51914ed93bbbf4aef2726ee484cf9b93074c742"
+  },
+  "review_service_process": "825 /opt/homebrew/bin/node /Users/robault/GitHub/sugata-avatar/node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173 --strictPort",
+  "service_limits": "Observed process only; no new endpoint/browser/render proof",
+  "owned_runtime_jobs": [],
+  "runtime_commands_executed": [],
+  "host_checks": "Python3 AST syntax, exact SHA/byte pins and handoff bindings, ps process inventory, saved automation readback",
+  "primary_calls": [
+    "Firecrawl scrape official5.2AreaLight, HTTP200/cachehit/one existing credit; saved Light reference reused"
+  ],
+  "limits": "No model/archive decode/native/capture/install/push/publication or unrelated work"
+}
