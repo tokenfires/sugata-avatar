@@ -1,0 +1,417 @@
+{
+  "id": "ari-longitudinal-upper-under-neutral-v1",
+  "authored_utc": "2026-10-09T20:27:59.260579+00:00",
+  "status": "Fixed original source recipe only; no coordinates evaluated or mesh constructed",
+  "scope": "Two independently authored longitudinal panels per arm per O/I layer, standalone unchanged-neutral sleeve prototype. NOT connected wearable jacket or motion fit.",
+  "source_domain": {
+    "vertices": 13380,
+    "triangles": 26756,
+    "edges": 26756,
+    "world_sha256": "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c",
+    "triangles_sha256": "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4",
+    "edges_sha256": "4868a68df9fd81f55219cbbfbcf224be6a1ab96bf699d5677a3bc4aedeaba24b",
+    "min": [
+      -0.5494645833969116,
+      -0.334472119808197,
+      1.5046680346131325e-08
+    ],
+    "max": [
+      0.5494645833969116,
+      0.1052660346031189,
+      1.6594313383102417
+    ]
+  },
+  "source_reference_semantics": "Stored rest-coordinate stations used as artist references on qualified evaluated-world body; no anatomical centre/evaluated-rest equivalence.",
+  "references": [
+    {
+      "side": "r",
+      "P0_reference": {
+        "file": {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-source-contract/SOURCE-MAP.json",
+          "bytes": 91085,
+          "sha256": "7cdcda00ad43629b558b829afbc76b226f121aabd98d7bb9b270c592b90bb129"
+        },
+        "selector": "rig_object.rig.bones[name=upperarm_r].head_local",
+        "coordinate": [
+          -0.19364136457443237,
+          -0.01926415227353573,
+          1.3201014995574951
+        ]
+      },
+      "P1_reference": {
+        "file": {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-sleeve-sections/DISTAL-MANIFEST.json",
+          "bytes": 288589,
+          "sha256": "f8c49cde1f313e99a5748a19c7ad68100362c31dad283d558600f1093d99e4df"
+        },
+        "selector": "sections[name=elbow-r].origin",
+        "coordinate": [
+          -0.35510677099227905,
+          -0.02005697600543499,
+          1.1395602226257324
+        ]
+      },
+      "P2_reference": {
+        "file": {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-wrist-registration-contract/WRIST-REFERENCE.json",
+          "bytes": 13132,
+          "sha256": "439acbcee0fb0a6a2ff5aeb6acde58a0de25b928494daea2dd1e985ce9535529"
+        },
+        "selector": "registrations[side=r].reference_origin",
+        "coordinate": [
+          -0.4770350456237793,
+          -0.1832285225391388,
+          1.0155318975448608
+        ]
+      },
+      "cuff_plane_normal": [
+        -0.5112645687989267,
+        -0.6842041407617481,
+        -0.5200704129782098
+      ],
+      "retained_signed_basis": {
+        "u_front": [
+          0.47965702987056663,
+          -0.7292905413924398,
+          0.48791847672666416
+        ],
+        "v_down": [
+          0.7131182751736166,
+          -0.0,
+          -0.7010437401570646
+        ],
+        "normal": [
+          -0.5112645687989267,
+          -0.6842041407617481,
+          -0.5200704129782098
+        ],
+        "handedness": -1.0
+      },
+      "proximal_registration_reference": {
+        "file": {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/ATTACHMENT-MANIFEST.json",
+          "bytes": 71732,
+          "sha256": "72c1752476630c7a9c610eecf6ff1eaa3e0c11dc1e98af3df87f60455549248f"
+        },
+        "selector": "sides[side=r]",
+        "cycle_vertices": [
+          1377,
+          1452,
+          1376,
+          1365,
+          3756,
+          1433,
+          1679,
+          1409,
+          1410,
+          1411,
+          1448,
+          1447,
+          1421,
+          1665,
+          1664,
+          1632,
+          1631,
+          3845,
+          3782,
+          1685,
+          1667,
+          1673,
+          1619,
+          1609,
+          1601,
+          1602,
+          1603,
+          1557,
+          1558
+        ],
+        "role": "Body attachment reference only; not copied garment cap and no connected torso interface yet"
+      },
+      "coverage_arm_faces": {
+        "archive": {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/fields.npz",
+          "bytes": 1058878,
+          "sha256": "88a158ceadf94ca23d3166bbca3ba40135eb60c5063dcb77dba1918050659d5f"
+        },
+        "key": "r_arm_faces",
+        "shape": [
+          4221
+        ],
+        "required_dtype": "int32",
+        "raw_sha256": "d4d1a6d94598a52602c4d10563943ea7820544e841def693a8407c74236a93e6",
+        "lineage_receipt": {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/RESULT.json",
+          "bytes": 75223,
+          "sha256": "844eb2c5bf130ca3e8dbdc63dd12104e002ac816247333bf25cf9150991f27ca"
+        },
+        "dtype_source": {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/paths.py",
+          "bytes": 13052,
+          "sha256": "3480f0c81726ba85974a4b4c8826a93163bfc91b81bfd2c7a398d76a7ae1ab59"
+        },
+        "qualification": "Existing numeric source-arm component selected as intended sleeve reference; not anatomical segmentation. No decode/repartition here."
+      },
+      "outer_chart_winding": -1,
+      "inner_material_chart_winding": 1,
+      "upper_piece_frame_sign": 1
+    },
+    {
+      "side": "l",
+      "P0_reference": {
+        "file": {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-source-contract/SOURCE-MAP.json",
+          "bytes": 91085,
+          "sha256": "7cdcda00ad43629b558b829afbc76b226f121aabd98d7bb9b270c592b90bb129"
+        },
+        "selector": "rig_object.rig.bones[name=upperarm_l].head_local",
+        "coordinate": [
+          0.19364136457443237,
+          -0.01926415227353573,
+          1.3201014995574951
+        ]
+      },
+      "P1_reference": {
+        "file": {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-sleeve-sections/DISTAL-MANIFEST.json",
+          "bytes": 288589,
+          "sha256": "f8c49cde1f313e99a5748a19c7ad68100362c31dad283d558600f1093d99e4df"
+        },
+        "selector": "sections[name=elbow-l].origin",
+        "coordinate": [
+          0.35510677099227905,
+          -0.02005697600543499,
+          1.1395602226257324
+        ]
+      },
+      "P2_reference": {
+        "file": {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-wrist-registration-contract/WRIST-REFERENCE.json",
+          "bytes": 13132,
+          "sha256": "439acbcee0fb0a6a2ff5aeb6acde58a0de25b928494daea2dd1e985ce9535529"
+        },
+        "selector": "registrations[side=l].reference_origin",
+        "coordinate": [
+          0.4770350456237793,
+          -0.1832285225391388,
+          1.0155318975448608
+        ]
+      },
+      "cuff_plane_normal": [
+        0.5112645687989267,
+        -0.6842041407617481,
+        -0.5200704129782098
+      ],
+      "retained_signed_basis": {
+        "u_front": [
+          -0.47965702987056663,
+          -0.7292905413924398,
+          0.48791847672666416
+        ],
+        "v_down": [
+          -0.7131182751736166,
+          0.0,
+          -0.7010437401570646
+        ],
+        "normal": [
+          0.5112645687989267,
+          -0.6842041407617481,
+          -0.5200704129782098
+        ],
+        "handedness": 1.0
+      },
+      "proximal_registration_reference": {
+        "file": {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/ATTACHMENT-MANIFEST.json",
+          "bytes": 71732,
+          "sha256": "72c1752476630c7a9c610eecf6ff1eaa3e0c11dc1e98af3df87f60455549248f"
+        },
+        "selector": "sides[side=l]",
+        "cycle_vertices": [
+          8069,
+          8140,
+          8068,
+          8057,
+          10423,
+          8121,
+          8351,
+          8097,
+          8098,
+          8099,
+          8136,
+          8135,
+          8109,
+          8337,
+          8336,
+          8304,
+          8303,
+          10510,
+          10448,
+          8357,
+          8339,
+          8345,
+          8291,
+          8281,
+          8273,
+          8274,
+          8275,
+          8235,
+          8236
+        ],
+        "role": "Body attachment reference only; not copied garment cap and no connected torso interface yet"
+      },
+      "coverage_arm_faces": {
+        "archive": {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/fields.npz",
+          "bytes": 1058878,
+          "sha256": "88a158ceadf94ca23d3166bbca3ba40135eb60c5063dcb77dba1918050659d5f"
+        },
+        "key": "l_arm_faces",
+        "shape": [
+          4221
+        ],
+        "required_dtype": "int32",
+        "raw_sha256": "9aaae1564484cc20abdd7660ddaa7036bdca85fcb36a14ef078b59a3a7882c80",
+        "lineage_receipt": {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/RESULT.json",
+          "bytes": 75223,
+          "sha256": "844eb2c5bf130ca3e8dbdc63dd12104e002ac816247333bf25cf9150991f27ca"
+        },
+        "dtype_source": {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/paths.py",
+          "bytes": 13052,
+          "sha256": "3480f0c81726ba85974a4b4c8826a93163bfc91b81bfd2c7a398d76a7ae1ab59"
+        },
+        "qualification": "Existing numeric source-arm component selected as intended sleeve reference; not anatomical segmentation. No decode/repartition here."
+      },
+      "outer_chart_winding": 1,
+      "inner_material_chart_winding": -1,
+      "upper_piece_frame_sign": -1
+    }
+  ],
+  "profile_units": "Native artist units; not calibrated tailoring measurements or borrowed primary grading dimensions",
+  "profiles": {
+    "O": {
+      "front_width": [
+        0.092,
+        0.06,
+        0.04
+      ],
+      "back_width": [
+        0.088,
+        0.058,
+        0.038
+      ],
+      "upper_arch_handle": [
+        0.12,
+        0.054
+      ],
+      "under_arch_handle": [
+        0.092,
+        0.05
+      ]
+    },
+    "I": {
+      "front_width": [
+        0.085,
+        0.053,
+        0.034
+      ],
+      "back_width": [
+        0.081,
+        0.051,
+        0.032
+      ],
+      "upper_arch_handle": [
+        0.109,
+        0.046
+      ],
+      "under_arch_handle": [
+        0.081,
+        0.042
+      ]
+    }
+  },
+  "frame_and_rails": {
+    "normalization": "unit(x)=x/||x||; refuse zero/nonfinite vector, no fallback",
+    "reference_axes": "A=unit(P1-P0); B=unit(cuff_plane_normal); T=unit(A+B)",
+    "reference_lengths": "L0=||P1-P0||; L1=||P2-P1||",
+    "proximal_station": "Q0=P0-0.040*A; Q1=P1; Q2=P2. This original deliberate proximal extension is untested, not source clearance or fixed-recipe correction.",
+    "node_normals": [
+      "A",
+      "T",
+      "B"
+    ],
+    "node_frame": "At each i, U_i=unit((0,-1,0)-dot((0,-1,0),N_i)*N_i); V_i=cross(N_i,U_i). (U,V,N) is the new declared proper computational frame. Require dot(V_i,(0,0,1)) has the side upper sign; refuse disagreement. Upper direction W_i=side_sign*V_i. Original signed source basis remains untouched; no inherited body sample phase.",
+    "rail_knots": "For each independent layer profile: F_i=Q_i+front_width[i]*U_i; R_i=Q_i-back_width[i]*U_i. These are original seam knots, not body-course vertices.",
+    "rail_tangents": [
+      "D0=0.60*L0*A",
+      "D1=0.60*min(L0,L1)*T",
+      "D2=0.60*L1*B"
+    ],
+    "rail_curve": "F(s) and R(s) each have two cubic Hermite spans: H(q;P0,P1,D0,D1) for0<=s<=0.5,q=2s; H(q;P1,P2,D1,D2) for0.5<=s<=1,q=2s-1. Each uses its own F_i or R_i knots and the shared D_i.",
+    "H": "(2q^3-3q^2+1)*P0+(q^3-2q^2+q)*D0+(-2q^3+3q^2)*P1+(q^3-q^2)*D1",
+    "C1_scope": "Exact shared knot/D1 and equal half-length parameter spans prove C1 only along each longitudinal rail at s=0.5. No global surface/seam derivative/Jacobian claim."
+  },
+  "arches": {
+    "cubic": "C(t)=(1-t)^3*C0+3*(1-t)^2*t*C1+3*(1-t)*t^2*C2+t^3*C3, exact endpoint returns",
+    "upper_proximal_and_wrist": "At node i=0 or2 use C0=F_i,C3=R_i,C1=F_i+(R_i-F_i)/3+h_upper*W_i,C2=R_i-(R_i-F_i)/3+h_upper*W_i. Heights are handle values, not realised maximum bulge.",
+    "under_proximal_and_wrist": "At node i=0 or2 use C0=R_i,C3=F_i,C1=R_i+(F_i-R_i)/3-h_under*W_i,C2=F_i-(F_i-R_i)/3-h_under*W_i.",
+    "source_relative_opening": "Both layer wrist arches lie in the declared Q2/body-cuff reference plane by frame orthogonality. Actual usable aperture, O/I separation, containment and fit remain untested. Inner profile is independently authored, not a normal offset or automatic body-copy."
+  },
+  "surfaces": {
+    "parameter_domain": "s,t in[0,1], longitudinal s0proximal/.5elbow/1wrist; upper t0front\u2192t1back; under t0back\u2192t1front",
+    "upper": "Blend(s,t; F,R,upper_cap,upper_wrist)",
+    "under": "Blend(s,t; R,F,under_cap,under_wrist)",
+    "seams": [
+      {
+        "name": "front",
+        "upper": "t=0,F(s)",
+        "under": "t=1,F(s)",
+        "parameter_map": "same s; opposed induced boundary directions"
+      },
+      {
+        "name": "back",
+        "upper": "t=1,R(s)",
+        "under": "t=0,R(s)",
+        "parameter_map": "same s; opposed induced boundary directions"
+      }
+    ],
+    "layers": "O/I profiles, rails and arches independent; shared reference stations only. No guaranteed separation.",
+    "rims": "Own proximal/wrist O\u2192I annuli with same side/piece/t ownership, preserving front/back joins. No real gathered cuff or connected torso seam; no material planar end caps.",
+    "Blend": "(1-t)*L(s)+t*R(s)+(1-s)*Cap(t)+s*Wrist(t)-[(1-s)*(1-t)*P00+s*(1-t)*P10+(1-s)*t*P01+s*t*P11]; P00=L(0)=Cap(0),P10=L(1)=Wrist(0),P01=R(0)=Cap(1),P11=R(1)=Wrist(1). Exact shared endpoints are authoritative. Ordinary four-boundary blend; no upstream novelty/equivalence claim."
+  },
+  "future_mesh_requirements": {
+    "no_builder_now": true,
+    "longitudinal_samples": 64,
+    "cross_panel_samples": 24,
+    "mandatory": "s=0,.5,1; t=0,1. Equal shared source curve evaluations use canonical owners, exact endpoint values; one F32cast after all source evaluations.",
+    "scope": "Source equations only. Eligibility must independently verify finite values, positive triangle area, paired seam/winding/manifold/vertex-link conditions and no unowned deformation. No patch-fold/Jacobian or fit pass is inferred."
+  },
+  "coverage_and_exposure": {
+    "independent_source": "Exact archived l_arm_faces/r_arm_faces selectors and pinned body world/triangles, before candidate construction",
+    "sleeve_required": "For every triangle in its side arm set, retain the full clipped polygon T_body intersect dot(B,x-Q2)<=0 with source triangle/barycentric ownership. No mixed-face exclusion.",
+    "hand_exposed": "For every triangle in its side arm set, retain full open-region polygon T_body intersect dot(B,x-Q2)>0; equality boundary belongs required, no duplicate role.",
+    "other_body": "All other body triangles retain contact obligations; source contract does not claim full torso clothing or wholebody exposure acceptance.",
+    "coverage_measure": "Finite sample/ray results are diagnostic only. Full realised-triangle clipped-piece inclusion/exclusion must be established for static coverage or remain UNKNOWN; no body as anatomical solid assumption."
+  },
+  "qualification": {
+    "source_preservation": "Exact qualified body/archive/native-source owners, helpers, masks, keys, rig/rest/pose and materials unchanged. No mask/cut/body/ease/control tuning to hide failures.",
+    "full_contact": "All source26756triangles vs every O/I/rim material triangle. All material self/lining pairs retain actual incidence ownership. Proper transverse or nonpermitted coplanar overlap refuses; boundary/degenerate/numerical/budget uncertainty is UNKNOWN. No adjacency class discarded wholesale.",
+    "interior_enclosure": "Diagnostic free-space enclosure uses inner sleeve surfaces with their own outward orientation and separately owned planar proximal/wrist closures, not material caps. Must prove closed connected oriented manifold/simple non-self-intersecting realised mesh before solid classification. Diagnostic caps alone prove nothing.",
+    "fullsurface_coverage": "For every clipped body piece, prove no enclosure-boundary intersection and strict representative classification; use that connected-piece disjointness only after enclosure prerequisites, retain exact plane-boundary ownership. Interior enclosure for required; outer enclosure for exposed. Tangency/cap/boundary/classification ambiguity UNKNOWN. No centroid-only pass.",
+    "solid_rules": "Candidate enclosure topology/whole intersection and reproducible parity/degree agreement required; sourcebody solid occupancy not assumed. Numerical/scope/budget unresolved duties retain UNKNOWN and no fit acceptance.",
+    "actual_images": "Fresh separately admitted first front/oblique/rear on unchanged actor, all geometry framed and explicit prototype/refusal labels; root+critic whole originals decide appearance. No current renderer/material/capture tuning.",
+    "pose_and_integration": "Only unchanged neutral source is nominated. Torso/armhole connection, rig weights, body morph transfer, posed-body/garment evidence and all-motion qualification are HELD; parenting or source stations do not discharge them.",
+    "success_limit": "At most standalone neutral-sleeve source/discrete/static qualification; never accepted wearable jacket, body-range, moving avatar, finished cuff/lining/material/UV/export/runtime/AAA claim.",
+    "cut_boundary_scope": "The cuff-plane equality belongs required and remains explicit source interface ownership. Any intersection with diagnostic enclosure caps is evaluated as its own cut-boundary/aperture obligation; do not discard it as harmless or infer coverage from centroid classification. If complete boundary inclusion cannot be certified, fullsurface coverage remains UNKNOWN and no static physical-fit acceptance follows.",
+    "nested_enclosures": "Inner enclosure must independently be contained inside outer enclosure with no unowned boundary/material intersections before using outer-envelope exposure reasoning. Positive profile differences alone do not prove nesting."
+  },
+  "first_missing_integration": "An independently authored connected torso/armhole boundary and complete source-relative integration mapping are absent. This is held before any wearable-jacket constructor; source sleeve responsibility may be reviewed without pretending integration exists.",
+  "prohibitions": [
+    "No previous ring-grid/ruled-ring-band/harmonic/WORLD-control transplant",
+    "No source course copied as garment boundary",
+    "No source handedness or phase silently normalised",
+    "No constructor/native/query/body archive decode in this slice"
+  ],
+  "broader_roadmap": "All original collar/zip/facings/guard/pockets/cuff/hem, AAA character/form/skin/hair/expression/wardrobe/representation/rig/morph/motion/materialUV/export/runtime/performance/VTuber/Mii remain open."
+}

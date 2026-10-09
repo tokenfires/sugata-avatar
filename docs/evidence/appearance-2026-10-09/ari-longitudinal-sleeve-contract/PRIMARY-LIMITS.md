@@ -1,0 +1,7 @@
+# Primary design reference: bounded closure
+
+One domain-restricted Firecrawl search returned three excerpts (2credits); the sole selected HTML page returned200/current live fetch(1credit). No PDF/parser/link-follow/purchase/retry/alternative connector occurred. SEARCH/PRIMARY preserve exact tool responses; REFERENCE-RECEIPT preserves request/cost metadata.
+
+The primary [M. Müller & Sohn grading article](https://www.muellerundsohn.com/en/allgemein/grading-different-sleeves/) labels upper and under-sleeve pieces, front/back sleeve seams, elbow-line directions and armhole-notch responsibilities. This supports separating those duties in the new original design. It is a grading excerpt, published May26,2023; the complete article/base block is elsewhere and was not fetched. Image URLs are present in the returned text, but their pixels were not inspected or copied. No numeric increments, pattern coordinates, body dimensions, paid book, drafting formula or fit/geometry equivalence was adopted. All rail/control values and mathematical definitions below are original authoring choices in native units, untested until a fresh constructor scope.
+
+Source inquiry stops here. Extra pages, an image download or another lookup would not establish Ari's missing metric placement/coverage. Preserve the existing original bomber drawing and actual rejected front/oblique images as local visual witnesses.
