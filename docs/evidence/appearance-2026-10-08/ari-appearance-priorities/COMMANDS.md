@@ -1,0 +1,10 @@
+# Source-only priority receipt
+
+- Recovery reads latest WORK-WINDOW receipt first, RESUME-2026-10-08 and current Git; historical Oct6/Oct2/Sep30 recovery already read in this continuing chat. Older pauses are revoked only by Robert's Oct8 resume. No owned native job; last41815 fully collected24340.
+- 3862aa `python3 -`: new PLAN/INPUTS26pins03:58:24.883229UTC, fixed-input source-only brief; 3839ca corrects WORK-WINDOW preparation count27→26 before worth, without changing PLAN/INPUTS. No inquiry or source/native operation.
+- dc8f03 `python3 -`: root wholeWORTH2bindings+26physicalpins04:07:33.529626UTC admits one synthesis. Root original concept/neutralbody/bomber images whole-viewed using view_image; roadmap/checklist and current receipts directly read.
+- f25db8 `python3 -`: authored BRIEF/README after worth, original references unchanged. A relative link typo corrected before handoff, no source/image change.
+- 7feb21 `python3 -`: authored static3reference HTML board, all local link destinations resolve; ROOT-SYNTHESIS04:12:41.481383UTC. 37f598 clarifies external network/nativeprogramme versus allowed local-file/HTML work before final review.
+- CUA creates tab7 for the exact local review URL, reads AX and readonly DOM:3complete original images1536×1024/768×1024/1280×1261,5navigation links/current priority limits. No screenshot, viewport override, browser/GPU/native capture. Marks tab7 and earlier comparison handles deliverable.
+
+No asset hunt/source API/MPFB query/newraw decode/external network/coefficients/geometry/garment/native/build/export/save/default promotion. Input26fingerprints retained; original technical art is not sewing/fit authority. Current question yields wardrobe source-priority nomination only; later source contract must have a finite answerable boundary and change the constructor decision, rather than repeating a responsibility list. Wider AAA goals/frozen trials/defaults/unrelatedwork retained. Existing allowance only/no purchase/reset/model/subscription/install/preferences/push/publish/otherproject.

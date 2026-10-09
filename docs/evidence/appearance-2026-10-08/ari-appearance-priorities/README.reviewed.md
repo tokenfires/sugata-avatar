@@ -1,0 +1,9 @@
+# Ari appearance priorities — source-only decision
+
+A consolidated [brief](BRIEF.md) chooses wardrobe source ownership on the unchanged isolated Ari baseline as the next priority, with the neutral body and unresolved v2 form limitation kept visible. [Reference board](review.html). The alternative is a separately owned new body/form source, with complete correspondence/helper/refit/rest/rig/expression duties; no closed waist recipe or face/hair rescue is reopened.
+
+This slice uses only 26 pinned existing references and original images. Root and critic worth prefer this priority because the concept's clothes contribute visibly to its silhouette and the original bomber sheet supplies concrete authored roles. Neither proves dimensions, manufacturing, fit, contact or motion. Native remains material 0.5/expression 0; 0.75 matte and 0.2 corner responses stay separate studies. No garment, source lookup, asset selection, geometry, coefficient, native/GPU/browser capture, network, build/export/save or promotion occurred.
+
+Current question closes with a priority nomination only. The next bounded question is whether one explicit original-bomber authoring contract can own source identity, topology/material/interior/coverage, body/helper/rig/morph/pose coupling and first-image acceptance before construction. Stop first unowned responsibility before code/geometry. Independent final synthesis review is pending. Wider AAA character/representation/expression/wardrobe/fit/motion/performance/VTuber/Mii goals remain open.
+
+Existing accepted/default/frozen/native/rawGiB/original references/unrelated work remain unchanged. Review server 825 and ACTIVE ten-minute recovery retained; existing allowance only, no purchase/reset/model/subscription/install/preferences/push/publish/otherproject. Exact input fingerprints are in INPUTS.json; synthesis and DOM/AX delivery need no native job or test/build.
