@@ -1,0 +1,68 @@
+{
+  "intent": "Original set-in sleeve registration intent, not dropped-shoulder adaptation or skin cut",
+  "coordinate_frame": "Exact archived evaluated Human Float32 world coordinates; identity source-map body/rig world metadata are references, not rest/evaluated equivalence",
+  "targets_positive_x": {
+    "crown": [
+      0.2,
+      -0.035,
+      1.38
+    ],
+    "front": [
+      0.22,
+      -0.13,
+      1.32
+    ],
+    "underarm": [
+      0.19,
+      -0.045,
+      1.22
+    ],
+    "rear": [
+      0.22,
+      0.055,
+      1.32
+    ]
+  },
+  "other_side": "Mirror target x only, independently select from literal fullsource vertex domain",
+  "selection": "One exact nearest source vertex per artist target, all squared-distance ties within1e-12 included; refuse ifnot exactlyone. No continuous nearest-surface/anatomy claim. Record target, exactsourceID/Float32point, squared minimum/gap, allincidenttriangleIDs and allneighbors. No targets/thresholds changed afterdecode.",
+  "max_target_gap": 0.06,
+  "tie_squared_band": 1e-12,
+  "guards": "Finite exact2sourcearrays/hashes/dtypes/positive triangle areas/fullindexedtriangle domain; eachselectedvertex strictlynamedXside; per-side4IDs distinct; all8IDs distinct; z strictlyabove recordedelbow andbelowrecordedneck; nearest-gap<=.06; firstrefusal stopsno laterroles/native",
+  "roles_fixed_order": [
+    "crown",
+    "front",
+    "underarm",
+    "rear"
+  ],
+  "planned_seam_control_order": [
+    "crown",
+    "front",
+    "underarm",
+    "rear",
+    "crown"
+  ],
+  "planned_original_topology": {
+    "style": "Set-in sleeve attachment, deliberate front opening",
+    "armhole_control_role": "Each4node ordered control loop is an original artist seam-control intent, not an interpolated skin boundary; no surfacepath/garmentmesh follows",
+    "joins": "Each new torso armhole boundary and corresponding independent sleeve root share one original attachment loop; future actualindices/winding/interior must be authored",
+    "source_vertices": "Reference landmarks only, never copied as garment tessellation",
+    "held_before_construction": [
+      "Actualcontinuous seam path/front-back ownership",
+      "Completeoriginal garment sections/ease/coverage",
+      "Cuff/collar/hem/frontopening/facing/guard/pocket/interior boundaries",
+      "Trianglecontact/sourceclearance/solid assumptions",
+      "Rig/morph/pose/motion coupling"
+    ]
+  },
+  "bounds": {
+    "query_seconds": 120,
+    "result_bytes": 1048576,
+    "native_seconds": 240,
+    "native_views": 3,
+    "source_arrays": [
+      "Human_world",
+      "Human_triangles"
+    ]
+  },
+  "artist_gate": "All4 intendedroles must be intelligibly located on the shoulder crown/front transition/underarm connection/rear transition acrossactualfirst3views and source/design witnesses. This is authored registration, not anatomical identity/garmentfit. Refuseunreadable/wrongrole/ambiguousartistassociation; no reassignment/tuning/retake."
+}

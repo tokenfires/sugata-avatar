@@ -1,0 +1,124 @@
+{
+  "utc": "2026-10-09T06:00:17.257411+00:00",
+  "verified": true,
+  "source_query_passed": true,
+  "method": "Full literal rawsource+Gram-area eligibility, independent sum/stable ordering for allnearest/tie/gap decisions, complete triangle incidence/neighbor membership",
+  "anchors": [
+    {
+      "side": "l",
+      "role": "crown",
+      "vertex": 8069,
+      "point": [
+        0.19911052286624908,
+        -0.03420397266745567,
+        1.3697102069854736
+      ],
+      "target_gap": 0.010358796714262562,
+      "incident_triangles": 6,
+      "neighbors": 6,
+      "next_squared_distance_gap": 0.00019335194363141235
+    },
+    {
+      "side": "l",
+      "role": "front",
+      "vertex": 10423,
+      "point": [
+        0.1944185048341751,
+        -0.07922647893428802,
+        1.3146698474884033
+      ],
+      "target_gap": 0.05710318609435293,
+      "incident_triangles": 6,
+      "neighbors": 6,
+      "next_squared_distance_gap": 0.00027864890810124377
+    },
+    {
+      "side": "l",
+      "role": "underarm",
+      "vertex": 8136,
+      "point": [
+        0.172230526804924,
+        -0.03288746997714043,
+        1.2231637239456177
+      ],
+      "target_gap": 0.021736529400740896,
+      "incident_triangles": 6,
+      "neighbors": 6,
+      "next_squared_distance_gap": 8.084645516257558e-05
+    },
+    {
+      "side": "l",
+      "role": "rear",
+      "vertex": 8345,
+      "point": [
+        0.21749451756477356,
+        0.04226454719901085,
+        1.3119617700576782
+      ],
+      "target_gap": 0.015267034449594001,
+      "incident_triangles": 6,
+      "neighbors": 6,
+      "next_squared_distance_gap": 0.00015072585722795785
+    },
+    {
+      "side": "r",
+      "role": "crown",
+      "vertex": 1377,
+      "point": [
+        -0.19911052286624908,
+        -0.03420397266745567,
+        1.3697102069854736
+      ],
+      "target_gap": 0.010358796714262562,
+      "incident_triangles": 6,
+      "neighbors": 6,
+      "next_squared_distance_gap": 0.00019335194363141235
+    },
+    {
+      "side": "r",
+      "role": "front",
+      "vertex": 3756,
+      "point": [
+        -0.1944185048341751,
+        -0.07922647893428802,
+        1.3146698474884033
+      ],
+      "target_gap": 0.05710318609435293,
+      "incident_triangles": 6,
+      "neighbors": 6,
+      "next_squared_distance_gap": 0.00027864890810124377
+    },
+    {
+      "side": "r",
+      "role": "underarm",
+      "vertex": 1448,
+      "point": [
+        -0.172230526804924,
+        -0.03288746997714043,
+        1.2231637239456177
+      ],
+      "target_gap": 0.021736529400740896,
+      "incident_triangles": 6,
+      "neighbors": 6,
+      "next_squared_distance_gap": 8.084645516257558e-05
+    },
+    {
+      "side": "r",
+      "role": "rear",
+      "vertex": 1673,
+      "point": [
+        -0.21749451756477356,
+        0.04226454719901085,
+        1.3119617700576782
+      ],
+      "target_gap": 0.015267034449594001,
+      "incident_triangles": 6,
+      "neighbors": 6,
+      "next_squared_distance_gap": 0.00015072585722795785
+    }
+  ],
+  "artist_role": "PENDING actual point atlas",
+  "continuous_seam_path": "UNAUTHORED_REQUIRED",
+  "garment_geometry": false,
+  "physical_clearance_fit_motion": "UNKNOWN"
+}

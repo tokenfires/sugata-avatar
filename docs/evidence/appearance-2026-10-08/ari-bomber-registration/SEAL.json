@@ -1,0 +1,249 @@
+{
+  "utc": "2026-10-09T06:24:44.172847+00:00",
+  "payloads": [
+    {
+      "file": "ATLAS-CONTRACT.json",
+      "bytes": 919,
+      "sha256": "1f2c0abfc2ab96509c3ab1e02bbdf7f915029375d3b972caf491b86d650ee38c",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ATLAS-JOB-start.json",
+      "bytes": 523,
+      "sha256": "a5b4178cd99b0ca2e3c2ea558f4dda1ce3ae686cb41fe3f60e2d37449a8c0586",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ATLAS-JOB.json",
+      "bytes": 748,
+      "sha256": "ae7104565842422ab8d8b118cb4f74a1704bd5f5165d60c164742a67bfc4e43d",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ATLAS-PREFLIGHT.md",
+      "bytes": 5275,
+      "sha256": "0931d0908b3baa301865ea4343e126ad74089d2e860c0363b609d3c6b0cde0f0",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ATLAS-RESULT.json",
+      "bytes": 21473,
+      "sha256": "eb47dc691091a6675ac20456824f236be1e3aaafeaf1d3ebf3fd4036af07af66",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ATLAS-REVIEW.md",
+      "bytes": 7259,
+      "sha256": "b654dfc7f172080afc15581ece33c0a3f74fd5ef7656714589059388c44603f9",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "EXEC-ATLAS.json",
+      "bytes": 7490,
+      "sha256": "ac6f6ea5a13c825b2796f1a372ffb3cc18522ce0b289f2dd94a99f9ae38967d5",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "EXEC-QUERY.json",
+      "bytes": 5277,
+      "sha256": "945b2c89a1d94003716be7161ae1fc54270093dfe437c364410b62f63ba05447",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "INPUTS.json",
+      "bytes": 3298,
+      "sha256": "f678421495fa00273509d7c1e73fbb181f1bdd838f068965e2174e1f20fab546",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "JOB-start.json",
+      "bytes": 399,
+      "sha256": "887f70c261664c9462f2d63bef0385c59c66ebda7d3ec9ae971fafbf11a58a6f",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "JOB.json",
+      "bytes": 512,
+      "sha256": "cc8a4bf7503518706ed5840166253ceeb39a950cf8280ce3bd1a7b219fa86b6d",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "LAUNCH-GUARD-CORRECTION.md",
+      "bytes": 488,
+      "sha256": "1ee4e946ea292a75f58cea6b22fa014d3963db59bb0d67111aaae650b955de40",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 5721,
+      "sha256": "c15dff92bfd2e695f95a3602c0ff59e2912e5f86b570b9f10bb8b758ad34ac16",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "POLICY.json",
+      "bytes": 2946,
+      "sha256": "b4a67b8ff200d5792809b0d9c38282ab2a5f20ea55689154d1ceb9b5842f0666",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "QUERY-PREFLIGHT.md",
+      "bytes": 4741,
+      "sha256": "946d9407ab4a2cbe8bd495e0f7c40ad09d6197fdfb93b0589a47dc88ce87d886",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "README.md",
+      "bytes": 7815,
+      "sha256": "7c875a4c4ccaba9c6ffb236530008db0556c96aafe441fa30630bccd621592b7",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "RESULT.json",
+      "bytes": 43433,
+      "sha256": "4aec91c5bc3498b419a0e2c073dc77dbe2191eb5226830c501af79d35f2da792",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-ATLAS-PREFLIGHT.json",
+      "bytes": 582,
+      "sha256": "10ad0078e62b6f4f17f95443877a5006703ee53421b1f5dabe9f56f1a1daa820",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-ATLAS-RESULT.json",
+      "bytes": 2275,
+      "sha256": "912741d5b9c3aa249f3abcf659fd22cb2c498ef22aedba65b9939c9eec454537",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-ATLAS-REVIEW.json",
+      "bytes": 597,
+      "sha256": "40e2fe94dd7c78fadb23ec294ef14281ec24a8c26820f72ce1a58af157795f4f",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-DELIVERY.json",
+      "bytes": 442,
+      "sha256": "2bb889f0a222d3f5363562513e9f93351bda457ad870d524e7fcc604cc8cb12e",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-QUERY-PREFLIGHT.json",
+      "bytes": 366,
+      "sha256": "3c73a495d1c7182f40cdfbeeca759eb88c61434e9852e97c4474a41b4000f453",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-RESULT.json",
+      "bytes": 3197,
+      "sha256": "a867109837dc6cce2164e6edf4f57f957d2cab8b171aef2316d75fa14d3fd8bd",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-SOURCE-REVIEW.json",
+      "bytes": 472,
+      "sha256": "24609ae6e956b28f19f8aef7362fcb4195b3bf16e0a82277f855861d179ad4ad",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-WORTH.json",
+      "bytes": 291,
+      "sha256": "dc0063cd609f2efb3a82f6b620790e624acb840dfe7822a07c228c582f1dca61",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "SOURCE-REGISTRATION.json",
+      "bytes": 43371,
+      "sha256": "67efca7caf529572fc104deaa17de238f28454e129c47bf7d64d11407bad6e8a",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "SOURCE-RESULT-REVIEW.md",
+      "bytes": 5066,
+      "sha256": "a7d5b28a39b606e2cfa72c9766028b959dcf205ecd656b857b8effee83e64b26",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "WORTH.md",
+      "bytes": 4624,
+      "sha256": "b18528b18b1ea31b91c2c659607b2caf03519d53a27c57fdc37c896c8a832e9f",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "atlas-front-left.png",
+      "bytes": 418720,
+      "sha256": "20af99c24f5995bf011b8f297fed386d219791d7192b9d0af4544085a95cbd20",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "atlas-front.png",
+      "bytes": 413597,
+      "sha256": "feebeffe52b410e2b0b64e1073ca2dc292e59e296ab357dc719613e4ca26cbea",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "atlas-rear.png",
+      "bytes": 421979,
+      "sha256": "9bc5b7317d2a838a656f8859cb227e92a344ba5cecb755653b12a3c4fa9c7799",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "atlas.log",
+      "bytes": 1527,
+      "sha256": "62589335f7715d15e50926f3f79d06d35675686c2a1c7a72674b2d782b03ddb0",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "atlas.py",
+      "bytes": 14170,
+      "sha256": "16be3b020fba372c858ec07084a7693bd43916d152e1b8a6182c34117951d4bd",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "query.log",
+      "bytes": 98,
+      "sha256": "7fd6401ebe5fea409dc727414ced508b1a02f1f654a9490c0193f73315e0df31",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "register.py",
+      "bytes": 5291,
+      "sha256": "e9b747a265d31105f29cf65ce3745c9581e309afa53dd95b993d60402fef2613",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "review.html",
+      "bytes": 3892,
+      "sha256": "4cded5429e63bde31a7c3e5cc20d115251c7021f74ba087575288d231db3db6b",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "run_atlas.py",
+      "bytes": 2429,
+      "sha256": "3c26f2186e9c187005ef176d98bdb21aa7feee1121f45ec9dcc3ea3943137c49",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "run_query.py",
+      "bytes": 2177,
+      "sha256": "5d880fe314d32c3791c075be8de9a4b0c4cbe85e176cf93c3617e4d0dbd752a5",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "verify_atlas.py",
+      "bytes": 6278,
+      "sha256": "1a45728a39b482fb6580dd72e6c586fe9be481acc0caf42e4710d508ce9ae094",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "verify_result.py",
+      "bytes": 3969,
+      "sha256": "6fc50550764e65423e9a9df1dd05731118db05632871e9b3310fc7acfcecba69",
+      "physical_mode": "0444"
+    }
+  ],
+  "decision": "Retain8source-linkedartistdraftrefs+3originalpointatlases; exactfold/continuousseam/armhole/fitheld",
+  "owned_jobs": "Solequery52334/soleatlas53200fullycollected",
+  "current_recipe": "CLOSED no target/display/camera/threshold retake",
+  "next_action": "Finiteoriginalcontinuousattachmentpath/sections/templatecontract"
+}

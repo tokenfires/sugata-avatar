@@ -1,0 +1,23 @@
+# Worth: authored set-in registration
+
+**Conditional YES to this finite authoring choice and source association.** Eight fixed artist targets plus an ordered shoulder-crown/front/underarm/rear attachment intent can change the next template decision, unlike more graph-band investigation. Separate query preflight is required; numeric success must not automatically admit the point atlas or garment construction.
+
+Read complete current PLAN,14-row INPUTS and POLICY before code/archive directory or decoding. Whole three original charts and bomber JPEG were independently viewed in the preceding closed review. Front/oblique/rear show the old loops across upper-arm bands, leaving the shoulder caps/underarm connectiongray; colored hands and gray crossing triangles are graph scope, not sleeve coverage. That actual witness refused the intended armhole role while retaining diagnostics. The bomber sheet supplies collar/opening/sleeve/cuff/hem vocabulary but is unitless/unregistered and omits full lining/fit authority. No new images or source inquiry here.
+
+The new targets deliberately move from a distance-field boundary to **authored registration landmarks and attachment intent**. Coordinates0.20/0.22/0.19 in positiveX and the fixedY/Z values are proposals in the known source frame, not anatomy inferred from joint names, image measurements, seams already represented in skin or calibrated clothing dimensions. Mirrored targets must select each side independently; source symmetry is not assumed to prove identical associations. One nearest literal vertex/all numeric ties, gap≤0.06, same-side and elbow/neck bounds, complete incidence/neighbors and distinct8IDs can refuse an unsuitable nomination. These checks cannot establish artist role or continuous surface registration.
+
+**A, preferred:** own those eight exact source references and the new set-in attachment graph. It supplies concrete original choices for later independent torso/sleeve authorship, with actual first point-atlas views deciding whether crown/front/underarm/rear roles are intelligibly proximal. Cost: continuous seam/front-back ownership, sections/ease/cuff/collar/hem/opening/interior/coverage/contact and rig/morph/pose duties still need complete authorship. The crown→front→underarm→rear control order is an intent graph; straight chords are not a surface boundary. Do not promote successful point identities into an armhole or fitted sleeve.
+
+**B:** directly author an original jacket asset/topology with separately explicit landmark registration. It gives freer silhouette and can move to garment form sooner, but costs the same actual source coupling and interior/contact responsibilities; unregistered geometry cannot claim fitted placement. Neither route licenses body cuts, old foundation authority or a reprise of the closed graph/plane/offset recipes.
+
+A useful completed result retains the frozen original seam intent and actual source ID/point/tie/gap/incidence witnesses, or the first refused role. A successful atlas must show actual role placement, not merely brighter marker readability. One point-atlas can answer that visual question after a separate worth/source review; fixed0.005 intersecting octahedra are display-only, not clearance. Omitting auxiliaries/rig/skin/jacket is explicit; no native Ari appearance or motion claim. First ambiguity/wrong-role/gap/visibility failure ends the nomination without reassignment, target/display/camera tuning or retake.
+
+If retained, this registration should lead to actual original continuous-path/section/template authorship with the remaining construction duties, not another generic landmark inventory. If the association cannot be owned, stop before construction with its specific missing responsibility. All original body/bare controls, design/reference bytes, historical refusals and wider AAA goals remain intact.
+
+| Complete reviewed file | Bytes | SHA256 |
+| --- | ---: | --- |
+| PLAN.md | 5721 | `c15dff92bfd2e695f95a3602c0ff59e2912e5f86b570b9f10bb8b758ad34ac16` |
+| POLICY.json | 2946 | `b4a67b8ff200d5792809b0d9c38282ab2a5f20ea55689154d1ceb9b5842f0666` |
+| INPUTS.json | 3298 | `f678421495fa00273509d7c1e73fbb181f1bdd838f068965e2174e1f20fab546` |
+
+INPUTS identities were read as the proposed manifest, not physically rehashed in this worth turn. Root owns full pin readback, source programme and sole query/conditional native atlas. No code/array decode/query/native/GPU/browser/network/capture or garment geometry by this critic. First refusal or06:40UTC stops; no construction/new operation admitted. Stable handoff; filesystem save time is authoritative.

@@ -1,0 +1,24 @@
+{
+  "utc_started": "2026-10-09T06:12:20.602312+00:00",
+  "wrapper_pid": 53197,
+  "command": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--factory-startup",
+    "--offline-mode",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-registration/atlas.py"
+  ],
+  "allocated_timeout_seconds": 240,
+  "deadline_utc": "2026-10-09T06:40:00+00:00",
+  "native_pid": 53200,
+  "owned_process_group": 53200,
+  "utc_finished": "2026-10-09T06:12:27.280936+00:00",
+  "exit_code": 0,
+  "timed_out": false,
+  "log_bytes": 1527,
+  "log_sha256": "62589335f7715d15e50926f3f79d06d35675686c2a1c7a72674b2d782b03ddb0",
+  "log_truncated": false
+}

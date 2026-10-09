@@ -1,0 +1,11 @@
+/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-registration/atlas.py:21: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name);m.use_nodes=True;n=m.node_tree.nodes['Principled BSDF'];n.inputs['Base Color'].default_value=(*color,1);n.inputs['Roughness'].default_value=1;n.inputs['Metallic'].default_value=0;n.inputs['Specular IOR Level'].default_value=0;return m
+/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-registration/atlas.py:63: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  target=(world.min(axis=0).astype(float)+world.max(axis=0).astype(float))/2;wo=bpy.data.worlds.new('RegistrationWorld');wo.use_nodes=True;wo.node_tree.nodes['Background'].inputs['Color'].default_value=(.2,.2,.2,1);wo.node_tree.nodes['Background'].inputs['Strength'].default_value=.4;scene.world=wo
+00:02.792  render           | Saved: '/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-registration/atlas-front.png'
+00:04.050  render           | Saved: '/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-registration/atlas-front-left.png'
+00:05.318  render           | Saved: '/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-registration/atlas-rear.png'
+{"passed": true, "outputs": 3, "error": null}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:49:19)
+
+Blender quit

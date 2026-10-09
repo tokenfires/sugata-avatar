@@ -1,0 +1,51 @@
+{
+  "body_color": [
+    0.42,
+    0.42,
+    0.42
+  ],
+  "role_colors": {
+    "crown": [
+      0.03,
+      0.3,
+      0.8
+    ],
+    "front": [
+      0.8,
+      0.35,
+      0.03
+    ],
+    "underarm": [
+      0.65,
+      0.03,
+      0.25
+    ],
+    "rear": [
+      0.03,
+      0.5,
+      0.15
+    ]
+  },
+  "marker_radius": 0.005,
+  "marker_shape": "source-centered6vertex8triangle octahedron; deliberate skin intersection, displayonly",
+  "view_directions": {
+    "front": [
+      0,
+      -1,
+      0
+    ],
+    "front-left": [
+      1,
+      -1,
+      0
+    ],
+    "rear": [
+      0,
+      1,
+      0
+    ]
+  },
+  "pad_each_side": 0.04,
+  "question": "Do fixed8 source points intelligibly locate authoredcrown/front/underarm/rear roles? No continuoussurface seam/fit",
+  "scope": "Freshfactory exactHuman sourcebodyonly, auxiliaries/rig/materiallook/garment omitted; onefirst3viewCPU atlas240s/hard06:40, no retake"
+}
