@@ -1,0 +1,1766 @@
+{
+  "world_rna": {
+    "name": "SugataSharedWorld",
+    "use_fake_user": false,
+    "use_extra_user": false,
+    "is_runtime_data": false,
+    "tag": false,
+    "use_eevee_finite_volume": false,
+    "color": [
+      0.05000000074505806,
+      0.05000000074505806,
+      0.05000000074505806
+    ],
+    "use_nodes": true,
+    "lightgroup": "",
+    "probe_resolution": "1024",
+    "sun_threshold": 10.0,
+    "sun_angle": 0.009180432185530663,
+    "use_sun_shadow": true,
+    "sun_shadow_maximum_resolution": 0.0010000000474974513,
+    "sun_shadow_filter_radius": 1.0,
+    "use_sun_shadow_jitter": false,
+    "sun_shadow_jitter_overblur": 10.0
+  },
+  "background": {
+    "color": [
+      0.20000000298023224,
+      0.20000000298023224,
+      0.20000000298023224,
+      1.0
+    ],
+    "strength": 0.4000000059604645
+  },
+  "objects": {
+    "SugataKey": {
+      "rna": {
+        "name": "SugataKey",
+        "use_fake_user": false,
+        "use_extra_user": false,
+        "is_runtime_data": false,
+        "tag": false,
+        "parent_type": "OBJECT",
+        "parent_vertices": [
+          0,
+          0,
+          0
+        ],
+        "parent_bone": "",
+        "parent_bone_head_tail_factor": 1.0,
+        "use_parent_final_indices": false,
+        "use_camera_lock_parent": false,
+        "track_axis": "NEG_Z",
+        "up_axis": "Y",
+        "active_material_index": 0,
+        "location": [
+          -3.0,
+          -4.0,
+          4.0
+        ],
+        "rotation_quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_axis_angle": [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "rotation_euler": [
+          0.9973532557487488,
+          -2.033406509838187e-08,
+          -0.6575095057487488
+        ],
+        "rotation_mode": "XYZ",
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "dimensions": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "delta_location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "delta_rotation_euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "delta_rotation_quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "delta_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "lock_location": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": true,
+        "lock_scale": [
+          false,
+          false,
+          false
+        ],
+        "matrix_world": [
+          [
+            0.7915167212486267,
+            0.331564337015152,
+            -0.513387143611908,
+            -3.0
+          ],
+          [
+            -0.6111474633216858,
+            0.4294196665287018,
+            -0.6649041175842285,
+            -4.0
+          ],
+          [
+            2.033406509838187e-08,
+            0.840038001537323,
+            0.5425275564193726,
+            4.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "matrix_local": [
+          [
+            0.7915167212486267,
+            0.331564337015152,
+            -0.513387143611908,
+            -3.0
+          ],
+          [
+            -0.6111474633216858,
+            0.4294196665287018,
+            -0.6649041175842285,
+            -4.0
+          ],
+          [
+            2.033406509838187e-08,
+            0.840038001537323,
+            0.5425275564193726,
+            4.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "matrix_basis": [
+          [
+            0.7915167212486267,
+            0.331564337015152,
+            -0.513387143611908,
+            -3.0
+          ],
+          [
+            -0.6111474633216858,
+            0.4294196665287018,
+            -0.6649041175842285,
+            -4.0
+          ],
+          [
+            2.033406509838187e-08,
+            0.840038001537323,
+            0.5425275564193726,
+            4.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "matrix_parent_inverse": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "empty_display_type": "PLAIN_AXES",
+        "empty_display_size": 1.0,
+        "empty_image_offset": [
+          0.0,
+          0.0
+        ],
+        "empty_image_depth": "DEFAULT",
+        "show_empty_image_perspective": true,
+        "show_empty_image_orthographic": true,
+        "show_empty_image_only_axis_aligned": false,
+        "use_empty_image_alpha": false,
+        "empty_image_side": "DOUBLE_SIDED",
+        "add_rest_position_attribute": false,
+        "pass_index": 0,
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "use_simulation_cache": true,
+        "hide_viewport": false,
+        "hide_select": false,
+        "hide_render": false,
+        "hide_probe_volume": false,
+        "hide_probe_sphere": false,
+        "hide_probe_plane": false,
+        "hide_surface_pick": false,
+        "show_instancer_for_render": true,
+        "show_instancer_for_viewport": true,
+        "visible_camera": false,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true,
+        "visible_shadow": true,
+        "is_holdout": false,
+        "is_shadow_catcher": true,
+        "visible_raycast": true,
+        "instance_type": "NONE",
+        "use_instance_vertices_rotation": false,
+        "use_instance_faces_scale": false,
+        "instance_faces_scale": 1.0,
+        "display_type": "TEXTURED",
+        "show_bounds": false,
+        "display_bounds_type": "BOX",
+        "show_name": false,
+        "show_axis": false,
+        "show_texture_space": false,
+        "show_wire": false,
+        "show_all_edges": false,
+        "use_grease_pencil_lights": false,
+        "show_transparent": false,
+        "show_in_front": false,
+        "show_only_shape_key": false,
+        "use_shape_key_edit_mode": false,
+        "active_shape_key_index": 0,
+        "use_mesh_mirror_x": false,
+        "use_mesh_mirror_y": false,
+        "use_mesh_mirror_z": false,
+        "lightgroup": "",
+        "shadow_terminator_normal_offset": 0.0,
+        "shadow_terminator_geometry_offset": 0.10000000149011612,
+        "shadow_terminator_shading_offset": 0.0,
+        "active_selection_set": 0,
+        "MPFB_GEN_alternative_material": "",
+        "MPFB_GEN_object_type": "",
+        "MhObjectType": "",
+        "MPFB_GEN_uuid": "",
+        "MPFB_GEN_asset_source": "",
+        "MPFB_GEN_scale_factor": 1.0,
+        "MhScaleFactor": 1.0,
+        "MPFB_HUM_asian": 0.33000001311302185,
+        "MPFB_HUM_muscle": 0.5,
+        "MPFB_HUM_proportions": 0.5,
+        "MPFB_HUM_cupsize": 0.5,
+        "MPFB_HUM_weight": 0.5,
+        "MPFB_HUM_caucasian": 0.33000001311302185,
+        "MPFB_HUM_gender": 0.5,
+        "MPFB_HUM_african": 0.33000001311302185,
+        "MPFB_HUM_firmness": 0.5,
+        "MPFB_HUM_height": 0.5,
+        "MPFB_HUM_material_source": "",
+        "MPFB_HUM_is_human_project": false,
+        "MPFB_HUM_age": 0.5,
+        "MPFB_HAI_other_assets": "basic_lashes_upper",
+        "MPFB_HAI_facial_assets": "wild_beard",
+        "MPFB_HAI_fur_assets": "fur_mane",
+        "MPFB_HAI_eyebrow_assets": "wild_eyebrow",
+        "MPFB_HAI_hair_assets": "basic_short_hair",
+        "MPFB_MS_transparent": false,
+        "MhMsTransparent": false,
+        "MPFB_MS_wireframe": false,
+        "MhMsWireframe": false,
+        "MPFB_MS_sss_enable": false,
+        "MhMsSSSEnable": false,
+        "sssEnabled": false,
+        "MPFB_MS_use_litsphere": true,
+        "MhMsUseLit": true,
+        "MPFB_MS_write_blend_material": false,
+        "MPFB_MS_shadeless": false,
+        "MhMsShadeless": false,
+        "MPFB_MS_name": "new_material",
+        "MhMsName": "new_material",
+        "MPFB_MS_auto_blend": false,
+        "autoBlendSkin": false,
+        "MhMsAutoBlend": false,
+        "MPFB_MS_description": "",
+        "MhMsDescription": "",
+        "MPFB_MS_author": "",
+        "MhMsAuthor": "",
+        "MPFB_MS_litsphere": "lit_leather",
+        "MhMsLitsphere": "lit_leather",
+        "litsphereTexture": "lit_leather",
+        "MPFB_MS_receive_shadows": true,
+        "receiveShadows": true,
+        "MhMsReceiveShadows": true,
+        "MPFB_MS_cast_shadows": true,
+        "castShadows": true,
+        "MhMsCastShadows": true,
+        "MPFB_MS_license": "CC0",
+        "MhMsMatLicense": "CC0",
+        "MPFB_MS_alpha_to_coverage": true,
+        "alphaToCoverage": true,
+        "MhMsAlphaToCoverage": true,
+        "MPFB_MS_tag": "",
+        "MhMsTag": "",
+        "MPFB_MS_homepage": "",
+        "MhMsHomepage": "",
+        "MPFB_MS_textures": "NORMALIZE",
+        "MPFB_MS_depthless": false,
+        "MhMsDepthless": false,
+        "MPFB_MS_backface_culling": true,
+        "backfaceCull": true,
+        "MhMsBackfaceCull": true,
+        "MPFB_MT_name": "PrimaryTarget",
+        "MhPrimaryTargetName": "PrimaryTarget",
+        "MPFB_MC_name": "new_clothes",
+        "MhClothesName": "new_clothes",
+        "MPFB_MC_description": "",
+        "MhClothesDesc": "",
+        "MPFB_MC_author": "",
+        "MhClothesAuthor": "",
+        "MPFB_MC_username": "anonymous",
+        "MPFB_MC_license": "CC0",
+        "MhClothesLicense": "CC0",
+        "MPFB_MC_tag": "",
+        "MhClothesTags": "",
+        "MPFB_MC_uuid": "",
+        "MhClothesUUID": "",
+        "MPFB_MC_delete_group": "Delete",
+        "MhDeleteGroup": "Delete",
+        "MPFB_MC_homepage": "",
+        "MhMcHomepage": "",
+        "MPFB_MC_z_depth": 50,
+        "MhZDepth": 50,
+        "MPFB_rh_eye_mode": "",
+        "MPFB_rh_finger_mode": "",
+        "MPFB_rh_leg_mode": "",
+        "MPFB_rh_arm_mode": ""
+      },
+      "matrix_world": [
+        [
+          0.7915167212486267,
+          0.331564337015152,
+          -0.513387143611908,
+          -3.0
+        ],
+        [
+          -0.6111474633216858,
+          0.4294196665287018,
+          -0.6649041175842285,
+          -4.0
+        ],
+        [
+          2.033406509838187e-08,
+          0.840038001537323,
+          0.5425275564193726,
+          4.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "data": {
+        "name": "SugataKey",
+        "use_fake_user": false,
+        "use_extra_user": false,
+        "is_runtime_data": false,
+        "tag": false,
+        "type": "AREA",
+        "use_temperature": false,
+        "color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "temperature": 6500.0,
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "transmission_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_custom_distance": false,
+        "cutoff_distance": 40.0,
+        "use_shadow": true,
+        "exposure": 0.0,
+        "normalize": true,
+        "use_nodes": true,
+        "energy": 700.0,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 1.0,
+        "shadow_maximum_resolution": 0.0010000000474974513,
+        "use_shadow_jitter": false,
+        "shadow_jitter_overblur": 10.0,
+        "use_absolute_resolution": false,
+        "shape": "DISK",
+        "size": 4.0,
+        "size_y": 0.25,
+        "spread": 3.1415927410125732
+      }
+    },
+    "SugataFill": {
+      "rna": {
+        "name": "SugataFill",
+        "use_fake_user": false,
+        "use_extra_user": false,
+        "is_runtime_data": false,
+        "tag": false,
+        "parent_type": "OBJECT",
+        "parent_vertices": [
+          0,
+          0,
+          0
+        ],
+        "parent_bone": "",
+        "parent_bone_head_tail_factor": 1.0,
+        "use_parent_final_indices": false,
+        "use_camera_lock_parent": false,
+        "track_axis": "NEG_Z",
+        "up_axis": "Y",
+        "active_material_index": 0,
+        "location": [
+          3.0,
+          -2.0,
+          3.0
+        ],
+        "rotation_quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_axis_angle": [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "rotation_euler": [
+          1.0212292671203613,
+          -1.0056505850286612e-08,
+          1.0097088813781738
+        ],
+        "rotation_mode": "XYZ",
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "dimensions": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "delta_location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "delta_rotation_euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "delta_rotation_quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "delta_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "lock_location": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": true,
+        "lock_scale": [
+          false,
+          false,
+          false
+        ],
+        "matrix_world": [
+          [
+            0.5321072340011597,
+            -0.44223469495773315,
+            0.7220044136047363,
+            3.0
+          ],
+          [
+            0.8466769456863403,
+            0.2779292166233063,
+            -0.45375484228134155,
+            -2.0
+          ],
+          [
+            1.0056505850286612e-08,
+            0.8527507185935974,
+            0.5223180651664734,
+            3.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "matrix_local": [
+          [
+            0.5321072340011597,
+            -0.44223469495773315,
+            0.7220044136047363,
+            3.0
+          ],
+          [
+            0.8466769456863403,
+            0.2779292166233063,
+            -0.45375484228134155,
+            -2.0
+          ],
+          [
+            1.0056505850286612e-08,
+            0.8527507185935974,
+            0.5223180651664734,
+            3.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "matrix_basis": [
+          [
+            0.5321072340011597,
+            -0.44223469495773315,
+            0.7220044136047363,
+            3.0
+          ],
+          [
+            0.8466769456863403,
+            0.2779292166233063,
+            -0.45375484228134155,
+            -2.0
+          ],
+          [
+            1.0056505850286612e-08,
+            0.8527507185935974,
+            0.5223180651664734,
+            3.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "matrix_parent_inverse": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "empty_display_type": "PLAIN_AXES",
+        "empty_display_size": 1.0,
+        "empty_image_offset": [
+          0.0,
+          0.0
+        ],
+        "empty_image_depth": "DEFAULT",
+        "show_empty_image_perspective": true,
+        "show_empty_image_orthographic": true,
+        "show_empty_image_only_axis_aligned": false,
+        "use_empty_image_alpha": false,
+        "empty_image_side": "DOUBLE_SIDED",
+        "add_rest_position_attribute": false,
+        "pass_index": 0,
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "use_simulation_cache": true,
+        "hide_viewport": false,
+        "hide_select": false,
+        "hide_render": false,
+        "hide_probe_volume": false,
+        "hide_probe_sphere": false,
+        "hide_probe_plane": false,
+        "hide_surface_pick": false,
+        "show_instancer_for_render": true,
+        "show_instancer_for_viewport": true,
+        "visible_camera": false,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true,
+        "visible_shadow": true,
+        "is_holdout": false,
+        "is_shadow_catcher": true,
+        "visible_raycast": true,
+        "instance_type": "NONE",
+        "use_instance_vertices_rotation": false,
+        "use_instance_faces_scale": false,
+        "instance_faces_scale": 1.0,
+        "display_type": "TEXTURED",
+        "show_bounds": false,
+        "display_bounds_type": "BOX",
+        "show_name": false,
+        "show_axis": false,
+        "show_texture_space": false,
+        "show_wire": false,
+        "show_all_edges": false,
+        "use_grease_pencil_lights": false,
+        "show_transparent": false,
+        "show_in_front": false,
+        "show_only_shape_key": false,
+        "use_shape_key_edit_mode": false,
+        "active_shape_key_index": 0,
+        "use_mesh_mirror_x": false,
+        "use_mesh_mirror_y": false,
+        "use_mesh_mirror_z": false,
+        "lightgroup": "",
+        "shadow_terminator_normal_offset": 0.0,
+        "shadow_terminator_geometry_offset": 0.10000000149011612,
+        "shadow_terminator_shading_offset": 0.0,
+        "active_selection_set": 0,
+        "MPFB_GEN_alternative_material": "",
+        "MPFB_GEN_object_type": "",
+        "MhObjectType": "",
+        "MPFB_GEN_uuid": "",
+        "MPFB_GEN_asset_source": "",
+        "MPFB_GEN_scale_factor": 1.0,
+        "MhScaleFactor": 1.0,
+        "MPFB_HUM_asian": 0.33000001311302185,
+        "MPFB_HUM_muscle": 0.5,
+        "MPFB_HUM_proportions": 0.5,
+        "MPFB_HUM_cupsize": 0.5,
+        "MPFB_HUM_weight": 0.5,
+        "MPFB_HUM_caucasian": 0.33000001311302185,
+        "MPFB_HUM_gender": 0.5,
+        "MPFB_HUM_african": 0.33000001311302185,
+        "MPFB_HUM_firmness": 0.5,
+        "MPFB_HUM_height": 0.5,
+        "MPFB_HUM_material_source": "",
+        "MPFB_HUM_is_human_project": false,
+        "MPFB_HUM_age": 0.5,
+        "MPFB_HAI_other_assets": "basic_lashes_upper",
+        "MPFB_HAI_facial_assets": "wild_beard",
+        "MPFB_HAI_fur_assets": "fur_mane",
+        "MPFB_HAI_eyebrow_assets": "wild_eyebrow",
+        "MPFB_HAI_hair_assets": "basic_short_hair",
+        "MPFB_MS_transparent": false,
+        "MhMsTransparent": false,
+        "MPFB_MS_wireframe": false,
+        "MhMsWireframe": false,
+        "MPFB_MS_sss_enable": false,
+        "MhMsSSSEnable": false,
+        "sssEnabled": false,
+        "MPFB_MS_use_litsphere": true,
+        "MhMsUseLit": true,
+        "MPFB_MS_write_blend_material": false,
+        "MPFB_MS_shadeless": false,
+        "MhMsShadeless": false,
+        "MPFB_MS_name": "new_material",
+        "MhMsName": "new_material",
+        "MPFB_MS_auto_blend": false,
+        "autoBlendSkin": false,
+        "MhMsAutoBlend": false,
+        "MPFB_MS_description": "",
+        "MhMsDescription": "",
+        "MPFB_MS_author": "",
+        "MhMsAuthor": "",
+        "MPFB_MS_litsphere": "lit_leather",
+        "MhMsLitsphere": "lit_leather",
+        "litsphereTexture": "lit_leather",
+        "MPFB_MS_receive_shadows": true,
+        "receiveShadows": true,
+        "MhMsReceiveShadows": true,
+        "MPFB_MS_cast_shadows": true,
+        "castShadows": true,
+        "MhMsCastShadows": true,
+        "MPFB_MS_license": "CC0",
+        "MhMsMatLicense": "CC0",
+        "MPFB_MS_alpha_to_coverage": true,
+        "alphaToCoverage": true,
+        "MhMsAlphaToCoverage": true,
+        "MPFB_MS_tag": "",
+        "MhMsTag": "",
+        "MPFB_MS_homepage": "",
+        "MhMsHomepage": "",
+        "MPFB_MS_textures": "NORMALIZE",
+        "MPFB_MS_depthless": false,
+        "MhMsDepthless": false,
+        "MPFB_MS_backface_culling": true,
+        "backfaceCull": true,
+        "MhMsBackfaceCull": true,
+        "MPFB_MT_name": "PrimaryTarget",
+        "MhPrimaryTargetName": "PrimaryTarget",
+        "MPFB_MC_name": "new_clothes",
+        "MhClothesName": "new_clothes",
+        "MPFB_MC_description": "",
+        "MhClothesDesc": "",
+        "MPFB_MC_author": "",
+        "MhClothesAuthor": "",
+        "MPFB_MC_username": "anonymous",
+        "MPFB_MC_license": "CC0",
+        "MhClothesLicense": "CC0",
+        "MPFB_MC_tag": "",
+        "MhClothesTags": "",
+        "MPFB_MC_uuid": "",
+        "MhClothesUUID": "",
+        "MPFB_MC_delete_group": "Delete",
+        "MhDeleteGroup": "Delete",
+        "MPFB_MC_homepage": "",
+        "MhMcHomepage": "",
+        "MPFB_MC_z_depth": 50,
+        "MhZDepth": 50,
+        "MPFB_rh_eye_mode": "",
+        "MPFB_rh_finger_mode": "",
+        "MPFB_rh_leg_mode": "",
+        "MPFB_rh_arm_mode": ""
+      },
+      "matrix_world": [
+        [
+          0.5321072340011597,
+          -0.44223469495773315,
+          0.7220044136047363,
+          3.0
+        ],
+        [
+          0.8466769456863403,
+          0.2779292166233063,
+          -0.45375484228134155,
+          -2.0
+        ],
+        [
+          1.0056505850286612e-08,
+          0.8527507185935974,
+          0.5223180651664734,
+          3.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "data": {
+        "name": "SugataFill",
+        "use_fake_user": false,
+        "use_extra_user": false,
+        "is_runtime_data": false,
+        "tag": false,
+        "type": "AREA",
+        "use_temperature": false,
+        "color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "temperature": 6500.0,
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "transmission_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_custom_distance": false,
+        "cutoff_distance": 40.0,
+        "use_shadow": true,
+        "exposure": 0.0,
+        "normalize": true,
+        "use_nodes": true,
+        "energy": 450.0,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 1.0,
+        "shadow_maximum_resolution": 0.0010000000474974513,
+        "use_shadow_jitter": false,
+        "shadow_jitter_overblur": 10.0,
+        "use_absolute_resolution": false,
+        "shape": "DISK",
+        "size": 4.0,
+        "size_y": 0.25,
+        "spread": 3.1415927410125732
+      }
+    },
+    "SugataRear": {
+      "rna": {
+        "name": "SugataRear",
+        "use_fake_user": false,
+        "use_extra_user": false,
+        "is_runtime_data": false,
+        "tag": false,
+        "parent_type": "OBJECT",
+        "parent_vertices": [
+          0,
+          0,
+          0
+        ],
+        "parent_bone": "",
+        "parent_bone_head_tail_factor": 1.0,
+        "use_parent_final_indices": false,
+        "use_camera_lock_parent": false,
+        "track_axis": "NEG_Z",
+        "up_axis": "Y",
+        "active_material_index": 0,
+        "location": [
+          0.0,
+          4.0,
+          4.0
+        ],
+        "rotation_quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_axis_angle": [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "rotation_euler": [
+          0.9143065214157104,
+          -1.196097088040915e-07,
+          -3.141592502593994
+        ],
+        "rotation_mode": "XYZ",
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "dimensions": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "delta_location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "delta_rotation_euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "delta_rotation_quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "delta_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "lock_location": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": true,
+        "lock_scale": [
+          false,
+          false,
+          false
+        ],
+        "matrix_world": [
+          [
+            -1.0,
+            1.8690636238716252e-07,
+            -4.660714481019568e-08,
+            0.0
+          ],
+          [
+            -1.5099580252808664e-07,
+            -0.6103400588035583,
+            0.7921395301818848,
+            4.0
+          ],
+          [
+            1.196097088040915e-07,
+            0.7921395301818848,
+            0.6103400588035583,
+            4.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "matrix_local": [
+          [
+            -1.0,
+            1.8690636238716252e-07,
+            -4.660714481019568e-08,
+            0.0
+          ],
+          [
+            -1.5099580252808664e-07,
+            -0.6103400588035583,
+            0.7921395301818848,
+            4.0
+          ],
+          [
+            1.196097088040915e-07,
+            0.7921395301818848,
+            0.6103400588035583,
+            4.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "matrix_basis": [
+          [
+            -1.0,
+            1.8690636238716252e-07,
+            -4.660714481019568e-08,
+            0.0
+          ],
+          [
+            -1.5099580252808664e-07,
+            -0.6103400588035583,
+            0.7921395301818848,
+            4.0
+          ],
+          [
+            1.196097088040915e-07,
+            0.7921395301818848,
+            0.6103400588035583,
+            4.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "matrix_parent_inverse": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "empty_display_type": "PLAIN_AXES",
+        "empty_display_size": 1.0,
+        "empty_image_offset": [
+          0.0,
+          0.0
+        ],
+        "empty_image_depth": "DEFAULT",
+        "show_empty_image_perspective": true,
+        "show_empty_image_orthographic": true,
+        "show_empty_image_only_axis_aligned": false,
+        "use_empty_image_alpha": false,
+        "empty_image_side": "DOUBLE_SIDED",
+        "add_rest_position_attribute": false,
+        "pass_index": 0,
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "use_simulation_cache": true,
+        "hide_viewport": false,
+        "hide_select": false,
+        "hide_render": false,
+        "hide_probe_volume": false,
+        "hide_probe_sphere": false,
+        "hide_probe_plane": false,
+        "hide_surface_pick": false,
+        "show_instancer_for_render": true,
+        "show_instancer_for_viewport": true,
+        "visible_camera": false,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true,
+        "visible_shadow": true,
+        "is_holdout": false,
+        "is_shadow_catcher": true,
+        "visible_raycast": true,
+        "instance_type": "NONE",
+        "use_instance_vertices_rotation": false,
+        "use_instance_faces_scale": false,
+        "instance_faces_scale": 1.0,
+        "display_type": "TEXTURED",
+        "show_bounds": false,
+        "display_bounds_type": "BOX",
+        "show_name": false,
+        "show_axis": false,
+        "show_texture_space": false,
+        "show_wire": false,
+        "show_all_edges": false,
+        "use_grease_pencil_lights": false,
+        "show_transparent": false,
+        "show_in_front": false,
+        "show_only_shape_key": false,
+        "use_shape_key_edit_mode": false,
+        "active_shape_key_index": 0,
+        "use_mesh_mirror_x": false,
+        "use_mesh_mirror_y": false,
+        "use_mesh_mirror_z": false,
+        "lightgroup": "",
+        "shadow_terminator_normal_offset": 0.0,
+        "shadow_terminator_geometry_offset": 0.10000000149011612,
+        "shadow_terminator_shading_offset": 0.0,
+        "active_selection_set": 0,
+        "MPFB_GEN_alternative_material": "",
+        "MPFB_GEN_object_type": "",
+        "MhObjectType": "",
+        "MPFB_GEN_uuid": "",
+        "MPFB_GEN_asset_source": "",
+        "MPFB_GEN_scale_factor": 1.0,
+        "MhScaleFactor": 1.0,
+        "MPFB_HUM_asian": 0.33000001311302185,
+        "MPFB_HUM_muscle": 0.5,
+        "MPFB_HUM_proportions": 0.5,
+        "MPFB_HUM_cupsize": 0.5,
+        "MPFB_HUM_weight": 0.5,
+        "MPFB_HUM_caucasian": 0.33000001311302185,
+        "MPFB_HUM_gender": 0.5,
+        "MPFB_HUM_african": 0.33000001311302185,
+        "MPFB_HUM_firmness": 0.5,
+        "MPFB_HUM_height": 0.5,
+        "MPFB_HUM_material_source": "",
+        "MPFB_HUM_is_human_project": false,
+        "MPFB_HUM_age": 0.5,
+        "MPFB_HAI_other_assets": "basic_lashes_upper",
+        "MPFB_HAI_facial_assets": "wild_beard",
+        "MPFB_HAI_fur_assets": "fur_mane",
+        "MPFB_HAI_eyebrow_assets": "wild_eyebrow",
+        "MPFB_HAI_hair_assets": "basic_short_hair",
+        "MPFB_MS_transparent": false,
+        "MhMsTransparent": false,
+        "MPFB_MS_wireframe": false,
+        "MhMsWireframe": false,
+        "MPFB_MS_sss_enable": false,
+        "MhMsSSSEnable": false,
+        "sssEnabled": false,
+        "MPFB_MS_use_litsphere": true,
+        "MhMsUseLit": true,
+        "MPFB_MS_write_blend_material": false,
+        "MPFB_MS_shadeless": false,
+        "MhMsShadeless": false,
+        "MPFB_MS_name": "new_material",
+        "MhMsName": "new_material",
+        "MPFB_MS_auto_blend": false,
+        "autoBlendSkin": false,
+        "MhMsAutoBlend": false,
+        "MPFB_MS_description": "",
+        "MhMsDescription": "",
+        "MPFB_MS_author": "",
+        "MhMsAuthor": "",
+        "MPFB_MS_litsphere": "lit_leather",
+        "MhMsLitsphere": "lit_leather",
+        "litsphereTexture": "lit_leather",
+        "MPFB_MS_receive_shadows": true,
+        "receiveShadows": true,
+        "MhMsReceiveShadows": true,
+        "MPFB_MS_cast_shadows": true,
+        "castShadows": true,
+        "MhMsCastShadows": true,
+        "MPFB_MS_license": "CC0",
+        "MhMsMatLicense": "CC0",
+        "MPFB_MS_alpha_to_coverage": true,
+        "alphaToCoverage": true,
+        "MhMsAlphaToCoverage": true,
+        "MPFB_MS_tag": "",
+        "MhMsTag": "",
+        "MPFB_MS_homepage": "",
+        "MhMsHomepage": "",
+        "MPFB_MS_textures": "NORMALIZE",
+        "MPFB_MS_depthless": false,
+        "MhMsDepthless": false,
+        "MPFB_MS_backface_culling": true,
+        "backfaceCull": true,
+        "MhMsBackfaceCull": true,
+        "MPFB_MT_name": "PrimaryTarget",
+        "MhPrimaryTargetName": "PrimaryTarget",
+        "MPFB_MC_name": "new_clothes",
+        "MhClothesName": "new_clothes",
+        "MPFB_MC_description": "",
+        "MhClothesDesc": "",
+        "MPFB_MC_author": "",
+        "MhClothesAuthor": "",
+        "MPFB_MC_username": "anonymous",
+        "MPFB_MC_license": "CC0",
+        "MhClothesLicense": "CC0",
+        "MPFB_MC_tag": "",
+        "MhClothesTags": "",
+        "MPFB_MC_uuid": "",
+        "MhClothesUUID": "",
+        "MPFB_MC_delete_group": "Delete",
+        "MhDeleteGroup": "Delete",
+        "MPFB_MC_homepage": "",
+        "MhMcHomepage": "",
+        "MPFB_MC_z_depth": 50,
+        "MhZDepth": 50,
+        "MPFB_rh_eye_mode": "",
+        "MPFB_rh_finger_mode": "",
+        "MPFB_rh_leg_mode": "",
+        "MPFB_rh_arm_mode": ""
+      },
+      "matrix_world": [
+        [
+          -1.0,
+          1.8690636238716252e-07,
+          -4.660714481019568e-08,
+          0.0
+        ],
+        [
+          -1.5099580252808664e-07,
+          -0.6103400588035583,
+          0.7921395301818848,
+          4.0
+        ],
+        [
+          1.196097088040915e-07,
+          0.7921395301818848,
+          0.6103400588035583,
+          4.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "data": {
+        "name": "SugataRear",
+        "use_fake_user": false,
+        "use_extra_user": false,
+        "is_runtime_data": false,
+        "tag": false,
+        "type": "AREA",
+        "use_temperature": false,
+        "color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "temperature": 6500.0,
+        "specular_factor": 1.0,
+        "diffuse_factor": 1.0,
+        "transmission_factor": 1.0,
+        "volume_factor": 1.0,
+        "use_custom_distance": false,
+        "cutoff_distance": 40.0,
+        "use_shadow": true,
+        "exposure": 0.0,
+        "normalize": true,
+        "use_nodes": true,
+        "energy": 600.0,
+        "shadow_buffer_clip_start": 0.05000000074505806,
+        "shadow_soft_size": 0.0,
+        "shadow_filter_radius": 1.0,
+        "shadow_maximum_resolution": 0.0010000000474974513,
+        "use_shadow_jitter": false,
+        "shadow_jitter_overblur": 10.0,
+        "use_absolute_resolution": false,
+        "shape": "DISK",
+        "size": 4.0,
+        "size_y": 0.25,
+        "spread": 3.1415927410125732
+      }
+    },
+    "SugataSharedCamera": {
+      "rna": {
+        "name": "SugataSharedCamera",
+        "use_fake_user": false,
+        "use_extra_user": false,
+        "is_runtime_data": false,
+        "tag": false,
+        "parent_type": "OBJECT",
+        "parent_vertices": [
+          0,
+          0,
+          0
+        ],
+        "parent_bone": "",
+        "parent_bone_head_tail_factor": 1.0,
+        "use_parent_final_indices": false,
+        "use_camera_lock_parent": false,
+        "track_axis": "NEG_Z",
+        "up_axis": "Y",
+        "active_material_index": 0,
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_axis_angle": [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "rotation_euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation_mode": "XYZ",
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "dimensions": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "delta_location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "delta_rotation_euler": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "delta_rotation_quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "delta_scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "lock_location": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation": [
+          false,
+          false,
+          false
+        ],
+        "lock_rotation_w": false,
+        "lock_rotations_4d": true,
+        "lock_scale": [
+          false,
+          false,
+          false
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "matrix_local": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "matrix_basis": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "matrix_parent_inverse": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "empty_display_type": "PLAIN_AXES",
+        "empty_display_size": 1.0,
+        "empty_image_offset": [
+          0.0,
+          0.0
+        ],
+        "empty_image_depth": "DEFAULT",
+        "show_empty_image_perspective": true,
+        "show_empty_image_orthographic": true,
+        "show_empty_image_only_axis_aligned": false,
+        "use_empty_image_alpha": false,
+        "empty_image_side": "DOUBLE_SIDED",
+        "add_rest_position_attribute": false,
+        "pass_index": 0,
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "use_simulation_cache": true,
+        "hide_viewport": false,
+        "hide_select": false,
+        "hide_render": false,
+        "hide_probe_volume": false,
+        "hide_probe_sphere": false,
+        "hide_probe_plane": false,
+        "hide_surface_pick": false,
+        "show_instancer_for_render": true,
+        "show_instancer_for_viewport": true,
+        "visible_camera": true,
+        "visible_diffuse": true,
+        "visible_glossy": true,
+        "visible_transmission": true,
+        "visible_volume_scatter": true,
+        "visible_shadow": true,
+        "is_holdout": false,
+        "is_shadow_catcher": false,
+        "visible_raycast": true,
+        "instance_type": "NONE",
+        "use_instance_vertices_rotation": false,
+        "use_instance_faces_scale": false,
+        "instance_faces_scale": 1.0,
+        "display_type": "TEXTURED",
+        "show_bounds": false,
+        "display_bounds_type": "BOX",
+        "show_name": false,
+        "show_axis": false,
+        "show_texture_space": false,
+        "show_wire": false,
+        "show_all_edges": false,
+        "use_grease_pencil_lights": false,
+        "show_transparent": false,
+        "show_in_front": false,
+        "show_only_shape_key": false,
+        "use_shape_key_edit_mode": false,
+        "active_shape_key_index": 0,
+        "use_mesh_mirror_x": false,
+        "use_mesh_mirror_y": false,
+        "use_mesh_mirror_z": false,
+        "lightgroup": "",
+        "shadow_terminator_normal_offset": 0.0,
+        "shadow_terminator_geometry_offset": 0.10000000149011612,
+        "shadow_terminator_shading_offset": 0.0,
+        "active_selection_set": 0,
+        "MPFB_GEN_alternative_material": "",
+        "MPFB_GEN_object_type": "",
+        "MhObjectType": "",
+        "MPFB_GEN_uuid": "",
+        "MPFB_GEN_asset_source": "",
+        "MPFB_GEN_scale_factor": 1.0,
+        "MhScaleFactor": 1.0,
+        "MPFB_HUM_asian": 0.33000001311302185,
+        "MPFB_HUM_muscle": 0.5,
+        "MPFB_HUM_proportions": 0.5,
+        "MPFB_HUM_cupsize": 0.5,
+        "MPFB_HUM_weight": 0.5,
+        "MPFB_HUM_caucasian": 0.33000001311302185,
+        "MPFB_HUM_gender": 0.5,
+        "MPFB_HUM_african": 0.33000001311302185,
+        "MPFB_HUM_firmness": 0.5,
+        "MPFB_HUM_height": 0.5,
+        "MPFB_HUM_material_source": "",
+        "MPFB_HUM_is_human_project": false,
+        "MPFB_HUM_age": 0.5,
+        "MPFB_HAI_other_assets": "basic_lashes_upper",
+        "MPFB_HAI_facial_assets": "wild_beard",
+        "MPFB_HAI_fur_assets": "fur_mane",
+        "MPFB_HAI_eyebrow_assets": "wild_eyebrow",
+        "MPFB_HAI_hair_assets": "basic_short_hair",
+        "MPFB_MS_transparent": false,
+        "MhMsTransparent": false,
+        "MPFB_MS_wireframe": false,
+        "MhMsWireframe": false,
+        "MPFB_MS_sss_enable": false,
+        "MhMsSSSEnable": false,
+        "sssEnabled": false,
+        "MPFB_MS_use_litsphere": true,
+        "MhMsUseLit": true,
+        "MPFB_MS_write_blend_material": false,
+        "MPFB_MS_shadeless": false,
+        "MhMsShadeless": false,
+        "MPFB_MS_name": "new_material",
+        "MhMsName": "new_material",
+        "MPFB_MS_auto_blend": false,
+        "autoBlendSkin": false,
+        "MhMsAutoBlend": false,
+        "MPFB_MS_description": "",
+        "MhMsDescription": "",
+        "MPFB_MS_author": "",
+        "MhMsAuthor": "",
+        "MPFB_MS_litsphere": "lit_leather",
+        "MhMsLitsphere": "lit_leather",
+        "litsphereTexture": "lit_leather",
+        "MPFB_MS_receive_shadows": true,
+        "receiveShadows": true,
+        "MhMsReceiveShadows": true,
+        "MPFB_MS_cast_shadows": true,
+        "castShadows": true,
+        "MhMsCastShadows": true,
+        "MPFB_MS_license": "CC0",
+        "MhMsMatLicense": "CC0",
+        "MPFB_MS_alpha_to_coverage": true,
+        "alphaToCoverage": true,
+        "MhMsAlphaToCoverage": true,
+        "MPFB_MS_tag": "",
+        "MhMsTag": "",
+        "MPFB_MS_homepage": "",
+        "MhMsHomepage": "",
+        "MPFB_MS_textures": "NORMALIZE",
+        "MPFB_MS_depthless": false,
+        "MhMsDepthless": false,
+        "MPFB_MS_backface_culling": true,
+        "backfaceCull": true,
+        "MhMsBackfaceCull": true,
+        "MPFB_MT_name": "PrimaryTarget",
+        "MhPrimaryTargetName": "PrimaryTarget",
+        "MPFB_MC_name": "new_clothes",
+        "MhClothesName": "new_clothes",
+        "MPFB_MC_description": "",
+        "MhClothesDesc": "",
+        "MPFB_MC_author": "",
+        "MhClothesAuthor": "",
+        "MPFB_MC_username": "anonymous",
+        "MPFB_MC_license": "CC0",
+        "MhClothesLicense": "CC0",
+        "MPFB_MC_tag": "",
+        "MhClothesTags": "",
+        "MPFB_MC_uuid": "",
+        "MhClothesUUID": "",
+        "MPFB_MC_delete_group": "Delete",
+        "MhDeleteGroup": "Delete",
+        "MPFB_MC_homepage": "",
+        "MhMcHomepage": "",
+        "MPFB_MC_z_depth": 50,
+        "MhZDepth": 50,
+        "MPFB_rh_eye_mode": "",
+        "MPFB_rh_finger_mode": "",
+        "MPFB_rh_leg_mode": "",
+        "MPFB_rh_arm_mode": ""
+      },
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "data": {
+        "name": "SugataSharedCamera",
+        "use_fake_user": false,
+        "use_extra_user": false,
+        "is_runtime_data": false,
+        "tag": false,
+        "type": "ORTHO",
+        "sensor_fit": "VERTICAL",
+        "passepartout_alpha": 0.5,
+        "angle_x": 0.691111147403717,
+        "angle_y": 0.4710899591445923,
+        "angle": 0.4710899591445923,
+        "clip_start": 0.009999999776482582,
+        "clip_end": 100.0,
+        "lens": 50.0,
+        "sensor_width": 36.0,
+        "sensor_height": 24.0,
+        "ortho_scale": 6.0,
+        "display_size": 1.0,
+        "shift_x": 0.0,
+        "shift_y": 0.0,
+        "show_limits": false,
+        "show_mist": false,
+        "show_passepartout": true,
+        "show_safe_areas": false,
+        "show_safe_center": false,
+        "show_name": false,
+        "show_sensor": false,
+        "show_background_images": false,
+        "lens_unit": "MILLIMETERS",
+        "composition_guide_color": [
+          0.5,
+          0.5,
+          0.5,
+          1.0
+        ],
+        "show_composition_center": false,
+        "show_composition_center_diagonal": false,
+        "show_composition_thirds": false,
+        "show_composition_golden": false,
+        "show_composition_golden_tria_a": false,
+        "show_composition_golden_tria_b": false,
+        "show_composition_harmony_tri_a": false,
+        "show_composition_harmony_tri_b": false,
+        "panorama_type": "FISHEYE_EQUISOLID",
+        "fisheye_fov": 3.1415927410125732,
+        "fisheye_lens": 10.5,
+        "latitude_min": -1.5707963705062866,
+        "latitude_max": 1.5707963705062866,
+        "longitude_min": -3.1415927410125732,
+        "longitude_max": 3.1415927410125732,
+        "fisheye_polynomial_k0": -1.1735143743862864e-05,
+        "fisheye_polynomial_k1": -0.019988736137747765,
+        "fisheye_polynomial_k2": -3.3525323033245513e-06,
+        "fisheye_polynomial_k3": 3.0992753181635635e-06,
+        "fisheye_polynomial_k4": -2.60646473293491e-08,
+        "central_cylindrical_range_u_min": -3.1415927410125732,
+        "central_cylindrical_range_u_max": 3.1415927410125732,
+        "central_cylindrical_range_v_min": -1.0,
+        "central_cylindrical_range_v_max": 1.0,
+        "central_cylindrical_radius": 1.0,
+        "custom_filepath": "",
+        "custom_mode": "INTERNAL",
+        "custom_bytecode": "",
+        "custom_bytecode_hash": ""
+      }
+    }
+  },
+  "look": {
+    "view_transform": "AgX",
+    "look": "None",
+    "display": "sRGB",
+    "exposure": 0.0,
+    "gamma": 1.0,
+    "curve_mapping": false,
+    "compositing": false,
+    "sequencer": false,
+    "pixel_aspect": [
+      1.0,
+      1.0
+    ]
+  },
+  "cpu": {
+    "device": "CPU",
+    "samples": 16,
+    "threads": 16,
+    "seed": 0,
+    "denoiser": "OPENIMAGEDENOISE"
+  }
+}

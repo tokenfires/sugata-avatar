@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-09T03:24:18.308285+00:00",
+  "physical_pins": 37,
+  "syntax_pass": true,
+  "exact_prospective_state_leaf_changes": 13,
+  "represented_value": 0.20000000298023224,
+  "owned_native_operations": [
+    "open_mainfile",
+    "render.render"
+  ],
+  "observer_AST_functions": 8,
+  "renderer_AST_functions": 5,
+  "baseline_geometry_buffers": 18,
+  "allowed_variant_world_buffers": 3,
+  "invariant_other_buffers": 15,
+  "delta_norm_limits": {
+    "Human": 0.01,
+    "Human.eyebrow001": 0.001,
+    "Human.eyelashes01": 0.001
+  },
+  "limits": "Native-unit finite envelope, not calibrated contact/fit. Prepared predicates and prospective stored predictions only, no native execution.",
+  "admission": "Independent preflight/root launch gate pending"
+}

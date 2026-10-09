@@ -1,0 +1,46 @@
+{
+  "utc": "2026-10-09T03:19:42.772512+00:00",
+  "input_count": 27,
+  "input_scalars": 1210320,
+  "represented_value": 0.20000000298023224,
+  "allowed_leaf_count": 13,
+  "outputs": {
+    "Human": {
+      "member": "mixed0",
+      "shape": [
+        19158,
+        3
+      ],
+      "dtype": "float32",
+      "sha256": "04aae451650b24dafd87f7b2c7a0232912e96068e9f326a8e4616cf118d1b91d",
+      "baseline_sha256": "0af3d0a91d9df30535cfe665e3cca482fb682c1505bf2cfe5e1b0bb9b0bb9a1c"
+    },
+    "Human.eyebrow001": {
+      "member": "mixed1",
+      "shape": [
+        124,
+        3
+      ],
+      "dtype": "float32",
+      "sha256": "fa0558d70bdec8f5167c86bf4c6ec09ac7f5467015b7224ed78542ff365c91ac",
+      "baseline_sha256": "9d3f48226235de9f2902d7a2f84f984f93c5c3e288c1e79252169c79563e2288"
+    },
+    "Human.eyelashes01": {
+      "member": "mixed2",
+      "shape": [
+        250,
+        3
+      ],
+      "dtype": "float32",
+      "sha256": "214ad2533d3dcdbec1f57e4ae95790adcf610ddaa2aab96581a9856d63268919",
+      "baseline_sha256": "396b2dcf028c0f0d4085d8032f038c997e604e82779ce70e80dd75e0b6222c9b"
+    }
+  },
+  "archive": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-restrained-smile/predictions/mixed.npz",
+    "bytes": 190033,
+    "sha256": "f49ba307f2449edd09d2162d8d6b04ad11822df3556c8f179bfda2015acd4bc0"
+  },
+  "native_executed": false,
+  "scope": "Prospective numeric prediction only; no newraw acquisition or source setter"
+}

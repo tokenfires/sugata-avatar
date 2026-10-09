@@ -1,0 +1,12 @@
+# Restrained-smile command receipt
+
+- d36553: `python3 -` root PLAN/INPUTS26pins preparation; whole concept/controlfront/profile viewed before plan. No native query.
+- 2930f4: root whole WORTH/readback2bindings+26pins03:19:42.584872UTC; prepare.py authored after worth.
+- c65adb: sole `python3 docs/evidence/appearance-2026-10-08/ari-restrained-smile/prepare.py`,exit0,03:19:42.772512UTC; old27numeric input identities verified,3baseline/3prospectiveF64native-order finalF32SHA, exact13leaf EXPECTED prepared. No newraw/native/setter. Prediction archive190033B SHA f49ba307f2449edd09d2162d8d6b04ad11822df3556c8f179bfda2015acd4bc0,0444/ignored.
+- 7442bc: `python3 -` wrapper/EXEC preparation37pins, syntax compile() without pyc, exact13leaf diff, nativeops open/render/no save source inspection03:24:18.308285UTC. a5cade further readonly authored setter inspection.
+- 7718b5: `python3 -` whole PREFLIGHT13bindings/all37physicalpins/source readonly/exclusive nativeoutputs/ownednativeabsence/deadline passes03:33:03.069412UTC. ROOT-PREFLIGHT admits single240s process.
+- c27b6d: sole native command `python3 docs/evidence/appearance-2026-10-08/ari-restrained-smile/run_native.py`; wrapper41814/native41815,03:33:03.179594–03:33:14.304032UTC,exit0/no timeout240s. Exact offline/background/pythonexitcode1argv in EXEC/JOB-start/JOB. ee87c4 fully collectedsession24340. No retry/retake.
+- 772a18: `python3 -` root fullCOLD/restore byte equality, fullprospectivevariant/cleanup byte equality, baseline18/variant36stored arrays/15invariant/3boundedworld metrics, fullLIGHTING byte equality,37pins/PNG-IHDR/hash/frame/job/log verification03:35:52.726538UTC. Whole actual3new+3controls+concept independently viewed by root using view_image. No native requery.
+- b57b36: root review.html first pairedgallery preparation. CUA restores documentation, opens tab6, AX plus read-only DOM6loadedimages/natural dimensions/3responsive pairs/links verified; marked deliverable. No viewport override/native/GPU/browser capture job; no saved screenshot claim.
+
+All exact native scripts remain retained; root Python stdin source/helper records and full tool results are in chat history. Work-window/README/ROOT-RESULT preserve actual limits, rejects and next conditional direction. No six-key value save, default promotion, stronger coefficient, mouthClose/jaw/corner rescue, colour/roughness/form/groom change, reframe, native retry, purchase/reset/model/subscription/install/preferences/push/publish/otherproject.

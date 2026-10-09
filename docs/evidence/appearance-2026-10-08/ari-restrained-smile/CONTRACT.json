@@ -1,0 +1,443 @@
+{
+  "utc": "2026-10-09T03:19:42.772512+00:00",
+  "nominal": 0.2,
+  "represented_value": 0.20000000298023224,
+  "targets": [
+    {
+      "owner": "Human",
+      "key": "mouthSmileLeft",
+      "index": 99,
+      "baseline": 0.0,
+      "value": 0.20000000298023224
+    },
+    {
+      "owner": "Human",
+      "key": "mouthSmileRight",
+      "index": 100,
+      "baseline": 0.0,
+      "value": 0.20000000298023224
+    },
+    {
+      "owner": "Human.eyebrow001",
+      "key": "mouthSmileLeft",
+      "index": 44,
+      "baseline": 0.0,
+      "value": 0.20000000298023224
+    },
+    {
+      "owner": "Human.eyebrow001",
+      "key": "mouthSmileRight",
+      "index": 45,
+      "baseline": 0.0,
+      "value": 0.20000000298023224
+    },
+    {
+      "owner": "Human.eyelashes01",
+      "key": "mouthSmileLeft",
+      "index": 22,
+      "baseline": 0.0,
+      "value": 0.20000000298023224
+    },
+    {
+      "owner": "Human.eyelashes01",
+      "key": "mouthSmileRight",
+      "index": 23,
+      "baseline": 0.0,
+      "value": 0.20000000298023224
+    }
+  ],
+  "allowed_state_paths": [
+    [
+      "metadata",
+      "Human",
+      99,
+      "value"
+    ],
+    [
+      "scene",
+      "objects",
+      0,
+      "mesh",
+      "shape_keys",
+      99,
+      "value"
+    ],
+    [
+      "metadata",
+      "Human",
+      100,
+      "value"
+    ],
+    [
+      "scene",
+      "objects",
+      0,
+      "mesh",
+      "shape_keys",
+      100,
+      "value"
+    ],
+    [
+      "metadata",
+      "Human.eyebrow001",
+      44,
+      "value"
+    ],
+    [
+      "scene",
+      "objects",
+      1,
+      "mesh",
+      "shape_keys",
+      44,
+      "value"
+    ],
+    [
+      "metadata",
+      "Human.eyebrow001",
+      45,
+      "value"
+    ],
+    [
+      "scene",
+      "objects",
+      1,
+      "mesh",
+      "shape_keys",
+      45,
+      "value"
+    ],
+    [
+      "metadata",
+      "Human.eyelashes01",
+      22,
+      "value"
+    ],
+    [
+      "scene",
+      "objects",
+      2,
+      "mesh",
+      "shape_keys",
+      22,
+      "value"
+    ],
+    [
+      "metadata",
+      "Human.eyelashes01",
+      23,
+      "value"
+    ],
+    [
+      "scene",
+      "objects",
+      2,
+      "mesh",
+      "shape_keys",
+      23,
+      "value"
+    ],
+    [
+      "mixed_sha256"
+    ]
+  ],
+  "predictions": {
+    "Human": {
+      "member": "mixed0",
+      "shape": [
+        19158,
+        3
+      ],
+      "dtype": "float32",
+      "sha256": "04aae451650b24dafd87f7b2c7a0232912e96068e9f326a8e4616cf118d1b91d",
+      "baseline_sha256": "0af3d0a91d9df30535cfe665e3cca482fb682c1505bf2cfe5e1b0bb9b0bb9a1c"
+    },
+    "Human.eyebrow001": {
+      "member": "mixed1",
+      "shape": [
+        124,
+        3
+      ],
+      "dtype": "float32",
+      "sha256": "fa0558d70bdec8f5167c86bf4c6ec09ac7f5467015b7224ed78542ff365c91ac",
+      "baseline_sha256": "9d3f48226235de9f2902d7a2f84f984f93c5c3e288c1e79252169c79563e2288"
+    },
+    "Human.eyelashes01": {
+      "member": "mixed2",
+      "shape": [
+        250,
+        3
+      ],
+      "dtype": "float32",
+      "sha256": "214ad2533d3dcdbec1f57e4ae95790adcf610ddaa2aab96581a9856d63268919",
+      "baseline_sha256": "396b2dcf028c0f0d4085d8032f038c997e604e82779ce70e80dd75e0b6222c9b"
+    }
+  },
+  "baseline_mixed_sha256": {
+    "Human": "0af3d0a91d9df30535cfe665e3cca482fb682c1505bf2cfe5e1b0bb9b0bb9a1c",
+    "Human.eyebrow001": "9d3f48226235de9f2902d7a2f84f984f93c5c3e288c1e79252169c79563e2288",
+    "Human.eyelashes01": "396b2dcf028c0f0d4085d8032f038c997e604e82779ce70e80dd75e0b6222c9b"
+  },
+  "observer_functions": [
+    "safe_value",
+    "descriptor_refusal",
+    "scalar_rna",
+    "material",
+    "image_records",
+    "native_route",
+    "state",
+    "evaluated_route"
+  ],
+  "renderer_functions": [
+    "render_domain",
+    "restore",
+    "bbox",
+    "orient",
+    "settings"
+  ],
+  "frames": {
+    "body": {
+      "center": [
+        0.0,
+        -0.11460304260253906,
+        0.829715676678461
+      ],
+      "scale": 1.8585630820551888,
+      "resolution": [
+        768,
+        1024
+      ],
+      "union_min": [
+        -0.5494645833969116,
+        -0.334472119808197,
+        1.5046680346131325e-08
+      ],
+      "union_max": [
+        0.5494645833969116,
+        0.1052660346031189,
+        1.6594313383102417
+      ]
+    },
+    "head": {
+      "center": [
+        0.0,
+        -0.04541023448109627,
+        1.4983700513839722
+      ],
+      "scale": 0.3849921894073487,
+      "resolution": [
+        768,
+        768
+      ],
+      "union_min": [
+        -0.17187151312828064,
+        -0.15973001718521118,
+        1.3373087644577026
+      ],
+      "union_max": [
+        0.17187151312828064,
+        0.06890954822301865,
+        1.6594313383102417
+      ]
+    }
+  },
+  "views": [
+    [
+      "head",
+      "front"
+    ],
+    [
+      "head",
+      "profile"
+    ],
+    [
+      "body",
+      "front"
+    ]
+  ],
+  "look": {
+    "view_transform": "AgX",
+    "look": "None",
+    "display": "sRGB",
+    "exposure": 0.0,
+    "gamma": 1.0,
+    "curve_mapping": false,
+    "compositing": false,
+    "sequencer": false,
+    "pixel_aspect": [
+      1.0,
+      1.0
+    ]
+  },
+  "lighting_center": [
+    0.0,
+    -0.11460304260253906,
+    0.829715676678461
+  ],
+  "baseline_geometry": {
+    "Human": {
+      "vertices": 13380,
+      "triangles": 26756,
+      "edges": 26756,
+      "world_sha256": "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c",
+      "triangles_sha256": "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4",
+      "edges_sha256": "4868a68df9fd81f55219cbbfbcf224be6a1ab96bf699d5677a3bc4aedeaba24b",
+      "min": [
+        -0.5494645833969116,
+        -0.334472119808197,
+        1.5046680346131325e-08
+      ],
+      "max": [
+        0.5494645833969116,
+        0.1052660346031189,
+        1.6594313383102417
+      ]
+    },
+    "Human.eyebrow001": {
+      "vertices": 438,
+      "triangles": 768,
+      "edges": 820,
+      "world_sha256": "3df2dda96183beae4c4b9cbbf7dc6b9ce39d402e12accfe1822835a1ba3087b8",
+      "triangles_sha256": "7a952c0a97e24ab7c46bce88a6736ede6bd71fe3c1fbab24e8046b54b26390f0",
+      "edges_sha256": "305104ebd7e492e385a24e39f06d7706b4183373b1c14a1fdbf7cdd650ed1e7d",
+      "min": [
+        -0.057171013206243515,
+        -0.14289532601833344,
+        1.5570204257965088
+      ],
+      "max": [
+        0.057171013206243515,
+        -0.11315464228391647,
+        1.567147970199585
+      ]
+    },
+    "Human.eyelashes01": {
+      "vertices": 864,
+      "triangles": 1472,
+      "edges": 1596,
+      "world_sha256": "504bbdb977ab7c9385b0e66a01dfd88183cb10375e43e3ccee20b05f83fd0551",
+      "triangles_sha256": "dfb7c9f3a3eb7b462839383f81e3d2284c9bd4b58c93d00f296d64714f6974f6",
+      "edges_sha256": "2b668bbd110cbf0c967c7e5676fcf798f60e7ae69dbac89f50698be7f8919315",
+      "min": [
+        -0.04674799367785454,
+        -0.1385650783777237,
+        1.544481873512268
+      ],
+      "max": [
+        0.04674799367785454,
+        -0.12611457705497742,
+        1.5586556196212769
+      ]
+    },
+    "Human.high-poly": {
+      "vertices": 4164,
+      "triangles": 8160,
+      "edges": 8240,
+      "world_sha256": "41b2147803622b0f880838692f2680d6fa582dad57461ea23f79887ccd353391",
+      "triangles_sha256": "52d870c233d467fd59df84f312704a37f197aa21bf518e1c1b2374026a32cf01",
+      "edges_sha256": "554dd2eaf4f82176fae340ea6ae1650a71ece91af2059621af24f4e2d7d2beb2",
+      "min": [
+        -0.044073909521102905,
+        -0.1345587819814682,
+        1.5386748313903809
+      ],
+      "max": [
+        0.044073913246393204,
+        -0.11125586926937103,
+        1.5678232908248901
+      ]
+    },
+    "Human.teeth_base": {
+      "vertices": 14824,
+      "triangles": 28480,
+      "edges": 29032,
+      "world_sha256": "dbf919596a8705ddfc57bf36980cef5755a135404c9fc6c6fb16e74ef0b0ae22",
+      "triangles_sha256": "2d905b9383f4c7ac6e2ae81f9375da8968671578b2197a17400f394214cceff3",
+      "edges_sha256": "f135c80b9231f92b536311531fa20ae28161f0f14e0e78b79ca1caffbaafb915",
+      "min": [
+        -0.029508505016565323,
+        -0.13950438797473907,
+        1.4573391675949097
+      ],
+      "max": [
+        0.029508356004953384,
+        -0.0681949034333229,
+        1.504595398902893
+      ]
+    },
+    "Human.tongue01": {
+      "vertices": 898,
+      "triangles": 1792,
+      "edges": 1792,
+      "world_sha256": "2c1f14d7ec5ab8f5ee0845e5a914f4aeb527e3924fa6fd42bf4a564a622abfda",
+      "triangles_sha256": "522f418b4e66a389759df90635139aca5243efb5c90e9c57ea4e582e25072913",
+      "edges_sha256": "cdc2b0a8ab8d3df28fffbe038bc2a03f3bfcf0b78dbfdb7daa40fd5f0cd91f91",
+      "min": [
+        -0.020952919498085976,
+        -0.1305866241455078,
+        1.4752225875854492
+      ],
+      "max": [
+        0.020952917635440826,
+        -0.0660136491060257,
+        1.495998501777649
+      ]
+    }
+  },
+  "domains": {
+    "Human": {
+      "render_vertices": 13380,
+      "head_domain_vertices": 4494,
+      "head_group_ids_names": {
+        "194": "neck_01",
+        "195": "head"
+      }
+    },
+    "Human.eyebrow001": {
+      "render_vertices": 438,
+      "head_domain_vertices": 438,
+      "head_group_ids_names": {
+        "0": "head"
+      }
+    },
+    "Human.eyelashes01": {
+      "render_vertices": 864,
+      "head_domain_vertices": 864,
+      "head_group_ids_names": {
+        "0": "head"
+      }
+    },
+    "Human.high-poly": {
+      "render_vertices": 4164,
+      "head_domain_vertices": 4164,
+      "head_group_ids_names": {
+        "0": "head"
+      }
+    },
+    "Human.teeth_base": {
+      "render_vertices": 14824,
+      "head_domain_vertices": 14824,
+      "head_group_ids_names": {
+        "0": "head"
+      }
+    },
+    "Human.tongue01": {
+      "render_vertices": 898,
+      "head_domain_vertices": 898,
+      "head_group_ids_names": {
+        "0": "head"
+      }
+    }
+  },
+  "world_delta_norm_limits": {
+    "Human": 0.01,
+    "Human.eyebrow001": 0.001,
+    "Human.eyelashes01": 0.001
+  },
+  "max_vertices": 500000,
+  "max_triangles": 1000000,
+  "max_archive_bytes": 16777216,
+  "max_json_bytes": 8388608,
+  "candidate_promotion": false,
+  "limits": "Artist static choice; native-unit finite envelope, no calibrated distance/contact/anatomy/semantic/auxiliary/allmotion acceptance"
+}
