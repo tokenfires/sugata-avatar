@@ -1,0 +1,23 @@
+{
+  "wrapper_pid": 6279,
+  "started": "2026-10-09T21:38:33.186360+00:00",
+  "command": [
+    "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-crossing/query.py"
+  ],
+  "admission_sha256": "1eda15adaa7bf0e10246dad5b31d783915858ec36e453402aa00f832cf601e42",
+  "cap_seconds": 120,
+  "timed_out": false,
+  "interrupted": false,
+  "child_pid": 6280,
+  "process_group": 6280,
+  "spawn_returned": "2026-10-09T21:38:33.187715+00:00",
+  "returncode": 0,
+  "finished": "2026-10-09T21:38:34.290709+00:00",
+  "elapsed_seconds": 1.104358416981995,
+  "launch_before_gate": true,
+  "spawn_return_before_gate": true,
+  "within_wall_cap": true,
+  "finished_before_gate": true,
+  "worker_record_valid": true
+}

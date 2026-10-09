@@ -1,0 +1,80 @@
+{
+  "python": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+  "pins": [],
+  "mesh": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-mesh/mesh.npz",
+  "owners": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-mesh/OWNERS.json",
+  "body": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/after-geometry.npz",
+  "frame": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-source-contract/SOURCE-MAP.json",
+  "members": {
+    "body_world": {
+      "dtype": "float32",
+      "shape": [
+        13380,
+        3
+      ],
+      "raw_sha256": "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c"
+    },
+    "body_triangles": {
+      "dtype": "int32",
+      "shape": [
+        26756,
+        3
+      ],
+      "raw_sha256": "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4"
+    },
+    "mesh_world": {
+      "shape": [
+        12480,
+        3
+      ],
+      "dtype": "float32",
+      "raw_sha256": "13b8c96ed2421a0b89fa68daa692067e5349f1312cc12106104485f9dc3385f1"
+    },
+    "mesh_triangles": {
+      "shape": [
+        24960,
+        3
+      ],
+      "dtype": "int32",
+      "raw_sha256": "0c4b99c4492b237a97bbad3b2cdd6fd0e8dc40756eac65bde64ccb9f866740df"
+    },
+    "face_role": {
+      "shape": [
+        24960
+      ],
+      "dtype": "uint8",
+      "raw_sha256": "a124ebc1fb410ca1b82e1c03ecaaaa7fd29455b5ab617a593ac69c9393377bc4"
+    },
+    "panel": {
+      "shape": [
+        24960
+      ],
+      "dtype": "uint8",
+      "raw_sha256": "10e26c00fe55d69269e54b6891fb9001cf23d9b45ad39665fd46bd393bc50abb"
+    },
+    "side": {
+      "shape": [
+        24960
+      ],
+      "dtype": "uint8",
+      "raw_sha256": "05bb67916de428729761160d6742e842f78fce1cb54410617577a77c3fde07c3"
+    }
+  },
+  "author_stop": "2026-10-09T21:45:00+00:00",
+  "launch_before": "2026-10-09T22:00:00+00:00",
+  "finish_by": "2026-10-09T22:02:00+00:00",
+  "first_outputs": [
+    "JOB-start.json",
+    "JOB.json",
+    "query.log",
+    "SOURCE.json",
+    "REFUSAL.json",
+    "CANDIDATES.jsonl",
+    "LAST-CANDIDATE.json",
+    "WITNESS.json",
+    "witness.obj",
+    "OBSERVED.json",
+    "RESULT.json"
+  ],
+  "closure_by": "2026-10-09T22:20:00+00:00"
+}

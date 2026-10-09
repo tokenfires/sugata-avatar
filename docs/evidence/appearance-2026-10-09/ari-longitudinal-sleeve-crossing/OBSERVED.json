@@ -1,0 +1,853 @@
+{
+  "status": "REFUSED_TRANSVERSE",
+  "scope": "First full-source-body certified negative witness only; no full contact census or fit pass",
+  "search_stop": "first_certified_transverse_crossing",
+  "source": {
+    "runtime": {
+      "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+      "numpy": "2.4.6",
+      "numpy_entry": "/opt/homebrew/lib/python3.14/site-packages/numpy/__init__.py"
+    },
+    "body_world": {
+      "dtype": "float32",
+      "shape": [
+        13380,
+        3
+      ],
+      "raw_sha256": "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c"
+    },
+    "body_triangles": {
+      "dtype": "int32",
+      "shape": [
+        26756,
+        3
+      ],
+      "raw_sha256": "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4"
+    },
+    "mesh_world": {
+      "dtype": "float32",
+      "shape": [
+        12480,
+        3
+      ],
+      "raw_sha256": "13b8c96ed2421a0b89fa68daa692067e5349f1312cc12106104485f9dc3385f1"
+    },
+    "mesh_triangles": {
+      "dtype": "int32",
+      "shape": [
+        24960,
+        3
+      ],
+      "raw_sha256": "0c4b99c4492b237a97bbad3b2cdd6fd0e8dc40756eac65bde64ccb9f866740df"
+    },
+    "face_role": {
+      "dtype": "uint8",
+      "shape": [
+        24960
+      ],
+      "raw_sha256": "a124ebc1fb410ca1b82e1c03ecaaaa7fd29455b5ab617a593ac69c9393377bc4"
+    },
+    "panel": {
+      "dtype": "uint8",
+      "shape": [
+        24960
+      ],
+      "raw_sha256": "10e26c00fe55d69269e54b6891fb9001cf23d9b45ad39665fd46bd393bc50abb"
+    },
+    "side": {
+      "dtype": "uint8",
+      "shape": [
+        24960
+      ],
+      "raw_sha256": "05bb67916de428729761160d6742e842f78fce1cb54410617577a77c3fde07c3"
+    },
+    "minimum_doubleareas": {
+      "body": 1.7412600607914935e-07,
+      "cloth": 1.3139343507580598e-05
+    },
+    "decoded_members": {
+      "body": [
+        "Human_world",
+        "Human_triangles"
+      ],
+      "mesh": [
+        "world32",
+        "triangles",
+        "face_role",
+        "panel",
+        "side"
+      ]
+    },
+    "authoritative_precision": "F32 source coordinates, exactly promoted to F64; exact dyadic positive-witness certificate"
+  },
+  "cloth_face_domain": 24960,
+  "body_face_domain": 26756,
+  "all_roles_eligible": true,
+  "no_body_domain_exclusion": true,
+  "rows_started": 3073,
+  "bbox_pairs_reached": 1427,
+  "pairs_classified": 1427,
+  "candidate_journal_bytes": 6708,
+  "last_encountered_pair": [
+    3072,
+    8104
+  ],
+  "ordered_prefix_sha256": "927b4fbfc24e30ccde0f2ba4fdb7238be816ea2d9a96982e7da6d34fc145781b",
+  "pair_class_counts": {
+    "no_qualified_hit": 1426,
+    "strict_transverse_CERTIFIED": 1
+  },
+  "first_nonmiss_witnesses": {
+    "strict_transverse_CERTIFIED": {
+      "cloth_triangle_id": 3072,
+      "body_triangle_id": 8104,
+      "cloth_vertex_ids": [
+        24,
+        1648,
+        49
+      ],
+      "body_vertex_ids": [
+        1559,
+        1560,
+        1610
+      ],
+      "cloth_vertex_owners": [
+        {
+          "key": "r|O|B|0",
+          "side": "r",
+          "layer": "O",
+          "seam": "B",
+          "piece": null,
+          "i": 0,
+          "j": null
+        },
+        {
+          "key": "r|O|under|1|1",
+          "side": "r",
+          "layer": "O",
+          "seam": null,
+          "piece": "under",
+          "i": 1,
+          "j": 1
+        },
+        {
+          "key": "r|O|B|1",
+          "side": "r",
+          "layer": "O",
+          "seam": "B",
+          "piece": null,
+          "i": 1,
+          "j": null
+        }
+      ],
+      "cloth_role": 0,
+      "cloth_panel": 1,
+      "cloth_side": 0,
+      "cloth_points": [
+        [
+          -0.1671682894229889,
+          0.0688663050532341,
+          1.3497021198272705
+        ],
+        [
+          -0.16233177483081818,
+          0.06131034344434738,
+          1.3386939764022827
+        ],
+        [
+          -0.17050482332706451,
+          0.0688018947839737,
+          1.345969557762146
+        ]
+      ],
+      "body_points": [
+        [
+          -0.16094601154327393,
+          0.06165754795074463,
+          1.3520992994308472
+        ],
+        [
+          -0.1524995118379593,
+          0.07528054714202881,
+          1.3327655792236328
+        ],
+        [
+          -0.17359451949596405,
+          0.06502903997898102,
+          1.3268611431121826
+        ]
+      ],
+      "classification": "strict_transverse_CERTIFIED",
+      "predicate": {
+        "systems": [
+          {
+            "reverse": 0,
+            "edge_corner": 0,
+            "determinant": -7.016419336848813e-06,
+            "condition": 2.913454254496323,
+            "segment_fraction": 0.6487631734666701,
+            "target_barycentrics": [
+              0.6001678432667301,
+              0.09351761903973466,
+              0.3063145376935353
+            ],
+            "point": [
+              -0.16403053686765437,
+              0.06396427542126043,
+              1.342560441764899
+            ],
+            "target_point": [
+              -0.16403053686765437,
+              0.06396427542126043,
+              1.3425604417648993
+            ],
+            "linear_residual": 0.0,
+            "point_residual": 2.220446049250313e-16,
+            "closed_hit": true,
+            "strict_candidate": true,
+            "class": "strict_candidate"
+          },
+          {
+            "reverse": 0,
+            "edge_corner": 1,
+            "determinant": 7.1671624272568635e-06,
+            "condition": 2.8250617934329125,
+            "segment_fraction": 0.34384945039470716,
+            "target_barycentrics": [
+              0.5516080274785697,
+              0.06994204189217304,
+              0.3784499306292572
+            ],
+            "point": [
+              -0.16514207306430176,
+              0.06388630925508162,
+              1.3411956810541736
+            ],
+            "target_point": [
+              -0.16514207306430176,
+              0.06388630925508162,
+              1.3411956810541736
+            ],
+            "linear_residual": 4.336808689942018e-19,
+            "point_residual": 0.0,
+            "closed_hit": true,
+            "strict_candidate": true,
+            "class": "strict_candidate"
+          },
+          {
+            "reverse": 0,
+            "edge_corner": 2,
+            "determinant": -1.507430904080486e-07,
+            "condition": 132.96367167895772,
+            "segment_fraction": 31.197035652016204,
+            "target_barycentrics": [
+              4.86471585091126,
+              2.1639369343085773,
+              -6.028652785219837
+            ],
+            "point": [
+              -0.0664148561674565,
+              0.07081130425044656,
+              1.4624144295811987
+            ],
+            "target_point": [
+              -0.06641485616745645,
+              0.07081130425044659,
+              1.4624144295811987
+            ],
+            "linear_residual": 3.469446951953614e-18,
+            "point_residual": 5.551115123125783e-17,
+            "closed_hit": false,
+            "strict_candidate": false,
+            "class": "no_hit_this_system"
+          },
+          {
+            "reverse": 1,
+            "edge_corner": 0,
+            "determinant": 1.4719586298142829e-06,
+            "condition": 5.767358728345229,
+            "segment_fraction": 0.1936285593273763,
+            "target_barycentrics": [
+              1.8427230687497027,
+              0.6173935417979717,
+              -1.4601166105476744
+            ],
+            "point": [
+              -0.15931052797397474,
+              0.064295349657871,
+              1.3483557390406857
+            ],
+            "target_point": [
+              -0.15931052797397474,
+              0.064295349657871,
+              1.3483557390406857
+            ],
+            "linear_residual": 8.673617379884035e-19,
+            "point_residual": 0.0,
+            "closed_hit": false,
+            "strict_candidate": false,
+            "class": "no_hit_this_system"
+          },
+          {
+            "reverse": 1,
+            "edge_corner": 1,
+            "determinant": -9.908872330572394e-07,
+            "condition": 8.603878678810036,
+            "segment_fraction": 1.1978612311632006,
+            "target_barycentrics": [
+              -3.9898226530983063,
+              0.740066353525237,
+              4.249756299573069
+            ],
+            "point": [
+              -0.17776840368257402,
+              0.063000664150422,
+              1.3256928841138467
+            ],
+            "target_point": [
+              -0.17776840368257402,
+              0.063000664150422,
+              1.3256928841138464
+            ],
+            "linear_residual": 1.734723475976807e-18,
+            "point_residual": 2.220446049250313e-16,
+            "closed_hit": false,
+            "strict_candidate": false,
+            "class": "no_hit_this_system"
+          },
+          {
+            "reverse": 1,
+            "edge_corner": 2,
+            "determinant": -4.810713967570408e-07,
+            "condition": 22.3691176105737,
+            "segment_fraction": 0.4075448451066807,
+            "target_barycentrics": [
+              -1.0420199124588088,
+              0.6780667965809992,
+              1.3639531158778095
+            ],
+            "point": [
+              -0.16843968528155434,
+              0.06365500578255501,
+              1.337146823619851
+            ],
+            "target_point": [
+              -0.16843968528155434,
+              0.06365500578255501,
+              1.337146823619851
+            ],
+            "linear_residual": 4.336808689942018e-19,
+            "point_residual": 0.0,
+            "closed_hit": false,
+            "strict_candidate": false,
+            "class": "no_hit_this_system"
+          }
+        ],
+        "coplanar_potential": false,
+        "signed_plane_distances": [
+          [
+            -0.004292671864930064,
+            0.01787694959918596,
+            0.002952892342715367
+          ],
+          [
+            0.0079546971068483,
+            -0.004306629417501602,
+            0.008218123530505123
+          ]
+        ],
+        "hits": [
+          {
+            "reverse": 0,
+            "edge_corner": 0,
+            "determinant": -7.016419336848813e-06,
+            "condition": 2.913454254496323,
+            "segment_fraction": 0.6487631734666701,
+            "target_barycentrics": [
+              0.6001678432667301,
+              0.09351761903973466,
+              0.3063145376935353
+            ],
+            "point": [
+              -0.16403053686765437,
+              0.06396427542126043,
+              1.342560441764899
+            ],
+            "target_point": [
+              -0.16403053686765437,
+              0.06396427542126043,
+              1.3425604417648993
+            ],
+            "linear_residual": 0.0,
+            "point_residual": 2.220446049250313e-16,
+            "closed_hit": true,
+            "strict_candidate": true,
+            "class": "strict_candidate"
+          },
+          {
+            "reverse": 0,
+            "edge_corner": 1,
+            "determinant": 7.1671624272568635e-06,
+            "condition": 2.8250617934329125,
+            "segment_fraction": 0.34384945039470716,
+            "target_barycentrics": [
+              0.5516080274785697,
+              0.06994204189217304,
+              0.3784499306292572
+            ],
+            "point": [
+              -0.16514207306430176,
+              0.06388630925508162,
+              1.3411956810541736
+            ],
+            "target_point": [
+              -0.16514207306430176,
+              0.06388630925508162,
+              1.3411956810541736
+            ],
+            "linear_residual": 4.336808689942018e-19,
+            "point_residual": 0.0,
+            "closed_hit": true,
+            "strict_candidate": true,
+            "class": "strict_candidate"
+          }
+        ],
+        "guards": [],
+        "failed_certificates": [],
+        "proof": {
+          "numeric": {
+            "reverse": 0,
+            "edge_corner": 0,
+            "determinant": -7.016419336848813e-06,
+            "condition": 2.913454254496323,
+            "segment_fraction": 0.6487631734666701,
+            "target_barycentrics": [
+              0.6001678432667301,
+              0.09351761903973466,
+              0.3063145376935353
+            ],
+            "point": [
+              -0.16403053686765437,
+              0.06396427542126043,
+              1.342560441764899
+            ],
+            "target_point": [
+              -0.16403053686765437,
+              0.06396427542126043,
+              1.3425604417648993
+            ],
+            "linear_residual": 0.0,
+            "point_residual": 2.220446049250313e-16,
+            "closed_hit": true,
+            "strict_candidate": true,
+            "class": "strict_candidate"
+          },
+          "exact": {
+            "qualified": true,
+            "determinant": "-132536414024373237/18889465931478580854784",
+            "coefficients": [
+              "57323163041563249/88357609349582158",
+              "4131496625207962/44178804674791079",
+              "27065220259623249/88357609349582158"
+            ],
+            "target_barycentrics": [
+              "53029395839542985/88357609349582158",
+              "4131496625207962/44178804674791079",
+              "27065220259623249/88357609349582158"
+            ],
+            "point": [
+              "-972631992192555041969215/5929578789206237498048512",
+              "379281210804851691895313/5929578789206237498048512",
+              "995102239839562766796869/741197348650779687256064"
+            ],
+            "numeric_point": [
+              -0.16403053686765437,
+              0.06396427542126043,
+              1.342560441764899
+            ],
+            "epsilon": "1/1000000000",
+            "point_identities_exact": true
+          }
+        }
+      }
+    }
+  },
+  "certified_crossing": {
+    "cloth_triangle_id": 3072,
+    "body_triangle_id": 8104,
+    "cloth_vertex_ids": [
+      24,
+      1648,
+      49
+    ],
+    "body_vertex_ids": [
+      1559,
+      1560,
+      1610
+    ],
+    "cloth_vertex_owners": [
+      {
+        "key": "r|O|B|0",
+        "side": "r",
+        "layer": "O",
+        "seam": "B",
+        "piece": null,
+        "i": 0,
+        "j": null
+      },
+      {
+        "key": "r|O|under|1|1",
+        "side": "r",
+        "layer": "O",
+        "seam": null,
+        "piece": "under",
+        "i": 1,
+        "j": 1
+      },
+      {
+        "key": "r|O|B|1",
+        "side": "r",
+        "layer": "O",
+        "seam": "B",
+        "piece": null,
+        "i": 1,
+        "j": null
+      }
+    ],
+    "cloth_role": 0,
+    "cloth_panel": 1,
+    "cloth_side": 0,
+    "cloth_points": [
+      [
+        -0.1671682894229889,
+        0.0688663050532341,
+        1.3497021198272705
+      ],
+      [
+        -0.16233177483081818,
+        0.06131034344434738,
+        1.3386939764022827
+      ],
+      [
+        -0.17050482332706451,
+        0.0688018947839737,
+        1.345969557762146
+      ]
+    ],
+    "body_points": [
+      [
+        -0.16094601154327393,
+        0.06165754795074463,
+        1.3520992994308472
+      ],
+      [
+        -0.1524995118379593,
+        0.07528054714202881,
+        1.3327655792236328
+      ],
+      [
+        -0.17359451949596405,
+        0.06502903997898102,
+        1.3268611431121826
+      ]
+    ],
+    "classification": "strict_transverse_CERTIFIED",
+    "predicate": {
+      "systems": [
+        {
+          "reverse": 0,
+          "edge_corner": 0,
+          "determinant": -7.016419336848813e-06,
+          "condition": 2.913454254496323,
+          "segment_fraction": 0.6487631734666701,
+          "target_barycentrics": [
+            0.6001678432667301,
+            0.09351761903973466,
+            0.3063145376935353
+          ],
+          "point": [
+            -0.16403053686765437,
+            0.06396427542126043,
+            1.342560441764899
+          ],
+          "target_point": [
+            -0.16403053686765437,
+            0.06396427542126043,
+            1.3425604417648993
+          ],
+          "linear_residual": 0.0,
+          "point_residual": 2.220446049250313e-16,
+          "closed_hit": true,
+          "strict_candidate": true,
+          "class": "strict_candidate"
+        },
+        {
+          "reverse": 0,
+          "edge_corner": 1,
+          "determinant": 7.1671624272568635e-06,
+          "condition": 2.8250617934329125,
+          "segment_fraction": 0.34384945039470716,
+          "target_barycentrics": [
+            0.5516080274785697,
+            0.06994204189217304,
+            0.3784499306292572
+          ],
+          "point": [
+            -0.16514207306430176,
+            0.06388630925508162,
+            1.3411956810541736
+          ],
+          "target_point": [
+            -0.16514207306430176,
+            0.06388630925508162,
+            1.3411956810541736
+          ],
+          "linear_residual": 4.336808689942018e-19,
+          "point_residual": 0.0,
+          "closed_hit": true,
+          "strict_candidate": true,
+          "class": "strict_candidate"
+        },
+        {
+          "reverse": 0,
+          "edge_corner": 2,
+          "determinant": -1.507430904080486e-07,
+          "condition": 132.96367167895772,
+          "segment_fraction": 31.197035652016204,
+          "target_barycentrics": [
+            4.86471585091126,
+            2.1639369343085773,
+            -6.028652785219837
+          ],
+          "point": [
+            -0.0664148561674565,
+            0.07081130425044656,
+            1.4624144295811987
+          ],
+          "target_point": [
+            -0.06641485616745645,
+            0.07081130425044659,
+            1.4624144295811987
+          ],
+          "linear_residual": 3.469446951953614e-18,
+          "point_residual": 5.551115123125783e-17,
+          "closed_hit": false,
+          "strict_candidate": false,
+          "class": "no_hit_this_system"
+        },
+        {
+          "reverse": 1,
+          "edge_corner": 0,
+          "determinant": 1.4719586298142829e-06,
+          "condition": 5.767358728345229,
+          "segment_fraction": 0.1936285593273763,
+          "target_barycentrics": [
+            1.8427230687497027,
+            0.6173935417979717,
+            -1.4601166105476744
+          ],
+          "point": [
+            -0.15931052797397474,
+            0.064295349657871,
+            1.3483557390406857
+          ],
+          "target_point": [
+            -0.15931052797397474,
+            0.064295349657871,
+            1.3483557390406857
+          ],
+          "linear_residual": 8.673617379884035e-19,
+          "point_residual": 0.0,
+          "closed_hit": false,
+          "strict_candidate": false,
+          "class": "no_hit_this_system"
+        },
+        {
+          "reverse": 1,
+          "edge_corner": 1,
+          "determinant": -9.908872330572394e-07,
+          "condition": 8.603878678810036,
+          "segment_fraction": 1.1978612311632006,
+          "target_barycentrics": [
+            -3.9898226530983063,
+            0.740066353525237,
+            4.249756299573069
+          ],
+          "point": [
+            -0.17776840368257402,
+            0.063000664150422,
+            1.3256928841138467
+          ],
+          "target_point": [
+            -0.17776840368257402,
+            0.063000664150422,
+            1.3256928841138464
+          ],
+          "linear_residual": 1.734723475976807e-18,
+          "point_residual": 2.220446049250313e-16,
+          "closed_hit": false,
+          "strict_candidate": false,
+          "class": "no_hit_this_system"
+        },
+        {
+          "reverse": 1,
+          "edge_corner": 2,
+          "determinant": -4.810713967570408e-07,
+          "condition": 22.3691176105737,
+          "segment_fraction": 0.4075448451066807,
+          "target_barycentrics": [
+            -1.0420199124588088,
+            0.6780667965809992,
+            1.3639531158778095
+          ],
+          "point": [
+            -0.16843968528155434,
+            0.06365500578255501,
+            1.337146823619851
+          ],
+          "target_point": [
+            -0.16843968528155434,
+            0.06365500578255501,
+            1.337146823619851
+          ],
+          "linear_residual": 4.336808689942018e-19,
+          "point_residual": 0.0,
+          "closed_hit": false,
+          "strict_candidate": false,
+          "class": "no_hit_this_system"
+        }
+      ],
+      "coplanar_potential": false,
+      "signed_plane_distances": [
+        [
+          -0.004292671864930064,
+          0.01787694959918596,
+          0.002952892342715367
+        ],
+        [
+          0.0079546971068483,
+          -0.004306629417501602,
+          0.008218123530505123
+        ]
+      ],
+      "hits": [
+        {
+          "reverse": 0,
+          "edge_corner": 0,
+          "determinant": -7.016419336848813e-06,
+          "condition": 2.913454254496323,
+          "segment_fraction": 0.6487631734666701,
+          "target_barycentrics": [
+            0.6001678432667301,
+            0.09351761903973466,
+            0.3063145376935353
+          ],
+          "point": [
+            -0.16403053686765437,
+            0.06396427542126043,
+            1.342560441764899
+          ],
+          "target_point": [
+            -0.16403053686765437,
+            0.06396427542126043,
+            1.3425604417648993
+          ],
+          "linear_residual": 0.0,
+          "point_residual": 2.220446049250313e-16,
+          "closed_hit": true,
+          "strict_candidate": true,
+          "class": "strict_candidate"
+        },
+        {
+          "reverse": 0,
+          "edge_corner": 1,
+          "determinant": 7.1671624272568635e-06,
+          "condition": 2.8250617934329125,
+          "segment_fraction": 0.34384945039470716,
+          "target_barycentrics": [
+            0.5516080274785697,
+            0.06994204189217304,
+            0.3784499306292572
+          ],
+          "point": [
+            -0.16514207306430176,
+            0.06388630925508162,
+            1.3411956810541736
+          ],
+          "target_point": [
+            -0.16514207306430176,
+            0.06388630925508162,
+            1.3411956810541736
+          ],
+          "linear_residual": 4.336808689942018e-19,
+          "point_residual": 0.0,
+          "closed_hit": true,
+          "strict_candidate": true,
+          "class": "strict_candidate"
+        }
+      ],
+      "guards": [],
+      "failed_certificates": [],
+      "proof": {
+        "numeric": {
+          "reverse": 0,
+          "edge_corner": 0,
+          "determinant": -7.016419336848813e-06,
+          "condition": 2.913454254496323,
+          "segment_fraction": 0.6487631734666701,
+          "target_barycentrics": [
+            0.6001678432667301,
+            0.09351761903973466,
+            0.3063145376935353
+          ],
+          "point": [
+            -0.16403053686765437,
+            0.06396427542126043,
+            1.342560441764899
+          ],
+          "target_point": [
+            -0.16403053686765437,
+            0.06396427542126043,
+            1.3425604417648993
+          ],
+          "linear_residual": 0.0,
+          "point_residual": 2.220446049250313e-16,
+          "closed_hit": true,
+          "strict_candidate": true,
+          "class": "strict_candidate"
+        },
+        "exact": {
+          "qualified": true,
+          "determinant": "-132536414024373237/18889465931478580854784",
+          "coefficients": [
+            "57323163041563249/88357609349582158",
+            "4131496625207962/44178804674791079",
+            "27065220259623249/88357609349582158"
+          ],
+          "target_barycentrics": [
+            "53029395839542985/88357609349582158",
+            "4131496625207962/44178804674791079",
+            "27065220259623249/88357609349582158"
+          ],
+          "point": [
+            "-972631992192555041969215/5929578789206237498048512",
+            "379281210804851691895313/5929578789206237498048512",
+            "995102239839562766796869/741197348650779687256064"
+          ],
+          "numeric_point": [
+            -0.16403053686765437,
+            0.06396427542126043,
+            1.342560441764899
+          ],
+          "epsilon": "1/1000000000",
+          "point_identities_exact": true
+        }
+      }
+    }
+  },
+  "untested_remainder": "After witness or cap not examined; an encountered pair interrupted before classification may lack a complete predicate; no-hit/full scan still leaves clearance/occupancy/self/fullsurface/pose/appearance UNKNOWN",
+  "unadmitted_intent_targets": "UNUSED",
+  "elapsed_seconds": 1.0064189999829978,
+  "post_pins": true,
+  "search_clock_seconds": 1.0088674169965088
+}

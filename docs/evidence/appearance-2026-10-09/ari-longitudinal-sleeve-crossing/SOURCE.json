@@ -1,0 +1,78 @@
+{
+  "runtime": {
+    "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "numpy": "2.4.6",
+    "numpy_entry": "/opt/homebrew/lib/python3.14/site-packages/numpy/__init__.py"
+  },
+  "body_world": {
+    "dtype": "float32",
+    "shape": [
+      13380,
+      3
+    ],
+    "raw_sha256": "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c"
+  },
+  "body_triangles": {
+    "dtype": "int32",
+    "shape": [
+      26756,
+      3
+    ],
+    "raw_sha256": "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4"
+  },
+  "mesh_world": {
+    "dtype": "float32",
+    "shape": [
+      12480,
+      3
+    ],
+    "raw_sha256": "13b8c96ed2421a0b89fa68daa692067e5349f1312cc12106104485f9dc3385f1"
+  },
+  "mesh_triangles": {
+    "dtype": "int32",
+    "shape": [
+      24960,
+      3
+    ],
+    "raw_sha256": "0c4b99c4492b237a97bbad3b2cdd6fd0e8dc40756eac65bde64ccb9f866740df"
+  },
+  "face_role": {
+    "dtype": "uint8",
+    "shape": [
+      24960
+    ],
+    "raw_sha256": "a124ebc1fb410ca1b82e1c03ecaaaa7fd29455b5ab617a593ac69c9393377bc4"
+  },
+  "panel": {
+    "dtype": "uint8",
+    "shape": [
+      24960
+    ],
+    "raw_sha256": "10e26c00fe55d69269e54b6891fb9001cf23d9b45ad39665fd46bd393bc50abb"
+  },
+  "side": {
+    "dtype": "uint8",
+    "shape": [
+      24960
+    ],
+    "raw_sha256": "05bb67916de428729761160d6742e842f78fce1cb54410617577a77c3fde07c3"
+  },
+  "minimum_doubleareas": {
+    "body": 1.7412600607914935e-07,
+    "cloth": 1.3139343507580598e-05
+  },
+  "decoded_members": {
+    "body": [
+      "Human_world",
+      "Human_triangles"
+    ],
+    "mesh": [
+      "world32",
+      "triangles",
+      "face_role",
+      "panel",
+      "side"
+    ]
+  },
+  "authoritative_precision": "F32 source coordinates, exactly promoted to F64; exact dyadic positive-witness certificate"
+}

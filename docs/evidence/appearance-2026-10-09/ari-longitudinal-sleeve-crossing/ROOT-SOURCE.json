@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-09T21:30:00.103235+00:00",
+  "whole_query_wrapper_admission_and_verifier_read": true,
+  "exact_inherited_predicate_AST": [
+    "det3",
+    "certify",
+    "classify",
+    "tick"
+  ],
+  "all_pins_exact": 23,
+  "members_expected_from_frozen_metadata_only": true,
+  "source_authored_before_gate": true,
+  "unknown_or_negative_only": true,
+  "scope": "Source readback. No target member decode/query. Runtime subset binary+numpy-entry/version only. Source frozen21:29:20; no future gate extension."
+}
