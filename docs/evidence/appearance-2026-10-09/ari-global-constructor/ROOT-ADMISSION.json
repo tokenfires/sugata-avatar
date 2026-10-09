@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-09T11:53:51.893353+00:00",
+  "whole_handoff_read": true,
+  "preflight_sha256": "347efb97100a4d75297ebe3d0eb89308d7f8bc9f7db8747baa20b733e116fde6",
+  "preflight_bindings_exact": 12,
+  "exec_pins_exact": 32,
+  "owned_competing_workers": [],
+  "first_outputs_absent": true,
+  "decision": "ADMIT_ONE_FROZEN_GLOBAL_CONSTRUCTOR_ONLY",
+  "command": "python3 docs/evidence/appearance-2026-10-09/ari-global-constructor/run_build.py",
+  "maximum_worker_seconds": 360,
+  "native_capture_network_admission": false,
+  "geometry_fit_appearance": "Not yet observed"
+}

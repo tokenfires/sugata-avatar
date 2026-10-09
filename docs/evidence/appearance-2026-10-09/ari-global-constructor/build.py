@@ -1,0 +1,441 @@
+"""One fixed prospective map. Run only through the separately reviewed wrapper."""
+from pathlib import Path
+from collections import Counter
+import datetime
+import hashlib
+import json
+import time
+import traceback
+import numpy as np
+
+HERE = Path(__file__).resolve().parent
+START = time.monotonic()
+STATE = {"utc_start": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+         "stages": [], "fit": "UNKNOWN", "appearance": "NOT_OBSERVED"}
+
+
+class Refusal(Exception):
+    pass
+
+
+class Budget(Exception):
+    pass
+
+
+def clock(stage, since=START, seconds=360):
+    elapsed = time.monotonic() - since
+    if elapsed >= seconds or time.monotonic() - START >= 360:
+        raise Budget({"stage": stage, "elapsed": elapsed, "limit": seconds,
+                      "total_elapsed": time.monotonic() - START})
+
+
+def require(ok, stage, **witness):
+    if not bool(ok):
+        STATE["first_refusal"] = {"stage": stage, **witness}
+        raise Refusal(stage)
+
+
+def raw_hash(a):
+    return hashlib.sha256(a.tobytes(order="C")).hexdigest()
+
+
+def json_write(name, obj):
+    def safe(value):
+        if isinstance(value, np.ndarray): return safe(value.tolist())
+        if isinstance(value, np.generic): return safe(value.item())
+        if isinstance(value, float) and not np.isfinite(value): return {"nonfinite": str(value)}
+        if isinstance(value, dict): return {str(k):safe(v) for k,v in value.items()}
+        if isinstance(value, (list,tuple)): return [safe(v) for v in value]
+        return value
+    with (HERE / name).open("x") as f:
+        json.dump(safe(obj), f, indent=2, allow_nan=False)
+        f.write("\n")
+
+
+def load_sources():
+    pins = json.loads((HERE / "EXEC-INPUTS.json").read_text())
+    for row in pins:
+        f = Path(row["path"])
+        data = f.read_bytes()
+        require(len(data) == row["bytes"] and hashlib.sha256(data).hexdigest() == row["sha256"],
+                "input-byte-identity", path=str(f), expected=row,
+                observed_bytes=len(data), observed_sha256=hashlib.sha256(data).hexdigest())
+        clock("input-bytes")
+    originals = json.loads((HERE / "INPUTS.json").read_text())
+    docs = {Path(r["path"]).name: Path(r["path"]) for r in originals}
+    require(len(docs)==len(originals),"unique-input-basename",paths=[r["path"] for r in originals])
+    meta = {name: json.loads(docs[name].read_text()) for name in
+            ("PARAMETERS.json", "OWNERSHIP.json", "COUPLING.json", "SUPPLEMENTAL-SOURCES.json",
+             "TOPOLOGY.json", "SECTION-MANIFEST.json", "DISTAL-MANIFEST.json")}
+    arrays = {}
+    expected_body = [("Human_world", "float32", (13380, 3),
+                      "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c"),
+                     ("Human_triangles", "int32", (26756, 3),
+                      "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4")]
+    with np.load(docs["after-geometry.npz"], allow_pickle=False) as archive:
+        for key, dtype, shape, digest in expected_body:
+            require(key in archive.files, "body-selector", key=key, available_names=archive.files)
+            a = archive[key]
+            require(str(a.dtype) == dtype and a.shape == shape and raw_hash(a) == digest,
+                    "body-array-identity", key=key, expected_dtype=dtype, expected_shape=list(shape),
+                    expected_sha256=digest, observed_dtype=str(a.dtype), observed_shape=list(a.shape),
+                    observed_sha256=raw_hash(a))
+            arrays[key] = a
+    with np.load(docs["fields.npz"], allow_pickle=False) as archive:
+        for row in meta["SUPPLEMENTAL-SOURCES.json"]["arm_selectors"]:
+            key = row["npz_key"]
+            require(key in archive.files, "arm-selector", expected=row, available_names=archive.files)
+            a = archive[key]
+            require(str(a.dtype) == row["expected_dtype"] and list(a.shape) == row["expected_shape"]
+                    and raw_hash(a) == row["expected_raw_sha256"], "arm-array-identity", expected=row,
+                    observed_dtype=str(a.dtype), observed_shape=list(a.shape), observed_sha256=raw_hash(a))
+            require(np.all((a >= 0) & (a < 26756)) and len(np.unique(a)) == len(a),
+                    "arm-array-range-unique", key=key, minimum=int(a.min()), maximum=int(a.max()),
+                    unique_count=len(np.unique(a)))
+            arrays[key] = a
+    v, t = arrays["Human_world"].astype(np.float64), arrays["Human_triangles"]
+    bad_vertex=np.flatnonzero(~np.isfinite(v).all(axis=1))
+    require(not len(bad_vertex),"body-finite",first_vertex=None if not len(bad_vertex) else int(bad_vertex[0]),
+            values=None if not len(bad_vertex) else v[bad_vertex[0]].tolist())
+    bad_triangle=np.flatnonzero(~np.all((t>=0)&(t<len(v)),axis=1))
+    require(not len(bad_triangle),"body-triangle-range",first_triangle=None if not len(bad_triangle) else int(bad_triangle[0]),
+            vertices=None if not len(bad_triangle) else t[bad_triangle[0]].tolist())
+    body_norms=np.linalg.norm(np.cross(v[t[:,1]]-v[t[:,0]],v[t[:,2]]-v[t[:,0]]),axis=1)
+    bad=np.flatnonzero(~np.isfinite(body_norms)|(body_norms<=0))
+    require(not len(bad),"body-triangle-normal-defined",first_triangle=None if not len(bad) else int(bad[0]),
+            witness=None if not len(bad) else {"vertices":t[bad[0]].tolist(),"world_points":v[t[bad[0]]].tolist(),"twice_area":float(body_norms[bad[0]])})
+    require(not np.intersect1d(arrays["l_arm_faces"], arrays["r_arm_faces"]).size, "arm-domain-disjoint")
+    par = meta["PARAMETERS.json"]
+    for a in par["source_anchors"]:
+        observed = v[a["source_vertex"]]
+        require(np.array_equal(observed, a["source_point"]), "literal-anchor", expected=a,
+                observed=observed.tolist())
+    sections = {s["name"]: s for s in meta["SECTION-MANIFEST.json"]["sections"]}
+    for name in par["source_row_names"].values():
+        for i, a in enumerate(sections[name]["ordered_source_triangle_edges"]):
+            ids = a["edge"]; f = a["fraction"]
+            observed = v[ids[0]] * (1-f) + v[ids[1]] * f
+            error = float(np.max(np.abs(observed - a["point"])))
+            require(error <= 1e-12, "torso-source-association", section=name, source_index=i,
+                    association=a, reconstructed=observed.tolist(), maximum_error=error)
+    distal = {s["name"]: s for s in meta["DISTAL-MANIFEST.json"]["sections"]}
+    for name, s in distal.items():
+        require(len(s["samples"]) == 16, "distal-source-count", section=name, count=len(s["samples"]))
+        for i, sample in enumerate(s["samples"]):
+            a = sample["primary_association"]
+            observed = np.asarray(a["barycentric_weights"]) @ v[t[a["triangle"]]]
+            error = float(np.max(np.abs(observed-a["point"])))
+            require(sample["index"] == i and t[a["triangle"]].tolist() == a["triangle_vertex_ids"]
+                    and error <= 1e-12, "distal-source-association", section=name, sample=i,
+                    association=a, reconstructed=observed.tolist(), maximum_error=error)
+    STATE["source"] = {"body_raw_hashes": {k: raw_hash(arrays[k]) for k in ("Human_world", "Human_triangles")},
+                       "arm_raw_hashes": {k: raw_hash(arrays[k]) for k in ("l_arm_faces", "r_arm_faces")},
+                       "decoded_arrays": list(arrays), "literal_anchors": 8,
+                       "torso_edge_associations": sum(len(s["ordered_source_triangle_edges"]) for s in sections.values()),
+                       "distal_associations": 64, "numpy_version": np.__version__}
+    STATE["stages"].append("source-identities-and-associations")
+    return meta, arrays, v, t, sections, distal
+
+
+def coverage_domains(arrays, v, t, sections, distal):
+    pts = v[t]; arm = np.zeros(len(t), bool)
+    arm[arrays["l_arm_faces"]] = True; arm[arrays["r_arm_faces"]] = True
+    hem, neck = sections["hem"]["plane_origin"][2], sections["neckline"]["plane_origin"][2]
+    cy = .009862011298537254
+    torso = ~arm & np.all((pts[:,:,2] >= hem) & (pts[:,:,2] <= neck), axis=1)
+    front = torso & np.all((pts[:,:,1] < cy) & (np.abs(np.arctan2(pts[:,:,0], cy-pts[:,:,1])) < .18), axis=1)
+    domains = {"required-torso": np.flatnonzero(torso & ~front), "exposed-front": np.flatnonzero(front),
+               "exposed-lower": np.flatnonzero(~arm & np.all(pts[:,:,2] < hem-1e-8, axis=1))}
+    for side, long_side in (("l", "left"), ("r", "right")):
+        ids = arrays[side+"_arm_faces"]; s = distal["cuff-"+side]
+        projection = (pts[ids]-s["origin"]) @ np.asarray(s["normal"])
+        domains["required-"+long_side] = ids[np.all(projection <= -1e-8, axis=1)]
+        domains["exposed-hand-"+long_side] = ids[np.all(projection >= 1e-8, axis=1)]
+    required = np.unique(np.concatenate([a for key,a in domains.items() if key.startswith("required")]))
+    exposed = np.unique(np.concatenate([a for key,a in domains.items() if key.startswith("exposed")]))
+    conflicts = np.intersect1d(required, exposed)
+    require(not len(conflicts), "coverage-domain-conflict", face_ids=conflicts[:20].tolist(), count=len(conflicts))
+    STATE["coverage_domains"] = {"counts": {k:len(a) for k,a in domains.items()},
+                                 "required_exposed_disjoint": True, "unassigned": "UNKNOWN"}
+    STATE["stages"].append("independent-source-domains")
+    return domains
+
+
+def construct(meta, sections, distal):
+    par, topo, ledger = (meta[k] for k in ("PARAMETERS.json", "TOPOLOGY.json", "OWNERSHIP.json"))
+    symbols, owners = topo["vertex_symbols"], ledger["owners"]
+    require(len(symbols) == len(owners) == 806, "symbol-count", symbols=len(symbols), owners=len(owners))
+    for i, row in enumerate(owners):
+        require(row["id"] == i and row["symbol"] == symbols[i], "symbol-owner", index=i, owner=row, symbol=symbols[i])
+    rows = {}; provenance = {}
+    for ytext, name in par["source_row_names"].items():
+        y = int(ytext); s = sections[name]
+        original = np.asarray([r["point"] for r in s["ordered_source_triangle_edges"]], np.float64)
+        indices = list(range(len(original)))
+        area = float(np.sum(original[:,0]*np.roll(original[:,1],-1)-original[:,1]*np.roll(original[:,0],-1)) / 2)
+        require(np.isfinite(area) and abs(area) > 1e-12, "source-contour-area", section=name, area=area)
+        if area < 0: indices.reverse()
+        start = min(range(len(indices)), key=lambda q:(original[indices[q],1], abs(original[indices[q],0]), original[indices[q],0], indices[q]))
+        indices = indices[start:]+indices[:start]; points = original[indices]
+        lengths = np.linalg.norm(np.roll(points,-1,axis=0)-points,axis=1)
+        bad = np.flatnonzero(~np.isfinite(lengths) | (lengths <= 1e-12))
+        require(not len(bad), "source-contour-segment", section=name, first_index=None if not len(bad) else int(bad[0]))
+        cumulative = np.r_[0, np.cumsum(lengths)]; samples = []
+        for x in range(25):
+            target = (.04+.92*x/24)*cumulative[-1]
+            k = int(np.searchsorted(cumulative,target,side="right")-1)
+            f = (target-cumulative[k])/lengths[k]
+            point = (1-f)*points[k]+f*points[(k+1)%len(points)]
+            point[0] *= 1.10; cy=s["plane_origin"][1]; point[1]=cy+1.10*(point[1]-cy)
+            samples.append(point)
+        rows[y] = np.asarray(samples)
+        provenance[name] = {"source_signed_xy_area":area,"rotated_original_indices":indices,"circumference":float(cumulative[-1])}
+    ellipses = {}
+    for short, side in (("l","left"),("r","right")):
+        anchors = {a["role"]: np.asarray(a["source_point"],np.float64) for a in par["source_anchors"] if a["side"]==short}
+        center = np.mean(list(anchors.values()),axis=0); up=anchors["crown"]-anchors["underarm"]
+        norm=float(np.linalg.norm(up));require(norm>1e-10,"hole-up-axis",side=side,axis=up.tolist(),norm=norm);up/=norm
+        front=anchors["front"]-anchors["rear"];front-=up*np.dot(front,up)
+        norm=float(np.linalg.norm(front));require(norm>1e-10,"hole-front-axis",side=side,axis=front.tolist(),norm=norm);front/=norm
+        a=max(abs(np.dot(p-center,front)) for p in anchors.values());b=max(abs(np.dot(p-center,up)) for p in anchors.values())
+        require(a>1e-10 and b>1e-10,"hole-ellipse-radii",side=side,a=float(a),b=float(b))
+        points=[]
+        for j in range(16):
+            theta=2*np.pi*j/16 if side=="left" else np.pi-2*np.pi*j/16
+            p=center+a*np.cos(theta)*front+b*np.sin(theta)*up
+            p[0]*=1.10;p[1]=center[1]+1.10*(p[1]-center[1]);points.append(p)
+        ellipses[side]=np.asarray(points)
+    outer=np.full((403,3),np.nan);free=[]
+    for row in owners[:403]:
+        i, rule = row["id"], row["owner"]; name=rule["rule"]
+        if name=="torso-source-arc":outer[i]=rows[rule["row"]][rule["column"]]
+        elif name=="shared-hole-ellipse":outer[i]=ellipses[rule["side"]][rule["phase"]]
+        elif name=="front-edge-knot-interpolation":
+            _,x,y=row["symbol"];lo=max(k for k in rows if k<y);hi=min(k for k in rows if k>y);f=(y-lo)/(hi-lo)
+            outer[i]=(1-f)*rows[lo][x]+f*rows[hi][x]
+        elif name=="uniform-harmonic-torso":free.append(i)
+        elif name=="distal-source-ring":
+            side="l" if rule["side"]=="left" else "r";j=rule["phase"];q=(-j)%16 if side=="l" else (8+j)%16
+            require(q==rule["source_index"],"distal-phase",symbol_id=i,owner=rule,computed=q)
+            s=distal[("elbow-" if rule["ring"]==1 else "cuff-")+side]
+            origin=np.asarray(s["origin"]);p=origin+1.15*(np.asarray(s["samples"][q]["primary_association"]["point"])-origin)
+            if rule["ring"]==2:p-=.040*np.asarray(s["normal"])
+            outer[i]=p
+        else:require(False,"unknown-outer-rule",symbol_id=i,owner=rule)
+    lookup={tuple(s[1:]):i for i,s in enumerate(symbols[:403]) if s[0]=="torso"}
+    neighbors={i:sorted(lookup[q] for q in ((x-1,y),(x+1,y),(x,y-1),(x,y+1)) if q in lookup) for (x,y),i in lookup.items()}
+    seen=set();todo=[min(neighbors)]
+    while todo:
+        i=todo.pop()
+        if i not in seen:seen.add(i);todo.extend(neighbors[i])
+    require(len(seen)==307,"harmonic-graph-connectivity",connected=len(seen))
+    fi={i:k for k,i in enumerate(free)};matrix=np.zeros((len(free),len(free)));rhs=np.zeros((len(free),3))
+    for i,k in fi.items():
+        matrix[k,k]=len(neighbors[i])
+        for j in neighbors[i]:
+            if j in fi:matrix[k,fi[j]]-=1
+            else:rhs[k]+=outer[j]
+    for component in ledger["free_torso_components"]:
+        require(any(j not in fi for i in component["free_ids"] for j in neighbors[i]),"unanchored-free-component",component=component)
+    clock("before-harmonic-solve");solution=np.linalg.solve(matrix,rhs);clock("after-harmonic-solve")
+    residual=np.abs(matrix@solution-rhs);worst=np.unravel_index(int(np.argmax(residual)),residual.shape)
+    require(np.isfinite(solution).all() and residual[worst]<=1e-10,"harmonic-solution",symbol_id=free[worst[0]],axis=worst[1],maximum_residual=float(residual[worst]),
+            matrix_row=matrix[worst[0]].tolist(),rhs=rhs[worst[0]].tolist(),solution_row=solution[worst[0]].tolist())
+    outer[free]=solution
+    tri=np.asarray(topo["triangles"],np.int32);ot=tri[:704];cross=np.cross(outer[ot[:,1]]-outer[ot[:,0]],outer[ot[:,2]]-outer[ot[:,0]])
+    magnitude=np.linalg.norm(cross,axis=1);bad=np.flatnonzero(~np.isfinite(magnitude)|(magnitude<=1e-10))
+    require(not len(bad),"outer-triangle-area",first_triangle=None if not len(bad) else int(bad[0]),
+            witness=None if not len(bad) else {"vertices":ot[bad[0]].tolist(),"world_points":outer[ot[bad[0]]].tolist(),"twice_area":float(magnitude[bad[0]])})
+    normals=np.zeros_like(outer)
+    for corner in range(3):np.add.at(normals,ot[:,corner],cross)
+    nm=np.linalg.norm(normals,axis=1);bad=np.flatnonzero(~np.isfinite(nm)|(nm<=1e-10))
+    require(not len(bad),"summed-outer-normal",symbol_id=None if not len(bad) else int(bad[0]),
+            witness=None if not len(bad) else {"symbol":symbols[bad[0]],"outer_position":outer[bad[0]].tolist(),
+            "incident_outer_triangles":np.flatnonzero(np.any(ot==bad[0],axis=1)).tolist(),"sum":normals[bad[0]].tolist(),"norm":float(nm[bad[0]])})
+    normals/=nm[:,None];world64=np.vstack((outer,outer-.002*normals));world=world64.astype(np.float32)
+    cast=np.abs(world64-world.astype(np.float64));worst=np.unravel_index(int(np.argmax(cast)),cast.shape)
+    require(np.isfinite(world).all() and cast[worst]<=1e-7,"world-F32-cast",symbol_id=worst[0],axis=worst[1],maximum_error=float(cast[worst]))
+    xyz=world.astype(np.float64)[tri];areas=np.linalg.norm(np.cross(xyz[:,1]-xyz[:,0],xyz[:,2]-xyz[:,0]),axis=1)
+    bad=np.flatnonzero(~np.isfinite(areas)|(areas<=1e-10))
+    require(not len(bad),"complete-material-boundary-area",first_triangle=None if not len(bad) else int(bad[0]),
+            witness=None if not len(bad) else {"vertices":tri[bad[0]].tolist(),"world_points":xyz[bad[0]].tolist(),"twice_area":float(areas[bad[0]])})
+    STATE["geometry"]={"vertices":806,"triangles":1616,"harmonic_max_residual":float(residual.max()),
+                       "maximum_F32_error":float(cast.max()),"minimum_outer_twice_area":float(magnitude.min()),
+                       "minimum_summed_normal":float(nm.min()),"minimum_complete_twice_area":float(areas.min()),
+                       "signed_volume":float(np.sum(xyz[:,0]*np.cross(xyz[:,1],xyz[:,2]))/6),
+                       "embedding_fit_separation":"UNKNOWN","torso_charts":provenance}
+    STATE["stages"].append("frozen-global-geometry")
+    return world,world64,tri,normals,matrix,rhs
+
+
+def intersects(a,b):
+    """All six directed edges; conservative coplanar category, no overlap claim."""
+    hits=[];det_eps=1e-12;eps=1e-9
+    for reverse,(s,t) in enumerate(((a,b),(b,a))):
+        e1=t[1]-t[0];e2=t[2]-t[0]
+        for k in range(3):
+            origin=s[k];direction=s[(k+1)%3]-origin;h=np.cross(direction,e2);det=float(np.dot(e1,h))
+            if abs(det)<=det_eps:continue
+            delta=origin-t[0];u=float(np.dot(delta,h)/det);q=np.cross(delta,e1);v=float(np.dot(direction,q)/det);f=float(np.dot(e2,q)/det)
+            bary=np.array([1-u-v,u,v])
+            if -eps<=f<=1+eps and np.all(bary>=-eps) and np.all(bary<=1+eps):
+                strict=eps<f<1-eps and np.all(bary>eps) and np.all(bary<1-eps)
+                hits.append({"reverse":reverse,"edge_corner":k,"segment_fraction":f,"target_barycentrics":bary.tolist(),
+                             "world_point":(origin+f*direction).tolist(),"strict":bool(strict)})
+    na=np.cross(a[1]-a[0],a[2]-a[0]);nb=np.cross(b[1]-b[0],b[2]-b[0]);na/=np.linalg.norm(na);nb/=np.linalg.norm(nb)
+    coplanar=bool(np.all(np.abs((b-a[0])@na)<=1e-8) and np.all(np.abs((a-b[0])@nb)<=1e-8))
+    return hits,coplanar
+
+
+def shared_support(point,shared,world):
+    p=np.asarray(point,np.float64)
+    if len(shared)==1:
+        error=float(np.linalg.norm(p-world[shared[0]].astype(np.float64)))
+        return {'expected':bool(np.isfinite(error) and error<=1e-8),'kind':'vertex','distance':error,'fraction':None}
+    if len(shared)==2:
+        a,b=world[shared].astype(np.float64);d=b-a;denominator=float(np.dot(d,d))
+        if not np.isfinite(denominator) or denominator<=0:return {'expected':False,'kind':'edge','reason':'undefined support'}
+        fraction=float(np.dot(p-a,d)/denominator);error=float(np.linalg.norm(p-(a+fraction*d)))
+        return {'expected':bool(np.isfinite(fraction) and np.isfinite(error) and -1e-9<=fraction<=1+1e-9 and error<=1e-8),
+                'kind':'edge','distance':error,'fraction':fraction,'projection':(a+fraction*d).tolist()}
+    return {'expected':False,'kind':'none'}
+
+
+def on_shared(point,shared,world):return shared_support(point,shared,world)['expected']
+
+
+def contact_observer(world,tri,body,bt,self_mode):
+    begin=time.monotonic();a=world.astype(np.float64)[tri];b=a if self_mode else body[bt]
+    lo,hi=b.min(axis=1),b.max(axis=1);counts=Counter();first={};topology=Counter();digest=hashlib.sha256();reached=0
+    complete=False;budget=None
+    try:
+        for i,points in enumerate(a):
+            clock("self-contact" if self_mode else "body-contact",begin,120)
+            candidates=np.flatnonzero(np.all((hi>=points.min(axis=0)-1e-8)&(lo<=points.max(axis=0)+1e-8),axis=1))
+            if self_mode:candidates=candidates[candidates>i]
+            for j0 in candidates:
+                j=int(j0);clock("contact-pair",begin,120)
+                if reached>=500000:raise Budget({"stage":"contact-pair-cap","next_pair":[i,j],"limit":500000})
+                reached+=1;digest.update(np.asarray([i,j],dtype='<i4').tobytes())
+                shared=sorted(set(tri[i])&set(tri[j])) if self_mode else []
+                category=("common-edge" if len(shared)==2 else "common-vertex" if len(shared)==1 else "nonincident") if self_mode else "fullbody"
+                topology[category]+=1;hits,cop=intersects(points,b[j])
+                for h in hits:h['shared_support']=shared_support(h['world_point'],shared,world) if self_mode else None
+                strict=[h for h in hits if h["strict"] and (not self_mode or not h['shared_support']['expected'])]
+                boundary=[h for h in hits if not h["strict"] and (not self_mode or not h['shared_support']['expected'])]
+                if strict:label="strict_transverse";hit=strict[0]
+                elif boundary:label="boundary_ambiguous";hit=boundary[0]
+                elif cop:label="coplanar_ambiguous";hit=None
+                else:label="miss_or_expected_topological_touch";hit=hits[0] if hits else None
+                counts[label]+=1
+                if label not in first:
+                    first[label]={"triangle_ids":[i,j],"vertex_ids":[tri[i].tolist(),(tri if self_mode else bt)[j].tolist()],
+                                  "world_triangles":[points.tolist(),b[j].tolist()],"topology_category":category,
+                                  "shared_vertex_ids":[int(x) for x in shared],"hit":hit,"coplanar_potential":cop}
+            clock("contact-final-row",begin,120)
+        clock("contact-final-batch",begin,120);complete=True
+    except Budget as e:budget=e.args[0]
+    return {"complete":complete,"bbox_pairs_reached":reached,"ordered_pair_sha256":digest.hexdigest(),
+            "counts":dict(counts),"topology_categories":dict(topology),"first_per_class":first,
+            "elapsed":time.monotonic()-begin,"budget_failure":budget,"coplanar_overlap_proof":"HELD"}
+
+
+def coverage_observer(world,tri,owners,body,bt,domains):
+    begin=time.monotonic();target=world.astype(np.float64)[tri[:704]];e1=target[:,1]-target[:,0];e2=target[:,2]-target[:,0]
+    target_normals=np.cross(e1,e2);target_normals/=np.linalg.norm(target_normals,axis=1)[:,None]
+    selected=sorted(set(int(i) for ids in domains.values() for i in ids));counts=Counter();first={};records=[];complete=False;budget=None
+    domain_for={int(i):name for name,ids in domains.items() for i in ids}
+    def resolve_group(group,distance,interior,origin,direction):
+        support=[]
+        if len(group)==1:return bool(interior[group[0]]),support
+        for k,i0 in enumerate(group):
+            i=int(i0)
+            for j0 in group[k+1:]:
+                j=int(j0);shared=sorted(set(tri[i])&set(tri[j]))
+                pi=origin+distance[i]*direction;pj=origin+distance[j]*direction
+                si=shared_support(pi,shared,world);sj=shared_support(pj,shared,world)
+                if len(shared)!=2 or np.linalg.norm(pi-pj)>1e-8 or not si['expected'] or not sj['expected']:return False,support
+                support.append({'triangles':[i,j],'shared_edge':[int(v) for v in shared],
+                                'world_points':[pi.tolist(),pj.tolist()],'samepoint_distance':float(np.linalg.norm(pi-pj)),
+                                'owners':[owners[i],owners[j]],'support_projections':[si,sj]})
+        return True,support
+    try:
+        require(len(selected)<=26756,"coverage-sample-cap",samples=len(selected))
+        for face in selected:
+            clock("coverage",begin,90);points=body[bt[face]];origin=points.mean(axis=0);direction=np.cross(points[1]-points[0],points[2]-points[0]);norm=float(np.linalg.norm(direction))
+            require(np.isfinite(norm) and norm>0,"coverage-body-normal",face_id=face,world_points=points.tolist(),normal_length=norm)
+            direction/=norm;h=np.cross(direction,e2);det=np.sum(e1*h,axis=1);safe=np.abs(det)>1e-12
+            inv=np.zeros_like(det);inv[safe]=1/det[safe];delta=origin-target[:,0];u=np.sum(delta*h,axis=1)*inv;q=np.cross(delta,e1);v=(q@direction)*inv;distance=np.sum(e2*q,axis=1)*inv
+            bary=np.column_stack((1-u-v,u,v));positive=safe&(distance>1e-8)&(distance<=1)&np.all(bary>=-1e-9,axis=1)&np.all(bary<=1+1e-9,axis=1)
+            interior=positive&np.all(bary>1e-9,axis=1)&np.all(bary<1-1e-9,axis=1)
+            ray_end=origin+direction;box=np.all((target.max(axis=1)>=np.minimum(origin,ray_end)-1e-8)&(target.min(axis=1)<=np.maximum(origin,ray_end)+1e-8),axis=1)
+            cop=~safe&box&(np.abs(np.sum((origin-target[:,0])*target_normals,axis=1))<=1e-8)
+            hit_ids=np.flatnonzero(positive);strict_ids=np.flatnonzero(interior);role=domain_for[face];witness=None
+            groups=[];remaining=hit_ids[np.argsort(distance[hit_ids],kind='stable')]
+            while len(remaining):
+                group=remaining[np.abs(distance[remaining]-distance[remaining[0]])<=1e-8]
+                resolved,support=resolve_group(group,distance,interior,origin,direction)
+                groups.append((group,resolved,support));remaining=remaining[len(group):]
+            resolved_groups=[item for item in groups if item[1]]
+            if role.startswith("exposed"):
+                label="REFUSED_EXPOSURE_SAMPLE" if len(resolved_groups) else "UNKNOWN" if len(hit_ids) or cop.any() else "PASS_SAMPLE"
+            elif not len(hit_ids):label="UNKNOWN" if cop.any() else "REFUSED_SAMPLE"
+            else:
+                group,resolved,support=groups[0]
+                want="outer-torso" if role=="required-torso" else "outer-sleeve-"+role.removeprefix("required-")
+                ambiguous=cop.any() or not resolved
+                if ambiguous:label="UNKNOWN"
+                elif all(owners[int(j)]==want for j in group):label="PASS_SAMPLE"
+                elif all(owners[int(j)]!=want for j in group):label="REFUSED_SAMPLE"
+                else:label="UNKNOWN"
+            if len(hit_ids):
+                group,resolved,support=groups[0];first_distance=float(np.min(distance[group]))
+                witness={"first_distance":first_distance,"resolved":resolved,"shared_edge_support":support,
+                         "hits":[{"candidate_triangle":int(j),"vertices":tri[j].tolist(),"owner":owners[int(j)],"distance":float(distance[j]),"barycentrics":bary[j].tolist(),"world_point":(origin+distance[j]*direction).tolist(),"interior":bool(interior[j])} for j in group]}
+                if label=="REFUSED_EXPOSURE_SAMPLE":
+                    refuse_group,_,refuse_support=resolved_groups[0]
+                    witness["resolved_positive_refusal_group"]={"triangles":[int(j) for j in refuse_group],
+                        "shared_edge_support":refuse_support,
+                        "hits":[{"candidate_triangle":int(j),"vertices":tri[j].tolist(),"owner":owners[int(j)],"distance":float(distance[j]),"barycentrics":bary[j].tolist(),"world_point":(origin+distance[j]*direction).tolist()} for j in refuse_group]}
+            counts[label]+=1;records.append([face,label]);key=role+":"+label
+            if key not in first:first[key]={"body_face":face,"body_vertex_ids":bt[face].tolist(),"origin":origin.tolist(),"direction":direction.tolist(),"first_hit":witness,"coplanar_unresolved":bool(cop.any())}
+        clock("coverage-final-sample",begin,90);complete=True
+    except Budget as e:budget=e.args[0]
+    return {"complete":complete,"samples_reached":len(records),"selected_samples":len(selected),"counts":dict(counts),
+            "first_per_role_status":first,"ordered_status_sha256":hashlib.sha256(json.dumps(records,separators=(',',':')).encode()).hexdigest(),
+            "elapsed":time.monotonic()-begin,"budget_failure":budget,"scope":"Centroid rays only; fullsurface/physicalconcealment UNKNOWN"}
+
+
+def main():
+    meta,arrays,body,bt,sections,distal=load_sources();clock("after-source")
+    domains=coverage_domains(arrays,body,bt,sections,distal);clock("after-source-domains")
+    world,world64,tri,normals,matrix,rhs=construct(meta,sections,distal);clock("after-geometry")
+    with (HERE/"geometry.npz").open("xb") as f:
+        np.savez_compressed(f,world=world,world64=world64,triangles=tri,outer_normals=normals,harmonic_matrix=matrix,harmonic_rhs=rhs,
+                            **{k.replace('-','_'):a.astype(np.int32) for k,a in domains.items()})
+    data=(HERE/"geometry.npz").read_bytes();STATE["archive"]={"bytes":len(data),"sha256":hashlib.sha256(data).hexdigest(),"purpose":"Isolated valid geometry only; no fit or appearance acceptance"}
+    clock("after-exclusive-archive")
+    STATE["body_contact"]=contact_observer(world,tri,body,bt,False)
+    if STATE["body_contact"]["counts"].get("strict_transverse",0):STATE["fit"]="REFUSED"
+    clock("after-body-contact")
+    STATE["self_contact"]=contact_observer(world,tri,body,bt,True)
+    if STATE["self_contact"]["counts"].get("strict_transverse",0):STATE["fit"]="REFUSED"
+    clock("after-self-contact")
+    STATE["coverage"]=coverage_observer(world,tri,meta["TOPOLOGY.json"]["triangle_owners"],body,bt,domains);clock("after-coverage")
+    STATE["fit"]="REFUSED" if any(STATE[k]["counts"].get("strict_transverse",0) for k in ("body_contact","self_contact")) else "UNKNOWN"
+    STATE["geometry_status"]="RETAIN_DIAGNOSTIC_ONLY";STATE["completion"]="COMPLETE_BOUNDED_OBSERVERS" if all(STATE[k]["complete"] for k in ("body_contact","self_contact","coverage")) else "INCOMPLETE_UNKNOWN"
+
+
+if __name__=="__main__":
+    code=0
+    try:main();clock("overall-completion")
+    except Refusal as e:
+        STATE["completion"]="FIRST_REFUSAL";STATE["geometry_status"]="RETAIN_VALID_GEOMETRY_SOURCE_DIAGNOSTIC_REFUSED" if "archive" in STATE else "NO_VALID_CANDIDATE";code=2
+    except Budget as e:STATE["completion"]="INCOMPLETE_UNKNOWN";STATE["budget_failure"]=e.args[0];code=3
+    except Exception as e:
+        STATE["completion"]="UNEXPECTED_FAILURE";STATE["error"]={"type":type(e).__name__,"message":str(e),"traceback":traceback.format_exc()};code=4
+    STATE["utc_end"]=datetime.datetime.now(datetime.timezone.utc).isoformat();STATE["elapsed"]=time.monotonic()-START
+    STATE["physical_occupancy_fullsurface_coverage"]="UNKNOWN/HELD"
+    json_write("RESULT.json",STATE)
+    print(json.dumps({"completion":STATE["completion"],"fit":STATE["fit"],"elapsed":STATE["elapsed"]}))
+    raise SystemExit(code)

@@ -1,0 +1,24 @@
+{
+  "utc_start": "2026-10-09T11:53:52.056390+00:00",
+  "wrapper_pid": 93372,
+  "child_pid": 93374,
+  "owned_process_group": 93374,
+  "command": [
+    "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-global-constructor/build.py"
+  ],
+  "cwd": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-global-constructor",
+  "seconds": 360,
+  "worker_threads": 1,
+  "utc_Popen_return": "2026-10-09T11:53:52.058008+00:00",
+  "launch_within_UTC_gates": true,
+  "utc_end": "2026-10-09T11:54:05.050494+00:00",
+  "elapsed": 12.994098291004775,
+  "exit_code": 0,
+  "timeout_or_interrupt": false,
+  "within_total_wall_gate": true,
+  "wrapper_exit_code": 0,
+  "shutdown_policy": "Immediateowned-groupSIGKILL on timeout/interrupt; actualcollectiontime retained, neveroverbudgetPASS",
+  "result_present": true,
+  "geometry_present": true
+}

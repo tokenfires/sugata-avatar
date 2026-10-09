@@ -1,0 +1,46 @@
+{
+  "utc": "2026-10-09T11:38:50.123706+00:00",
+  "source_witness": "on_shared uses world Float32 endpoints; support arithmetic can stayFloat32 under fixed1e-8distance",
+  "synthetic_type_witness": {
+    "endpoints_F32": [
+      [
+        0.10000000149011612,
+        0.30000001192092896,
+        1.399999976158142
+      ],
+      [
+        0.4000000059604645,
+        0.699999988079071,
+        1.7000000476837158
+      ]
+    ],
+    "fraction": 0.123456789,
+    "old_dtype": "float32",
+    "old_point": [
+      0.13703703880310059,
+      0.3493827283382416,
+      1.4370369911193848
+    ],
+    "F64_point": [
+      0.13703703874201098,
+      0.34938272457748976,
+      1.4370370216884598
+    ],
+    "distance": 3.079959960055568e-08
+  },
+  "selected_A": "Promote only support endpoints toFloat64 before projection; finitefraction/distance witnesses, same map/tolerances",
+  "alternative_B": "Keep edge ties unresolvedUNKNOWN and explicitlyhold literalresolution duty",
+  "scope": "Preexecution support arithmetic only; no bodydecode/geometry/source/threshold change",
+  "preserved": [
+    {
+      "file": "build.py.before-support-fix.txt",
+      "bytes": 29975,
+      "sha256": "430a2fd8bf301f66353d9103e03d2f0900f3b6e8ffc1052c5e7f96502864547a"
+    },
+    {
+      "file": "EXEC-INPUTS.json.before-support-fix.txt",
+      "bytes": 6213,
+      "sha256": "66a31f6c562e38e15a77eb2adef12813d6c98462b0bc85f46d49ecf38fadc6c0"
+    }
+  ]
+}

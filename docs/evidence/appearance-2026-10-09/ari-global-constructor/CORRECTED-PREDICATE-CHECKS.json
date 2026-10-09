@@ -1,0 +1,658 @@
+{
+  "utc": "2026-10-09T11:40:11.195823+00:00",
+  "build_sha256": "95e0f77ac690296dc9fecf3ed574b6f7c5415fdba4210586f34ad78960d4f831",
+  "scope": "Synthetic support/ray tests only; no Ari/source/archive decode, actual solver/candidate/job",
+  "synthetic_inputs": {
+    "world": [
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        1.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0,
+        1.0
+      ]
+    ],
+    "triangles": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        3,
+        2
+      ]
+    ],
+    "body": [
+      [
+        0.4,
+        0.4,
+        0.0
+      ],
+      [
+        0.6,
+        0.4,
+        0.0
+      ],
+      [
+        0.5,
+        0.7,
+        0.0
+      ]
+    ],
+    "body_triangles": [
+      [
+        0,
+        1,
+        2
+      ]
+    ]
+  },
+  "cases": [
+    {
+      "case": "resolved-edge-tie",
+      "expected": "PASS_SAMPLE",
+      "observed": {
+        "complete": true,
+        "samples_reached": 1,
+        "selected_samples": 1,
+        "counts": {
+          "PASS_SAMPLE": 1
+        },
+        "first_per_role_status": {
+          "required-torso:PASS_SAMPLE": {
+            "body_face": 0,
+            "body_vertex_ids": [
+              0,
+              1,
+              2
+            ],
+            "origin": [
+              0.5,
+              0.5,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "first_hit": {
+              "first_distance": 1.0,
+              "resolved": true,
+              "shared_edge_support": [
+                {
+                  "triangles": [
+                    0,
+                    1
+                  ],
+                  "shared_edge": [
+                    1,
+                    2
+                  ],
+                  "world_points": [
+                    [
+                      0.5,
+                      0.5,
+                      1.0
+                    ],
+                    [
+                      0.5,
+                      0.5,
+                      1.0
+                    ]
+                  ],
+                  "samepoint_distance": 0.0,
+                  "owners": [
+                    "outer-torso",
+                    "outer-torso"
+                  ],
+                  "support_projections": [
+                    {
+                      "expected": true,
+                      "kind": "edge",
+                      "distance": 0.0,
+                      "fraction": 0.5,
+                      "projection": [
+                        0.5,
+                        0.5,
+                        1.0
+                      ]
+                    },
+                    {
+                      "expected": true,
+                      "kind": "edge",
+                      "distance": 0.0,
+                      "fraction": 0.5,
+                      "projection": [
+                        0.5,
+                        0.5,
+                        1.0
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "hits": [
+                {
+                  "candidate_triangle": 0,
+                  "vertices": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "owner": "outer-torso",
+                  "distance": 1.0,
+                  "barycentrics": [
+                    0.0,
+                    0.5,
+                    0.5
+                  ],
+                  "world_point": [
+                    0.5,
+                    0.5,
+                    1.0
+                  ],
+                  "interior": false
+                },
+                {
+                  "candidate_triangle": 1,
+                  "vertices": [
+                    1,
+                    3,
+                    2
+                  ],
+                  "owner": "outer-torso",
+                  "distance": 1.0,
+                  "barycentrics": [
+                    0.5,
+                    -0.0,
+                    0.5
+                  ],
+                  "world_point": [
+                    0.5,
+                    0.5,
+                    1.0
+                  ],
+                  "interior": false
+                }
+              ]
+            },
+            "coplanar_unresolved": false
+          }
+        },
+        "ordered_status_sha256": "c89476873909978d43af05aa22f3a2d4ba2b6ee84047928c818624c851466047",
+        "elapsed": 0.000600500003201887,
+        "budget_failure": null,
+        "scope": "Centroid rays only; fullsurface/physicalconcealment UNKNOWN"
+      }
+    },
+    {
+      "case": "mixed-owner-tie",
+      "expected": "UNKNOWN",
+      "observed": {
+        "complete": true,
+        "samples_reached": 1,
+        "selected_samples": 1,
+        "counts": {
+          "UNKNOWN": 1
+        },
+        "first_per_role_status": {
+          "required-torso:UNKNOWN": {
+            "body_face": 0,
+            "body_vertex_ids": [
+              0,
+              1,
+              2
+            ],
+            "origin": [
+              0.5,
+              0.5,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "first_hit": {
+              "first_distance": 1.0,
+              "resolved": true,
+              "shared_edge_support": [
+                {
+                  "triangles": [
+                    0,
+                    1
+                  ],
+                  "shared_edge": [
+                    1,
+                    2
+                  ],
+                  "world_points": [
+                    [
+                      0.5,
+                      0.5,
+                      1.0
+                    ],
+                    [
+                      0.5,
+                      0.5,
+                      1.0
+                    ]
+                  ],
+                  "samepoint_distance": 0.0,
+                  "owners": [
+                    "outer-torso",
+                    "outer-sleeve-left"
+                  ],
+                  "support_projections": [
+                    {
+                      "expected": true,
+                      "kind": "edge",
+                      "distance": 0.0,
+                      "fraction": 0.5,
+                      "projection": [
+                        0.5,
+                        0.5,
+                        1.0
+                      ]
+                    },
+                    {
+                      "expected": true,
+                      "kind": "edge",
+                      "distance": 0.0,
+                      "fraction": 0.5,
+                      "projection": [
+                        0.5,
+                        0.5,
+                        1.0
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "hits": [
+                {
+                  "candidate_triangle": 0,
+                  "vertices": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "owner": "outer-torso",
+                  "distance": 1.0,
+                  "barycentrics": [
+                    0.0,
+                    0.5,
+                    0.5
+                  ],
+                  "world_point": [
+                    0.5,
+                    0.5,
+                    1.0
+                  ],
+                  "interior": false
+                },
+                {
+                  "candidate_triangle": 1,
+                  "vertices": [
+                    1,
+                    3,
+                    2
+                  ],
+                  "owner": "outer-sleeve-left",
+                  "distance": 1.0,
+                  "barycentrics": [
+                    0.5,
+                    -0.0,
+                    0.5
+                  ],
+                  "world_point": [
+                    0.5,
+                    0.5,
+                    1.0
+                  ],
+                  "interior": false
+                }
+              ]
+            },
+            "coplanar_unresolved": false
+          }
+        },
+        "ordered_status_sha256": "fa8676e727b23bc51673bc7d1abbbaa7c3863a8747f977b1d4d297485fe9af77",
+        "elapsed": 0.00014979200204834342,
+        "budget_failure": null,
+        "scope": "Centroid rays only; fullsurface/physicalconcealment UNKNOWN"
+      }
+    },
+    {
+      "case": "exposed-edge-tie",
+      "expected": "REFUSED_EXPOSURE_SAMPLE",
+      "observed": {
+        "complete": true,
+        "samples_reached": 1,
+        "selected_samples": 1,
+        "counts": {
+          "REFUSED_EXPOSURE_SAMPLE": 1
+        },
+        "first_per_role_status": {
+          "exposed-front:REFUSED_EXPOSURE_SAMPLE": {
+            "body_face": 0,
+            "body_vertex_ids": [
+              0,
+              1,
+              2
+            ],
+            "origin": [
+              0.5,
+              0.5,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "first_hit": {
+              "first_distance": 1.0,
+              "resolved": true,
+              "shared_edge_support": [
+                {
+                  "triangles": [
+                    0,
+                    1
+                  ],
+                  "shared_edge": [
+                    1,
+                    2
+                  ],
+                  "world_points": [
+                    [
+                      0.5,
+                      0.5,
+                      1.0
+                    ],
+                    [
+                      0.5,
+                      0.5,
+                      1.0
+                    ]
+                  ],
+                  "samepoint_distance": 0.0,
+                  "owners": [
+                    "outer-torso",
+                    "outer-torso"
+                  ],
+                  "support_projections": [
+                    {
+                      "expected": true,
+                      "kind": "edge",
+                      "distance": 0.0,
+                      "fraction": 0.5,
+                      "projection": [
+                        0.5,
+                        0.5,
+                        1.0
+                      ]
+                    },
+                    {
+                      "expected": true,
+                      "kind": "edge",
+                      "distance": 0.0,
+                      "fraction": 0.5,
+                      "projection": [
+                        0.5,
+                        0.5,
+                        1.0
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "hits": [
+                {
+                  "candidate_triangle": 0,
+                  "vertices": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "owner": "outer-torso",
+                  "distance": 1.0,
+                  "barycentrics": [
+                    0.0,
+                    0.5,
+                    0.5
+                  ],
+                  "world_point": [
+                    0.5,
+                    0.5,
+                    1.0
+                  ],
+                  "interior": false
+                },
+                {
+                  "candidate_triangle": 1,
+                  "vertices": [
+                    1,
+                    3,
+                    2
+                  ],
+                  "owner": "outer-torso",
+                  "distance": 1.0,
+                  "barycentrics": [
+                    0.5,
+                    -0.0,
+                    0.5
+                  ],
+                  "world_point": [
+                    0.5,
+                    0.5,
+                    1.0
+                  ],
+                  "interior": false
+                }
+              ],
+              "resolved_positive_refusal_group": {
+                "triangles": [
+                  0,
+                  1
+                ],
+                "shared_edge_support": [
+                  {
+                    "triangles": [
+                      0,
+                      1
+                    ],
+                    "shared_edge": [
+                      1,
+                      2
+                    ],
+                    "world_points": [
+                      [
+                        0.5,
+                        0.5,
+                        1.0
+                      ],
+                      [
+                        0.5,
+                        0.5,
+                        1.0
+                      ]
+                    ],
+                    "samepoint_distance": 0.0,
+                    "owners": [
+                      "outer-torso",
+                      "outer-torso"
+                    ],
+                    "support_projections": [
+                      {
+                        "expected": true,
+                        "kind": "edge",
+                        "distance": 0.0,
+                        "fraction": 0.5,
+                        "projection": [
+                          0.5,
+                          0.5,
+                          1.0
+                        ]
+                      },
+                      {
+                        "expected": true,
+                        "kind": "edge",
+                        "distance": 0.0,
+                        "fraction": 0.5,
+                        "projection": [
+                          0.5,
+                          0.5,
+                          1.0
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "hits": [
+                  {
+                    "candidate_triangle": 0,
+                    "vertices": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "owner": "outer-torso",
+                    "distance": 1.0,
+                    "barycentrics": [
+                      0.0,
+                      0.5,
+                      0.5
+                    ],
+                    "world_point": [
+                      0.5,
+                      0.5,
+                      1.0
+                    ]
+                  },
+                  {
+                    "candidate_triangle": 1,
+                    "vertices": [
+                      1,
+                      3,
+                      2
+                    ],
+                    "owner": "outer-torso",
+                    "distance": 1.0,
+                    "barycentrics": [
+                      0.5,
+                      -0.0,
+                      0.5
+                    ],
+                    "world_point": [
+                      0.5,
+                      0.5,
+                      1.0
+                    ]
+                  }
+                ]
+              }
+            },
+            "coplanar_unresolved": false
+          }
+        },
+        "ordered_status_sha256": "60d480e6e5c58e5fad72d864a8f601f381b42e2a1b1d9996623c327a4aefa347",
+        "elapsed": 0.00012087498907931149,
+        "budget_failure": null,
+        "scope": "Centroid rays only; fullsurface/physicalconcealment UNKNOWN"
+      }
+    },
+    {
+      "case": "unresolved-single-boundary",
+      "expected": "UNKNOWN",
+      "observed": {
+        "complete": true,
+        "samples_reached": 1,
+        "selected_samples": 1,
+        "counts": {
+          "UNKNOWN": 1
+        },
+        "first_per_role_status": {
+          "required-torso:UNKNOWN": {
+            "body_face": 0,
+            "body_vertex_ids": [
+              0,
+              1,
+              2
+            ],
+            "origin": [
+              0.5,
+              0.5,
+              0.0
+            ],
+            "direction": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "first_hit": {
+              "first_distance": 1.0,
+              "resolved": false,
+              "shared_edge_support": [],
+              "hits": [
+                {
+                  "candidate_triangle": 0,
+                  "vertices": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "owner": "outer-torso",
+                  "distance": 1.0,
+                  "barycentrics": [
+                    0.0,
+                    0.5,
+                    0.5
+                  ],
+                  "world_point": [
+                    0.5,
+                    0.5,
+                    1.0
+                  ],
+                  "interior": false
+                }
+              ]
+            },
+            "coplanar_unresolved": false
+          }
+        },
+        "ordered_status_sha256": "fa8676e727b23bc51673bc7d1abbbaa7c3863a8747f977b1d4d297485fe9af77",
+        "elapsed": 9.199997293762863e-05,
+        "budget_failure": null,
+        "scope": "Centroid rays only; fullsurface/physicalconcealment UNKNOWN"
+      }
+    }
+  ],
+  "F64_shared_support": {
+    "expected": true,
+    "kind": "edge",
+    "distance": 2.7755575615628914e-17,
+    "fraction": 0.1234567890000001,
+    "projection": [
+      0.137037038742011,
+      0.34938272457748976,
+      1.4370370216884598
+    ]
+  }
+}

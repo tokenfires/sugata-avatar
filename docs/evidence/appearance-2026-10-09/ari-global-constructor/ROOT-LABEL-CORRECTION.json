@@ -1,0 +1,11 @@
+{
+  "utc": "2026-10-09T12:01:17.496048+00:00",
+  "root_source_witness": "old alternative_verifier_sha256 matched ROOT-VERIFY report bytes, not verify.py code bytes",
+  "old_record_sha256": "f00b26caea9f510ded76f3a8e21f6e55d7424b739c98f51c1764886047b089a4",
+  "report_sha256": "1350d456d642b9200668272ee0c4d4f209ec9afa50d0076028b089dc627f58a1",
+  "code_sha256": "58b42936c3f82c6374caaaf085148a3112a0c6cc2a210df8fca5c655a328c09b",
+  "selected_A": "Preserve initialROOTRESULT; rename report identity and explicitlyrecord separate code identity",
+  "alternative_B": "Add identitykind annotation beside ambiguous oldfield; less clear",
+  "numerical_source_candidate_job_changes": 0,
+  "scope": "Provenance field label only; no re-execution or numerical correction"
+}

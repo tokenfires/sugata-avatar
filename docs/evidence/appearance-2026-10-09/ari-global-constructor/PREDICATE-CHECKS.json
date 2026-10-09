@@ -1,0 +1,253 @@
+{
+  "utc": "2026-10-09T11:32:21.543355+00:00",
+  "scope": "Synthetic predicate checks only; no real source/archive decode/solver/constructor",
+  "cases": [
+    {
+      "case": "strict-crossing",
+      "source_a": [
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "source_b": [
+        [
+          0,
+          -0.5,
+          -1
+        ],
+        [
+          0,
+          -0.5,
+          1
+        ],
+        [
+          0,
+          0.5,
+          0
+        ]
+      ],
+      "hits": [
+        {
+          "reverse": 0,
+          "edge_corner": 0,
+          "segment_fraction": 0.5,
+          "target_barycentrics": [
+            0.25,
+            0.25,
+            0.5
+          ],
+          "world_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "strict": true
+        },
+        {
+          "reverse": 1,
+          "edge_corner": 1,
+          "segment_fraction": 1.0,
+          "target_barycentrics": [
+            0.25,
+            0.25,
+            0.5
+          ],
+          "world_point": [
+            0.0,
+            0.5,
+            0.0
+          ],
+          "strict": false
+        },
+        {
+          "reverse": 1,
+          "edge_corner": 2,
+          "segment_fraction": 0.0,
+          "target_barycentrics": [
+            0.25,
+            0.25,
+            0.5
+          ],
+          "world_point": [
+            0.0,
+            0.5,
+            0.0
+          ],
+          "strict": false
+        }
+      ],
+      "coplanar_potential": false
+    },
+    {
+      "case": "shared-vertex-with-nonshared-crossing",
+      "source_a": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "source_b": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0.25,
+          0.25,
+          -1
+        ],
+        [
+          0.25,
+          0.25,
+          1
+        ]
+      ],
+      "hits": [
+        {
+          "reverse": 0,
+          "edge_corner": 0,
+          "segment_fraction": -0.0,
+          "target_barycentrics": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "world_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "strict": false
+        },
+        {
+          "reverse": 0,
+          "edge_corner": 2,
+          "segment_fraction": 1.0,
+          "target_barycentrics": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "world_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "strict": false
+        },
+        {
+          "reverse": 1,
+          "edge_corner": 0,
+          "segment_fraction": 0.0,
+          "target_barycentrics": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "world_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "strict": false
+        },
+        {
+          "reverse": 1,
+          "edge_corner": 1,
+          "segment_fraction": 0.5,
+          "target_barycentrics": [
+            0.5,
+            0.25,
+            0.25
+          ],
+          "world_point": [
+            0.25,
+            0.25,
+            0.0
+          ],
+          "strict": true
+        },
+        {
+          "reverse": 1,
+          "edge_corner": 2,
+          "segment_fraction": 1.0,
+          "target_barycentrics": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "world_point": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "strict": false
+        }
+      ],
+      "coplanar_potential": false
+    },
+    {
+      "case": "coplanar-overlap-potential",
+      "source_a": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "source_b": [
+        [
+          0.1,
+          0.1,
+          0
+        ],
+        [
+          0.9,
+          0.1,
+          0
+        ],
+        [
+          0.1,
+          0.9,
+          0
+        ]
+      ],
+      "hits": [],
+      "coplanar_potential": true
+    }
+  ]
+}

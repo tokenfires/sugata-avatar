@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-09T12:07:27.130324+00:00",
+  "actual_cached_witnesses": [
+    {
+      "role_status": "exposed-hand-right:REFUSED_EXPOSURE_SAMPLE",
+      "body_face": 4684,
+      "origin": [
+        -0.4334170917669932,
+        -0.2914090156555176,
+        0.969871441523234
+      ],
+      "distance": 0.8579513027305754,
+      "candidate_triangle": 575,
+      "owner": "outer-sleeve-left",
+      "world_point": [
+        0.4042159753909001,
+        -0.14304334141854794,
+        1.0814013001663838
+      ]
+    },
+    {
+      "role_status": "exposed-hand-left:REFUSED_EXPOSURE_SAMPLE",
+      "body_face": 17923,
+      "origin": [
+        0.4334170917669932,
+        -0.2914090156555176,
+        0.969871441523234
+      ],
+      "distance": 0.8593758271947765,
+      "candidate_triangle": 656,
+      "owner": "outer-sleeve-right",
+      "world_point": [
+        -0.4056067638801681,
+        -0.14279699814483815,
+        1.0815864820195034
+      ]
+    }
+  ],
+  "interpretation": "Normal-rays from each sourcehand hitopposite sleeve at~.858nativeunits. Refused declaredrayintent is not proof of localhandconcealment. No renderedhandappearance/fullsurfacecoverage assertion.",
+  "selected_A": "Retain exact predicate evidence and limits; firstlabelledimages maydecideappearance only",
+  "alternative_B": "Separatefuture physicalcoverage contract with independentlyownedsource/solid/locality duties; never shortenray/tune currenttarget to manufacturepass",
+  "extra_source_query_candidate_edits": 0
+}

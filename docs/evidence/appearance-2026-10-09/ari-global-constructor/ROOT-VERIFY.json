@@ -1,0 +1,54 @@
+{
+  "utc": "2026-10-09T11:54:56.172669+00:00",
+  "input_pins": 13,
+  "world_arrays_written": 0,
+  "method": "Read-only independent metadata/reference equations and alternative contact linear solves",
+  "mapping_max_delta": 6.217248937900877e-15,
+  "world_cast_exact": true,
+  "body_contact": {
+    "counts": {
+      "miss_or_expected_topological_touch": 60755,
+      "strict_transverse": 2189
+    },
+    "topology_categories": {
+      "fullbody": 62944
+    },
+    "bbox_pairs_reached": 62944,
+    "ordered_pair_sha256": "a3b4e0610826831efbc6a077f89675b5028f0048d23537da6fef35cd36899ca2"
+  },
+  "self_contact": {
+    "counts": {
+      "miss_or_expected_topological_touch": 23807,
+      "strict_transverse": 36,
+      "coplanar_ambiguous": 34
+    },
+    "topology_categories": {
+      "common-edge": 2424,
+      "common-vertex": 7338,
+      "nonincident": 14115
+    },
+    "bbox_pairs_reached": 23877,
+    "ordered_pair_sha256": "8b635977b7d9810374a58cb13d2eac03c8b8a7476cfc796b7ee6cae6ffaae5a3"
+  },
+  "coverage": {
+    "counts": {
+      "REFUSED_SAMPLE": 1747,
+      "PASS_SAMPLE": 16151,
+      "REFUSED_EXPOSURE_SAMPLE": 100
+    },
+    "samples_reached": 17998,
+    "selected_samples": 17998,
+    "ordered_status_sha256": "3e2d45119b5766e72b316bca6ab5eeb7c7194f63c5b819a4bba9ae11f74c207f",
+    "independent_domain_counts": {
+      "required-torso": 2268,
+      "exposed-front": 108,
+      "exposed-lower": 7266,
+      "required-left": 997,
+      "exposed-hand-left": 3181,
+      "required-right": 997,
+      "exposed-hand-right": 3181
+    }
+  },
+  "geometry": "Frozen mapping/lining/cast independently reconstructed; fit/appearance unqualified",
+  "elapsed": 3.4659152499807533
+}

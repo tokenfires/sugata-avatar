@@ -1,0 +1,206 @@
+{
+  "utc": "2026-10-09T12:12:51.110197+00:00",
+  "status": "Frozen firstglobalconstruction diagnostic; fitREFUSED/appearanceNOTOBSERVED",
+  "payloads": [
+    {
+      "file": "COMPLETE.json",
+      "bytes": 979,
+      "sha256": "cc5203f4d169e06a9d717af6c8b4b72a36fe5f308ccf4b48d9086bea9d8a50fb"
+    },
+    {
+      "file": "CORRECTED-PREDICATE-CHECKS.json",
+      "bytes": 17294,
+      "sha256": "fec0655026c326f76f5be7e84dbe38690a531f77ae601833819522efcb68a759"
+    },
+    {
+      "file": "EXEC-INPUTS.json",
+      "bytes": 7714,
+      "sha256": "14010ae1550dd7058bf8f98dc57c9577923fc5c3d68364e7520e88052a1baba6"
+    },
+    {
+      "file": "EXEC-INPUTS.json.before-preflight-fix.txt",
+      "bytes": 5191,
+      "sha256": "f028fea3b1f512e00da4d22d8e4a095c187ebeba34a5f85af267e001ddd91911"
+    },
+    {
+      "file": "EXEC-INPUTS.json.before-support-fix.txt",
+      "bytes": 6213,
+      "sha256": "66a31f6c562e38e15a77eb2adef12813d6c98462b0bc85f46d49ecf38fadc6c0"
+    },
+    {
+      "file": "EXEC-INPUTS.json.before-wall-fix.txt",
+      "bytes": 6967,
+      "sha256": "1a98c88235cb888cb2af634a936523a35411ad70391b57d12be54ce2631a8078"
+    },
+    {
+      "file": "EXEC.json",
+      "bytes": 318,
+      "sha256": "602c011fe8a5c45b65d8f390fdafd9e00c8a0fd117980234a54c6c93e3958364"
+    },
+    {
+      "file": "FINAL-RECEIPT.md",
+      "bytes": 2553,
+      "sha256": "17ad3aab3a9e3fe28e070f461e54157b6a87c1e7d1a72c652e3794993d6b69b4"
+    },
+    {
+      "file": "INPUTS.json",
+      "bytes": 3125,
+      "sha256": "6f41de052fb4e06d94da42514a9be1539747ef48ed7e472ffcb7f52e1b1a0024"
+    },
+    {
+      "file": "JOB.json",
+      "bytes": 607,
+      "sha256": "0a398cd2dde33ca345142df4b178d77c56ddcc5f55b1bddbfdb58083284a5f91"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 3139,
+      "sha256": "c50570f2f0dd03a759c96c27741bc1142f901bbc035543bb122f51d10f2ce91c"
+    },
+    {
+      "file": "PRE-EXECUTION-CORRECTIONS.json",
+      "bytes": 1450,
+      "sha256": "19a30dbdfd504e776100ea1fe13326daab4b7aa94488cdd39cf1c4602e156bcd"
+    },
+    {
+      "file": "PREDICATE-CHECKS.json",
+      "bytes": 4353,
+      "sha256": "a770985440a806b472c182d15ca093afe37799d28e33a07a2b93ccedc7ac0540"
+    },
+    {
+      "file": "README.md",
+      "bytes": 5449,
+      "sha256": "01f1eb17625966a13e87f534356b845032b1b958ba0f56973791adbd8612e0fe"
+    },
+    {
+      "file": "RESULT.json",
+      "bytes": 34979,
+      "sha256": "5c3abebe0e4342efc0aed18ad1200af306d1f7212188d6e2c922cd25d4d4b787"
+    },
+    {
+      "file": "ROOT-ADMISSION.json",
+      "bytes": 573,
+      "sha256": "31b0deab5f8fc2e7d762c08f5672bc677c766119564d97cf9622330a5066d1bc"
+    },
+    {
+      "file": "ROOT-DELIVERY.json",
+      "bytes": 337,
+      "sha256": "96e979b3e095d93b20b417ea6ab0d81dd36831a90e91906c6c2147eba0efb8b7"
+    },
+    {
+      "file": "ROOT-INPUTS.json",
+      "bytes": 120,
+      "sha256": "a3d869eceafdda1a11425d667bc884fb25c3d36d78ddfb3079d048e859d47624"
+    },
+    {
+      "file": "ROOT-LABEL-CORRECTION.json",
+      "bytes": 762,
+      "sha256": "b7beb1ceb8b728e1794cf69dd5d7a4fb0f083f6f57093cadb5e7b5ad55b05d77"
+    },
+    {
+      "file": "ROOT-READBACK.json",
+      "bytes": 920,
+      "sha256": "107c47f679e9198dc2c7e5f6761753beea48611aca8967b2601da42e7d4df3ab"
+    },
+    {
+      "file": "ROOT-RESULT.before-label-fix.json",
+      "bytes": 1629,
+      "sha256": "f00b26caea9f510ded76f3a8e21f6e55d7424b739c98f51c1764886047b089a4"
+    },
+    {
+      "file": "ROOT-RESULT.json",
+      "bytes": 1812,
+      "sha256": "cc3b77f65286181bf4249a9c2f5c6016f3c3d3f164eda6f931bd03d4ea6988a6"
+    },
+    {
+      "file": "ROOT-SAMPLE-LIMITS.json",
+      "bytes": 1500,
+      "sha256": "bf9abae19340e9a0e44b0c2e4552ff40c116aefc802f0e36bd75f6e61e08c295"
+    },
+    {
+      "file": "ROOT-VERIFY.json",
+      "bytes": 1681,
+      "sha256": "1350d456d642b9200668272ee0c4d4f209ec9afa50d0076028b089dc627f58a1"
+    },
+    {
+      "file": "ROOT-WORTH.json",
+      "bytes": 181,
+      "sha256": "c256018e48ff5f9bcfa96f5993ff169a0fd1d80e6abb014a657c07f114a07829"
+    },
+    {
+      "file": "SOURCE-PREFLIGHT.md",
+      "bytes": 9073,
+      "sha256": "347efb97100a4d75297ebe3d0eb89308d7f8bc9f7db8747baa20b733e116fde6"
+    },
+    {
+      "file": "SOURCE-RESULT-REVIEW.md",
+      "bytes": 8710,
+      "sha256": "822312d0f66a9ec34f27b52052035295d904b9284231f77c0067de33184e40e8"
+    },
+    {
+      "file": "SUPPORT-CORRECTION.json",
+      "bytes": 1430,
+      "sha256": "076839475c2f2082ff86655f01f058abc058eed1e80abedaeb75ab5f273589bd"
+    },
+    {
+      "file": "VERIFICATION-SCOPE.json",
+      "bytes": 532,
+      "sha256": "3f9170e521db21394acae319df17e4b86fd234d1d4bb5135f0684b919a73cd9d"
+    },
+    {
+      "file": "WALL-CORRECTION.json",
+      "bytes": 935,
+      "sha256": "48b16999b219af5aca1ecca9c25b6c28b9704843edfb3c0b2b15a4f5c06f5a0a"
+    },
+    {
+      "file": "WORTH.md",
+      "bytes": 4236,
+      "sha256": "2c4b50599339b88d838c273a7a5a3523edd7d759df1c15d5d0b13bd24d1dfd48"
+    },
+    {
+      "file": "build.log",
+      "bytes": 94,
+      "sha256": "d2a152883673910fc1a7e225e653e506693bd5f6b8a1e2947a6b8621e9a0cab8"
+    },
+    {
+      "file": "build.py",
+      "bytes": 30824,
+      "sha256": "95e0f77ac690296dc9fecf3ed574b6f7c5415fdba4210586f34ad78960d4f831"
+    },
+    {
+      "file": "build.py.before-preflight-fix.txt",
+      "bytes": 28504,
+      "sha256": "857562b8131df0eb324d3c4632c60386832b143a46b2b79dfc14789f4f202337"
+    },
+    {
+      "file": "build.py.before-support-fix.txt",
+      "bytes": 29975,
+      "sha256": "430a2fd8bf301f66353d9103e03d2f0900f3b6e8ffc1052c5e7f96502864547a"
+    },
+    {
+      "file": "geometry.npz",
+      "bytes": 70851,
+      "sha256": "2eaa4bbf90367fe3ed5b0a4200a629c231688a2a31749e17f3ae44a855f0c295"
+    },
+    {
+      "file": "run_build.py",
+      "bytes": 4120,
+      "sha256": "1a51a5eca2bf27a58f413da666340ed1a8d3e33412b03d3a5dfa5f835c084eeb"
+    },
+    {
+      "file": "run_build.py.before-preflight-fix.txt",
+      "bytes": 3209,
+      "sha256": "957cf52b43f414cb48a8fd83adb8b607ce54df9abba799ed4aebf7409e57eade"
+    },
+    {
+      "file": "run_build.py.before-wall-fix.txt",
+      "bytes": 3870,
+      "sha256": "4313c92429e9229716ecab9c953c17e2304286f5476ddfdfe13e0d97b269d791"
+    },
+    {
+      "file": "verify.py",
+      "bytes": 17239,
+      "sha256": "58b42936c3f82c6374caaaf085148a3112a0c6cc2a210df8fca5c655a328c09b"
+    }
+  ]
+}

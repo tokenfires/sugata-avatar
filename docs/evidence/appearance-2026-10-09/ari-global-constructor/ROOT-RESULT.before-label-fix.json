@@ -1,0 +1,56 @@
+{
+  "utc": "2026-10-09T11:56:16.649245+00:00",
+  "captured_constructor_session": 59970,
+  "captured_constructor_exit": 0,
+  "captured_validation_session": 84511,
+  "captured_validation_exit": 0,
+  "constructor_JOB_COMPLETE_verified": true,
+  "constructor_owned_PIDs_absent": [
+    93372,
+    93374
+  ],
+  "alternative_verifier_sha256": "1350d456d642b9200668272ee0c4d4f209ec9afa50d0076028b089dc627f58a1",
+  "independent_first_strict_witnesses": [
+    {
+      "observer": "body_contact",
+      "triangle_ids": [
+        22,
+        20790
+      ],
+      "topology": "fullbody",
+      "independent_point": [
+        0.036495766372850985,
+        0.06781490060184302,
+        1.0415393724828947
+      ],
+      "independent_segment_fraction": 0.1249922168903672,
+      "independent_barycentrics": [
+        0.7399434315060845,
+        0.0188353823932759,
+        0.2412211861006396
+      ]
+    },
+    {
+      "observer": "self_contact",
+      "triangle_ids": [
+        279,
+        980
+      ],
+      "topology": "nonincident",
+      "independent_point": [
+        -0.20507435350063286,
+        0.002493444411495717,
+        1.2270459039774697
+      ],
+      "independent_segment_fraction": 0.9461732160458226,
+      "independent_barycentrics": [
+        0.9529904588497122,
+        0.03692270563879407,
+        0.010086835511493699
+      ]
+    }
+  ],
+  "counts_scope": "Complete frozen-threshold triangle-pair and centroid-ray observers; counts are not uniquecontacts/penetrationdepth/fullsurfacecoverage",
+  "decision": "Validisolatedgeometry only; fitREFUSED; no native or appearance admission",
+  "retries_or_candidate_edits": 0
+}
