@@ -1,0 +1,39 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://dspace.mit.edu/bitstreams/8f0512c7-7466-4c13-9133-bb2e848d2d00/download\",\"title\":\"[PDF] Laser Measurement and Reconstruction of Curved Plates BARKER ...\",\"description\":\"Laser Measurement and Reconstruction of Curved Plates by. Kwang Hee Ko. B.S. in Naval Architecture and Ocean Engineering (1995).\",\"position\":1},{\"url\":\"https://groups.csail.mit.edu/graphics/pubs/thesis_maxchen.pdf\",\"title\":\"[PDF] MAX CHEN - Research\",\"description\":\"A. Bilinear Coons Patch is formed from these four curves using the algorithm described in [19]. The contour mesh tool also supports Catmull-Rom Interpolation ...\",\"position\":2},{\"url\":\"https://fab.cba.mit.edu/classes/S62.12/docs/Piegl_NURBS.pdf\",\"title\":\"[PDF] On NURBS: a survey - IEEE Computer Graphics and Applications\",\"description\":\"The planar surface patch is described by a bilinear NURBS surface … boundary curves in the U direction. Rational curve and surface interpolation and data ...\",\"position\":3}]},\"creditsUsed\":2,\"id\":\"01a12145-426e-721c-aed4-5b3bd4cc9c2c\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://dspace.mit.edu/bitstreams/8f0512c7-7466-4c13-9133-bb2e848d2d00/download\\\", #2 \\\"https://groups.csail.mit.edu/graphics/pubs/thesis_maxchen.pdf\\\", #3 \\\"https://fab.cba.mit.edu/classes/S62.12/docs/Piegl_NURBS.pdf\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+    }
+  ],
+  "structuredContent": {
+    "agent_hints": [
+      "All 3 web results are excerpts only (#1 \"https://dspace.mit.edu/bitstreams/8f0512c7-7466-4c13-9133-bb2e848d2d00/download\", #2 \"https://groups.csail.mit.edu/graphics/pubs/thesis_maxchen.pdf\", #3 \"https://fab.cba.mit.edu/classes/S62.12/docs/Piegl_NURBS.pdf\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+    ],
+    "success": true,
+    "data": {
+      "web": [
+        {
+          "url": "https://dspace.mit.edu/bitstreams/8f0512c7-7466-4c13-9133-bb2e848d2d00/download",
+          "title": "[PDF] Laser Measurement and Reconstruction of Curved Plates BARKER ...",
+          "description": "Laser Measurement and Reconstruction of Curved Plates by. Kwang Hee Ko. B.S. in Naval Architecture and Ocean Engineering (1995).",
+          "position": 1
+        },
+        {
+          "url": "https://groups.csail.mit.edu/graphics/pubs/thesis_maxchen.pdf",
+          "title": "[PDF] MAX CHEN - Research",
+          "description": "A. Bilinear Coons Patch is formed from these four curves using the algorithm described in [19]. The contour mesh tool also supports Catmull-Rom Interpolation ...",
+          "position": 2
+        },
+        {
+          "url": "https://fab.cba.mit.edu/classes/S62.12/docs/Piegl_NURBS.pdf",
+          "title": "[PDF] On NURBS: a survey - IEEE Computer Graphics and Applications",
+          "description": "The planar surface patch is described by a bilinear NURBS surface … boundary curves in the U direction. Rational curve and surface interpolation and data ...",
+          "position": 3
+        }
+      ]
+    },
+    "id": "01a12145-426e-721c-aed4-5b3bd4cc9c2c",
+    "creditsUsed": 2
+  },
+  "isError": false
+}
