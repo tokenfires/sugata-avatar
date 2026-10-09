@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-09T00:08:01.697803+00:00",
+  "pins_verified": 24,
+  "input_readonly_unchanged": true,
+  "job_collected_session": 8655,
+  "wrapper_pid": 17983,
+  "native_pid": 17984,
+  "failure_stage": "first full material scalar RNA capture, before COLD record/equality/eval/images",
+  "exception": "AttributeError(\"'StringProperty' object has no attribute 'is_array'\")",
+  "attempt_closed": true,
+  "no_retry": true,
+  "outputs_absent": [
+    "COLD-OBSERVED.json",
+    "COLD.json",
+    "work",
+    "LIGHTING.json",
+    "CLEANUP.json",
+    "PNGs"
+  ],
+  "limits": "Postphysical source identity only; preservation/evaluated/frame/artist gates did not run to completion."
+}

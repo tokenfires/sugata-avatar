@@ -1,0 +1,5 @@
+# Source cap-order corrections before sole attempt
+
+Independent critic actual source witnesses: state name-set iteration preceded global count caps; state dict evaluated scene helper before Image packed-size caps, and helper hashes packed bytes. No oversized current data was inferred. A move prospective cap ownership before those operations (chosen); B narrow cap promise to later observer fields or fixed-input reliance is weaker and would not own prospective getter order.
+
+Now state checks global object/material/image counts before any name-set iteration. Every TEX_IMAGE pointer is checked against exact six whitelist names during fullmaterial capture, then image_records validates single packed file/32MiB before byte getter. That entire bounded image record runs before helper.capture_scene, whose assigned image pointers are now all owned. Record reused; no palette/geometry/source/save alteration. EXEC program pin updated; no attempt existed before correction. New preflight must bind corrected source/EXEC/wrapper.
