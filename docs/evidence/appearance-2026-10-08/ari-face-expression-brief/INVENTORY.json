@@ -1,0 +1,1460 @@
+{
+  "utc": "2026-10-09T01:09:31.718087+00:00",
+  "query_pid": 76618,
+  "source": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-roughness-response/COLD-OBSERVED.json",
+    "bytes": 794866,
+    "sha256": "01cf5ee2276b0cb5a0446f57fcaf9720a74ce0d9924a5b3836b5a220618277c8"
+  },
+  "fixed_filter": "smile|corner|squint|cheek|jaw|mouth",
+  "owner_count": 6,
+  "total_key_records": 252,
+  "rig_name": "Human.rig",
+  "rest_bones": 53,
+  "owners": [
+    {
+      "owner": "Human",
+      "parent": "Human.rig",
+      "native_vertices": 19158,
+      "key_count": 108,
+      "all_key_names": [
+        "Basis",
+        "$md-$as-$fe-$yn",
+        "$md-$as-$ma-$yn",
+        "$md-$ca-$fe-$yn",
+        "$md-$ca-$ma-$yn",
+        "$md-$af-$fe-$yn",
+        "$md-$af-$ma-$yn",
+        "$md-universal-$fe-$yn-$av$mu-$av$wg",
+        "$md-universal-$ma-$yn-$av$mu-$av$wg",
+        "torso/torso-scale-horiz-incr",
+        "torso/torso-scale-depth-incr",
+        "torso/measure-waist-circ-incr",
+        "hip/hip-scale-horiz-incr",
+        "hip/hip-scale-depth-incr",
+        "buttocks/buttocks-volume-incr",
+        "arms/l-upperarm-fat-incr",
+        "arms/r-upperarm-fat-incr",
+        "legs/l-upperleg-fat-incr",
+        "legs/r-upperleg-fat-incr",
+        "aa_02",
+        "aa_ah_ax_01",
+        "ao_03",
+        "aw_09",
+        "ay_11",
+        "d_t_n_19",
+        "er_05",
+        "ey_eh_uh_04",
+        "f_v_18",
+        "h_12",
+        "k_g_ng_20",
+        "l_14",
+        "ow_08",
+        "oy_10",
+        "p_b_m_21",
+        "r_13",
+        "sh_ch_jh_zh_16",
+        "sil_00",
+        "s_z_15",
+        "th_dh_17",
+        "w_uw_07",
+        "y_iy_ih_ix_06",
+        "viseme_aa",
+        "viseme_CH",
+        "viseme_DD",
+        "viseme_E",
+        "viseme_FF",
+        "viseme_I",
+        "viseme_kk",
+        "viseme_nn",
+        "viseme_O",
+        "viseme_PP",
+        "viseme_RR",
+        "viseme_sil",
+        "viseme_SS",
+        "viseme_TH",
+        "viseme_U",
+        "browDownLeft",
+        "browDownRight",
+        "browInnerUp",
+        "browOuterUpLeft",
+        "browOuterUpRight",
+        "cheekPuff",
+        "cheekSquintLeft",
+        "cheekSquintRight",
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "eyeLookDownLeft",
+        "eyeLookDownRight",
+        "eyeLookInLeft",
+        "eyeLookInRight",
+        "eyeLookOutLeft",
+        "eyeLookOutRight",
+        "eyeLookUpLeft",
+        "eyeLookUpRight",
+        "eyeSquintLeft",
+        "eyeSquintRight",
+        "eyeWideLeft",
+        "eyeWideRight",
+        "jawForward",
+        "jawLeft",
+        "jawOpen",
+        "jawRight",
+        "mouthClose",
+        "mouthDimpleLeft",
+        "mouthDimpleRight",
+        "mouthFrownLeft",
+        "mouthFrownRight",
+        "mouthFunnel",
+        "mouthLeft",
+        "mouthLowerDownLeft",
+        "mouthLowerDownRight",
+        "mouthPressLeft",
+        "mouthPressRight",
+        "mouthPucker",
+        "mouthRight",
+        "mouthRollLower",
+        "mouthRollUpper",
+        "mouthShrugLower",
+        "mouthShrugUpper",
+        "mouthSmileLeft",
+        "mouthSmileRight",
+        "mouthStretchLeft",
+        "mouthStretchRight",
+        "mouthUpperUpLeft",
+        "mouthUpperUpRight",
+        "noseSneerLeft",
+        "noseSneerRight",
+        "tongueOut"
+      ],
+      "candidate_count": 32,
+      "candidates": [
+        {
+          "metadata": {
+            "name": "cheekPuff",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "78e38fb4773dff91c20bd22a4c74ae77b4a7ad52105e7ebca6ccf6bea25d2e2c",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "cheekSquintLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "9114c1b27276b0a13a5ebcbe21b33b763249687c1ddb8d2054c01374f75320e5",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "cheekSquintRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "31b4cf6f9258040b8376567eeef6465377b1db3f24553bbbbaf94e59bebfcf3f",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "eyeSquintLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "817e98e390917f3980a58af072063ea1bd9fc490e3d2fa5a855f611f70ba7de2",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "eyeSquintRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "7d19186b2aac45fd9ec0e1d5f6291aadcbb72fe2cf5ce1cc741c0abbed9f7a71",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "jawForward",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "e113d823ef89dda739a112c3be5df5fafb6ed1cad039a9cc1df895af996db077",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "jawLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "099d90005273e34c9a85ecf0303a09c6a2a6d9cf64e55dd9f08a15295d6dd13e",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "jawOpen",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "e920716d29da6b15854f1416d8080ab2e2ce4a74701ba556438059acb5ccfb1d",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "jawRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "2e737857a694c6241e1a18a61e075d75270e349acecaf4aded648fbf47bda7c6",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthClose",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "18f0fa1e49a3c251d771e0959d2465749dac3d1d41af4a3b5cfe88737ed96c8a",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthDimpleLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "ffbf65d9beff67f47eec445801cd3ced6f2b12d68e389d4a1ebec69ba91c4ff2",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthDimpleRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "6414df9ea9e5a32984efccc5027899bb693e9d7cbc158ef1c81ae1d8d133ae79",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthFrownLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "defc1c1cc4dd3fa46cde6418fc7bc494f246b96c3ae5273c4ca679e2b1d19770",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthFrownRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "397212c28cf2a6bd163992086ea41c974e2978382791d3382145004667e4d1c6",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthFunnel",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "4601625a4ef20a29ac83086ac1cace566a0df51ef00c92bcd0314ed3115575db",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "958abfb4c5b8e7c0635e046a7c3d8d39312adfe75e0f02235e994982fd86a685",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthLowerDownLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "3bddf96719f092922ff3923ebde772158802bcf6f11b43146828aa2303acbfbd",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthLowerDownRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "4afdd1c5a056ef4ac51663e9c5a0231a321963e4cdd252cdceefb45a068f377c",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthPressLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "1015767a65686b9f3a9dbf9601c8b72c541cfdcf6fbee83da9e0c38d9cff3ccd",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthPressRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "2dbe65be0211185c1c63d889ec730f9162b0f78441c2a07d779e640689e5af04",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthPucker",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "e886867942176dd40b7ab95b0fcd37e566aa0c85363bcf7a3443e8dc8b512a22",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "c184da020d8ec74eced46a5a65ec43b298e5e887661e6d795f6ec427a46c7b48",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthRollLower",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "6fe0ca6417083d89205f069258559e5ea50b6fc164f5090eee531d1069dc70cc",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthRollUpper",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "ef8572cced11bea1e6badea36d9c449c9d5b884643ec69da18f5417d83304d8b",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthShrugLower",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "73e8ff22d162bdce26598d6b1c976badb1cc9f6fd42ffeeaf53aa2f3152a1e80",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthShrugUpper",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "5c2aa214de58c019840f5dc6b99dad82437fded97bef7e30957ee75b91b40d8b",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthSmileLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "916594c440fd0be89692e3ba7bc016336b01ba7446c055b60a43d4bbc6292cfe",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthSmileRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "5cacaea7dc5a7ed090b16d0e6621d0a66499d58668b813a1a638764546ec0f46",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthStretchLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "bb1ed4c4ff895a1dfbd55983f322bf053b6cc3cc82422cd16ee424e56ddfd3a9",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthStretchRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "38d7aa6ce35cd2af413a722654c94cf9bc55e9782fbeb7bd3e795378eb5a513a",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthUpperUpLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "90a2be7de76b01a24e8d97e951506d3d67b2c9152d92ea251ba213f9ffd68583",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthUpperUpRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 19158,
+          "source_coordinate_sha256_identity_only": "a57b68cd0f14cee2aaf893eed39b46c6e817537f963f3e492a49fb294cb2659e",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        }
+      ]
+    },
+    {
+      "owner": "Human.eyebrow001",
+      "parent": "Human.rig",
+      "native_vertices": 124,
+      "key_count": 50,
+      "all_key_names": [
+        "Basis",
+        "aa_02",
+        "ao_03",
+        "ay_11",
+        "h_12",
+        "k_g_ng_20",
+        "oy_10",
+        "y_iy_ih_ix_06",
+        "viseme_aa",
+        "viseme_E",
+        "viseme_I",
+        "viseme_kk",
+        "viseme_O",
+        "viseme_SS",
+        "browDownLeft",
+        "browDownRight",
+        "browInnerUp",
+        "browOuterUpLeft",
+        "browOuterUpRight",
+        "cheekPuff",
+        "cheekSquintLeft",
+        "cheekSquintRight",
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "eyeLookDownLeft",
+        "eyeLookDownRight",
+        "eyeLookInLeft",
+        "eyeLookInRight",
+        "eyeLookOutLeft",
+        "eyeLookOutRight",
+        "eyeLookUpLeft",
+        "eyeLookUpRight",
+        "eyeSquintLeft",
+        "eyeSquintRight",
+        "eyeWideLeft",
+        "eyeWideRight",
+        "jawForward",
+        "jawOpen",
+        "mouthClose",
+        "mouthFrownLeft",
+        "mouthFrownRight",
+        "mouthLeft",
+        "mouthPucker",
+        "mouthRight",
+        "mouthSmileLeft",
+        "mouthSmileRight",
+        "mouthStretchLeft",
+        "mouthStretchRight",
+        "noseSneerLeft",
+        "noseSneerRight"
+      ],
+      "candidate_count": 17,
+      "candidates": [
+        {
+          "metadata": {
+            "name": "cheekPuff",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 124,
+          "source_coordinate_sha256_identity_only": "546f155e96f96fb0530ab12b2499f0b5d938d1f60e18e9fa30083f0e161256b9",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "cheekSquintLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 124,
+          "source_coordinate_sha256_identity_only": "9eda52005d179d89412a6cbf8a93874cc487627c95c8379042048d9a6df5c114",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "cheekSquintRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 124,
+          "source_coordinate_sha256_identity_only": "4dbf7e4905f643adde6b6d440f826d112c365fdc216b648b95bf4eb80fd50d81",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "eyeSquintLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 124,
+          "source_coordinate_sha256_identity_only": "18a2dc2fbd414415ef260c3692eb7a62d079841409c763b219595a6059214761",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "eyeSquintRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 124,
+          "source_coordinate_sha256_identity_only": "55ee326920093bc5a3f3cab587231c80b05a2babe22f685f80106e338e328729",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "jawForward",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 124,
+          "source_coordinate_sha256_identity_only": "83b6273467a46707d3c617a071f5dab45a2f77669cf19c7092bbb4e3bb57d281",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "jawOpen",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 124,
+          "source_coordinate_sha256_identity_only": "4d4b4f82083dcfc14302b89ee90812eb81e9c9115d8567604534519ff72d206f",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthClose",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 124,
+          "source_coordinate_sha256_identity_only": "3ecb8038d6148a168d6f8be3f55499c2fefc0d5d93bd2abadecfdbc3d6d390ad",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthFrownLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 124,
+          "source_coordinate_sha256_identity_only": "6a0399bf8428135a9e37155eeda604a062487b3ebb0a871a9117b77b0bb731f7",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthFrownRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 124,
+          "source_coordinate_sha256_identity_only": "f010051719bf69c98aaf39ca4c4084ef0092f5af2f50997d7ec12826cb293290",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 124,
+          "source_coordinate_sha256_identity_only": "800c0a4a21797280f53a569c4a3edffdd0063a7a9bfcc545228114b49a31c864",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthPucker",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 124,
+          "source_coordinate_sha256_identity_only": "73432e666ebf87ef2b250555a591163d5f786709c5d2ea5641bcdb59f3aee65f",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 124,
+          "source_coordinate_sha256_identity_only": "8482f419cd44f955cfafca2faf1d75c45e54c0887026c78cb059f1d7d45c1bcf",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthSmileLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 124,
+          "source_coordinate_sha256_identity_only": "fbeb946624d52851532bec9c2251a6d05f15949033e9d5597c541b5db3ce6d07",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthSmileRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 124,
+          "source_coordinate_sha256_identity_only": "9b0e33066d98c17bb4a07f07910faaf47144b854fdb23d0a0eb93bd447e7a4b5",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthStretchLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 124,
+          "source_coordinate_sha256_identity_only": "4c4ae91e45d573d49ee6a28c9cdd9d016800fa25fc59c26b3d05194b8857f408",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthStretchRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 124,
+          "source_coordinate_sha256_identity_only": "addc0a9f7d5066d7e6603b54ae01105ea564d7ae0a17e58f7868cbd0e9146198",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        }
+      ]
+    },
+    {
+      "owner": "Human.eyelashes01",
+      "parent": "Human.rig",
+      "native_vertices": 250,
+      "key_count": 28,
+      "all_key_names": [
+        "Basis",
+        "viseme_E",
+        "viseme_SS",
+        "browDownLeft",
+        "browDownRight",
+        "cheekPuff",
+        "cheekSquintLeft",
+        "cheekSquintRight",
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "eyeLookDownLeft",
+        "eyeLookDownRight",
+        "eyeLookInLeft",
+        "eyeLookInRight",
+        "eyeLookOutLeft",
+        "eyeLookOutRight",
+        "eyeLookUpLeft",
+        "eyeLookUpRight",
+        "eyeSquintLeft",
+        "eyeSquintRight",
+        "eyeWideLeft",
+        "eyeWideRight",
+        "mouthSmileLeft",
+        "mouthSmileRight",
+        "mouthStretchLeft",
+        "mouthStretchRight",
+        "noseSneerLeft",
+        "noseSneerRight"
+      ],
+      "candidate_count": 9,
+      "candidates": [
+        {
+          "metadata": {
+            "name": "cheekPuff",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 250,
+          "source_coordinate_sha256_identity_only": "3074ed47a08f58ebd10e926052f96599145a14fa43811fad98f5e68f10b06427",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "cheekSquintLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 250,
+          "source_coordinate_sha256_identity_only": "89281eed56e4d0fb96e53c35111f82d63b528aca8cd5117fd985dc15f1f19681",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "cheekSquintRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 250,
+          "source_coordinate_sha256_identity_only": "1bcca3e0c78eb9ca6d717701b3f80636df5d906c9298616c31ab9087a2cbc5e4",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "eyeSquintLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 250,
+          "source_coordinate_sha256_identity_only": "134bf950a2053be3293a400ec217ef9a216cf2dd6daeb27f997bc92ae5af88dc",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "eyeSquintRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 250,
+          "source_coordinate_sha256_identity_only": "fae0e67e4a86bb9fc50ddce89e1c1490d0a015dcf290cfaed7521099e5984959",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthSmileLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 250,
+          "source_coordinate_sha256_identity_only": "12c992cc25a9a5973ca13ea733ac45785239129adb6e035746b1396ea4917b03",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthSmileRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 250,
+          "source_coordinate_sha256_identity_only": "fb3c4bfface4659274532f3908602c4d4f1eb43ca279f216b9dd93709511334f",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthStretchLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 250,
+          "source_coordinate_sha256_identity_only": "45044ae6f87df1272026a158fec0f547aedd277d92a25748ea52e9f45ab3275b",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "mouthStretchRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 250,
+          "source_coordinate_sha256_identity_only": "48e334949a202afb1867996116fc7a1a81be2999e9488935404093d1cf9b0319",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        }
+      ]
+    },
+    {
+      "owner": "Human.high-poly",
+      "parent": "Human.rig",
+      "native_vertices": 1064,
+      "key_count": 9,
+      "all_key_names": [
+        "Basis",
+        "eyeLookDownLeft",
+        "eyeLookDownRight",
+        "eyeLookInLeft",
+        "eyeLookInRight",
+        "eyeLookOutLeft",
+        "eyeLookOutRight",
+        "eyeLookUpLeft",
+        "eyeLookUpRight"
+      ],
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "owner": "Human.teeth_base",
+      "parent": "Human.rig",
+      "native_vertices": 3868,
+      "key_count": 28,
+      "all_key_names": [
+        "Basis",
+        "aa_02",
+        "aa_ah_ax_01",
+        "ao_03",
+        "aw_09",
+        "ay_11",
+        "d_t_n_19",
+        "er_05",
+        "ey_eh_uh_04",
+        "h_12",
+        "k_g_ng_20",
+        "l_14",
+        "ow_08",
+        "oy_10",
+        "p_b_m_21",
+        "th_dh_17",
+        "viseme_aa",
+        "viseme_DD",
+        "viseme_E",
+        "viseme_kk",
+        "viseme_nn",
+        "viseme_O",
+        "viseme_PP",
+        "viseme_TH",
+        "jawForward",
+        "jawLeft",
+        "jawOpen",
+        "jawRight"
+      ],
+      "candidate_count": 4,
+      "candidates": [
+        {
+          "metadata": {
+            "name": "jawForward",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 3868,
+          "source_coordinate_sha256_identity_only": "2ac27ae26deaa7c64f88d7579dcaba6bbd6c3899104036e68edab617b472a788",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "jawLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 3868,
+          "source_coordinate_sha256_identity_only": "889f99599e57f57a47dd4efdaf5450776e9b6cae4d5722fba074450b626663c3",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "jawOpen",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 3868,
+          "source_coordinate_sha256_identity_only": "7e644b0794d1d8457d03f64e49c9108ee71b94dedca3b3a6a75a6b669337fc96",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "jawRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 3868,
+          "source_coordinate_sha256_identity_only": "85a5fb099762aacc5baf71b6b8efcc582391861139a18ffba98cd73b454e2662",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        }
+      ]
+    },
+    {
+      "owner": "Human.tongue01",
+      "parent": "Human.rig",
+      "native_vertices": 226,
+      "key_count": 29,
+      "all_key_names": [
+        "Basis",
+        "aa_02",
+        "aa_ah_ax_01",
+        "ao_03",
+        "aw_09",
+        "ay_11",
+        "d_t_n_19",
+        "er_05",
+        "ey_eh_uh_04",
+        "h_12",
+        "k_g_ng_20",
+        "l_14",
+        "ow_08",
+        "oy_10",
+        "p_b_m_21",
+        "th_dh_17",
+        "viseme_aa",
+        "viseme_DD",
+        "viseme_E",
+        "viseme_kk",
+        "viseme_nn",
+        "viseme_O",
+        "viseme_PP",
+        "viseme_TH",
+        "jawForward",
+        "jawLeft",
+        "jawOpen",
+        "jawRight",
+        "tongueOut"
+      ],
+      "candidate_count": 4,
+      "candidates": [
+        {
+          "metadata": {
+            "name": "jawForward",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 226,
+          "source_coordinate_sha256_identity_only": "93fe7cc72af3ff7fd608174422a3138cdb6a969b5406b2178d9bd019a44075c5",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "jawLeft",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 226,
+          "source_coordinate_sha256_identity_only": "26a0adda92c997a7d97dab4299b60cf01dfc65b9f5b716e1092cbe69eb7f4944",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "jawOpen",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 226,
+          "source_coordinate_sha256_identity_only": "a03f52e3883c7f12b445ae474322c21dc9a089928e9722bfeaa9fb7ea108b9f3",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        },
+        {
+          "metadata": {
+            "name": "jawRight",
+            "relative": "Basis",
+            "value": 0.0,
+            "min": 0.0,
+            "max": 1.0,
+            "mute": false,
+            "vertex_group": "",
+            "interpolation": "KEY_LINEAR"
+          },
+          "native_vertices": 226,
+          "source_coordinate_sha256_identity_only": "f9426545b038437858059d6332c6be8d4d865c74973aa625b2d571f0fc5b6e65",
+          "effect_semantics_support_and_dependencies": "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "exact_candidate_name_memberships": {
+    "cheekPuff": [
+      "Human",
+      "Human.eyebrow001",
+      "Human.eyelashes01"
+    ],
+    "cheekSquintLeft": [
+      "Human",
+      "Human.eyebrow001",
+      "Human.eyelashes01"
+    ],
+    "cheekSquintRight": [
+      "Human",
+      "Human.eyebrow001",
+      "Human.eyelashes01"
+    ],
+    "eyeSquintLeft": [
+      "Human",
+      "Human.eyebrow001",
+      "Human.eyelashes01"
+    ],
+    "eyeSquintRight": [
+      "Human",
+      "Human.eyebrow001",
+      "Human.eyelashes01"
+    ],
+    "jawForward": [
+      "Human",
+      "Human.eyebrow001",
+      "Human.teeth_base",
+      "Human.tongue01"
+    ],
+    "jawLeft": [
+      "Human",
+      "Human.teeth_base",
+      "Human.tongue01"
+    ],
+    "jawOpen": [
+      "Human",
+      "Human.eyebrow001",
+      "Human.teeth_base",
+      "Human.tongue01"
+    ],
+    "jawRight": [
+      "Human",
+      "Human.teeth_base",
+      "Human.tongue01"
+    ],
+    "mouthClose": [
+      "Human",
+      "Human.eyebrow001"
+    ],
+    "mouthDimpleLeft": [
+      "Human"
+    ],
+    "mouthDimpleRight": [
+      "Human"
+    ],
+    "mouthFrownLeft": [
+      "Human",
+      "Human.eyebrow001"
+    ],
+    "mouthFrownRight": [
+      "Human",
+      "Human.eyebrow001"
+    ],
+    "mouthFunnel": [
+      "Human"
+    ],
+    "mouthLeft": [
+      "Human",
+      "Human.eyebrow001"
+    ],
+    "mouthLowerDownLeft": [
+      "Human"
+    ],
+    "mouthLowerDownRight": [
+      "Human"
+    ],
+    "mouthPressLeft": [
+      "Human"
+    ],
+    "mouthPressRight": [
+      "Human"
+    ],
+    "mouthPucker": [
+      "Human",
+      "Human.eyebrow001"
+    ],
+    "mouthRight": [
+      "Human",
+      "Human.eyebrow001"
+    ],
+    "mouthRollLower": [
+      "Human"
+    ],
+    "mouthRollUpper": [
+      "Human"
+    ],
+    "mouthShrugLower": [
+      "Human"
+    ],
+    "mouthShrugUpper": [
+      "Human"
+    ],
+    "mouthSmileLeft": [
+      "Human",
+      "Human.eyebrow001",
+      "Human.eyelashes01"
+    ],
+    "mouthSmileRight": [
+      "Human",
+      "Human.eyebrow001",
+      "Human.eyelashes01"
+    ],
+    "mouthStretchLeft": [
+      "Human",
+      "Human.eyebrow001",
+      "Human.eyelashes01"
+    ],
+    "mouthStretchRight": [
+      "Human",
+      "Human.eyebrow001",
+      "Human.eyelashes01"
+    ],
+    "mouthUpperUpLeft": [
+      "Human"
+    ],
+    "mouthUpperUpRight": [
+      "Human"
+    ]
+  },
+  "geometric_support_semantics_auxiliary_zero_effect_animation_driver_correspondence": "UNKNOWN; no native shape delta or dependency reads performed",
+  "no_native_or_setters_coefficients_sculpt_save_render": true,
+  "next_decision": "Candidate presence nominates future readonly delta/dependency/aux witness; no expression or morphology trial admitted",
+  "material_state": "pinned COLD .5 baseline; .75 image-only response restored",
+  "records_used": "three existing images/root actual viewing; one pinned COLD metadata/mesh/rig reuse; prior RESULT-REVIEW and ROOT-READBACK; standard-library JSON parser only"
+}

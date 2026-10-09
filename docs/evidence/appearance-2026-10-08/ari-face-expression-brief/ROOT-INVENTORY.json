@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-09T01:10:50.942262+00:00",
+  "complete_inventory_root_verified": true,
+  "all6owners_252keys_53rest_identity": true,
+  "selected_rows": 66,
+  "distinct_names": 32,
+  "name_memberships_exact": true,
+  "smile_memberships": {
+    "mouthSmileLeft": [
+      "Human",
+      "Human.eyebrow001",
+      "Human.eyelashes01"
+    ],
+    "mouthSmileRight": [
+      "Human",
+      "Human.eyebrow001",
+      "Human.eyelashes01"
+    ]
+  },
+  "smile_current_values": {
+    "Human": {
+      "mouthSmileLeft": 0.0,
+      "mouthSmileRight": 0.0
+    },
+    "Human.eyebrow001": {
+      "mouthSmileLeft": 0.0,
+      "mouthSmileRight": 0.0
+    },
+    "Human.eyelashes01": {
+      "mouthSmileLeft": 0.0,
+      "mouthSmileRight": 0.0
+    },
+    "Human.high-poly": {},
+    "Human.teeth_base": {},
+    "Human.tongue01": {}
+  },
+  "all_native_effect_support_driver_aux_mapping_UNKNOWN": true,
+  "no_expression_or_morphology_operation_admitted": true,
+  "next_decision": "Prefer new readonly source delta/dependency/aux-owner witness for the two actual mouthSmile names before coefficients, rather than morphology-first based on confounded concept pixels",
+  "inquiry_command": "python3 docs/evidence/appearance-2026-10-08/ari-face-expression-brief/inventory.py",
+  "pure_query_pid": 76618,
+  "query_receipt_utc": "2026-10-09T01:09:31.718087+00:00",
+  "pure_query_exit_code": 0,
+  "native_jobs": 0
+}
