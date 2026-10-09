@@ -1,0 +1,23 @@
+{
+  "wrapper_pid": 27028,
+  "wrapper_started": "2026-10-09T16:40:28.608791+00:00",
+  "started": "2026-10-09T16:40:28.608866+00:00",
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/query.py"
+  ],
+  "cap_seconds": 120,
+  "launch_before": "2026-10-09T16:45:00+00:00",
+  "finish_by": "2026-10-09T17:05:00+00:00",
+  "child_pid": 27032,
+  "timed_out": false,
+  "interrupted": false,
+  "process_group": 27032,
+  "returncode": 0,
+  "finished": "2026-10-09T16:40:28.793267+00:00",
+  "elapsed_seconds": 0.18440779199590907,
+  "launch_before_gate": true,
+  "within_wall_cap": true,
+  "finished_before_gate": true,
+  "log_bytes": 112
+}

@@ -1,0 +1,102 @@
+{
+  "python": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "runtime": {
+    "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "numpy": "2.4.6",
+    "numpy_file": "/opt/homebrew/lib/python3.14/site-packages/numpy/__init__.py",
+    "dependency_limit": "Interpreter/NumPyentry and versions bound, not exhaustive compileddependency provenance"
+  },
+  "body_archive": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/after-geometry.npz",
+  "source_map": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-source-contract/SOURCE-MAP.json",
+  "world_sha256": "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c",
+  "tri_sha256": "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4",
+  "launch_before": "2026-10-09T16:45:00+00:00",
+  "finish_by": "2026-10-09T17:05:00+00:00",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-literal-surface/README.md",
+      "bytes": 3720,
+      "sha256": "c6b3bb3faa3bc748ddaa1dbb1eca13f289152e654ac2a8771477576ded546793"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-literal-surface/REVIEW.md",
+      "bytes": 6628,
+      "sha256": "f5d9bd7232ad38022021a721625e8f3d80d5f2c3b4a19b41957c7950b7cf3de8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-literal-surface/WORLD-RECIPE.json",
+      "bytes": 12656,
+      "sha256": "889aa31625933b8fad235f5204fb5edd7afb5259fe24e56ef886666808c93dfd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-literal-surface/PLACEMENT.md",
+      "bytes": 4699,
+      "sha256": "63ec431541e39940270d35e1e678a51d51b21b8879596e3ecf62cbc5ac11c725"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-architecture/PANELS.json",
+      "bytes": 7769,
+      "sha256": "59c94f1c2db5add5c0684038fc823425e31bc8f86a5d64c565b082802d15d61a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-architecture/first-diagram.jpg",
+      "bytes": 211130,
+      "sha256": "8c87ba61f9d3ea3d063974a5e7ae579fb16b195de77ca4851efb7314bc2c3c11"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-source-contract/SOURCE-MAP.json",
+      "bytes": 91085,
+      "sha256": "7cdcda00ad43629b558b829afbc76b226f121aabd98d7bb9b270c592b90bb129"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/after-geometry.npz",
+      "bytes": 840170,
+      "sha256": "10f646e42a868fe84ab14d6e3022918a70e6b0aeec30781f270037b79be2f024"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/PLAN.md",
+      "bytes": 4687,
+      "sha256": "49563ecdee29805a91caa3482a66b255e0c255aedf123b8245a0cbef1e1f9830"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/INPUTS.json",
+      "bytes": 1868,
+      "sha256": "e07715449f14cd4b8128d76a1707a6bb5dfbaac3ebd8a0f6c4d02198d21d6f8b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/WORTH.md",
+      "bytes": 4298,
+      "sha256": "0ecb1a0e9dc126dc6d05a990d4fd1e0c57082ac279172d19620b7286c5e77aa5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/DOMAINS.json",
+      "bytes": 2693,
+      "sha256": "3676ad1d2c553b276e0820d5c7b108f7db0ea40ca91ed915311f589207cce2c4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/QUALIFICATION.md",
+      "bytes": 5631,
+      "sha256": "5f5cc95b63e4ba5eee678ed59365ab0dd85cacac2a67e4aebe22d948bbf32665"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/query.py",
+      "bytes": 8147,
+      "sha256": "a23482034cfa4e4c57eadcccce3014d317fc4f232d171c9d4c7199ed7cf95a3d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/run_query.py",
+      "bytes": 2782,
+      "sha256": "bfc384f28179a2f8cccfe8c40bce96f4ec6eb3a40a0a633b3d892ee9c57eafae"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "bytes": 34640,
+      "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+    },
+    {
+      "path": "/opt/homebrew/lib/python3.14/site-packages/numpy/__init__.py",
+      "bytes": 26277,
+      "sha256": "92a46f791e453926d3292af2582b89995a289475f0eaaea71a949823200b838a"
+    }
+  ]
+}

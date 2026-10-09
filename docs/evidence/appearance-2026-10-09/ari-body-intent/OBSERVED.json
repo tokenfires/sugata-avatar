@@ -1,0 +1,804 @@
+{
+  "passed": false,
+  "started": "2026-10-09T16:40:28.655699+00:00",
+  "checks": [
+    {
+      "name": "before:/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-literal-surface/README.md",
+      "passed": true
+    },
+    {
+      "name": "before:/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-literal-surface/REVIEW.md",
+      "passed": true
+    },
+    {
+      "name": "before:/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-literal-surface/WORLD-RECIPE.json",
+      "passed": true
+    },
+    {
+      "name": "before:/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-literal-surface/PLACEMENT.md",
+      "passed": true
+    },
+    {
+      "name": "before:/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-architecture/PANELS.json",
+      "passed": true
+    },
+    {
+      "name": "before:/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-architecture/first-diagram.jpg",
+      "passed": true
+    },
+    {
+      "name": "before:/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-source-contract/SOURCE-MAP.json",
+      "passed": true
+    },
+    {
+      "name": "before:/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/after-geometry.npz",
+      "passed": true
+    },
+    {
+      "name": "before:/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/PLAN.md",
+      "passed": true
+    },
+    {
+      "name": "before:/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/INPUTS.json",
+      "passed": true
+    },
+    {
+      "name": "before:/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/WORTH.md",
+      "passed": true
+    },
+    {
+      "name": "before:/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/DOMAINS.json",
+      "passed": true
+    },
+    {
+      "name": "before:/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/QUALIFICATION.md",
+      "passed": true
+    },
+    {
+      "name": "before:/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/query.py",
+      "passed": true
+    },
+    {
+      "name": "before:/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/run_query.py",
+      "passed": true
+    },
+    {
+      "name": "before:/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "passed": true
+    },
+    {
+      "name": "before:/opt/homebrew/lib/python3.14/site-packages/numpy/__init__.py",
+      "passed": true
+    },
+    {
+      "name": "first output paths",
+      "passed": true
+    },
+    {
+      "name": "deadline",
+      "passed": true
+    },
+    {
+      "name": "closed boxes disjoint:required_negativeX_band/exposed_central_negativeY_band",
+      "passed": true,
+      "witness": {
+        "required": "required_negativeX_band",
+        "exposed": "exposed_central_negativeY_band",
+        "separated_axes": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_negativeX_band/exposed_upper_band",
+      "passed": true,
+      "witness": {
+        "required": "required_negativeX_band",
+        "exposed": "exposed_upper_band",
+        "separated_axes": [
+          2
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_negativeX_band/exposed_lower_band",
+      "passed": true,
+      "witness": {
+        "required": "required_negativeX_band",
+        "exposed": "exposed_lower_band",
+        "separated_axes": [
+          2
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_negativeX_band/exposed_far_negativeX",
+      "passed": true,
+      "witness": {
+        "required": "required_negativeX_band",
+        "exposed": "exposed_far_negativeX",
+        "separated_axes": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_negativeX_band/exposed_far_positiveX",
+      "passed": true,
+      "witness": {
+        "required": "required_negativeX_band",
+        "exposed": "exposed_far_positiveX",
+        "separated_axes": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_positiveX_band/exposed_central_negativeY_band",
+      "passed": true,
+      "witness": {
+        "required": "required_positiveX_band",
+        "exposed": "exposed_central_negativeY_band",
+        "separated_axes": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_positiveX_band/exposed_upper_band",
+      "passed": true,
+      "witness": {
+        "required": "required_positiveX_band",
+        "exposed": "exposed_upper_band",
+        "separated_axes": [
+          2
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_positiveX_band/exposed_lower_band",
+      "passed": true,
+      "witness": {
+        "required": "required_positiveX_band",
+        "exposed": "exposed_lower_band",
+        "separated_axes": [
+          2
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_positiveX_band/exposed_far_negativeX",
+      "passed": true,
+      "witness": {
+        "required": "required_positiveX_band",
+        "exposed": "exposed_far_negativeX",
+        "separated_axes": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_positiveX_band/exposed_far_positiveX",
+      "passed": true,
+      "witness": {
+        "required": "required_positiveX_band",
+        "exposed": "exposed_far_positiveX",
+        "separated_axes": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_positiveY_band/exposed_central_negativeY_band",
+      "passed": true,
+      "witness": {
+        "required": "required_positiveY_band",
+        "exposed": "exposed_central_negativeY_band",
+        "separated_axes": [
+          1
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_positiveY_band/exposed_upper_band",
+      "passed": true,
+      "witness": {
+        "required": "required_positiveY_band",
+        "exposed": "exposed_upper_band",
+        "separated_axes": [
+          2
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_positiveY_band/exposed_lower_band",
+      "passed": true,
+      "witness": {
+        "required": "required_positiveY_band",
+        "exposed": "exposed_lower_band",
+        "separated_axes": [
+          2
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_positiveY_band/exposed_far_negativeX",
+      "passed": true,
+      "witness": {
+        "required": "required_positiveY_band",
+        "exposed": "exposed_far_negativeX",
+        "separated_axes": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_positiveY_band/exposed_far_positiveX",
+      "passed": true,
+      "witness": {
+        "required": "required_positiveY_band",
+        "exposed": "exposed_far_positiveX",
+        "separated_axes": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_negativeX_lower_band/exposed_central_negativeY_band",
+      "passed": true,
+      "witness": {
+        "required": "required_negativeX_lower_band",
+        "exposed": "exposed_central_negativeY_band",
+        "separated_axes": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_negativeX_lower_band/exposed_upper_band",
+      "passed": true,
+      "witness": {
+        "required": "required_negativeX_lower_band",
+        "exposed": "exposed_upper_band",
+        "separated_axes": [
+          2
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_negativeX_lower_band/exposed_lower_band",
+      "passed": true,
+      "witness": {
+        "required": "required_negativeX_lower_band",
+        "exposed": "exposed_lower_band",
+        "separated_axes": [
+          2
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_negativeX_lower_band/exposed_far_negativeX",
+      "passed": true,
+      "witness": {
+        "required": "required_negativeX_lower_band",
+        "exposed": "exposed_far_negativeX",
+        "separated_axes": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_negativeX_lower_band/exposed_far_positiveX",
+      "passed": true,
+      "witness": {
+        "required": "required_negativeX_lower_band",
+        "exposed": "exposed_far_positiveX",
+        "separated_axes": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_positiveX_lower_band/exposed_central_negativeY_band",
+      "passed": true,
+      "witness": {
+        "required": "required_positiveX_lower_band",
+        "exposed": "exposed_central_negativeY_band",
+        "separated_axes": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_positiveX_lower_band/exposed_upper_band",
+      "passed": true,
+      "witness": {
+        "required": "required_positiveX_lower_band",
+        "exposed": "exposed_upper_band",
+        "separated_axes": [
+          2
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_positiveX_lower_band/exposed_lower_band",
+      "passed": true,
+      "witness": {
+        "required": "required_positiveX_lower_band",
+        "exposed": "exposed_lower_band",
+        "separated_axes": [
+          2
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_positiveX_lower_band/exposed_far_negativeX",
+      "passed": true,
+      "witness": {
+        "required": "required_positiveX_lower_band",
+        "exposed": "exposed_far_negativeX",
+        "separated_axes": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "closed boxes disjoint:required_positiveX_lower_band/exposed_far_positiveX",
+      "passed": true,
+      "witness": {
+        "required": "required_positiveX_lower_band",
+        "exposed": "exposed_far_positiveX",
+        "separated_axes": [
+          0
+        ]
+      }
+    },
+    {
+      "name": "world member",
+      "passed": true,
+      "witness": {
+        "world_dtype": "float32",
+        "world_shape": [
+          13380,
+          3
+        ],
+        "world_sha256": "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c",
+        "tri_dtype": "int32",
+        "tri_shape": [
+          26756,
+          3
+        ],
+        "tri_sha256": "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4"
+      }
+    },
+    {
+      "name": "triangle member",
+      "passed": true,
+      "witness": {
+        "world_dtype": "float32",
+        "world_shape": [
+          13380,
+          3
+        ],
+        "world_sha256": "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c",
+        "tri_dtype": "int32",
+        "tri_shape": [
+          26756,
+          3
+        ],
+        "tri_sha256": "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4"
+      }
+    },
+    {
+      "name": "finite source world",
+      "passed": true
+    },
+    {
+      "name": "all triangle indices",
+      "passed": true,
+      "witness": {
+        "first_bad_face": null
+      }
+    },
+    {
+      "name": "positive finite source height",
+      "passed": true
+    },
+    {
+      "name": "stored identity frame",
+      "passed": true
+    },
+    {
+      "name": "source bounds exact",
+      "passed": true
+    }
+  ],
+  "observations": {
+    "source_members": {
+      "world_dtype": "float32",
+      "world_shape": [
+        13380,
+        3
+      ],
+      "world_sha256": "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c",
+      "tri_dtype": "int32",
+      "tri_shape": [
+        26756,
+        3
+      ],
+      "tri_sha256": "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4"
+    },
+    "source_height": 1.6594313232635614,
+    "ground": 1.5046680346131325e-08,
+    "counts": {
+      "HELD": 5136,
+      "REQUIRED": 3408,
+      "EXPOSED": 18212
+    },
+    "contact_body_triangles": 26756,
+    "domain_counts": {
+      "required_negativeX_band": 1275,
+      "required_positiveX_band": 1275,
+      "required_positiveY_band": 216,
+      "required_negativeX_lower_band": 321,
+      "required_positiveX_lower_band": 321,
+      "exposed_central_negativeY_band": 54,
+      "exposed_upper_band": 6494,
+      "exposed_lower_band": 9210,
+      "exposed_far_negativeX": 1227,
+      "exposed_far_positiveX": 1227
+    },
+    "dual_membership_count": 0,
+    "first_dual": null,
+    "whole_face_witnesses": {
+      "HELD": [
+        {
+          "face": 450,
+          "indices": [
+            377,
+            378,
+            368
+          ],
+          "vertices": [
+            [
+              -0.022296007722616196,
+              -0.1418199986219406,
+              1.4924243688583374
+            ],
+            [
+              -0.024373002350330353,
+              -0.1397719830274582,
+              1.4894570112228394
+            ],
+            [
+              -0.023501506075263023,
+              -0.14007847011089325,
+              1.4880872964859009
+            ]
+          ],
+          "role": 0,
+          "domain": -1
+        },
+        {
+          "face": 451,
+          "indices": [
+            377,
+            368,
+            363
+          ],
+          "vertices": [
+            [
+              -0.022296007722616196,
+              -0.1418199986219406,
+              1.4924243688583374
+            ],
+            [
+              -0.023501506075263023,
+              -0.14007847011089325,
+              1.4880872964859009
+            ],
+            [
+              -0.021696005016565323,
+              -0.14206448197364807,
+              1.4904613494873047
+            ]
+          ],
+          "role": 0,
+          "domain": -1
+        }
+      ],
+      "REQUIRED": [
+        {
+          "face": 2156,
+          "indices": [
+            1681,
+            1455,
+            1405
+          ],
+          "vertices": [
+            [
+              -0.25738200545310974,
+              -0.04838347062468529,
+              1.3056813478469849
+            ],
+            [
+              -0.2652685344219208,
+              -0.04806147515773773,
+              1.2934645414352417
+            ],
+            [
+              -0.25408104062080383,
+              -0.06264448165893555,
+              1.2863625288009644
+            ]
+          ],
+          "role": 1,
+          "domain": 0
+        },
+        {
+          "face": 2157,
+          "indices": [
+            1681,
+            1405,
+            1675
+          ],
+          "vertices": [
+            [
+              -0.25738200545310974,
+              -0.04838347062468529,
+              1.3056813478469849
+            ],
+            [
+              -0.25408104062080383,
+              -0.06264448165893555,
+              1.2863625288009644
+            ],
+            [
+              -0.24587853252887726,
+              -0.06379048526287079,
+              1.2987871170043945
+            ]
+          ],
+          "role": 1,
+          "domain": 0
+        }
+      ],
+      "EXPOSED": [
+        {
+          "face": 0,
+          "indices": [
+            4848,
+            0,
+            1
+          ],
+          "vertices": [
+            [
+              -0.032799508422613144,
+              -0.1349949836730957,
+              1.5566219091415405
+            ],
+            [
+              -0.0329895094037056,
+              -0.13453947007656097,
+              1.5558642148971558
+            ],
+            [
+              -0.029268506914377213,
+              -0.13519598543643951,
+              1.5560078620910645
+            ]
+          ],
+          "role": 2,
+          "domain": 6
+        },
+        {
+          "face": 1,
+          "indices": [
+            4848,
+            1,
+            4847
+          ],
+          "vertices": [
+            [
+              -0.032799508422613144,
+              -0.1349949836730957,
+              1.5566219091415405
+            ],
+            [
+              -0.029268506914377213,
+              -0.13519598543643951,
+              1.5560078620910645
+            ],
+            [
+              -0.02916150540113449,
+              -0.13574250042438507,
+              1.5564988851547241
+            ]
+          ],
+          "role": 2,
+          "domain": 6
+        }
+      ]
+    },
+    "target_count": 86480,
+    "first_bad_area_face": null,
+    "closed_box_gap_witnesses": [
+      {
+        "required": "required_negativeX_band",
+        "exposed": "exposed_central_negativeY_band",
+        "separated_axes": [
+          0
+        ]
+      },
+      {
+        "required": "required_negativeX_band",
+        "exposed": "exposed_upper_band",
+        "separated_axes": [
+          2
+        ]
+      },
+      {
+        "required": "required_negativeX_band",
+        "exposed": "exposed_lower_band",
+        "separated_axes": [
+          2
+        ]
+      },
+      {
+        "required": "required_negativeX_band",
+        "exposed": "exposed_far_negativeX",
+        "separated_axes": [
+          0
+        ]
+      },
+      {
+        "required": "required_negativeX_band",
+        "exposed": "exposed_far_positiveX",
+        "separated_axes": [
+          0
+        ]
+      },
+      {
+        "required": "required_positiveX_band",
+        "exposed": "exposed_central_negativeY_band",
+        "separated_axes": [
+          0
+        ]
+      },
+      {
+        "required": "required_positiveX_band",
+        "exposed": "exposed_upper_band",
+        "separated_axes": [
+          2
+        ]
+      },
+      {
+        "required": "required_positiveX_band",
+        "exposed": "exposed_lower_band",
+        "separated_axes": [
+          2
+        ]
+      },
+      {
+        "required": "required_positiveX_band",
+        "exposed": "exposed_far_negativeX",
+        "separated_axes": [
+          0
+        ]
+      },
+      {
+        "required": "required_positiveX_band",
+        "exposed": "exposed_far_positiveX",
+        "separated_axes": [
+          0
+        ]
+      },
+      {
+        "required": "required_positiveY_band",
+        "exposed": "exposed_central_negativeY_band",
+        "separated_axes": [
+          1
+        ]
+      },
+      {
+        "required": "required_positiveY_band",
+        "exposed": "exposed_upper_band",
+        "separated_axes": [
+          2
+        ]
+      },
+      {
+        "required": "required_positiveY_band",
+        "exposed": "exposed_lower_band",
+        "separated_axes": [
+          2
+        ]
+      },
+      {
+        "required": "required_positiveY_band",
+        "exposed": "exposed_far_negativeX",
+        "separated_axes": [
+          0
+        ]
+      },
+      {
+        "required": "required_positiveY_band",
+        "exposed": "exposed_far_positiveX",
+        "separated_axes": [
+          0
+        ]
+      },
+      {
+        "required": "required_negativeX_lower_band",
+        "exposed": "exposed_central_negativeY_band",
+        "separated_axes": [
+          0
+        ]
+      },
+      {
+        "required": "required_negativeX_lower_band",
+        "exposed": "exposed_upper_band",
+        "separated_axes": [
+          2
+        ]
+      },
+      {
+        "required": "required_negativeX_lower_band",
+        "exposed": "exposed_lower_band",
+        "separated_axes": [
+          2
+        ]
+      },
+      {
+        "required": "required_negativeX_lower_band",
+        "exposed": "exposed_far_negativeX",
+        "separated_axes": [
+          0
+        ]
+      },
+      {
+        "required": "required_negativeX_lower_band",
+        "exposed": "exposed_far_positiveX",
+        "separated_axes": [
+          0
+        ]
+      },
+      {
+        "required": "required_positiveX_lower_band",
+        "exposed": "exposed_central_negativeY_band",
+        "separated_axes": [
+          0
+        ]
+      },
+      {
+        "required": "required_positiveX_lower_band",
+        "exposed": "exposed_upper_band",
+        "separated_axes": [
+          2
+        ]
+      },
+      {
+        "required": "required_positiveX_lower_band",
+        "exposed": "exposed_lower_band",
+        "separated_axes": [
+          2
+        ]
+      },
+      {
+        "required": "required_positiveX_lower_band",
+        "exposed": "exposed_far_negativeX",
+        "separated_axes": [
+          0
+        ]
+      },
+      {
+        "required": "required_positiveX_lower_band",
+        "exposed": "exposed_far_positiveX",
+        "separated_axes": [
+          0
+        ]
+      }
+    ]
+  },
+  "arrays": []
+}

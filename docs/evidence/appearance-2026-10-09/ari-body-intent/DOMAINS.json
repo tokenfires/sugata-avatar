@@ -1,0 +1,28 @@
+{
+  "id":"ari-source-body-intent-v1",
+  "scope":"Authored source-frame diagnostic intent, not validated anatomy, manufacturing or full coverage",
+  "coordinates":"p=(x/h,y/h,(z-ground)/h); ground=min sourceZ; h=max sourceZ-min sourceZ; source Human identity frame only",
+  "source_independence":"No WORLD-RECIPE or candidate values read to define/evaluate predicates; source body and this fixed file only",
+  "membership":"CLOSED lo<=coordinate<=hi on all3axes; whole triangle only if all3vertices lie in SAME convex box",
+  "required":[
+    {"id":"required_negativeX_band","lo":[-0.28,-1,0.64],"hi":[-0.04,1,0.80]},
+    {"id":"required_positiveX_band","lo":[0.04,-1,0.64],"hi":[0.28,1,0.80]},
+    {"id":"required_positiveY_band","lo":[-0.28,0.01,0.64],"hi":[0.28,1,0.80]},
+    {"id":"required_negativeX_lower_band","lo":[-0.28,-1,0.59],"hi":[-0.145,1,0.80]},
+    {"id":"required_positiveX_lower_band","lo":[0.145,-1,0.59],"hi":[0.28,1,0.80]}
+  ],
+  "exposed":[
+    {"id":"exposed_central_negativeY_band","lo":[-0.02,-1,0.65],"hi":[0.02,-0.015,0.79]},
+    {"id":"exposed_upper_band","lo":[-1,-1,0.90],"hi":[1,1,1.01]},
+    {"id":"exposed_lower_band","lo":[-1,-1,-0.01],"hi":[1,1,0.56]},
+    {"id":"exposed_far_negativeX","lo":[-1,-1,-0.01],"hi":[-0.30,1,1.01]},
+    {"id":"exposed_far_positiveX","lo":[0.30,-1,-0.01],"hi":[1,1,1.01]}
+  ],
+  "disjointness":"Each required/exposed closed-box pair has at least one strict positive interval gap; assert this before source decode. Additionally persist first actual dual-role face witness and refuse if any dual membership occurs, never hide by priority.",
+  "selection":"Required/exposed mutually exclusive; within a role choose first matching box in listed order. Mixed, union-straddling or unclassified faces HELD. HELD is not a claim of no required coverage.",
+  "role_codes":{"HELD":0,"REQUIRED":1,"EXPOSED":2},
+  "domain_codes":"required0..4, exposed5..9; held-1",
+  "targets":{"per_selected_face":4,"barycentrics":[["1/3","1/3","1/3"],[0.6,0.2,0.2],[0.2,0.6,0.2],[0.2,0.2,0.6]],"max_targets":100000,"directions":"source oriented geometric triangle unit normal, not a physical outward-solid proof","ownership":"source faceid+barycentric+role/domain; no candidate centroid/nearest-garment selection"},
+  "contact_domain":"ALL26756 original sourcebodytriangles, regardless of labels; zero body mask/pose/coordinate changes",
+  "limits":["Conservative whole-triangle membership does not partition the exact requested union surface", "HELD includes crossing/transition faces", "Four samples per face do not prove full triangle coverage/exposure", "No anatomical/pose/solid/appearance verdict", "Intent cannot supply passing candidate geometry"]
+}

@@ -1,0 +1,26 @@
+{
+  "execution_admitted": false,
+  "execution_classification": "UNADMITTED diagnostic; parent helper failure and unchecked dependent dispatch",
+  "numeric_source_facts": "Independently verified by root and critic, with all provenance preserved",
+  "worker_passed_is_not_execution_admission": true,
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-body-intent/targets.npz",
+    "bytes": 1762446,
+    "sha256": "b06425e1562b120ce6d875055c40825cdd9252910de73c89b51d9e9417684297"
+  },
+  "facts": {
+    "required_faces": 3408,
+    "exposed_faces": 18212,
+    "held_faces": 5136,
+    "total_contact_faces": 26756,
+    "source_targets": 86480
+  },
+  "qualification": "No anatomical/fullsurface/physical/fit/appearance pass",
+  "future_use": "Only under fresh explicit provenance-aware preflight that accepts independently verified facts and enforces its own saved admission/helper-success before launch; no unchanged query replay or retroactive origin admission",
+  "evidence": [
+    "DISPATCH-ERROR.md",
+    "RESULT-REVIEW.md",
+    "ROOT-RESULT.json",
+    "ROOT-READBACK.json"
+  ]
+}
