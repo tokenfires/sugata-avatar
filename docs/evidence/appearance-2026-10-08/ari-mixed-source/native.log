@@ -1,0 +1,11 @@
+00:01.538  blend            | Read blend: "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/ari-skin-palette.blend"
+/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-roughness-response/response.py:45: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  v=getattr(owner,prop.identifier)
+[INFO ] services.locationservice ...............: Not adding link to MakeHuman user data, since neither explicit path nor auto-discovery is set in preferences.
+[INFO ] mpfb.init ..............................: Build info 20260722
+[INFO ] mpfb.init ..............................: Online access preference is not enabled. Not checking if MakeHuman is online.
+[INFO ] mpfb.init ..............................: MPFB initialization has finished.
+SUGATA_UNCHANGED_MIXED {"started_utc": "2026-10-09T02:57:52.994661+00:00", "passed": true, "application_admitted": false, "source_preserved": true, "compiled": [{"owner": "Human", "active_native_indices": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], "output": "compiled0", "sha256": "0af3d0a91d9df30535cfe665e3cca482fb682c1505bf2cfe5e1b0bb9b0bb9a1c", "actual_mixed_sha256": "0af3d0a91d9df30535cfe665e3cca482fb682c1505bf2cfe5e1b0bb9b0bb9a1c"}, {"owner": "Human.eyebrow001", "active_native_indices": [], "output": "compiled1", "sha256": "9d3f48226235de9f2902d7a2f84f984f93c5c3e288c1e79252169c79563e2288", "actual_mixed_sha256": "9d3f48226235de9f2902d7a2f84f984f93c5c3e288c1e79252169c79563e2288"}, {"owner": "Human.eyelashes01", "active_native_indices": [], "output": "compiled2", "sha256": "396b2dcf028c0f0d4085d8032f038c997e604e82779ce70e80dd75e0b6222c9b", "actual_mixed_sha256": "396b2dcf028c0f0d4085d8032f038c997e604e82779ce70e80dd75e0b6222c9b"}], "raw_array_count": 18, "derived_array_count": 3, "coordinate_scalars": 1093128, "archive": {"path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-mixed-source/work/coordinates.npz", "bytes": 3478032, "sha256": "30402dba2d44313c60a8face5d4c34cf4cf1ad5e5778d367792cfb4e5c4dea14"}, "saved": false, "rendered": false, "evaluated": false, "finished_utc": "2026-10-09T02:57:56.477804+00:00"}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:49:19)
+
+Blender quit

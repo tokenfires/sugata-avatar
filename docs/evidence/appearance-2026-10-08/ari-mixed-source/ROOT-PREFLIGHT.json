@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-09T02:57:48.658783+00:00",
+  "whole_handoff_read": true,
+  "preflight_sha256": "6cc76d8aed2a95ee8747abd0f56f51eafb7045a9a7e91fb8d11616e50204f5a2",
+  "bindings": 8,
+  "physical_pins": 23,
+  "outputs_absent": true,
+  "owned_native_absent": true,
+  "exec_sha256": "d189828b0562314fe1e07811f4a953aae29d2245c4ac3c74bcb0625cc28daae4",
+  "wrapper_sha256": "28117755fba163ca557571a652d3275155247c9eea0bb5928e0cde677a233c9d",
+  "admitted": true,
+  "scope": "Exactly one90s unchanged readonly native source compiler; no expression/evaluation/render/save",
+  "admission_helper_correction": "Tool855b14 underscore filename parser failed before writing admission; tool67db66 wrapper exited before Popen because admission file absent. No native/JOB/output. Corrected root parser only, reviewed collector/wrapper/exec unchanged."
+}
