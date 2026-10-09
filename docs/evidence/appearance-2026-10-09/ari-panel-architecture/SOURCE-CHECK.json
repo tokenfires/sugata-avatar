@@ -1,0 +1,55 @@
+{
+  "checked_utc": "2026-10-09T14:55:45.439345+00:00",
+  "scope": "Source ledger and SVG association only; no shape mesh/metric/3D/physical/appearance qualification",
+  "panels_per_layer": 5,
+  "chart_edges_per_layer": 30,
+  "seam_pairs_per_layer": 10,
+  "free_edges_per_layer": 10,
+  "free_cycles_per_layer": [
+    {
+      "id": "bodyOpening",
+      "edge_count": 8,
+      "closed_after_seam_endpoint_identifications": true
+    },
+    {
+      "id": "wristR",
+      "edge_count": 1,
+      "closed_after_seam_endpoint_identifications": true
+    },
+    {
+      "id": "wristL",
+      "edge_count": 1,
+      "closed_after_seam_endpoint_identifications": true
+    }
+  ],
+  "cap_summit_and_underarm_endpoint_associations": "PASS",
+  "sample_correspondence": "17 fixed parameters,reverse-index/inverse-t exact; not arc length",
+  "independent_layer_panel_ids": 10,
+  "lining_correspondences": 5,
+  "extension_interfaces": 9,
+  "all_60_svg_edge_paths_equal_json": true,
+  "static_links_resolve": true,
+  "input_pins": 9,
+  "payloads": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-architecture/PANELS.json",
+      "bytes": 7769,
+      "sha256": "59c94f1c2db5add5c0684038fc823425e31bc8f86a5d64c565b082802d15d61a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-architecture/ARCHITECTURE.md",
+      "bytes": 3938,
+      "sha256": "4cfb07002b99f37874a53fb2ed494cf6cd5ee5b6b47c59b4133a3b1ee9a24525"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-architecture/panels.svg",
+      "bytes": 18745,
+      "sha256": "35ebc2ffe606609243a532f04aca331ca046ca472a00138fbf3d253fb0f647b7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-architecture/review.html",
+      "bytes": 850,
+      "sha256": "dddd360941ee2b6f74f08f288c4ee74ba91162eec712d5cd5ca739fa3d0c62ca"
+    }
+  ]
+}

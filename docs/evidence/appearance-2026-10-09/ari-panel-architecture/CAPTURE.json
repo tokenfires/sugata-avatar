@@ -1,0 +1,32 @@
+{
+  "started_utc": "2026-10-09T15:03:11.343Z",
+  "finished_utc": "2026-10-09T15:03:11.490Z",
+  "tool": "mcp__cua_repl.js",
+  "browser": "Codex In-app Browser/id2",
+  "tab": "10",
+  "target_url": "http://127.0.0.1:5173/@fs//Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-architecture/panels.svg",
+  "command": "ariPanelTab.screenshot({fullPage:true}); writeFile first-diagram.jpg with flag wx; emit same returned bytes",
+  "root_serialized": true,
+  "full_page": true,
+  "attempts": 1,
+  "native_wrapper_or_pid": null,
+  "dom_identity_before_capture": {
+    "tag": "svg",
+    "width": "1360",
+    "height": "1580",
+    "groups": 10,
+    "identified_paths_including_outlines": 70
+  },
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-architecture/first-diagram.jpg",
+    "bytes": 211130,
+    "sha256": "8c87ba61f9d3ea3d063974a5e7ae579fb16b195de77ca4851efb7314bc2c3c11",
+    "dimensions": [
+      1360,
+      1580
+    ],
+    "mime": "image/jpeg"
+  },
+  "scope": "Direct whole SVG diagram readability only; HTML viewer layout, avatar/3D/fit unqualified",
+  "operations": "No source/parameter/viewport changes, native/GPU/bodydecode or retake. CUA docs read before capture; standard file persistence only."
+}

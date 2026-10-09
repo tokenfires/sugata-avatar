@@ -1,0 +1,111 @@
+{
+  "contract": "ari-five-panel-architecture-v1",
+  "units": "original unitless chart coordinates",
+  "scope": "Five main panels per layer; shell and lining independently named; oriented abstract seam associations only",
+  "limits": ["Not metric cutting dimensions", "No equal curve-length or cap-ease claim", "No sewing/elastic ratio", "No 3D coordinates, body correspondence or placement", "No lining separation, contact, coverage, occupancy, pose or appearance qualification"],
+  "sampling": {"count": 17, "t": [0,0.0625,0.125,0.1875,0.25,0.3125,0.375,0.4375,0.5,0.5625,0.625,0.6875,0.75,0.8125,0.875,0.9375,1], "paired_index": "16-i", "paired_parameter": "1-t", "meaning": "Correspondence along chart edge parameter, not equal arc length or physical seam matching"},
+  "patterns": {
+    "FR": {
+      "role": "wearer right front",
+      "vertices": {"N":[15,35],"S":[55,15],"T":[125,45],"U":[140,140],"H":[120,265],"F":[15,265]},
+      "edges": [
+        {"id":"neck","from":"N","to":"S","curve":"line"},
+        {"id":"shoulder","from":"S","to":"T","curve":"line"},
+        {"id":"arm","from":"T","to":"U","curve":"cubic","controls":[[105,80],[110,125]]},
+        {"id":"side","from":"U","to":"H","curve":"line"},
+        {"id":"hem","from":"H","to":"F","curve":"line"},
+        {"id":"front","from":"F","to":"N","curve":"line"}
+      ],
+      "pocket_mouth_proposal": {"from":[60,205],"to":[90,170],"boundary_cut":false}
+    },
+    "B": {
+      "role": "complete back",
+      "vertices": {"NR":[145,35],"NL":[95,35],"TL":[25,60],"UL":[10,140],"HL":[35,265],"HR":[205,265],"UR":[230,140],"TR":[215,60]},
+      "edges": [
+        {"id":"neck","from":"NR","to":"NL","curve":"cubic","controls":[[130,48],[110,48]]},
+        {"id":"shoulderL","from":"NL","to":"TL","curve":"line"},
+        {"id":"armL","from":"TL","to":"UL","curve":"cubic","controls":[[45,90],[40,125]]},
+        {"id":"sideL","from":"UL","to":"HL","curve":"line"},
+        {"id":"hem","from":"HL","to":"HR","curve":"line"},
+        {"id":"sideR","from":"HR","to":"UR","curve":"line"},
+        {"id":"armR","from":"UR","to":"TR","curve":"cubic","controls":[[200,125],[195,90]]},
+        {"id":"shoulderR","from":"TR","to":"NR","curve":"line"}
+      ]
+    },
+    "FL": {
+      "role": "wearer left front",
+      "vertices": {"N":[125,35],"S":[85,15],"T":[15,45],"U":[0,140],"H":[20,265],"F":[125,265]},
+      "edges": [
+        {"id":"front","from":"N","to":"F","curve":"line"},
+        {"id":"hem","from":"F","to":"H","curve":"line"},
+        {"id":"side","from":"H","to":"U","curve":"line"},
+        {"id":"arm","from":"U","to":"T","curve":"cubic","controls":[[30,125],[35,80]]},
+        {"id":"shoulder","from":"T","to":"S","curve":"line"},
+        {"id":"neck","from":"S","to":"N","curve":"line"}
+      ],
+      "pocket_mouth_proposal": {"from":[80,205],"to":[50,170],"boundary_cut":false}
+    },
+    "SR": {
+      "role": "wearer right sleeve; cap front and rear meet at C",
+      "vertices": {"C":[110,15],"UF":[35,95],"UR":[185,95],"WF":[65,285],"WR":[155,285]},
+      "edges": [
+        {"id":"capRear","from":"C","to":"UR","curve":"cubic","controls":[[165,25],[182,75]]},
+        {"id":"underRear","from":"UR","to":"WR","curve":"line"},
+        {"id":"wrist","from":"WR","to":"WF","curve":"line"},
+        {"id":"underFront","from":"WF","to":"UF","curve":"line"},
+        {"id":"capFront","from":"UF","to":"C","curve":"cubic","controls":[[38,75],[55,25]]}
+      ]
+    },
+    "SL": {
+      "role": "wearer left sleeve; cap front and rear meet at C",
+      "vertices": {"C":[110,15],"UF":[185,95],"UR":[35,95],"WF":[155,285],"WR":[65,285]},
+      "edges": [
+        {"id":"capFront","from":"C","to":"UF","curve":"cubic","controls":[[165,25],[182,75]]},
+        {"id":"underFront","from":"UF","to":"WF","curve":"line"},
+        {"id":"wrist","from":"WF","to":"WR","curve":"line"},
+        {"id":"underRear","from":"WR","to":"UR","curve":"line"},
+        {"id":"capRear","from":"UR","to":"C","curve":"cubic","controls":[[38,75],[55,25]]}
+      ]
+    }
+  },
+  "layers": [
+    {"id":"O","role":"outer shell","panels":{"O.FR":"FR","O.B":"B","O.FL":"FL","O.SR":"SR","O.SL":"SL"}},
+    {"id":"I","role":"inner lining main assembly","panels":{"I.FR":"FR","I.B":"B","I.FL":"FL","I.SR":"SR","I.SL":"SL"}}
+  ],
+  "seam_template_per_layer": [
+    {"id":"S1","a":"FR.shoulder","b":"B.shoulderR","map":"1-t"},
+    {"id":"S2","a":"FL.shoulder","b":"B.shoulderL","map":"1-t"},
+    {"id":"S3","a":"FR.side","b":"B.sideR","map":"1-t"},
+    {"id":"S4","a":"FL.side","b":"B.sideL","map":"1-t"},
+    {"id":"S5","a":"FR.arm","b":"SR.capFront","map":"1-t"},
+    {"id":"S6","a":"B.armR","b":"SR.capRear","map":"1-t"},
+    {"id":"S7","a":"FL.arm","b":"SL.capFront","map":"1-t"},
+    {"id":"S8","a":"B.armL","b":"SL.capRear","map":"1-t"},
+    {"id":"S9","a":"SR.underFront","b":"SR.underRear","map":"1-t"},
+    {"id":"S10","a":"SL.underFront","b":"SL.underRear","map":"1-t"}
+  ],
+  "free_boundary_cycles_per_layer": [
+    {"id":"bodyOpening","edges":["FR.front","FR.neck","B.neck","FL.neck","FL.front","FL.hem","B.hem","FR.hem"],"meaning":"One combined front-neck-hem opening; front halves remain unjoined"},
+    {"id":"wristR","edges":["SR.wrist"],"meaning":"Closed wrist loop after S9 endpoint identifications"},
+    {"id":"wristL","edges":["SL.wrist"],"meaning":"Closed wrist loop after S10 endpoint identifications"}
+  ],
+  "lining_correspondence": [
+    {"outer":"O.FR","inner":"I.FR","edge_map":"same named edge and same t","world_separation":"UNKNOWN"},
+    {"outer":"O.B","inner":"I.B","edge_map":"same named edge and same t","world_separation":"UNKNOWN"},
+    {"outer":"O.FL","inner":"I.FL","edge_map":"same named edge and same t","world_separation":"UNKNOWN"},
+    {"outer":"O.SR","inner":"I.SR","edge_map":"same named edge and same t","world_separation":"UNKNOWN"},
+    {"outer":"O.SL","inner":"I.SL","edge_map":"same named edge and same t","world_separation":"UNKNOWN"}
+  ],
+  "extension_interfaces": [
+    {"role":"collar","outer_path":["O.FR.neck","O.B.neck","O.FL.neck"],"inner_path":["I.FR.neck","I.B.neck","I.FL.neck"],"status":"Proposed open neckline strips; ends at front neck vertices; shapes, attachment and dimensions future"},
+    {"role":"hem","outer_path":["O.FL.hem","O.B.hem","O.FR.hem"],"inner_path":["I.FL.hem","I.B.hem","I.FR.hem"],"status":"Proposed trim with two separate front ends; no elastic ratio or joined zipper bottom"},
+    {"role":"cuffR","outer_path":["O.SR.wrist"],"inner_path":["I.SR.wrist"],"status":"Proposed closed wrist trim; fabric/width/ratio/bridge future"},
+    {"role":"cuffL","outer_path":["O.SL.wrist"],"inner_path":["I.SL.wrist"],"status":"Proposed closed wrist trim; fabric/width/ratio/bridge future"},
+    {"role":"facingR + zipperR","outer_path":["O.FR.front"],"inner_path":["I.FR.front"],"status":"Independent front edge bridge/zip-half responsibilities; no closure mechanics"},
+    {"role":"facingL + zipperL","outer_path":["O.FL.front"],"inner_path":["I.FL.front"],"status":"Independent front edge bridge/zip-half responsibilities; no closure mechanics"},
+    {"role":"guardL","interface":["facingL + zipperL"],"status":"Proposed behind-left-edge component; independent future shape/attachment"},
+    {"role":"pocketR + bagR","outer_panel":"O.FR","inner_panel":"I.FR","mouth":"FR.pocket_mouth_proposal","status":"Interior marking only; no cut/slot/bag mesh or proved opening"},
+    {"role":"pocketL + bagL","outer_panel":"O.FL","inner_panel":"I.FL","mouth":"FL.pocket_mouth_proposal","status":"Interior marking only; no cut/slot/bag mesh or proved opening"}
+  ],
+  "next_construction_gate": "Separate exact 3D placement contract and independently reviewed programme required; no old harmonic map or local normal/phase/ease rescue; no constructor admitted"
+}

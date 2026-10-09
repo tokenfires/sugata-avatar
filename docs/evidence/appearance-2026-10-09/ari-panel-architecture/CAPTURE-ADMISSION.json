@@ -1,0 +1,20 @@
+{
+  "admitted_utc": "2026-10-09T15:00:15.777155+00:00",
+  "operation": "One first whole-diagram browser screenshot, only if documented tool can capture complete diagram. No retake/style changes.",
+  "target_url": "http://127.0.0.1:5173/@fs//Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-architecture/panels.svg",
+  "delivery": {
+    "status": 200,
+    "content_type": "image/svg+xml",
+    "bytes": 18745,
+    "sha256": "35ebc2ffe606609243a532f04aca331ca046ca472a00138fbf3d253fb0f647b7",
+    "exact_local_svg": true
+  },
+  "preflight": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-architecture/SOURCE-PREFLIGHT.md",
+    "bytes": 5550,
+    "sha256": "511918e6fcf71bee6a0689e063fa892a37276b432eadac26e3943cbec66f2c28",
+    "root_whole_read_and_9_bindings_9_inputs_verified": true
+  },
+  "scope": "Direct SVG readability only, not HTML viewer layout/avatar/fit/3D. Opening tab to read browser tool docs permitted; unavailable whole-diagram method stops capture.",
+  "job": "Root serializes CUA browser only; no native/GPU helper/wrapper/constructor."
+}
