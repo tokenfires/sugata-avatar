@@ -1,0 +1,46 @@
+{
+  "checked_utc": "2026-10-09T15:57:57.047285+00:00",
+  "scope": "Reference/control schema/corner/parameter source checks only; no numeric curve samples, model arrays, mesh, jacobian, contact or physical evaluation",
+  "layer_checks": [
+    {
+      "layer": "O",
+      "all_30_edges_exact_symbolic_endpoint_aliases": true,
+      "all_10_seam_pairs_same_owner_reverse_direction_and_count": true,
+      "all_6_torso_patch_corner_identities": true,
+      "all_segmented_rails_continuous_by_named_endpoint": true,
+      "ring_and_cap_periodic_endpoint_ownership": true
+    },
+    {
+      "layer": "I",
+      "all_30_edges_exact_symbolic_endpoint_aliases": true,
+      "all_10_seam_pairs_same_owner_reverse_direction_and_count": true,
+      "all_6_torso_patch_corner_identities": true,
+      "all_segmented_rails_continuous_by_named_endpoint": true,
+      "ring_and_cap_periodic_endpoint_ownership": true
+    }
+  ],
+  "canonical_source_point_finiteness": "PASS literal JSON controls only",
+  "refinement": "All17mandatoryparameters identifiable; pairedcounts equal; fixed16/32/48 intervals",
+  "main_free_edge_count": 10,
+  "source_cycles_per_layer": 3,
+  "extension_interfaces_preserved": 9,
+  "source_frame_identity_matches_stored_Human": true,
+  "input_pins": 7,
+  "payloads": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-literal-surface/OPERATOR.md",
+      "bytes": 3839,
+      "sha256": "3aab94b7dc12b31255a5da0741d82de1e2c8c9642dcb603ffaf503719174eece"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-literal-surface/WORLD-RECIPE.json",
+      "bytes": 12656,
+      "sha256": "889aa31625933b8fad235f5204fb5edd7afb5259fe24e56ef886666808c93dfd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-literal-surface/PLACEMENT.md",
+      "bytes": 4699,
+      "sha256": "63ec431541e39940270d35e1e678a51d51b21b8879596e3ecf62cbc5ac11c725"
+    }
+  ]
+}
