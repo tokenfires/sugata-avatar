@@ -1,0 +1,15 @@
+{
+  "time": "2026-10-09T18:49:47.504119+00:00",
+  "status": "SOURCE_ONLY_HOLD",
+  "reason": "Nominated current Python runtime has no Matplotlib module according to sole metadata check",
+  "metadata_tool": "632dbb exit0",
+  "checks": 1,
+  "imports": 0,
+  "plot_jobs": 0,
+  "images": 0,
+  "source_pins": 4,
+  "retry_install_fallback": false,
+  "fit": "Prior REFUSED_TRANSVERSE unchanged",
+  "appearance": "Unobserved",
+  "next": "Do not repeat unavailable-runtime check or closed native font/schema fixture on unchanged state; nominate a genuinely different usable scope before investigation"
+}
