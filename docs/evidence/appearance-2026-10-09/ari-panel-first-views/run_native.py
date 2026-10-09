@@ -1,0 +1,65 @@
+import datetime, hashlib, json, os, pathlib, signal, subprocess, sys, time, shlex
+
+P=pathlib.Path(__file__).resolve().parent
+now=lambda:datetime.datetime.now(datetime.timezone.utc)
+digest=lambda b:hashlib.sha256(b).hexdigest()
+C=json.loads((P/'EXEC.json').read_text())
+admission=json.loads((P/'ADMISSION.json').read_text())
+if admission['execution_admitted'] is not True or admission['exec_sha256']!=digest((P/'EXEC.json').read_bytes()):
+    raise RuntimeError('missing/mismatched saved admission')
+if admission['pins']!=C['pins'] or admission['preflight_sha256']!=digest((P/'PREFLIGHT.md').read_bytes()):
+    raise RuntimeError('admission bindings disagree')
+age=(now()-datetime.datetime.fromisoformat(admission['clock'])).total_seconds()
+if not admission['scoped_jobs_absent'] or not 0<=age<=180:raise RuntimeError('stale admission or live job')
+if str(pathlib.Path(sys.executable).resolve())!=C['python']:raise RuntimeError('wrapper interpreter')
+for row in C['pins']:
+    b=pathlib.Path(row['path']).read_bytes()
+    if len(b)!=row['bytes'] or digest(b)!=row['sha256']:raise RuntimeError('pin '+row['path'])
+for name in C['first_outputs']:
+    if (P/name).exists():raise RuntimeError('first output already exists '+name)
+def save(name,obj):
+    with (P/name).open('x') as f:json.dump(obj,f,indent=2);f.write('\n')
+proc=None;start=None
+job={'wrapper_pid':os.getpid(),'started':None,'command':[C['blender'],'--background','--factory-startup','--disable-autoexec','--offline-mode','--python-exit-code','1','--python',str(P/'native.py')],'admission_sha256':digest((P/'ADMISSION.json').read_bytes()),'cap_seconds':300,'timed_out':False,'interrupted':False}
+try:
+    with (P/'native.log').open('xb') as log:
+        launched=now()
+        if launched>=datetime.datetime.fromisoformat(C['launch_before']) or launched>=datetime.datetime.fromisoformat(C['finish_by']):raise RuntimeError('fresh launch gate closed')
+        raw=subprocess.check_output(['ps','-axo','pid=,args=']);matches=[]
+        for line in raw.decode('utf8',errors='replace').splitlines():
+            parts=line.strip().split(None,1)
+            if len(parts)!=2 or int(parts[0]) in (os.getpid(),os.getppid()):continue
+            args=parts[1];comm=args.split(None,1)[0]
+            if not ('python' in pathlib.Path(comm).name.lower() or pathlib.Path(comm).name=='Blender'):continue
+            scripts=[x for x in shlex.split(args) if x.endswith('.py')]
+            if pathlib.Path(comm).name=='Blender' or any('/sugata-avatar/' in x and '/ari-' in x and pathlib.Path(x).name.startswith(('build','run_','query','native','chart')) for x in scripts):matches.append({'pid':int(parts[0]),'args':args})
+        job['fresh_launch_census']={'raw_sha256':digest(raw),'raw_bytes':len(raw),'matches':matches,'scope':'Same robust executable-first scoped producer predicate; not all host tasks'}
+        if matches:raise RuntimeError('fresh launch native/producer live')
+        launched=now()
+        if launched>=datetime.datetime.fromisoformat(C['launch_before']):raise RuntimeError('post-census launch gate')
+        start=time.monotonic();job['started']=launched.isoformat()
+        proc=subprocess.Popen(job['command'],stdout=log,stderr=subprocess.STDOUT,start_new_session=True,cwd=P)
+        job['child_pid']=proc.pid;job['process_group']=proc.pid
+        save('JOB-start.json',job)
+        remaining=min(300-(time.monotonic()-start),(datetime.datetime.fromisoformat(C['finish_by'])-now()).total_seconds())
+        try:job['returncode']=proc.wait(timeout=max(0,remaining))
+        except subprocess.TimeoutExpired:
+            job['timed_out']=True;os.killpg(proc.pid,signal.SIGKILL);proc.wait();job['returncode']=proc.returncode
+except BaseException as e:
+    job['interrupted']=True;job['error']={'type':type(e).__name__,'message':str(e)}
+    if proc and proc.poll() is None:os.killpg(proc.pid,signal.SIGKILL);proc.wait()
+    job['returncode']=proc.returncode if proc else None
+finally:
+    result_path=P/'NATIVE-RESULT.json'
+    job['native_passed']=False
+    try:
+        if result_path.is_file() and result_path.stat().st_size<=1048576:
+            result=json.loads(result_path.read_text());job['native_passed']=result.get('passed') is True and len(result.get('outputs',[]))==3 and result.get('same_process_cold_reopen') is True and result.get('post_pins') is True
+            job['native_result_sha256']=digest(result_path.read_bytes())
+    except Exception as e:job['native_result_error']={'type':type(e).__name__,'message':str(e)}
+    job['finished']=now().isoformat();job['elapsed_seconds']=time.monotonic()-start if start is not None else None
+    job['launch_before_gate']=job['started'] is not None and datetime.datetime.fromisoformat(job['started'])<datetime.datetime.fromisoformat(C['launch_before'])
+    job['within_wall_cap']=job['elapsed_seconds'] is not None and job['elapsed_seconds']<=300 and not job['timed_out']
+    job['finished_before_gate']=now()<datetime.datetime.fromisoformat(C['finish_by'])
+    save('JOB.json',job);print(json.dumps(job))
+sys.exit(0 if job.get('native_passed') is True and job.get('returncode')==0 and not job['interrupted'] and not job['timed_out'] and all(job[k] for k in ('launch_before_gate','within_wall_cap','finished_before_gate')) else 1)

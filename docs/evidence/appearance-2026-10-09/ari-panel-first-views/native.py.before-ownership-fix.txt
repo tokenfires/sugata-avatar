@@ -1,0 +1,142 @@
+"""One first Workbench studio diagnostic of immutable rejected main panels."""
+import sys
+sys.dont_write_bytecode=True
+from pathlib import Path
+import bpy,numpy as np,json,hashlib,datetime,time,os,struct
+from mathutils import Vector
+from bpy_extras.object_utils import world_to_camera_view
+P=Path(__file__).resolve().parent
+T=time.monotonic()
+R={'passed':False,'started':datetime.datetime.now(datetime.timezone.utc).isoformat(),'outputs':[],'fit':'REFUSED_TRANSVERSE','appearance':'FIRST MAIN-PANEL DIAGNOSTIC ONLY'}
+NOTE='REFUSED_TRANSVERSE: fixed outer back triangle5538 crosses unchanged Human triangle15981. One exact first witness; remainder untested. Not depth/occupancy/full fit. Main panels/plain rims only; collar/cuff/hem/facing/zip/guard/pocket interfaces unfinished. Body-only gray Human; eyes/hair/rig/morph/UV/textures/full Ari omitted. No motion/material/export/runtime qualification. Original/default/frozen assets preserved. Workbench studio image is not photometric calibration or prior Cycles fixture equivalence.\n'
+sha=lambda b:hashlib.sha256(b).hexdigest()
+raw=lambda a:sha(a.tobytes(order='C'))
+def check(ok,msg):
+ if not bool(ok):raise RuntimeError(msg)
+def clock(stage):check(time.monotonic()-T<280,'Worker280s '+stage)
+def write(name,obj):
+ with (P/name).open('x') as f:json.dump(obj,f,indent=2,allow_nan=False);f.write('\n')
+def pins():
+ for x in C['pins']:
+  b=Path(x['path']).read_bytes();check(len(b)==x['bytes'] and sha(b)==x['sha256'],'Pin '+x['path'])
+def orient(o,target):o.rotation_euler=(Vector(target)-o.location).to_track_quat('-Z','Y').to_euler()
+def rna(o):
+ out={};props=list(o.bl_rna.properties)
+ check(len(props)<=256,'RNA descriptor count bound')
+ for prop in props:
+  key=prop.identifier;kind=prop.type
+  if key=='rna_type' or kind not in ('BOOLEAN','INT','FLOAT','STRING','ENUM'):continue
+  # Filter pointer/collection before getters; STRING/ENUM have no numeric array duty.
+  if kind in ('STRING','ENUM'):
+   v=getattr(o,key)
+   if isinstance(v,set):v=sorted(v)
+   check(isinstance(v,(str,list)) and len(v)<=4096,'Bounded textual RNA '+key)
+  else:
+   if not hasattr(prop,'is_array') or not hasattr(prop,'array_length'):
+    R['unsupported_descriptor']={'owner_type':o.bl_rna.identifier,'property':key,'descriptor_type':prop.bl_rna.identifier,'kind':kind,'is_array_supported':hasattr(prop,'is_array'),'array_length_supported':hasattr(prop,'array_length')}
+    raise RuntimeError('Unsupported numeric RNA descriptor '+key)
+   check(prop.array_length<=16,'Numeric RNA array bound '+key)
+   v=getattr(o,key)
+   if prop.is_array:v=list(v)
+   check(np.isfinite(np.asarray(v,dtype=float)).all(),'Finite numeric RNA '+key)
+  out[key]=v
+ return out
+
+def geometry():
+ rows={}
+ for name,(v,t,slots,smooth) in expected.items():
+  o=bpy.data.objects[name];m=o.data;a=np.empty((len(m.vertices),3),np.float32);m.vertices.foreach_get('co',a.ravel());b=np.array([tuple(f.vertices) for f in m.polygons],np.int32);s=np.array([f.material_index for f in m.polygons],np.int32);f=np.array([x.use_smooth for x in m.polygons],bool)
+  check(np.array_equal(a,v) and np.array_equal(b,t) and np.array_equal(s,slots) and np.array_equal(f,smooth),'Exact native buffers '+name)
+  check(np.array_equal(np.array(o.matrix_world),np.eye(4)) and o.parent is None and not o.modifiers and m.shape_keys is None and not m.uv_layers,'Identity unrigged mesh '+name)
+  rows[name]={'vertices':len(a),'triangles':len(b),'world_sha':raw(a),'triangle_sha':raw(b),'slots_sha':raw(s),'smooth_sha':raw(f),'materials':[x.name for x in m.materials]}
+ return rows
+
+def display():
+ s=bpy.context.scene
+ # Record complete nominated scalar/enum native state before any display guard.
+ d={'shading':rna(s.display.shading),'display':rna(s.display),'render':{k:getattr(s.render,k) for k in ['engine','resolution_x','resolution_y','resolution_percentage','pixel_aspect_x','pixel_aspect_y','film_transparent','use_compositing','use_sequencer','threads_mode','threads']},'image':rna(s.render.image_settings),'view':rna(s.view_settings),'display_device':s.display_settings.display_device,'world':s.world.name if s.world else None,'materials':{},'objects':sorted(bpy.data.objects.keys()),'lights':len(bpy.data.lights),'labels':{},'scene_note':bpy.data.texts['DIAGNOSTIC-README'].as_string(),'fit_status':s['fit_status'],'camera_data':rna(s.camera.data)}
+ for m in bpy.data.materials:
+  d['materials'][m.name]={'rgba':list(m.diffuse_color),'use_nodes':bool(m.use_nodes),'tree':None if m.node_tree is None else {'nodes':[(n.name,n.bl_idname) for n in m.node_tree.nodes],'links':[(l.from_node.name,l.from_socket.name,l.to_node.name,l.to_socket.name) for l in m.node_tree.links]}}
+ for name,text in LABELS:
+  o=bpy.data.objects[name];f=o.data;d['labels'][name]={'text':f.body,'size':f.size,'align_x':f.align_x,'align_y':f.align_y,'extrude':f.extrude,'bevel':f.bevel_depth,'font':f.font.name,'parent':o.parent.name if o.parent else None,'basis':[list(x) for x in o.matrix_basis],'materials':[m.name for m in f.materials]}
+ R['latest_display_observed']=d
+ for key,value in SETTINGS.items():check(d['shading'][key]==value,'Requested Workbench shading '+key)
+ check(d['shading']['background_color']==list(map(float,np.array([.82,.82,.82],np.float32))) and d['shading']['studiolight_background_alpha']==1,'Owned background')
+ check(d['display']['render_aa']=='32' and d['render']==RENDER,'Requested render settings')
+ check(d['world'] is None and d['lights']==0 and d['objects']==sorted(['SourceBody','RejectedMainPanels','DiagnosticCamera']+[x[0] for x in LABELS]),'Exact owned scene/no object lights/world')
+ check(set(d['materials'])==set(COLORS),'Owned material set')
+ for name,color in COLORS.items():
+  m=d['materials'][name];check(m['rgba']==list(map(float,np.array(color,np.float32))) and m['use_nodes'] and m['tree']=={'nodes':[],'links':[]},'Owned diffuse color/empty material tree '+name)
+ check(s.view_settings.view_transform=='Standard' and s.view_settings.look=='None' and s.view_settings.exposure==0 and s.view_settings.gamma==1 and not s.view_settings.use_curve_mapping and s.display_settings.display_device=='sRGB','Owned Standard display')
+ check(d['image']['file_format']=='PNG' and d['image']['color_mode']=='RGBA' and d['image']['color_depth']=='8','PNG contract')
+ check(s.camera.data.type=='ORTHO' and s.camera.data.sensor_fit=='VERTICAL' and s.camera.data.ortho_scale==scale and s.camera.data.clip_start==float(np.float32(.01)) and s.camera.data.clip_end==100,'Owned camera')
+ for name,text in LABELS:
+  o=bpy.data.objects[name];f=o.data;check(o.type=='FONT' and f.body==text and f.font.name=='Bfont' and o.parent==s.camera and not o.modifiers and f.extrude==f.bevel_depth==0 and f.align_x=='CENTER' and f.align_y=='BOTTOM','Owned built-in glyphs')
+ check(s['fit_status']=='REFUSED_TRANSVERSE' and bpy.data.objects['RejectedMainPanels']['fit_status']=='REFUSED_TRANSVERSE' and bpy.data.objects['RejectedMainPanels']['cloth_triangle']==5538 and bpy.data.objects['RejectedMainPanels']['body_triangle']==15981 and d['scene_note']==NOTE,'Persistent refusal')
+ return d
+
+def projection(points):return np.array([tuple(world_to_camera_view(bpy.context.scene,bpy.context.scene.camera,Vector(p))) for p in points])
+def frame():
+ proj=projection(allpoints);check(np.isfinite(proj).all() and (proj[:,2]>0).all() and (proj[:,:2]>=.05999).all() and (proj[:,0]<=.94001).all() and (proj[:,1]<=.80001).all(),'Complete source vertex frame')
+ labels=[];dg=bpy.context.evaluated_depsgraph_get()
+ for name,text in LABELS:
+  o=bpy.data.objects[name].evaluated_get(dg);m=o.to_mesh()
+  try:
+   check(m is not None and len(m.vertices)>0,'Nonempty font glyphs');a=projection([tuple(o.matrix_world@v.co) for v in m.vertices]);check(np.isfinite(a).all() and (a[:,2]>0).all() and (a[:,:2]>=.01).all() and (a[:,:2]<=.99).all() and a[:,1].min()>proj[:,1].max()+.005,'Complete separated refusal glyph frame');labels.append({'name':name,'min':a.min(axis=0).tolist(),'max':a.max(axis=0).tolist(),'vertices':len(a)})
+  finally:o.to_mesh_clear()
+ return {'source_min':proj.min(axis=0).tolist(),'source_max':proj.max(axis=0).tolist(),'labels':labels,'camera_matrix':[list(x) for x in bpy.context.scene.camera.matrix_world]}
+
+LABELS=[('RefusalLabel','REFUSED: BODY CROSSING / UNFINISHED'),('ScopeLabel','MAIN PANELS ONLY / NOT FINISHED ARI')]
+COLORS={'BodyGray':(.46,.46,.46,1),'OuterRust':(.38,.11,.045,1),'LiningPale':(.68,.55,.40,1),'PlainRim':(.12,.035,.015,1),'LabelDark':(.07,.025,.015,1)}
+SETTINGS={'light':'STUDIO','studio_light':'paint.sl','color_type':'MATERIAL','background_type':'VIEWPORT','show_shadows':False,'show_cavity':False,'show_specular_highlight':True,'show_object_outline':False,'show_xray':False,'show_backface_culling':False,'studiolight_rotate_z':0.0}
+RENDER={'engine':'BLENDER_WORKBENCH','resolution_x':512,'resolution_y':768,'resolution_percentage':100,'pixel_aspect_x':1.0,'pixel_aspect_y':1.0,'film_transparent':False,'use_compositing':False,'use_sequencer':False,'threads_mode':'FIXED','threads':16}
+VIEWS=[('front',(0,-1,.04)),('oblique',(-.8,-1,.04)),('rear',(0,1,.04))]
+try:
+ C=json.loads((P/'EXEC.json').read_text());pins();check(bpy.app.version[:3]==(5,2,2),'Pinned Blender 5.2.2');R['version']=bpy.app.version_string
+ check(not any((P/x).exists() for x in ['NATIVE-RESULT.json','editable.blend','front.png','oblique.png','rear.png','private-render','private-save']),'Exclusive first outputs')
+ q=json.loads(Path(C['crossing']).read_text());check(q['decision']=='REFUSED_TRANSVERSE' if 'decision' in q else q.get('status')=='REFUSED_TRANSVERSE','Exact physical refusal input')
+ # Member receipts bind bytes independently of producer paths/implicit selection.
+ spec=C['members'];arrays={}
+ for archive,names in [(C['body'],['Human_world','Human_triangles']),(C['mesh'],['world32','triangles','face_role'])]:
+  with np.load(archive,allow_pickle=False) as z:
+   for name in names:
+    a=z[name];x=spec[name];check(a.dtype.name==x['dtype'] and list(a.shape)==x['shape'] and raw(a)==x['raw_sha256'],'Member '+name);arrays[name]=a
+ bv,bt,mv,mt,roles=[arrays[x] for x in ['Human_world','Human_triangles','world32','triangles','face_role']]
+ expected={'SourceBody':(bv,bt,np.zeros(len(bt),np.int32),np.ones(len(bt),bool)),'RejectedMainPanels':(mv,mt,roles.astype(np.int32),roles!=2)}
+ R['source_arrays']={name:{'dtype':a.dtype.name,'shape':list(a.shape),'raw_sha256':raw(a)} for name,a in arrays.items()};clock('source')
+ bpy.ops.wm.read_factory_settings(use_empty=True);s=bpy.context.scene;s.world=None
+ check(not bpy.data.objects and not bpy.data.meshes,'Empty factory objects')
+ # Factory data cleanup owned only: no source blend is opened.
+ for m in list(bpy.data.materials):bpy.data.materials.remove(m)
+ for w in list(bpy.data.worlds):bpy.data.worlds.remove(w)
+ for name,color in COLORS.items():
+  m=bpy.data.materials.new(name);m.use_nodes=True;check(m.node_tree is not None,'Material tree supported');m.node_tree.nodes.clear();m.diffuse_color=color
+ for name,(v,t,slots,smooth) in expected.items():
+  me=bpy.data.meshes.new(name+'Mesh');me.from_pydata(v.tolist(),[],t.tolist());me.update();o=bpy.data.objects.new(name,me);s.collection.objects.link(o)
+  for mat in (['BodyGray'] if name=='SourceBody' else ['OuterRust','LiningPale','PlainRim']):me.materials.append(bpy.data.materials[mat])
+  me.polygons.foreach_set('material_index',slots);me.polygons.foreach_set('use_smooth',smooth)
+ o=bpy.data.objects['RejectedMainPanels'];o['fit_status']='REFUSED_TRANSVERSE';o['cloth_triangle']=5538;o['body_triangle']=15981;s['fit_status']='REFUSED_TRANSVERSE';bpy.data.texts.new('DIAGNOSTIC-README').write(NOTE)
+ for k,v in RENDER.items():setattr(s.render,k,v)
+ s.render.image_settings.file_format='PNG';s.render.image_settings.color_mode='RGBA';s.render.image_settings.color_depth='8';s.display.render_aa='32'
+ R['shading_before_configuration']=rna(s.display.shading)
+ for k,v in SETTINGS.items():setattr(s.display.shading,k,v)
+ s.display.shading.background_color=(.82,.82,.82);s.display.shading.studiolight_background_alpha=1
+ s.view_settings.view_transform='Standard';s.view_settings.look='None';s.view_settings.exposure=0;s.view_settings.gamma=1;s.view_settings.use_curve_mapping=False;s.display_settings.display_device='sRGB'
+ studio=bpy.context.preferences.studio_lights.get('paint.sl');check(studio is not None,'Pinned studio present');R['studio']={'name':studio.name,'type':studio.type,'path':studio.path,'native_scalar_state':rna(studio),'bytes':Path(studio.path).stat().st_size,'sha256':sha(Path(studio.path).read_bytes())};check(Path(studio.path).resolve()==Path(C['studio']).resolve(),'Pinned actual studio path')
+ cd=bpy.data.cameras.new('DiagnosticCamera');cd.type='ORTHO';cd.sensor_fit='VERTICAL';cd.clip_start=.01;cd.clip_end=100;cam=bpy.data.objects.new('DiagnosticCamera',cd);s.collection.objects.link(cam);s.camera=cam
+ allpoints=np.concatenate([bv,mv]).astype(np.float64);target=(bv.min(axis=0).astype(float)+bv.max(axis=0).astype(float))/2+np.array([0,0,.15]);spans=[]
+ for name,dr in VIEWS:
+  cam.location=Vector(target)+Vector(dr).normalized()*5;orient(cam,target);bpy.context.view_layer.update();local=np.c_[allpoints,np.ones(len(allpoints))]@np.array(cam.matrix_world.inverted()).T;spans.append(max(local[:,1].max()/.30,-local[:,1].min()/.44,np.abs(local[:,0]).max()/(.44*512/768)))
+ cd.ortho_scale=float(max(spans)*1.002);scale=float(cd.ortho_scale)
+ for i,(name,text) in enumerate(LABELS):
+  f=bpy.data.curves.new(name+'Font','FONT');f.body=text;f.size=scale*.022;f.align_x='CENTER';f.align_y='BOTTOM';o=bpy.data.objects.new(name,f);s.collection.objects.link(o);o.parent=cam;o.location=(0,scale*(.42-.06*i),-1);f.materials.append(bpy.data.materials['LabelDark'])
+ bpy.context.view_layer.update();R['geometry_baseline']=geometry();R['display_baseline']=display();R['framing']={'points':len(allpoints),'target':target.tolist(),'scale':scale,'directions':VIEWS,'body_ndc_max_y':.8,'minimum_padding':.06};write('PRE-PIXEL.json',{'geometry':R['geometry_baseline'],'display':R['display_baseline'],'studio':R['studio'],'framing':R['framing']})
+ for name,dr in VIEWS:
+  clock('before '+name);cam.location=Vector(target)+Vector(dr).normalized()*5;orient(cam,target);bpy.context.view_layer.update();check(geometry()==R['geometry_baseline'] and display()==R['display_baseline'],'Immutable pre-image state');bounds=frame();private=P/'private-render';private.mkdir();temp=private/(name+'.png');s.render.filepath=str(temp);check(bpy.ops.render.render(write_still=True)=={'FINISHED'} and temp.is_file(),'First render');clock('after '+name)
+  b=temp.read_bytes();check(0<len(b)<=10485760 and b[:8]==b'\x89PNG\r\n\x1a\n' and struct.unpack('>II',b[16:24])==(512,768),'PNG bytes/domain');os.link(temp,P/temp.name);temp.unlink();private.rmdir();R['outputs'].append({'file':name+'.png','bytes':len(b),'sha256':sha(b),'frame':bounds});check(geometry()==R['geometry_baseline'] and display()==R['display_baseline'] and frame()==bounds,'Immutable post-image state')
+ clock('save');s.render.filepath=str(P/'future-editable-render');savedpath=s.render.filepath;private=P/'private-save';private.mkdir();temp=private/'candidate.blend';check(bpy.ops.wm.save_as_mainfile(filepath=str(temp),copy=True,relative_remap=False,compress=True,check_existing=False)=={'FINISHED'},'Owned save');b=temp.read_bytes();check(0<len(b)<=67108864,'Blend bound');os.link(temp,P/'editable.blend');temp.unlink();private.rmdir();R['editable']={'bytes':len(b),'sha256':sha(b)}
+ check(bpy.ops.wm.open_mainfile(filepath=str(P/'editable.blend'))=={'FINISHED'},'Same-process cold reopen');s=bpy.context.scene;bpy.context.view_layer.update();check(geometry()==R['geometry_baseline'] and display()==R['display_baseline'] and frame()==R['outputs'][-1]['frame'],'Listed native cold roundtrip');check(s.render.filepath==savedpath and sha((P/'editable.blend').read_bytes())==R['editable']['sha256'],'Native bytes/path preserved');R['same_process_cold_reopen']=True;clock('complete');pins();R['post_pins']=True;R['passed']=True
+except Exception as e:R['error']={'type':type(e).__name__,'message':str(e)};print('NATIVE ERROR',str(e))
+finally:
+ R['finished']=datetime.datetime.now(datetime.timezone.utc).isoformat();R['elapsed']=time.monotonic()-T;write('NATIVE-RESULT.json',R);print(json.dumps({'passed':R['passed'],'outputs':len(R['outputs']),'error':R.get('error')}));
+ if not R['passed']:raise SystemExit(1)

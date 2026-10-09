@@ -1,0 +1,10 @@
+{
+  "time_utc": "2026-10-09T18:14:36.123504+00:00",
+  "before_launch": true,
+  "native_run": false,
+  "critic_source_witness": "rna() called numeric is_array on STRING/ENUM; prior palette StringProperty AttributeError cited by critic",
+  "change": "Filter unsupported pointer/collection before getter; separate STRING/ENUM; require numeric descriptor capability/count/array/finite bounds; record unsupported descriptor before refusal",
+  "alternative": "Explicit nominated-field whitelist, smaller complete-state coverage",
+  "original_native_sha256": "d70a6600636c34beab777d57881df45d6a34f4d6f3e06356557cd83ab3cdbe83",
+  "original_exec_sha256": "4dcd72b2b2534a0e900ce51a1b2c744a832db49771dcfc74219a8698b771fa97"
+}

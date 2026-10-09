@@ -1,0 +1,20 @@
+{
+  "time": "2026-10-09T18:37:14.090886+00:00",
+  "status": "CLOSED_FAILED_BEFORE_PIXELS",
+  "whole_result_read": true,
+  "input_pins": 36,
+  "source_members": 5,
+  "source_native_raw_receipts_match": true,
+  "actual_witness": "Both latest observed fonts Bfont Regular; source guard requires Bfont",
+  "native_result_sha256": "ada2e531399a9bbc728217d0dbf803cb3382bc5a17b7ccc4a44acc874ab2b34a",
+  "admission_sha256": "91e1540e82d36bfe51283519c1eac3ae405b39458c9b1ea3df037dae95d82b7e",
+  "job_sha256": "478cc6a9bfcc1e072ec83c0938bbbe12a1208e136b25ccf29ff0dbf87e7e67cc",
+  "helper_actual_exit": 0,
+  "helper_tool": "3fbf7b",
+  "wrapper_actual_exit": 1,
+  "wrapper_tool": "b491dd session94737 / completion74ec2b",
+  "images": 0,
+  "editable_saved": false,
+  "owned_jobs_absent": true,
+  "limits": "Renderer/backend/framing/glyph projection/cold persistence never reached; camera session_uid277 is observed but no changed-cold-ID claim; native buffer readbacks programme/result attributed with independent source receipt checks. No retake/codepatch/alias query."
+}

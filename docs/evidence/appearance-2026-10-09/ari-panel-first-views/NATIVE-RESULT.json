@@ -1,0 +1,556 @@
+{
+  "passed": false,
+  "started": "2026-10-09T18:34:20.730363+00:00",
+  "outputs": [],
+  "fit": "REFUSED_TRANSVERSE",
+  "appearance": "FIRST MAIN-PANEL DIAGNOSTIC ONLY",
+  "version": "5.2.2 LTS",
+  "source_arrays": {
+    "Human_world": {
+      "dtype": "float32",
+      "shape": [
+        13380,
+        3
+      ],
+      "raw_sha256": "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c"
+    },
+    "Human_triangles": {
+      "dtype": "int32",
+      "shape": [
+        26756,
+        3
+      ],
+      "raw_sha256": "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4"
+    },
+    "world32": {
+      "dtype": "float32",
+      "shape": [
+        11550,
+        3
+      ],
+      "raw_sha256": "9cd743b50b3f2171eb6d822f15d59647ad24eaac78dfbf8eb870c3c5ba0e8b6d"
+    },
+    "triangles": {
+      "dtype": "int32",
+      "shape": [
+        23104,
+        3
+      ],
+      "raw_sha256": "da4fa75d32acfd1535a8bebccf823b0615036da27b67037bd1d009c6d18a182c"
+    },
+    "face_role": {
+      "dtype": "uint8",
+      "shape": [
+        23104
+      ],
+      "raw_sha256": "14cf3805daaaed6d2be8c75f94b6cc1255eb1696026a2e6bcca4bb9d5040b565"
+    }
+  },
+  "latest_numeric_descriptor": {
+    "owner_type": "Camera",
+    "property": "central_cylindrical_radius",
+    "kind": "FLOAT",
+    "is_array_repr": "False",
+    "array_length_repr": "0"
+  },
+  "shading_before_configuration": {
+    "type": "SOLID",
+    "light": "STUDIO",
+    "show_object_outline": false,
+    "studio_light": "Default",
+    "use_world_space_lighting": false,
+    "show_backface_culling": false,
+    "show_cavity": false,
+    "cavity_type": "WORLD",
+    "curvature_ridge_factor": 0.0,
+    "curvature_valley_factor": 0.0,
+    "cavity_ridge_factor": 1.0,
+    "cavity_valley_factor": 1.0,
+    "studiolight_rotate_z": 0.0,
+    "studiolight_intensity": 0.0,
+    "studiolight_background_alpha": 0.0,
+    "studiolight_background_blur": 0.0,
+    "use_studiolight_view_rotation": true,
+    "color_type": "MATERIAL",
+    "wireframe_color_type": "",
+    "single_color": [
+      0.800000011920929,
+      0.800000011920929,
+      0.800000011920929
+    ],
+    "background_type": "THEME",
+    "background_color": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "show_shadows": false,
+    "show_xray": false,
+    "show_xray_wireframe": false,
+    "xray_alpha": 0.5,
+    "xray_alpha_wireframe": 0.0,
+    "use_dof": false,
+    "use_scene_lights": false,
+    "use_scene_world": false,
+    "use_scene_lights_render": false,
+    "use_scene_world_render": false,
+    "show_specular_highlight": true,
+    "object_outline_color": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "shadow_intensity": 0.5,
+    "render_pass": "COMBINED",
+    "aov_name": "",
+    "use_compositor": "DISABLED"
+  },
+  "latest_studio_observed": {
+    "name": "paint.sl",
+    "type": "STUDIO",
+    "path": "/Applications/Blender.app/Contents/Resources/5.2/datafiles/studiolights/studio/paint.sl",
+    "native_scalar_state": {
+      "index": 4,
+      "is_user_defined": false,
+      "has_specular_highlight_pass": true,
+      "type": "STUDIO",
+      "name": "paint.sl",
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/datafiles/studiolights/studio/paint.sl",
+      "light_ambient": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "bytes": 1130,
+    "sha256": "078f9e74ded349e2c18a656bb9ccd2dac828f5d2ed2ee5c223947d64b211571a"
+  },
+  "studio": {
+    "name": "paint.sl",
+    "type": "STUDIO",
+    "path": "/Applications/Blender.app/Contents/Resources/5.2/datafiles/studiolights/studio/paint.sl",
+    "native_scalar_state": {
+      "index": 4,
+      "is_user_defined": false,
+      "has_specular_highlight_pass": true,
+      "type": "STUDIO",
+      "name": "paint.sl",
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/datafiles/studiolights/studio/paint.sl",
+      "light_ambient": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "bytes": 1130,
+    "sha256": "078f9e74ded349e2c18a656bb9ccd2dac828f5d2ed2ee5c223947d64b211571a"
+  },
+  "geometry_baseline": {
+    "SourceBody": {
+      "vertices": 13380,
+      "triangles": 26756,
+      "world_sha": "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c",
+      "triangle_sha": "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4",
+      "slots_sha": "8c0537de3aaae9866b5bff568345e6c8580a2ddf50f8012feb7f1e014df5d285",
+      "smooth_sha": "9d6dc4d7177fb8025266a7af54d6abd124cbad8cd83aa230b7c128c96ac3266f",
+      "materials": [
+        "BodyGray"
+      ]
+    },
+    "RejectedMainPanels": {
+      "vertices": 11550,
+      "triangles": 23104,
+      "world_sha": "9cd743b50b3f2171eb6d822f15d59647ad24eaac78dfbf8eb870c3c5ba0e8b6d",
+      "triangle_sha": "da4fa75d32acfd1535a8bebccf823b0615036da27b67037bd1d009c6d18a182c",
+      "slots_sha": "cb4fec70e0fb0f3336006ee3e49f5dff062a7cf6577ab55b3adeb294d8f9876b",
+      "smooth_sha": "9fdb60a5dc8c06f031eb95b0f8e2ff01aa6beb57a5c20431c4b06e6614f7f588",
+      "materials": [
+        "OuterRust",
+        "LiningPale",
+        "PlainRim"
+      ]
+    }
+  },
+  "latest_display_observed": {
+    "studio": {
+      "name": "paint.sl",
+      "type": "STUDIO",
+      "path": "/Applications/Blender.app/Contents/Resources/5.2/datafiles/studiolights/studio/paint.sl",
+      "native_scalar_state": {
+        "index": 4,
+        "is_user_defined": false,
+        "has_specular_highlight_pass": true,
+        "type": "STUDIO",
+        "name": "paint.sl",
+        "path": "/Applications/Blender.app/Contents/Resources/5.2/datafiles/studiolights/studio/paint.sl",
+        "light_ambient": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "bytes": 1130,
+      "sha256": "078f9e74ded349e2c18a656bb9ccd2dac828f5d2ed2ee5c223947d64b211571a"
+    },
+    "shading": {
+      "type": "SOLID",
+      "light": "STUDIO",
+      "show_object_outline": false,
+      "studio_light": "paint.sl",
+      "use_world_space_lighting": false,
+      "show_backface_culling": false,
+      "show_cavity": false,
+      "cavity_type": "WORLD",
+      "curvature_ridge_factor": 0.0,
+      "curvature_valley_factor": 0.0,
+      "cavity_ridge_factor": 1.0,
+      "cavity_valley_factor": 1.0,
+      "studiolight_rotate_z": 0.0,
+      "studiolight_intensity": 0.0,
+      "studiolight_background_alpha": 1.0,
+      "studiolight_background_blur": 0.0,
+      "use_studiolight_view_rotation": true,
+      "color_type": "MATERIAL",
+      "wireframe_color_type": "",
+      "single_color": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929
+      ],
+      "background_type": "VIEWPORT",
+      "background_color": [
+        0.8199999928474426,
+        0.8199999928474426,
+        0.8199999928474426
+      ],
+      "show_shadows": false,
+      "show_xray": false,
+      "show_xray_wireframe": false,
+      "xray_alpha": 0.5,
+      "xray_alpha_wireframe": 0.0,
+      "use_dof": false,
+      "use_scene_lights": false,
+      "use_scene_world": false,
+      "use_scene_lights_render": false,
+      "use_scene_world_render": false,
+      "show_specular_highlight": true,
+      "object_outline_color": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "shadow_intensity": 0.5,
+      "render_pass": "COMBINED",
+      "aov_name": "",
+      "use_compositor": "DISABLED"
+    },
+    "display": {
+      "light_direction": [
+        0.5773502588272095,
+        0.5773502588272095,
+        0.5773502588272095
+      ],
+      "shadow_shift": 0.10000000149011612,
+      "shadow_focus": 0.0,
+      "matcap_ssao_distance": 0.20000000298023224,
+      "matcap_ssao_attenuation": 1.0,
+      "matcap_ssao_samples": 16,
+      "render_aa": "32",
+      "viewport_aa": "FXAA"
+    },
+    "render": {
+      "engine": "BLENDER_WORKBENCH",
+      "resolution_x": 512,
+      "resolution_y": 768,
+      "resolution_percentage": 100,
+      "pixel_aspect_x": 1.0,
+      "pixel_aspect_y": 1.0,
+      "film_transparent": false,
+      "use_compositing": false,
+      "use_sequencer": false,
+      "threads_mode": "FIXED",
+      "threads": 16
+    },
+    "image": {
+      "media_type": "IMAGE",
+      "file_format": "PNG",
+      "color_mode": "RGBA",
+      "color_depth": "8",
+      "quality": 90,
+      "compression": 15,
+      "use_preview": false,
+      "exr_codec": "ZIP",
+      "use_exr_interleave": false,
+      "use_jpeg2k_ycc": false,
+      "use_jpeg2k_cinema_preset": false,
+      "use_jpeg2k_cinema_48": false,
+      "jpeg2k_codec": "JP2",
+      "tiff_codec": "DEFLATE",
+      "use_cineon_log": false,
+      "cineon_black": 0,
+      "cineon_white": 0,
+      "cineon_gamma": 0.0,
+      "views_format": "INDIVIDUAL",
+      "color_management": "FOLLOW_SCENE",
+      "has_linear_colorspace": false
+    },
+    "view": {
+      "look": "None",
+      "view_transform": "Standard",
+      "exposure": 0.0,
+      "gamma": 1.0,
+      "use_curve_mapping": false,
+      "use_white_balance": false,
+      "white_balance_temperature": 6500.0,
+      "white_balance_tint": 10.0,
+      "white_balance_whitepoint": [
+        0.9993047714233398,
+        1.0003489255905151,
+        0.9985780119895935
+      ],
+      "is_hdr": false,
+      "support_emulation": true
+    },
+    "display_device": "sRGB",
+    "world": null,
+    "materials": {
+      "BodyGray": {
+        "rgba": [
+          0.46000000834465027,
+          0.46000000834465027,
+          0.46000000834465027,
+          1.0
+        ],
+        "use_nodes": true,
+        "tree": {
+          "nodes": [],
+          "links": []
+        }
+      },
+      "LabelDark": {
+        "rgba": [
+          0.07000000029802322,
+          0.02500000037252903,
+          0.014999999664723873,
+          1.0
+        ],
+        "use_nodes": true,
+        "tree": {
+          "nodes": [],
+          "links": []
+        }
+      },
+      "LiningPale": {
+        "rgba": [
+          0.6800000071525574,
+          0.550000011920929,
+          0.4000000059604645,
+          1.0
+        ],
+        "use_nodes": true,
+        "tree": {
+          "nodes": [],
+          "links": []
+        }
+      },
+      "OuterRust": {
+        "rgba": [
+          0.3799999952316284,
+          0.10999999940395355,
+          0.04500000178813934,
+          1.0
+        ],
+        "use_nodes": true,
+        "tree": {
+          "nodes": [],
+          "links": []
+        }
+      },
+      "PlainRim": {
+        "rgba": [
+          0.11999999731779099,
+          0.03500000014901161,
+          0.014999999664723873,
+          1.0
+        ],
+        "use_nodes": true,
+        "tree": {
+          "nodes": [],
+          "links": []
+        }
+      }
+    },
+    "objects": [
+      "DiagnosticCamera",
+      "RefusalLabel",
+      "RejectedMainPanels",
+      "ScopeLabel",
+      "SourceBody"
+    ],
+    "lights": 0,
+    "labels": {
+      "RefusalLabel": {
+        "text": "REFUSED: BODY CROSSING / UNFINISHED",
+        "size": 0.050094787031412125,
+        "align_x": "CENTER",
+        "align_y": "BOTTOM",
+        "extrude": 0.0,
+        "bevel": 0.0,
+        "font": "Bfont Regular",
+        "parent": "DiagnosticCamera",
+        "basis": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.9563549757003784
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "materials": [
+          "LabelDark"
+        ]
+      },
+      "ScopeLabel": {
+        "text": "MAIN PANELS ONLY / NOT FINISHED ARI",
+        "size": 0.050094787031412125,
+        "align_x": "CENTER",
+        "align_y": "BOTTOM",
+        "extrude": 0.0,
+        "bevel": 0.0,
+        "font": "Bfont Regular",
+        "parent": "DiagnosticCamera",
+        "basis": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.8197328448295593
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "materials": [
+          "LabelDark"
+        ]
+      }
+    },
+    "scene_note": "REFUSED_TRANSVERSE: fixed outer back triangle5538 crosses unchanged Human triangle15981. One exact first witness; remainder untested. Not depth/occupancy/full fit. Main panels/plain rims only; collar/cuff/hem/facing/zip/guard/pocket interfaces unfinished. Body-only gray Human; eyes/hair/rig/morph/UV/textures/full Ari omitted. No motion/material/export/runtime qualification. Original/default/frozen assets preserved. Workbench studio image is not photometric calibration or prior Cycles fixture equivalence.\n",
+    "fit_status": "REFUSED_TRANSVERSE",
+    "camera_data": {
+      "name": "DiagnosticCamera",
+      "name_full": "DiagnosticCamera",
+      "id_type": "CAMERA",
+      "session_uid": 277,
+      "is_evaluated": false,
+      "users": 1,
+      "use_fake_user": false,
+      "use_extra_user": false,
+      "is_embedded_data": false,
+      "is_linked_packed": false,
+      "is_missing": false,
+      "is_runtime_data": false,
+      "is_editable": true,
+      "tag": false,
+      "is_library_indirect": false,
+      "type": "ORTHO",
+      "sensor_fit": "VERTICAL",
+      "passepartout_alpha": 0.5,
+      "angle_x": 0.691111147403717,
+      "angle_y": 0.4710899591445923,
+      "angle": 0.4710899591445923,
+      "clip_start": 0.009999999776482582,
+      "clip_end": 100.0,
+      "lens": 50.0,
+      "sensor_width": 36.0,
+      "sensor_height": 24.0,
+      "ortho_scale": 2.277035713195801,
+      "display_size": 1.0,
+      "shift_x": 0.0,
+      "shift_y": 0.0,
+      "show_limits": false,
+      "show_mist": false,
+      "show_passepartout": true,
+      "show_safe_areas": false,
+      "show_safe_center": false,
+      "show_name": false,
+      "show_sensor": false,
+      "show_background_images": false,
+      "lens_unit": "MILLIMETERS",
+      "composition_guide_color": [
+        0.5,
+        0.5,
+        0.5,
+        1.0
+      ],
+      "show_composition_center": false,
+      "show_composition_center_diagonal": false,
+      "show_composition_thirds": false,
+      "show_composition_golden": false,
+      "show_composition_golden_tria_a": false,
+      "show_composition_golden_tria_b": false,
+      "show_composition_harmony_tri_a": false,
+      "show_composition_harmony_tri_b": false,
+      "panorama_type": "FISHEYE_EQUISOLID",
+      "fisheye_fov": 3.1415927410125732,
+      "fisheye_lens": 10.5,
+      "latitude_min": -1.5707963705062866,
+      "latitude_max": 1.5707963705062866,
+      "longitude_min": -3.1415927410125732,
+      "longitude_max": 3.1415927410125732,
+      "fisheye_polynomial_k0": -1.1735143743862864e-05,
+      "fisheye_polynomial_k1": -0.019988736137747765,
+      "fisheye_polynomial_k2": -3.3525323033245513e-06,
+      "fisheye_polynomial_k3": 3.0992753181635635e-06,
+      "fisheye_polynomial_k4": -2.60646473293491e-08,
+      "central_cylindrical_range_u_min": -3.1415927410125732,
+      "central_cylindrical_range_u_max": 3.1415927410125732,
+      "central_cylindrical_range_v_min": -1.0,
+      "central_cylindrical_range_v_max": 1.0,
+      "central_cylindrical_radius": 1.0,
+      "custom_filepath": "",
+      "custom_mode": "INTERNAL",
+      "custom_bytecode": "",
+      "custom_bytecode_hash": ""
+    }
+  },
+  "error": {
+    "type": "RuntimeError",
+    "message": "Owned built-in glyphs"
+  },
+  "finished": "2026-10-09T18:34:21.860320+00:00",
+  "elapsed": 1.12996520800516
+}

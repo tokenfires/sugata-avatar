@@ -1,0 +1,35 @@
+{
+  "wrapper_pid": 36912,
+  "started": "2026-10-09T18:34:19.834657+00:00",
+  "command": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--offline-mode",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-first-views/native.py"
+  ],
+  "admission_sha256": "91e1540e82d36bfe51283519c1eac3ae405b39458c9b1ea3df037dae95d82b7e",
+  "cap_seconds": 300,
+  "timed_out": false,
+  "interrupted": false,
+  "fresh_launch_census": {
+    "raw_sha256": "f4f4980f1b060002b227182b203531055c8deb99a926a6e591b6e90ba6e56bdf",
+    "raw_bytes": 170086,
+    "matches": [],
+    "scope": "Same robust executable-first scoped producer predicate; not all host tasks"
+  },
+  "child_pid": 36914,
+  "process_group": 36914,
+  "returncode": 1,
+  "native_passed": false,
+  "native_result_sha256": "ada2e531399a9bbc728217d0dbf803cb3382bc5a17b7ccc4a44acc874ab2b34a",
+  "finished": "2026-10-09T18:34:21.925217+00:00",
+  "elapsed_seconds": 2.0905502500245348,
+  "launch_before_gate": true,
+  "within_wall_cap": true,
+  "finished_before_gate": true
+}

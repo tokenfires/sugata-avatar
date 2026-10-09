@@ -1,0 +1,9 @@
+/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-first-views/native.py:129: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name);m.use_nodes=True;check(m.node_tree is not None,'Material tree supported');m.node_tree.nodes.clear();m.diffuse_color=color
+00:01.546  bpy.rna          | WARNING current value '0' matches no enum in 'View3DShading', '(null)', 'wireframe_color_type'
+00:01.595  bpy.rna          | WARNING current value '0' matches no enum in 'View3DShading', '(null)', 'wireframe_color_type'
+/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-first-views/native.py:74: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  d['materials'][m.name]={'rgba':list(m.diffuse_color),'use_nodes':bool(m.use_nodes),'tree':None if m.node_tree is None else {'nodes':[(n.name,n.bl_idname) for n in m.node_tree.nodes],'links':[(l.from_node.name,l.from_socket.name,l.to_node.name,l.to_socket.name) for l in m.node_tree.links]}}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:49:19)
+NATIVE ERROR Owned built-in glyphs
+{"passed": false, "outputs": 0, "error": {"type": "RuntimeError", "message": "Owned built-in glyphs"}}

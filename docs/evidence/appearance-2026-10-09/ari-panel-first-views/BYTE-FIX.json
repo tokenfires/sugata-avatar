@@ -1,0 +1,8 @@
+{
+  "time": "2026-10-09T18:24:36.278804+00:00",
+  "before_launch": true,
+  "native_run": false,
+  "witness": "Source-byte identity was requested but np.array_equal equates +0 and -0; first raw digest was captured without equality guard",
+  "change": "Initial and every repeated native geometry readback require raw SHA equality for F32 vertices/I32 triangles/material indices/bool smoothing against exact nominated arrays",
+  "alternative": "Explicit value-only identity contract; weaker than current byte-for-byte plan, not selected"
+}

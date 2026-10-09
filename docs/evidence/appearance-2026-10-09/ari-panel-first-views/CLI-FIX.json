@@ -1,0 +1,9 @@
+{
+  "time": "2026-10-09T18:17:43.577799+00:00",
+  "before_launch": true,
+  "native_run": false,
+  "witness": "Prior ari-global-first-views/run_native.py line23 owns --offline-mode --python-exit-code 1; new wrapper had omitted them",
+  "change": "Add offline-mode/python-exit-code1 before python; require bounded NATIVE-RESULT passed/three outputs/cold/postpins in parent success; malformed/oversize/absent native result cannot erase parent JOB receipt and refuses success",
+  "alternative": "Record child exit only without propagating native result; less reliable failure classification, rejected",
+  "original_wrapper_sha256": "648e421a09edaf631d9814c0baff09f8c8b78529977a3fd6738432685ffb8bf0"
+}

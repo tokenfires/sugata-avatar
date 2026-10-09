@@ -1,0 +1,8 @@
+{
+  "time": "2026-10-09T18:25:15.297800+00:00",
+  "before_launch": true,
+  "native_run": false,
+  "source_witness": "is_array true with array_length0 would bypass fixed length duty, and returned length was unchecked; no actual dynamic native array alleged",
+  "change": "Require native bool/int descriptor metadata, fixed 1..16 array length or scalar0 before getter; require matching returned length before conversion/numeric scalar type; record bounded actual descriptor metadata before its guard for unsupported-state witness",
+  "alternative": "Nominated fixed numeric whitelist, less complete scalar/enum state coverage"
+}

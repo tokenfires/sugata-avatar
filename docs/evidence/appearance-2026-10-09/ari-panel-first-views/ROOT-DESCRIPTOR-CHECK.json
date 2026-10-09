@@ -1,0 +1,13 @@
+{
+  "time": "2026-10-09T18:26:53.178507+00:00",
+  "native_source_sha256": "56ea795563fcfc77d6681df80a540569042a32f602e629f7a02dffce6358807e",
+  "source": "Current AST-extracted rna only; no bpy/native probe",
+  "string_enum_without_numeric_descriptor": true,
+  "pointer_getter_not_called": true,
+  "numeric_array_recorded": true,
+  "missing_numeric_capability_witness_then_refused": true,
+  "dynamic_zero_length_refused_before_getter": true,
+  "returned_length_mismatch_refused": true,
+  "signed_zero_value_identity_differs_from_byte_identity": true,
+  "limits": "Synthetic branch/hash distinction only; actual Blender support/backend untested"
+}
