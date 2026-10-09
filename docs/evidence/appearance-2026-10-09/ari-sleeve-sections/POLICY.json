@@ -1,0 +1,93 @@
+{
+  "representation": "New distal-only section registration and meridian samples; no shoulderplane/oldtemplate retry",
+  "stations": [
+    {
+      "name": "elbow-l",
+      "side": "l",
+      "role": "elbow",
+      "origin": [
+        0.35510677099227905,
+        -0.02005697600543499,
+        1.1395602226257324
+      ],
+      "normal": [
+        0.5112645687989267,
+        -0.6842041407617481,
+        -0.5200704129782098
+      ],
+      "max_radial_extent": 0.12,
+      "numeric_reference": "Source-map recordedrest coordinates usedasartiststation; notanatomical/evaluatedrest equivalence"
+    },
+    {
+      "name": "cuff-l",
+      "side": "l",
+      "role": "cuff",
+      "origin": [
+        0.4770350456237793,
+        -0.1832285225391388,
+        1.0155318975448608
+      ],
+      "normal": [
+        0.5112645687989267,
+        -0.6842041407617481,
+        -0.5200704129782098
+      ],
+      "max_radial_extent": 0.08,
+      "numeric_reference": "Source-map recordedrest coordinates usedasartiststation; notanatomical/evaluatedrest equivalence"
+    },
+    {
+      "name": "elbow-r",
+      "side": "r",
+      "role": "elbow",
+      "origin": [
+        -0.35510677099227905,
+        -0.02005697600543499,
+        1.1395602226257324
+      ],
+      "normal": [
+        -0.5112645687989267,
+        -0.6842041407617481,
+        -0.5200704129782098
+      ],
+      "max_radial_extent": 0.12,
+      "numeric_reference": "Source-map recordedrest coordinates usedasartiststation; notanatomical/evaluatedrest equivalence"
+    },
+    {
+      "name": "cuff-r",
+      "side": "r",
+      "role": "cuff",
+      "origin": [
+        -0.4770350456237793,
+        -0.1832285225391388,
+        1.0155318975448608
+      ],
+      "normal": [
+        -0.5112645687989267,
+        -0.6842041407617481,
+        -0.5200704129782098
+      ],
+      "max_radial_extent": 0.08,
+      "numeric_reference": "Source-map recordedrest coordinates usedasartiststation; notanatomical/evaluatedrest equivalence"
+    }
+  ],
+  "plane_vertex_epsilon": 1e-10,
+  "predicate_epsilon": 1e-12,
+  "canonical_contour": "Exactlyonecloseddegree2simple sourceedge-crossing component containsplaneorigin, positiveprojectedarea/origin_boundarydistance>1e-9; selectedradialextent<=fixedbound. Validateallcrossingcomponents; sourceID/fraction/triangle associations retained",
+  "meridian_frame": "u=worldfront(0,-1,0) projectedto plane thennormalized; v=normalcrossu with sign chosenworldznegative. Recordhandedness explicitly; no pose/anatomy claim",
+  "samples": {
+    "count": 16,
+    "angles": "2*pi*k/16; k0front,k4down,k8rear,k12up inauthoredplane",
+    "rule": "Eachpositiveray intersectsselectedclosedcontour atonephysicalpoint; mergeendpoint duplicates within1e-10 retainingalltriangle associations. Refuseparallelcollinearpositivesegment ormultiple distincthits, no ray/plane/origin/radius/tolerance search",
+    "source_association": "RecordcanonicalsourceTriangle/threebarycentricweights andallcandidate incidences/edgefraction/segmentfraction/point; exactlinear referencepoint, notgarmentvertex ormanufacturingdimension"
+  },
+  "guards": "Exactknown2source arrays/positivefulltriangles/finiteindexed; firstsource/component/non-simple/radial/ray/association failure stopsbeforelaterstation/native",
+  "bounds": {
+    "query_seconds": 120,
+    "result_bytes": 2097152,
+    "max_selfintersection_pairs": 1000000,
+    "native_seconds": 240,
+    "native_views": 3
+  },
+  "authoring_map": "Ifeligiblecombineexisting4torso-neck/2proximalattachmentrefs with4newdistalrefs; sourcepoint/phase maponly. Garmentindependenttopology/ease/fullinterior/opening/coverage/contact/rig-morph-pose remainrequired; no garmentgeometry inquery",
+  "artist_gate": "Separate firstsourcechart canjudge stationassociation/readability only; no fullfit/sleeve/cuffcoverage qualification orretake."
+}

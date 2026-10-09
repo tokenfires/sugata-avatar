@@ -1,0 +1,39 @@
+{
+  "source": {
+    "world_sha256": "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c",
+    "triangles_sha256": "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4",
+    "vertices": 13380,
+    "triangles": 26756,
+    "minimum_twice_triangle_area": 1.7412600607914935e-07
+  },
+  "declared_reference_count": 10,
+  "torso_neck_reference_file": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-sections/SECTION-MANIFEST.json",
+  "torso_neck_names": [
+    "hem",
+    "torso-middle",
+    "torso-upper",
+    "neckline"
+  ],
+  "proximal_attachment_reference_file": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/ATTACHMENT-MANIFEST.json",
+  "proximal_sides": [
+    "l",
+    "r"
+  ],
+  "distal_reference_file": "DISTAL-MANIFEST.json",
+  "distal_names": [
+    "elbow-l",
+    "cuff-l",
+    "elbow-r",
+    "cuff-r"
+  ],
+  "distal_phase": "front/down/rear/up16fixedsamples, recordedhandedness; notanatomy/completeconstructor",
+  "remaining_before_geometry": [
+    "Originalindependent garmentsections/ease/tessellation andphasejoins",
+    "Neckline/hem/cuff/armhole/frontopening/facing/guard/pocket/fullinterior topology",
+    "Independentexposure/coverage andcomplete sourcebody contact/clearance/solid assumptions",
+    "Rig/morph/pose/motion andexport/runtime coupling"
+  ],
+  "complete_garment_constructor": false,
+  "garment_geometry": false,
+  "artist_distal_role": "PENDING separatefirstchart"
+}

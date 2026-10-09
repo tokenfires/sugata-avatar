@@ -1,0 +1,54 @@
+{
+  "utc": "2026-10-09T07:57:30.940047+00:00",
+  "verified": true,
+  "source_query_passed": true,
+  "method": "Independent sourcecross/triangle/cycle/atan2originwinding/linearsolveallnonadjacentsegments andallrayhit classes/sourcebarys",
+  "nonadjacent_segment_pairs": 33122,
+  "candidate_hits_verified": 64,
+  "stations": [
+    {
+      "name": "elbow-l",
+      "components": 2,
+      "selected_nodes": 48,
+      "selected_extent": 0.06170915912394564,
+      "signed_area": 0.005008883771257281,
+      "handedness": 1.0,
+      "fixedmeridian_samples": 16,
+      "max_candidate_hits": 1
+    },
+    {
+      "name": "cuff-l",
+      "components": 3,
+      "selected_nodes": 43,
+      "selected_extent": 0.024900413689336588,
+      "signed_area": 0.0013570626687498108,
+      "handedness": 1.0,
+      "fixedmeridian_samples": 16,
+      "max_candidate_hits": 1
+    },
+    {
+      "name": "elbow-r",
+      "components": 2,
+      "selected_nodes": 48,
+      "selected_extent": 0.06170915912394564,
+      "signed_area": -0.005008883771257281,
+      "handedness": -1.0,
+      "fixedmeridian_samples": 16,
+      "max_candidate_hits": 1
+    },
+    {
+      "name": "cuff-r",
+      "components": 3,
+      "selected_nodes": 43,
+      "selected_extent": 0.024900413689336588,
+      "signed_area": -0.0013570626687498108,
+      "handedness": -1.0,
+      "fixedmeridian_samples": 16,
+      "max_candidate_hits": 1
+    }
+  ],
+  "global_allangle_starshapedness": "UNKNOWN; only16fixedrays",
+  "artist_role": "PENDING separatefirstchart",
+  "garment_geometry": false,
+  "fit_clearance_motion": "UNKNOWN"
+}

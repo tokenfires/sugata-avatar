@@ -1,0 +1,21 @@
+# Worth: distal sleeve source sections
+
+**Conditional YES to the four fixed distal references and meridian associations.** They fill a specific remaining sleeve-section input, rather than reopen the refused shoulder plane or retune the accepted proximal paths. Separate source preflight is required. Numeric success cannot automatically admit charts or garment construction.
+
+Read complete current PLAN/POLICY and12-row INPUTS before code/archive directory or decoding. Prior whole path-chart originals retained proximal attachment course while leaving angular mesh-edge turns, smooth seams/full armholes/fit unqualified. The original bomber shows full sleeves/gathered cuffs but supplies no registered body dimensions or manufactured boundaries. The prior ten-station query stopped at shoulder-l: these distal roles were not reached. The new lowerarm-axis elbow/hand-head nominations and explicit16-ray ownership therefore test a new finite responsibility, not a successful continuation of that old gate.
+
+**A, preferred:** exact source-linked elbow/cuff contours, canonical crossing edges/triangles and a fixed front/down/rear/up phase with16meridian samples. Unique origin-containing simple contours, fixed extent0.12/0.08 and one physical positive hit per ray can resolve actual component/phase correspondence. It costs full source/component/ray/barycentric ownership and later independent sleeve shape/topology/ease/interior/contact/coupling. It does not measure an anatomical elbow, cuff circumference, sewing ratio or garment clearance. Recorded rest centers/axes are artist references in the source frame, not evaluated-rest equivalence.
+
+**B:** freely author original sleeve/template sections with separate direct registration against the body. It allows more silhouette freedom and deliberately shaped cloth sections, but costs the same source/front-back/coverage/contact/rig responsibility. It cannot silently use body circles as garment radii or rely on old foundation offsets. A refused source component/ray nomination should stop with its actual witness, not change planes, samples, radii or tolerances.
+
+The meridian duty is substantive: worldfront projected into the oblique plane and v chosen toward worldZnegative require explicit orthonormal basis/handedness. Labels front/down/rear/up are authored plane directions, not calibrated anatomy or body motion. Duplicate endpoint hits may represent one physical point but must retain all incidences; positive collinear segments or distinct multiple positive hits are a decisive star-registration refusal. Canonical source triangle/barycentric/edge/segment associations must not be replaced by an unregistered circle or averaged garment point. Full query code preflight must own these literal predicates before the one attempt.
+
+Only a separately reviewed first source chart can establish station readability/association. Touching0.002display contours and gray body reconstruction remain diagnostics, not sleeves or current Ari appearance; first wrong-role/readability failure closes without retake. Combining4distal+4torso/neck+2proximal references may complete this **declared source-reference set**, not a complete constructor, ease/interior/exposure/contact/rig-morph-pose manifest. If retained, progress to those actual original garment choices rather than another general inventory/resampling loop.
+
+| Complete reviewed file | Bytes | SHA256 |
+| --- | ---: | --- |
+| PLAN.md | 5727 | `021286c808364acfcbd029ac99df5c61a18d691461c0a3c21b651409cebecd80` |
+| POLICY.json | 3834 | `51f9458a46464f035c6c462002d58d95e3f0e3c19451e183a4dfd9b22e5e6c13` |
+| INPUTS.json | 2834 | `4b09c59620294f695f6d5e7f5017f21fabfb19761b12707a882de97bad497428` |
+
+Manifest identities were read, not physically rehashed in this worth turn; root verifies all inputs before preparation/dispatch. No source query/decode/native/GPU/browser/network/capture or code/garment geometry by this critic. One120s query after separate preflight; any conditional native phase needs fresh result-worth/source admission within08:20. First declared refusal stops; no current operation/construction acceptance. Preserve original/default/frozen/source and widerAAA duties. Stable handoff; filesystem save time is authoritative.
