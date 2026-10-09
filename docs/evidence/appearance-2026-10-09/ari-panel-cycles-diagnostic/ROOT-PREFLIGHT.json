@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-09T19:27:26.944760+00:00",
+  "admitted": true,
+  "operation": "ONE NATIVE DIAGNOSTIC ONLY",
+  "whole_critic_preflight_read": true,
+  "seven_handoff_bindings_exact": true,
+  "all17pins_exact": true,
+  "root_source_geometry_tool": "cd0fdb",
+  "root_source_ast_checks": [
+    "13a95d",
+    "656dba",
+    "662b61"
+  ],
+  "owned_native_absent": true,
+  "outputs_absent": true,
+  "exec_sha256": "0b6008926cae1cb06028ca0d29644f96f6633ea7bbc48cee104a4abd637b23e1",
+  "critic_sha256": "a659d14e997d0bc07739f1004a3e31aba37e2124266dd1226b6df3b0c82186e3",
+  "limits": "Finite source ownership and coarse silhouette images only; body crossing still refused; no save/fit/motion acceptance"
+}

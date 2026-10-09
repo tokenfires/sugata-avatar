@@ -1,0 +1,74 @@
+{
+  "utc": "2026-10-09T19:29:53.561050+00:00",
+  "passed": true,
+  "job": {
+    "started": "2026-10-09T19:27:35.905246+00:00",
+    "wrapper_pid": 40717,
+    "argv": [
+      "/Applications/Blender.app/Contents/MacOS/Blender",
+      "--background",
+      "--offline-mode",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-panel-cycles-diagnostic/native.py"
+    ],
+    "timeout_seconds": 180,
+    "timed_out": false,
+    "interrupted": false,
+    "native_pid": 40719,
+    "pgid": 40719,
+    "exit_code": 0,
+    "finished": "2026-10-09T19:27:47.209123+00:00",
+    "elapsed": 11.303890957962722,
+    "result_exists": true,
+    "passed": true,
+    "timing": {
+      "launch_before_gate": true,
+      "elapsed_within180": true,
+      "finish_before_gate": true,
+      "no_timeout_or_interrupt": true
+    }
+  },
+  "images": [
+    {
+      "file": "front.png",
+      "bytes": 491353,
+      "sha256": "3fb4c8e6187d003d982fe4cfcb1609579bee2ba1f2f7dc9cd5885e05be2eb031",
+      "png_crc_chunks": 79
+    },
+    {
+      "file": "oblique.png",
+      "bytes": 487782,
+      "sha256": "ab0c370c20e0932b7d6de9d0e73352da73c7ea4228a1a712ff38f3bc7123a3e6",
+      "png_crc_chunks": 79
+    },
+    {
+      "file": "rear.png",
+      "bytes": 481952,
+      "sha256": "b3250968992a676df0fb96685c66f3b4be8c6fcfeb2ab2bc31d87b03a7ffd1e1",
+      "png_crc_chunks": 78
+    }
+  ],
+  "all18_baseline_arrays_exact": true,
+  "declared_restored_snapshot_exact": true,
+  "owned_graph_role_values_exact": true,
+  "all17pins_exact": true,
+  "frames": [
+    {
+      "view": "front",
+      "independent_projection_delta": 3.707351459159014e-08
+    },
+    {
+      "view": "oblique",
+      "independent_projection_delta": 1.4621677069115435e-07
+    },
+    {
+      "view": "rear",
+      "independent_projection_delta": 2.290522971293285e-08
+    }
+  ],
+  "all3_original_images_viewed": true,
+  "body_crossing_refused": true,
+  "limits": "Stored baseline archive, explicit snapshots/graph/frame/job/pins independently checked. Worker transient post-evaluation equality is not a separately archived raw post dataset. Image judgment refuses current appearance and fit; no fullglobal-render restoration/cold/save/motion acceptance."
+}

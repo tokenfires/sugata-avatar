@@ -1,0 +1,316 @@
+{
+  "display": {
+    "render": {
+      "engine": "CYCLES",
+      "resolution_x": 768,
+      "resolution_y": 1024,
+      "resolution_percentage": 100,
+      "pixel_aspect_x": 1.0,
+      "pixel_aspect_y": 1.0,
+      "threads_mode": "FIXED",
+      "threads": 16,
+      "film_transparent": true,
+      "use_compositing": false,
+      "use_sequencer": false
+    },
+    "image": {
+      "file_format": "PNG",
+      "color_mode": "RGBA",
+      "color_depth": "8",
+      "compression": 15
+    },
+    "cycles": {
+      "device": "CPU",
+      "samples": 16,
+      "seed": 0,
+      "use_denoising": true,
+      "denoiser": "OPENIMAGEDENOISE",
+      "denoising_use_gpu": false
+    },
+    "look": {
+      "view_transform": "AgX",
+      "look": "None",
+      "exposure": 0.0,
+      "gamma": 1.0,
+      "use_curve_mapping": false
+    },
+    "display_device": "sRGB",
+    "camera": {
+      "data": {
+        "type": "ORTHO",
+        "sensor_fit": "VERTICAL",
+        "clip_start": 0.009999999776482582,
+        "clip_end": 100.0,
+        "ortho_scale": 1.8585649728775024
+      },
+      "matrix": [
+        [
+          0.7071067690849304,
+          -2.4158891775982738e-08,
+          0.7071067690849304,
+          3.535533905029297
+        ],
+        [
+          0.7071067690849304,
+          -8.597613287975037e-08,
+          -0.7071067690849304,
+          -3.6157102584838867
+        ],
+        [
+          7.787722466900959e-08,
+          1.0,
+          -4.371138828673793e-08,
+          0.8297156691551208
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "lights": {
+      "SugataKey": {
+        "matrix": [
+          [
+            0.7915167212486267,
+            0.331564337015152,
+            -0.513387143611908,
+            -3.0
+          ],
+          [
+            -0.6111474633216858,
+            0.4294196665287018,
+            -0.6649041175842285,
+            -4.0
+          ],
+          [
+            2.033406509838187e-08,
+            0.840038001537323,
+            0.5425275564193726,
+            4.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "data": {
+          "type": "AREA",
+          "energy": 700.0,
+          "exposure": 0.0,
+          "color": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "shape": "DISK",
+          "size": 4.0,
+          "use_nodes": true
+        },
+        "nodes": [
+          {
+            "id": "ShaderNodeEmission",
+            "inputs": {
+              "Color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "Strength": 1.0,
+              "Weight": 0.0
+            }
+          },
+          {
+            "id": "ShaderNodeOutputLight",
+            "inputs": {}
+          }
+        ],
+        "links": [
+          [
+            "Emission",
+            "Emission",
+            "Light Output",
+            "Surface"
+          ]
+        ]
+      },
+      "SugataFill": {
+        "matrix": [
+          [
+            0.5321072340011597,
+            -0.44223469495773315,
+            0.7220044136047363,
+            3.0
+          ],
+          [
+            0.8466769456863403,
+            0.2779292166233063,
+            -0.45375484228134155,
+            -2.0
+          ],
+          [
+            1.0056505850286612e-08,
+            0.8527507185935974,
+            0.5223180651664734,
+            3.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "data": {
+          "type": "AREA",
+          "energy": 450.0,
+          "exposure": 0.0,
+          "color": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "shape": "DISK",
+          "size": 4.0,
+          "use_nodes": true
+        },
+        "nodes": [
+          {
+            "id": "ShaderNodeEmission",
+            "inputs": {
+              "Color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "Strength": 1.0,
+              "Weight": 0.0
+            }
+          },
+          {
+            "id": "ShaderNodeOutputLight",
+            "inputs": {}
+          }
+        ],
+        "links": [
+          [
+            "Emission",
+            "Emission",
+            "Light Output",
+            "Surface"
+          ]
+        ]
+      },
+      "SugataRear": {
+        "matrix": [
+          [
+            -1.0,
+            1.8690636238716252e-07,
+            -4.660714481019568e-08,
+            0.0
+          ],
+          [
+            -1.5099580252808664e-07,
+            -0.6103400588035583,
+            0.7921395301818848,
+            4.0
+          ],
+          [
+            1.196097088040915e-07,
+            0.7921395301818848,
+            0.6103400588035583,
+            4.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "data": {
+          "type": "AREA",
+          "energy": 600.0,
+          "exposure": 0.0,
+          "color": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "shape": "DISK",
+          "size": 4.0,
+          "use_nodes": true
+        },
+        "nodes": [
+          {
+            "id": "ShaderNodeEmission",
+            "inputs": {
+              "Color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "Strength": 1.0,
+              "Weight": 0.0
+            }
+          },
+          {
+            "id": "ShaderNodeOutputLight",
+            "inputs": {}
+          }
+        ],
+        "links": [
+          [
+            "Emission",
+            "Emission",
+            "Light Output",
+            "Surface"
+          ]
+        ]
+      }
+    },
+    "world": {
+      "use_nodes": true,
+      "nodes": [
+        {
+          "id": "ShaderNodeBackground",
+          "inputs": {
+            "Color": [
+              0.20000000298023224,
+              0.20000000298023224,
+              0.20000000298023224,
+              1.0
+            ],
+            "Strength": 0.4000000059604645,
+            "Weight": 0.0
+          }
+        },
+        {
+          "id": "ShaderNodeOutputWorld",
+          "inputs": {}
+        }
+      ],
+      "links": [
+        [
+          "Background",
+          "Background",
+          "World Output",
+          "Surface"
+        ]
+      ]
+    }
+  },
+  "bounds": {
+    "minx": 0.11080797016620636,
+    "maxx": 0.8005028963088989,
+    "miny": 0.05357171967625618,
+    "maxy": 0.9464279413223267
+  }
+}
