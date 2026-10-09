@@ -1,0 +1,15 @@
+# Ari smile support — completed readonly probe
+
+[Literal support brief](SUPPORT-BRIEF.md) adds actual raw evidence to the [face reference board](../ari-face-expression-brief/review.html). Raw source inquiry is CLOSED; no expression or morphology has been applied. First unowned auxiliary/anatomical/physical responsibility holds application. Independent final review pending.
+
+Sole command: `python3 docs/evidence/appearance-2026-10-08/ari-smile-support/run_native.py`. Wrapper71533/native71534 ran2026-10-09 01:46:56.058897-01:47:00.398569UTC,exit0/no timeout90s; root session90978 fully collected. Independent PREFLIGHT6664B SHA0a00b16b… and root whole11bindings/20physicalpins/output/process checks admitted01:46:55.939542. No retry or new native job.
+
+Actual raw9Float32 arrays/175788finite coordinate scalars match prior source-key SHA. SUPPORT84115B SHAe861c9f7…; RESULT187557B SHA957980c6…; local ignored readonly NPZ554857B SHA28b64a3d…. ROOT-RESULT01:48:13 independently recomputes every changed index/count/local bound/maxnorm/RMS for6present rows and9array signatures, matches full BEFORE/AFTER to prior COLD,20pins,log marker/job timing,all20context labels and6absent-name rows. Actual presence values/use_relative/reference are native observer-attributed; root did not rerun native or resolve constraints/drivers globally.
+
+Body left/right1698/1699 changed vertices,max local delta0.018682057659/0.018060433526. Brows9/9,max0.000374046114; lashes58/58,max0.000244977455. All6owners relative/referenceBasis; present rows empty recorded masks/no fixed-source reverse dependents. All20literal object/data/key IDs animation_dataNone. No global dependency, anatomical domain, emotional meaning, physical clearance, calibration or safe-control inference. Eyes/teeth/tongue absent-name duties remainUNKNOWN; no zero arrays invented.
+
+Only seven frozen readonly AST observers are selected. Source-owned full252key fingerprints, topology/UV/influences/53rest/pose/mixed/material/packed-source metadata identities before/after match. No C.evaluated or evaluated-geometry proof, source setters, controller/pose/modifier/socket changes, save/render/camera/new geometry or new images. Encoded23metadata is not decoded-pixel equality. Archived README.preflight preserves the exact pending receipt bound by source preflight.
+
+Next nomination A: new artist first-expression image study only after explicit all6-owner/frozen-absent-helper/source/mixed/evaluated/framing/cleanup responsibilities and independent worth/preflight. B: separate wardrobe/form composition with full helper/refit/rig/expression responsibilities. No new programme/coefficient/job admitted; do not repeat name inventory, raw support query or general dependency census.
+
+Full AAA character/face/skin/curls/expression/wardrobe/representation/motion/export/runtime remain open. Default/accepted/frozen/native/rawGiB/references/unrelated worktrees retained; Vite825/ACTIVE10min recovery retained. Existing allowance only, no purchase/reset/model/subscription/install/preferences/push/publish/otherproject. Human steering wins.

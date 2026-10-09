@@ -1,0 +1,106 @@
+{
+  "utc": "2026-10-09T01:48:13.641874+00:00",
+  "root_independent_raw_array_recompute": true,
+  "input_pins": 20,
+  "raw_arrays": 9,
+  "finite_coordinate_scalars": 175788,
+  "present_rows_recomputed": [
+    {
+      "owner": "Human",
+      "key": "mouthSmileLeft",
+      "changed_count": 1698,
+      "maximum_local_delta": 0.018682057659391214,
+      "vertex_group": "",
+      "relative": "Basis",
+      "reverse_relative_count": 0
+    },
+    {
+      "owner": "Human",
+      "key": "mouthSmileRight",
+      "changed_count": 1699,
+      "maximum_local_delta": 0.018060433525505418,
+      "vertex_group": "",
+      "relative": "Basis",
+      "reverse_relative_count": 0
+    },
+    {
+      "owner": "Human.eyebrow001",
+      "key": "mouthSmileLeft",
+      "changed_count": 9,
+      "maximum_local_delta": 0.0003740461143882599,
+      "vertex_group": "",
+      "relative": "Basis",
+      "reverse_relative_count": 0
+    },
+    {
+      "owner": "Human.eyebrow001",
+      "key": "mouthSmileRight",
+      "changed_count": 9,
+      "maximum_local_delta": 0.0003740461143882599,
+      "vertex_group": "",
+      "relative": "Basis",
+      "reverse_relative_count": 0
+    },
+    {
+      "owner": "Human.eyelashes01",
+      "key": "mouthSmileLeft",
+      "changed_count": 58,
+      "maximum_local_delta": 0.00024497745480434404,
+      "vertex_group": "",
+      "relative": "Basis",
+      "reverse_relative_count": 0
+    },
+    {
+      "owner": "Human.eyelashes01",
+      "key": "mouthSmileRight",
+      "changed_count": 58,
+      "maximum_local_delta": 0.00024497745480434404,
+      "vertex_group": "",
+      "relative": "Basis",
+      "reverse_relative_count": 0
+    }
+  ],
+  "absent_name_rows": 6,
+  "full_literal_before_after_source_equality": true,
+  "animation_context_labels_checked": 20,
+  "animation_presence_values": "Actual native observer-attributed false on20 literal IDs; no root native rerun or global dependency absence proof",
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-smile-support/RESULT.json",
+    "bytes": 187557,
+    "sha256": "957980c6e9c28dfd405a719e8f5eccf018ad08fccdcc4ad2b87d4d006b554707"
+  },
+  "support": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-smile-support/SUPPORT.json",
+    "bytes": 84115,
+    "sha256": "e861c9f7f43d4858e2d622950d6844dd52c5417c0357d643a894d12f05af157b"
+  },
+  "archive": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-smile-support/work/coordinates.npz",
+    "bytes": 554857,
+    "sha256": "28b64a3db78296c5b5105e06bb00427fd1e8c80b96e84ff9d94329b17d8ac077"
+  },
+  "job": {
+    "started_utc": "2026-10-09T01:46:56.058897+00:00",
+    "wrapper_pid": 71533,
+    "argv": [
+      "/Applications/Blender.app/Contents/MacOS/Blender",
+      "--background",
+      "--offline-mode",
+      "--python-exit-code",
+      "1",
+      "--python",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-smile-support/observe.py"
+    ],
+    "timeout_seconds": 90,
+    "timed_out": false,
+    "pid": 71534,
+    "exit_code": 0,
+    "finished_utc": "2026-10-09T01:47:00.398569+00:00"
+  },
+  "limits": [
+    "Local point support only, no anatomical/semantic/clearance/motion proof",
+    "No evaluated geometry or driver/auxiliary resolution",
+    "Application remains HELD; absent auxiliary duties UNKNOWN",
+    "No source save or new images"
+  ]
+}

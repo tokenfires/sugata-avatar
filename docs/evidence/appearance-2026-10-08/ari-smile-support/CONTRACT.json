@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-09T01:33:29.442937+00:00",
+  "keys": [
+    "mouthSmileLeft",
+    "mouthSmileRight"
+  ],
+  "owners": [
+    "Human",
+    "Human.eyebrow001",
+    "Human.eyelashes01",
+    "Human.high-poly",
+    "Human.teeth_base",
+    "Human.tongue01"
+  ],
+  "present_owners": [
+    "Human",
+    "Human.eyebrow001",
+    "Human.eyelashes01"
+  ],
+  "observer_functions": [
+    "safe_value",
+    "descriptor_refusal",
+    "scalar_rna",
+    "material",
+    "image_records",
+    "native_route",
+    "state"
+  ],
+  "delta": "Float64 subtraction of exact observed Float32 native local key-relative coordinates",
+  "support": "indices for which any of three literal delta components !=0; no threshold or anatomical classification",
+  "absence": "Record absent key names and UNKNOWN auxiliary duty; do not create zero buffers",
+  "dependency": "Actual key metadata/reference/use_relative and fixed-source reverse relatives; all7object/data/key ID animation presence/action name/driver and NLA counts only; presence or mask/unowned duties holds application",
+  "max_arrays": 12,
+  "max_scalars": 900000,
+  "max_npz_bytes": 4194304,
+  "max_json_bytes": 8388608,
+  "max_contexts": 21,
+  "max_drivers": 128,
+  "max_nla": 32,
+  "preservation": "Literal complete prior source-owned COLD before and after reads; no evaluated modifier helper",
+  "timeout_seconds": 90,
+  "launch_before": "2026-10-09T01:55:00+00:00",
+  "close": "2026-10-09T02:15:00+00:00",
+  "application_admitted": false
+}
