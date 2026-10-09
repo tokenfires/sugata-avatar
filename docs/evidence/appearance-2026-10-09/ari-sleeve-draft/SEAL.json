@@ -1,0 +1,314 @@
+{
+  "utc": "2026-10-09T10:10:09.975841+00:00",
+  "payloads": [
+    {
+      "file": "BUILD-JOB-start.json",
+      "bytes": 390,
+      "sha256": "4d1aebdb6eeec332e65ff850e7bbee3f66a23534cc19d0deac0ba85002837be1",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "BUILD-JOB.json",
+      "bytes": 613,
+      "sha256": "b0f0f0533de7d6adefcd573e9b60fe94e63404fd2105598c281e71cd73e55fea",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "BUILD-PREFLIGHT.md",
+      "bytes": 6462,
+      "sha256": "196c833295fbab4df7c60c1caa01dc7a09be77f6c8069f8c311e2bb3985338b3",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "CONTRACT.json",
+      "bytes": 1415,
+      "sha256": "e867a176171bac6818ebfc349e7a76230de8d0c89c56977a00a0921961979448",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "EXEC-BUILD.json",
+      "bytes": 5496,
+      "sha256": "b09463ca90bbafcf4f5ecf531dcb2a391acc3ac553b6b8a1ddd32ad62214d1a2",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "EXEC-NATIVE-before-shader-fix.json",
+      "bytes": 9279,
+      "sha256": "5b137f4ebc7ab9095ac871db10ce4fe82cd66391233ab01a0ae57d66386c8761",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "EXEC-NATIVE.json",
+      "bytes": 10280,
+      "sha256": "dd6eab5edebd119dbba0c873fed77bf97f9eb2fb8bd0b69b124db147be128357",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "INPUTS.json",
+      "bytes": 2858,
+      "sha256": "82b2c05b475f70f4a0fbdd66bdda521f20ded3db72cffe1ec817275807ecbe32",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "NATIVE-CONTRACT.md",
+      "bytes": 2926,
+      "sha256": "33dcd8be0bc00fc467045223c4c885434dc41b0a39ac6d20f68f6078546ab17c",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "NATIVE-JOB-start.json",
+      "bytes": 517,
+      "sha256": "3334b32281938eb225f4362dd86f5d807bde611c12d807ca54a551c4cc0efef6",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "NATIVE-JOB.json",
+      "bytes": 742,
+      "sha256": "c64602a3e025f4e7b69f7c1a80b548ecc68649ce015d1e7d9e128f8b7389da13",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "NATIVE-PREFLIGHT-ADDENDUM.md",
+      "bytes": 3675,
+      "sha256": "5e36ba69dd709d097c40457310cc363d6024372488e5471fe0b3d3c5d9e757b7",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "NATIVE-PREFLIGHT.md",
+      "bytes": 7092,
+      "sha256": "fece59be49ba026732c72d23f0ff3771490bc4646b1251d8dd758b51ea847d35",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "NATIVE-RESULT.json",
+      "bytes": 12147,
+      "sha256": "717e6aed07d13fceda7211dbaa2d2f1726ab8bbd07bfbe057f7ceeae6114534c",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "NATIVE-REVIEW.md",
+      "bytes": 9172,
+      "sha256": "67be33a7c05a69c487f53a623340b1c720b09f343d28ef89ae86ccbca4f5eb13",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "NATIVE-SHADER-FIX.md",
+      "bytes": 1313,
+      "sha256": "d2fca045a4eb652104c76583f3b443264a812d6f81f4967b815c5464a4d1bdd6",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 6960,
+      "sha256": "147bcdd466720481f69789d1313206f7baccbe334e2a825047efcb27aa11bed8",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "PRE-BUILD-CORRECTIONS.json",
+      "bytes": 5949,
+      "sha256": "8e278f090c8c3274a816383c5c7f42928fc250badfdfd4e8c8d5b1340e001f76",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "PRESERVATION.json",
+      "bytes": 319,
+      "sha256": "37e70c2b9d5328cb7a7a4cfb0fe9c9c0f45e6fcb766d18165e611c06d93cd0d6",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "README.md",
+      "bytes": 5420,
+      "sha256": "10c6dc33b9c685bf63acaf30e6cecdf995d8a28dfcc85a4b458acfc2f2ee3661",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "RESULT.json",
+      "bytes": 277887,
+      "sha256": "0f5e75e8fc6d90acd95971002123aecdcce48fe9ecdeb1e2a14815910a28bce6",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "REVIEWED-README.md",
+      "bytes": 5146,
+      "sha256": "dd7294981cb264e8d2f0d31d31eec5d403a0c39c6924141a4e082a1f89fbe3a9",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-BUILD-PREFLIGHT.json",
+      "bytes": 435,
+      "sha256": "a025804117fdc7873b3c75736f85b270177a24f3e22296d746451a177cf240c7",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-NATIVE-PREFLIGHT.json",
+      "bytes": 553,
+      "sha256": "e884ef1baf50de6fec856f119e3c46837db08aa2ffe0713fa70cf4f65296a3ff",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-NATIVE-RESULT.json",
+      "bytes": 1304,
+      "sha256": "81345010bc2d26a0b4ac15455ee4325037b61aa93201d10e5b97b742d11fdccc",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-PREPARATION.json",
+      "bytes": 554,
+      "sha256": "4efc455831c4931241cd408c02fd8409f33f54047208a42cb037945adb67a819",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-READBACK.json",
+      "bytes": 918,
+      "sha256": "b76883f9ae36a6be36ddca521282dcd34146e9018837a882f05f2dd08f14ce4d",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-RESULT.json",
+      "bytes": 1171,
+      "sha256": "e579f64adde58e111a9675047ea7264f640795817255ec2c1c739d4d11e98a91",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-SOURCE-REVIEW.json",
+      "bytes": 376,
+      "sha256": "541f0237016f3e4fbc5459325f4f767375b88a40250bc7d2262cb08e6d6e30bd",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-VISUAL.md",
+      "bytes": 2431,
+      "sha256": "506d4727e00e76c5faff1adaadcb09f0d9496a3d56a7874703e841494ebdace6",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-WORTH.json",
+      "bytes": 469,
+      "sha256": "123c4b02b10f16ef0b25036108927d8b9ace71ceb2667c8817e7033f3323f751",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "SOURCE-RECEIPT.md",
+      "bytes": 2982,
+      "sha256": "f78b53e5103620b796548563bd653a5e2ebc0850037b451f9a02fe47a0e49270",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "SOURCE-RESULT-REVIEW.md",
+      "bytes": 6631,
+      "sha256": "6d8f03364cb28468bc39fecb32c809f7792a1ceeab61da5179a0870ce89d14a9",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "UV-API-SOURCES.json",
+      "bytes": 41315,
+      "sha256": "9c57a1e4feec5f5f38cb0b538abd30e2178db69031d4a6e985f74663dec192a9",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "WORTH.md",
+      "bytes": 4490,
+      "sha256": "bdf453a17eab13cb7df6271ed35ac18211d688cdebc9c63e9190b1731d337401",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "build-before-source-fixes.py.txt",
+      "bytes": 13783,
+      "sha256": "3dc348ebc3a00e7d524abfdce3a3f43b7605e56e4b746fc62212d80e0c428c85",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "build.log",
+      "bytes": 89,
+      "sha256": "6257b99ff7e22f8fd36c6e7079bd1b6e4c10baa622c5fc485d0d8c92ebece14e",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "build.py",
+      "bytes": 14003,
+      "sha256": "6ab75c4acb4e58ca108a3d6a74c82ac4f96a07f39dd44cc5cb08166b2d3f01dc",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "editable.blend",
+      "bytes": 694958,
+      "sha256": "d9db4329c1ab90ea05fd84db66dec38c5a673187b6e9c2786dae43bc9d2a8889",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "geometry.npz",
+      "bytes": 17726,
+      "sha256": "c44c3fe6d7f2cc1db6bbf5d9c4d74dae4cc493c2ead0b91388117b17a5f0cf7d",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "native-before-shader-fix.py.txt",
+      "bytes": 18190,
+      "sha256": "f4922a6088ccec881733d28b88bd6d5c258c8313e3cbf903de874eb3a546f089",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "native.log",
+      "bytes": 2764,
+      "sha256": "460c500bafd1228d671195a3951cbcf6b93ed54ff2489126fcef90e0920496f9",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "native.py",
+      "bytes": 19723,
+      "sha256": "cb0e9ebdca34d1d2b4d6e337a7e9e00467567e83b9ab6a0dc0e5f50a5468cfa1",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "review.html",
+      "bytes": 2958,
+      "sha256": "2429486e2239870801d3c33439b32eee125b3d8fdc62f3815593c83707fb6af6",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "run_build.py",
+      "bytes": 2121,
+      "sha256": "036363e6ba04b052246598299a3c0dd796854eaf92cb3540e2d9f5196a3e11fc",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "run_native.py",
+      "bytes": 2478,
+      "sha256": "d0228e8644b85fd1bfa98f7c747e93ab05631955a517af226dfa71720487b282",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "sleeve-front-left.png",
+      "bytes": 451420,
+      "sha256": "4ff29d35982c0f56aa14bec36b30ff2e623a52909717b5601a87252b5705dc71",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "sleeve-front.png",
+      "bytes": 452489,
+      "sha256": "3ec5aeb04e647b48d39f9ad41b9f61e09b2cd9a1013b4f33defb4750200bb28a",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "sleeve-rear.png",
+      "bytes": 459766,
+      "sha256": "68ad78428bf62ab45420e132696323346c65666cd7054653d2b6d609eb912f0c",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "verify_build.py",
+      "bytes": 8832,
+      "sha256": "eb967f0eee93be085971082bd990ef706681e99980e4c35c575d5c4f9a5ea09a",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "verify_native.py",
+      "bytes": 4723,
+      "sha256": "2aee95adb1da99698b539ebbc95a9aebc61ef42faaa00e63e212dff16d8fa7ed",
+      "physical_mode": "0444"
+    }
+  ],
+  "decision": "Retain isolated editable original construction and limited taper/band authoring direction; refuse fit/wearable/dropin/assembledjacket/finishedcuff/fullinterior visual qualification",
+  "jobs": "One4164/4174sourcebuild; one57465/57468native, bothcollectedexit0; noownedjobs",
+  "next": "New bounded original connected torso/armhole sharedouter-inner topology/exposure/contact/coupling contract; no nextgeometry/job admitted"
+}

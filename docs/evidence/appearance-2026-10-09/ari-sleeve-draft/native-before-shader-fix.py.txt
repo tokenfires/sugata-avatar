@@ -1,0 +1,117 @@
+"""First diagnostic sleeve-module views and exclusive editable native artifact."""
+import sys
+sys.dont_write_bytecode=True
+from pathlib import Path
+import json,hashlib,datetime,struct,os
+import bpy,numpy as np
+from mathutils import Vector
+from bpy_extras.object_utils import world_to_camera_view
+H=Path(__file__).resolve().parent
+R={'utc_started':datetime.datetime.now(datetime.timezone.utc).isoformat(),'passed':False,'outputs':[],'fit':'REFUSED_TRANSVERSE','qualification':'Original partial sleeve-module diagnostic only; not fitted or whole jacket/character appearance','omitted':'Auxiliary eyes/hair/native rig/shape keys/materials; gray archived source observer only','source_mutation':False}
+sha=lambda a:hashlib.sha256(a.tobytes()).hexdigest()
+def require(ok,msg):
+ if not ok:raise RuntimeError(msg)
+def pins():
+ for p in json.loads((H/'EXEC-NATIVE.json').read_text())['pins']:
+  q=Path(p['path'])
+  with q.open('rb') as f:d=hashlib.file_digest(f,'sha256').hexdigest()
+  require(q.stat().st_size==p['bytes'] and d==p['sha256'],'Pin changed: '+str(q))
+def orient(obj,target):obj.rotation_euler=(Vector(target)-obj.location).to_track_quat('-Z','Y').to_euler()
+def material(name,color,roughness,specular):
+ m=bpy.data.materials.new(name);m.use_nodes=True;n=m.node_tree.nodes['Principled BSDF'];n.inputs['Base Color'].default_value=(*color,1);n.inputs['Roughness'].default_value=roughness;n.inputs['Metallic'].default_value=0;n.inputs['Specular IOR Level'].default_value=specular
+ return m
+def mesh_arrays(obj):
+ me=obj.data;v=np.empty((len(me.vertices),3),np.float32);me.vertices.foreach_get('co',v.ravel());t=np.array([tuple(p.vertices) for p in me.polygons],np.int32);m=np.empty(len(me.polygons),np.int32);me.polygons.foreach_get('material_index',m);smooth=np.array([p.use_smooth for p in me.polygons],bool)
+ require(np.array_equal(np.array(obj.matrix_world),np.eye(4)) and obj.parent is None and not obj.modifiers and me.shape_keys is None,'Owned identity/unrigged mesh: '+obj.name)
+ return v,t,m,smooth
+def geometry_readback(world,body_tri,arrays):
+ body=bpy.data.objects['SleeveSourceBody'];v,t,m,s=mesh_arrays(body)
+ require(np.array_equal(v,world) and np.array_equal(t,body_tri) and (m==0).all() and s.all(),'Exact complete gray source observer')
+ require([x.name for x in body.data.materials]==['SleeveBody-gray'] and len(body.data.uv_layers)==0,'Owned source body slot/UV scope')
+ records={'body':{'vertices':len(v),'triangles':len(t),'world_sha256':sha(v),'triangles_sha256':sha(t),'material_indices_sha256':sha(m)},'modules':[]}
+ for side in ['l','r']:
+  obj=bpy.data.objects['AriSleeveDraft-'+side+'-UNQUALIFIED'];v,t,m,s=mesh_arrays(obj);me=obj.data
+  require(np.array_equal(v,arrays[side+'_vertices']) and np.array_equal(t,arrays[side+'_triangles']) and np.array_equal(m,arrays[side+'_material_ids']),'Exact original module buffers: '+side)
+  require(np.array_equal(s,m!=3),'Exact owned module smoothing/rim scope')
+  require([x.name for x in me.materials]==['Sleeve-'+k for k in ['outer','lining','cuff','rim']],'Exact original module slots')
+  require(len(me.uv_layers)==1 and me.uv_layers[0].name=='OriginalSleeveSeam' and len(me.uv_layers[0].uv)==len(me.loops)==len(t)*3,'Exact face-corner UV domain')
+  uv=np.empty((len(me.loops),2),np.float32);me.uv_layers[0].uv.foreach_get('vector',uv.ravel());require(np.array_equal(uv.reshape((-1,3,2)),arrays[side+'_loop_uv']),'Exact native editable UVs: '+side)
+  require(obj['fit_status']=='REFUSED_TRANSVERSE' and obj['crossing_triangle_pairs']==104 and obj['whole_jacket']==False,'Explicit module qualification metadata')
+  records['modules'].append({'side':side,'vertices':len(v),'triangles':len(t),'vertex_sha256':sha(v),'triangle_sha256':sha(t),'material_ids_sha256':sha(m),'loop_uv_sha256':sha(uv.reshape((-1,3,2)))})
+ return records
+def display_readback(cfg,scene,lights,scale):
+ require(set(bpy.data.objects.keys())=={'SleeveSourceBody','AriSleeveDraft-l-UNQUALIFIED','AriSleeveDraft-r-UNQUALIFIED','SleeveKey','SleeveFill','SleeveRear','SleeveCamera','FIT-REFUSED-DIAGNOSTIC-LABEL'},'Exact eight owned objects')
+ colors={'SleeveBody-gray':(cfg['body_gray'],1,0)};colors.update({'Sleeve-'+k:(v,cfg['material_roughness'],.2) for k,v in cfg['materials'].items()})
+ require(set(bpy.data.materials.keys())==set(colors)|{'SleeveDiagnosticLabel'},'Exact six owned material names')
+ mats=[]
+ for name,(color,rough,spec) in colors.items():
+  n=bpy.data.materials[name].node_tree.nodes['Principled BSDF'];c=list(n.inputs['Base Color'].default_value)
+  require(np.array_equal(np.array(c,np.float32),np.array([*color,1],np.float32)) and n.inputs['Roughness'].default_value==float(np.float32(rough)) and n.inputs['Metallic'].default_value==0 and n.inputs['Specular IOR Level'].default_value==float(np.float32(spec)),'Owned exact shader: '+name)
+  mats.append({'name':name,'rgba':c,'roughness':float(n.inputs['Roughness'].default_value),'metallic':0,'specular':float(n.inputs['Specular IOR Level'].default_value)})
+ lightrows=[]
+ for expected in lights:
+  obj=bpy.data.objects[expected['name']];d=obj.data;row={'name':obj.name,'position':list(obj.location),'energy':float(d.energy),'size':float(d.size),'shape':d.shape,'color':list(d.color),'matrix_world':[list(x) for x in obj.matrix_world]};require(row==expected,'Owned white disk light: '+obj.name);lightrows.append(row)
+ world=scene.world;require(world.name=='SleeveWorld' and list(world.node_tree.nodes['Background'].inputs['Color'].default_value)==list(map(float,np.array([.2,.2,.2,1],np.float32))) and world.node_tree.nodes['Background'].inputs['Strength'].default_value==float(np.float32(.4)),'Owned neutral world')
+ require(scene.render.engine=='CYCLES' and scene.cycles.device=='CPU' and scene.cycles.samples==16 and scene.cycles.seed==0 and scene.cycles.use_denoising and scene.cycles.denoiser=='OPENIMAGEDENOISE' and not scene.cycles.denoising_use_gpu,'Owned CPU16 renderer')
+ require(scene.render.threads_mode=='FIXED' and scene.render.threads==16 and scene.render.resolution_x==768 and scene.render.resolution_y==1024 and scene.render.resolution_percentage==100 and scene.render.pixel_aspect_x==scene.render.pixel_aspect_y==1,'Owned render domain')
+ require(scene.render.film_transparent and not scene.render.use_compositing and not scene.render.use_sequencer and scene.render.image_settings.file_format=='PNG' and scene.render.image_settings.color_mode=='RGBA','Owned transparent PNG pipeline')
+ require(scene.view_settings.view_transform=='AgX' and scene.view_settings.look=='None' and scene.display_settings.display_device=='sRGB' and scene.view_settings.exposure==0 and scene.view_settings.gamma==1 and not scene.view_settings.use_curve_mapping,'Owned display look')
+ camera=scene.camera;require(camera.name=='SleeveCamera' and camera.data.type=='ORTHO' and camera.data.sensor_fit=='VERTICAL' and camera.data.ortho_scale==scale and camera.data.clip_start==float(np.float32(.01)) and camera.data.clip_end==100,'Owned orthographic framing')
+ label=bpy.data.objects['FIT-REFUSED-DIAGNOSTIC-LABEL'];font=label.data;require(label.type=='FONT' and label.parent==camera and font.body=='DIAGNOSTIC: FIT REFUSED (104 TRIANGLE PAIRS)' and font.size==float(np.float32(.028)) and font.align_x=='CENTER' and font.align_y=='BOTTOM' and font.extrude==font.bevel_depth==0,'Visible per-image refusal label')
+ require(np.array_equal(np.array(label.location,np.float32),np.array([0,scale/2-.035,-1],np.float32)) and tuple(label.rotation_euler)==(0,0,0) and list(label.scale)==[1,1,1],'Fixed camera-local label placement')
+ require([m.name for m in font.materials]==['SleeveDiagnosticLabel'] and not label.modifiers,'Owned label geometry/material')
+ em=bpy.data.materials['SleeveDiagnosticLabel'].node_tree.nodes['Emission'];require(np.array_equal(np.array(em.inputs['Color'].default_value,np.float32),np.array([.8,.03,.015,1],np.float32)) and em.inputs['Strength'].default_value==1,'Owned label shader')
+ require(scene['fit_status']=='REFUSED_TRANSVERSE' and scene['crossing_triangle_pairs']==104 and 'not a fitted jacket' in bpy.data.texts['SLEEVE-DRAFT-README'].as_string(),'Persisted scene/text qualification')
+ return {'materials':mats,'lights':lightrows,'camera_scale':scale,'label_body':font.body,'label_matrix_basis':[list(x) for x in label.matrix_basis],'label_rgba':list(em.inputs['Color'].default_value),'render_contract_exact':True}
+try:
+ pins();require(not any((H/n).exists() for n in ['NATIVE-RESULT.json','editable.blend','sleeve-front.png','sleeve-front-left.png','sleeve-rear.png','private-save']),'First native outputs only')
+ cfg=json.loads((H/'CONTRACT.json').read_text());build=json.loads((H/'RESULT.json').read_text());root=json.loads((H/'ROOT-RESULT.json').read_text());require(build['passed'] and build['geometry_qualified'] and root['passed'] and build['fit']==root['fit']=='REFUSED_TRANSVERSE' and build['contact']['counts']['strict_transverse_pairs']==104,'Exact source-qualified/contact-refused candidate required')
+ source=next(p['path'] for p in json.loads((H/'INPUTS.json').read_text()) if p['path'].endswith('/after-geometry.npz'))
+ with np.load(source,allow_pickle=False) as z:world=z['Human_world'];body_tri=z['Human_triangles']
+ require(world.dtype==np.float32 and world.shape==(13380,3) and body_tri.dtype==np.int32 and body_tri.shape==(26756,3) and sha(world)==build['source']['world_sha256'] and sha(body_tri)==build['source']['triangles_sha256'],'Literal full source observer identity')
+ with np.load(H/'geometry.npz',allow_pickle=False) as z:arrays={k:z[k] for k in z.files}
+ require(set(arrays)=={s+'_'+k for s in ['l','r'] for k in ['vertices','triangles','loop_uv','material_ids']},'Eight original module buffers only')
+ bpy.ops.wm.read_factory_settings(use_empty=True);require(not bpy.data.objects and not bpy.data.meshes,'Empty owned factory scene');scene=bpy.context.scene
+ me=bpy.data.meshes.new('SleeveSourceBodyMesh');me.from_pydata(world.tolist(),[],body_tri.tolist());me.update();body=bpy.data.objects.new('SleeveSourceBody',me);scene.collection.objects.link(body);me.materials.append(material('SleeveBody-gray',cfg['body_gray'],1,0));me.polygons.foreach_set('use_smooth',np.ones(len(body_tri),bool))
+ mats=[material('Sleeve-'+k,cfg['materials'][k],cfg['material_roughness'],.2) for k in ['outer','lining','cuff','rim']]
+ for side in ['l','r']:
+  v=arrays[side+'_vertices'];t=arrays[side+'_triangles'];mi=arrays[side+'_material_ids'];uv=arrays[side+'_loop_uv'];require(v.shape==(320,3) and t.shape==(640,3) and mi.shape==(640,) and uv.shape==(640,3,2),'Exact owned module input sizes')
+  me=bpy.data.meshes.new('OriginalSleeveMesh-'+side);me.from_pydata(v.tolist(),[],t.tolist());me.update();obj=bpy.data.objects.new('AriSleeveDraft-'+side+'-UNQUALIFIED',me);scene.collection.objects.link(obj)
+  for m in mats:me.materials.append(m)
+  me.polygons.foreach_set('material_index',mi);me.polygons.foreach_set('use_smooth',mi!=3);layer=me.uv_layers.new(name='OriginalSleeveSeam');layer.uv.foreach_set('vector',uv.ravel());obj['fit_status']='REFUSED_TRANSVERSE';obj['crossing_triangle_pairs']=104;obj['whole_jacket']=False
+ scene['fit_status']='REFUSED_TRANSVERSE';scene['crossing_triangle_pairs']=104
+ text=bpy.data.texts.new('SLEEVE-DRAFT-README');text.write('Original unrigged paired sleeve modules; not a fitted jacket. Full source observer is gray; eyes/hair/rig/shape keys omitted. 104 strict body/sleeve crossing TRIANGLE PAIRS were independently verified. Not unique contacts, depth, occupancy or all-motion proof. No source/phase/ease rescue. Whole connected jacket, exposure/coverage/selfcontact/rig/morph/motion/finish/export/runtime remain open. Original source/default files preserved.\n')
+ R['geometry_baseline']=geometry_readback(world,body_tri,arrays)
+ scene.render.engine='CYCLES';scene.cycles.device='CPU';scene.cycles.samples=16;scene.cycles.seed=0;scene.cycles.use_denoising=True;scene.cycles.denoiser='OPENIMAGEDENOISE';scene.cycles.denoising_use_gpu=False
+ scene.render.threads_mode='FIXED';scene.render.threads=16;scene.render.resolution_x=768;scene.render.resolution_y=1024;scene.render.resolution_percentage=100;scene.render.pixel_aspect_x=scene.render.pixel_aspect_y=1
+ scene.render.film_transparent=True;scene.render.use_compositing=False;scene.render.use_sequencer=False;scene.render.image_settings.file_format='PNG';scene.render.image_settings.color_mode='RGBA'
+ scene.view_settings.view_transform='AgX';scene.view_settings.look='None';scene.view_settings.exposure=0;scene.view_settings.gamma=1;scene.view_settings.use_curve_mapping=False;scene.display_settings.display_device='sRGB'
+ allpoints=np.concatenate([world,arrays['l_vertices'],arrays['r_vertices']]).astype(float);target=(world.min(axis=0).astype(float)+world.max(axis=0).astype(float))/2
+ worlddata=bpy.data.worlds.new('SleeveWorld');worlddata.use_nodes=True;worlddata.node_tree.nodes['Background'].inputs['Color'].default_value=(.2,.2,.2,1);worlddata.node_tree.nodes['Background'].inputs['Strength'].default_value=.4;scene.world=worlddata
+ lights=[]
+ for name,pos,energy in [('Key',(-3,-4,4),700),('Fill',(3,-2,3),450),('Rear',(0,4,4),600)]:
+  d=bpy.data.lights.new('Sleeve'+name,'AREA');d.shape='DISK';d.size=4;d.energy=energy;d.color=(1,1,1);o=bpy.data.objects.new(d.name,d);scene.collection.objects.link(o);o.location=pos;orient(o,target);bpy.context.view_layer.update();lights.append({'name':o.name,'position':list(o.location),'energy':float(d.energy),'size':float(d.size),'shape':d.shape,'color':list(d.color),'matrix_world':[list(x) for x in o.matrix_world]})
+ cd=bpy.data.cameras.new('SleeveCamera');cd.type='ORTHO';cd.sensor_fit='VERTICAL';cd.clip_start=.01;cd.clip_end=100;camera=bpy.data.objects.new('SleeveCamera',cd);scene.collection.objects.link(camera);scene.camera=camera;spans=[]
+ for direction in cfg['views'].values():
+  camera.location=Vector(target)+Vector(direction).normalized()*5;orient(camera,target);bpy.context.view_layer.update();local=np.c_[allpoints,np.ones(len(allpoints))]@np.array(camera.matrix_world.inverted()).T;spans.append(max(2*np.abs(local[:,1]).max(),2*np.abs(local[:,0]).max()/(768/1024)))
+ cd.ortho_scale=float(max(spans)/.92);scale=float(cd.ortho_scale)
+ font=bpy.data.curves.new('DiagnosticLabelFont','FONT');font.body='DIAGNOSTIC: FIT REFUSED (104 TRIANGLE PAIRS)';font.size=.028;font.align_x='CENTER';font.align_y='BOTTOM';font.extrude=font.bevel_depth=0;label=bpy.data.objects.new('FIT-REFUSED-DIAGNOSTIC-LABEL',font);scene.collection.objects.link(label);label.parent=camera;label.location=(0,scale/2-.035,-1)
+ lm=bpy.data.materials.new('SleeveDiagnosticLabel');lm.use_nodes=True;nodes=lm.node_tree.nodes;nodes.clear();em=nodes.new('ShaderNodeEmission');em.inputs['Color'].default_value=(.8,.03,.015,1);em.inputs['Strength'].default_value=1;out=nodes.new('ShaderNodeOutputMaterial');lm.node_tree.links.new(em.outputs['Emission'],out.inputs['Surface']);font.materials.append(lm);bpy.context.view_layer.update()
+ R['frame']={'target':target.tolist(),'scale':scale,'resolution':[768,1024],'pad_each_side':.04,'all_body_and_module_vertices':len(allpoints),'annotation':'Camera-local fit-refusal header in top margin, not garment geometry; its points excluded from body/module frame cloud'};R['display_baseline']=display_readback(cfg,scene,lights,scale)
+ for name,direction in cfg['views'].items():
+  camera.location=Vector(target)+Vector(direction).normalized()*5;orient(camera,target);bpy.context.view_layer.update();require(geometry_readback(world,body_tri,arrays)==R['geometry_baseline'] and display_readback(cfg,scene,lights,scale)==R['display_baseline'],'Exact source/module/display before first pixels: '+name)
+  projected=np.array([tuple(world_to_camera_view(scene,camera,Vector(p))) for p in allpoints]);require(np.isfinite(projected).all() and (projected[:,2]>0).all() and (projected[:,:2]>=.039999).all() and (projected[:,:2]<=.960001).all(),'Full body+module frame: '+name)
+  path=H/('sleeve-'+name+'.png');require(not path.exists(),'Exclusive first PNG');scene.render.filepath=str(path);require(bpy.ops.render.render(write_still=True)=={'FINISHED'} and path.is_file(),'First native image complete')
+  b=path.read_bytes();require(len(b)<=10485760 and b[:8]==b'\x89PNG\r\n\x1a\n' and struct.unpack('>II',b[16:24])==(768,1024),'First PNG size/domain')
+  R['outputs'].append({'name':name,'file':path.name,'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'camera_position':list(camera.location),'projected_min':projected.min(axis=0).tolist(),'projected_max':projected.max(axis=0).tolist()});require(geometry_readback(world,body_tri,arrays)==R['geometry_baseline'] and display_readback(cfg,scene,lights,scale)==R['display_baseline'],'Exact source/module/display after pixels: '+name)
+ require(len(R['outputs'])==3,'Exactly three first diagnostic views')
+ private=H/'private-save';private.mkdir();temp=private/'candidate.blend';require(bpy.ops.wm.save_as_mainfile(filepath=str(temp),copy=True,relative_remap=False,compress=True,check_existing=False)=={'FINISHED'} and temp.is_file(),'Owned private native save')
+ payload=temp.read_bytes();require(0<len(payload)<=67108864,'Bounded editable artifact');targetpath=H/'editable.blend';os.link(temp,targetpath);temp.unlink();private.rmdir();R['editable']={'file':targetpath.name,'bytes':len(payload),'sha256':hashlib.sha256(payload).hexdigest(),'exclusive_final_link':True}
+ require(bpy.ops.wm.open_mainfile(filepath=str(targetpath))=={'FINISHED'},'One cold reopen of owned output only');scene=bpy.context.scene;bpy.context.view_layer.update();require(geometry_readback(world,body_tri,arrays)==R['geometry_baseline'] and display_readback(cfg,scene,lights,scale)==R['display_baseline'],'Owned cold artifact geometry/UV/metadata/display roundtrip');R['cold_reopen_exact']=True
+ pins();R['post_pins_exact']=True;R['passed']=True
+except Exception as e:R['error']={'type':type(e).__name__,'message':str(e)};print('NATIVE ERROR',str(e))
+finally:
+ R['utc_finished']=datetime.datetime.now(datetime.timezone.utc).isoformat()
+ with (H/'NATIVE-RESULT.json').open('x') as f:json.dump(R,f,indent=2);f.write('\n')
+ print(json.dumps({'passed':R['passed'],'outputs':len(R['outputs']),'fit':R['fit'],'error':R.get('error')}))
+ if not R['passed']:raise SystemExit(1)

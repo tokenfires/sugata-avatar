@@ -1,0 +1,22 @@
+# Worth: first original sleeve modules
+
+**YES for the fixed original paired32-column/five-station component, conditional on complete constructor/contact source preflight.** This produces real editable garment geometry with lining/rims/UVs instead of another reference inventory. No programme or native execution is admitted by worth; later native preparation requires actual geometry/source result review.
+
+Read complete current PLAN and12-row INPUTS before code/geometry/query. Actual prior whole proximal charts retained source shoulder-to-underarm course but showed raw mesh-edge angularity; whole distal front/oblique/rear charts retained blue bend-region and rust wrist-transition references, not sleeve/cuff dimensions or fit. Original bomber art shows full sleeves and gathered trim while omitting sleeve/rear lining and registered3D/sewing authority. Those witnesses support newly authored shape/interior responsibility, not smoothing a closed source-path recipe or reading anatomy from the drawing.
+
+**A, preferred:** one independent32×5loft with new shoulderCatmull course, explicit distal phase joins/nominal ease, complete inner surface/proximal-wrist rims, UV seam and cuff material region. It resolves original shape/tessellation/interior duties for a partial component while keeping exact source/bare control unchanged. It costs real finite/topological/orientation/material/UV/source association and exposure/contact proof, plus first original-image judgment. Source references never become garment tessellation or a calibrated cuff radius by themselves.
+
+**B:** author the full connected jacket in one trial. It could reveal outfit silhouette and torso/armhole integration earlier, but adds collar/hem/opening/facings/guard/pocket/interior and coupling risk before sleeve shape/phase is observed. This component choice preserves that full roadmap rather than silently omitting it. Static sleeves alone are not a jacket, accepted outfit, source-body range or rig/morph/motion/export/runtime result.
+
+The frozen0.025shoulder/0.020elbow/0.012–0.006cuff displacements,0.035proximal band length and0.002inner inset are **new artist geometry choices**, not validated global physical clearance, fabric thickness, elasticity or dimensions. Catmull/loft phase may produce poor shape/contact despite source-reference validity; finite positive areas/closed opposite-edge incidence/nonzero oriented volume do not prove embedded self-contact, occupancy or wearability. Left/right phase/handedness and whole-component winding must be explicit in actual code. No source/bone/body/width/ease adjustment after the one candidate.
+
+Prospectively scoped contact diagnostics are useful if full-body candidate associations, transverse hits and coplanar/near-boundary classes retain exact witnesses. Absence of a transverse hit or vertex-sampled nearest distance is not global surface clearance or outside-body proof. Budget/ambiguity/contact refusal leaves fitUNKNOWN/refused. Geometry/source ownership failure must stop before native; a geometry-valid/contact-refused module may receive the **already declared diagnostic** first images only with that status visible, never as a new posthoc exception or qualification.
+
+First three actual unchanged-body+module views must decide loose sleeve/course/cuff-band/interior coherence. A failed image or contact question closes this fixed recipe with witnesses, not a sweep/offset/phase/tolerance/body/weight/mask/retake rescue. Editable .blend scope must label the gray source observer/omitted auxiliaries and absent parenting/deformation. If useful, next work owns connectedtorso/armhole/neckline/collar/hem/front/pockets/facings/guard/full interior/exposure/contact/coupling; no whole-garment transfer from the module.
+
+| Complete reviewed file | Bytes | SHA256 |
+| --- | ---: | --- |
+| PLAN.md | 6960 | `147bcdd466720481f69789d1313206f7baccbe334e2a825047efcb27aa11bed8` |
+| INPUTS.json | 2858 | `82b2c05b475f70f4a0fbdd66bdda521f20ded3db72cffe1ec817275807ecbe32` |
+
+Manifest identities were read, not independently rehashed in this worth turn. Root verifies source/pins and owns one≤120sconstructor/diagnostic followed only by separately admitted≤240sfirst-native views/save. No code/geometry/algorithm/query/native/GPU/browser/network/capture/source or input change by this critic. First declared failure/hard10:15 closes allocation. Preserve originals/defaults/fullsource and widerAAA. Stable handoff; filesystem save time is authoritative.

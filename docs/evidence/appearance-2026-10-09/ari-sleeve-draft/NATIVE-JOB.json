@@ -1,0 +1,24 @@
+{
+  "utc_started": "2026-10-09T09:58:20.666150+00:00",
+  "wrapper_pid": 57465,
+  "command": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--factory-startup",
+    "--offline-mode",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-sleeve-draft/native.py"
+  ],
+  "allocated_timeout_seconds": 240,
+  "deadline_utc": "2026-10-09T10:15:00+00:00",
+  "native_pid": 57468,
+  "owned_process_group": 57468,
+  "utc_finished": "2026-10-09T09:58:27.402204+00:00",
+  "exit_code": 0,
+  "timed_out": false,
+  "log_bytes": 2764,
+  "log_sha256": "460c500bafd1228d671195a3951cbcf6b93ed54ff2489126fcef90e0920496f9",
+  "log_truncated": false
+}

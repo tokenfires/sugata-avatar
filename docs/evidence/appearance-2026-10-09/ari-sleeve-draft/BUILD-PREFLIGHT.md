@@ -1,0 +1,32 @@
+# Independent original-sleeve build preflight
+
+**PASS corrected source for one root-owned120s original constructor/contact diagnostic after admission. Native remains unadmitted.** Complete initial/current build, wrapper, contract, exact correction diff and source schemas reviewed. All22 physical execution pins match bytes/SHA; five first output/job/log paths absent. No algorithm execution, source-array decode, geometry, native/capture/network by this critic.
+
+The fixed source domains are HumanFloat32(13380,3)/Int32(26756,3) with exact common referenceSHA/full positive finiteGram areas. Literal anchor lists/indices select front→underarm→rear→crown; all64old phase points retain exact source triangle/barycentric association. No old producer, source graph/plane query, body tessellation cut or body mutation. Distal manifest schema actually supplies qualifiedsamples/basis/origin/normal needed by code.
+
+New uniform periodicCatmull shoulder32course and radial0.025ease, original32linear distal phase columns with0.020/0.012/0.006ease,0.035proximal cuffstart translation and0.45middle interpolation match the frozen contract. Five outer/inner32rings produce320vertices/640triangles per side; radial0.002inner field, outer/lining strips and proximal/wrist annuli own through-lumen thickness topology. All vertex/triangle areas,960oppositely paired edges, connected320vertices and finite nonzero volume are guarded. Only whole-component winding may reverse; triangleUV corner order reverses with it. This does not prove embedding/self-contact or physical thickness/clearance.
+
+OriginalUVs are pertrianglecorner640×3×2Float32, with longitudinal0/1corner seam and separately labelled outer/inner/rim bands. Materials distinguish outer/lining/cuff/rims; cuff is a region, not elasticity. All fields are finite and conversion<1e-7. Geometry/source qualification is prospective until the actual job/independent result. Positive closed topology cannot substitute for readable sleeve form, fit or connected torso ownership.
+
+Contact scans all1280paired sleeve triangles against full26756body triangles using paddedAABB candidates then six bidirectional segment/triangle tests. Möller–Trumbore parameters use the appropriate target triangle for either edge owner. Strict hits require interior barycentrics and segment interval; near-boundary and near-parallel coplanar-plane classes remain ambiguous. Four explicit analytic strict/boundary/coplanar/miss controls must pass inside the sole job before source pairs. Candidate pairs cap100000; class totals are exclusive by strict→boundary→coplanar priority, while first witnesses are explicitly per edge-test class and can exist despite a zero exclusive subtotal. Witnesses retain both actual triangles/IDs, edge owner/index and relevant target barycentrics/segment parameter/point; coplanar ambiguity deliberately has no exact hit point. No exact coplanar intersection, occupancy/global clearance/self-contact/motion or fitPASS is claimed. Strict observed hits give fitREFUSED_TRANSVERSE; otherwise fit remainsUNKNOWN.
+
+Two actual source omissions were resolved before execution. **Archive exclusivity:** initial np.savez_compressed(path) usedwb despite exclusive-output intent. A selected: current geometry.npz.open('xb')handle prevents overwrite; B would narrow to single-owner/preabsence only, weaker preservation. **Time completion:** initialcontact checked elapsed only before each triangle, allowing finalbatch to return complete aftercap. A selected: sharedBUILD_STARTED120/contactbudget_end and finalfinishedcheck own completion status. B would leave only wrapper timeout/geometric-visit completeness. No actual overwrite/timeout/contact defect inferred. Preserved initialcode13783-byte/3dc348 and complete oldEXEC remain; diff changes only these source guards, no shape/phase/source/tolerance.
+
+Geometry buffers persist before contacts. Geometry-valid/contact-refused or UNKNOWN is the predeclared diagnostic situation, not physical acceptance or a posthoc exception; later images require actual source/result review and separate native preflight. Unexpected failure/timeout may leave reached archive without complete result—no universal receipt/rollback promise. Wrapper binds current EXEC to rootadmission, validates22pins/output absence before Popen, owns a process group and caps120s/remaining10:15, collecting bounded log/hash and killing onlyitsgroup ontimeout. Post-input identity precedes success.
+
+Saved primaryBlender5.2API pages(status200 each,2rootcredits) support future MeshUVLoopLayer.uv/Float2AttributeValue.vector nomenclature and deprecated.data distinction. They are not a native setter pass; this pure build executes no BlenderUV API. No new network or verifier execution. Prepared alternativeHermite/union-find/linear-system verification remains prospective until output.
+
+A preferred first component produces editable originalshape/interior/UV evidence with sourcebarecontrol preserved. B complete connectedjacket trial offers broader silhouette sooner but adds torso/joins/collar/openings/pockets/fullinterior/coupling risk. Wholejacket/rig/morph/body-range/motion/material/export/runtime duties remainexplicit. No source/ease/body/phase/tolerance/width rescue, retake or nativephase transfer.
+
+| Complete reviewed current file | Bytes | SHA256 |
+| --- | ---: | --- |
+| build.py | 14003 | `6ab75c4acb4e58ca108a3d6a74c82ac4f96a07f39dd44cc5cb08166b2d3f01dc` |
+| run_build.py | 2121 | `036363e6ba04b052246598299a3c0dd796854eaf92cb3540e2d9f5196a3e11fc` |
+| CONTRACT.json | 1415 | `e867a176171bac6818ebfc349e7a76230de8d0c89c56977a00a0921961979448` |
+| EXEC-BUILD.json | 5496 | `b09463ca90bbafcf4f5ecf531dcb2a391acc3ac553b6b8a1ddd32ad62214d1a2` |
+| PRE-BUILD-CORRECTIONS.json | 5949 | `8e278f090c8c3274a816383c5c7f42928fc250badfdfd4e8c8d5b1340e001f76` |
+| build-before-source-fixes.py.txt | 13783 | `3dc348ebc3a00e7d524abfdce3a3f43b7605e56e4b746fc62212d80e0c428c85` |
+| UV-API-SOURCES.json | 41315 | `9c57a1e4feec5f5f38cb0b538abd30e2178db69031d4a6e985f74663dec192a9` |
+| ROOT-WORTH.json | 469 | `123c4b02b10f16ef0b25036108927d8b9ace71ceb2667c8817e7033f3323f751` |
+
+Plan/WORTH/remaining12source/image/reference identities are bound by verified22-pin EXEC. Root owns sole build/collection/independent actual-outcome review. First ownership failure/hard10:15 closes; no garment fit/appearance or later job admitted. Stable finite handoff; filesystem save time is authoritative.

@@ -1,0 +1,35 @@
+{
+  "utc": "2026-10-09T09:58:39.646386+00:00",
+  "passed": true,
+  "physical_pins": 42,
+  "logical_source_and_modules_exact": true,
+  "shader_routes_and_declared_scalars_exact": true,
+  "complete_png_crc": [
+    {
+      "file": "sleeve-front.png",
+      "bytes": 452489,
+      "sha256": "3ec5aeb04e647b48d39f9ad41b9f61e09b2cd9a1013b4f33defb4750200bb28a",
+      "chunks": 75
+    },
+    {
+      "file": "sleeve-front-left.png",
+      "bytes": 451420,
+      "sha256": "4ff29d35982c0f56aa14bec36b30ff2e623a52909717b5601a87252b5705dc71",
+      "chunks": 74
+    },
+    {
+      "file": "sleeve-rear.png",
+      "bytes": 459766,
+      "sha256": "68ad78428bf62ab45420e132696323346c65666cd7054653d2b6d609eb912f0c",
+      "chunks": 75
+    }
+  ],
+  "editable": {
+    "file": "editable.blend",
+    "bytes": 694958,
+    "sha256": "d9db4329c1ab90ea05fd84db66dec38c5a673187b6e9c2786dae43bc9d2a8889",
+    "exclusive_final_link": true
+  },
+  "fit": "REFUSED_TRANSVERSE104trianglepairs",
+  "limits": "Cold geometry/UV/metadata/display equality is native-worker attributed, not separately reopened by root. Shader proof covers bounded routes and listed inputs. Actual full images decide readability/authoring direction only; source covariance/fit/occupancy/coverage/selfcontact/motion/wholejacket/appearance unqualified."
+}

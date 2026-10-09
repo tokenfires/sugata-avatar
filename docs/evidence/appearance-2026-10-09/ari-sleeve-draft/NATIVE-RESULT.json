@@ -1,0 +1,514 @@
+{
+  "utc_started": "2026-10-09T09:58:21.163074+00:00",
+  "passed": true,
+  "outputs": [
+    {
+      "name": "front",
+      "file": "sleeve-front.png",
+      "bytes": 452489,
+      "sha256": "3ec5aeb04e647b48d39f9ad41b9f61e09b2cd9a1013b4f33defb4750200bb28a",
+      "camera_position": [
+        0.0,
+        -5.114603042602539,
+        0.8297156691551208
+      ],
+      "projected_min": [
+        0.09383119642734528,
+        0.03999997675418854,
+        4.780130863189697
+      ],
+      "projected_max": [
+        0.9061688184738159,
+        0.9599990844726562,
+        5.219869136810303
+      ]
+    },
+    {
+      "name": "front-left",
+      "file": "sleeve-front-left.png",
+      "bytes": 451420,
+      "sha256": "4ff29d35982c0f56aa14bec36b30ff2e623a52909717b5601a87252b5705dc71",
+      "camera_position": [
+        3.535533905029297,
+        -3.650136947631836,
+        0.8297156691551208
+      ],
+      "projected_min": [
+        0.11697141826152802,
+        0.040000274777412415,
+        4.481839656829834
+      ],
+      "projected_max": [
+        0.7695435285568237,
+        0.9599993824958801,
+        5.364638328552246
+      ]
+    },
+    {
+      "name": "rear",
+      "file": "sleeve-rear.png",
+      "bytes": 459766,
+      "sha256": "68ad78428bf62ab45420e132696323346c65666cd7054653d2b6d609eb912f0c",
+      "camera_position": [
+        0.0,
+        4.885396957397461,
+        0.8297156691551208
+      ],
+      "projected_min": [
+        0.09383062273263931,
+        0.040000010281801224,
+        4.780130863189697
+      ],
+      "projected_max": [
+        0.9061682224273682,
+        0.959999144077301,
+        5.219869136810303
+      ]
+    }
+  ],
+  "fit": "REFUSED_TRANSVERSE",
+  "qualification": "Original partial sleeve-module diagnostic only; not fitted or whole jacket/character appearance",
+  "omitted": "Auxiliary eyes/hair/native rig/shape keys/materials; gray archived source observer only",
+  "source_mutation": false,
+  "geometry_baseline": {
+    "body": {
+      "vertices": 13380,
+      "triangles": 26756,
+      "world_sha256": "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c",
+      "triangles_sha256": "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4",
+      "material_indices_sha256": "8c0537de3aaae9866b5bff568345e6c8580a2ddf50f8012feb7f1e014df5d285"
+    },
+    "modules": [
+      {
+        "side": "l",
+        "vertices": 320,
+        "triangles": 640,
+        "vertex_sha256": "c97a48e07cf14dadc03ba0d453a4797250c495f5dfb827390f5bb0063be57be1",
+        "triangle_sha256": "3ec7b76b45d181c4a07cfec9b3ef30dcba00a3cd7f1d3f7fc61a9b9848783b9d",
+        "material_ids_sha256": "8f5a893cc4e2e0ee2afb7d2742a6fcad8acd1fd34aed9476babcabe47a41627a",
+        "loop_uv_sha256": "55164b06c74f4306a2325604572681f21b7d095b388f94cc0264fec7a9a53e7b"
+      },
+      {
+        "side": "r",
+        "vertices": 320,
+        "triangles": 640,
+        "vertex_sha256": "f87645e18bc5d069a693af9b02aa75f45772e643a10159000d7e4f6ce0733cda",
+        "triangle_sha256": "02594e65b083ab3b55d16f3f46623a2ee0dcfd09210b04b4d649f51efa54efc7",
+        "material_ids_sha256": "8f5a893cc4e2e0ee2afb7d2742a6fcad8acd1fd34aed9476babcabe47a41627a",
+        "loop_uv_sha256": "fb1bce85ee76dc7cffd28fd78cfc9c1f8a8e8f31cbd7ee369d625e356afc663f"
+      }
+    ]
+  },
+  "frame": {
+    "target": [
+      0.0,
+      -0.11460304260253906,
+      0.829715676678461
+    ],
+    "scale": 1.8037314414978027,
+    "resolution": [
+      768,
+      1024
+    ],
+    "pad_each_side": 0.04,
+    "all_body_and_module_vertices": 14020,
+    "annotation": "Camera-local fit-refusal header in top margin, not garment geometry; its points excluded from body/module frame cloud"
+  },
+  "display_baseline": {
+    "materials": [
+      {
+        "name": "SleeveBody-gray",
+        "rgba": [
+          0.41999998688697815,
+          0.41999998688697815,
+          0.41999998688697815,
+          1.0
+        ],
+        "roughness": 1.0,
+        "metallic": 0,
+        "specular": 0.0,
+        "routing": {
+          "use_nodes": true,
+          "nodes": [
+            [
+              "Material Output",
+              "ShaderNodeOutputMaterial"
+            ],
+            [
+              "Principled BSDF",
+              "ShaderNodeBsdfPrincipled"
+            ]
+          ],
+          "links": [
+            [
+              "Principled BSDF",
+              "BSDF",
+              "Material Output",
+              "Surface"
+            ]
+          ],
+          "active_output": "Material Output",
+          "output_target": "ALL"
+        }
+      },
+      {
+        "name": "Sleeve-outer",
+        "rgba": [
+          0.3799999952316284,
+          0.14000000059604645,
+          0.07500000298023224,
+          1.0
+        ],
+        "roughness": 0.6499999761581421,
+        "metallic": 0,
+        "specular": 0.20000000298023224,
+        "routing": {
+          "use_nodes": true,
+          "nodes": [
+            [
+              "Material Output",
+              "ShaderNodeOutputMaterial"
+            ],
+            [
+              "Principled BSDF",
+              "ShaderNodeBsdfPrincipled"
+            ]
+          ],
+          "links": [
+            [
+              "Principled BSDF",
+              "BSDF",
+              "Material Output",
+              "Surface"
+            ]
+          ],
+          "active_output": "Material Output",
+          "output_target": "ALL"
+        }
+      },
+      {
+        "name": "Sleeve-lining",
+        "rgba": [
+          0.1599999964237213,
+          0.05999999865889549,
+          0.03500000014901161,
+          1.0
+        ],
+        "roughness": 0.6499999761581421,
+        "metallic": 0,
+        "specular": 0.20000000298023224,
+        "routing": {
+          "use_nodes": true,
+          "nodes": [
+            [
+              "Material Output",
+              "ShaderNodeOutputMaterial"
+            ],
+            [
+              "Principled BSDF",
+              "ShaderNodeBsdfPrincipled"
+            ]
+          ],
+          "links": [
+            [
+              "Principled BSDF",
+              "BSDF",
+              "Material Output",
+              "Surface"
+            ]
+          ],
+          "active_output": "Material Output",
+          "output_target": "ALL"
+        }
+      },
+      {
+        "name": "Sleeve-cuff",
+        "rgba": [
+          0.2199999988079071,
+          0.07999999821186066,
+          0.03999999910593033,
+          1.0
+        ],
+        "roughness": 0.6499999761581421,
+        "metallic": 0,
+        "specular": 0.20000000298023224,
+        "routing": {
+          "use_nodes": true,
+          "nodes": [
+            [
+              "Material Output",
+              "ShaderNodeOutputMaterial"
+            ],
+            [
+              "Principled BSDF",
+              "ShaderNodeBsdfPrincipled"
+            ]
+          ],
+          "links": [
+            [
+              "Principled BSDF",
+              "BSDF",
+              "Material Output",
+              "Surface"
+            ]
+          ],
+          "active_output": "Material Output",
+          "output_target": "ALL"
+        }
+      },
+      {
+        "name": "Sleeve-rim",
+        "rgba": [
+          0.25999999046325684,
+          0.10000000149011612,
+          0.054999999701976776,
+          1.0
+        ],
+        "roughness": 0.6499999761581421,
+        "metallic": 0,
+        "specular": 0.20000000298023224,
+        "routing": {
+          "use_nodes": true,
+          "nodes": [
+            [
+              "Material Output",
+              "ShaderNodeOutputMaterial"
+            ],
+            [
+              "Principled BSDF",
+              "ShaderNodeBsdfPrincipled"
+            ]
+          ],
+          "links": [
+            [
+              "Principled BSDF",
+              "BSDF",
+              "Material Output",
+              "Surface"
+            ]
+          ],
+          "active_output": "Material Output",
+          "output_target": "ALL"
+        }
+      }
+    ],
+    "lights": [
+      {
+        "name": "SleeveKey",
+        "position": [
+          -3.0,
+          -4.0,
+          4.0
+        ],
+        "energy": 700.0,
+        "size": 4.0,
+        "shape": "DISK",
+        "color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "matrix_world": [
+          [
+            0.7915167212486267,
+            0.331564337015152,
+            -0.513387143611908,
+            -3.0
+          ],
+          [
+            -0.6111474633216858,
+            0.4294196665287018,
+            -0.6649041175842285,
+            -4.0
+          ],
+          [
+            2.033406509838187e-08,
+            0.840038001537323,
+            0.5425275564193726,
+            4.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "name": "SleeveFill",
+        "position": [
+          3.0,
+          -2.0,
+          3.0
+        ],
+        "energy": 450.0,
+        "size": 4.0,
+        "shape": "DISK",
+        "color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "matrix_world": [
+          [
+            0.5321072340011597,
+            -0.44223469495773315,
+            0.7220044136047363,
+            3.0
+          ],
+          [
+            0.8466769456863403,
+            0.2779292166233063,
+            -0.45375484228134155,
+            -2.0
+          ],
+          [
+            1.0056505850286612e-08,
+            0.8527507185935974,
+            0.5223180651664734,
+            3.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "name": "SleeveRear",
+        "position": [
+          0.0,
+          4.0,
+          4.0
+        ],
+        "energy": 600.0,
+        "size": 4.0,
+        "shape": "DISK",
+        "color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "matrix_world": [
+          [
+            -1.0,
+            1.8690636238716252e-07,
+            -4.660714481019568e-08,
+            0.0
+          ],
+          [
+            -1.5099580252808664e-07,
+            -0.6103400588035583,
+            0.7921395301818848,
+            4.0
+          ],
+          [
+            1.196097088040915e-07,
+            0.7921395301818848,
+            0.6103400588035583,
+            4.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      }
+    ],
+    "camera_scale": 1.8037314414978027,
+    "label_body": "DIAGNOSTIC: FIT REFUSED (104 TRIANGLE PAIRS)",
+    "label_matrix_basis": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.8668656945228577
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        -1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "label_rgba": [
+      0.800000011920929,
+      0.029999999329447746,
+      0.014999999664723873,
+      1.0
+    ],
+    "label_routing": {
+      "use_nodes": true,
+      "nodes": [
+        [
+          "Emission",
+          "ShaderNodeEmission"
+        ],
+        [
+          "Material Output",
+          "ShaderNodeOutputMaterial"
+        ]
+      ],
+      "links": [
+        [
+          "Emission",
+          "Emission",
+          "Material Output",
+          "Surface"
+        ]
+      ],
+      "active_output": "Material Output",
+      "output_target": "ALL"
+    },
+    "world_routing": {
+      "use_nodes": true,
+      "nodes": [
+        [
+          "Background",
+          "ShaderNodeBackground"
+        ],
+        [
+          "World Output",
+          "ShaderNodeOutputWorld"
+        ]
+      ],
+      "links": [
+        [
+          "Background",
+          "Background",
+          "World Output",
+          "Surface"
+        ]
+      ],
+      "active_output": "World Output",
+      "output_target": "ALL"
+    },
+    "render_contract_exact": true
+  },
+  "editable": {
+    "file": "editable.blend",
+    "bytes": 694958,
+    "sha256": "d9db4329c1ab90ea05fd84db66dec38c5a673187b6e9c2786dae43bc9d2a8889",
+    "exclusive_final_link": true
+  },
+  "cold_reopen_exact": true,
+  "post_pins_exact": true,
+  "utc_finished": "2026-10-09T09:58:27.351521+00:00"
+}

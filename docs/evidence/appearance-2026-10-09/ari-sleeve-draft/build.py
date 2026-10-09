@@ -1,0 +1,139 @@
+"""Single original paired sleeve constructor and bounded fullbody contact diagnostic."""
+import sys
+sys.dont_write_bytecode=True
+from pathlib import Path
+import json,hashlib,datetime,time,math
+from collections import defaultdict
+import numpy as np
+H=Path(__file__).resolve().parent
+BUILD_STARTED=time.monotonic()
+R={'utc_started':datetime.datetime.now(datetime.timezone.utc).isoformat(),'passed':False,'geometry_qualified':False,'fit':'UNKNOWN','sleeve_self_contact':'UNKNOWN','physical_body_occupancy':'UNKNOWN','complete_surface_coverage':'UNKNOWN','components':[]}
+def require(ok,msg):
+ if not ok:raise RuntimeError(msg)
+def sha(a):return hashlib.sha256(a.tobytes()).hexdigest()
+def pins():
+ for p in json.loads((H/'EXEC-BUILD.json').read_text())['pins']:
+  q=Path(p['path'])
+  with q.open('rb') as f:d=hashlib.file_digest(f,'sha256').hexdigest()
+  require(q.stat().st_size==p['bytes'] and d==p['sha256'],'Pin changed: '+str(q))
+def catmull(p,j):
+ k=j//8;t=(j%8)/8;p0,p1,p2,p3=[p[i%4] for i in [k-1,k,k+1,k+2]]
+ return .5*((2*p1)+(-p0+p2)*t+(2*p0-5*p1+4*p2-p3)*t*t+(-p0+3*p1-3*p2+p3)*t*t*t)
+def distal_ring(s,ease):
+ source=np.array([x['primary_association']['point'] for x in s['samples']],float)
+ u=np.array(s['meridian_basis']['u_front']);v=np.array(s['meridian_basis']['v_down']);pts=[]
+ for j in range(32):
+  k=j//2;a=j%2/2;base=(1-a)*source[k]+a*source[(k+1)%16];theta=2*math.pi*j/32
+  pts.append(base+ease*(math.cos(theta)*u+math.sin(theta)*v))
+ return np.array(pts),source
+def validate_geometry(v,t):
+ require(np.isfinite(v).all() and v.shape==(320,3) and t.shape==(640,3),'Exact finite original component domains')
+ require(t.min()==0 and t.max()==319 and all(len(set(x))==3 for x in t),'Literal triangle indices')
+ p=v.astype(float)[t];e=p[:,1]-p[:,0];f=p[:,2]-p[:,0];gram=np.sum(e*e,axis=1)*np.sum(f*f,axis=1)-np.sum(e*f,axis=1)**2
+ require(np.isfinite(gram).all() and (gram>0).all(),'Positive all original triangle areas')
+ edges=defaultdict(list);neighbors=defaultdict(set)
+ for tid,tri in enumerate(t):
+  for a,b in zip(tri,np.roll(tri,-1)):
+   a,b=int(a),int(b);edges[tuple(sorted((a,b)))].append((a,b,tid));neighbors[a].add(b);neighbors[b].add(a)
+ require(len(edges)==960 and all(len(x)==2 and x[0][:2]==x[1][:2][::-1] for x in edges.values()),'Closed opposite edge incidence')
+ seen={0};stack=[0]
+ while stack:
+  for n in neighbors[stack.pop()]:
+   if n not in seen:seen.add(n);stack.append(n)
+ require(len(seen)==320,'One connected original module')
+ origin=v.astype(float).mean(axis=0);q=p-origin;volume=float(np.sum(np.einsum('ij,ij->i',q[:,0],np.cross(q[:,1],q[:,2])))/6)
+ require(math.isfinite(volume) and abs(volume)>1e-12,'Nonzero oriented material volume; not embeddedness proof')
+ return {'vertices':320,'triangles':640,'edges':960,'connected_components':1,'signed_volume':volume,'minimum_twice_area':float(np.sqrt(gram.min()))}
+def component(side,refs,dist,cfg,world,body_tri):
+ ids=[refs['anchor_ids'][i] for i in cfg['shoulder_source_anchor_indices']];p=world[ids].astype(float);center=p.mean(axis=0)
+ shoulder=np.array([catmull(p,j) for j in range(32)]);radial=shoulder-center;norm=np.linalg.norm(radial,axis=1);require((norm>1e-9).all(),'Nonzero shoulder radial field')
+ shoulder+=cfg['shoulder_ease']*radial/norm[:,None]
+ es=next(s for s in dist['sections'] if s['name']=='elbow-'+side);cs=next(s for s in dist['sections'] if s['name']=='cuff-'+side)
+ for s in [es,cs]:
+  require(s['source_reference_qualified'] and len(s['samples'])==16,'Qualified fixed distal source association')
+  for sample in s['samples']:
+   a=sample['primary_association'];tid=a['triangle'];require(body_tri[tid].tolist()==a['triangle_vertex_ids'],'Literal phase source triangle identity')
+   actual=np.array(a['barycentric_weights'])@world[body_tri[tid]].astype(float);require(np.max(np.abs(actual-a['point']))<1e-12,'Exact phase source barycentric reconstruction')
+ elbow,esource=distal_ring(es,cfg['elbow_ease']);cstart,csource=distal_ring(cs,cfg['cuff_start_ease']);cend,_=distal_ring(cs,cfg['cuff_end_ease'])
+ translation=-cfg['cuff_length']*np.array(cs['normal']);cstart+=translation
+ a=cfg['upper_middle_fraction'];middle=(1-a)*shoulder+a*elbow
+ centers=np.array([center,(1-a)*center+a*np.array(es['origin']),es['origin'],np.array(cs['origin'])+translation,cs['origin']])
+ outer=np.array([shoulder,middle,elbow,cstart,cend]);rv=outer-centers[:,None,:];rn=np.linalg.norm(rv,axis=2);require((rn>cfg['inner_inset']).all(),'Finite nonzero radial inner field')
+ inner=outer-cfg['inner_inset']*rv/rn[:,:,None];v64=np.concatenate([outer.reshape(-1,3),inner.reshape(-1,3)]);v=v64.astype(np.float32);err=float(np.max(np.abs(v.astype(float)-v64)));require(err<1e-7,'Bounded original Float32 conversion')
+ triangles=[];uv=[];materials=[];regions=[]
+ def quad(ids,coords,material,region):
+  for selection in [(0,1,2),(0,2,3)]:
+   triangles.append([ids[k] for k in selection]);uv.append([coords[k] for k in selection]);materials.append(material);regions.append(region)
+ for layer in [0,1]:
+  off=160*layer
+  for ring in range(4):
+   for col in range(32):
+    nxt=(col+1)%32;ids=[off+ring*32+col,off+ring*32+nxt,off+(ring+1)*32+nxt,off+(ring+1)*32+col]
+    coords=[(col/32,ring/4+2*layer),((col+1)/32,ring/4+2*layer),((col+1)/32,(ring+1)/4+2*layer),(col/32,(ring+1)/4+2*layer)]
+    if layer:ids=ids[::-1];coords=coords[::-1]
+    mat=1 if layer else (2 if ring==3 else 0);quad(ids,coords,mat,('lining' if layer else ('cuff' if ring==3 else 'outer')))
+ for ring in [0,4]:
+  for col in range(32):
+   nxt=(col+1)%32;ids=[ring*32+col,ring*32+nxt,160+ring*32+nxt,160+ring*32+col];coords=[(col/32,4+ring/4),((col+1)/32,4+ring/4),((col+1)/32,4.1+ring/4),(col/32,4.1+ring/4)]
+   if ring==0:ids=ids[::-1];coords=coords[::-1]
+   quad(ids,coords,3,'proximal-rim' if ring==0 else 'wrist-rim')
+ t=np.array(triangles,np.int32);u=np.array(uv,np.float32);m=np.array(materials,np.int32);elig=validate_geometry(v,t)
+ flipped=elig['signed_volume']<0
+ if flipped:t=t[:,[0,2,1]];u=u[:,[0,2,1]];elig=validate_geometry(v,t)
+ require(elig['signed_volume']>0 and u.shape==(640,3,2) and np.isfinite(u).all(),'Positive whole-component orientation and finite original UV domain')
+ witness={'side':side,'garment_vertex_indices':'outer5x32 then inner5x32; independent source tessellation','shoulder_source_anchor_ids':[int(refs['anchor_ids'][i]) for i in cfg['shoulder_source_anchor_indices']],'shoulder_source_points':p.tolist(),'shoulder_center':center.tolist(),'ring_centers':centers.tolist(),'source_elbow_samples':esource.tolist(),'source_wrist_samples':csource.tolist(),'source_phase_records':[{'name':s['name'],'meridian_basis':s['meridian_basis'],'samples':s['samples']} for s in [es,cs]],'whole_component_winding_reversed':flipped,'geometry':elig,'float32_conversion_error':err,'material_counts':{str(k):int(np.count_nonzero(m==k)) for k in range(4)},'region_counts':{k:regions.count(k) for k in sorted(set(regions))},'geometry_sha256':{'vertices':sha(v),'triangles':sha(t),'loop_uv':sha(u),'material_ids':sha(m)}}
+ return v,t,u,m,witness
+def contact(v,t,world,body_tri,cfg):
+ start=time.monotonic();c=cfg['contact'];budget_end=min(start+c['seconds'],BUILD_STARTED+120);g=v.astype(float)[t];b=world.astype(float)[body_tri];bmin=b.min(axis=1);bmax=b.max(axis=1);pad=c['bbox_padding'];eps=c['barycentric_and_segment_epsilon'];det_eps=c['determinant_epsilon'];plane_eps=c['coplanar_plane_distance'];counts={'candidate_pairs':0,'strict_transverse_pairs':0,'boundary_ambiguous_pairs':0,'coplanar_ambiguous_pairs':0};first={};complete=True;reached=0
+ def seg_hits(p0,p1,tri):
+  d=p1-p0;e=tri[:,1]-tri[:,0];f=tri[:,2]-tri[:,0];h=np.cross(d,f);det=np.einsum('ij,ij->i',e,h);valid=np.abs(det)>det_eps;inv=np.zeros(len(det));inv[valid]=1/det[valid];s=p0-tri[:,0];u=np.einsum('ij,ij->i',s,h)*inv;q=np.cross(s,e);vv=np.einsum('ij,ij->i',np.broadcast_to(d,q.shape),q)*inv;tt=np.einsum('ij,ij->i',f,q)*inv
+  closed=valid&(u>=-eps)&(vv>=-eps)&(u+vv<=1+eps)&(tt>=-eps)&(tt<=1+eps);strict=closed&(u>eps)&(vv>eps)&(u+vv<1-eps)&(tt>eps)&(tt<1-eps)
+  normal=np.cross(e,f);length=np.linalg.norm(normal,axis=1);require((length>0).all(),'Positive fullbody/contact target triangles');d0=np.einsum('ij,ij->i',s,normal)/length;d1=np.einsum('ij,ij->i',p1-tri[:,0],normal)/length;cop=(~valid)&(np.abs(d0)<=plane_eps)&(np.abs(d1)<=plane_eps)
+  return strict,closed&~strict,cop,np.c_[tt,u,vv]
+ # Fixed analytic positive/negative controls precede real pair observations.
+ target=np.array([[[-1.,-1.,0.],[1.,-1.,0.],[0.,1.,0.]]])
+ controls=[('strict',[0.,0.,-1.],[0.,0.,1.],(True,False,False)),('boundary',[0.,-1.,-1.],[0.,-1.,1.],(False,True,False)),('coplanar',[-.1,0.,0.],[.1,0.,0.],(False,False,True)),('miss',[3.,0.,-1.],[3.,0.,1.],(False,False,False))]
+ for label,p0,p1,expected in controls:
+  ss,bb,cc,par=seg_hits(np.array(p0),np.array(p1),target);require(tuple(bool(x[0]) for x in [ss,bb,cc])==expected,'Analytic contact control: '+label)
+ for gid,tri in enumerate(g):
+  if time.monotonic()>budget_end:complete=False;break
+  bids=np.flatnonzero(((bmin<=tri.max(axis=0)+pad)&(bmax>=tri.min(axis=0)-pad)).all(axis=1));n=len(bids)
+  if counts['candidate_pairs']+n>c['max_candidate_pairs']:complete=False;break
+  counts['candidate_pairs']+=n;reached=gid+1
+  if not n:continue
+  target=b[bids];strict=np.zeros(n,bool);boundary=np.zeros(n,bool);cop=np.zeros(n,bool);data={}
+  for direction in [0,1]:
+   for edge in range(3):
+    if direction==0:p0=tri[edge];p1=tri[(edge+1)%3];tr=target
+    else:p0=target[:,edge];p1=target[:,(edge+1)%3];tr=np.broadcast_to(tri,(n,3,3))
+    ss,bb,cc,parameters=seg_hits(p0,p1,tr);strict|=ss;boundary|=bb;cop|=cc
+    for label,mask in [('strict_transverse',ss),('boundary_ambiguous',bb),('coplanar_ambiguous',cc)]:
+     if label not in first and mask.any():
+      k=int(np.flatnonzero(mask)[0]);pp0=p0 if direction==0 else p0[k];pp1=p1 if direction==0 else p1[k];par=parameters[k]
+      row={'garment_triangle':gid,'garment_vertex_ids':t[gid].tolist(),'body_triangle':int(bids[k]),'body_vertex_ids':body_tri[bids[k]].tolist(),'edge_owner':'garment' if direction==0 else 'body','edge_local_index':edge,'segment_fraction':float(par[0]) if label!='coplanar_ambiguous' else None,'target_barycentric_weights':[float(1-par[1]-par[2]),float(par[1]),float(par[2])] if label!='coplanar_ambiguous' else None,'point':(pp0+par[0]*(pp1-pp0)).tolist() if label!='coplanar_ambiguous' else None,'garment_triangle_points':tri.tolist(),'body_triangle_points':target[k].tolist()};first[label]=row
+  counts['strict_transverse_pairs']+=int(strict.sum());counts['boundary_ambiguous_pairs']+=int((boundary&~strict).sum());counts['coplanar_ambiguous_pairs']+=int((cop&~strict&~boundary).sum())
+ finished=time.monotonic()
+ if finished>budget_end:complete=False
+ return {'complete':complete,'shared_worker_budget_observed':finished<=BUILD_STARTED+120,'analytic_controls':['strict','boundary','coplanar','miss'],'reached_garment_triangles':reached,'total_garment_triangles':len(t),'fullbody_triangles':len(body_tri),'counts':counts,'first_witnesses':first,'elapsed_seconds':finished-start,'fit':'REFUSED_TRANSVERSE' if counts['strict_transverse_pairs'] else 'UNKNOWN','limits':'Finite transverse/near-boundary/coplanar diagnostic only; no fullsurface clearance, solid occupancy, complete coverage, garment self-contact or motion proof; first witnesses are per edge-test class, exclusive pair totals prioritize strict then boundary then coplanar.'}
+try:
+ pins();require(not any((H/n).exists() for n in ['RESULT.json','geometry.npz']),'Exclusive first constructor outputs')
+ cfg=json.loads((H/'CONTRACT.json').read_text());inputs=json.loads((H/'INPUTS.json').read_text());get=lambda suffix:next(x['path'] for x in inputs if x['path'].endswith(suffix))
+ refs=json.loads(Path(get('/ATTACHMENT-MANIFEST.json')).read_text());dist=json.loads(Path(get('/DISTAL-MANIFEST.json')).read_text())
+ with np.load(get('/after-geometry.npz'),allow_pickle=False) as z:world=z['Human_world'];body_tri=z['Human_triangles']
+ require(world.dtype==np.float32 and world.shape==(13380,3) and body_tri.dtype==np.int32 and body_tri.shape==(26756,3),'Literal unchanged Human source domains')
+ require(sha(world)==dist['source']['world_sha256']==refs['source']['world_sha256'] and sha(body_tri)==dist['source']['triangles_sha256']==refs['source']['triangles_sha256'],'Exact existing source identities')
+ bp=world.astype(float)[body_tri];e=bp[:,1]-bp[:,0];f=bp[:,2]-bp[:,0];gram=np.sum(e*e,axis=1)*np.sum(f*f,axis=1)-np.sum(e*f,axis=1)**2;require(np.isfinite(gram).all() and (gram>0).all(),'Fullbody positive source triangle eligibility')
+ R['source']={'world_sha256':sha(world),'triangles_sha256':sha(body_tri),'vertices':len(world),'triangles':len(body_tri)};arrays={}
+ for side in ['l','r']:
+  ref=next(s for s in refs['sides'] if s['side']==side);require(ref['accepted_source_association'] and len(set(ref['anchor_ids'][:4]))==4,'Four retained distinct original shoulder source anchors')
+  v,t,u,m,w=component(side,ref,dist,cfg,world,body_tri);arrays.update({side+'_vertices':v,side+'_triangles':t,side+'_loop_uv':u,side+'_material_ids':m});R['components'].append(w)
+ with (H/'geometry.npz').open('xb') as f:np.savez_compressed(f,**arrays)
+ payload=(H/'geometry.npz').read_bytes();R['archive']={'file':'geometry.npz','bytes':len(payload),'sha256':hashlib.sha256(payload).hexdigest()};R['geometry_qualified']=True
+ v=np.concatenate([arrays['l_vertices'],arrays['r_vertices']]);t=np.concatenate([arrays['l_triangles'],arrays['r_triangles']+320]);R['contact']=contact(v,t,world,body_tri,cfg);R['fit']=R['contact']['fit']
+ pins();R['post_pins_exact']=True;R['passed']=True
+except Exception as e:R['error']={'type':type(e).__name__,'message':str(e)}
+finally:
+ R['utc_finished']=datetime.datetime.now(datetime.timezone.utc).isoformat()
+ with (H/'RESULT.json').open('x') as f:json.dump(R,f,indent=2);f.write('\n')
+ print(json.dumps({'passed':R['passed'],'geometry_qualified':R['geometry_qualified'],'fit':R['fit'],'error':R.get('error')}))
+ if not R['passed']:raise SystemExit(1)

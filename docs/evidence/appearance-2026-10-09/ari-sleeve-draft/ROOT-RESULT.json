@@ -1,0 +1,30 @@
+{
+  "utc": "2026-10-09T09:29:37.792587+00:00",
+  "passed": true,
+  "sections": [
+    {
+      "side": "l",
+      "max_raw_source_section_error": 5.9501695570673974e-08,
+      "euler_characteristic": 0,
+      "signed_material_volume": 0.0002884469092358892,
+      "limits": "Topology and signed volume do not prove self-clearance or inside/outside."
+    },
+    {
+      "side": "r",
+      "max_raw_source_section_error": 5.9501695570673974e-08,
+      "euler_characteristic": 0,
+      "signed_material_volume": 0.0002884469092358892,
+      "limits": "Topology and signed volume do not prove self-clearance or inside/outside."
+    }
+  ],
+  "max_source_section_error": 5.9501695570673974e-08,
+  "full_reached_contact_linear_solve_classes": {
+    "candidate_pairs": 61294,
+    "strict_transverse_pairs": 104,
+    "boundary_ambiguous_pairs": 0,
+    "coplanar_ambiguous_pairs": 0
+  },
+  "contact_complete": true,
+  "fit": "REFUSED_TRANSVERSE",
+  "limits": "Original geometry/source association only. Neither finite contact classes nor closed material topology qualify global clearance, body occupancy, complete coverage, sleeve self-contact, garment fit, appearance or motion."
+}
