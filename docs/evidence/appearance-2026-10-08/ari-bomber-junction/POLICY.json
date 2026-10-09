@@ -1,0 +1,46 @@
+{
+  "representation": "New nonplanar piecewise-linear boundary on exact evaluated body triangle surface, from edge-graph shortest-distance fields; not true continuous geodesics/anatomy/garment seams",
+  "torso_seeds": "All source vertex endpoints of retained torso-upper selected contour edges; one fixed seed set",
+  "arm_seed_policy": "Nearest evaluated source vertex to lowerarm_l/r.head_local; include all squared-distance ties within1e-12 native squared; no offset/seed/weight tuning",
+  "arm_centers": {
+    "l": [
+      0.35510677099227905,
+      -0.02005697600543499,
+      1.1395602226257324
+    ],
+    "r": [
+      -0.35510677099227905,
+      -0.02005697600543499,
+      1.1395602226257324
+    ]
+  },
+  "max_seed_distance": 0.1,
+  "surface_zero_epsilon": 1e-10,
+  "roles": [
+    {
+      "side": "l",
+      "signed_field": "distance_l - distance_torso",
+      "x_sign": 1,
+      "z_min": 1.1395602226257324,
+      "z_max": 1.413631796836853
+    },
+    {
+      "side": "r",
+      "signed_field": "distance_r - distance_torso",
+      "x_sign": -1,
+      "z_min": 1.1395602226257324,
+      "z_max": 1.413631796836853
+    }
+  ],
+  "bounds": {
+    "source_vertices": 13380,
+    "source_triangles": 26756,
+    "unique_triangle_edges": 40134,
+    "max_heap_pops_per_field": 1000000,
+    "max_ring_points": 4096,
+    "max_result_bytes": 8388608,
+    "max_derived_archive_bytes": 1048576
+  },
+  "acceptance": "Each side exactly one topologically simple closed degree2 zero contour with canonical source edges/triangles/fractions; all crossing points remain strictly same-side of x=0 and strictly between declared elbow/neck z values; each seed region connected; negative side domains disjoint; first tie-on-surface/ambiguous/invalid ring/domain violation stops, no relabel/tuning",
+  "limits": "Source registration references only. Full armhole/front/back/upper/lower garment correspondence, interior/ease/coverage/contact/rig-morph-motion remain open. Topological simplicity is not geometric 3D self-clearance; that remains explicitly UNKNOWN rather than a physical pass."
+}

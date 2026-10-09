@@ -1,0 +1,54 @@
+{
+  "question": "Actual source reference placement/readability: sleeve section vs shoulder armhole",
+  "body_materials": {
+    "gray": [
+      0.42,
+      0.42,
+      0.42
+    ],
+    "l": [
+      0.04,
+      0.3,
+      0.7
+    ],
+    "r": [
+      0.75,
+      0.12,
+      0.04
+    ]
+  },
+  "marker_materials": {
+    "l": [
+      0.015,
+      0.045,
+      0.1
+    ],
+    "r": [
+      0.12,
+      0.015,
+      0.01
+    ]
+  },
+  "body_roughness": 1,
+  "marker_radius": 0.002,
+  "color_scope": "Only all3-negative-vertex triangles; crossing triangles gray; no continuous partition claim",
+  "view_directions": {
+    "front": [
+      0,
+      -1,
+      0
+    ],
+    "front-left": [
+      1,
+      -1,
+      0
+    ],
+    "rear": [
+      0,
+      1,
+      0
+    ]
+  },
+  "pad_each_side": 0.04,
+  "native_policy": "Fresh factory body reconstruction only; no sourceblend open/save or appearance qualification; 240s once before06:20UTC; no retake"
+}

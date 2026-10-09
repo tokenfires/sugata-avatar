@@ -1,0 +1,95 @@
+{
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-sections/SECTION-MANIFEST.json",
+      "bytes": 113168,
+      "sha256": "767c6b26e4fca45369d28c3cde756aa0c47ade9573789399825364941254d27b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-sections/ROOT-RESULT.json",
+      "bytes": 3075,
+      "sha256": "408cebf68a8897bba01c9c70b900117872c0994fc158f132d572fd833953227b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-sections/RESULT-REVIEW.md",
+      "bytes": 6627,
+      "sha256": "b82f40fa65ac67efd9722940cf671314aa2e3970e10f19e276352ed23e9d075e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-source-contract/SOURCE-MAP.json",
+      "bytes": 91085,
+      "sha256": "7cdcda00ad43629b558b829afbc76b226f121aabd98d7bb9b270c592b90bb129"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-palette-link-boundary/COLD.json",
+      "bytes": 873228,
+      "sha256": "3729e57a0c9b86649c70a43170830336378999cdab3b1e8c668132a7a7e46c45"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/after-geometry.npz",
+      "bytes": 840170,
+      "sha256": "10f646e42a868fe84ab14d6e3022918a70e6b0aeec30781f270037b79be2f024"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/original-first.jpg",
+      "bytes": 133854,
+      "sha256": "6b177483ed331b187d66146ae3f17296eaa2604a176a84de4e0abb40772ca93d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-palette-link-boundary/palette-body-front.png",
+      "bytes": 466060,
+      "sha256": "bc49440723ec21273ef838b8910a2d0eb8f24350057f8001100193f70ac6596f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-junction/PLAN.md",
+      "bytes": 5149,
+      "sha256": "a0108345c1ac93782338d040b3522590cf8e21ab628511c1a5b39a1e1f2b428f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-junction/INPUTS.json",
+      "bytes": 1905,
+      "sha256": "59a1f2af84b7dd6ca4eb150acad0350e9bc0e7d4b22f794c1cfe82230054558e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-junction/POLICY.json",
+      "bytes": 2076,
+      "sha256": "f84eaf99ebbe1925c3b78b8b1397dfad8bea1aefdb4e745244b1312c6f54bc00"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-junction/WORTH.md",
+      "bytes": 4501,
+      "sha256": "7da28810d64c94a74140e5d5264082b695cbb9d413912d863548653edc3492ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-junction/ROOT-WORTH.json",
+      "bytes": 325,
+      "sha256": "033baeb2d54de8b54986a293f017a258a07c0a8b9aade2a7908356ff6dfc35a1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-junction/junction.py",
+      "bytes": 11158,
+      "sha256": "0423c920e311afd8bb4291f16432d3d37461707f3927c3ec2c1570d869d79c2b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-junction/run_query.py",
+      "bytes": 2193,
+      "sha256": "ca8909ca0b8de894849b5632aaf7a49e3adf0ae201ed0d39dcd6a8b76c50ca3e"
+    }
+  ],
+  "deadline_utc": "2026-10-09T06:20:00+00:00",
+  "timeout_seconds": 120,
+  "source_array_names": [
+    "Human_world",
+    "Human_triangles"
+  ],
+  "derived_arrays": [
+    "torso_distance",
+    "torso_predecessor",
+    "l_distance",
+    "l_predecessor",
+    "r_distance",
+    "r_predecessor"
+  ],
+  "bounds": "Literal POLICY; 8MiB result/1MiB archive/64KiB wrapper log",
+  "native_chart_admitted": false
+}

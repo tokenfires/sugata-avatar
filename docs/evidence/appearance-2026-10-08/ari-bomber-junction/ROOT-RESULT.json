@@ -1,0 +1,63 @@
+{
+  "utc": "2026-10-09T05:19:16.060071+00:00",
+  "verified": true,
+  "source_query_passed": true,
+  "method": "independent full-source identities/area/edge graph, Bellman inequality and strictly descending predecessor equality certificates, complete triangle intersections/loops/role witnesses",
+  "distance_certificates": {
+    "torso": {
+      "all_edges_Bellman_inequality_max_excess": 1.1102230246251565e-16,
+      "all_nonseed_predecessor_equality_max_error": 0.0,
+      "strict_predecessor_descent": true,
+      "seed_count": 124
+    },
+    "l": {
+      "all_edges_Bellman_inequality_max_excess": 1.1102230246251565e-16,
+      "all_nonseed_predecessor_equality_max_error": 0.0,
+      "strict_predecessor_descent": true,
+      "seed_count": 1
+    },
+    "r": {
+      "all_edges_Bellman_inequality_max_excess": 1.1102230246251565e-16,
+      "all_nonseed_predecessor_equality_max_error": 0.0,
+      "strict_predecessor_descent": true,
+      "seed_count": 1
+    }
+  },
+  "boundaries": [
+    {
+      "side": "l",
+      "crossings": 44,
+      "triangles": 44,
+      "role_invalid_indices": [],
+      "world_min": [
+        0.26721520083455247,
+        -0.06673488228395259,
+        1.165565155580657
+      ],
+      "world_max": [
+        0.30153170553402614,
+        0.030261875716777582,
+        1.2750180071497956
+      ]
+    },
+    {
+      "side": "r",
+      "crossings": 44,
+      "triangles": 44,
+      "role_invalid_indices": [],
+      "world_min": [
+        -0.30153170560663445,
+        -0.06673488228395259,
+        1.1655651560427687
+      ],
+      "world_max": [
+        -0.26721520083455247,
+        0.030261875716777582,
+        1.2750180071497956
+      ]
+    }
+  ],
+  "refusal": null,
+  "native_chart": "NOT_RUN",
+  "physical_3D_self_clearance": "UNKNOWN"
+}

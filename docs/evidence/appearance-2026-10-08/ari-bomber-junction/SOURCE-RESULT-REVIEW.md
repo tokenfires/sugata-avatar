@@ -1,0 +1,31 @@
+# Independent junction source result
+
+**PASS the declared graph/vertex-domain source predicates. Retain two canonical44-point reference loops, without armhole, garment or artist acceptance.** One root-collected query wrapper49433/query49436 ran05:19:11.541653–.716569UTC, exit0/no timeout. RESULT records both boundaries accepted/post-inputs exact and native_chart=NOT_RUN. The job/log agrees with that source-only result; no chart or garment was observed.
+
+Independently decoded only the authorized two archived Human arrays and six derived distance/predecessor vectors, using allow_pickle=False. Exact raw array hashes, dtypes and domains match the source/result. Rebuilt canonical40134 triangle edges/two-incidence counts/positive lengths and exact edge/length hashes. For each of three fields, all seeds have distance0/predecessor−1; every nonseed predecessor is an actual source edge with strictly smaller distance and exact predecessor equality. All-edge Bellman inequality maximum excess is1.1102230246251565e-16 for each field; predecessor equality error is0. These certificates verify stored graph distances without another shortest-path solve or query. All15 physical execution pins independently remain exact.
+
+Torso seeds are the literal124 endpoints of the retained upper-ring source edges. Left/right nearest seed candidates are10038/3370, with source points±0.37377452850341797 inX,−0.007056950591504574Y,1.1544686555862427Z. Squared-distance minimum/ties independently match the recorded0.0007397472045955486 and fixed1e-12 band. These are numerically selected source vertices, not measured anatomical landmarks.
+
+From the saved fields, independently verified both connected1959-vertex negative domains, their hashes/disjoint vertex sets, and no source-vertex zero-band participant. Every recorded crossing triangle is precisely an actual sign-crossing source triangle; all canonical edges/fractions/interpolated points match exactly (maximum point residual0). Each side has one44-node cycle, no duplicate route nodes, and every consecutive edge pair belongs to a recorded source segment triangle. Complete point min/max and strict artistX/Z bounds match. Recorded descriptive centroid/normal maximum-plane residuals also agree; this is not an acceptance or physical-fit test. Full source triangle area verification remains attributed to query/root, not independently rerun here.
+
+**Actionable placement limit:** left loop spansX[0.26721520083455247,0.30153170553402614],Z[1.165565155580657,1.2750180071497956]; right is approximately mirrored. Centroids are nearX±0.282395114,Z1.216642688. The source-map upperarm_l head isX0.193641365,Z1.320101500 and lowerarm_l head isX0.355106771,Z1.139560223. Thus the new loop sits between those recorded centerlineX/Z stations, rather than being proven to coincide with a desired shoulder armhole. The accepted broad elbow-to-neck interval only verifies the frozen authoring restriction. Naming the result a junction does not resolve that artist placement duty. No conclusion about an anatomical joint or suitable seam follows from this comparison.
+
+**A, preferred next:** one separately preflighted source-body chart can show whether these references are useful for a sleeve/torso authoring decision or sit too far along the arm for the intended role. Source triangles entirely inside each negative vertex domain may be colored; crossing triangles staygray, so no continuous clipped-region partition is implied. Fixed touching boundary markers are display geometry only. The chart costs a new isolated factory reconstruction/material/curve/camera/framing/observer contract and one first-image job. Exact original body input remains unchanged; auxiliaries/rig/current skin appearance are omitted and labelled. Actual incoherent or unsuitable role placement must refuse artist use, preserving originals/no retake.
+
+**B:** stop source imaging and nominate independently authored original jacket topology with explicit landmark registration. It offers freer garment silhouette and may avoid promoting a graph boundary that has no desired seam role, but still costs actual source registration, shoulder/armhole/interior/coverage/contact and rig/morph responsibility. It cannot accept fit by asset naming or silently reinterpret these references as garment sections. No seeds, fields, weight, plane, radius or component relabeling inside this closed query.
+
+**Chart worth: conditional YES to A; execution remains held until its separate source preflight/root admission.** The useful visual question is literal reference placement and readability, not Ari appearance, fitted sleeve or physical contact. Numerical success does not automatically transfer phases. Vertex-ID disjointness is not continuous negative-triangle-region separation, embedded3D self-clearance, occupancy or clearance; source predicates explicitly leave those physical claimsUNKNOWN. Canonical loops support future authorship only after the role decision.
+
+| Complete reviewed/result-bound file | Bytes | SHA256 |
+| --- | ---: | --- |
+| RESULT.json | 69607 | `14d0a4b508eaed73c60d0604bbaf3ec34c321fcf5974fd479f9d948c55d36a5b` |
+| ROOT-RESULT.json | 1772 | `7475433143b66915683ccf11d4f1d19521e5991f83793eac8a874d40079186a9` |
+| JOB.json | 508 | `f5c0c728069219fb5c49243dde194f001501843b9882496c2081371f91356838` |
+| query.log | 93 | `06a795f7d3084769835da5729b227b089b0f84cdd90dcf576f7ab05f3d015206` |
+| distances.npz (six numeric vectors) | 367504 | `f339fabfb263a7c535fe7ee4ae757b2bc83d498f5f4d93675867e5efc0a6857e` |
+| junction.py | 11158 | `0423c920e311afd8bb4291f16432d3d37461707f3927c3ec2c1570d869d79c2b` |
+| run_query.py | 2193 | `ca8909ca0b8de894849b5632aaf7a49e3adf0ae201ed0d39dcd6a8b76c50ca3e` |
+| EXEC-QUERY.json | 4069 | `cd5910fa2f46cb5ad1f7f4746f21ca9e9e2a3c5fb0f20ec3822547a5b3478853` |
+| QUERY-PREFLIGHT.md | 6171 | `763ced27fd118cb67edac8e69386bc3a952cc82ab387c9a1c94055d98bdd99d8` |
+
+PLAN/POLICY/source identities remain bound by the unchanged15-pin EXEC and prior complete preflight. Only stored numeric verification was performed; no collector/query rerun, native/GPU/browser/network/capture, source edit, new garment geometry or chart by this critic. Wider AAA and historical refusals remain intact. Stable handoff; filesystem save time is authoritative.

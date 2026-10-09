@@ -1,0 +1,58 @@
+{
+  "utc": "2026-10-09T05:35:11.608945+00:00",
+  "stored_receipt_verified": true,
+  "native_job_collected": true,
+  "all25physicalpins_exact": true,
+  "source_native_file_unchanged": true,
+  "body_source_and_face_indices_exact": true,
+  "marker_original_source_F32_controls_exact": true,
+  "configured_materials_render_look_exact": true,
+  "first_originals": [
+    {
+      "file": "chart-front.png",
+      "bytes": 428855,
+      "sha256": "87d347258839b2a9403894fd7c11e6f5cf4b54dcad306bd42f193304dc23c9fc",
+      "RGBA_domain": [
+        768,
+        1024
+      ],
+      "all_chunk_CRCs": true
+    },
+    {
+      "file": "chart-front-left.png",
+      "bytes": 431537,
+      "sha256": "77590978a1ed204b14ddb0e05db4ebef4d265124b27784554846da02703c482f",
+      "RGBA_domain": [
+        768,
+        1024
+      ],
+      "all_chunk_CRCs": true
+    },
+    {
+      "file": "chart-rear.png",
+      "bytes": 432044,
+      "sha256": "e11cf10db004fba5c18433317a38cbc30997063feddce9525abd0cb5844406f8",
+      "RGBA_domain": [
+        768,
+        1024
+      ],
+      "all_chunk_CRCs": true
+    }
+  ],
+  "root_whole3originals_viewed": true,
+  "root_image_decision": "Readable upper-arm branch diagnostics; intended shoulder/torso armhole suitability refused: front/oblique/rear show loops below shoulder transition, axillary connection stays gray. No physical defect/fit conclusion.",
+  "alternatives": [
+    {
+      "route": "Retain fixed graph refs as diagnostics; separate original jacket template with explicit shoulder/crown/axilla/front-back landmark registration",
+      "tradeoff": "Freer authored shape costs complete original seam/topology/interior/coverage/contact/rig duties"
+    },
+    {
+      "route": "Nominate separately authored drop-shoulder jacket design and corresponding registration",
+      "tradeoff": "May intentionally put a seam farther along arm, but changes accepted design intent and still requires full registration/fit; not a reinterpretation inside this closed trial"
+    }
+  ],
+  "native_display_preservation": "Verified guards in pinned code/pass receipt; no second native job",
+  "physical_clearance": "UNKNOWN",
+  "garment_fit": "UNKNOWN",
+  "current_trial": "CLOSED; no field/seed/radius/plane/image retake"
+}

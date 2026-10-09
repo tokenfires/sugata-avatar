@@ -1,0 +1,266 @@
+{
+  "utc": "2026-10-09T05:43:01.406175+00:00",
+  "payloads": [
+    {
+      "file": "CHART-CONTRACT.json",
+      "bytes": 939,
+      "sha256": "a906a9a1d187953da8a2eac32e2899be959eaf75c19b71e6a57e3ac68a4c2ed9",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "CHART-JOB-start.json",
+      "bytes": 519,
+      "sha256": "4cdd29bb5bd259e00bbcc1c3274f0c57385590f37a4bbe3d2e32e8d963099f4a",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "CHART-JOB.json",
+      "bytes": 744,
+      "sha256": "5c0a122251cb64d89e3b78d4ccad64f013068f07902341d34d8f6573bfdecee2",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "CHART-PREFLIGHT.md",
+      "bytes": 5956,
+      "sha256": "577b36579502a82ac92752bb8af7f4d9f1ab81cbcb7b78106d869f171c58bb89",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "CHART-RESULT.json",
+      "bytes": 11270,
+      "sha256": "c12c62935a6a80fc700bc08a4bf4987741f2a062cd99ad97a44ed8c79d41483c",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "CHART-REVIEW.md",
+      "bytes": 7168,
+      "sha256": "f386442c2eb6f9cbee3e1551533f8d7a528ed3d2f7b39363e538fdc76cb52240",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "EXEC-CHART.json",
+      "bytes": 6217,
+      "sha256": "40d3d48320a9d41ecf786a9b1e4f91bd1ac16413ceb0f6a08e5a0976bcb29e94",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "EXEC-QUERY.json",
+      "bytes": 4069,
+      "sha256": "cd5910fa2f46cb5ad1f7f4746f21ca9e9e2a3c5fb0f20ec3822547a5b3478853",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "INPUTS.json",
+      "bytes": 1905,
+      "sha256": "59a1f2af84b7dd6ca4eb150acad0350e9bc0e7d4b22f794c1cfe82230054558e",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "JOB-start.json",
+      "bytes": 395,
+      "sha256": "b8bf0611699e5bbeebcd7ac1e3cfddd6300c26ddf798d0426a4266a89c3dabd8",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "JOB.json",
+      "bytes": 508,
+      "sha256": "f5c0c728069219fb5c49243dde194f001501843b9882496c2081371f91356838",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "JUNCTION-MANIFEST.json",
+      "bytes": 67309,
+      "sha256": "75f8d4480d637a4ce7adf6f165f8a080d6cad20b1dfd96e7c1341dafc73a730b",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "PLAN.md",
+      "bytes": 5149,
+      "sha256": "a0108345c1ac93782338d040b3522590cf8e21ab628511c1a5b39a1e1f2b428f",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "POLICY.json",
+      "bytes": 2076,
+      "sha256": "f84eaf99ebbe1925c3b78b8b1397dfad8bea1aefdb4e745244b1312c6f54bc00",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "PRE-CHART-CORRECTION.json",
+      "bytes": 19681,
+      "sha256": "198c5138a2f2c103a2931e6e95a21a7e56b47b7186652b5f0eaed8772670f84c",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "PRE-QUERY-CORRECTION.json",
+      "bytes": 18295,
+      "sha256": "c8c21d623f782e93c8082364e74ba545c06dc4d2b25650940f6ea0cda29d2e5c",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "QUERY-PREFLIGHT.md",
+      "bytes": 6171,
+      "sha256": "763ced27fd118cb67edac8e69386bc3a952cc82ab387c9a1c94055d98bdd99d8",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "README-SOURCE-PHASE.md",
+      "bytes": 2368,
+      "sha256": "bcdf6aa9b29b508b17c18f800286f4e8c40d71fb1b4ddb5e5382dfceaa6538b9",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "README.md",
+      "bytes": 7153,
+      "sha256": "fb105bb1986317ba7631e5dc26900277a029db2e9ac06033657a9ec399abb09d",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "RESULT.json",
+      "bytes": 69607,
+      "sha256": "14d0a4b508eaed73c60d0604bbaf3ec34c321fcf5974fd479f9d948c55d36a5b",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-CHART-PREFLIGHT.json",
+      "bytes": 513,
+      "sha256": "5b8725fbb2fce222f218aea98a23e740eba4015c407026e792cbe46f87cc14f6",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-CHART-RESULT.json",
+      "bytes": 2234,
+      "sha256": "b57fde728f40bf6466192ff4ca23146b4afea16713ade3dce51557bce2659977",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-CHART-REVIEW.json",
+      "bytes": 733,
+      "sha256": "03b739735839b46791c414647478b062bf78a1c4a90eb6bcae29b85c323d964e",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-DELIVERY.json",
+      "bytes": 500,
+      "sha256": "7c0732f631ca53cc383ca8e5a89f78631ff1eacab812ab331852aeb428f23083",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-QUERY-PREFLIGHT.json",
+      "bytes": 369,
+      "sha256": "d2260e9b53687df07b8a37aa70ff4da1e1319fb6ea475314ee9b12276c9b5e04",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-RESULT.json",
+      "bytes": 1772,
+      "sha256": "7475433143b66915683ccf11d4f1d19521e5991f83793eac8a874d40079186a9",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-SOURCE-REVIEW.json",
+      "bytes": 630,
+      "sha256": "d787afecac8a73c4fd8fcdfb4da9f91d3ea27f8562c0d8c268eaff12780509b5",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "ROOT-WORTH.json",
+      "bytes": 325,
+      "sha256": "033baeb2d54de8b54986a293f017a258a07c0a8b9aade2a7908356ff6dfc35a1",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "SOURCE-RESULT-REVIEW.md",
+      "bytes": 6305,
+      "sha256": "13f1eff551acf7ad00c9bb4a80f9f57ed88db9704804bc5f324f1555113ff3f9",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "WORTH.md",
+      "bytes": 4501,
+      "sha256": "7da28810d64c94a74140e5d5264082b695cbb9d413912d863548653edc3492ba",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "chart-front-left.png",
+      "bytes": 431537,
+      "sha256": "77590978a1ed204b14ddb0e05db4ebef4d265124b27784554846da02703c482f",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "chart-front.png",
+      "bytes": 428855,
+      "sha256": "87d347258839b2a9403894fd7c11e6f5cf4b54dcad306bd42f193304dc23c9fc",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "chart-rear.png",
+      "bytes": 432044,
+      "sha256": "e11cf10db004fba5c18433317a38cbc30997063feddce9525abd0cb5844406f8",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "chart.log",
+      "bytes": 1419,
+      "sha256": "107a95d09ee0d46ea5955291635859003982f8dc3e9bd49b6847eb839e1cb8cd",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "chart.py",
+      "bytes": 17627,
+      "sha256": "dd769405ec5e3dd5f43f0aea0e94eabe6cc56d4e9942acbeb00c9de9b6355065",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "distances.npz",
+      "bytes": 367504,
+      "sha256": "f339fabfb263a7c535fe7ee4ae757b2bc83d498f5f4d93675867e5efc0a6857e",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "junction.py",
+      "bytes": 11158,
+      "sha256": "0423c920e311afd8bb4291f16432d3d37461707f3927c3ec2c1570d869d79c2b",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "query.log",
+      "bytes": 93,
+      "sha256": "06a795f7d3084769835da5729b227b089b0f84cdd90dcf576f7ab05f3d015206",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "review.html",
+      "bytes": 2219,
+      "sha256": "accfebad2ce397fa127af899b50d4a81f84176b75cb193ead392c1b659085f23",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "run_chart.py",
+      "bytes": 2429,
+      "sha256": "31c069ed724aca794ca9214052aae462a91fdef1f0abaf3c088a5e4709f9fe79",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "run_query.py",
+      "bytes": 2193,
+      "sha256": "ca8909ca0b8de894849b5632aaf7a49e3adf0ae201ed0d39dcd6a8b76c50ca3e",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "verify_chart.py",
+      "bytes": 5655,
+      "sha256": "448cf61921b3f247bba3f545cbf6f93e1a3a80e58f5eaa1ca582d775bf0b9707",
+      "physical_mode": "0444"
+    },
+    {
+      "file": "verify_result.py",
+      "bytes": 6836,
+      "sha256": "74b2812d14f43c2d85daa2b07a633b116d25e25d8fc60554e3d61d304264c989",
+      "physical_mode": "0444"
+    }
+  ],
+  "closure": "Two owned jobs fully collected; two source loops and3firstcharts diagnostic only; intendedbomberarmholepromotion refused",
+  "source_default_preserved": true,
+  "next_action": "Fresh original jacket template/registration authorship, not closed source-boundary tuning"
+}
