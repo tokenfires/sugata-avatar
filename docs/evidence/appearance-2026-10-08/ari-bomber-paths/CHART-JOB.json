@@ -1,0 +1,24 @@
+{
+  "utc_started": "2026-10-09T07:07:49.621472+00:00",
+  "wrapper_pid": 57203,
+  "command": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--factory-startup",
+    "--offline-mode",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/chart.py"
+  ],
+  "allocated_timeout_seconds": 240,
+  "deadline_utc": "2026-10-09T07:15:00+00:00",
+  "native_pid": 57206,
+  "owned_process_group": 57206,
+  "utc_finished": "2026-10-09T07:07:56.443862+00:00",
+  "exit_code": 0,
+  "timed_out": false,
+  "log_bytes": 1404,
+  "log_sha256": "ee39ac3205ef0875c1c8f57b1796bc5cc9e94d663ace4af70d11092fb931cc3f",
+  "log_truncated": false
+}

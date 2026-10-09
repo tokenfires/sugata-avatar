@@ -1,0 +1,51 @@
+{
+  "intent": "Original set-in sleeve source-attachment path from retained fixedartistdraftanchors, notgarmentmesh orclosedglobaldistancefield/planeresurrection",
+  "source": "Exact2archivedHuman worldFloat32(13380,3)/trianglesInt32(26756,3)",
+  "sides": [
+    "l",
+    "r"
+  ],
+  "anchor_order": [
+    "crown",
+    "front",
+    "underarm",
+    "rear",
+    "crown"
+  ],
+  "anchor_ids": {
+    "l": [
+      8069,
+      10423,
+      8136,
+      8345,
+      8069
+    ],
+    "r": [
+      1377,
+      3756,
+      1448,
+      1673,
+      1377
+    ]
+  },
+  "graph": "Canonical40134source triangleedges, twoincidentoppositeorientedtriangles each, finitepositiveEuclideanweights, no addedpenalties/constraints/offsets/weights",
+  "path_solver": "Fullsource single-originDijkstra per consecutivepair, sortedadjacency/heap(distance,vertex), strictrelaxations. RecordfullF64distance/I32predecessor vectors per reachedorigin; no globalzero-contour/segmentation solve",
+  "uniqueness": "Eachnonorigin selectedroute vertex musthave exactlyone optimal predecessor amongactualsource neighbors within1e-12 of recordeddistance, equalsthe selectedstrictlydescendingpredecessor; firsttie stops. This is numericuniqueedge-route, notcontinuumgeodesicuniqueness",
+  "route_guards": "Eachsegment3ormorevertices, allsourceIDsdistinctwithinroute, <=512vertices, sameXside, strictlybetween recordedlowerarm/neckZ; fixedanchors occuronlyat respectiveends, nootherroleanchor inside segment. No alternate path/domain/anchor/penalty search",
+  "cycle_guards": "Concatenateliteral4routesdropping sharedconsecutive endpoints; closure onlyatfirstanchor, allremainingIDsunique, eachconsecutivepair anactualsourceedge, exactlyone connecteddegree2ring <=2048vertices. Rejectfirstrepeatedvertex/edge/anchor with completepathmembership/point witnesses",
+  "source_face_membership": "Deleteonlyloopedgesfromfaceadjacency. Requireexactly2facecomponents. Onecontains everyincidenttriangleof fixedsourcearmreference vertex10038(l)/3370(r) frompriorvalidatedsource receipt; othercontains everyincidenttriangleof retainedneckline-source-edge endpoints. These are numericregistration refs, notanatomicallabels; requireeachref whollyoffloop/inonecomponent anddifferentcomponents",
+  "arm_reference_vertex": {
+    "l": 10038,
+    "r": 3370
+  },
+  "component_scope": "Sourceface association only; fullbodymasking/garmentcut/coverage/occupancy/selfclearance notqualified. Arm-sidecomponentsbothsides mustbedisjointfaceIDsets; fullremainingbodyretained",
+  "bounds": {
+    "query_seconds": 120,
+    "heap_pops_per_field": 1000000,
+    "result_bytes": 2097152,
+    "derived_archive_bytes": 2097152,
+    "native_seconds": 240,
+    "native_views": 3
+  },
+  "stop": "Firstsource/shortestuniqueness/route/cycle/faceassociation failure stops beforelatersegments/sides/native. No tune/alternatepaths/retake. Persist reachedfields/paths/witnesses."
+}

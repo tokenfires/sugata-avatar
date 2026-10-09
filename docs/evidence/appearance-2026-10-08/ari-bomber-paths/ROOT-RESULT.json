@@ -1,0 +1,74 @@
+{
+  "utc": "2026-10-09T06:49:49.898386+00:00",
+  "verified": true,
+  "source_query_passed": true,
+  "method": "Independent fullsource edge-face enumeration/Gram, allstored Bellman+strictpredecessor certificates, literalroute/unique candidate/firstoverlap witnesses, union-find partition whenreached",
+  "fields": {
+    "l-crown": {
+      "origin": 8069,
+      "Bellman_max_excess": 1.1102230246251565e-16,
+      "predecessor_max_equality_error": 0.0,
+      "strict_descent": true
+    },
+    "l-front": {
+      "origin": 10423,
+      "Bellman_max_excess": 1.1102230246251565e-16,
+      "predecessor_max_equality_error": 0.0,
+      "strict_descent": true
+    },
+    "l-underarm": {
+      "origin": 8136,
+      "Bellman_max_excess": 1.1102230246251565e-16,
+      "predecessor_max_equality_error": 0.0,
+      "strict_descent": true
+    },
+    "l-rear": {
+      "origin": 8345,
+      "Bellman_max_excess": 1.1102230246251565e-16,
+      "predecessor_max_equality_error": 0.0,
+      "strict_descent": true
+    },
+    "r-crown": {
+      "origin": 1377,
+      "Bellman_max_excess": 1.1102230246251565e-16,
+      "predecessor_max_equality_error": 0.0,
+      "strict_descent": true
+    },
+    "r-front": {
+      "origin": 3756,
+      "Bellman_max_excess": 1.1102230246251565e-16,
+      "predecessor_max_equality_error": 0.0,
+      "strict_descent": true
+    },
+    "r-underarm": {
+      "origin": 1448,
+      "Bellman_max_excess": 1.1102230246251565e-16,
+      "predecessor_max_equality_error": 0.0,
+      "strict_descent": true
+    },
+    "r-rear": {
+      "origin": 1673,
+      "Bellman_max_excess": 1.1102230246251565e-16,
+      "predecessor_max_equality_error": 0.0,
+      "strict_descent": true
+    }
+  },
+  "sides": [
+    {
+      "side": "l",
+      "paths_reached": 4,
+      "source_association_passed": true,
+      "first_incremental_overlap": null
+    },
+    {
+      "side": "r",
+      "paths_reached": 4,
+      "source_association_passed": true,
+      "first_incremental_overlap": null
+    }
+  ],
+  "refusal": null,
+  "artist_role": "NOT_RUN",
+  "garment_geometry": false,
+  "physical_fit_occupancy_selfclearance": "UNKNOWN"
+}
