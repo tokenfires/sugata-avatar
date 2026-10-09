@@ -1,0 +1,103 @@
+{
+  "timeout_seconds": 120,
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-source-contract/SOURCE-MAP.json",
+      "bytes": 91085,
+      "sha256": "7cdcda00ad43629b558b829afbc76b226f121aabd98d7bb9b270c592b90bb129"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-source-contract/CONSTRUCTION-DECISION.md",
+      "bytes": 7117,
+      "sha256": "e2e1a2b34c281fff5b55fa17f7a882e275069ff44ad816dac442624d5e2b5db7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-source-contract/REVIEW.md",
+      "bytes": 6440,
+      "sha256": "229e75707a11102f8a999515b12884cd399207498116572394ca2869ff19bf18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-palette-link-boundary/COLD.json",
+      "bytes": 873228,
+      "sha256": "3729e57a0c9b86649c70a43170830336378999cdab3b1e8c668132a7a7e46c45"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/after-geometry.npz",
+      "bytes": 840170,
+      "sha256": "10f646e42a868fe84ab14d6e3022918a70e6b0aeec30781f270037b79be2f024"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-palette-link-boundary/palette-body-front.png",
+      "bytes": 466060,
+      "sha256": "bc49440723ec21273ef838b8910a2d0eb8f24350057f8001100193f70ac6596f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/original-first.jpg",
+      "bytes": 133854,
+      "sha256": "6b177483ed331b187d66146ae3f17296eaa2604a176a84de4e0abb40772ca93d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/design.json",
+      "bytes": 46386,
+      "sha256": "5d37f4263b2a172286619d7fbcc43d5e017e2f69e8867b23e8bc93b55dfe4dd7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/palette_lib.py",
+      "bytes": 6926,
+      "sha256": "e9828005c98d67c0d926937b4cc36f6b015c1eb2155d21ba5617228d81d95a97"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-sections/PLAN.md",
+      "bytes": 4031,
+      "sha256": "d7daef86ec724368b59a4f98e2c173c854d152758b2782c7636c6a607267430a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-sections/INPUTS.json",
+      "bytes": 2136,
+      "sha256": "773ffb637b9ad505631a72e5ba249b0de007714a05ac968b54a4294dd28d2b5b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-sections/STATIONS.json",
+      "bytes": 3983,
+      "sha256": "c17982c3931b31385ea05408a0be40c493c64e77b23eeb4fa10c89e34c4b1be8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-sections/WORTH.md",
+      "bytes": 4213,
+      "sha256": "7b6fafa70c6b03d4ab742ad2b9f77fb74f0008725972a5a2212c02c8437256fa"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-sections/ROOT-WORTH.json",
+      "bytes": 300,
+      "sha256": "d1f4801bc506f34b57fa67ac09b26ed840ed35f8904d5cd18f817ee859587132"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-sections/SOURCE-ASSOCIATION.json",
+      "bytes": 533,
+      "sha256": "6b4a2867394bb2c50d39e2e02512c7fa6289e7b560eeb8423136a591b2ddffad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-sections/sections.py",
+      "bytes": 10424,
+      "sha256": "76c022b568daccc5896455b511ce3f5ded7cf4aa6f4a8890c44179ec11b45e67"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-sections/run_query.py",
+      "bytes": 2159,
+      "sha256": "41e19ffb297011a9db1dea4761ea4bafc7d22c28f127d6e69ff75b7c6e610b61"
+    }
+  ],
+  "source_arrays": [
+    "Human_world",
+    "Human_triangles"
+  ],
+  "output_cap_bytes": 8388608,
+  "log_cap_bytes": 65536,
+  "contour_vertex_cap": 4096,
+  "nonadjacent_pair_cap": 1000000,
+  "area_epsilon": 1e-12,
+  "bbox_overlap_epsilon": 1e-12,
+  "native_jobs": 0,
+  "source_mutation": false,
+  "hard_stop_utc": "2026-10-09T05:25:00+00:00"
+}

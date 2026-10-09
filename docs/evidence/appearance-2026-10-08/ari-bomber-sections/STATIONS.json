@@ -1,0 +1,160 @@
+{
+  "authoring": "Original station proposals in recorded world/native units; no physical fit or anatomy inference",
+  "source_domain": "COLD.geometry.Human evaluated render-domain world/triangles only; do not use raw skin indices",
+  "ordered_stations": [
+    {
+      "name": "hem",
+      "origin": [
+        0.0,
+        0.009862011298537254,
+        1.019595980644226
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "reference": "spine_02.head_local",
+      "max_radial_extent": 0.35
+    },
+    {
+      "name": "torso-middle",
+      "origin": [
+        0.0,
+        0.014651765115559101,
+        1.0948296785354614
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "reference": "spine_03.head_local",
+      "max_radial_extent": 0.35
+    },
+    {
+      "name": "torso-upper",
+      "origin": [
+        0.0,
+        0.03163928538560867,
+        1.2388414144515991
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "reference": "spine_03.tail_local",
+      "max_radial_extent": 0.35
+    },
+    {
+      "name": "neckline",
+      "origin": [
+        0.0,
+        -0.0051302071660757065,
+        1.413631796836853
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "reference": "neck_01.head_local",
+      "max_radial_extent": 0.18
+    },
+    {
+      "name": "sleeve-shoulder-l",
+      "origin": [
+        0.21786117553710938,
+        -0.019383075833320617,
+        1.2930203080177307
+      ],
+      "normal": [
+        0.6666272655828969,
+        -0.0032732578959824526,
+        -0.7453840450158671
+      ],
+      "reference": "upperarm_l artist fraction0.15 head\u2192tail",
+      "max_radial_extent": 0.125
+    },
+    {
+      "name": "sleeve-elbow-l",
+      "origin": [
+        0.35510677099227905,
+        -0.02005697600543499,
+        1.1395602226257324
+      ],
+      "normal": [
+        0.6331078177102414,
+        -0.3695138236676326,
+        -0.6801720556393812
+      ],
+      "reference": "lowerarm_l.head_local; artist bisector of upper/lower axes",
+      "max_radial_extent": 0.125
+    },
+    {
+      "name": "sleeve-wrist-l",
+      "origin": [
+        0.46484221816062926,
+        -0.1669113678857684,
+        1.027934730052948
+      ],
+      "normal": [
+        0.5112645687989267,
+        -0.6842041407617481,
+        -0.5200704129782098
+      ],
+      "reference": "lowerarm_l artist fraction0.90 head\u2192tail",
+      "max_radial_extent": 0.1
+    },
+    {
+      "name": "sleeve-shoulder-r",
+      "origin": [
+        -0.21786117553710938,
+        -0.019383075833320617,
+        1.2930203080177307
+      ],
+      "normal": [
+        -0.6666272655828969,
+        -0.0032732578959824526,
+        -0.7453840450158671
+      ],
+      "reference": "upperarm_r artist fraction0.15 head\u2192tail",
+      "max_radial_extent": 0.125
+    },
+    {
+      "name": "sleeve-elbow-r",
+      "origin": [
+        -0.35510677099227905,
+        -0.02005697600543499,
+        1.1395602226257324
+      ],
+      "normal": [
+        -0.6331078177102414,
+        -0.3695138236676326,
+        -0.6801720556393812
+      ],
+      "reference": "lowerarm_r.head_local; artist bisector of upper/lower axes",
+      "max_radial_extent": 0.125
+    },
+    {
+      "name": "sleeve-wrist-r",
+      "origin": [
+        -0.46484221816062926,
+        -0.1669113678857684,
+        1.027934730052948
+      ],
+      "normal": [
+        -0.5112645687989267,
+        -0.6842041407617481,
+        -0.5200704129782098
+      ],
+      "reference": "lowerarm_r artist fraction0.90 head\u2192tail",
+      "max_radial_extent": 0.1
+    }
+  ],
+  "source_point_plane_epsilon": 1e-10,
+  "origin_boundary_epsilon": 1e-09,
+  "policy": "Unique closed intersection ring enclosing station origin, strict max radial extent; stop first refusal in declared station order; no fallback/component relabel/plane changes/radius changes",
+  "clearance_and_ease": "No garment clearance/ease selected; these are source section witnesses only"
+}

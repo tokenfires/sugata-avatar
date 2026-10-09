@@ -1,0 +1,113 @@
+{
+  "utc": "2026-10-09T04:48:54.866775+00:00",
+  "actual_job": {
+    "deadline_utc": "2026-10-09T05:25:00+00:00",
+    "allocated_timeout_seconds": 120.0,
+    "started_utc": "2026-10-09T04:47:26.150248+00:00",
+    "wrapper_pid": 47218,
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-sections/sections.py"
+    ],
+    "timeout_seconds": 120,
+    "query_pid": 47220,
+    "finished_utc": "2026-10-09T04:47:26.234878+00:00",
+    "exit_code": 1,
+    "timed_out": false,
+    "log_bytes": 332
+  },
+  "complete_source_edges_triangles_points_components_verified": true,
+  "source_arrays_exact": true,
+  "world_point_fraction_verification_tolerance": 1e-12,
+  "alternative_origin_test": "signed-angle winding independent of query ray parity",
+  "source_eligibility_check": "Gram area independent of query cross norm",
+  "execution_pins_exact": 17,
+  "sections": [
+    {
+      "name": "hem",
+      "components": 3,
+      "crossing_triangles": 210,
+      "selected_points": 90,
+      "max_extent": 0.18441989554469557,
+      "bound": 0.35,
+      "accepted": true
+    },
+    {
+      "name": "torso-middle",
+      "components": 3,
+      "crossing_triangles": 178,
+      "selected_points": 86,
+      "max_extent": 0.2021678788979564,
+      "bound": 0.35,
+      "accepted": true
+    },
+    {
+      "name": "torso-upper",
+      "components": 3,
+      "crossing_triangles": 224,
+      "selected_points": 124,
+      "max_extent": 0.22014240063987284,
+      "bound": 0.35,
+      "accepted": true
+    },
+    {
+      "name": "neckline",
+      "components": 1,
+      "crossing_triangles": 98,
+      "selected_points": 98,
+      "max_extent": 0.07637266070957179,
+      "bound": 0.18,
+      "accepted": true
+    },
+    {
+      "name": "sleeve-shoulder-l",
+      "components": 1,
+      "crossing_triangles": 188,
+      "selected_points": 188,
+      "max_extent": 0.5027577149553146,
+      "bound": 0.125,
+      "accepted": false
+    }
+  ],
+  "first_refusal_witness": {
+    "station": "sleeve-shoulder-l",
+    "origin": [
+      0.21786117553710938,
+      -0.019383075833320617,
+      1.2930203080177307
+    ],
+    "normal": [
+      0.6666272655828969,
+      -0.0032732578959824526,
+      -0.7453840450158671
+    ],
+    "selected_component_world_min": [
+      -0.15687361726894647,
+      -0.18132567595432933,
+      0.9579068598209618
+    ],
+    "selected_component_world_max": [
+      0.25552043975480687,
+      0.07375485031847655,
+      1.3266745103980628
+    ],
+    "farthest_edge": [
+      4272,
+      4395
+    ],
+    "farthest_point": [
+      -0.15687361726894647,
+      -0.02555817464736813,
+      0.9579068598209618
+    ],
+    "farthest_incident_evaluated_triangles": [
+      7925,
+      7928
+    ],
+    "extent": 0.5027577149553146,
+    "bound": 0.125
+  },
+  "decision": "Fixed nomination closed after four usable source references; shoulder needs different explicitly owned branch/armhole association, no plane/radius rescue",
+  "garment_fit": "UNKNOWN",
+  "new_native_jobs": 0
+}

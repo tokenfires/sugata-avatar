@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-09T04:42:36.474958+00:00",
+  "synthetic_checks": [
+    "analytic octahedron z=.2:4 crossing points/radius.8/area1.28",
+    "two disjoint octahedra:2 documented components and1 selected",
+    "outside-only origin:explicit refusal",
+    "nonzero-area crossing polygon:nonadjacent-cross refusal"
+  ],
+  "passed": true,
+  "source_arrays_decoded": false,
+  "native_jobs": 0,
+  "limits": "Analytic geometry predicate checks only; actual source extraction not run"
+}
