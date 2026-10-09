@@ -1,0 +1,53 @@
+{
+  "request": {
+    "query": "site:makehumancommunity.org/clothes jacket sleeves",
+    "includeDomains": [
+      "makehumancommunity.org"
+    ],
+    "limit": 3,
+    "sources": [
+      "web"
+    ],
+    "domainTools": false,
+    "highlights": true
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"http://www.makehumancommunity.org/clothes.html?field_clothes_category_value=Uniform/Armor&field_clothes_status_value=All\",\"title\":\"Clothes | www.makehumancommunity.org\",\"description\":\"These are user contributed clothes for MakeHuman. Note that they are not created, nor endorsed, by the MakeHuman crew. You use them at your own risk.\",\"position\":1},{\"url\":\"http://www.makehumancommunity.org/clothes.html?field_clothes_category_value=Uniform/Armor&field_clothes_status_value=OK&order=title&sort=desc\",\"title\":\"Clothes | www.makehumancommunity.org\",\"description\":\"These are user contributed clothes for MakeHuman. Note that they are not created, nor endorsed, by the MakeHuman crew. You use them at your own risk.\",\"position\":2},{\"url\":\"http://www.makehumancommunity.org/clothes.html?order=field_clothes_status&sort=asc&page=5\",\"title\":\"Clothes | www.makehumancommunity.org\",\"description\":\"These are user contributed clothes for MakeHuman. Note that they are not created, nor endorsed, by the MakeHuman crew. You use them at your own risk.\",\"position\":3}]},\"creditsUsed\":2,\"id\":\"01a1230e-465a-716e-bdfe-bfa8fb1658a0\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"http://www.makehumancommunity.org/clothes.html?field_clothes_category_value=Uniform/Armor&field_clothes_status_value=All\\\", #2 \\\"http://www.makehumancommunity.org/clothes.html?field_clothes_category_value=Uniform/Armor&field_clothes_status_value=OK&order=title&sort=desc\\\", #3 \\\"http://www.makehumancommunity.org/clothes.html?order=field_clothes_status&sort=asc&page=5\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "agent_hints": [
+        "All 3 web results are excerpts only (#1 \"http://www.makehumancommunity.org/clothes.html?field_clothes_category_value=Uniform/Armor&field_clothes_status_value=All\", #2 \"http://www.makehumancommunity.org/clothes.html?field_clothes_category_value=Uniform/Armor&field_clothes_status_value=OK&order=title&sort=desc\", #3 \"http://www.makehumancommunity.org/clothes.html?order=field_clothes_status&sort=asc&page=5\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+      ],
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "http://www.makehumancommunity.org/clothes.html?field_clothes_category_value=Uniform/Armor&field_clothes_status_value=All",
+            "title": "Clothes | www.makehumancommunity.org",
+            "description": "These are user contributed clothes for MakeHuman. Note that they are not created, nor endorsed, by the MakeHuman crew. You use them at your own risk.",
+            "position": 1
+          },
+          {
+            "url": "http://www.makehumancommunity.org/clothes.html?field_clothes_category_value=Uniform/Armor&field_clothes_status_value=OK&order=title&sort=desc",
+            "title": "Clothes | www.makehumancommunity.org",
+            "description": "These are user contributed clothes for MakeHuman. Note that they are not created, nor endorsed, by the MakeHuman crew. You use them at your own risk.",
+            "position": 2
+          },
+          {
+            "url": "http://www.makehumancommunity.org/clothes.html?order=field_clothes_status&sort=asc&page=5",
+            "title": "Clothes | www.makehumancommunity.org",
+            "description": "These are user contributed clothes for MakeHuman. Note that they are not created, nor endorsed, by the MakeHuman crew. You use them at your own risk.",
+            "position": 3
+          }
+        ]
+      },
+      "id": "01a1230e-465a-716e-bdfe-bfa8fb1658a0",
+      "creditsUsed": 2
+    },
+    "isError": false
+  }
+}
