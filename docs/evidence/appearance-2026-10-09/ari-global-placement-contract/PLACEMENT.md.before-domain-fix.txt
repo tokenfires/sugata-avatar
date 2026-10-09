@@ -1,0 +1,65 @@
+# One original global placement rule
+
+**Contract, not generated coordinates or a fitted garment.** Use the exact connected TOPOLOGY.json (380be1948657e9d7fb6045a772cfd77cc179283a63feb49331ceccbdb5e09cd2). Every one of its403 outer and403 lining symbols has the owner below. Do not change its indices, grid, holes or winding in order to rescue a generated candidate. No old sleeve mesh,32×5/Catmull course or nominal-ease values are inputs.
+
+This is an original static base-shell authoring choice. It is meant to yield a short loose torso, shared shoulder/axilla attachment, full sleeves, open front and complete corresponding lining for first diagnostic views. Collar/gathered trim/pocket cuts-bags/facings/guard and finished bomber acceptance remain absent duties. The original unitless art supplies style roles, not physical measurements.
+
+## Exact frame and immutable source
+
+All rules operate in the unchanged archived evaluated Human world frame, not raw19158-vertex mesh indices. Future constructor may decode only Human_world float32(13380,3), SHA22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c and Human_triangles int32(26756,3), SHAd0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4. Full body stays in all contact observations, including arms/hands/regions omitted by a source helper mask. No original native file/state, rig, body, expression, weights or masks are changed.
+
+Fixed source references are selected by their exact names/keys in the pinned manifests, not recomputed sections, graph paths, nearest-body queries or registration targets. Read the eight literal SOURCE-REGISTRATION anchors by side/role. Read SECTION-MANIFEST sections hem,torso-middle,torso-upper,neckline. Read DISTAL-MANIFEST sections elbow-l/r,cuff-l/r and their primary_association.point values at sample indices0..15. They are qualified source references; none guarantees garment anatomy, ease or physical fit.
+
+## Torso arcs and front gap
+
+Source rows are0=hem,3=torso-middle,8=torso-upper,12=neckline. Each source contour is the ordered point list from ordered_source_triangle_edges. Keep its literal source associations. For its chart only, orient the list to positive XY shoelace area: reverse the list once if negative; zero/absolute area≤1e-12 refuses. Rotate the oriented list to the point with lexicographically minimum (Y,abs(X),X,original source-list index). This is an explicitly authored frontmost source chart anchor, not an anatomical center-front proof. Require each closed-loop segment length>1e-12 and finite circumference.
+
+For column x=0..24, sample that closed source polyline at fractional arclength f=.04+.92*x/24. Use Euclidean source segment lengths; exact cumulative-endpoint ties select the following segment (half-open intervals); interpolate linearly. This omits .08 of the contour circumference around the frontmost chart point, creating two separate front endpoints. It is an authored opening fraction, not a measured opening angle or sewing dimension.
+
+Apply G to sampled torso points: G(p)=(1.10*p.X, cy+1.10*(p.Y-cy), p.Z), where cy is that section's literal plane_origin.Y. This is the single frozen torso XY shape scale. It has not been tested and is not claimed as body clearance. The exact source plane Z values remain 1.019595980644226,1.0948296785354614,1.2388414144515991,1.413631796836853 for the four rows.
+
+For x=0 and24 at non-source rows, interpolate the two adjacent G-transformed source-row endpoints linearly in parameter row y between0/3/8/12. Front edges therefore have explicit boundary values, rather than an unconstrained harmonic boundary. Their values at source-row knots are the same source-row values by construction.
+
+## Shared armhole ellipse courses
+
+For each side take the literal source points F=front,B=rear,C=crown,U=underarm. Set center=(F+B+C+U)/4. Define up=normalize(C-U), front=normalize((F-B)-up*dot(F-B,up)). Both pre-normalization lengths must exceed1e-10; otherwise refuse. Set a=max_role abs(dot(role-center,front)), b=max_role abs(dot(role-center,up)); both must exceed1e-10. These max projections define a NEW planar garment ellipse, not extraction of a body shoulder section or exact interpolation of the source anchors. The old rejected shoulder-plane slicing recipe is not invoked.
+
+For the literal shared-ring index j=0..15 in each attachment's outer_shared_ring, left theta=2*pi*j/16; right theta=pi-2*pi*j/16. Before G, p=center+a*cos(theta)*front+b*sin(theta)*up. Apply G using cy=center.Y and the same1.10 XY scale. No source-anchor normal offset, Catmull curve, old shoulder radial inset, reflection inference or local height correction is used.
+
+Literal phase roles: left j0/front,j4/crown,j8/rear,j12/underarm; right j0/rear,j4/crown,j8/front,j12/underarm. Every j has an analytic rule; source roles are authoring evidence, not assertions that all16 points lie on an anatomical armhole. This phase difference follows the two holes' opposite body-side positions in the torso parameter chart. Later actual orientation/embedding checks must still qualify it.
+
+## Torso priority, graph and unique solve
+
+Owner priority is shared-hole ellipse > source torso row > front-edge interpolation > harmonic remainder. Shared-hole controls override torso row8 at EXACT IDs198=(4,8),200=(8,8),207=(16,8),209=(20,8). The row8 source-arc values for those four symbols are deliberately not constraints. All eight source-row/front endpoint overlaps (four rows × two front edges) choose the source-row rule; interpolation has the identical knot rule. OWNERSHIP.json records every winner and all competing labels. No last-write-wins implementation.
+
+The harmonic graph includes only the307 outer torso symbols. Neighbors are surviving torso-symbol pairs with Manhattan parameter distance1; no triangle diagonals, sleeve vertices, lining or body mesh edges. All307 graph vertices must be connected and every free-component must touch at least one fixed control; otherwise refuse. For each free symbol i, impose degree(i)*P_i - sum(free neighbor P_j) = sum(fixed neighbor P_j). All edge conductances=1, no spatial-distance/fabric weights. Solve the three RHS columns in float64 by one direct linear solve, no iterative fit/optimization/tuning. Require finite solution and max absolute equation residual≤1e-10. Anchored graph uniqueness does not guarantee a valid3D embedding or good silhouette.
+
+## Three distal sleeve rings
+
+Use the original16-sample source records directly, with no new resampling/ray query. For shared column j, left source index q=(-j) mod16; right q=(8+j) mod16. Thus left corresponds front/up/rear/down, right rear/up/front/down in the stored front/down chart. This is explicit artist registration, not automatic anatomy equivalence.
+
+For sleeve ring k1, source=elbow-side; p=origin+1.15*(sample[q].primary_association.point-origin). For k2, source=cuff-side; same centered1.15 radial rule, then subtract .040*source.normal. For k3, source=cuff-side; same centered1.15 radial rule, no axial translation. The source origins and normals are independently recorded for both sides. Centers stay at the source elbow/wrist, unlike global scaling of the arm centers. There is no additional middle ring or old upper-middle .45 rule. Ring0 is the shared ellipse and has no proximal cap.
+
+The1.15 radial scale and .040 cuff interval are frozen original whole-shell authoring choices. They are not measured fabric ease, verified clearance or a finished elastic cuff. No coefficient sweep/phase/offset rescue follows a failed first candidate.
+
+## Complete lining and geometric refusal
+
+After all403 outer positions exist, use ALL704 outer triangles only to define the normal field. For each outer triangle compute its oriented cross product (twice-area vector) in float64. Require its norm>1e-10. At each outer vertex sum the incident outer triangle cross products, including torso/sleeve shared seam faces; require sum norm>1e-10 and normalize. Do not use rim/lining normals here: those positions do not exist yet. Lining ID i+403 = outer P_i - .002*N_i. This is a whole connected area-weighted field, unlike the old disconnected ring-radial inset.
+
+Store all806 points as float32 once, retaining float64 provenance and maximum conversion error≤1e-7. All1616 resulting material-boundary triangles must be finite and have cross-product norm>1e-10. Corresponding inner/outer displacement length .002 is a nominal local rule, NOT global lining separation or physical textile thickness. Record signed closed-boundary volume and every geometric refusal; no whole-mesh reversal, smoothing/remeshing or normal patch to rescue this frozen map. World-space self-contact and full body contacts must be observed separately. Invalid area/normal/residual/cast/source input stops before native images.
+
+## Independent source coverage/exposure intentions
+
+The coverage domain is authored before a candidate. Let A_l/r be the already recorded source arm-component face-ID arrays, selected through the exact saved array selectors in COUPLING.json. No partition query rerun. Let torso candidates be full source triangles outside both arm sets with all three source Z values between the hem and neckline plane Z. Let theta(v)=atan2(v.X,cy-v.Y), cy=.009862011298537254, the fixed hem center reference. Centralfront exposure E_front is the subset of torso candidates whose ALL vertices have Y<cy and abs(theta)<.18 radians. Required torso-intention T_torso is the remaining torso candidates. This .18-radian source wedge is independent of the candidate's .04-arclength opening. It is an artist-selected exposure target, not a claim the two definitions coincide.
+
+For each side, required arm-intention T_arm consists of recorded arm-component triangles with ALL three dot(v-wrist_origin,wrist_normal)≤-1e-8. Bare hand-intention E_hand consists of arm-component triangles with ALL three such dots≥1e-8. Bare lowerbody E_lower consists of source triangles with ALL three Z<hem.Z-1e-8. Straddling triangles and other unlabelled body domains remain explicit UNKNOWN boundaries; this is not a complete clothing-coverage partition.
+
+If a first constructor includes coverage observations, use one source triangle centroid and its normalized oriented body-triangle normal for each selected face; ray origin=centroid, t in(1e-8,1.0]native units, exact candidate outer triangles only. Required torso/arm observations require the first positive hit to have the matching outer torso/sleeve owner. Exposure observations require no positive outer hit. Freeze hit/tie/ambiguity rules in COUPLING.json before any code. A failure refuses that sampled intent; a pass remains centroid-ray evidence ONLY, never full triangle/surface coverage or physical concealment. Body normal directions are local orientation, not a validated global solid interpretation. No target comes from candidate normals, nearest garment distance, masks or generated appearance.
+
+## Contact, occupancy, scope and stop
+
+COUPLING.json owns complete fullbody contact and all garment-pair categories, finite budgets, exact tolerances, first witnesses and ambiguity semantics before any later constructor. Any strict transverse fullbody crossing or non-topological garment crossing REFUSES fit. Near-boundary/coplanar unresolved cases keep fit UNKNOWN. Expected identical shared vertex/edge contact is topology-labelled, not silently discarded as an entire pair; potential nonshared intersections stay observable. No vertex-nearest signed projection is called penetration depth.
+
+Body topology is known closed/oriented, but full body embedding/solid occupancy is NOT qualified. This first static contract therefore holds physical inside/outside and fullsurface clearance/coverage UNKNOWN; triangle-pair absence and nominal lining displacement cannot promote fit. A later solid interpretation must own fullbody/self-contact and winding/parity assumptions independently. No physical-fit acceptance is possible under the current incomplete coverage/occupancy duties.
+
+Choose A: one completely frozen global map on the shared architecture, with a separately preflighted bounded first constructor and diagnostic native views only if source/geometry responsibilities pass. B remains independent whole-jacket pattern/asset registration with explicit seams/interiors. Stop at the first missing owner before construction. After the first candidate, no grid/shape/scale/phase/ease/normal/thickness/body/mask/threshold/camera rescue. Preserve all old failed controls. Current slice authors the contract only: no world positions, solver, constructor or native job is admitted.

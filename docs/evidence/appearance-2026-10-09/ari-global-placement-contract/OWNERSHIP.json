@@ -1,0 +1,11475 @@
+{
+  "schema": "ari-global-symbol-ownership-v1",
+  "coordinate_generation": false,
+  "owners": [
+    {
+      "id": 0,
+      "symbol": [
+        "torso",
+        0,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 0
+      }
+    },
+    {
+      "id": 1,
+      "symbol": [
+        "torso",
+        1,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 1
+      }
+    },
+    {
+      "id": 2,
+      "symbol": [
+        "torso",
+        1,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 1,
+        "row": 1
+      }
+    },
+    {
+      "id": 3,
+      "symbol": [
+        "torso",
+        0,
+        1
+      ],
+      "owner": {
+        "rule": "front-edge-knot-interpolation",
+        "column": 0,
+        "row": 1
+      }
+    },
+    {
+      "id": 4,
+      "symbol": [
+        "torso",
+        2,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 2
+      }
+    },
+    {
+      "id": 5,
+      "symbol": [
+        "torso",
+        2,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 2,
+        "row": 1
+      }
+    },
+    {
+      "id": 6,
+      "symbol": [
+        "torso",
+        3,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 3
+      }
+    },
+    {
+      "id": 7,
+      "symbol": [
+        "torso",
+        3,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 3,
+        "row": 1
+      }
+    },
+    {
+      "id": 8,
+      "symbol": [
+        "torso",
+        4,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 4
+      }
+    },
+    {
+      "id": 9,
+      "symbol": [
+        "torso",
+        4,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 4,
+        "row": 1
+      }
+    },
+    {
+      "id": 10,
+      "symbol": [
+        "torso",
+        5,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 5
+      }
+    },
+    {
+      "id": 11,
+      "symbol": [
+        "torso",
+        5,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 5,
+        "row": 1
+      }
+    },
+    {
+      "id": 12,
+      "symbol": [
+        "torso",
+        6,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 6
+      }
+    },
+    {
+      "id": 13,
+      "symbol": [
+        "torso",
+        6,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 6,
+        "row": 1
+      }
+    },
+    {
+      "id": 14,
+      "symbol": [
+        "torso",
+        7,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 7
+      }
+    },
+    {
+      "id": 15,
+      "symbol": [
+        "torso",
+        7,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 7,
+        "row": 1
+      }
+    },
+    {
+      "id": 16,
+      "symbol": [
+        "torso",
+        8,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 8
+      }
+    },
+    {
+      "id": 17,
+      "symbol": [
+        "torso",
+        8,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 8,
+        "row": 1
+      }
+    },
+    {
+      "id": 18,
+      "symbol": [
+        "torso",
+        9,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 9
+      }
+    },
+    {
+      "id": 19,
+      "symbol": [
+        "torso",
+        9,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 9,
+        "row": 1
+      }
+    },
+    {
+      "id": 20,
+      "symbol": [
+        "torso",
+        10,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 10
+      }
+    },
+    {
+      "id": 21,
+      "symbol": [
+        "torso",
+        10,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 10,
+        "row": 1
+      }
+    },
+    {
+      "id": 22,
+      "symbol": [
+        "torso",
+        11,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 11
+      }
+    },
+    {
+      "id": 23,
+      "symbol": [
+        "torso",
+        11,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 11,
+        "row": 1
+      }
+    },
+    {
+      "id": 24,
+      "symbol": [
+        "torso",
+        12,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 12
+      }
+    },
+    {
+      "id": 25,
+      "symbol": [
+        "torso",
+        12,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 12,
+        "row": 1
+      }
+    },
+    {
+      "id": 26,
+      "symbol": [
+        "torso",
+        13,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 13
+      }
+    },
+    {
+      "id": 27,
+      "symbol": [
+        "torso",
+        13,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 13,
+        "row": 1
+      }
+    },
+    {
+      "id": 28,
+      "symbol": [
+        "torso",
+        14,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 14
+      }
+    },
+    {
+      "id": 29,
+      "symbol": [
+        "torso",
+        14,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 14,
+        "row": 1
+      }
+    },
+    {
+      "id": 30,
+      "symbol": [
+        "torso",
+        15,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 15
+      }
+    },
+    {
+      "id": 31,
+      "symbol": [
+        "torso",
+        15,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 15,
+        "row": 1
+      }
+    },
+    {
+      "id": 32,
+      "symbol": [
+        "torso",
+        16,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 16
+      }
+    },
+    {
+      "id": 33,
+      "symbol": [
+        "torso",
+        16,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 16,
+        "row": 1
+      }
+    },
+    {
+      "id": 34,
+      "symbol": [
+        "torso",
+        17,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 17
+      }
+    },
+    {
+      "id": 35,
+      "symbol": [
+        "torso",
+        17,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 17,
+        "row": 1
+      }
+    },
+    {
+      "id": 36,
+      "symbol": [
+        "torso",
+        18,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 18
+      }
+    },
+    {
+      "id": 37,
+      "symbol": [
+        "torso",
+        18,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 18,
+        "row": 1
+      }
+    },
+    {
+      "id": 38,
+      "symbol": [
+        "torso",
+        19,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 19
+      }
+    },
+    {
+      "id": 39,
+      "symbol": [
+        "torso",
+        19,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 19,
+        "row": 1
+      }
+    },
+    {
+      "id": 40,
+      "symbol": [
+        "torso",
+        20,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 20
+      }
+    },
+    {
+      "id": 41,
+      "symbol": [
+        "torso",
+        20,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 20,
+        "row": 1
+      }
+    },
+    {
+      "id": 42,
+      "symbol": [
+        "torso",
+        21,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 21
+      }
+    },
+    {
+      "id": 43,
+      "symbol": [
+        "torso",
+        21,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 21,
+        "row": 1
+      }
+    },
+    {
+      "id": 44,
+      "symbol": [
+        "torso",
+        22,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 22
+      }
+    },
+    {
+      "id": 45,
+      "symbol": [
+        "torso",
+        22,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 22,
+        "row": 1
+      }
+    },
+    {
+      "id": 46,
+      "symbol": [
+        "torso",
+        23,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 23
+      }
+    },
+    {
+      "id": 47,
+      "symbol": [
+        "torso",
+        23,
+        1
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 23,
+        "row": 1
+      }
+    },
+    {
+      "id": 48,
+      "symbol": [
+        "torso",
+        24,
+        0
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 24
+      }
+    },
+    {
+      "id": 49,
+      "symbol": [
+        "torso",
+        24,
+        1
+      ],
+      "owner": {
+        "rule": "front-edge-knot-interpolation",
+        "column": 24,
+        "row": 1
+      }
+    },
+    {
+      "id": 50,
+      "symbol": [
+        "torso",
+        1,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 1,
+        "row": 2
+      }
+    },
+    {
+      "id": 51,
+      "symbol": [
+        "torso",
+        0,
+        2
+      ],
+      "owner": {
+        "rule": "front-edge-knot-interpolation",
+        "column": 0,
+        "row": 2
+      }
+    },
+    {
+      "id": 52,
+      "symbol": [
+        "torso",
+        2,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 2,
+        "row": 2
+      }
+    },
+    {
+      "id": 53,
+      "symbol": [
+        "torso",
+        3,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 3,
+        "row": 2
+      }
+    },
+    {
+      "id": 54,
+      "symbol": [
+        "torso",
+        4,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 4,
+        "row": 2
+      }
+    },
+    {
+      "id": 55,
+      "symbol": [
+        "torso",
+        5,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 5,
+        "row": 2
+      }
+    },
+    {
+      "id": 56,
+      "symbol": [
+        "torso",
+        6,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 6,
+        "row": 2
+      }
+    },
+    {
+      "id": 57,
+      "symbol": [
+        "torso",
+        7,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 7,
+        "row": 2
+      }
+    },
+    {
+      "id": 58,
+      "symbol": [
+        "torso",
+        8,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 8,
+        "row": 2
+      }
+    },
+    {
+      "id": 59,
+      "symbol": [
+        "torso",
+        9,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 9,
+        "row": 2
+      }
+    },
+    {
+      "id": 60,
+      "symbol": [
+        "torso",
+        10,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 10,
+        "row": 2
+      }
+    },
+    {
+      "id": 61,
+      "symbol": [
+        "torso",
+        11,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 11,
+        "row": 2
+      }
+    },
+    {
+      "id": 62,
+      "symbol": [
+        "torso",
+        12,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 12,
+        "row": 2
+      }
+    },
+    {
+      "id": 63,
+      "symbol": [
+        "torso",
+        13,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 13,
+        "row": 2
+      }
+    },
+    {
+      "id": 64,
+      "symbol": [
+        "torso",
+        14,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 14,
+        "row": 2
+      }
+    },
+    {
+      "id": 65,
+      "symbol": [
+        "torso",
+        15,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 15,
+        "row": 2
+      }
+    },
+    {
+      "id": 66,
+      "symbol": [
+        "torso",
+        16,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 16,
+        "row": 2
+      }
+    },
+    {
+      "id": 67,
+      "symbol": [
+        "torso",
+        17,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 17,
+        "row": 2
+      }
+    },
+    {
+      "id": 68,
+      "symbol": [
+        "torso",
+        18,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 18,
+        "row": 2
+      }
+    },
+    {
+      "id": 69,
+      "symbol": [
+        "torso",
+        19,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 19,
+        "row": 2
+      }
+    },
+    {
+      "id": 70,
+      "symbol": [
+        "torso",
+        20,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 20,
+        "row": 2
+      }
+    },
+    {
+      "id": 71,
+      "symbol": [
+        "torso",
+        21,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 21,
+        "row": 2
+      }
+    },
+    {
+      "id": 72,
+      "symbol": [
+        "torso",
+        22,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 22,
+        "row": 2
+      }
+    },
+    {
+      "id": 73,
+      "symbol": [
+        "torso",
+        23,
+        2
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 23,
+        "row": 2
+      }
+    },
+    {
+      "id": 74,
+      "symbol": [
+        "torso",
+        24,
+        2
+      ],
+      "owner": {
+        "rule": "front-edge-knot-interpolation",
+        "column": 24,
+        "row": 2
+      }
+    },
+    {
+      "id": 75,
+      "symbol": [
+        "torso",
+        1,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 1
+      }
+    },
+    {
+      "id": 76,
+      "symbol": [
+        "torso",
+        0,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 0
+      }
+    },
+    {
+      "id": 77,
+      "symbol": [
+        "torso",
+        2,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 2
+      }
+    },
+    {
+      "id": 78,
+      "symbol": [
+        "torso",
+        3,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 3
+      }
+    },
+    {
+      "id": 79,
+      "symbol": [
+        "torso",
+        4,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 4
+      }
+    },
+    {
+      "id": 80,
+      "symbol": [
+        "torso",
+        5,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 5
+      }
+    },
+    {
+      "id": 81,
+      "symbol": [
+        "torso",
+        6,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 6
+      }
+    },
+    {
+      "id": 82,
+      "symbol": [
+        "torso",
+        7,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 7
+      }
+    },
+    {
+      "id": 83,
+      "symbol": [
+        "torso",
+        8,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 8
+      }
+    },
+    {
+      "id": 84,
+      "symbol": [
+        "torso",
+        9,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 9
+      }
+    },
+    {
+      "id": 85,
+      "symbol": [
+        "torso",
+        10,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 10
+      }
+    },
+    {
+      "id": 86,
+      "symbol": [
+        "torso",
+        11,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 11
+      }
+    },
+    {
+      "id": 87,
+      "symbol": [
+        "torso",
+        12,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 12
+      }
+    },
+    {
+      "id": 88,
+      "symbol": [
+        "torso",
+        13,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 13
+      }
+    },
+    {
+      "id": 89,
+      "symbol": [
+        "torso",
+        14,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 14
+      }
+    },
+    {
+      "id": 90,
+      "symbol": [
+        "torso",
+        15,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 15
+      }
+    },
+    {
+      "id": 91,
+      "symbol": [
+        "torso",
+        16,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 16
+      }
+    },
+    {
+      "id": 92,
+      "symbol": [
+        "torso",
+        17,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 17
+      }
+    },
+    {
+      "id": 93,
+      "symbol": [
+        "torso",
+        18,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 18
+      }
+    },
+    {
+      "id": 94,
+      "symbol": [
+        "torso",
+        19,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 19
+      }
+    },
+    {
+      "id": 95,
+      "symbol": [
+        "torso",
+        20,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 20
+      }
+    },
+    {
+      "id": 96,
+      "symbol": [
+        "torso",
+        21,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 21
+      }
+    },
+    {
+      "id": 97,
+      "symbol": [
+        "torso",
+        22,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 22
+      }
+    },
+    {
+      "id": 98,
+      "symbol": [
+        "torso",
+        23,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 23
+      }
+    },
+    {
+      "id": 99,
+      "symbol": [
+        "torso",
+        24,
+        3
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 24
+      }
+    },
+    {
+      "id": 100,
+      "symbol": [
+        "torso",
+        1,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 1,
+        "row": 4
+      }
+    },
+    {
+      "id": 101,
+      "symbol": [
+        "torso",
+        0,
+        4
+      ],
+      "owner": {
+        "rule": "front-edge-knot-interpolation",
+        "column": 0,
+        "row": 4
+      }
+    },
+    {
+      "id": 102,
+      "symbol": [
+        "torso",
+        2,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 2,
+        "row": 4
+      }
+    },
+    {
+      "id": 103,
+      "symbol": [
+        "torso",
+        3,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 3,
+        "row": 4
+      }
+    },
+    {
+      "id": 104,
+      "symbol": [
+        "torso",
+        4,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 4,
+        "row": 4
+      }
+    },
+    {
+      "id": 105,
+      "symbol": [
+        "torso",
+        5,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 5,
+        "row": 4
+      }
+    },
+    {
+      "id": 106,
+      "symbol": [
+        "torso",
+        6,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 6,
+        "row": 4
+      }
+    },
+    {
+      "id": 107,
+      "symbol": [
+        "torso",
+        7,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 7,
+        "row": 4
+      }
+    },
+    {
+      "id": 108,
+      "symbol": [
+        "torso",
+        8,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 8,
+        "row": 4
+      }
+    },
+    {
+      "id": 109,
+      "symbol": [
+        "torso",
+        9,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 9,
+        "row": 4
+      }
+    },
+    {
+      "id": 110,
+      "symbol": [
+        "torso",
+        10,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 10,
+        "row": 4
+      }
+    },
+    {
+      "id": 111,
+      "symbol": [
+        "torso",
+        11,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 11,
+        "row": 4
+      }
+    },
+    {
+      "id": 112,
+      "symbol": [
+        "torso",
+        12,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 12,
+        "row": 4
+      }
+    },
+    {
+      "id": 113,
+      "symbol": [
+        "torso",
+        13,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 13,
+        "row": 4
+      }
+    },
+    {
+      "id": 114,
+      "symbol": [
+        "torso",
+        14,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 14,
+        "row": 4
+      }
+    },
+    {
+      "id": 115,
+      "symbol": [
+        "torso",
+        15,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 15,
+        "row": 4
+      }
+    },
+    {
+      "id": 116,
+      "symbol": [
+        "torso",
+        16,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 16,
+        "row": 4
+      }
+    },
+    {
+      "id": 117,
+      "symbol": [
+        "torso",
+        17,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 17,
+        "row": 4
+      }
+    },
+    {
+      "id": 118,
+      "symbol": [
+        "torso",
+        18,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 18,
+        "row": 4
+      }
+    },
+    {
+      "id": 119,
+      "symbol": [
+        "torso",
+        19,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 19,
+        "row": 4
+      }
+    },
+    {
+      "id": 120,
+      "symbol": [
+        "torso",
+        20,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 20,
+        "row": 4
+      }
+    },
+    {
+      "id": 121,
+      "symbol": [
+        "torso",
+        21,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 21,
+        "row": 4
+      }
+    },
+    {
+      "id": 122,
+      "symbol": [
+        "torso",
+        22,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 22,
+        "row": 4
+      }
+    },
+    {
+      "id": 123,
+      "symbol": [
+        "torso",
+        23,
+        4
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 23,
+        "row": 4
+      }
+    },
+    {
+      "id": 124,
+      "symbol": [
+        "torso",
+        24,
+        4
+      ],
+      "owner": {
+        "rule": "front-edge-knot-interpolation",
+        "column": 24,
+        "row": 4
+      }
+    },
+    {
+      "id": 125,
+      "symbol": [
+        "torso",
+        1,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 1,
+        "row": 5
+      }
+    },
+    {
+      "id": 126,
+      "symbol": [
+        "torso",
+        0,
+        5
+      ],
+      "owner": {
+        "rule": "front-edge-knot-interpolation",
+        "column": 0,
+        "row": 5
+      }
+    },
+    {
+      "id": 127,
+      "symbol": [
+        "torso",
+        2,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 2,
+        "row": 5
+      }
+    },
+    {
+      "id": 128,
+      "symbol": [
+        "torso",
+        3,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 3,
+        "row": 5
+      }
+    },
+    {
+      "id": 129,
+      "symbol": [
+        "torso",
+        4,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 4,
+        "row": 5
+      }
+    },
+    {
+      "id": 130,
+      "symbol": [
+        "torso",
+        5,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 5,
+        "row": 5
+      }
+    },
+    {
+      "id": 131,
+      "symbol": [
+        "torso",
+        6,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 6,
+        "row": 5
+      }
+    },
+    {
+      "id": 132,
+      "symbol": [
+        "torso",
+        7,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 7,
+        "row": 5
+      }
+    },
+    {
+      "id": 133,
+      "symbol": [
+        "torso",
+        8,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 8,
+        "row": 5
+      }
+    },
+    {
+      "id": 134,
+      "symbol": [
+        "torso",
+        9,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 9,
+        "row": 5
+      }
+    },
+    {
+      "id": 135,
+      "symbol": [
+        "torso",
+        10,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 10,
+        "row": 5
+      }
+    },
+    {
+      "id": 136,
+      "symbol": [
+        "torso",
+        11,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 11,
+        "row": 5
+      }
+    },
+    {
+      "id": 137,
+      "symbol": [
+        "torso",
+        12,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 12,
+        "row": 5
+      }
+    },
+    {
+      "id": 138,
+      "symbol": [
+        "torso",
+        13,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 13,
+        "row": 5
+      }
+    },
+    {
+      "id": 139,
+      "symbol": [
+        "torso",
+        14,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 14,
+        "row": 5
+      }
+    },
+    {
+      "id": 140,
+      "symbol": [
+        "torso",
+        15,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 15,
+        "row": 5
+      }
+    },
+    {
+      "id": 141,
+      "symbol": [
+        "torso",
+        16,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 16,
+        "row": 5
+      }
+    },
+    {
+      "id": 142,
+      "symbol": [
+        "torso",
+        17,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 17,
+        "row": 5
+      }
+    },
+    {
+      "id": 143,
+      "symbol": [
+        "torso",
+        18,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 18,
+        "row": 5
+      }
+    },
+    {
+      "id": 144,
+      "symbol": [
+        "torso",
+        19,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 19,
+        "row": 5
+      }
+    },
+    {
+      "id": 145,
+      "symbol": [
+        "torso",
+        20,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 20,
+        "row": 5
+      }
+    },
+    {
+      "id": 146,
+      "symbol": [
+        "torso",
+        21,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 21,
+        "row": 5
+      }
+    },
+    {
+      "id": 147,
+      "symbol": [
+        "torso",
+        22,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 22,
+        "row": 5
+      }
+    },
+    {
+      "id": 148,
+      "symbol": [
+        "torso",
+        23,
+        5
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 23,
+        "row": 5
+      }
+    },
+    {
+      "id": 149,
+      "symbol": [
+        "torso",
+        24,
+        5
+      ],
+      "owner": {
+        "rule": "front-edge-knot-interpolation",
+        "column": 24,
+        "row": 5
+      }
+    },
+    {
+      "id": 150,
+      "symbol": [
+        "torso",
+        1,
+        6
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 1,
+        "row": 6
+      }
+    },
+    {
+      "id": 151,
+      "symbol": [
+        "torso",
+        0,
+        6
+      ],
+      "owner": {
+        "rule": "front-edge-knot-interpolation",
+        "column": 0,
+        "row": 6
+      }
+    },
+    {
+      "id": 152,
+      "symbol": [
+        "torso",
+        2,
+        6
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 2,
+        "row": 6
+      }
+    },
+    {
+      "id": 153,
+      "symbol": [
+        "torso",
+        3,
+        6
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 3,
+        "row": 6
+      }
+    },
+    {
+      "id": 154,
+      "symbol": [
+        "torso",
+        4,
+        6
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "left",
+        "phase": 0
+      }
+    },
+    {
+      "id": 155,
+      "symbol": [
+        "torso",
+        5,
+        6
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "left",
+        "phase": 15
+      }
+    },
+    {
+      "id": 156,
+      "symbol": [
+        "torso",
+        6,
+        6
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "left",
+        "phase": 14
+      }
+    },
+    {
+      "id": 157,
+      "symbol": [
+        "torso",
+        7,
+        6
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "left",
+        "phase": 13
+      }
+    },
+    {
+      "id": 158,
+      "symbol": [
+        "torso",
+        8,
+        6
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "left",
+        "phase": 12
+      }
+    },
+    {
+      "id": 159,
+      "symbol": [
+        "torso",
+        9,
+        6
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 9,
+        "row": 6
+      }
+    },
+    {
+      "id": 160,
+      "symbol": [
+        "torso",
+        10,
+        6
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 10,
+        "row": 6
+      }
+    },
+    {
+      "id": 161,
+      "symbol": [
+        "torso",
+        11,
+        6
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 11,
+        "row": 6
+      }
+    },
+    {
+      "id": 162,
+      "symbol": [
+        "torso",
+        12,
+        6
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 12,
+        "row": 6
+      }
+    },
+    {
+      "id": 163,
+      "symbol": [
+        "torso",
+        13,
+        6
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 13,
+        "row": 6
+      }
+    },
+    {
+      "id": 164,
+      "symbol": [
+        "torso",
+        14,
+        6
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 14,
+        "row": 6
+      }
+    },
+    {
+      "id": 165,
+      "symbol": [
+        "torso",
+        15,
+        6
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 15,
+        "row": 6
+      }
+    },
+    {
+      "id": 166,
+      "symbol": [
+        "torso",
+        16,
+        6
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "right",
+        "phase": 0
+      }
+    },
+    {
+      "id": 167,
+      "symbol": [
+        "torso",
+        17,
+        6
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "right",
+        "phase": 15
+      }
+    },
+    {
+      "id": 168,
+      "symbol": [
+        "torso",
+        18,
+        6
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "right",
+        "phase": 14
+      }
+    },
+    {
+      "id": 169,
+      "symbol": [
+        "torso",
+        19,
+        6
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "right",
+        "phase": 13
+      }
+    },
+    {
+      "id": 170,
+      "symbol": [
+        "torso",
+        20,
+        6
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "right",
+        "phase": 12
+      }
+    },
+    {
+      "id": 171,
+      "symbol": [
+        "torso",
+        21,
+        6
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 21,
+        "row": 6
+      }
+    },
+    {
+      "id": 172,
+      "symbol": [
+        "torso",
+        22,
+        6
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 22,
+        "row": 6
+      }
+    },
+    {
+      "id": 173,
+      "symbol": [
+        "torso",
+        23,
+        6
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 23,
+        "row": 6
+      }
+    },
+    {
+      "id": 174,
+      "symbol": [
+        "torso",
+        24,
+        6
+      ],
+      "owner": {
+        "rule": "front-edge-knot-interpolation",
+        "column": 24,
+        "row": 6
+      }
+    },
+    {
+      "id": 175,
+      "symbol": [
+        "torso",
+        1,
+        7
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 1,
+        "row": 7
+      }
+    },
+    {
+      "id": 176,
+      "symbol": [
+        "torso",
+        0,
+        7
+      ],
+      "owner": {
+        "rule": "front-edge-knot-interpolation",
+        "column": 0,
+        "row": 7
+      }
+    },
+    {
+      "id": 177,
+      "symbol": [
+        "torso",
+        2,
+        7
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 2,
+        "row": 7
+      }
+    },
+    {
+      "id": 178,
+      "symbol": [
+        "torso",
+        3,
+        7
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 3,
+        "row": 7
+      }
+    },
+    {
+      "id": 179,
+      "symbol": [
+        "torso",
+        4,
+        7
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "left",
+        "phase": 1
+      }
+    },
+    {
+      "id": 180,
+      "symbol": [
+        "torso",
+        9,
+        7
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 9,
+        "row": 7
+      }
+    },
+    {
+      "id": 181,
+      "symbol": [
+        "torso",
+        8,
+        7
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "left",
+        "phase": 11
+      }
+    },
+    {
+      "id": 182,
+      "symbol": [
+        "torso",
+        10,
+        7
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 10,
+        "row": 7
+      }
+    },
+    {
+      "id": 183,
+      "symbol": [
+        "torso",
+        11,
+        7
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 11,
+        "row": 7
+      }
+    },
+    {
+      "id": 184,
+      "symbol": [
+        "torso",
+        12,
+        7
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 12,
+        "row": 7
+      }
+    },
+    {
+      "id": 185,
+      "symbol": [
+        "torso",
+        13,
+        7
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 13,
+        "row": 7
+      }
+    },
+    {
+      "id": 186,
+      "symbol": [
+        "torso",
+        14,
+        7
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 14,
+        "row": 7
+      }
+    },
+    {
+      "id": 187,
+      "symbol": [
+        "torso",
+        15,
+        7
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 15,
+        "row": 7
+      }
+    },
+    {
+      "id": 188,
+      "symbol": [
+        "torso",
+        16,
+        7
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "right",
+        "phase": 1
+      }
+    },
+    {
+      "id": 189,
+      "symbol": [
+        "torso",
+        21,
+        7
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 21,
+        "row": 7
+      }
+    },
+    {
+      "id": 190,
+      "symbol": [
+        "torso",
+        20,
+        7
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "right",
+        "phase": 11
+      }
+    },
+    {
+      "id": 191,
+      "symbol": [
+        "torso",
+        22,
+        7
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 22,
+        "row": 7
+      }
+    },
+    {
+      "id": 192,
+      "symbol": [
+        "torso",
+        23,
+        7
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 23,
+        "row": 7
+      }
+    },
+    {
+      "id": 193,
+      "symbol": [
+        "torso",
+        24,
+        7
+      ],
+      "owner": {
+        "rule": "front-edge-knot-interpolation",
+        "column": 24,
+        "row": 7
+      }
+    },
+    {
+      "id": 194,
+      "symbol": [
+        "torso",
+        1,
+        8
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 8,
+        "column": 1
+      }
+    },
+    {
+      "id": 195,
+      "symbol": [
+        "torso",
+        0,
+        8
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 8,
+        "column": 0
+      }
+    },
+    {
+      "id": 196,
+      "symbol": [
+        "torso",
+        2,
+        8
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 8,
+        "column": 2
+      }
+    },
+    {
+      "id": 197,
+      "symbol": [
+        "torso",
+        3,
+        8
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 8,
+        "column": 3
+      }
+    },
+    {
+      "id": 198,
+      "symbol": [
+        "torso",
+        4,
+        8
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "left",
+        "phase": 2
+      }
+    },
+    {
+      "id": 199,
+      "symbol": [
+        "torso",
+        9,
+        8
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 8,
+        "column": 9
+      }
+    },
+    {
+      "id": 200,
+      "symbol": [
+        "torso",
+        8,
+        8
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "left",
+        "phase": 10
+      }
+    },
+    {
+      "id": 201,
+      "symbol": [
+        "torso",
+        10,
+        8
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 8,
+        "column": 10
+      }
+    },
+    {
+      "id": 202,
+      "symbol": [
+        "torso",
+        11,
+        8
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 8,
+        "column": 11
+      }
+    },
+    {
+      "id": 203,
+      "symbol": [
+        "torso",
+        12,
+        8
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 8,
+        "column": 12
+      }
+    },
+    {
+      "id": 204,
+      "symbol": [
+        "torso",
+        13,
+        8
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 8,
+        "column": 13
+      }
+    },
+    {
+      "id": 205,
+      "symbol": [
+        "torso",
+        14,
+        8
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 8,
+        "column": 14
+      }
+    },
+    {
+      "id": 206,
+      "symbol": [
+        "torso",
+        15,
+        8
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 8,
+        "column": 15
+      }
+    },
+    {
+      "id": 207,
+      "symbol": [
+        "torso",
+        16,
+        8
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "right",
+        "phase": 2
+      }
+    },
+    {
+      "id": 208,
+      "symbol": [
+        "torso",
+        21,
+        8
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 8,
+        "column": 21
+      }
+    },
+    {
+      "id": 209,
+      "symbol": [
+        "torso",
+        20,
+        8
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "right",
+        "phase": 10
+      }
+    },
+    {
+      "id": 210,
+      "symbol": [
+        "torso",
+        22,
+        8
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 8,
+        "column": 22
+      }
+    },
+    {
+      "id": 211,
+      "symbol": [
+        "torso",
+        23,
+        8
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 8,
+        "column": 23
+      }
+    },
+    {
+      "id": 212,
+      "symbol": [
+        "torso",
+        24,
+        8
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 8,
+        "column": 24
+      }
+    },
+    {
+      "id": 213,
+      "symbol": [
+        "torso",
+        1,
+        9
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 1,
+        "row": 9
+      }
+    },
+    {
+      "id": 214,
+      "symbol": [
+        "torso",
+        0,
+        9
+      ],
+      "owner": {
+        "rule": "front-edge-knot-interpolation",
+        "column": 0,
+        "row": 9
+      }
+    },
+    {
+      "id": 215,
+      "symbol": [
+        "torso",
+        2,
+        9
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 2,
+        "row": 9
+      }
+    },
+    {
+      "id": 216,
+      "symbol": [
+        "torso",
+        3,
+        9
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 3,
+        "row": 9
+      }
+    },
+    {
+      "id": 217,
+      "symbol": [
+        "torso",
+        4,
+        9
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "left",
+        "phase": 3
+      }
+    },
+    {
+      "id": 218,
+      "symbol": [
+        "torso",
+        9,
+        9
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 9,
+        "row": 9
+      }
+    },
+    {
+      "id": 219,
+      "symbol": [
+        "torso",
+        8,
+        9
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "left",
+        "phase": 9
+      }
+    },
+    {
+      "id": 220,
+      "symbol": [
+        "torso",
+        10,
+        9
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 10,
+        "row": 9
+      }
+    },
+    {
+      "id": 221,
+      "symbol": [
+        "torso",
+        11,
+        9
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 11,
+        "row": 9
+      }
+    },
+    {
+      "id": 222,
+      "symbol": [
+        "torso",
+        12,
+        9
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 12,
+        "row": 9
+      }
+    },
+    {
+      "id": 223,
+      "symbol": [
+        "torso",
+        13,
+        9
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 13,
+        "row": 9
+      }
+    },
+    {
+      "id": 224,
+      "symbol": [
+        "torso",
+        14,
+        9
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 14,
+        "row": 9
+      }
+    },
+    {
+      "id": 225,
+      "symbol": [
+        "torso",
+        15,
+        9
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 15,
+        "row": 9
+      }
+    },
+    {
+      "id": 226,
+      "symbol": [
+        "torso",
+        16,
+        9
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "right",
+        "phase": 3
+      }
+    },
+    {
+      "id": 227,
+      "symbol": [
+        "torso",
+        21,
+        9
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 21,
+        "row": 9
+      }
+    },
+    {
+      "id": 228,
+      "symbol": [
+        "torso",
+        20,
+        9
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "right",
+        "phase": 9
+      }
+    },
+    {
+      "id": 229,
+      "symbol": [
+        "torso",
+        22,
+        9
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 22,
+        "row": 9
+      }
+    },
+    {
+      "id": 230,
+      "symbol": [
+        "torso",
+        23,
+        9
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 23,
+        "row": 9
+      }
+    },
+    {
+      "id": 231,
+      "symbol": [
+        "torso",
+        24,
+        9
+      ],
+      "owner": {
+        "rule": "front-edge-knot-interpolation",
+        "column": 24,
+        "row": 9
+      }
+    },
+    {
+      "id": 232,
+      "symbol": [
+        "torso",
+        1,
+        10
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 1,
+        "row": 10
+      }
+    },
+    {
+      "id": 233,
+      "symbol": [
+        "torso",
+        0,
+        10
+      ],
+      "owner": {
+        "rule": "front-edge-knot-interpolation",
+        "column": 0,
+        "row": 10
+      }
+    },
+    {
+      "id": 234,
+      "symbol": [
+        "torso",
+        2,
+        10
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 2,
+        "row": 10
+      }
+    },
+    {
+      "id": 235,
+      "symbol": [
+        "torso",
+        3,
+        10
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 3,
+        "row": 10
+      }
+    },
+    {
+      "id": 236,
+      "symbol": [
+        "torso",
+        4,
+        10
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "left",
+        "phase": 4
+      }
+    },
+    {
+      "id": 237,
+      "symbol": [
+        "torso",
+        9,
+        10
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 9,
+        "row": 10
+      }
+    },
+    {
+      "id": 238,
+      "symbol": [
+        "torso",
+        8,
+        10
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "left",
+        "phase": 8
+      }
+    },
+    {
+      "id": 239,
+      "symbol": [
+        "torso",
+        10,
+        10
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 10,
+        "row": 10
+      }
+    },
+    {
+      "id": 240,
+      "symbol": [
+        "torso",
+        11,
+        10
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 11,
+        "row": 10
+      }
+    },
+    {
+      "id": 241,
+      "symbol": [
+        "torso",
+        12,
+        10
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 12,
+        "row": 10
+      }
+    },
+    {
+      "id": 242,
+      "symbol": [
+        "torso",
+        13,
+        10
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 13,
+        "row": 10
+      }
+    },
+    {
+      "id": 243,
+      "symbol": [
+        "torso",
+        14,
+        10
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 14,
+        "row": 10
+      }
+    },
+    {
+      "id": 244,
+      "symbol": [
+        "torso",
+        15,
+        10
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 15,
+        "row": 10
+      }
+    },
+    {
+      "id": 245,
+      "symbol": [
+        "torso",
+        16,
+        10
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "right",
+        "phase": 4
+      }
+    },
+    {
+      "id": 246,
+      "symbol": [
+        "torso",
+        21,
+        10
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 21,
+        "row": 10
+      }
+    },
+    {
+      "id": 247,
+      "symbol": [
+        "torso",
+        20,
+        10
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "right",
+        "phase": 8
+      }
+    },
+    {
+      "id": 248,
+      "symbol": [
+        "torso",
+        22,
+        10
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 22,
+        "row": 10
+      }
+    },
+    {
+      "id": 249,
+      "symbol": [
+        "torso",
+        23,
+        10
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 23,
+        "row": 10
+      }
+    },
+    {
+      "id": 250,
+      "symbol": [
+        "torso",
+        24,
+        10
+      ],
+      "owner": {
+        "rule": "front-edge-knot-interpolation",
+        "column": 24,
+        "row": 10
+      }
+    },
+    {
+      "id": 251,
+      "symbol": [
+        "torso",
+        1,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 1,
+        "row": 11
+      }
+    },
+    {
+      "id": 252,
+      "symbol": [
+        "torso",
+        0,
+        11
+      ],
+      "owner": {
+        "rule": "front-edge-knot-interpolation",
+        "column": 0,
+        "row": 11
+      }
+    },
+    {
+      "id": 253,
+      "symbol": [
+        "torso",
+        2,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 2,
+        "row": 11
+      }
+    },
+    {
+      "id": 254,
+      "symbol": [
+        "torso",
+        3,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 3,
+        "row": 11
+      }
+    },
+    {
+      "id": 255,
+      "symbol": [
+        "torso",
+        4,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 4,
+        "row": 11
+      }
+    },
+    {
+      "id": 256,
+      "symbol": [
+        "torso",
+        5,
+        10
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "left",
+        "phase": 5
+      }
+    },
+    {
+      "id": 257,
+      "symbol": [
+        "torso",
+        5,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 5,
+        "row": 11
+      }
+    },
+    {
+      "id": 258,
+      "symbol": [
+        "torso",
+        6,
+        10
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "left",
+        "phase": 6
+      }
+    },
+    {
+      "id": 259,
+      "symbol": [
+        "torso",
+        6,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 6,
+        "row": 11
+      }
+    },
+    {
+      "id": 260,
+      "symbol": [
+        "torso",
+        7,
+        10
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "left",
+        "phase": 7
+      }
+    },
+    {
+      "id": 261,
+      "symbol": [
+        "torso",
+        7,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 7,
+        "row": 11
+      }
+    },
+    {
+      "id": 262,
+      "symbol": [
+        "torso",
+        8,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 8,
+        "row": 11
+      }
+    },
+    {
+      "id": 263,
+      "symbol": [
+        "torso",
+        9,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 9,
+        "row": 11
+      }
+    },
+    {
+      "id": 264,
+      "symbol": [
+        "torso",
+        10,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 10,
+        "row": 11
+      }
+    },
+    {
+      "id": 265,
+      "symbol": [
+        "torso",
+        11,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 11,
+        "row": 11
+      }
+    },
+    {
+      "id": 266,
+      "symbol": [
+        "torso",
+        12,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 12,
+        "row": 11
+      }
+    },
+    {
+      "id": 267,
+      "symbol": [
+        "torso",
+        13,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 13,
+        "row": 11
+      }
+    },
+    {
+      "id": 268,
+      "symbol": [
+        "torso",
+        14,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 14,
+        "row": 11
+      }
+    },
+    {
+      "id": 269,
+      "symbol": [
+        "torso",
+        15,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 15,
+        "row": 11
+      }
+    },
+    {
+      "id": 270,
+      "symbol": [
+        "torso",
+        16,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 16,
+        "row": 11
+      }
+    },
+    {
+      "id": 271,
+      "symbol": [
+        "torso",
+        17,
+        10
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "right",
+        "phase": 5
+      }
+    },
+    {
+      "id": 272,
+      "symbol": [
+        "torso",
+        17,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 17,
+        "row": 11
+      }
+    },
+    {
+      "id": 273,
+      "symbol": [
+        "torso",
+        18,
+        10
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "right",
+        "phase": 6
+      }
+    },
+    {
+      "id": 274,
+      "symbol": [
+        "torso",
+        18,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 18,
+        "row": 11
+      }
+    },
+    {
+      "id": 275,
+      "symbol": [
+        "torso",
+        19,
+        10
+      ],
+      "owner": {
+        "rule": "shared-hole-ellipse",
+        "side": "right",
+        "phase": 7
+      }
+    },
+    {
+      "id": 276,
+      "symbol": [
+        "torso",
+        19,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 19,
+        "row": 11
+      }
+    },
+    {
+      "id": 277,
+      "symbol": [
+        "torso",
+        20,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 20,
+        "row": 11
+      }
+    },
+    {
+      "id": 278,
+      "symbol": [
+        "torso",
+        21,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 21,
+        "row": 11
+      }
+    },
+    {
+      "id": 279,
+      "symbol": [
+        "torso",
+        22,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 22,
+        "row": 11
+      }
+    },
+    {
+      "id": 280,
+      "symbol": [
+        "torso",
+        23,
+        11
+      ],
+      "owner": {
+        "rule": "uniform-harmonic-torso",
+        "column": 23,
+        "row": 11
+      }
+    },
+    {
+      "id": 281,
+      "symbol": [
+        "torso",
+        24,
+        11
+      ],
+      "owner": {
+        "rule": "front-edge-knot-interpolation",
+        "column": 24,
+        "row": 11
+      }
+    },
+    {
+      "id": 282,
+      "symbol": [
+        "torso",
+        1,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 1
+      }
+    },
+    {
+      "id": 283,
+      "symbol": [
+        "torso",
+        0,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 0
+      }
+    },
+    {
+      "id": 284,
+      "symbol": [
+        "torso",
+        2,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 2
+      }
+    },
+    {
+      "id": 285,
+      "symbol": [
+        "torso",
+        3,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 3
+      }
+    },
+    {
+      "id": 286,
+      "symbol": [
+        "torso",
+        4,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 4
+      }
+    },
+    {
+      "id": 287,
+      "symbol": [
+        "torso",
+        5,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 5
+      }
+    },
+    {
+      "id": 288,
+      "symbol": [
+        "torso",
+        6,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 6
+      }
+    },
+    {
+      "id": 289,
+      "symbol": [
+        "torso",
+        7,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 7
+      }
+    },
+    {
+      "id": 290,
+      "symbol": [
+        "torso",
+        8,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 8
+      }
+    },
+    {
+      "id": 291,
+      "symbol": [
+        "torso",
+        9,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 9
+      }
+    },
+    {
+      "id": 292,
+      "symbol": [
+        "torso",
+        10,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 10
+      }
+    },
+    {
+      "id": 293,
+      "symbol": [
+        "torso",
+        11,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 11
+      }
+    },
+    {
+      "id": 294,
+      "symbol": [
+        "torso",
+        12,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 12
+      }
+    },
+    {
+      "id": 295,
+      "symbol": [
+        "torso",
+        13,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 13
+      }
+    },
+    {
+      "id": 296,
+      "symbol": [
+        "torso",
+        14,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 14
+      }
+    },
+    {
+      "id": 297,
+      "symbol": [
+        "torso",
+        15,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 15
+      }
+    },
+    {
+      "id": 298,
+      "symbol": [
+        "torso",
+        16,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 16
+      }
+    },
+    {
+      "id": 299,
+      "symbol": [
+        "torso",
+        17,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 17
+      }
+    },
+    {
+      "id": 300,
+      "symbol": [
+        "torso",
+        18,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 18
+      }
+    },
+    {
+      "id": 301,
+      "symbol": [
+        "torso",
+        19,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 19
+      }
+    },
+    {
+      "id": 302,
+      "symbol": [
+        "torso",
+        20,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 20
+      }
+    },
+    {
+      "id": 303,
+      "symbol": [
+        "torso",
+        21,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 21
+      }
+    },
+    {
+      "id": 304,
+      "symbol": [
+        "torso",
+        22,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 22
+      }
+    },
+    {
+      "id": 305,
+      "symbol": [
+        "torso",
+        23,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 23
+      }
+    },
+    {
+      "id": 306,
+      "symbol": [
+        "torso",
+        24,
+        12
+      ],
+      "owner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 24
+      }
+    },
+    {
+      "id": 307,
+      "symbol": [
+        "sleeve",
+        "left",
+        1,
+        0
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 1,
+        "phase": 0,
+        "source_index": 0
+      }
+    },
+    {
+      "id": 308,
+      "symbol": [
+        "sleeve",
+        "left",
+        1,
+        1
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 1,
+        "phase": 1,
+        "source_index": 15
+      }
+    },
+    {
+      "id": 309,
+      "symbol": [
+        "sleeve",
+        "left",
+        1,
+        2
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 1,
+        "phase": 2,
+        "source_index": 14
+      }
+    },
+    {
+      "id": 310,
+      "symbol": [
+        "sleeve",
+        "left",
+        1,
+        3
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 1,
+        "phase": 3,
+        "source_index": 13
+      }
+    },
+    {
+      "id": 311,
+      "symbol": [
+        "sleeve",
+        "left",
+        1,
+        4
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 1,
+        "phase": 4,
+        "source_index": 12
+      }
+    },
+    {
+      "id": 312,
+      "symbol": [
+        "sleeve",
+        "left",
+        1,
+        5
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 1,
+        "phase": 5,
+        "source_index": 11
+      }
+    },
+    {
+      "id": 313,
+      "symbol": [
+        "sleeve",
+        "left",
+        1,
+        6
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 1,
+        "phase": 6,
+        "source_index": 10
+      }
+    },
+    {
+      "id": 314,
+      "symbol": [
+        "sleeve",
+        "left",
+        1,
+        7
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 1,
+        "phase": 7,
+        "source_index": 9
+      }
+    },
+    {
+      "id": 315,
+      "symbol": [
+        "sleeve",
+        "left",
+        1,
+        8
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 1,
+        "phase": 8,
+        "source_index": 8
+      }
+    },
+    {
+      "id": 316,
+      "symbol": [
+        "sleeve",
+        "left",
+        1,
+        9
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 1,
+        "phase": 9,
+        "source_index": 7
+      }
+    },
+    {
+      "id": 317,
+      "symbol": [
+        "sleeve",
+        "left",
+        1,
+        10
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 1,
+        "phase": 10,
+        "source_index": 6
+      }
+    },
+    {
+      "id": 318,
+      "symbol": [
+        "sleeve",
+        "left",
+        1,
+        11
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 1,
+        "phase": 11,
+        "source_index": 5
+      }
+    },
+    {
+      "id": 319,
+      "symbol": [
+        "sleeve",
+        "left",
+        1,
+        12
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 1,
+        "phase": 12,
+        "source_index": 4
+      }
+    },
+    {
+      "id": 320,
+      "symbol": [
+        "sleeve",
+        "left",
+        1,
+        13
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 1,
+        "phase": 13,
+        "source_index": 3
+      }
+    },
+    {
+      "id": 321,
+      "symbol": [
+        "sleeve",
+        "left",
+        1,
+        14
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 1,
+        "phase": 14,
+        "source_index": 2
+      }
+    },
+    {
+      "id": 322,
+      "symbol": [
+        "sleeve",
+        "left",
+        1,
+        15
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 1,
+        "phase": 15,
+        "source_index": 1
+      }
+    },
+    {
+      "id": 323,
+      "symbol": [
+        "sleeve",
+        "left",
+        2,
+        0
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 2,
+        "phase": 0,
+        "source_index": 0
+      }
+    },
+    {
+      "id": 324,
+      "symbol": [
+        "sleeve",
+        "left",
+        2,
+        1
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 2,
+        "phase": 1,
+        "source_index": 15
+      }
+    },
+    {
+      "id": 325,
+      "symbol": [
+        "sleeve",
+        "left",
+        2,
+        2
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 2,
+        "phase": 2,
+        "source_index": 14
+      }
+    },
+    {
+      "id": 326,
+      "symbol": [
+        "sleeve",
+        "left",
+        2,
+        3
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 2,
+        "phase": 3,
+        "source_index": 13
+      }
+    },
+    {
+      "id": 327,
+      "symbol": [
+        "sleeve",
+        "left",
+        2,
+        4
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 2,
+        "phase": 4,
+        "source_index": 12
+      }
+    },
+    {
+      "id": 328,
+      "symbol": [
+        "sleeve",
+        "left",
+        2,
+        5
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 2,
+        "phase": 5,
+        "source_index": 11
+      }
+    },
+    {
+      "id": 329,
+      "symbol": [
+        "sleeve",
+        "left",
+        2,
+        6
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 2,
+        "phase": 6,
+        "source_index": 10
+      }
+    },
+    {
+      "id": 330,
+      "symbol": [
+        "sleeve",
+        "left",
+        2,
+        7
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 2,
+        "phase": 7,
+        "source_index": 9
+      }
+    },
+    {
+      "id": 331,
+      "symbol": [
+        "sleeve",
+        "left",
+        2,
+        8
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 2,
+        "phase": 8,
+        "source_index": 8
+      }
+    },
+    {
+      "id": 332,
+      "symbol": [
+        "sleeve",
+        "left",
+        2,
+        9
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 2,
+        "phase": 9,
+        "source_index": 7
+      }
+    },
+    {
+      "id": 333,
+      "symbol": [
+        "sleeve",
+        "left",
+        2,
+        10
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 2,
+        "phase": 10,
+        "source_index": 6
+      }
+    },
+    {
+      "id": 334,
+      "symbol": [
+        "sleeve",
+        "left",
+        2,
+        11
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 2,
+        "phase": 11,
+        "source_index": 5
+      }
+    },
+    {
+      "id": 335,
+      "symbol": [
+        "sleeve",
+        "left",
+        2,
+        12
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 2,
+        "phase": 12,
+        "source_index": 4
+      }
+    },
+    {
+      "id": 336,
+      "symbol": [
+        "sleeve",
+        "left",
+        2,
+        13
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 2,
+        "phase": 13,
+        "source_index": 3
+      }
+    },
+    {
+      "id": 337,
+      "symbol": [
+        "sleeve",
+        "left",
+        2,
+        14
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 2,
+        "phase": 14,
+        "source_index": 2
+      }
+    },
+    {
+      "id": 338,
+      "symbol": [
+        "sleeve",
+        "left",
+        2,
+        15
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 2,
+        "phase": 15,
+        "source_index": 1
+      }
+    },
+    {
+      "id": 339,
+      "symbol": [
+        "sleeve",
+        "left",
+        3,
+        0
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 3,
+        "phase": 0,
+        "source_index": 0
+      }
+    },
+    {
+      "id": 340,
+      "symbol": [
+        "sleeve",
+        "left",
+        3,
+        1
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 3,
+        "phase": 1,
+        "source_index": 15
+      }
+    },
+    {
+      "id": 341,
+      "symbol": [
+        "sleeve",
+        "left",
+        3,
+        2
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 3,
+        "phase": 2,
+        "source_index": 14
+      }
+    },
+    {
+      "id": 342,
+      "symbol": [
+        "sleeve",
+        "left",
+        3,
+        3
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 3,
+        "phase": 3,
+        "source_index": 13
+      }
+    },
+    {
+      "id": 343,
+      "symbol": [
+        "sleeve",
+        "left",
+        3,
+        4
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 3,
+        "phase": 4,
+        "source_index": 12
+      }
+    },
+    {
+      "id": 344,
+      "symbol": [
+        "sleeve",
+        "left",
+        3,
+        5
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 3,
+        "phase": 5,
+        "source_index": 11
+      }
+    },
+    {
+      "id": 345,
+      "symbol": [
+        "sleeve",
+        "left",
+        3,
+        6
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 3,
+        "phase": 6,
+        "source_index": 10
+      }
+    },
+    {
+      "id": 346,
+      "symbol": [
+        "sleeve",
+        "left",
+        3,
+        7
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 3,
+        "phase": 7,
+        "source_index": 9
+      }
+    },
+    {
+      "id": 347,
+      "symbol": [
+        "sleeve",
+        "left",
+        3,
+        8
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 3,
+        "phase": 8,
+        "source_index": 8
+      }
+    },
+    {
+      "id": 348,
+      "symbol": [
+        "sleeve",
+        "left",
+        3,
+        9
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 3,
+        "phase": 9,
+        "source_index": 7
+      }
+    },
+    {
+      "id": 349,
+      "symbol": [
+        "sleeve",
+        "left",
+        3,
+        10
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 3,
+        "phase": 10,
+        "source_index": 6
+      }
+    },
+    {
+      "id": 350,
+      "symbol": [
+        "sleeve",
+        "left",
+        3,
+        11
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 3,
+        "phase": 11,
+        "source_index": 5
+      }
+    },
+    {
+      "id": 351,
+      "symbol": [
+        "sleeve",
+        "left",
+        3,
+        12
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 3,
+        "phase": 12,
+        "source_index": 4
+      }
+    },
+    {
+      "id": 352,
+      "symbol": [
+        "sleeve",
+        "left",
+        3,
+        13
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 3,
+        "phase": 13,
+        "source_index": 3
+      }
+    },
+    {
+      "id": 353,
+      "symbol": [
+        "sleeve",
+        "left",
+        3,
+        14
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 3,
+        "phase": 14,
+        "source_index": 2
+      }
+    },
+    {
+      "id": 354,
+      "symbol": [
+        "sleeve",
+        "left",
+        3,
+        15
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "left",
+        "ring": 3,
+        "phase": 15,
+        "source_index": 1
+      }
+    },
+    {
+      "id": 355,
+      "symbol": [
+        "sleeve",
+        "right",
+        1,
+        0
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 1,
+        "phase": 0,
+        "source_index": 8
+      }
+    },
+    {
+      "id": 356,
+      "symbol": [
+        "sleeve",
+        "right",
+        1,
+        1
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 1,
+        "phase": 1,
+        "source_index": 9
+      }
+    },
+    {
+      "id": 357,
+      "symbol": [
+        "sleeve",
+        "right",
+        1,
+        2
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 1,
+        "phase": 2,
+        "source_index": 10
+      }
+    },
+    {
+      "id": 358,
+      "symbol": [
+        "sleeve",
+        "right",
+        1,
+        3
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 1,
+        "phase": 3,
+        "source_index": 11
+      }
+    },
+    {
+      "id": 359,
+      "symbol": [
+        "sleeve",
+        "right",
+        1,
+        4
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 1,
+        "phase": 4,
+        "source_index": 12
+      }
+    },
+    {
+      "id": 360,
+      "symbol": [
+        "sleeve",
+        "right",
+        1,
+        5
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 1,
+        "phase": 5,
+        "source_index": 13
+      }
+    },
+    {
+      "id": 361,
+      "symbol": [
+        "sleeve",
+        "right",
+        1,
+        6
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 1,
+        "phase": 6,
+        "source_index": 14
+      }
+    },
+    {
+      "id": 362,
+      "symbol": [
+        "sleeve",
+        "right",
+        1,
+        7
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 1,
+        "phase": 7,
+        "source_index": 15
+      }
+    },
+    {
+      "id": 363,
+      "symbol": [
+        "sleeve",
+        "right",
+        1,
+        8
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 1,
+        "phase": 8,
+        "source_index": 0
+      }
+    },
+    {
+      "id": 364,
+      "symbol": [
+        "sleeve",
+        "right",
+        1,
+        9
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 1,
+        "phase": 9,
+        "source_index": 1
+      }
+    },
+    {
+      "id": 365,
+      "symbol": [
+        "sleeve",
+        "right",
+        1,
+        10
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 1,
+        "phase": 10,
+        "source_index": 2
+      }
+    },
+    {
+      "id": 366,
+      "symbol": [
+        "sleeve",
+        "right",
+        1,
+        11
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 1,
+        "phase": 11,
+        "source_index": 3
+      }
+    },
+    {
+      "id": 367,
+      "symbol": [
+        "sleeve",
+        "right",
+        1,
+        12
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 1,
+        "phase": 12,
+        "source_index": 4
+      }
+    },
+    {
+      "id": 368,
+      "symbol": [
+        "sleeve",
+        "right",
+        1,
+        13
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 1,
+        "phase": 13,
+        "source_index": 5
+      }
+    },
+    {
+      "id": 369,
+      "symbol": [
+        "sleeve",
+        "right",
+        1,
+        14
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 1,
+        "phase": 14,
+        "source_index": 6
+      }
+    },
+    {
+      "id": 370,
+      "symbol": [
+        "sleeve",
+        "right",
+        1,
+        15
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 1,
+        "phase": 15,
+        "source_index": 7
+      }
+    },
+    {
+      "id": 371,
+      "symbol": [
+        "sleeve",
+        "right",
+        2,
+        0
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 2,
+        "phase": 0,
+        "source_index": 8
+      }
+    },
+    {
+      "id": 372,
+      "symbol": [
+        "sleeve",
+        "right",
+        2,
+        1
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 2,
+        "phase": 1,
+        "source_index": 9
+      }
+    },
+    {
+      "id": 373,
+      "symbol": [
+        "sleeve",
+        "right",
+        2,
+        2
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 2,
+        "phase": 2,
+        "source_index": 10
+      }
+    },
+    {
+      "id": 374,
+      "symbol": [
+        "sleeve",
+        "right",
+        2,
+        3
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 2,
+        "phase": 3,
+        "source_index": 11
+      }
+    },
+    {
+      "id": 375,
+      "symbol": [
+        "sleeve",
+        "right",
+        2,
+        4
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 2,
+        "phase": 4,
+        "source_index": 12
+      }
+    },
+    {
+      "id": 376,
+      "symbol": [
+        "sleeve",
+        "right",
+        2,
+        5
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 2,
+        "phase": 5,
+        "source_index": 13
+      }
+    },
+    {
+      "id": 377,
+      "symbol": [
+        "sleeve",
+        "right",
+        2,
+        6
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 2,
+        "phase": 6,
+        "source_index": 14
+      }
+    },
+    {
+      "id": 378,
+      "symbol": [
+        "sleeve",
+        "right",
+        2,
+        7
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 2,
+        "phase": 7,
+        "source_index": 15
+      }
+    },
+    {
+      "id": 379,
+      "symbol": [
+        "sleeve",
+        "right",
+        2,
+        8
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 2,
+        "phase": 8,
+        "source_index": 0
+      }
+    },
+    {
+      "id": 380,
+      "symbol": [
+        "sleeve",
+        "right",
+        2,
+        9
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 2,
+        "phase": 9,
+        "source_index": 1
+      }
+    },
+    {
+      "id": 381,
+      "symbol": [
+        "sleeve",
+        "right",
+        2,
+        10
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 2,
+        "phase": 10,
+        "source_index": 2
+      }
+    },
+    {
+      "id": 382,
+      "symbol": [
+        "sleeve",
+        "right",
+        2,
+        11
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 2,
+        "phase": 11,
+        "source_index": 3
+      }
+    },
+    {
+      "id": 383,
+      "symbol": [
+        "sleeve",
+        "right",
+        2,
+        12
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 2,
+        "phase": 12,
+        "source_index": 4
+      }
+    },
+    {
+      "id": 384,
+      "symbol": [
+        "sleeve",
+        "right",
+        2,
+        13
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 2,
+        "phase": 13,
+        "source_index": 5
+      }
+    },
+    {
+      "id": 385,
+      "symbol": [
+        "sleeve",
+        "right",
+        2,
+        14
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 2,
+        "phase": 14,
+        "source_index": 6
+      }
+    },
+    {
+      "id": 386,
+      "symbol": [
+        "sleeve",
+        "right",
+        2,
+        15
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 2,
+        "phase": 15,
+        "source_index": 7
+      }
+    },
+    {
+      "id": 387,
+      "symbol": [
+        "sleeve",
+        "right",
+        3,
+        0
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 3,
+        "phase": 0,
+        "source_index": 8
+      }
+    },
+    {
+      "id": 388,
+      "symbol": [
+        "sleeve",
+        "right",
+        3,
+        1
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 3,
+        "phase": 1,
+        "source_index": 9
+      }
+    },
+    {
+      "id": 389,
+      "symbol": [
+        "sleeve",
+        "right",
+        3,
+        2
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 3,
+        "phase": 2,
+        "source_index": 10
+      }
+    },
+    {
+      "id": 390,
+      "symbol": [
+        "sleeve",
+        "right",
+        3,
+        3
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 3,
+        "phase": 3,
+        "source_index": 11
+      }
+    },
+    {
+      "id": 391,
+      "symbol": [
+        "sleeve",
+        "right",
+        3,
+        4
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 3,
+        "phase": 4,
+        "source_index": 12
+      }
+    },
+    {
+      "id": 392,
+      "symbol": [
+        "sleeve",
+        "right",
+        3,
+        5
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 3,
+        "phase": 5,
+        "source_index": 13
+      }
+    },
+    {
+      "id": 393,
+      "symbol": [
+        "sleeve",
+        "right",
+        3,
+        6
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 3,
+        "phase": 6,
+        "source_index": 14
+      }
+    },
+    {
+      "id": 394,
+      "symbol": [
+        "sleeve",
+        "right",
+        3,
+        7
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 3,
+        "phase": 7,
+        "source_index": 15
+      }
+    },
+    {
+      "id": 395,
+      "symbol": [
+        "sleeve",
+        "right",
+        3,
+        8
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 3,
+        "phase": 8,
+        "source_index": 0
+      }
+    },
+    {
+      "id": 396,
+      "symbol": [
+        "sleeve",
+        "right",
+        3,
+        9
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 3,
+        "phase": 9,
+        "source_index": 1
+      }
+    },
+    {
+      "id": 397,
+      "symbol": [
+        "sleeve",
+        "right",
+        3,
+        10
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 3,
+        "phase": 10,
+        "source_index": 2
+      }
+    },
+    {
+      "id": 398,
+      "symbol": [
+        "sleeve",
+        "right",
+        3,
+        11
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 3,
+        "phase": 11,
+        "source_index": 3
+      }
+    },
+    {
+      "id": 399,
+      "symbol": [
+        "sleeve",
+        "right",
+        3,
+        12
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 3,
+        "phase": 12,
+        "source_index": 4
+      }
+    },
+    {
+      "id": 400,
+      "symbol": [
+        "sleeve",
+        "right",
+        3,
+        13
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 3,
+        "phase": 13,
+        "source_index": 5
+      }
+    },
+    {
+      "id": 401,
+      "symbol": [
+        "sleeve",
+        "right",
+        3,
+        14
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 3,
+        "phase": 14,
+        "source_index": 6
+      }
+    },
+    {
+      "id": 402,
+      "symbol": [
+        "sleeve",
+        "right",
+        3,
+        15
+      ],
+      "owner": {
+        "rule": "distal-source-ring",
+        "side": "right",
+        "ring": 3,
+        "phase": 15,
+        "source_index": 7
+      }
+    },
+    {
+      "id": 403,
+      "symbol": [
+        "inner",
+        "torso",
+        0,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 0
+      }
+    },
+    {
+      "id": 404,
+      "symbol": [
+        "inner",
+        "torso",
+        1,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 1
+      }
+    },
+    {
+      "id": 405,
+      "symbol": [
+        "inner",
+        "torso",
+        1,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 2
+      }
+    },
+    {
+      "id": 406,
+      "symbol": [
+        "inner",
+        "torso",
+        0,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 3
+      }
+    },
+    {
+      "id": 407,
+      "symbol": [
+        "inner",
+        "torso",
+        2,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 4
+      }
+    },
+    {
+      "id": 408,
+      "symbol": [
+        "inner",
+        "torso",
+        2,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 5
+      }
+    },
+    {
+      "id": 409,
+      "symbol": [
+        "inner",
+        "torso",
+        3,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 6
+      }
+    },
+    {
+      "id": 410,
+      "symbol": [
+        "inner",
+        "torso",
+        3,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 7
+      }
+    },
+    {
+      "id": 411,
+      "symbol": [
+        "inner",
+        "torso",
+        4,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 8
+      }
+    },
+    {
+      "id": 412,
+      "symbol": [
+        "inner",
+        "torso",
+        4,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 9
+      }
+    },
+    {
+      "id": 413,
+      "symbol": [
+        "inner",
+        "torso",
+        5,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 10
+      }
+    },
+    {
+      "id": 414,
+      "symbol": [
+        "inner",
+        "torso",
+        5,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 11
+      }
+    },
+    {
+      "id": 415,
+      "symbol": [
+        "inner",
+        "torso",
+        6,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 12
+      }
+    },
+    {
+      "id": 416,
+      "symbol": [
+        "inner",
+        "torso",
+        6,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 13
+      }
+    },
+    {
+      "id": 417,
+      "symbol": [
+        "inner",
+        "torso",
+        7,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 14
+      }
+    },
+    {
+      "id": 418,
+      "symbol": [
+        "inner",
+        "torso",
+        7,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 15
+      }
+    },
+    {
+      "id": 419,
+      "symbol": [
+        "inner",
+        "torso",
+        8,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 16
+      }
+    },
+    {
+      "id": 420,
+      "symbol": [
+        "inner",
+        "torso",
+        8,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 17
+      }
+    },
+    {
+      "id": 421,
+      "symbol": [
+        "inner",
+        "torso",
+        9,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 18
+      }
+    },
+    {
+      "id": 422,
+      "symbol": [
+        "inner",
+        "torso",
+        9,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 19
+      }
+    },
+    {
+      "id": 423,
+      "symbol": [
+        "inner",
+        "torso",
+        10,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 20
+      }
+    },
+    {
+      "id": 424,
+      "symbol": [
+        "inner",
+        "torso",
+        10,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 21
+      }
+    },
+    {
+      "id": 425,
+      "symbol": [
+        "inner",
+        "torso",
+        11,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 22
+      }
+    },
+    {
+      "id": 426,
+      "symbol": [
+        "inner",
+        "torso",
+        11,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 23
+      }
+    },
+    {
+      "id": 427,
+      "symbol": [
+        "inner",
+        "torso",
+        12,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 24
+      }
+    },
+    {
+      "id": 428,
+      "symbol": [
+        "inner",
+        "torso",
+        12,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 25
+      }
+    },
+    {
+      "id": 429,
+      "symbol": [
+        "inner",
+        "torso",
+        13,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 26
+      }
+    },
+    {
+      "id": 430,
+      "symbol": [
+        "inner",
+        "torso",
+        13,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 27
+      }
+    },
+    {
+      "id": 431,
+      "symbol": [
+        "inner",
+        "torso",
+        14,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 28
+      }
+    },
+    {
+      "id": 432,
+      "symbol": [
+        "inner",
+        "torso",
+        14,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 29
+      }
+    },
+    {
+      "id": 433,
+      "symbol": [
+        "inner",
+        "torso",
+        15,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 30
+      }
+    },
+    {
+      "id": 434,
+      "symbol": [
+        "inner",
+        "torso",
+        15,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 31
+      }
+    },
+    {
+      "id": 435,
+      "symbol": [
+        "inner",
+        "torso",
+        16,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 32
+      }
+    },
+    {
+      "id": 436,
+      "symbol": [
+        "inner",
+        "torso",
+        16,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 33
+      }
+    },
+    {
+      "id": 437,
+      "symbol": [
+        "inner",
+        "torso",
+        17,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 34
+      }
+    },
+    {
+      "id": 438,
+      "symbol": [
+        "inner",
+        "torso",
+        17,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 35
+      }
+    },
+    {
+      "id": 439,
+      "symbol": [
+        "inner",
+        "torso",
+        18,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 36
+      }
+    },
+    {
+      "id": 440,
+      "symbol": [
+        "inner",
+        "torso",
+        18,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 37
+      }
+    },
+    {
+      "id": 441,
+      "symbol": [
+        "inner",
+        "torso",
+        19,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 38
+      }
+    },
+    {
+      "id": 442,
+      "symbol": [
+        "inner",
+        "torso",
+        19,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 39
+      }
+    },
+    {
+      "id": 443,
+      "symbol": [
+        "inner",
+        "torso",
+        20,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 40
+      }
+    },
+    {
+      "id": 444,
+      "symbol": [
+        "inner",
+        "torso",
+        20,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 41
+      }
+    },
+    {
+      "id": 445,
+      "symbol": [
+        "inner",
+        "torso",
+        21,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 42
+      }
+    },
+    {
+      "id": 446,
+      "symbol": [
+        "inner",
+        "torso",
+        21,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 43
+      }
+    },
+    {
+      "id": 447,
+      "symbol": [
+        "inner",
+        "torso",
+        22,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 44
+      }
+    },
+    {
+      "id": 448,
+      "symbol": [
+        "inner",
+        "torso",
+        22,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 45
+      }
+    },
+    {
+      "id": 449,
+      "symbol": [
+        "inner",
+        "torso",
+        23,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 46
+      }
+    },
+    {
+      "id": 450,
+      "symbol": [
+        "inner",
+        "torso",
+        23,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 47
+      }
+    },
+    {
+      "id": 451,
+      "symbol": [
+        "inner",
+        "torso",
+        24,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 48
+      }
+    },
+    {
+      "id": 452,
+      "symbol": [
+        "inner",
+        "torso",
+        24,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 49
+      }
+    },
+    {
+      "id": 453,
+      "symbol": [
+        "inner",
+        "torso",
+        1,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 50
+      }
+    },
+    {
+      "id": 454,
+      "symbol": [
+        "inner",
+        "torso",
+        0,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 51
+      }
+    },
+    {
+      "id": 455,
+      "symbol": [
+        "inner",
+        "torso",
+        2,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 52
+      }
+    },
+    {
+      "id": 456,
+      "symbol": [
+        "inner",
+        "torso",
+        3,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 53
+      }
+    },
+    {
+      "id": 457,
+      "symbol": [
+        "inner",
+        "torso",
+        4,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 54
+      }
+    },
+    {
+      "id": 458,
+      "symbol": [
+        "inner",
+        "torso",
+        5,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 55
+      }
+    },
+    {
+      "id": 459,
+      "symbol": [
+        "inner",
+        "torso",
+        6,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 56
+      }
+    },
+    {
+      "id": 460,
+      "symbol": [
+        "inner",
+        "torso",
+        7,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 57
+      }
+    },
+    {
+      "id": 461,
+      "symbol": [
+        "inner",
+        "torso",
+        8,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 58
+      }
+    },
+    {
+      "id": 462,
+      "symbol": [
+        "inner",
+        "torso",
+        9,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 59
+      }
+    },
+    {
+      "id": 463,
+      "symbol": [
+        "inner",
+        "torso",
+        10,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 60
+      }
+    },
+    {
+      "id": 464,
+      "symbol": [
+        "inner",
+        "torso",
+        11,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 61
+      }
+    },
+    {
+      "id": 465,
+      "symbol": [
+        "inner",
+        "torso",
+        12,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 62
+      }
+    },
+    {
+      "id": 466,
+      "symbol": [
+        "inner",
+        "torso",
+        13,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 63
+      }
+    },
+    {
+      "id": 467,
+      "symbol": [
+        "inner",
+        "torso",
+        14,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 64
+      }
+    },
+    {
+      "id": 468,
+      "symbol": [
+        "inner",
+        "torso",
+        15,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 65
+      }
+    },
+    {
+      "id": 469,
+      "symbol": [
+        "inner",
+        "torso",
+        16,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 66
+      }
+    },
+    {
+      "id": 470,
+      "symbol": [
+        "inner",
+        "torso",
+        17,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 67
+      }
+    },
+    {
+      "id": 471,
+      "symbol": [
+        "inner",
+        "torso",
+        18,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 68
+      }
+    },
+    {
+      "id": 472,
+      "symbol": [
+        "inner",
+        "torso",
+        19,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 69
+      }
+    },
+    {
+      "id": 473,
+      "symbol": [
+        "inner",
+        "torso",
+        20,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 70
+      }
+    },
+    {
+      "id": 474,
+      "symbol": [
+        "inner",
+        "torso",
+        21,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 71
+      }
+    },
+    {
+      "id": 475,
+      "symbol": [
+        "inner",
+        "torso",
+        22,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 72
+      }
+    },
+    {
+      "id": 476,
+      "symbol": [
+        "inner",
+        "torso",
+        23,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 73
+      }
+    },
+    {
+      "id": 477,
+      "symbol": [
+        "inner",
+        "torso",
+        24,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 74
+      }
+    },
+    {
+      "id": 478,
+      "symbol": [
+        "inner",
+        "torso",
+        1,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 75
+      }
+    },
+    {
+      "id": 479,
+      "symbol": [
+        "inner",
+        "torso",
+        0,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 76
+      }
+    },
+    {
+      "id": 480,
+      "symbol": [
+        "inner",
+        "torso",
+        2,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 77
+      }
+    },
+    {
+      "id": 481,
+      "symbol": [
+        "inner",
+        "torso",
+        3,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 78
+      }
+    },
+    {
+      "id": 482,
+      "symbol": [
+        "inner",
+        "torso",
+        4,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 79
+      }
+    },
+    {
+      "id": 483,
+      "symbol": [
+        "inner",
+        "torso",
+        5,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 80
+      }
+    },
+    {
+      "id": 484,
+      "symbol": [
+        "inner",
+        "torso",
+        6,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 81
+      }
+    },
+    {
+      "id": 485,
+      "symbol": [
+        "inner",
+        "torso",
+        7,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 82
+      }
+    },
+    {
+      "id": 486,
+      "symbol": [
+        "inner",
+        "torso",
+        8,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 83
+      }
+    },
+    {
+      "id": 487,
+      "symbol": [
+        "inner",
+        "torso",
+        9,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 84
+      }
+    },
+    {
+      "id": 488,
+      "symbol": [
+        "inner",
+        "torso",
+        10,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 85
+      }
+    },
+    {
+      "id": 489,
+      "symbol": [
+        "inner",
+        "torso",
+        11,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 86
+      }
+    },
+    {
+      "id": 490,
+      "symbol": [
+        "inner",
+        "torso",
+        12,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 87
+      }
+    },
+    {
+      "id": 491,
+      "symbol": [
+        "inner",
+        "torso",
+        13,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 88
+      }
+    },
+    {
+      "id": 492,
+      "symbol": [
+        "inner",
+        "torso",
+        14,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 89
+      }
+    },
+    {
+      "id": 493,
+      "symbol": [
+        "inner",
+        "torso",
+        15,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 90
+      }
+    },
+    {
+      "id": 494,
+      "symbol": [
+        "inner",
+        "torso",
+        16,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 91
+      }
+    },
+    {
+      "id": 495,
+      "symbol": [
+        "inner",
+        "torso",
+        17,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 92
+      }
+    },
+    {
+      "id": 496,
+      "symbol": [
+        "inner",
+        "torso",
+        18,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 93
+      }
+    },
+    {
+      "id": 497,
+      "symbol": [
+        "inner",
+        "torso",
+        19,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 94
+      }
+    },
+    {
+      "id": 498,
+      "symbol": [
+        "inner",
+        "torso",
+        20,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 95
+      }
+    },
+    {
+      "id": 499,
+      "symbol": [
+        "inner",
+        "torso",
+        21,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 96
+      }
+    },
+    {
+      "id": 500,
+      "symbol": [
+        "inner",
+        "torso",
+        22,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 97
+      }
+    },
+    {
+      "id": 501,
+      "symbol": [
+        "inner",
+        "torso",
+        23,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 98
+      }
+    },
+    {
+      "id": 502,
+      "symbol": [
+        "inner",
+        "torso",
+        24,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 99
+      }
+    },
+    {
+      "id": 503,
+      "symbol": [
+        "inner",
+        "torso",
+        1,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 100
+      }
+    },
+    {
+      "id": 504,
+      "symbol": [
+        "inner",
+        "torso",
+        0,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 101
+      }
+    },
+    {
+      "id": 505,
+      "symbol": [
+        "inner",
+        "torso",
+        2,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 102
+      }
+    },
+    {
+      "id": 506,
+      "symbol": [
+        "inner",
+        "torso",
+        3,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 103
+      }
+    },
+    {
+      "id": 507,
+      "symbol": [
+        "inner",
+        "torso",
+        4,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 104
+      }
+    },
+    {
+      "id": 508,
+      "symbol": [
+        "inner",
+        "torso",
+        5,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 105
+      }
+    },
+    {
+      "id": 509,
+      "symbol": [
+        "inner",
+        "torso",
+        6,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 106
+      }
+    },
+    {
+      "id": 510,
+      "symbol": [
+        "inner",
+        "torso",
+        7,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 107
+      }
+    },
+    {
+      "id": 511,
+      "symbol": [
+        "inner",
+        "torso",
+        8,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 108
+      }
+    },
+    {
+      "id": 512,
+      "symbol": [
+        "inner",
+        "torso",
+        9,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 109
+      }
+    },
+    {
+      "id": 513,
+      "symbol": [
+        "inner",
+        "torso",
+        10,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 110
+      }
+    },
+    {
+      "id": 514,
+      "symbol": [
+        "inner",
+        "torso",
+        11,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 111
+      }
+    },
+    {
+      "id": 515,
+      "symbol": [
+        "inner",
+        "torso",
+        12,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 112
+      }
+    },
+    {
+      "id": 516,
+      "symbol": [
+        "inner",
+        "torso",
+        13,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 113
+      }
+    },
+    {
+      "id": 517,
+      "symbol": [
+        "inner",
+        "torso",
+        14,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 114
+      }
+    },
+    {
+      "id": 518,
+      "symbol": [
+        "inner",
+        "torso",
+        15,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 115
+      }
+    },
+    {
+      "id": 519,
+      "symbol": [
+        "inner",
+        "torso",
+        16,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 116
+      }
+    },
+    {
+      "id": 520,
+      "symbol": [
+        "inner",
+        "torso",
+        17,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 117
+      }
+    },
+    {
+      "id": 521,
+      "symbol": [
+        "inner",
+        "torso",
+        18,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 118
+      }
+    },
+    {
+      "id": 522,
+      "symbol": [
+        "inner",
+        "torso",
+        19,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 119
+      }
+    },
+    {
+      "id": 523,
+      "symbol": [
+        "inner",
+        "torso",
+        20,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 120
+      }
+    },
+    {
+      "id": 524,
+      "symbol": [
+        "inner",
+        "torso",
+        21,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 121
+      }
+    },
+    {
+      "id": 525,
+      "symbol": [
+        "inner",
+        "torso",
+        22,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 122
+      }
+    },
+    {
+      "id": 526,
+      "symbol": [
+        "inner",
+        "torso",
+        23,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 123
+      }
+    },
+    {
+      "id": 527,
+      "symbol": [
+        "inner",
+        "torso",
+        24,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 124
+      }
+    },
+    {
+      "id": 528,
+      "symbol": [
+        "inner",
+        "torso",
+        1,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 125
+      }
+    },
+    {
+      "id": 529,
+      "symbol": [
+        "inner",
+        "torso",
+        0,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 126
+      }
+    },
+    {
+      "id": 530,
+      "symbol": [
+        "inner",
+        "torso",
+        2,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 127
+      }
+    },
+    {
+      "id": 531,
+      "symbol": [
+        "inner",
+        "torso",
+        3,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 128
+      }
+    },
+    {
+      "id": 532,
+      "symbol": [
+        "inner",
+        "torso",
+        4,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 129
+      }
+    },
+    {
+      "id": 533,
+      "symbol": [
+        "inner",
+        "torso",
+        5,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 130
+      }
+    },
+    {
+      "id": 534,
+      "symbol": [
+        "inner",
+        "torso",
+        6,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 131
+      }
+    },
+    {
+      "id": 535,
+      "symbol": [
+        "inner",
+        "torso",
+        7,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 132
+      }
+    },
+    {
+      "id": 536,
+      "symbol": [
+        "inner",
+        "torso",
+        8,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 133
+      }
+    },
+    {
+      "id": 537,
+      "symbol": [
+        "inner",
+        "torso",
+        9,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 134
+      }
+    },
+    {
+      "id": 538,
+      "symbol": [
+        "inner",
+        "torso",
+        10,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 135
+      }
+    },
+    {
+      "id": 539,
+      "symbol": [
+        "inner",
+        "torso",
+        11,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 136
+      }
+    },
+    {
+      "id": 540,
+      "symbol": [
+        "inner",
+        "torso",
+        12,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 137
+      }
+    },
+    {
+      "id": 541,
+      "symbol": [
+        "inner",
+        "torso",
+        13,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 138
+      }
+    },
+    {
+      "id": 542,
+      "symbol": [
+        "inner",
+        "torso",
+        14,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 139
+      }
+    },
+    {
+      "id": 543,
+      "symbol": [
+        "inner",
+        "torso",
+        15,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 140
+      }
+    },
+    {
+      "id": 544,
+      "symbol": [
+        "inner",
+        "torso",
+        16,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 141
+      }
+    },
+    {
+      "id": 545,
+      "symbol": [
+        "inner",
+        "torso",
+        17,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 142
+      }
+    },
+    {
+      "id": 546,
+      "symbol": [
+        "inner",
+        "torso",
+        18,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 143
+      }
+    },
+    {
+      "id": 547,
+      "symbol": [
+        "inner",
+        "torso",
+        19,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 144
+      }
+    },
+    {
+      "id": 548,
+      "symbol": [
+        "inner",
+        "torso",
+        20,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 145
+      }
+    },
+    {
+      "id": 549,
+      "symbol": [
+        "inner",
+        "torso",
+        21,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 146
+      }
+    },
+    {
+      "id": 550,
+      "symbol": [
+        "inner",
+        "torso",
+        22,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 147
+      }
+    },
+    {
+      "id": 551,
+      "symbol": [
+        "inner",
+        "torso",
+        23,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 148
+      }
+    },
+    {
+      "id": 552,
+      "symbol": [
+        "inner",
+        "torso",
+        24,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 149
+      }
+    },
+    {
+      "id": 553,
+      "symbol": [
+        "inner",
+        "torso",
+        1,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 150
+      }
+    },
+    {
+      "id": 554,
+      "symbol": [
+        "inner",
+        "torso",
+        0,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 151
+      }
+    },
+    {
+      "id": 555,
+      "symbol": [
+        "inner",
+        "torso",
+        2,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 152
+      }
+    },
+    {
+      "id": 556,
+      "symbol": [
+        "inner",
+        "torso",
+        3,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 153
+      }
+    },
+    {
+      "id": 557,
+      "symbol": [
+        "inner",
+        "torso",
+        4,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 154
+      }
+    },
+    {
+      "id": 558,
+      "symbol": [
+        "inner",
+        "torso",
+        5,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 155
+      }
+    },
+    {
+      "id": 559,
+      "symbol": [
+        "inner",
+        "torso",
+        6,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 156
+      }
+    },
+    {
+      "id": 560,
+      "symbol": [
+        "inner",
+        "torso",
+        7,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 157
+      }
+    },
+    {
+      "id": 561,
+      "symbol": [
+        "inner",
+        "torso",
+        8,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 158
+      }
+    },
+    {
+      "id": 562,
+      "symbol": [
+        "inner",
+        "torso",
+        9,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 159
+      }
+    },
+    {
+      "id": 563,
+      "symbol": [
+        "inner",
+        "torso",
+        10,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 160
+      }
+    },
+    {
+      "id": 564,
+      "symbol": [
+        "inner",
+        "torso",
+        11,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 161
+      }
+    },
+    {
+      "id": 565,
+      "symbol": [
+        "inner",
+        "torso",
+        12,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 162
+      }
+    },
+    {
+      "id": 566,
+      "symbol": [
+        "inner",
+        "torso",
+        13,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 163
+      }
+    },
+    {
+      "id": 567,
+      "symbol": [
+        "inner",
+        "torso",
+        14,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 164
+      }
+    },
+    {
+      "id": 568,
+      "symbol": [
+        "inner",
+        "torso",
+        15,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 165
+      }
+    },
+    {
+      "id": 569,
+      "symbol": [
+        "inner",
+        "torso",
+        16,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 166
+      }
+    },
+    {
+      "id": 570,
+      "symbol": [
+        "inner",
+        "torso",
+        17,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 167
+      }
+    },
+    {
+      "id": 571,
+      "symbol": [
+        "inner",
+        "torso",
+        18,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 168
+      }
+    },
+    {
+      "id": 572,
+      "symbol": [
+        "inner",
+        "torso",
+        19,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 169
+      }
+    },
+    {
+      "id": 573,
+      "symbol": [
+        "inner",
+        "torso",
+        20,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 170
+      }
+    },
+    {
+      "id": 574,
+      "symbol": [
+        "inner",
+        "torso",
+        21,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 171
+      }
+    },
+    {
+      "id": 575,
+      "symbol": [
+        "inner",
+        "torso",
+        22,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 172
+      }
+    },
+    {
+      "id": 576,
+      "symbol": [
+        "inner",
+        "torso",
+        23,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 173
+      }
+    },
+    {
+      "id": 577,
+      "symbol": [
+        "inner",
+        "torso",
+        24,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 174
+      }
+    },
+    {
+      "id": 578,
+      "symbol": [
+        "inner",
+        "torso",
+        1,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 175
+      }
+    },
+    {
+      "id": 579,
+      "symbol": [
+        "inner",
+        "torso",
+        0,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 176
+      }
+    },
+    {
+      "id": 580,
+      "symbol": [
+        "inner",
+        "torso",
+        2,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 177
+      }
+    },
+    {
+      "id": 581,
+      "symbol": [
+        "inner",
+        "torso",
+        3,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 178
+      }
+    },
+    {
+      "id": 582,
+      "symbol": [
+        "inner",
+        "torso",
+        4,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 179
+      }
+    },
+    {
+      "id": 583,
+      "symbol": [
+        "inner",
+        "torso",
+        9,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 180
+      }
+    },
+    {
+      "id": 584,
+      "symbol": [
+        "inner",
+        "torso",
+        8,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 181
+      }
+    },
+    {
+      "id": 585,
+      "symbol": [
+        "inner",
+        "torso",
+        10,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 182
+      }
+    },
+    {
+      "id": 586,
+      "symbol": [
+        "inner",
+        "torso",
+        11,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 183
+      }
+    },
+    {
+      "id": 587,
+      "symbol": [
+        "inner",
+        "torso",
+        12,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 184
+      }
+    },
+    {
+      "id": 588,
+      "symbol": [
+        "inner",
+        "torso",
+        13,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 185
+      }
+    },
+    {
+      "id": 589,
+      "symbol": [
+        "inner",
+        "torso",
+        14,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 186
+      }
+    },
+    {
+      "id": 590,
+      "symbol": [
+        "inner",
+        "torso",
+        15,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 187
+      }
+    },
+    {
+      "id": 591,
+      "symbol": [
+        "inner",
+        "torso",
+        16,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 188
+      }
+    },
+    {
+      "id": 592,
+      "symbol": [
+        "inner",
+        "torso",
+        21,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 189
+      }
+    },
+    {
+      "id": 593,
+      "symbol": [
+        "inner",
+        "torso",
+        20,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 190
+      }
+    },
+    {
+      "id": 594,
+      "symbol": [
+        "inner",
+        "torso",
+        22,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 191
+      }
+    },
+    {
+      "id": 595,
+      "symbol": [
+        "inner",
+        "torso",
+        23,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 192
+      }
+    },
+    {
+      "id": 596,
+      "symbol": [
+        "inner",
+        "torso",
+        24,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 193
+      }
+    },
+    {
+      "id": 597,
+      "symbol": [
+        "inner",
+        "torso",
+        1,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 194
+      }
+    },
+    {
+      "id": 598,
+      "symbol": [
+        "inner",
+        "torso",
+        0,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 195
+      }
+    },
+    {
+      "id": 599,
+      "symbol": [
+        "inner",
+        "torso",
+        2,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 196
+      }
+    },
+    {
+      "id": 600,
+      "symbol": [
+        "inner",
+        "torso",
+        3,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 197
+      }
+    },
+    {
+      "id": 601,
+      "symbol": [
+        "inner",
+        "torso",
+        4,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 198
+      }
+    },
+    {
+      "id": 602,
+      "symbol": [
+        "inner",
+        "torso",
+        9,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 199
+      }
+    },
+    {
+      "id": 603,
+      "symbol": [
+        "inner",
+        "torso",
+        8,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 200
+      }
+    },
+    {
+      "id": 604,
+      "symbol": [
+        "inner",
+        "torso",
+        10,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 201
+      }
+    },
+    {
+      "id": 605,
+      "symbol": [
+        "inner",
+        "torso",
+        11,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 202
+      }
+    },
+    {
+      "id": 606,
+      "symbol": [
+        "inner",
+        "torso",
+        12,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 203
+      }
+    },
+    {
+      "id": 607,
+      "symbol": [
+        "inner",
+        "torso",
+        13,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 204
+      }
+    },
+    {
+      "id": 608,
+      "symbol": [
+        "inner",
+        "torso",
+        14,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 205
+      }
+    },
+    {
+      "id": 609,
+      "symbol": [
+        "inner",
+        "torso",
+        15,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 206
+      }
+    },
+    {
+      "id": 610,
+      "symbol": [
+        "inner",
+        "torso",
+        16,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 207
+      }
+    },
+    {
+      "id": 611,
+      "symbol": [
+        "inner",
+        "torso",
+        21,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 208
+      }
+    },
+    {
+      "id": 612,
+      "symbol": [
+        "inner",
+        "torso",
+        20,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 209
+      }
+    },
+    {
+      "id": 613,
+      "symbol": [
+        "inner",
+        "torso",
+        22,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 210
+      }
+    },
+    {
+      "id": 614,
+      "symbol": [
+        "inner",
+        "torso",
+        23,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 211
+      }
+    },
+    {
+      "id": 615,
+      "symbol": [
+        "inner",
+        "torso",
+        24,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 212
+      }
+    },
+    {
+      "id": 616,
+      "symbol": [
+        "inner",
+        "torso",
+        1,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 213
+      }
+    },
+    {
+      "id": 617,
+      "symbol": [
+        "inner",
+        "torso",
+        0,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 214
+      }
+    },
+    {
+      "id": 618,
+      "symbol": [
+        "inner",
+        "torso",
+        2,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 215
+      }
+    },
+    {
+      "id": 619,
+      "symbol": [
+        "inner",
+        "torso",
+        3,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 216
+      }
+    },
+    {
+      "id": 620,
+      "symbol": [
+        "inner",
+        "torso",
+        4,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 217
+      }
+    },
+    {
+      "id": 621,
+      "symbol": [
+        "inner",
+        "torso",
+        9,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 218
+      }
+    },
+    {
+      "id": 622,
+      "symbol": [
+        "inner",
+        "torso",
+        8,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 219
+      }
+    },
+    {
+      "id": 623,
+      "symbol": [
+        "inner",
+        "torso",
+        10,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 220
+      }
+    },
+    {
+      "id": 624,
+      "symbol": [
+        "inner",
+        "torso",
+        11,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 221
+      }
+    },
+    {
+      "id": 625,
+      "symbol": [
+        "inner",
+        "torso",
+        12,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 222
+      }
+    },
+    {
+      "id": 626,
+      "symbol": [
+        "inner",
+        "torso",
+        13,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 223
+      }
+    },
+    {
+      "id": 627,
+      "symbol": [
+        "inner",
+        "torso",
+        14,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 224
+      }
+    },
+    {
+      "id": 628,
+      "symbol": [
+        "inner",
+        "torso",
+        15,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 225
+      }
+    },
+    {
+      "id": 629,
+      "symbol": [
+        "inner",
+        "torso",
+        16,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 226
+      }
+    },
+    {
+      "id": 630,
+      "symbol": [
+        "inner",
+        "torso",
+        21,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 227
+      }
+    },
+    {
+      "id": 631,
+      "symbol": [
+        "inner",
+        "torso",
+        20,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 228
+      }
+    },
+    {
+      "id": 632,
+      "symbol": [
+        "inner",
+        "torso",
+        22,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 229
+      }
+    },
+    {
+      "id": 633,
+      "symbol": [
+        "inner",
+        "torso",
+        23,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 230
+      }
+    },
+    {
+      "id": 634,
+      "symbol": [
+        "inner",
+        "torso",
+        24,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 231
+      }
+    },
+    {
+      "id": 635,
+      "symbol": [
+        "inner",
+        "torso",
+        1,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 232
+      }
+    },
+    {
+      "id": 636,
+      "symbol": [
+        "inner",
+        "torso",
+        0,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 233
+      }
+    },
+    {
+      "id": 637,
+      "symbol": [
+        "inner",
+        "torso",
+        2,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 234
+      }
+    },
+    {
+      "id": 638,
+      "symbol": [
+        "inner",
+        "torso",
+        3,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 235
+      }
+    },
+    {
+      "id": 639,
+      "symbol": [
+        "inner",
+        "torso",
+        4,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 236
+      }
+    },
+    {
+      "id": 640,
+      "symbol": [
+        "inner",
+        "torso",
+        9,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 237
+      }
+    },
+    {
+      "id": 641,
+      "symbol": [
+        "inner",
+        "torso",
+        8,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 238
+      }
+    },
+    {
+      "id": 642,
+      "symbol": [
+        "inner",
+        "torso",
+        10,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 239
+      }
+    },
+    {
+      "id": 643,
+      "symbol": [
+        "inner",
+        "torso",
+        11,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 240
+      }
+    },
+    {
+      "id": 644,
+      "symbol": [
+        "inner",
+        "torso",
+        12,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 241
+      }
+    },
+    {
+      "id": 645,
+      "symbol": [
+        "inner",
+        "torso",
+        13,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 242
+      }
+    },
+    {
+      "id": 646,
+      "symbol": [
+        "inner",
+        "torso",
+        14,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 243
+      }
+    },
+    {
+      "id": 647,
+      "symbol": [
+        "inner",
+        "torso",
+        15,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 244
+      }
+    },
+    {
+      "id": 648,
+      "symbol": [
+        "inner",
+        "torso",
+        16,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 245
+      }
+    },
+    {
+      "id": 649,
+      "symbol": [
+        "inner",
+        "torso",
+        21,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 246
+      }
+    },
+    {
+      "id": 650,
+      "symbol": [
+        "inner",
+        "torso",
+        20,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 247
+      }
+    },
+    {
+      "id": 651,
+      "symbol": [
+        "inner",
+        "torso",
+        22,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 248
+      }
+    },
+    {
+      "id": 652,
+      "symbol": [
+        "inner",
+        "torso",
+        23,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 249
+      }
+    },
+    {
+      "id": 653,
+      "symbol": [
+        "inner",
+        "torso",
+        24,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 250
+      }
+    },
+    {
+      "id": 654,
+      "symbol": [
+        "inner",
+        "torso",
+        1,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 251
+      }
+    },
+    {
+      "id": 655,
+      "symbol": [
+        "inner",
+        "torso",
+        0,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 252
+      }
+    },
+    {
+      "id": 656,
+      "symbol": [
+        "inner",
+        "torso",
+        2,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 253
+      }
+    },
+    {
+      "id": 657,
+      "symbol": [
+        "inner",
+        "torso",
+        3,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 254
+      }
+    },
+    {
+      "id": 658,
+      "symbol": [
+        "inner",
+        "torso",
+        4,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 255
+      }
+    },
+    {
+      "id": 659,
+      "symbol": [
+        "inner",
+        "torso",
+        5,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 256
+      }
+    },
+    {
+      "id": 660,
+      "symbol": [
+        "inner",
+        "torso",
+        5,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 257
+      }
+    },
+    {
+      "id": 661,
+      "symbol": [
+        "inner",
+        "torso",
+        6,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 258
+      }
+    },
+    {
+      "id": 662,
+      "symbol": [
+        "inner",
+        "torso",
+        6,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 259
+      }
+    },
+    {
+      "id": 663,
+      "symbol": [
+        "inner",
+        "torso",
+        7,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 260
+      }
+    },
+    {
+      "id": 664,
+      "symbol": [
+        "inner",
+        "torso",
+        7,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 261
+      }
+    },
+    {
+      "id": 665,
+      "symbol": [
+        "inner",
+        "torso",
+        8,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 262
+      }
+    },
+    {
+      "id": 666,
+      "symbol": [
+        "inner",
+        "torso",
+        9,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 263
+      }
+    },
+    {
+      "id": 667,
+      "symbol": [
+        "inner",
+        "torso",
+        10,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 264
+      }
+    },
+    {
+      "id": 668,
+      "symbol": [
+        "inner",
+        "torso",
+        11,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 265
+      }
+    },
+    {
+      "id": 669,
+      "symbol": [
+        "inner",
+        "torso",
+        12,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 266
+      }
+    },
+    {
+      "id": 670,
+      "symbol": [
+        "inner",
+        "torso",
+        13,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 267
+      }
+    },
+    {
+      "id": 671,
+      "symbol": [
+        "inner",
+        "torso",
+        14,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 268
+      }
+    },
+    {
+      "id": 672,
+      "symbol": [
+        "inner",
+        "torso",
+        15,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 269
+      }
+    },
+    {
+      "id": 673,
+      "symbol": [
+        "inner",
+        "torso",
+        16,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 270
+      }
+    },
+    {
+      "id": 674,
+      "symbol": [
+        "inner",
+        "torso",
+        17,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 271
+      }
+    },
+    {
+      "id": 675,
+      "symbol": [
+        "inner",
+        "torso",
+        17,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 272
+      }
+    },
+    {
+      "id": 676,
+      "symbol": [
+        "inner",
+        "torso",
+        18,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 273
+      }
+    },
+    {
+      "id": 677,
+      "symbol": [
+        "inner",
+        "torso",
+        18,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 274
+      }
+    },
+    {
+      "id": 678,
+      "symbol": [
+        "inner",
+        "torso",
+        19,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 275
+      }
+    },
+    {
+      "id": 679,
+      "symbol": [
+        "inner",
+        "torso",
+        19,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 276
+      }
+    },
+    {
+      "id": 680,
+      "symbol": [
+        "inner",
+        "torso",
+        20,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 277
+      }
+    },
+    {
+      "id": 681,
+      "symbol": [
+        "inner",
+        "torso",
+        21,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 278
+      }
+    },
+    {
+      "id": 682,
+      "symbol": [
+        "inner",
+        "torso",
+        22,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 279
+      }
+    },
+    {
+      "id": 683,
+      "symbol": [
+        "inner",
+        "torso",
+        23,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 280
+      }
+    },
+    {
+      "id": 684,
+      "symbol": [
+        "inner",
+        "torso",
+        24,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 281
+      }
+    },
+    {
+      "id": 685,
+      "symbol": [
+        "inner",
+        "torso",
+        1,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 282
+      }
+    },
+    {
+      "id": 686,
+      "symbol": [
+        "inner",
+        "torso",
+        0,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 283
+      }
+    },
+    {
+      "id": 687,
+      "symbol": [
+        "inner",
+        "torso",
+        2,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 284
+      }
+    },
+    {
+      "id": 688,
+      "symbol": [
+        "inner",
+        "torso",
+        3,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 285
+      }
+    },
+    {
+      "id": 689,
+      "symbol": [
+        "inner",
+        "torso",
+        4,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 286
+      }
+    },
+    {
+      "id": 690,
+      "symbol": [
+        "inner",
+        "torso",
+        5,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 287
+      }
+    },
+    {
+      "id": 691,
+      "symbol": [
+        "inner",
+        "torso",
+        6,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 288
+      }
+    },
+    {
+      "id": 692,
+      "symbol": [
+        "inner",
+        "torso",
+        7,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 289
+      }
+    },
+    {
+      "id": 693,
+      "symbol": [
+        "inner",
+        "torso",
+        8,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 290
+      }
+    },
+    {
+      "id": 694,
+      "symbol": [
+        "inner",
+        "torso",
+        9,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 291
+      }
+    },
+    {
+      "id": 695,
+      "symbol": [
+        "inner",
+        "torso",
+        10,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 292
+      }
+    },
+    {
+      "id": 696,
+      "symbol": [
+        "inner",
+        "torso",
+        11,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 293
+      }
+    },
+    {
+      "id": 697,
+      "symbol": [
+        "inner",
+        "torso",
+        12,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 294
+      }
+    },
+    {
+      "id": 698,
+      "symbol": [
+        "inner",
+        "torso",
+        13,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 295
+      }
+    },
+    {
+      "id": 699,
+      "symbol": [
+        "inner",
+        "torso",
+        14,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 296
+      }
+    },
+    {
+      "id": 700,
+      "symbol": [
+        "inner",
+        "torso",
+        15,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 297
+      }
+    },
+    {
+      "id": 701,
+      "symbol": [
+        "inner",
+        "torso",
+        16,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 298
+      }
+    },
+    {
+      "id": 702,
+      "symbol": [
+        "inner",
+        "torso",
+        17,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 299
+      }
+    },
+    {
+      "id": 703,
+      "symbol": [
+        "inner",
+        "torso",
+        18,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 300
+      }
+    },
+    {
+      "id": 704,
+      "symbol": [
+        "inner",
+        "torso",
+        19,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 301
+      }
+    },
+    {
+      "id": 705,
+      "symbol": [
+        "inner",
+        "torso",
+        20,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 302
+      }
+    },
+    {
+      "id": 706,
+      "symbol": [
+        "inner",
+        "torso",
+        21,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 303
+      }
+    },
+    {
+      "id": 707,
+      "symbol": [
+        "inner",
+        "torso",
+        22,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 304
+      }
+    },
+    {
+      "id": 708,
+      "symbol": [
+        "inner",
+        "torso",
+        23,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 305
+      }
+    },
+    {
+      "id": 709,
+      "symbol": [
+        "inner",
+        "torso",
+        24,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 306
+      }
+    },
+    {
+      "id": 710,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        1,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 307
+      }
+    },
+    {
+      "id": 711,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        1,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 308
+      }
+    },
+    {
+      "id": 712,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        1,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 309
+      }
+    },
+    {
+      "id": 713,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        1,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 310
+      }
+    },
+    {
+      "id": 714,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        1,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 311
+      }
+    },
+    {
+      "id": 715,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        1,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 312
+      }
+    },
+    {
+      "id": 716,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        1,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 313
+      }
+    },
+    {
+      "id": 717,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        1,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 314
+      }
+    },
+    {
+      "id": 718,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        1,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 315
+      }
+    },
+    {
+      "id": 719,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        1,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 316
+      }
+    },
+    {
+      "id": 720,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        1,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 317
+      }
+    },
+    {
+      "id": 721,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        1,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 318
+      }
+    },
+    {
+      "id": 722,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        1,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 319
+      }
+    },
+    {
+      "id": 723,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        1,
+        13
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 320
+      }
+    },
+    {
+      "id": 724,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        1,
+        14
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 321
+      }
+    },
+    {
+      "id": 725,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        1,
+        15
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 322
+      }
+    },
+    {
+      "id": 726,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        2,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 323
+      }
+    },
+    {
+      "id": 727,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        2,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 324
+      }
+    },
+    {
+      "id": 728,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        2,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 325
+      }
+    },
+    {
+      "id": 729,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        2,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 326
+      }
+    },
+    {
+      "id": 730,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        2,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 327
+      }
+    },
+    {
+      "id": 731,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        2,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 328
+      }
+    },
+    {
+      "id": 732,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        2,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 329
+      }
+    },
+    {
+      "id": 733,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        2,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 330
+      }
+    },
+    {
+      "id": 734,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        2,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 331
+      }
+    },
+    {
+      "id": 735,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        2,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 332
+      }
+    },
+    {
+      "id": 736,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        2,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 333
+      }
+    },
+    {
+      "id": 737,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        2,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 334
+      }
+    },
+    {
+      "id": 738,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        2,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 335
+      }
+    },
+    {
+      "id": 739,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        2,
+        13
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 336
+      }
+    },
+    {
+      "id": 740,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        2,
+        14
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 337
+      }
+    },
+    {
+      "id": 741,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        2,
+        15
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 338
+      }
+    },
+    {
+      "id": 742,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        3,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 339
+      }
+    },
+    {
+      "id": 743,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        3,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 340
+      }
+    },
+    {
+      "id": 744,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        3,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 341
+      }
+    },
+    {
+      "id": 745,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        3,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 342
+      }
+    },
+    {
+      "id": 746,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        3,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 343
+      }
+    },
+    {
+      "id": 747,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        3,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 344
+      }
+    },
+    {
+      "id": 748,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        3,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 345
+      }
+    },
+    {
+      "id": 749,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        3,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 346
+      }
+    },
+    {
+      "id": 750,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        3,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 347
+      }
+    },
+    {
+      "id": 751,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        3,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 348
+      }
+    },
+    {
+      "id": 752,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        3,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 349
+      }
+    },
+    {
+      "id": 753,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        3,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 350
+      }
+    },
+    {
+      "id": 754,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        3,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 351
+      }
+    },
+    {
+      "id": 755,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        3,
+        13
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 352
+      }
+    },
+    {
+      "id": 756,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        3,
+        14
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 353
+      }
+    },
+    {
+      "id": 757,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "left",
+        3,
+        15
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 354
+      }
+    },
+    {
+      "id": 758,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        1,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 355
+      }
+    },
+    {
+      "id": 759,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        1,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 356
+      }
+    },
+    {
+      "id": 760,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        1,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 357
+      }
+    },
+    {
+      "id": 761,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        1,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 358
+      }
+    },
+    {
+      "id": 762,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        1,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 359
+      }
+    },
+    {
+      "id": 763,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        1,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 360
+      }
+    },
+    {
+      "id": 764,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        1,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 361
+      }
+    },
+    {
+      "id": 765,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        1,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 362
+      }
+    },
+    {
+      "id": 766,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        1,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 363
+      }
+    },
+    {
+      "id": 767,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        1,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 364
+      }
+    },
+    {
+      "id": 768,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        1,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 365
+      }
+    },
+    {
+      "id": 769,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        1,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 366
+      }
+    },
+    {
+      "id": 770,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        1,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 367
+      }
+    },
+    {
+      "id": 771,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        1,
+        13
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 368
+      }
+    },
+    {
+      "id": 772,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        1,
+        14
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 369
+      }
+    },
+    {
+      "id": 773,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        1,
+        15
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 370
+      }
+    },
+    {
+      "id": 774,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        2,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 371
+      }
+    },
+    {
+      "id": 775,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        2,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 372
+      }
+    },
+    {
+      "id": 776,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        2,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 373
+      }
+    },
+    {
+      "id": 777,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        2,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 374
+      }
+    },
+    {
+      "id": 778,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        2,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 375
+      }
+    },
+    {
+      "id": 779,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        2,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 376
+      }
+    },
+    {
+      "id": 780,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        2,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 377
+      }
+    },
+    {
+      "id": 781,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        2,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 378
+      }
+    },
+    {
+      "id": 782,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        2,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 379
+      }
+    },
+    {
+      "id": 783,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        2,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 380
+      }
+    },
+    {
+      "id": 784,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        2,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 381
+      }
+    },
+    {
+      "id": 785,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        2,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 382
+      }
+    },
+    {
+      "id": 786,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        2,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 383
+      }
+    },
+    {
+      "id": 787,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        2,
+        13
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 384
+      }
+    },
+    {
+      "id": 788,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        2,
+        14
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 385
+      }
+    },
+    {
+      "id": 789,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        2,
+        15
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 386
+      }
+    },
+    {
+      "id": 790,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        3,
+        0
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 387
+      }
+    },
+    {
+      "id": 791,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        3,
+        1
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 388
+      }
+    },
+    {
+      "id": 792,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        3,
+        2
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 389
+      }
+    },
+    {
+      "id": 793,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        3,
+        3
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 390
+      }
+    },
+    {
+      "id": 794,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        3,
+        4
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 391
+      }
+    },
+    {
+      "id": 795,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        3,
+        5
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 392
+      }
+    },
+    {
+      "id": 796,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        3,
+        6
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 393
+      }
+    },
+    {
+      "id": 797,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        3,
+        7
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 394
+      }
+    },
+    {
+      "id": 798,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        3,
+        8
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 395
+      }
+    },
+    {
+      "id": 799,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        3,
+        9
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 396
+      }
+    },
+    {
+      "id": 800,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        3,
+        10
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 397
+      }
+    },
+    {
+      "id": 801,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        3,
+        11
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 398
+      }
+    },
+    {
+      "id": 802,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        3,
+        12
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 399
+      }
+    },
+    {
+      "id": 803,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        3,
+        13
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 400
+      }
+    },
+    {
+      "id": 804,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        3,
+        14
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 401
+      }
+    },
+    {
+      "id": 805,
+      "symbol": [
+        "inner",
+        "sleeve",
+        "right",
+        3,
+        15
+      ],
+      "owner": {
+        "rule": "whole-outer-normal-lining",
+        "outer_id": 402
+      }
+    }
+  ],
+  "overrides": [
+    {
+      "id": 0,
+      "symbol": [
+        "torso",
+        0,
+        0
+      ],
+      "winner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 0
+      },
+      "losers": [
+        {
+          "rule": "front-edge-knot-interpolation",
+          "column": 0,
+          "row": 0
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "symbol": [
+        "torso",
+        24,
+        0
+      ],
+      "winner": {
+        "rule": "torso-source-arc",
+        "row": 0,
+        "column": 24
+      },
+      "losers": [
+        {
+          "rule": "front-edge-knot-interpolation",
+          "column": 24,
+          "row": 0
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "symbol": [
+        "torso",
+        0,
+        3
+      ],
+      "winner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 0
+      },
+      "losers": [
+        {
+          "rule": "front-edge-knot-interpolation",
+          "column": 0,
+          "row": 3
+        }
+      ]
+    },
+    {
+      "id": 99,
+      "symbol": [
+        "torso",
+        24,
+        3
+      ],
+      "winner": {
+        "rule": "torso-source-arc",
+        "row": 3,
+        "column": 24
+      },
+      "losers": [
+        {
+          "rule": "front-edge-knot-interpolation",
+          "column": 24,
+          "row": 3
+        }
+      ]
+    },
+    {
+      "id": 195,
+      "symbol": [
+        "torso",
+        0,
+        8
+      ],
+      "winner": {
+        "rule": "torso-source-arc",
+        "row": 8,
+        "column": 0
+      },
+      "losers": [
+        {
+          "rule": "front-edge-knot-interpolation",
+          "column": 0,
+          "row": 8
+        }
+      ]
+    },
+    {
+      "id": 198,
+      "symbol": [
+        "torso",
+        4,
+        8
+      ],
+      "winner": {
+        "rule": "shared-hole-ellipse",
+        "side": "left",
+        "phase": 2
+      },
+      "losers": [
+        {
+          "rule": "torso-source-arc",
+          "row": 8,
+          "column": 4
+        }
+      ]
+    },
+    {
+      "id": 200,
+      "symbol": [
+        "torso",
+        8,
+        8
+      ],
+      "winner": {
+        "rule": "shared-hole-ellipse",
+        "side": "left",
+        "phase": 10
+      },
+      "losers": [
+        {
+          "rule": "torso-source-arc",
+          "row": 8,
+          "column": 8
+        }
+      ]
+    },
+    {
+      "id": 207,
+      "symbol": [
+        "torso",
+        16,
+        8
+      ],
+      "winner": {
+        "rule": "shared-hole-ellipse",
+        "side": "right",
+        "phase": 2
+      },
+      "losers": [
+        {
+          "rule": "torso-source-arc",
+          "row": 8,
+          "column": 16
+        }
+      ]
+    },
+    {
+      "id": 209,
+      "symbol": [
+        "torso",
+        20,
+        8
+      ],
+      "winner": {
+        "rule": "shared-hole-ellipse",
+        "side": "right",
+        "phase": 10
+      },
+      "losers": [
+        {
+          "rule": "torso-source-arc",
+          "row": 8,
+          "column": 20
+        }
+      ]
+    },
+    {
+      "id": 212,
+      "symbol": [
+        "torso",
+        24,
+        8
+      ],
+      "winner": {
+        "rule": "torso-source-arc",
+        "row": 8,
+        "column": 24
+      },
+      "losers": [
+        {
+          "rule": "front-edge-knot-interpolation",
+          "column": 24,
+          "row": 8
+        }
+      ]
+    },
+    {
+      "id": 283,
+      "symbol": [
+        "torso",
+        0,
+        12
+      ],
+      "winner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 0
+      },
+      "losers": [
+        {
+          "rule": "front-edge-knot-interpolation",
+          "column": 0,
+          "row": 12
+        }
+      ]
+    },
+    {
+      "id": 306,
+      "symbol": [
+        "torso",
+        24,
+        12
+      ],
+      "winner": {
+        "rule": "torso-source-arc",
+        "row": 12,
+        "column": 24
+      },
+      "losers": [
+        {
+          "rule": "front-edge-knot-interpolation",
+          "column": 24,
+          "row": 12
+        }
+      ]
+    }
+  ],
+  "free_torso_components": [
+    {
+      "free_ids": [
+        2,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15,
+        17,
+        19,
+        21,
+        23,
+        25,
+        27,
+        29,
+        31,
+        33,
+        35,
+        37,
+        39,
+        41,
+        43,
+        45,
+        47,
+        50,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "touching_fixed_ids": [
+        1,
+        3,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        22,
+        24,
+        26,
+        28,
+        30,
+        32,
+        34,
+        36,
+        38,
+        40,
+        42,
+        44,
+        46,
+        49,
+        51,
+        74,
+        75,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98
+      ]
+    },
+    {
+      "free_ids": [
+        100,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        125,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        150,
+        152,
+        153,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        171,
+        172,
+        173,
+        175,
+        177,
+        178,
+        180,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        189,
+        191,
+        192
+      ],
+      "touching_fixed_ids": [
+        75,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        101,
+        124,
+        126,
+        149,
+        151,
+        154,
+        155,
+        156,
+        157,
+        158,
+        166,
+        167,
+        168,
+        169,
+        170,
+        174,
+        176,
+        179,
+        181,
+        188,
+        190,
+        193,
+        194,
+        196,
+        197,
+        199,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        208,
+        210,
+        211
+      ]
+    },
+    {
+      "free_ids": [
+        213,
+        215,
+        216,
+        218,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        227,
+        229,
+        230,
+        232,
+        234,
+        235,
+        237,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        246,
+        248,
+        249,
+        251,
+        253,
+        254,
+        255,
+        257,
+        259,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        272,
+        274,
+        276,
+        277,
+        278,
+        279,
+        280
+      ],
+      "touching_fixed_ids": [
+        194,
+        196,
+        197,
+        199,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        208,
+        210,
+        211,
+        214,
+        217,
+        219,
+        226,
+        228,
+        231,
+        233,
+        236,
+        238,
+        245,
+        247,
+        250,
+        252,
+        256,
+        258,
+        260,
+        271,
+        273,
+        275,
+        281,
+        282,
+        284,
+        285,
+        286,
+        287,
+        288,
+        289,
+        290,
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305
+      ]
+    }
+  ],
+  "counts": {
+    "torso-source-arc": 90,
+    "uniform-harmonic-torso": 167,
+    "front-edge-knot-interpolation": 18,
+    "shared-hole-ellipse": 32,
+    "distal-source-ring": 96,
+    "whole-outer-normal-lining": 403
+  },
+  "priority": [
+    "shared-hole-ellipse",
+    "torso-source-arc",
+    "front-edge-knot-interpolation",
+    "uniform-harmonic-torso"
+  ]
+}

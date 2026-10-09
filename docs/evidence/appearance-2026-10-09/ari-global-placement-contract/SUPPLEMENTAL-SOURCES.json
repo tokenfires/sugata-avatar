@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-09T11:01:08.977364+00:00",
+  "supplemental_byte_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/paths.py",
+      "bytes": 13052,
+      "sha256": "3480f0c81726ba85974a4b4c8826a93163bfc91b81bfd2c7a398d76a7ae1ab59",
+      "mode": "0o444"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/fields.npz",
+      "bytes": 1058878,
+      "sha256": "88a158ceadf94ca23d3166bbca3ba40135eb60c5063dcb77dba1918050659d5f",
+      "mode": "0o444"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/after-geometry.npz",
+      "bytes": 840170,
+      "sha256": "10f646e42a868fe84ab14d6e3022918a70e6b0aeec30781f270037b79be2f024",
+      "mode": "0o444"
+    }
+  ],
+  "fixed_source_read": "paths.py selector lines86,92-93: arrays[side+_arm_faces], saved fields.npz; no producer executed",
+  "arm_selectors": [
+    {
+      "side": "l",
+      "npz_key": "l_arm_faces",
+      "expected_dtype": "int32",
+      "expected_shape": [
+        4221
+      ],
+      "expected_raw_sha256": "9aaae1564484cc20abdd7660ddaa7036bdca85fcb36a14ef078b59a3a7882c80",
+      "future_requirements": "integer IDs in[0,26756), unique, source/hash exact; only two face-ID arrays decoded, no distances/predecessors"
+    },
+    {
+      "side": "r",
+      "npz_key": "r_arm_faces",
+      "expected_dtype": "int32",
+      "expected_shape": [
+        4221
+      ],
+      "expected_raw_sha256": "d4d1a6d94598a52602c4d10563943ea7820544e841def693a8407c74236a93e6",
+      "future_requirements": "integer IDs in[0,26756), unique, source/hash exact; only two face-ID arrays decoded, no distances/predecessors"
+    }
+  ],
+  "body_selectors": [
+    "Human_world",
+    "Human_triangles"
+  ],
+  "archive_proof": "Byte identity only this slice; no NPZ opened/decoded/header inspected; later constructor must verify all declared names/dtypes/shapes/rawhashes before use",
+  "initial_INPUTS_sha256": "48fce17d0a6d680d11c4f5bb111cf97f0b58870c808d46363c98f0f940173fb0"
+}

@@ -1,0 +1,106 @@
+{
+  "schema": "ari-global-placement-parameters-v1",
+  "source_row_names": {
+    "0": "hem",
+    "3": "torso-middle",
+    "8": "torso-upper",
+    "12": "neckline"
+  },
+  "torso_xy_scale": 1.1,
+  "source_arc_front_gap_fraction_each_side": 0.04,
+  "hole_ellipse_left_theta": "2*pi*j/16",
+  "hole_ellipse_right_theta": "pi-2*pi*j/16",
+  "distal_radial_scale": 1.15,
+  "cuff_start_translation": -0.04,
+  "lining_local_nominal_offset": 0.002,
+  "arclength_segment_minimum": 1e-12,
+  "source_xy_area_minimum": 1e-12,
+  "axis_norm_minimum": 1e-10,
+  "triangle_twice_area_minimum": 1e-10,
+  "summed_outer_area_normal_minimum": 1e-10,
+  "harmonic_max_abs_residual": 1e-10,
+  "maximum_F32_conversion_error": 1e-07,
+  "coordinate_calculation": "Float64 rule evaluation, final Float32 once",
+  "source_anchors": [
+    {
+      "side": "l",
+      "role": "crown",
+      "source_vertex": 8069,
+      "source_point": [
+        0.19911052286624908,
+        -0.03420397266745567,
+        1.3697102069854736
+      ]
+    },
+    {
+      "side": "l",
+      "role": "front",
+      "source_vertex": 10423,
+      "source_point": [
+        0.1944185048341751,
+        -0.07922647893428802,
+        1.3146698474884033
+      ]
+    },
+    {
+      "side": "l",
+      "role": "underarm",
+      "source_vertex": 8136,
+      "source_point": [
+        0.172230526804924,
+        -0.03288746997714043,
+        1.2231637239456177
+      ]
+    },
+    {
+      "side": "l",
+      "role": "rear",
+      "source_vertex": 8345,
+      "source_point": [
+        0.21749451756477356,
+        0.04226454719901085,
+        1.3119617700576782
+      ]
+    },
+    {
+      "side": "r",
+      "role": "crown",
+      "source_vertex": 1377,
+      "source_point": [
+        -0.19911052286624908,
+        -0.03420397266745567,
+        1.3697102069854736
+      ]
+    },
+    {
+      "side": "r",
+      "role": "front",
+      "source_vertex": 3756,
+      "source_point": [
+        -0.1944185048341751,
+        -0.07922647893428802,
+        1.3146698474884033
+      ]
+    },
+    {
+      "side": "r",
+      "role": "underarm",
+      "source_vertex": 1448,
+      "source_point": [
+        -0.172230526804924,
+        -0.03288746997714043,
+        1.2231637239456177
+      ]
+    },
+    {
+      "side": "r",
+      "role": "rear",
+      "source_vertex": 1673,
+      "source_point": [
+        -0.21749451756477356,
+        0.04226454719901085,
+        1.3119617700576782
+      ]
+    }
+  ]
+}

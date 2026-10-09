@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-09T10:59:41.006535+00:00",
+  "source_witness": "ATTACHMENT-MANIFEST arm_component only count/hash/component, no IDs",
+  "critic_choice": "A one fixed producer array-naming read + archive byte pin, no decode/query rerun; B stop at unresolved selector",
+  "limit": "11:10; stop ambiguous selector; initial ten INPUTS/WORTH unchanged",
+  "metadata_path_correction": "Guessed query.py absent before any read; rg --files fixed paths directory identifies paths.py and existing fields.npz",
+  "producer_pin_before_source_read": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/paths.py",
+    "bytes": 13052,
+    "sha256": "3480f0c81726ba85974a4b4c8826a93163bfc91b81bfd2c7a398d76a7ae1ab59"
+  }
+}

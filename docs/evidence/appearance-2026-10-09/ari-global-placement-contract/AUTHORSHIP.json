@@ -1,0 +1,64 @@
+{
+  "utc": "2026-10-09T11:03:19.759425+00:00",
+  "initial_inputs": 10,
+  "supplemental_byte_pins": 3,
+  "world_positions_generated": 0,
+  "body_or_NPZ_buffers_decoded": 0,
+  "constructor_solver_native_jobs": 0,
+  "ownership_only_metadata": "806distinctsymbol rules /12overrides /3anchored free components /167free torso+140fixed /all source literal selectors",
+  "bindings": [
+    {
+      "file": "PLACEMENT.md",
+      "bytes": 12800,
+      "sha256": "877c1a7db520b2152cb9d087e09364a6e8f68811ecab17161101b30d0abec4a2"
+    },
+    {
+      "file": "PARAMETERS.json",
+      "bytes": 2423,
+      "sha256": "d2efa7990a2e336d9183c7bea55327221402f4f8cf5dc74d549bc493863cbd83"
+    },
+    {
+      "file": "OWNERSHIP.json",
+      "bytes": 180841,
+      "sha256": "ee6e5bb008c414c83c4c5288de4c8260d36b8cd32e95534cf6352cac73692ca4"
+    },
+    {
+      "file": "COUPLING.json",
+      "bytes": 4706,
+      "sha256": "5e59efb5e23c2b060eb29934ef177cc1d1fabae5e7b6a4aa31dcdefc7ecf0fc2"
+    },
+    {
+      "file": "SUPPLEMENTAL-SOURCES.json",
+      "bytes": 2126,
+      "sha256": "66f1279abe933a22a839e49b95fb3b5d06f1ebe807e9556740cf4f344c59c085"
+    },
+    {
+      "file": "POINTER-SCOPE.json",
+      "bytes": 763,
+      "sha256": "b50808debe2f8079b2af65897d857417cec74283ec5d8c0e6a9398040b3bd8be"
+    },
+    {
+      "file": "PLACEMENT.md.before-domain-fix.txt",
+      "bytes": 12604,
+      "sha256": "0a0c1f250b97ae072cd1af0fa4521341563328b5b64673748b42e086bb7beb4e"
+    },
+    {
+      "file": "COUPLING.json.before-domain-fix.txt",
+      "bytes": 4465,
+      "sha256": "5076ebc910ed4f1f939b6b771e5304222f75ae65be5403e92a1d8d658c95ebef"
+    },
+    {
+      "file": "AUTHORSHIP.json.before-domain-fix.txt",
+      "bytes": 1562,
+      "sha256": "d1c58c2ade359e1575013abcd94e9f8f4f494dd672c8818b077a6c232e25e048"
+    },
+    {
+      "file": "PRE-CONSTRUCTION-DOMAIN-FIX.json",
+      "bytes": 734,
+      "sha256": "cdfa9e9ff5aeeab2b84889634744fa403b6a53a644d631817618dacc6f045604"
+    }
+  ],
+  "source_pointer": "paths.py line86/92-93 l_arm_faces/r_arm_faces, fields.npz byte identity; IDs/dtype headers not decoded or requalified",
+  "limits": "No geometry/phase/normal/fit/appearance result inferred; completecandidate world/physical gates remain prospective",
+  "domain_fix": "PRE-CONSTRUCTION-DOMAIN-FIX.json; potential role-overlap resolved before geometry; initial files preserved"
+}

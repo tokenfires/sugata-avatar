@@ -1,0 +1,72 @@
+{
+  "schema": "ari-global-coupling-v1",
+  "coverage": {
+    "arm_face_selectors": "SUPPLEMENTAL-SOURCES.json.arm_selectors",
+    "torso_domain": "full body triangle IDs outside both stored arm sets; all3 Z in[hem.Z,neckline.Z]",
+    "front_reference_cy": 0.009862011298537254,
+    "exposure_front_half_angle": 0.18,
+    "front_exposure": "torso-domain faces all3 Y<cy and abs(atan2(X,cy-Y))<.18; requiredtorso=remaining torso-domain",
+    "arm_required": "stored arm faces all3 dot(v-wrist_origin,wrist_normal)<=-1e-8",
+    "hands_exposed": "stored arm faces all3 projection>=1e-8",
+    "lowerbody_exposed": "fullbody faces OUTSIDE BOTH stored arm sets, all3 Z<hem.Z-1e-8",
+    "unassigned_straddlers": "UNKNOWN boundary roles; never a complete clothing coverage partition",
+    "sample": "one originalbody triangle centroid / normalized original oriented triangle normal per selectedface",
+    "ray_positive_interval": [
+      1e-08,
+      1.0
+    ],
+    "target": "all704 candidate outer triangles only, first positive hit",
+    "hit_tie_distance": 1e-08,
+    "hit_predicate": "same determinant/bary tolerances as contact; positive barycentric interior unambiguous; boundary/coplanar unresolved=>UNKNOWN; only samepoint expected shared-edge ties grouped",
+    "required_rule": "firstphysical hit group all have required outer torso/sleeve side owner=>PASS_SAMPLE; allwrong=>REFUSED_SAMPLE; mixedowner/tolerance ambiguity=>UNKNOWN",
+    "exposure_rule": "any positive outer hit=>REFUSED_EXPOSURE_SAMPLE; nohit=>PASS_SAMPLE; unresolved=>UNKNOWN",
+    "scope": "Centroid-oriented-ray diagnostic only; fulltriangle/surface coverage, concealment and solid meaning UNKNOWN",
+    "maximum_samples": 26756,
+    "seconds": 90,
+    "domain_guard": "Required face-ID sets vs union of exposure face-ID sets must be disjoint before geometry; conflict REFUSES construction. Deduplicate unionselected face IDs for atmost26756centroidsamples."
+  },
+  "contact": {
+    "body_target": "all1616 candidate material-boundary triangles vs all26756 fullbody triangles",
+    "body_bbox_pair_limit": 500000,
+    "body_seconds": 120,
+    "garment_self_target": "allunordered triangle pairs, classify common-vertex/common-edge/nonincident explicitly; no whole pair discarded solely because it shares IDs",
+    "self_bbox_pair_limit": 500000,
+    "self_seconds": 120,
+    "bbox_padding": 1e-08,
+    "determinant_epsilon": 1e-12,
+    "barycentric_and_segment_epsilon": 1e-09,
+    "coplanar_plane_distance": 1e-08,
+    "predicate": "allthree edges inbothdirections Moller-Trumbore segment/triangle; strict only segmentfraction andalltarget barycentrics >eps and<1-eps; boundary/coplanar classes separate",
+    "expected_topological_contacts": "Only intersection points/segments on the pair shared source vertex/edge may be labelled expected. Any strict away-from-shared intersection refuses; ambiguous nonshared grazing/coplanar potentialoverlap UNKNOWN. Do not claim no self-contact from ignoring adjacent pairs. Coplanar-overlap proof is held, not replaced by normal sign.",
+    "pair_class_priority": [
+      "strict_transverse",
+      "boundary_ambiguous",
+      "coplanar_ambiguous",
+      "miss_or_expected_topological_touch"
+    ],
+    "first_witnesses": "full triangleIDs/vertexIDs/worldpoints, segmentfraction, targetbarycentrics, topologycategory and reason; at leastfirstperclass plus reachedcounts and stable orderedpair digest",
+    "budget_rule": "Any pair/time/controlfailure stops observer and marks incomplete=>UNKNOWN; never zerocontact pass",
+    "interpretation": "strict body/non-topological self intersections=>REFUSED; no strict but ambiguous/incomplete/solidunknown=>UNKNOWN; no physical fit pass"
+  },
+  "constructor_total_seconds": 360,
+  "occupancy": {
+    "status": "UNKNOWN/HELD",
+    "reason": "Full body embedding/selfcontact/solid interpretation and complete fullsurface coverage unqualified",
+    "future_prerequisites": [
+      "qualify fullbody and fullgarment embedding/selfcontact",
+      "explicit outwardorientation/solid assumption",
+      "independent winding/parity with disagreement UNKNOWN",
+      "complete outside/clearance/coverage/assignedboundary duties"
+    ],
+    "not_equivalent": [
+      "positive areas",
+      "nonzero signed volume",
+      "paired edges",
+      "nominal .002 displacement",
+      "zero transversepairs",
+      "finite sampled rays"
+    ]
+  },
+  "native_future": "Separateworth/preflight only after complete source/geometry responsibilities; firstdiagnosticviews allowed if fitREFUSED/UNKNOWN labelled; no completedbomber/fullAri claim",
+  "current_admission": "Contract-only; no body/archive decode, coordinates, solver, constructor or native jobs thisslice"
+}
