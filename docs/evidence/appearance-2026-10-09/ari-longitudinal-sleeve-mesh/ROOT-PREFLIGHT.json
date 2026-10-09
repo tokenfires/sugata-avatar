@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-09T21:07:10.044588+00:00",
+  "admitted": true,
+  "whole_preflight_read": true,
+  "all10handoffbindings_exact": true,
+  "all29pins_exact": true,
+  "first_outputs_absent": true,
+  "scoped_jobs_absent": true,
+  "exec_sha256": "52fe3dc043b2003086e17909445a3794f1635bbfb2bc2580c663dc66d87b4c56",
+  "critic_sha256": "9932bffc615847d1ca8532a59a0504333b13f71cac4985b4e66c04affe3ea358",
+  "root_source_verification": "f8611a",
+  "independent_result_consumer": "verify.py (AST only, notexecuted)",
+  "decision": "ONE GEOMETRY ONLY BUILD",
+  "limits": "Body/self/coverage/solid/pose/torso/appearance UNKNOWN; currentroot/scopedcensus notallhostliveness; runtimepartialbinding"
+}

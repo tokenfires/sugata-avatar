@@ -1,0 +1,22 @@
+# Independent exact sleeve-build worth
+
+**YES to one exact geometry-only constructor, pending complete programme preflight and checked root admission.** The frozen longitudinal source now owns rails, elbow turn, source-relative wrist arches and independent O/I profiles. Whether those original choices produce finite eligible editable geometry is still unknown. Raw mesh/OBJ plus complete owner and refusal records can decide that question; another source inventory cannot.
+
+Actual prior front/oblique originals show exposed forearms and a flared end on the closed WORLD panels. The original bomber supplies full-sleeve/cuff intent only. This new source is different: longitudinal Hermite F/R seams and four-boundary panels replace station-ring/ruled-band construction. Those image refusals are preserved controls, not established defects of the unevaluated new mesh or evidence that its changed architecture fixes fit.
+
+**A, preferred:** construct this one frozen source with exact canonical front/back/end owners, independent O/I charts and directed proximal/wrist rims, then verify raw geometry, area, precision, full edges/vertex links/components and OBJ. It creates an editable diagnostic and may decisively refuse the source, at bounded implementation/verification cost. **B:** source-only hold or separately register a complete garment; avoids implementing untested widths, supplies no numerical outcome for this original architecture and carries different provenance/interior/rig/morph responsibilities. No retuning or second candidate follows A.
+
+The proposed incidence expectations are consistent: each side/layer joins upper/under across both longitudinal seams into65rows of48unique chart vertices. Four side/layer sheets prospectively yield12480vertices. Eight64×24panel charts yield24576triangles; two ends per arm with48rim cells and two triangles add384, total24960. Closed triangular incidence would imply37440edges; total Euler0 and two expected material-tube components with Euler0 each. These are combinatorial expectations, not actual eligibility, embedded tori, outward physical normals or solid/clearance proof.
+
+**Actionable rim duty:** source winding alone does not establish actual directed closure. **A:** derive each exterior boundary u→v from the generated oriented charts, pair same-owned inner endpoints and use [v,u,Iu,Iv] with the proposed split. This opposes the outer and reversed-inner boundary edges; costs complete actual incidence/link verification. **B:** hold at unmatched/inconsistent boundary ownership; less progress, avoids guessed side/normal flips. No new rim vertex/control or numerical-nearest welding is justified. Programme preflight must confirm the derivation and witness ordering before the sole build.
+
+The programme must preserve reached finite raw geometry/owners/frames before discrete refusal, with bounded first context for earlier frame/nonfinite/cap failure; it cannot claim unavailable arrays were produced. Source/area/index/precision/count/role/manifold failure stops. Full physical contact/self/lining separation, nesting/occupancy/coverage, connected torso, rig/morph/pose/motion and actual appearance remain UNKNOWN/HELD even if every discrete check passes. Later body queries/images require fresh ownership/preflight; no archive member or old control consumption belongs here.
+
+All25 complete-byte INPUTS pins independently match. ROOT-ALGEBRA/readback agree with the prior source-only proof and explicit integration hold. Both existing archives were hashed opaquely, with no directory/member decode. No programme, solver, numerical curve/mesh evaluation, producer, native/GPU/browser/network/capture or asset edit by this critic. Author21:20/launch21:35, child60s/finish21:37 and closure22:00 are fresh fixed gates; missed admission closes unexecuted. Preserve complete AAA/finishing/runtime/motion goals and all rejected/default/frozen sources.
+
+| Complete reviewed binding | Bytes | SHA256 |
+| --- | ---: | --- |
+| PLAN.md |4592|`cd3a63cda46f12a5492b36fe824683c06c8fc824a2eae912024a9445e19f3f14`|
+| INPUTS.json (25 exact pins) |6809|`b100ac1f8c97b95b15c9832e0134b026c51097093d7dff65d83237efa1898240`|
+
+INPUTS binds the exact frozen recipe/source review/algebra and historical image/lineage witnesses. This is worth for preparation only, not execution or physical/artist acceptance. Stable handoff; filesystem save time is authoritative.

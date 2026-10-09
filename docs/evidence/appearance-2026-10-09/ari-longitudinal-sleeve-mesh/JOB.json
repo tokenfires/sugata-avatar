@@ -1,0 +1,25 @@
+{
+  "wrapper_pid": 49172,
+  "child_pid": 49175,
+  "started": "2026-10-09T21:07:50.575732+00:00",
+  "cap_seconds": 60,
+  "timed_out": false,
+  "interrupted": false,
+  "command": [
+    "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-longitudinal-sleeve-mesh/build.py"
+  ],
+  "pgid": 49175,
+  "spawn_returned": "2026-10-09T21:07:50.577121+00:00",
+  "exit_code": 0,
+  "finished": "2026-10-09T21:07:51.032266+00:00",
+  "elapsed": 0.45654124999418855,
+  "timing": {
+    "launch_before_gate": true,
+    "spawn_return_before_gate": true,
+    "wall60": true,
+    "absolute_finish": true,
+    "no_timeout_or_interrupt": true
+  },
+  "worker_passed": true
+}

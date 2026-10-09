@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-09T20:59:02.620061+00:00",
+  "python_version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "numpy_version": "2.4.6",
+  "numpy_entry": "/opt/homebrew/lib/python3.14/site-packages/numpy/__init__.py",
+  "pins": [
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "bytes": 34640,
+      "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+    },
+    {
+      "path": "/opt/homebrew/lib/python3.14/site-packages/numpy/__init__.py",
+      "bytes": 26277,
+      "sha256": "92a46f791e453926d3292af2582b89995a289475f0eaaea71a949823200b838a"
+    }
+  ],
+  "limit": "Configured interpreter binary/NumPy entry/version only, not full transitive/compiled runtime or BLAS provenance."
+}
