@@ -1,0 +1,7 @@
+{
+  "purpose": "Resolve concrete stdlib resource-limit and NPY byte-layout ownership before source admission; no data trial.",
+  "sources": ["https://docs.python.org/3.14/library/resource.html", "https://numpy.org/doc/stable/reference/generated/numpy.lib.format.html"],
+  "limits": "Two direct official page retrievals, each20s and512KiB returned source cap; no search/crawl/browser retry. Read relevant returned passages and preserve complete raw response. If unavailable, retain uncertainty and HOLD affected implementation; no invented schema or hard RSS guarantee.",
+  "decision": "Use only documented byte layout and declared allocation/resource semantics in source. These pages do not validate local enforcement, performance, fields or geometry.",
+  "source_cutoff_utc": "2026-10-19T05:05:00Z"
+}

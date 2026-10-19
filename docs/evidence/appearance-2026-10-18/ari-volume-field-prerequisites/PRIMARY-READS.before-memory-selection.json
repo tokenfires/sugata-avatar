@@ -1,0 +1,28 @@
+{
+  "utc": "2026-10-19T04:23:08.591445+00:00",
+  "pid": 53030,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PRIMARY-RESOURCE.json",
+      "bytes": 50030,
+      "sha256": "bdca7057531229e00b53c7f96800ceeaae5e8c5e594b91ed6031622f46d96900"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PRIMARY-NPY.json",
+      "bytes": 29677,
+      "sha256": "59402c849810a468e26c9e3c4a46ae133c68639174454c0f3d0318f777888307"
+    }
+  ],
+  "scope": "Selectedreturned resource soft/hard/system-dependent/DATA/RSS/AS/maxrss clauses andNPY1.0/2.0/3.0 completeformatsections; rawfullresponses preserved, notfullsemanticpageaudit.",
+  "source_http": [
+    200,
+    200
+  ],
+  "reported_credits": [
+    1,
+    1
+  ],
+  "versions": "resourcepage3.14.8 vs local3.14.7; NPYstablemanual2.5 but readerownsfileversions1/2/3, importsnoNumPy. No localruntime/enforcement equivalenceclaimed.",
+  "memory_decision": "1GiB declareddata/allocationbudget andsampledRSSabort threshold, neverhardinstantaneousRSSguarantee. SetupDATAsoft/hardreadback mustsucceedbeforeanysource arraydecode; runtime/platformunsupportedmeansUNKNOWN/HOLD. All-ownedcontainer/index/header/member/referencecaps andsourcecode reviewedbeforetrial. ru_maxrssraw retainsplatformunits, notinventedconversion.",
+  "NPY_decision": "Readtwoexactmembers withboundedZIP/headerfilesize, exactdtype/shape/Corder/rawSHA andnoobjectpickle. Preserve1/2ASCIIlatin1 vs3UTF8andushort/uintheaderlength distinctions. No data decoded now."
+}

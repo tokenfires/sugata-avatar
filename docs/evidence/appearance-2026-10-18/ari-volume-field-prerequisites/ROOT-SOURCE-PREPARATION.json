@@ -1,0 +1,70 @@
+{
+  "utc": "2026-10-19T04:39:25.924503+00:00",
+  "pid": 83681,
+  "source_files": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/kernel.py",
+      "bytes": 8722,
+      "sha256": "b916bfa9799d3af0f3415502461b95e77f676c42c26caaed9083b130d3b42523",
+      "ast_parsed": true,
+      "runtime_executed": false
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/worker.py",
+      "bytes": 12174,
+      "sha256": "413be90f2c3e63cf7ec7747ac379c09bb3f3e27eea3def49c51419f3af5eedd2",
+      "ast_parsed": true,
+      "runtime_executed": false
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/run_once.py",
+      "bytes": 7802,
+      "sha256": "e6240a41bbca4aa13f16c6dfe9d5d5eb559e2200a696d897429ec70e6d3b83cc",
+      "ast_parsed": true,
+      "runtime_executed": false
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/inspect_saved.py",
+      "bytes": 15701,
+      "sha256": "5303abbda0e141eb6e8125afec171d5c4923a0adbcee404f7bdef0bcd0e318a7",
+      "ast_parsed": true,
+      "runtime_executed": false
+    }
+  ],
+  "config": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/CONFIG.json",
+    "bytes": 19491,
+    "sha256": "94a9876c08de21ed19ed716523e3ff7980283b8112628d0077d7de20f3560d6f"
+  },
+  "source_plan": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/SOURCE-PLAN.json",
+    "bytes": 17226,
+    "sha256": "f2ebc62e20e1cf39c17f99c8b28551f289c39a026f6c4f7e4dff57b4bf88fa57"
+  },
+  "config_pins_checked": 54,
+  "pin_errors": [],
+  "required_absent": {
+    "ADMISSION.json": true,
+    "SOURCE-PREFLIGHT.md": true,
+    "SOURCE-PREFLIGHT-RECEIPT.json": true,
+    "JOB-start.json": true,
+    "RESULT.json": true,
+    "STDOUT.txt": true,
+    "STDERR.txt": true,
+    "JOB.json": true,
+    "ROOT-OBSERVATION.json": true
+  },
+  "whole_root_source_read": "7c84b3/exit0: full four source files, no truncation",
+  "syntax_only_checks": [
+    "54e543/exit0",
+    "87e852/exit0",
+    "this process ast.parse only"
+  ],
+  "source_array_members_decoded": 0,
+  "kernel_imported_or_evaluated": false,
+  "synthetic_fixtures_executed": false,
+  "cpu_trial_started": false,
+  "source_gate": "Pending independent whole-source critic and root review; no ADMISSION exists.",
+  "memory": "Final selected policy is RLIMIT_DATA requested/readback plus fixed state caps. No sampled RSS monitor or hard instantaneous/total RSS guarantee. Primary before-selection record preserved. Critic can HOLD this explicit scope.",
+  "limits": "Necessary source/column eligibility only; no signed-field/degree-parity/native metric/tetrahedra/mesh/appearance/physical proof."
+}

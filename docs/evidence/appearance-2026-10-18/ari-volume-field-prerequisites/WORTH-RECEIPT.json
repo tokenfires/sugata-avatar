@@ -1,0 +1,490 @@
+{
+  "collected_utc": "2026-10-19T04:20:27.078443+00:00",
+  "writer_pid": 48002,
+  "verdict": "A worth of separately bounded inert implementation/source preparation only",
+  "pending_edits": false,
+  "word_count": 432,
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PLAN.json",
+      "bytes": 7090,
+      "sha256": "4bfe32cbfdbabf2255264427689adfb33a0a62b751a47be6536f1b836a59031f",
+      "read_scope": "complete JSON"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/CONTRACT.json",
+      "bytes": 17528,
+      "sha256": "974c1cbd3ad811717aec75069f8a2c696aaacf2a8c5631599d8244914d1a7fcf",
+      "read_scope": "complete text; CONTRACT 315 lines recovered across e94f89 and 3aedd2; other complete direct text in e94f89"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/REVIEW.md",
+      "bytes": 4983,
+      "sha256": "275e04a50a500eb1b617c42b47b573c644c83efa1bf6f961a105a6d33c4f66f6",
+      "read_scope": "complete text; CONTRACT 315 lines recovered across e94f89 and 3aedd2; other complete direct text in e94f89"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/INPUTS.json",
+      "bytes": 1808,
+      "sha256": "caaa8a1d84e4e7cd15d09d5d6a081137ab53a63618fd4ef68c9ac38089c63c17",
+      "read_scope": "complete text; CONTRACT 315 lines recovered across e94f89 and 3aedd2; other complete direct text in e94f89"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/BINDINGS.json",
+      "bytes": 1781,
+      "sha256": "5bbd6f6e6aca3aed7acbb53e46e7247e76659c2474500abc56dd8994942d5961",
+      "read_scope": "complete text; CONTRACT 315 lines recovered across e94f89 and 3aedd2; other complete direct text in e94f89"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/ROOT-SEMANTIC-DIFF.json",
+      "bytes": 873,
+      "sha256": "2237c62d77c039e00a203049ecf7fc5570ac21f6001657b6b747ef75dda1bc1b",
+      "read_scope": "complete text; CONTRACT 315 lines recovered across e94f89 and 3aedd2; other complete direct text in e94f89"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/README.md",
+      "bytes": 2755,
+      "sha256": "9ddd68e901cd8a9359ed2af5ad293674d08cf0277af7d3f0cc90960034191feb",
+      "read_scope": "complete text; CONTRACT 315 lines recovered across e94f89 and 3aedd2; other complete direct text in e94f89"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/resume-from-checkpoint/RECOVERY.json",
+      "bytes": 4187,
+      "sha256": "8a7c5e1f23ca70150ff98feddd3c0b5e87789aafc3591e21a598a22402cb2d20",
+      "read_scope": "complete text; CONTRACT 315 lines recovered across e94f89 and 3aedd2; other complete direct text in e94f89"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 2944,
+      "sha256": "b29d824115e4a699414c0312fb865d653cda8db61a7e05c82c4425b7ff264729",
+      "read_scope": "complete 15 lines"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 4002,
+      "sha256": "89aad0dbac06c5aaf96547dabeed000e87ce6122fb7bf6573a08522b2b97cb26",
+      "read_scope": "complete 21 lines"
+    }
+  ],
+  "binding_groups": [
+    {
+      "group": "new_PLAN",
+      "verified_rows": 7,
+      "rows": [
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/CONTRACT.json",
+          "bytes": 17528,
+          "sha256": "974c1cbd3ad811717aec75069f8a2c696aaacf2a8c5631599d8244914d1a7fcf",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/REVIEW.md",
+          "bytes": 4983,
+          "sha256": "275e04a50a500eb1b617c42b47b573c644c83efa1bf6f961a105a6d33c4f66f6",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/INPUTS.json",
+          "bytes": 1808,
+          "sha256": "caaa8a1d84e4e7cd15d09d5d6a081137ab53a63618fd4ef68c9ac38089c63c17",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/BINDINGS.json",
+          "bytes": 1781,
+          "sha256": "5bbd6f6e6aca3aed7acbb53e46e7247e76659c2474500abc56dd8994942d5961",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/ROOT-SEMANTIC-DIFF.json",
+          "bytes": 873,
+          "sha256": "2237c62d77c039e00a203049ecf7fc5570ac21f6001657b6b747ef75dda1bc1b",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/README.md",
+          "bytes": 2755,
+          "sha256": "9ddd68e901cd8a9359ed2af5ad293674d08cf0277af7d3f0cc90960034191feb",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/resume-from-checkpoint/RECOVERY.json",
+          "bytes": 4187,
+          "sha256": "8a7c5e1f23ca70150ff98feddd3c0b5e87789aafc3591e21a598a22402cb2d20",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        }
+      ]
+    },
+    {
+      "group": "revision_INPUTS",
+      "verified_rows": 7,
+      "rows": [
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/PLAN.md",
+          "bytes": 2839,
+          "sha256": "e4fa96128413c2eee19f898cd2cc6031008af3ed02450baff3707c3657e15a22",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-material-volume-contract/CONTRACT.json",
+          "bytes": 14786,
+          "sha256": "572c20327dd87ad7ffa0a37317ef02c8a3b9d0462e3c188718617bd833f9c75e",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-material-volume-contract/REVIEW.md",
+          "bytes": 5807,
+          "sha256": "399dbe04a1b191b73e43894475cfd096945301a6954d56cabb5ab31ff56ea23e",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-material-volume-contract/ROOT-READBACK.json",
+          "bytes": 886,
+          "sha256": "8a6a2ab37afb10997f67e86063d234c04535605a7d8a344e6fa2044de45e600d",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-material-volume-contract/SOURCE-INSPECTION.json",
+          "bytes": 14365,
+          "sha256": "a5b1926237d64be76482a224e04cf2e31dba3fbd158e4bfb99d8b0409d288f05",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-material-volume-contract/PRIMARY.json",
+          "bytes": 13401,
+          "sha256": "0c2a73392cfb526140cea7cc84ed427cf20e037ae9987329a40dc9f6f9126e9d",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-material-volume-contract/INPUTS.json",
+          "bytes": 1792,
+          "sha256": "828ea69b8b89b3376cea4bae58177c9ef28aed2ca297b6b06bd76e486eb3220a",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        }
+      ]
+    },
+    {
+      "group": "revision_BINDINGS",
+      "verified_rows": 7,
+      "rows": [
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/PLAN.md",
+          "bytes": 2839,
+          "sha256": "e4fa96128413c2eee19f898cd2cc6031008af3ed02450baff3707c3657e15a22",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/INPUTS.json",
+          "bytes": 1808,
+          "sha256": "caaa8a1d84e4e7cd15d09d5d6a081137ab53a63618fd4ef68c9ac38089c63c17",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/WORTH.md",
+          "bytes": 4659,
+          "sha256": "f47f879b9f3cc85fc2c25f95cd569a47d8e212968213f94a741a0fd7110ab8fd",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/ROOT-WORTH.json",
+          "bytes": 304,
+          "sha256": "8ab0df368872b47265bb081d73ebe1d5691230f527081c97c6c878c4711637b6",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/CONTRACT.json",
+          "bytes": 17528,
+          "sha256": "974c1cbd3ad811717aec75069f8a2c696aaacf2a8c5631599d8244914d1a7fcf",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/ROOT-SEMANTIC-DIFF.json",
+          "bytes": 873,
+          "sha256": "2237c62d77c039e00a203049ecf7fc5570ac21f6001657b6b747ef75dda1bc1b",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/README.md",
+          "bytes": 2755,
+          "sha256": "9ddd68e901cd8a9359ed2af5ad293674d08cf0277af7d3f0cc90960034191feb",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        }
+      ]
+    },
+    {
+      "group": "recovery_old_nine",
+      "verified_rows": 9,
+      "rows": [
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/BINDINGS.json",
+          "bytes": 1781,
+          "sha256": "5bbd6f6e6aca3aed7acbb53e46e7247e76659c2474500abc56dd8994942d5961",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/CONTRACT.json",
+          "bytes": 17528,
+          "sha256": "974c1cbd3ad811717aec75069f8a2c696aaacf2a8c5631599d8244914d1a7fcf",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/INPUTS.json",
+          "bytes": 1808,
+          "sha256": "caaa8a1d84e4e7cd15d09d5d6a081137ab53a63618fd4ef68c9ac38089c63c17",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/PLAN.md",
+          "bytes": 2839,
+          "sha256": "e4fa96128413c2eee19f898cd2cc6031008af3ed02450baff3707c3657e15a22",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/README.md",
+          "bytes": 2755,
+          "sha256": "9ddd68e901cd8a9359ed2af5ad293674d08cf0277af7d3f0cc90960034191feb",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/REVIEW.md",
+          "bytes": 4983,
+          "sha256": "275e04a50a500eb1b617c42b47b573c644c83efa1bf6f961a105a6d33c4f66f6",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/ROOT-SEMANTIC-DIFF.json",
+          "bytes": 873,
+          "sha256": "2237c62d77c039e00a203049ecf7fc5570ac21f6001657b6b747ef75dda1bc1b",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/ROOT-WORTH.json",
+          "bytes": 304,
+          "sha256": "8ab0df368872b47265bb081d73ebe1d5691230f527081c97c6c878c4711637b6",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/WORTH.md",
+          "bytes": 4659,
+          "sha256": "f47f879b9f3cc85fc2c25f95cd569a47d8e212968213f94a741a0fd7110ab8fd",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        }
+      ]
+    },
+    {
+      "group": "contract_sources",
+      "verified_rows": 7,
+      "rows": [
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-material-volume-contract/PLAN.md",
+          "bytes": 4387,
+          "sha256": "67a6bf5a8d477a187fcd4b729685133b47d7ec2bd2b429185df204b90bda4583",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-complete-jacket-nomination/ROOT-READBACK.json",
+          "bytes": 817,
+          "sha256": "006c4ab395329016f53421f08d4271c435d4c014840a762b3655ea0ac681dc81",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/after-geometry.npz",
+          "bytes": 840170,
+          "sha256": "10f646e42a868fe84ab14d6e3022918a70e6b0aeec30781f270037b79be2f024",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/fields.npz",
+          "bytes": 1058878,
+          "sha256": "88a158ceadf94ca23d3166bbca3ba40135eb60c5063dcb77dba1918050659d5f",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-source-contract/SOURCE-MAP.json",
+          "bytes": 91085,
+          "sha256": "7cdcda00ad43629b558b829afbc76b226f121aabd98d7bb9b270c592b90bb129",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-wrist-registration-contract/WRIST-REFERENCE.json",
+          "bytes": 13132,
+          "sha256": "439acbcee0fb0a6a2ff5aeb6acde58a0de25b928494daea2dd1e985ce9535529",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/README.md",
+          "bytes": 7175,
+          "sha256": "f67477956482652b62c6cec47ef7de6f928d5335b801acc796c9d6f064383dad",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        }
+      ]
+    },
+    {
+      "group": "original_INPUTS",
+      "verified_rows": 7,
+      "rows": [
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-material-volume-contract/PLAN.md",
+          "bytes": 4387,
+          "sha256": "67a6bf5a8d477a187fcd4b729685133b47d7ec2bd2b429185df204b90bda4583",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-complete-jacket-nomination/ROOT-READBACK.json",
+          "bytes": 817,
+          "sha256": "006c4ab395329016f53421f08d4271c435d4c014840a762b3655ea0ac681dc81",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/after-geometry.npz",
+          "bytes": 840170,
+          "sha256": "10f646e42a868fe84ab14d6e3022918a70e6b0aeec30781f270037b79be2f024",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/fields.npz",
+          "bytes": 1058878,
+          "sha256": "88a158ceadf94ca23d3166bbca3ba40135eb60c5063dcb77dba1918050659d5f",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-source-contract/SOURCE-MAP.json",
+          "bytes": 91085,
+          "sha256": "7cdcda00ad43629b558b829afbc76b226f121aabd98d7bb9b270c592b90bb129",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-wrist-registration-contract/WRIST-REFERENCE.json",
+          "bytes": 13132,
+          "sha256": "439acbcee0fb0a6a2ff5aeb6acde58a0de25b928494daea2dd1e985ce9535529",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/README.md",
+          "bytes": 7175,
+          "sha256": "f67477956482652b62c6cec47ef7de6f928d5335b801acc796c9d6f064383dad",
+          "read_scope": "whole-file byte hash only unless separately scoped as direct text or recursive JSON comparison"
+        }
+      ]
+    }
+  ],
+  "binding_rows": 44,
+  "unique_bound_paths": 23,
+  "semantic_comparison": {
+    "original_contract": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-material-volume-contract/CONTRACT.json",
+      "bytes": 14786,
+      "sha256": "572c20327dd87ad7ffa0a37317ef02c8a3b9d0462e3c188718617bd833f9c75e",
+      "read_scope": "parsed complete literal JSON for recursive structural comparison only; not geometry evaluation"
+    },
+    "changed_paths": [
+      "/authored_utc",
+      "/finishing_attachment_parents/pocket_mouth_and_bags/parents",
+      "/future_metric/boundary_rule",
+      "/future_metric/nearest",
+      "/future_metric/signed_fill",
+      "/future_metric/ties",
+      "/id",
+      "/source_region_transport"
+    ],
+    "matches_root_record": true
+  },
+  "additional_selected_read": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-material-volume-contract/SOURCE-INSPECTION.json",
+    "bytes": 14365,
+    "sha256": "a5b1926237d64be76482a224e04cf2e31dba3fbd158e4bfb99d8b0409d288f05",
+    "read_scope": "rg -n component|Euler|edge|volume|column|signed|finite|degenerate only; sole returned line61 states numeric component scope; not a full inspection-document read"
+  },
+  "tool_jobs": [
+    {
+      "chunk": "bd02ee",
+      "exit": 0,
+      "command": "rg -n \"Ari jacket-source|material-volume|constructor-HOLD|ari-volume\" /Users/robault/.codex/memories/MEMORY.md",
+      "scope": "memory orientation only; live sources control"
+    },
+    {
+      "chunk": "3bfffb",
+      "exit": 0,
+      "command": "pwd && date -u +%Y-%m-%dT%H:%M:%SZ && cat docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PLAN.json",
+      "utc_observed": "2026-10-19T04:18:17Z"
+    },
+    {
+      "chunk": "f65e33",
+      "exit": 0,
+      "command": "sed -n '674,715p' /Users/robault/.codex/memories/MEMORY.md",
+      "scope": "selected historical continuity notes only"
+    },
+    {
+      "chunk": "7d3a32",
+      "exit": 0,
+      "command": "rg --files -g AGENTS.md -g '!node_modules' -g '!assets' . /Users/robault/GitHub 2>/dev/null | head -40",
+      "scope": "instruction filename locator only; unrelated results not opened"
+    },
+    {
+      "chunk": "e94f89",
+      "exit": 0,
+      "pid": 44129,
+      "utc": "2026-10-19T04:18:26.363961+00:00",
+      "command": "python3 stdin: pathlib read_bytes/sha256 plus complete line-numbered PLAN input text; no target imports",
+      "recovery": "aggregate output truncated within CONTRACT; remaining complete lines208-315 recovered by3aedd2"
+    },
+    {
+      "chunk": "3aedd2",
+      "exit": 0,
+      "command": "sed -n '208,315p' docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/CONTRACT.json"
+    },
+    {
+      "chunk": "fad656",
+      "exit": 0,
+      "pid": 44851,
+      "utc": "2026-10-19T04:18:45.075065+00:00",
+      "command": "python3 stdin: hash revision INPUTS7/BINDINGS7; print complete resume/work-window; inspect only five ancestor AGENTS paths (all absent)"
+    },
+    {
+      "chunk": "071ce2",
+      "exit": 0,
+      "pid": 45527,
+      "utc": "2026-10-19T04:19:05.549188+00:00",
+      "command": "python3 stdin: raw byte hashes of newPLAN7/contractSources7/oldNine9/originalINPUTS7; recursive original/revised literal contract JSON comparison; output-absence check",
+      "all_30_rows": true,
+      "eight_paths_exact": true
+    },
+    {
+      "chunk": "2fee6f",
+      "exit": 0,
+      "command": "rg -n 'component|Euler|edge|volume|column|signed|finite|degenerate' docs/evidence/appearance-2026-10-09/ari-material-volume-contract/SOURCE-INSPECTION.json"
+    }
+  ],
+  "retained_errors": [
+    "No source or target error observed. Aggregate read truncation was recovered; unrelated AGENTS filename locator results were not read."
+  ],
+  "coordination_limits": [
+    "Parent reports resumed human authorization, restored heartbeat, no candidate execution and newly committed preservation of old nine files; no independent current service/process/automation test by this critic.",
+    "Parent proposed stdlib-only exact implementation and fresh retirement/memory control; these are unreviewed source ideas, not part of current execution admission."
+  ],
+  "prohibited_operations_performed": false,
+  "qualification_limits": [
+    "No NPZ member/header/array decode, geometry arithmetic, target import/evaluation/execution, native/Blender/browser/GPU/network/reference/image action.",
+    "Archives remain opaque despite whole-file hashing. No every-coordinate, physical/simple-solid, field, source-fit, garment or appearance qualification.",
+    "A further complete source/collector/oracle/runtime-pin/time/memory/output gate plus root independent review is required before the single proposed trial."
+  ],
+  "deadlines": {
+    "worth_inquiry": "2026-10-19T04:35:00Z",
+    "worth_collection": "2026-10-19T04:40:00Z",
+    "root_worth": "2026-10-19T04:45:00Z",
+    "source_preparation": "2026-10-19T05:05:00Z",
+    "source_review": "2026-10-19T05:15:00Z",
+    "source_collection": "2026-10-19T05:20:00Z",
+    "root_source_gate": "2026-10-19T05:25:00Z",
+    "latest_start": "2026-10-19T05:27:00Z",
+    "actual_review": "2026-10-19T05:45:00Z",
+    "root_close": "2026-10-19T05:55:00Z"
+  },
+  "next": "Root independent full handoff/pin review; only if accepted may separate inert preparation proceed.",
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/WORTH.md",
+    "bytes": 3341,
+    "sha256": "d4b2eb691eff9eedb98d28531b2115cefbb15131633a930b5cc3163ec1c80a59",
+    "read_scope": "complete written text readback"
+  }
+}

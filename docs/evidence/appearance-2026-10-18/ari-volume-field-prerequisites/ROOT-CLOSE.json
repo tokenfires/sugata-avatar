@@ -1,0 +1,60 @@
+{
+  "utc": "2026-10-19T04:43:17.247095+00:00",
+  "pid": 90808,
+  "decision": "CLOSED_UNRUN_SOURCE_B",
+  "independent_handoff": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/SOURCE-PREFLIGHT.md",
+      "bytes": 4037,
+      "sha256": "434077fa083953082592d6b166e1f9d5f2f5bf9a880a11db9c7c5f227e4da229"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/SOURCE-PREFLIGHT-RECEIPT.json",
+      "bytes": 31554,
+      "sha256": "a07c20f8e846cd647287667540a5410d148b5d9d9ff9e56ab2d66f869b3c1a6a"
+    }
+  ],
+  "root_whole_handoff_read": "b4d8e4/exit0 complete 4037+31554 bytes without truncation",
+  "root_whole_sources": [
+    "7c84b3/exit0",
+    "9f3f79/exit0",
+    "6ebff4/exit0",
+    "bb0150/exit0",
+    "2727c9/exit0",
+    "fe07fe/exit0 line-numbered collector"
+  ],
+  "verified_receipt_rows": 76,
+  "verified_unique_paths": 57,
+  "CONFIG_rows": 54,
+  "CONFIG_equals_SOURCE_PLAN": true,
+  "findings": {
+    "F1": "Independently confirmed uncontained RESULT read/output stat after failed retirement and before JOB save; no actual fault induced.",
+    "F2": "Independently confirmed observer omits node index ranges and index-to-ambiguous-column equality; worker construction itself correct. No actual witness produced."
+  },
+  "required_absent": {
+    "ADMISSION.json": true,
+    "JOB-start.json": true,
+    "RESULT.json": true,
+    "STDOUT.txt": true,
+    "STDERR.txt": true,
+    "JOB.json": true,
+    "ROOT-OBSERVATION.json": true
+  },
+  "commands_not_executed": [
+    [
+      "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/run_once.py"
+    ],
+    [
+      "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/inspect_saved.py"
+    ]
+  ],
+  "source_array_members_decoded": 0,
+  "fixtures_executed": false,
+  "cpu_trial_started": false,
+  "native_or_field_or_mesh_or_render_started": false,
+  "memory": "Declared DATA readback and state caps; no total/instantaneous RSS claim. Not reason for B.",
+  "preservation": "All exact source/config/prior contract inputs retained; no accepted/default/original/frozen/unused source change.",
+  "next": "No repair or successor is admitted by this closure. A distinct bounded proposal requires fresh critic worth and independent root decision before authoring/execution. Full character/wardrobe/physical/motion/AAA roadmap remains."
+}

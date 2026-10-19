@@ -1,0 +1,593 @@
+{
+  "collected_utc": "2026-10-19T04:42:46.147355+00:00",
+  "writer_pid": 89847,
+  "verdict": "B exact source/trial withheld unrun",
+  "pending_edits": false,
+  "findings": [
+    {
+      "id": "F1",
+      "source": "run_once.py",
+      "lines": [
+        85,
+        108,
+        130,
+        141
+      ],
+      "classification": "uncontained final evidence after possible uncollected child; no actual induced fault",
+      "alternatives": [
+        "independently contain final evidence and condition finalized hashing on collection, with explicit withheld/partial status",
+        "preserve this exact source and withhold trial (selected under fixed source-stop)"
+      ]
+    },
+    {
+      "id": "F2",
+      "source": "inspect_saved.py",
+      "lines": [
+        243,
+        251
+      ],
+      "correct_producer_source": "worker.py:132-140",
+      "classification": "independent certificate omits affected-column linkage and explicit station-index ranges; no actual witness/data defect",
+      "alternatives": [
+        "independently validate ranges/axis/other-axis/column equality before refusing whole field",
+        "withhold automatic column-refusal credit pending complete manual source-bound witness comparison"
+      ]
+    }
+  ],
+  "complete_source_and_docs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/kernel.py",
+      "bytes": 8722,
+      "sha256": "b916bfa9799d3af0f3415502461b95e77f676c42c26caaed9083b130d3b42523",
+      "read_scope": "complete 198 lines; c416d3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/worker.py",
+      "bytes": 12174,
+      "sha256": "413be90f2c3e63cf7ec7747ac379c09bb3f3e27eea3def49c51419f3af5eedd2",
+      "read_scope": "complete 251 lines;540d2c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/run_once.py",
+      "bytes": 7802,
+      "sha256": "e6240a41bbca4aa13f16c6dfe9d5d5eb559e2200a696d897429ec70e6d3b83cc",
+      "read_scope": "complete147 lines;685a88"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/inspect_saved.py",
+      "bytes": 15701,
+      "sha256": "5303abbda0e141eb6e8125afec171d5c4923a0adbcee404f7bdef0bcd0e318a7",
+      "read_scope": "complete268 lines;200a26"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/SOURCE-PLAN.json",
+      "bytes": 17226,
+      "sha256": "f2ebc62e20e1cf39c17f99c8b28551f289c39a026f6c4f7e4dff57b4bf88fa57",
+      "read_scope": "complete JSON d1558a; all54 rows separately verified ffe4c1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/CONFIG.json",
+      "bytes": 19491,
+      "sha256": "94a9876c08de21ed19ed716523e3ff7980283b8112628d0077d7de20f3560d6f",
+      "read_scope": "complete JSON semantics: d1558a aggregate truncated within repeated pins; ffe4c1 prints all non-pin keys and all54 rows, verifies ordered rows identical SOURCE-PLAN"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/ROOT-SOURCE-PREPARATION.json",
+      "bytes": 2989,
+      "sha256": "0727bfe85de2884e3bec9f5d598caae34b289a563b3895dacee94bfef95e5a13",
+      "read_scope": "complete JSON d1558a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PRIMARY-READS.json",
+      "bytes": 2564,
+      "sha256": "7e1f4a5032236e78796c6e0a0e69d47597eafec0c01690ebc3c60c729c3a7b9d",
+      "read_scope": "complete current selection ffe4c1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PRIMARY-READS.before-memory-selection.json",
+      "bytes": 1636,
+      "sha256": "11e1afddc0b2c00f64509dfb522c241d906ef5ffcfaa825f256214b78572213b",
+      "read_scope": "complete preserved earlier proposal ffe4c1; historical not current memory policy"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/DOCS-PLAN.json",
+      "bytes": 802,
+      "sha256": "770b2be89131f9057cea5c28b28b777867355cfb371f14e3b9c3cbb9978e6c11",
+      "read_scope": "complete ffe4c1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/ORIGINAL-JOURNAL-INPUTS.json",
+      "bytes": 963,
+      "sha256": "bc4ca7cbc247b0fd1c3be9b9a94b046a97fa06d64ae256cdaf20608ea528bb2d",
+      "read_scope": "complete two logical-to-snapshot mappings ffe4c1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/ROOT-WORTH.json",
+      "bytes": 3064,
+      "sha256": "37eca7f35fd25000ece30581f8ebd8e76a62455298bcce405050b6f73af63a5f",
+      "read_scope": "complete ffe4c1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PLAN.json",
+      "bytes": 7090,
+      "sha256": "4bfe32cbfdbabf2255264427689adfb33a0a62b751a47be6536f1b836a59031f",
+      "read_scope": "complete earlier3bfffb/e94f89; unchanged current54-pin verification"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/WORTH.md",
+      "bytes": 3341,
+      "sha256": "d4b2eb691eff9eedb98d28531b2115cefbb15131633a930b5cc3163ec1c80a59",
+      "read_scope": "complete own prior3341byte text; current54-pin verification"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/WORK-WINDOW.worth-reviewed.md",
+      "bytes": 4002,
+      "sha256": "89aad0dbac06c5aaf96547dabeed000e87ce6122fb7bf6573a08522b2b97cb26",
+      "read_scope": "exact historical4002byte worth-read text; current pin verified, not a live journal claim"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/RESUME.worth-reviewed.md",
+      "bytes": 2944,
+      "sha256": "b29d824115e4a699414c0312fb865d653cda8db61a7e05c82c4425b7ff264729",
+      "read_scope": "exact historical2944byte worth-read text; current pin verified, not a live checkpoint claim"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/CONTRACT.json",
+      "bytes": 17528,
+      "sha256": "974c1cbd3ad811717aec75069f8a2c696aaacf2a8c5631599d8244914d1a7fcf",
+      "read_scope": "complete earlier e94f89/3aedd2 read; current full-byte pin verified; no geometry evaluation"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/REVIEW.md",
+      "bytes": 4983,
+      "sha256": "275e04a50a500eb1b617c42b47b573c644c83efa1bf6f961a105a6d33c4f66f6",
+      "read_scope": "complete earlier e94f89/3aedd2 read; current full-byte pin verified; no geometry evaluation"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PRIMARY-RESOURCE.json",
+      "bytes": 50030,
+      "sha256": "bdca7057531229e00b53c7f96800ceeaae5e8c5e594b91ed6031622f46d96900",
+      "read_scope": "entire raw JSON parsed/metadata and content-text==structuredContent verified7ce7d6; selected complete markdown27-90/114-179/263-311 read50a079; not whole-page semantic audit"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PRIMARY-NPY.json",
+      "bytes": 29677,
+      "sha256": "59402c849810a468e26c9e3c4a46ae133c68639174454c0f3d0318f777888307",
+      "read_scope": "entire raw JSON parsed/metadata and content-text==structuredContent verified7ce7d6; complete version/format markdown96-168 read50a079; not whole-page semantic audit"
+    }
+  ],
+  "verified_CONFIG_rows": 54,
+  "CONFIG_pins_equal_SOURCE_PLAN_inputs": true,
+  "byte_bindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PLAN.json",
+      "bytes": 7090,
+      "sha256": "4bfe32cbfdbabf2255264427689adfb33a0a62b751a47be6536f1b836a59031f",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/WORTH.md",
+      "bytes": 3341,
+      "sha256": "d4b2eb691eff9eedb98d28531b2115cefbb15131633a930b5cc3163ec1c80a59",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/WORTH-RECEIPT.json",
+      "bytes": 26986,
+      "sha256": "cf921513a0cfd1b6648f7deb86e5937b45f54ecfd689ef0efe58b2f532827ad6",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/ROOT-WORTH.json",
+      "bytes": 3064,
+      "sha256": "37eca7f35fd25000ece30581f8ebd8e76a62455298bcce405050b6f73af63a5f",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/DOCS-PLAN.json",
+      "bytes": 802,
+      "sha256": "770b2be89131f9057cea5c28b28b777867355cfb371f14e3b9c3cbb9978e6c11",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PRIMARY-RESOURCE.json",
+      "bytes": 50030,
+      "sha256": "bdca7057531229e00b53c7f96800ceeaae5e8c5e594b91ed6031622f46d96900",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PRIMARY-NPY.json",
+      "bytes": 29677,
+      "sha256": "59402c849810a468e26c9e3c4a46ae133c68639174454c0f3d0318f777888307",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PRIMARY-READS.json",
+      "bytes": 2564,
+      "sha256": "7e1f4a5032236e78796c6e0a0e69d47597eafec0c01690ebc3c60c729c3a7b9d",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PRIMARY-READS.before-memory-selection.json",
+      "bytes": 1636,
+      "sha256": "11e1afddc0b2c00f64509dfb522c241d906ef5ffcfaa825f256214b78572213b",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/ORIGINAL-JOURNAL-INPUTS.json",
+      "bytes": 963,
+      "sha256": "bc4ca7cbc247b0fd1c3be9b9a94b046a97fa06d64ae256cdaf20608ea528bb2d",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/WORK-WINDOW.worth-reviewed.md",
+      "bytes": 4002,
+      "sha256": "89aad0dbac06c5aaf96547dabeed000e87ce6122fb7bf6573a08522b2b97cb26",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/RESUME.worth-reviewed.md",
+      "bytes": 2944,
+      "sha256": "b29d824115e4a699414c0312fb865d653cda8db61a7e05c82c4425b7ff264729",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/kernel.py",
+      "bytes": 8722,
+      "sha256": "b916bfa9799d3af0f3415502461b95e77f676c42c26caaed9083b130d3b42523",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/worker.py",
+      "bytes": 12174,
+      "sha256": "413be90f2c3e63cf7ec7747ac379c09bb3f3e27eea3def49c51419f3af5eedd2",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/run_once.py",
+      "bytes": 7802,
+      "sha256": "e6240a41bbca4aa13f16c6dfe9d5d5eb559e2200a696d897429ec70e6d3b83cc",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/inspect_saved.py",
+      "bytes": 15701,
+      "sha256": "5303abbda0e141eb6e8125afec171d5c4923a0adbcee404f7bdef0bcd0e318a7",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/BINDINGS.json",
+      "bytes": 1781,
+      "sha256": "5bbd6f6e6aca3aed7acbb53e46e7247e76659c2474500abc56dd8994942d5961",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/CONTRACT.json",
+      "bytes": 17528,
+      "sha256": "974c1cbd3ad811717aec75069f8a2c696aaacf2a8c5631599d8244914d1a7fcf",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/INPUTS.json",
+      "bytes": 1808,
+      "sha256": "caaa8a1d84e4e7cd15d09d5d6a081137ab53a63618fd4ef68c9ac38089c63c17",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/PLAN.md",
+      "bytes": 2839,
+      "sha256": "e4fa96128413c2eee19f898cd2cc6031008af3ed02450baff3707c3657e15a22",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/README.md",
+      "bytes": 2755,
+      "sha256": "9ddd68e901cd8a9359ed2af5ad293674d08cf0277af7d3f0cc90960034191feb",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/REVIEW.md",
+      "bytes": 4983,
+      "sha256": "275e04a50a500eb1b617c42b47b573c644c83efa1bf6f961a105a6d33c4f66f6",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/ROOT-SEMANTIC-DIFF.json",
+      "bytes": 873,
+      "sha256": "2237c62d77c039e00a203049ecf7fc5570ac21f6001657b6b747ef75dda1bc1b",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/ROOT-WORTH.json",
+      "bytes": 304,
+      "sha256": "8ab0df368872b47265bb081d73ebe1d5691230f527081c97c6c878c4711637b6",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/WORTH.md",
+      "bytes": 4659,
+      "sha256": "f47f879b9f3cc85fc2c25f95cd569a47d8e212968213f94a741a0fd7110ab8fd",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-material-volume-contract/PLAN.md",
+      "bytes": 4387,
+      "sha256": "67a6bf5a8d477a187fcd4b729685133b47d7ec2bd2b429185df204b90bda4583",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-complete-jacket-nomination/ROOT-READBACK.json",
+      "bytes": 817,
+      "sha256": "006c4ab395329016f53421f08d4271c435d4c014840a762b3655ea0ac681dc81",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/after-geometry.npz",
+      "bytes": 840170,
+      "sha256": "10f646e42a868fe84ab14d6e3022918a70e6b0aeec30781f270037b79be2f024",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/fields.npz",
+      "bytes": 1058878,
+      "sha256": "88a158ceadf94ca23d3166bbca3ba40135eb60c5063dcb77dba1918050659d5f",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-source-contract/SOURCE-MAP.json",
+      "bytes": 91085,
+      "sha256": "7cdcda00ad43629b558b829afbc76b226f121aabd98d7bb9b270c592b90bb129",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-wrist-registration-contract/WRIST-REFERENCE.json",
+      "bytes": 13132,
+      "sha256": "439acbcee0fb0a6a2ff5aeb6acde58a0de25b928494daea2dd1e985ce9535529",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/README.md",
+      "bytes": 7175,
+      "sha256": "f67477956482652b62c6cec47ef7de6f928d5335b801acc796c9d6f064383dad",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ast.py",
+      "bytes": 25479,
+      "sha256": "5ea9a796353544bea0d706153516f04ef3d92be305d15a73238403837d77e34c",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/bisect.py",
+      "bytes": 3423,
+      "sha256": "f1cf7b85fc36b5da249813fc5ab97d9464f8cc1bc817f7146206fa2713e35999",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/collections/__init__.py",
+      "bytes": 53021,
+      "sha256": "cb8367b8edd188662143ea2e3942d360c2deae51c72fd779ec898f5076d2c2b9",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/datetime.py",
+      "bytes": 331,
+      "sha256": "742884b0c8e7dc69911858245db4f34d42e8ec0f769d580c570bd56032b0866c",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/fractions.py",
+      "bytes": 41453,
+      "sha256": "7a95f1c506c9ac4b2277df5f2bdd9d61cc67b520c45021a5a961939770221ef6",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/hashlib.py",
+      "bytes": 9459,
+      "sha256": "88fa624821fbdee7eb2ef87c2437b207afe328cf117c7463367e2db5eb1af492",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py",
+      "bytes": 14132,
+      "sha256": "2dd10f1bf4c9ea5478e589216805e7f279d0e4bce134a19efa297404fb87407d",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/math.cpython-314-darwin.so",
+      "bytes": 93488,
+      "sha256": "9e9d2234227db176be37042bc1c2506902c4c2edfeac05424b803928755ae33a",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py",
+      "bytes": 46807,
+      "sha256": "042a4d0a5e1ef66778daa86dc269af205bd42d06e793e53d8b99dff4c45928ca",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/resource.cpython-314-darwin.so",
+      "bytes": 53312,
+      "sha256": "e58977e653c80b8759141ad7d283e2221e2953bff8ba3c9b5c1a8a1c885da467",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/selectors.py",
+      "bytes": 19457,
+      "sha256": "4b8a60cfbb619d080f87dffe1578372e56e8c0ac826f043224a154cf7b77606d",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/signal.py",
+      "bytes": 2495,
+      "sha256": "0363c964c90ac0b3e515de5749205e6e6454051a1211058375d84d91eab6071a",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/struct.py",
+      "bytes": 285,
+      "sha256": "50c14e55f94957804c1e45e975fedbe8e86f7e1dbb745b150370ff681155370a",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py",
+      "bytes": 90732,
+      "sha256": "6628ffdd65c093a6c08cae01ffe82877d3ced515aac9e7be0cff16512c30a7d9",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/zipfile/__init__.py",
+      "bytes": 92940,
+      "sha256": "adb6f48ee990b42cabfc665d910992c5a30cee31d5d50d846e18e0e45c6a3f31",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/zlib.cpython-314-darwin.so",
+      "bytes": 76176,
+      "sha256": "d01fbb9cfa43d994fd4254580fa59448565f05a1ebf09bc6c3166b5020f1e375",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_struct.cpython-314-darwin.so",
+      "bytes": 77888,
+      "sha256": "f1fc558b748eb2752643853b9d7428e84f1fb248276859675912e6287583cb88",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_hashlib.cpython-314-darwin.so",
+      "bytes": 80448,
+      "sha256": "9ba56f3cc87814c60b43be78cd551c4c253dc6695ac13a10d651439e952a119d",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_posixsubprocess.cpython-314-darwin.so",
+      "bytes": 54784,
+      "sha256": "08d921c33ad5e007549dbe3d3e4ab94a108377fb8defa30ab4e945186844e6b3",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_bisect.cpython-314-darwin.so",
+      "bytes": 53040,
+      "sha256": "b01948b211758a0d33a50a4557a57b5228e7e7b3a2b87303e7e712dd449da1b0",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "bytes": 34640,
+      "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Python",
+      "bytes": 5452528,
+      "sha256": "b112695af23f5e46d84a7c4ef6057603b70b94aacc32e9d548808c2875759d47",
+      "read_scope": "complete raw byte pin; semantic scope separately listed"
+    }
+  ],
+  "historical_journal_resolution": {
+    "mapping": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/ORIGINAL-JOURNAL-INPUTS.json",
+    "snapshots": [
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/WORK-WINDOW.worth-reviewed.md",
+        "bytes": 4002,
+        "sha256": "89aad0dbac06c5aaf96547dabeed000e87ce6122fb7bf6573a08522b2b97cb26",
+        "read_scope": "historical worth-context only"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/RESUME.worth-reviewed.md",
+        "bytes": 2944,
+        "sha256": "b29d824115e4a699414c0312fb865d653cda8db61a7e05c82c4425b7ff264729",
+        "read_scope": "historical worth-context only"
+      }
+    ],
+    "no_claim_newer_live_journals_equal_historical_pins": true
+  },
+  "memory_scope": "RLIMIT_DATA requested/readback plus finite owned-state caps is reviewed as declared limited policy, not a hard instantaneous/total RSS or sampled monitor guarantee. No local resource enforcement evaluation. Overall B for F1/F2.",
+  "jobs": [
+    {
+      "chunk": "d1558a",
+      "exit": 0,
+      "pid": 84365,
+      "utc": "2026-10-19T04:39:47.264898+00:00",
+      "command": "python3 stdin: linearly read/print/hash SOURCE-PLAN.json,CONFIG.json,ROOT-SOURCE-PREPARATION.json; hash/count four source files",
+      "note": "Aggregate read truncation in repeated CONFIG pins recovered by ffe4c1 without changing inputs"
+    },
+    {
+      "chunk": "c416d3",
+      "exit": 0,
+      "command": "nl -ba docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/kernel.py",
+      "scope": "all198lines"
+    },
+    {
+      "chunk": "540d2c",
+      "exit": 0,
+      "command": "nl -ba docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/worker.py",
+      "scope": "all251lines"
+    },
+    {
+      "chunk": "685a88",
+      "exit": 0,
+      "command": "nl -ba docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/run_once.py",
+      "scope": "all147lines"
+    },
+    {
+      "chunk": "200a26",
+      "exit": 0,
+      "command": "nl -ba docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/inspect_saved.py",
+      "scope": "all268lines"
+    },
+    {
+      "chunk": "ffe4c1",
+      "exit": 0,
+      "pid": 86202,
+      "utc": "2026-10-19T04:40:45.767805+00:00",
+      "command": "python3 stdin: complete CONFIG nonpinvalues; exact equality CONFIG54 ordered pins to SOURCE-PLAN inputs; independently whole-byte hash all54; print five complete bound selection/journal/rootworth docs; inspect primary JSON schema only"
+    },
+    {
+      "chunk": "7ce7d6",
+      "exit": 0,
+      "pid": 86458,
+      "utc": "2026-10-19T04:40:54.426514+00:00",
+      "command": "python3 stdin: parse retained primary raw JSON, compare content-text JSON and structuredContent, print metadata and selected markdown locators; no online tool"
+    },
+    {
+      "chunk": "50a079",
+      "exit": 0,
+      "pid": 87014,
+      "utc": "2026-10-19T04:41:13.056197+00:00",
+      "command": "python3 stdin: print retained resource markdown27-90/114-179/263-311 and NPY96-168; check own-pair/admission/target-output absence"
+    }
+  ],
+  "runtime_API_scope": "Selected retained official resource/NPY clauses only; installed stdlib/runtime byte pins are not a complete API/library/OS review. No target/kernel import or AST compilation/evaluation by critic.",
+  "retained_errors": [
+    "No target/runtime error observed or induced. One aggregate text truncation was recovered with full configuration key/row readback."
+  ],
+  "source_preservation": "All four pinned source files, CONFIG, SOURCE-PLAN and historical handoffs remain unchanged; only these two new critic files written.",
+  "admission_and_target_outputs_absent": true,
+  "prohibited_actions_performed": false,
+  "limits": [
+    "No source NPZ member/header/array decode, no trigonometry/coordinate/predicate evaluation, no synthetic fixture or worker/helper/observer invocation.",
+    "No native/Blender/GPU/browser/render/network/generation/product/assets/frozen-input edit.",
+    "Potential collection error and independent-oracle gap are source findings only; no asset or numerical eligibility/refusal result.",
+    "Full prospective field/mesh/finishing/physical/appearance/motion/AAA remains held."
+  ],
+  "deadlines": {
+    "worth_inquiry": "2026-10-19T04:35:00Z",
+    "worth_collection": "2026-10-19T04:40:00Z",
+    "root_worth": "2026-10-19T04:45:00Z",
+    "source_preparation": "2026-10-19T05:05:00Z",
+    "source_review": "2026-10-19T05:15:00Z",
+    "source_collection": "2026-10-19T05:20:00Z",
+    "root_source_gate": "2026-10-19T05:25:00Z",
+    "latest_start": "2026-10-19T05:27:00Z",
+    "actual_review": "2026-10-19T05:45:00Z",
+    "root_close": "2026-10-19T05:55:00Z"
+  },
+  "next": "Root reads/verifies stable B then closes this exact proposal unrun. No repair, retry, successor or later experiment admitted.",
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/SOURCE-PREFLIGHT.md",
+    "bytes": 4037,
+    "sha256": "434077fa083953082592d6b166e1f9d5f2f5bf9a880a11db9c7c5f227e4da229",
+    "read_scope": "complete written text byte readback"
+  }
+}

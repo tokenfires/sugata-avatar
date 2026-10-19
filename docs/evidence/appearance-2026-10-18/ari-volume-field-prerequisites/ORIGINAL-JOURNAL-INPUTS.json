@@ -1,0 +1,21 @@
+{
+  "scope": "Before mutable journal/checkpoint updates, exact worth-reviewed bytes retained. Historicalrows at matchingSHA resolve snapshot; no frozen receipt edits.",
+  "files": [
+    {
+      "logical_path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/WORK-WINDOW.worth-reviewed.md",
+        "bytes": 4002,
+        "sha256": "89aad0dbac06c5aaf96547dabeed000e87ce6122fb7bf6573a08522b2b97cb26"
+      }
+    },
+    {
+      "logical_path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "snapshot": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/RESUME.worth-reviewed.md",
+        "bytes": 2944,
+        "sha256": "b29d824115e4a699414c0312fb865d653cda8db61a7e05c82c4425b7ff264729"
+      }
+    }
+  ]
+}
