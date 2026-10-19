@@ -1,0 +1,45 @@
+{
+  "args": {
+    "query": "posing silhouettes hands gestures",
+    "includeDomains": [
+      "animationmentor.com"
+    ],
+    "sources": [
+      "web"
+    ],
+    "limit": 3,
+    "domainTools": false,
+    "highlights": true
+  },
+  "result": {
+    "success": true,
+    "data": {
+      "web": [
+        {
+          "url": "https://www.animationmentor.com/blog/tutorial-building-appealing-character-poses-for-animation/",
+          "title": "Tutorial: Building Appealing Character Poses for Animation",
+          "description": "Learn how to make poses more appealing, focusing on silhouette, line of action, negative space, bend bow controls, and more.",
+          "position": 1
+        },
+        {
+          "url": "https://www.animationmentor.com/blog/tutorial-how-to-animate-hand-gestures/",
+          "title": "Tutorial: How to Animate Hand Gestures for Dialogue Scenes",
+          "description": "Keep the hand action in frame and adjust poses for clear silhouette and storytelling. Hand gestures are challenging but rewarding—adding ...",
+          "position": 2
+        },
+        {
+          "url": "https://www.animationmentor.com/blog/tutorial-animating-emotion-through-body-language/",
+          "title": "Tutorial: Animating Emotion Through Body Language",
+          "description": "Animate emotion through body language using posing, walk cycles, and reference to create clear joyful, angry, and sad performances.",
+          "position": 3
+        }
+      ],
+      "tools": []
+    },
+    "id": "01a1558c-898a-7184-a7f6-99ccdecae72a",
+    "creditsUsed": 2,
+    "agent_hints": [
+      "All 3 web results are excerpts only (#1 \"https://www.animationmentor.com/blog/tutorial-building-appealing-character-poses-for-animation/\", #2 \"https://www.animationmentor.com/blog/tutorial-how-to-animate-hand-gestures/\", #3 \"https://www.animationmentor.com/blog/tutorial-animating-emotion-through-body-language/\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+    ]
+  }
+}

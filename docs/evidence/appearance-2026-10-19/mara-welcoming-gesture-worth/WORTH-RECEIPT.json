@@ -1,0 +1,252 @@
+{
+  "schema": "critic-mara-welcoming-gesture-worth-v1",
+  "verdict": "A_REFERENCE_AND_INERT_SOURCE_PREPARATION_ONLY",
+  "collected_utc": "2026-10-19T19:02:21.970013+00:00",
+  "pid": 89289,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-welcoming-gesture-worth/PLAN.md",
+      "bytes": 4965,
+      "sha256": "e532b7f3ea3e990a43673d44286478a48d3151c084bc53d9fccaa21df5cde098"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 91775,
+      "sha256": "c883a7f19511caf59f17eb66085004d429c45e67086af123d08822a1f375701f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 116839,
+      "sha256": "d804021d8e8036b5134b57c5d84ffa133937626b43cb1d404947381e9511840d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/README.md",
+      "bytes": 3844,
+      "sha256": "6e21ba6ceaaec86763f10dc904d6e3f915dccd7a87228c6e1ce94d5729f277be"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/BRIEF.md",
+      "bytes": 3630,
+      "sha256": "962f4927f70174d82daa5fdaa3b902e6853c0db16388d689f6f5ba62c40c6255"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "bytes": 3053,
+      "sha256": "f0f6118b1916220de67cb8748ec7232e1ab1b32e745415eb9c1d7629f429ca1d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/README.md",
+      "bytes": 4684,
+      "sha256": "c17601893948449b11ecbe320100fc42766baa2e9eee2fd7b20b1adf326fc5ac"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/README.md",
+      "bytes": 3087,
+      "sha256": "6ab3f19163dde4159917ea787b973b7a6a70b8d5877d3e3a2726b7a5af6a8826"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/README.md",
+      "bytes": 6468,
+      "sha256": "e8103a9e1c6b24dbfc695603f3e8d8d61455c4084204846cc1f72286177a6db8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/README.md",
+      "bytes": 5367,
+      "sha256": "4b64a9ccc9baa49bca76e742bfc070f14bb331bf9d2cd5ae9d4c230eb7e54902"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/ROOT-CLOSE.json",
+      "bytes": 20930,
+      "sha256": "84038f6eef3dfc716f187151b582c95922fcd64cf9cb9dfd467c3c934c58a4a1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-welcoming-gesture-worth/WORTH-INPUTS.json",
+      "bytes": 3853,
+      "sha256": "07723434f8e37449e037e39b57916084acec33d8ab64f698fd3c932d7c0d34b7"
+    }
+  ],
+  "verified_manifest_rows": 15,
+  "whole_read": [
+    "PLAN.md",
+    "WORTH-INPUTS.json",
+    "mature-feminine-character-target/README.md",
+    "mature-feminine-character-target/BRIEF.md",
+    "mature-wardrobe-board/ARTIST-HANDOFF.md",
+    "ari-seated-artist-target/README.md",
+    "mara-groom-view-intent/README.md",
+    "mara-groom-orientation-contract/README.md",
+    "mara-loafer-first-volume/README.md"
+  ],
+  "visual_scope": {
+    "operation": "tools.view_image original detail of exact concept-v1.png, whole1536x1024; tool returned original detail; no PID/UTC exposed by view tool",
+    "binding": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "detail": "original"
+    },
+    "order": "After1eb0dc plan/manifest and before67cf0a named sources; independent direct view, no root pixel opinion received.",
+    "observations": [
+      "Neutral full-body figure on left and larger portrait on right; both hands rest beside cardigan, no offered palm chosen.",
+      "Face calm and unobstructed; silver bob and face cues, caramel cardigan/ivory tee/plum midi/oxblood shoes remain the actual identity/outfit reference."
+    ],
+    "limits": "No inferred demographic certification, anatomical registration, hidden geometry, physical fit, actual human intent reading or moving action."
+  },
+  "selected_main_scope": {
+    "PRODUCT-ROADMAP.md": "Whole hashes; actual read lines1–50 and115–138 for product aim, Phase1 expressive gesture row, evaluation distinction, phase order and immediate work order. Other requested combined ranges were not relied on after clipped displays.",
+    "PROJECT-CHECKLIST.md": "Whole hash and independently counted22checked/10open; selected1–12/48–61 read completely, plus visible Mara/Ari rows28–42 from combined output; no claim of full literal reread.",
+    "RESUME-2026-10-18.md": "Whole hash; complete1–20 current human resumption/current loafer closure/limits/next-only scope.",
+    "WORK-WINDOW-2026-10-18.md": "Whole hash; selected historical tail458–470 read; no entire journal or newest-entry semantic claim. Current closure is governed by RESUME and exact latest loafer README.",
+    "ARTIST-WARDROBE.html": "Hash identity only; no browser/paint or full board semantic reread.",
+    "mara-loafer-first-volume/ROOT-CLOSE.json": "Current byte/hash identity only; current loafer README whole read; no repeat all prior closure/data proof."
+  },
+  "jobs": [
+    {
+      "scope": "plan/manifest",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-welcoming-gesture-worth')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PLAN.md','WORTH-INPUTS.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "result": {
+        "chunk_id": "1eb0dc",
+        "wall_time_seconds": 5.75e-06,
+        "exit_code": 0,
+        "original_token_count": 2268,
+        "output_utf8_bytes": 9071,
+        "output_sha256": "0ee50cfd8113659f42f4cc7151596a16881de5a5edf44ed541f8f635743df83b",
+        "PID": 88669,
+        "UTC": "2026-10-19T18:59:52.339739+00:00"
+      }
+    },
+    {
+      "scope": "whole named source/closure READMEs",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-welcoming-gesture-worth')\nr=json.loads((p/'WORTH-INPUTS.json').read_text())\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor row in r['inputs']:\n q=Path(row['path'])\n if q.name in ['README.md','BRIEF.md','ARTIST-HANDOFF.md']:\n  print('\\nFILE',str(q))\n  for i,line in enumerate(q.read_text().splitlines(),1):print(f'{i}: {line}')\nPY",
+      "result": {
+        "chunk_id": "67cf0a",
+        "wall_time_seconds": 5.667e-06,
+        "exit_code": 0,
+        "original_token_count": 7874,
+        "output_utf8_bytes": 31494,
+        "output_sha256": "f0697a21c6e8ddb7ca0b6188c00422403f152967762f514071dca369951d414d",
+        "PID": 88749,
+        "UTC": "2026-10-19T19:00:10.595233+00:00"
+      }
+    },
+    {
+      "scope": "15 bindings and selected main documents",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime,re\nroot=Path('/Users/robault/GitHub/sugata-avatar');p=root/'docs/evidence/appearance-2026-10-19/mara-welcoming-gesture-worth';r=json.loads((p/'WORTH-INPUTS.json').read_text())\ndef pin(q):\n b=q.read_bytes();return {'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nfor row in r['inputs']:assert pin(Path(row['path']))==row,row['path']\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PINS',len(r['inputs']))\nfor name,ranges in [('PRODUCT-ROADMAP.md',[(1,38),(78,145)]),('PROJECT-CHECKLIST.md',[(1,200)]),('RESUME-2026-10-18.md',[(1,20)]),('WORK-WINDOW-2026-10-18.md',[])]:\n q=root/'docs'/name;lines=q.read_text().splitlines();print('\\nFILE',str(q),'TOTAL_LINES',len(lines))\n for lo,hi in ranges:\n  for i in range(lo-1,min(hi,len(lines))):print(f'{i+1}: {lines[i]}')\n if name=='WORK-WINDOW-2026-10-18.md':\n  for i in range(max(0,len(lines)-13),len(lines)):print(f'{i+1}: {lines[i]}')\n if name=='PRODUCT-ROADMAP.md':\n  print('SELECTED_LITERAL_RELEVANCE')\n  for i,line in enumerate(lines,1):\n   if re.search(r'(?i)express|emotion|human intent|meaning|gesture',line):print(f'{i}: {line}')\ncheck=(root/'docs/PROJECT-CHECKLIST.md').read_text();print('COUNTS',len(re.findall(r'^- \\[x\\]',check,re.M)),len(re.findall(r'^- \\[ \\]',check,re.M)))\nprint('LEAF_ENTRIES',sorted(q.name for q in p.iterdir()))\nPY",
+      "result": {
+        "chunk_id": "4237a3",
+        "wall_time_seconds": 6.833e-06,
+        "exit_code": 0,
+        "original_token_count": 10048,
+        "output_utf8_bytes": 26108,
+        "output_sha256": "fcbfc3245c4999bed200f3ec079c3a60951a79d16ced1564df677695c858591e",
+        "PID": 88854,
+        "UTC": "2026-10-19T19:00:33.113746+00:00"
+      }
+    },
+    {
+      "scope": "selected roadmap/checklist recovery",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime\nroot=Path('/Users/robault/GitHub/sugata-avatar/docs')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n,ranges in [('PRODUCT-ROADMAP.md',[(38,77),(115,148)]),('PROJECT-CHECKLIST.md',[(1,12),(48,61)])]:\n lines=(root/n).read_text().splitlines();print('\\nFILE',n)\n for lo,hi in ranges:\n  for i in range(lo-1,min(hi,len(lines))):print(f'{i+1}: {lines[i]}')\nPY",
+      "result": {
+        "chunk_id": "68b1ea",
+        "wall_time_seconds": 5.959e-06,
+        "exit_code": 0,
+        "original_token_count": 5785,
+        "output_utf8_bytes": 15307,
+        "output_sha256": "e049e2db71af067ca45a4084aeea89ca0ce2325e124d3dca2eafd7248f4d33c4",
+        "PID": 88895,
+        "UTC": "2026-10-19T19:00:40.116580+00:00"
+      }
+    },
+    {
+      "scope": "complete work-order/phase excerpt",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md');lines=p.read_text().splitlines()\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor i in range(114,138):print(f'{i+1}: {lines[i]}')\nPY",
+      "result": {
+        "chunk_id": "056660",
+        "wall_time_seconds": 8.083e-06,
+        "exit_code": 0,
+        "original_token_count": 854,
+        "output_utf8_bytes": 3414,
+        "output_sha256": "8840a1d7bed763d93ffb0282575c7a717f1db44c7dfed3ab9ccab221a2e0d00a",
+        "PID": 88921,
+        "UTC": "2026-10-19T19:00:47.021509+00:00"
+      }
+    }
+  ],
+  "collection_reader_error": {
+    "chunk_id": "5bd6dd",
+    "exit_code": 1,
+    "witness": "assert set(q.name for q in p.iterdir())=={'PLAN.md','WORTH-INPUTS.json'}",
+    "effect": "Overbroad critic leaf inventory assertion rejected a parallel root receipt before either review output write. Replaced only this collection guard with explicit unadmitted target-path absences; input hashes and judgment unchanged."
+  },
+  "reader_corrections": [
+    "Combined main-doc display4237a3 clipped. Narrow recovery68b1ea also clipped its middle, but complete roadmap38–50 and checklist1–12/48–61 are visible; final056660 prints115–138 untruncated. No clipped-only decisive dependency.",
+    "Lightweight memory registry query returned only an unrelated prior resumption task heading; no memory-derived project facts were used."
+  ],
+  "witnesses": [
+    {
+      "path": "mature-feminine-character-target/concept-v1.png",
+      "coordinates": "Left panel hands approximatelyx200–245/y475–554 andx494–535/y477–549; whole face and full outfit directly viewed.",
+      "effect": "A new palm/arm silhouette and other-hand relation can change an artist action choice; no stronger facial expression is necessary."
+    },
+    {
+      "path": "mature-feminine-character-target/BRIEF.md:13; mature-wardrobe-board/ARTIST-HANDOFF.md:5,9,13",
+      "effect": "Retained original standing identity/wardrobe is accepted; registered pose/rig/motion remain unowned. Original variants/retakes are not authorized by the old handoff; new action needs separate duties and gate."
+    },
+    {
+      "path": "PRODUCT-ROADMAP.md:15,47,121; PROJECT-CHECKLIST.md:55",
+      "effect": "Phase1 includes expressive gestures, with intended meaning and actual human readability separated from numerical/control correctness."
+    },
+    {
+      "path": "ari-seated-artist-target/README.md:3–5; mara-groom-orientation-contract/README.md:3,23; mara-loafer-first-volume/README.md:17–27",
+      "effect": "Closed foot-order, crown-view and source-identity methods stay refused; this nomination owns a different offered-hand action and admits none of their repairs."
+    }
+  ],
+  "actionable_blockers": [],
+  "alternatives": [
+    {
+      "choice": "Prepare one bounded reference/source gesture study, conditionally selected",
+      "tradeoff": "Can own a concrete offered-palm/arm/body composition now, but risks another isolated illustration and does not deliver an editable character or registered action."
+    },
+    {
+      "choice": "Defer to a coupled body/hand/rig artist owner",
+      "tradeoff": "Avoids illustration churn and can later provide registered motion, while leaving the immediate gesture target unspecified."
+    }
+  ],
+  "conditions": [
+    "Only separately root-reviewed reference/source preparation, not a prompt or image admission.",
+    "Require the useful actual example fixed in PLAN; inadequate example closes without query reformulation or original-only fallback.",
+    "Preserve original face/wardrobe and all closed source/image methods. No smile/squint, hidden-hair, seated-foot, shoe/transport successor.",
+    "Later complete brief/request/resource/source gate and independent root verification before any one image call; complete first-image decision, no partial promotion or rescue."
+  ],
+  "worth_stop_utc": "2026-10-19T19:10:00Z",
+  "allowed_writes": [
+    "WORTH.md",
+    "WORTH-RECEIPT.json"
+  ],
+  "forbidden_actions_performed": [],
+  "target_or_reference_or_prompt_admitted": false,
+  "output_review": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-welcoming-gesture-worth/WORTH.md",
+    "bytes": 2866,
+    "sha256": "9a31d0b14390eda13898aa200183718f8a0ba708d4418fde5a859f2e8a924915"
+  },
+  "pending_edits": false
+}

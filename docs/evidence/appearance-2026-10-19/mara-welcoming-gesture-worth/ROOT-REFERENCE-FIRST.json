@@ -1,0 +1,74 @@
+{
+  "schema": "root-mara-gesture-reference-first-v1",
+  "utc": "2026-10-19T19:07:09.354285+00:00",
+  "pid": 90365,
+  "decision": "B_REQUIRED_USEFUL_ACTUAL_POSE_EXAMPLE_NOT_MET_NO_PROMPT_OR_IMAGE",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-welcoming-gesture-worth/ROOT-WORTH.json",
+      "bytes": 6907,
+      "sha256": "5e742f27d28ab049d8de942ea46bac3a7aa0e6e2095e25a6eb37217a16eeab6b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-welcoming-gesture-worth/SEARCH.json",
+      "bytes": 2150,
+      "sha256": "e5c416600a3ccd7ff9c30392a081402d7ee8e645e05a7df7e65dcae4740d264a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-welcoming-gesture-worth/PRIMARY.json",
+      "bytes": 20570,
+      "sha256": "972972d802f1988970ae9c2ee6179a9105d1267cc88a497083312439f31685ef"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-welcoming-gesture-worth/PRIMARY.md",
+      "bytes": 16508,
+      "sha256": "428b91af3cdaa28391afa91e2d6e17e6e2abe6482bce17c9b6b28999b2837fe5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-welcoming-gesture-worth/reference-first.jpg",
+      "bytes": 46560,
+      "sha256": "403d8addbabb972fd6180eccdb5d14e39e59a7aef688906b63a54ab8ff730ed2"
+    }
+  ],
+  "actual_retrieval": "One exactquery/searchId01a1558c-898a-7184-a7f6-99ccdecae72a reported2credits; one selectedprimary page livebasic HTTP200/scrapeId01a1558c-d8f4-770d-8042-c48f82da02d0 reported1credit. Total3, reference budget exhausted. No query/page reformulation.",
+  "page_scope": "Full returned16508Bmarkdown and allmetadata read, after initial duplicated resultdisplay clip was recovered by structured metadata+markdown. ArticleauthorAnimationMentor, published2025-08-29, retrievednow, no video or movement viewed.",
+  "primary_example_URL": "https://www.animationmentor.com/wp-content/uploads/2025/07/1920x1080_AM-Tutorials_Blog-Post-Nathaniel-Seymour.webp",
+  "actual_example": {
+    "browser": "3",
+    "tab": "15",
+    "requestedUTC": "2026-10-19T19:05:13.687Z",
+    "collectedUTC": "2026-10-19T19:05:13.742Z",
+    "whole_capture": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-welcoming-gesture-worth/reference-first.jpg",
+      "bytes": 46560,
+      "sha256": "403d8addbabb972fd6180eccdb5d14e39e59a7aef688906b63a54ab8ff730ed2"
+    },
+    "dimensions": [
+      1280,
+      720
+    ],
+    "natural_image_title": "1920x1080 source image",
+    "no_crop_resize_or_retakes": true,
+    "tab_closed": true,
+    "retained_tabs": [
+      "1",
+      "2",
+      "3"
+    ]
+  },
+  "actual_image_witness": "Whole1280x720 original screenshot shows a branded AnimationTutorial promotion: large smiling human head/shoulders in centre, raised thumb-up hand on viewer-right, text above/below and dark indistinct software background. No complete posed character or visible whole arm-to-torso relationship; not the planned useful palm/wholebody composition example. This is sourceimage content, not a browser-cropping diagnosis.",
+  "text_limits": "Primarytext gives general authored hand shape/asymmetry/framing advice, but is not an actual inspected wholebody/palm example. Its iterative-video recommendations do not override this onefirstimage/nosteps cap. No universalmeaning/anatomical or exactMara pose authority.",
+  "alternatives": [
+    {
+      "choice": "Selected: preserve research and defer nomination before prompt/generation",
+      "tradeoff": "Honors useful-example/nofallback gate and spends no image; expressive artist target remains undefined."
+    },
+    {
+      "choice": "Use generaltext/original-only prompt or another query/page/image",
+      "tradeoff": "Might supply a pose, but violates fixedusefulactualexample/nooriginalfallback/no reformulation caps; rejected without action."
+    }
+  ],
+  "target_admissions": 0,
+  "next": "Independent actualreference review using unchanged primarytext and samewholeimage only; no further online/browser/prompt/source/image/constructor work. FirstresearchB closes thisnomination, unchangedstop20:03:47.800839UTC historical afterclosure.",
+  "limits": "Reference inquiry failure only, not provider/server/model/appearance or intent-recognition diagnosis. Originals, priorMara3Ddata and alloldclosures/HOLD preserved."
+}
