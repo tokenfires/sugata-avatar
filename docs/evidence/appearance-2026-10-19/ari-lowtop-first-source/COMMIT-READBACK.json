@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-19T13:43:05.002623+00:00",
+  "pid": 44824,
+  "commit": "3d555974a4178a6f5288835e716637b03a3e0a45",
+  "close_sha256": "1fdea2d8e4211551d56aa3bae1aa4b3f9f669728a2cc746dcfd347ceacff71a9",
+  "all_closepins_exact": 69,
+  "tracked_Git_and_working": 62,
+  "installed_or_external_current_bytepins": 7,
+  "working_tree_before_receipt": "CLEAN",
+  "retained_readback_error": {
+    "chunk": "f614ab",
+    "exit": 1,
+    "cause": "Root tried gitshow for every path beneathrepo, including ignored installednode_modules/.vite/deps/_metadata.json. This is a readbackscope error, not missingdeliverable/sourcechange.",
+    "correction": "Actualgitls-files membership separatestrackedfrozenGitbytes frominstalled/externalcurrentbytepins; all69currentpins exact and alltrackedones matchcommit. No targetreplay/sourceedit.",
+    "alternatives": [
+      "Useactualtrackedmembership, selected, correctscopeandkeepinstalleddependenciesexplicit.",
+      "SkipGitdurabilityclaimandretainonlyworkinghashes, conservativebutlessrecoverabilityevidence."
+    ]
+  },
+  "scope": "Localrecoverablecheckpointonly,no push. Source/dataA and imageBunchanged. Input/executabledependenciesoutsideGitremainexplicitlypinnedcurrentdependencies, notbundledrecoverableassets."
+}
