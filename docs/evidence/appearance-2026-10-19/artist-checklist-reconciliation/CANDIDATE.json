@@ -1,0 +1,37 @@
+{
+  "schema": "artist-checklist-candidate-v1",
+  "pid": 30088,
+  "utc": "2026-10-19T21:03:21.593045+00:00",
+  "baseline": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/artist-checklist-reconciliation/BASELINE.md.txt",
+    "bytes": 7487,
+    "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+  },
+  "candidate": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/artist-checklist-reconciliation/PROJECT-CHECKLIST.candidate.md",
+    "bytes": 8120,
+    "sha256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6"
+  },
+  "diff": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/artist-checklist-reconciliation/CANDIDATE.diff",
+    "bytes": 3224,
+    "sha256": "73bd7401e023d6be8750b860a560640293fa8dd5acf9b0db5e309f0b00c42fea"
+  },
+  "baseline_counts": {
+    "checked": 22,
+    "open": 10
+  },
+  "candidate_counts": {
+    "checked": 23,
+    "open": 10
+  },
+  "usable_section_exact": true,
+  "outstanding_section_exact": true,
+  "new_links": [
+    "evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md",
+    "evidence/appearance-2026-10-19/mara-body-turnaround/ARTIST-HANDOFF.md"
+  ],
+  "new_links_exist": true,
+  "canonical_adopted": false,
+  "qualification": "Documentation candidate only; no new appearance/runtime/3D/fit/AAA credit. Prior2artistsheet exactbytes/gates reused."
+}

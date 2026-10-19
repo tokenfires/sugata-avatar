@@ -1,0 +1,317 @@
+{
+  "schema": "artist-checklist-reconciliation-review-v1",
+  "verdict": "A_DOCUMENTARY_WORTH_AND_EXACT_CANDIDATE_CONDITIONAL_ROOT_ADOPTION",
+  "pending_edits": false,
+  "stop_utc": "2026-10-19T21:20:00Z",
+  "canonical_adoption_by_critic": false,
+  "full_reads": [
+    "PLAN.md",
+    "INPUTS.json",
+    "BASELINE.md.txt",
+    "PROJECT-CHECKLIST.candidate.md",
+    "CANDIDATE.diff",
+    "CANDIDATE.json",
+    "knit-character-turnaround/ARTIST-HANDOFF.md",
+    "mara-body-turnaround/ARTIST-HANDOFF.md"
+  ],
+  "selected_root_gate_fields": {
+    "knit": "All top-level fields except bindings; includes verdict/whole_pair/agreement/scope/next",
+    "Mara": "All top-level fields except pins; includes verdict/whole_pair/actualPNG/visualagreement/alternatives/limits/consumedallowances/next"
+  },
+  "reused_image_scope": {
+    "new_views": 0,
+    "knit": "Own whole image view20:52:14UTC, independentA fixed20:52:34UTC, stableIMAGEpair10bf64; exact current pins bound below.",
+    "Mara": "Own whole first.png view20:23:59UTC, independentA fixed20:24:24UTC, stableIMAGEpairdde9db; exact current pins bound below.",
+    "limits": "No requalification or new graphical allowance; only documentary availability of existing limited artistA."
+  },
+  "checks": {
+    "baseline_canonical_equal": true,
+    "literal_unified_diff_exact": true,
+    "changes": 3,
+    "usable_section_exact": true,
+    "usable_checked_rows_before": 7,
+    "usable_checked_rows_after": 7,
+    "all_other_artist_rows_exact": true,
+    "outstanding_entire_tail_exact": true,
+    "baseline_counts": {
+      "checked": 22,
+      "open": 10,
+      "artist": 15
+    },
+    "candidate_counts": {
+      "checked": 23,
+      "open": 10,
+      "artist": 16
+    },
+    "all_markdown_link_occurrences": 30,
+    "new_links": 2,
+    "links_resolve_from": "/Users/robault/GitHub/sugata-avatar/docs",
+    "board_checklist_roadmap_parent_diff": "Empty read-only git diff b09980 before adoption",
+    "candidate_and_baseline_trailing_whitespace_rows": []
+  },
+  "findings": [
+    {
+      "id": "F_FORMAT",
+      "classification": "Accepted narrowly scoped documentary-format exception; not code/logic failure",
+      "witness": {
+        "file": "CANDIDATE.diff",
+        "single_space_blank_context_rows": [
+          4,
+          6,
+          13,
+          15,
+          18,
+          20,
+          22,
+          24,
+          27,
+          29
+        ],
+        "new_blank_line_at_EOF": 29,
+        "actual_git_check_chunk": "426101",
+        "actual_exit_code": 3,
+        "diagnostics": 11
+      },
+      "effect": "The frozen file is an exact conventional unified diff. Space-only context markers trigger add-file whitespace diagnostics; candidate/canonical text is clean. No blanket globalclean claim is supported.",
+      "alternatives": [
+        {
+          "choice": "Preserve exact literal diff with only these11 filename/line/type exceptions",
+          "benefit": "Keeps reproducible reviewed baseline→candidate evidence and pins intact",
+          "tradeoff": "Full check remains nonzero; staging must separately require all other owned/canonical paths clean."
+        },
+        {
+          "choice": "Reformat/strip or omit diff",
+          "benefit": "Can remove add-file formatting diagnostics",
+          "tradeoff": "Changes frozen binding or loses exact literal recovery evidence; requires documentary rereview and is not admitted as a repair."
+        }
+      ]
+    }
+  ],
+  "worth_alternatives": [
+    {
+      "choice": "Keep checkpoint-only discovery",
+      "benefit": "No checklist change",
+      "tradeoff": "Already delivered artist references remain absent from the concise checklist."
+    },
+    {
+      "choice": "Exact3changecandidate",
+      "benefit": "Direct scoped handoff links with clear available-artist status",
+      "tradeoff": "Requires preserving distinction from usable features and broad quality completion."
+    }
+  ],
+  "producer_error_provenance": {
+    "source": "Parent task message, not independently recovered raw construction command",
+    "first_job": "59ad54",
+    "outcome": "Root reports AssertionError from literal newline escaping before any writes/canonical change",
+    "corrected_job": "c73b9e",
+    "scope": "Inert Markdown candidate construction only, not a target retry; no command/PID invented."
+  },
+  "adoption_condition": {
+    "candidate_bytes": 8120,
+    "candidate_sha256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6",
+    "actions": "Root independent whole review/currentpins and one identical copy to canonical only; preserve baseline/old main-doc pin epochs; exact postcopy and narrow formatting accounting required.",
+    "no_new_target": true
+  },
+  "limits": [
+    "No image view/render/capture/browser/native/GPU/reference/network/generation/import/test or constructor activity",
+    "No old image/board/native/source method reopened; board unchanged",
+    "No new usablefeature/appearance/runtime/fit/3D/AAA or broad checkbox completion",
+    "Read-only text/hash/link/filesystem/Git-document validation; no canonical or frozen input edits",
+    "Only own review pair written"
+  ],
+  "jobs": [
+    {
+      "name": "read",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/artist-checklist-reconciliation')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PLAN.md','INPUTS.json','BASELINE.md.txt','PROJECT-CHECKLIST.candidate.md','CANDIDATE.diff','CANDIDATE.json']:\n q=p/n;b=q.read_bytes();print('\\nFILE',n,len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(f'{i}: {line}')\nPY",
+      "result": {
+        "chunk_id": "6f4f13",
+        "wall_time_seconds": 8.083e-06,
+        "exit_code": 0,
+        "original_token_count": 6846,
+        "output_bytes": 27383,
+        "output_sha256": "41a3fd4c3082b287d5d218eb4327416650a4f9db038fb2a9b1ce9974e7d6d816",
+        "first_line": "PID 31028 UTC 2026-10-19T21:03:49.644130+00:00",
+        "PID_scope": "Only explicitly printed observer PID available; Git wrapper/child PIDs not exposed."
+      }
+    },
+    {
+      "name": "handoffs",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\nroot=Path('/Users/robault/GitHub/sugata-avatar')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor leaf in ['knit-character-turnaround','mara-body-turnaround']:\n p=root/'docs/evidence/appearance-2026-10-19'/leaf;q=p/'ARTIST-HANDOFF.md';b=q.read_bytes();print('\\nWHOLE',q,len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(f'{i}: {line}')\n q=p/'ROOT-IMAGE.json';b=q.read_bytes();r=json.loads(b);print('\\nSELECTED ROOT IMAGE GATE',q,len(b),hashlib.sha256(b).hexdigest(),'keys',list(r))\n for k,v in r.items():\n  if k not in ['bindings','pins','input_pins','verified_inputs','current_bindings']:print(k,json.dumps(v,ensure_ascii=False))\nPY",
+      "result": {
+        "chunk_id": "b2affe",
+        "wall_time_seconds": 6.167e-06,
+        "exit_code": 0,
+        "original_token_count": 2201,
+        "output_bytes": 8801,
+        "output_sha256": "2be18c92b2404b7eb6b4e0cb4448e7eaa4c389d12df923f26dff0f93a1aee829",
+        "first_line": "PID 32108 UTC 2026-10-19T21:04:22.043256+00:00",
+        "PID_scope": "Only explicitly printed observer PID available; Git wrapper/child PIDs not exposed."
+      }
+    },
+    {
+      "name": "verify",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,difflib,re,os,datetime\nroot=Path('/Users/robault/GitHub/sugata-avatar');p=root/'docs/evidence/appearance-2026-10-19/artist-checklist-reconciliation'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat());m=json.loads((p/'INPUTS.json').read_text());pins=[]\nfor row in m['pins']+[m['saved_baseline']]:\n b=Path(row['path']).read_bytes();a={'path':row['path'],'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()};assert a==row;pins.append(a)\nbase=(p/'BASELINE.md.txt').read_text();cand=(p/'PROJECT-CHECKLIST.candidate.md').read_text();diff=(p/'CANDIDATE.diff').read_text();c=json.loads((p/'CANDIDATE.json').read_text())\nassert base==(root/'docs/PROJECT-CHECKLIST.md').read_text()\nassert ''.join(difflib.unified_diff(base.splitlines(True),cand.splitlines(True),fromfile='docs/PROJECT-CHECKLIST.md',tofile='PROJECT-CHECKLIST.candidate.md'))==diff\nassert base.split('## Artist and research deliverables available')[0]==cand.split('## Artist and research deliverables available')[0]\nassert base.split('## Outstanding',1)[1]==cand.split('## Outstanding',1)[1]\nbl=base.splitlines();cl=cand.splitlines();oldm=next(x for x in bl if x.startswith('- [x] Original Mara artist discussion'));newm=next(x for x in cl if x.startswith('- [x] Original Mara artist discussion'));knit=next(x for x in cl if x.startswith('- [x] Supplementary knitwear'))\noldboard=next(x for x in bl if x.startswith('[Open the visual wardrobe board]'));newboard=next(x for x in cl if x.startswith('[Open the visual wardrobe board]'))\nassert cand==base.replace('## Artist and research deliverables available\\n\\n','## Artist and research deliverables available\\n\\n'+knit+'\\n\\n').replace(oldm,newm).replace(oldboard,newboard)\noldrows=[x for x in bl if x.startswith('- [x]')];newrows=[x for x in cl if x.startswith('- [x]')];assert [x for x in oldrows if x!=oldm]==[x for x in newrows if x not in [newm,knit]]\nlinks=re.findall(r'\\[[^\\]]*\\]\\(([^)]+)\\)',cand);resolved=[]\nfor link in links:\n q=(root/'docs'/link).resolve();assert q.is_file(),(link,q);resolved.append({'literal':link,'resolved':str(q)})\nnewlinks=[x for x in links if x not in re.findall(r'\\[[^\\]]*\\]\\(([^)]+)\\)',base)];assert newlinks==c['new_links']\ncounts=lambda text:{'checked':len(re.findall(r'^- \\[x\\]',text,re.M)),'open':len(re.findall(r'^- \\[ \\]',text,re.M))}\nassert counts(base)==c['baseline_counts']=={'checked':22,'open':10};assert counts(cand)==c['candidate_counts']=={'checked':23,'open':10}\nspaces=lambda text:[i for i,x in enumerate(text.splitlines(),1) if x.rstrip(' \\t')!=x]\nassert spaces(base)==spaces(cand)==[];assert spaces(diff)==[4,6,13,15,18,20,22,24,27,29]\nassert all(diff.splitlines()[i-1]==' ' for i in spaces(diff));assert diff.endswith(' \\n')\nprint(json.dumps({'verified_manifest_rows':len(pins),'baseline_canonical_equal':True,'literal_diff_exact':True,'exact3changes':True,'usable_section_exact':True,'usable_checked_rows':7,'other_artist_rows_exact':True,'entire_outstanding_tail_exact':True,'counts_before':counts(base),'counts_after':counts(cand),'artist_rows_before':15,'artist_rows_after':16,'all_link_occurrences':len(links),'new_links':newlinks,'new_links_resolve_in_intended_canonical_docs_directory':True,'candidate_baseline_trailing_whitespace_rows':[],'literal_diff_single_space_context_rows':spaces(diff),'literal_diff_final_blank_context_line':29,'resolved_links':resolved},indent=2))\nPY",
+      "result": {
+        "chunk_id": "06d139",
+        "wall_time_seconds": 6.083e-06,
+        "exit_code": 0,
+        "original_token_count": 1773,
+        "output_bytes": 7089,
+        "output_sha256": "0694ac2169bbd4e6eb1a65ff5594a4da740bd88de184d893fe969ebc31ab4382",
+        "first_line": "PID 37367 UTC 2026-10-19T21:06:35.717884+00:00",
+        "PID_scope": "Only explicitly printed observer PID available; Git wrapper/child PIDs not exposed."
+      }
+    },
+    {
+      "name": "format",
+      "tool": "exec_command",
+      "command": "git diff --no-index --check /dev/null docs/evidence/appearance-2026-10-19/artist-checklist-reconciliation/CANDIDATE.diff",
+      "result": {
+        "chunk_id": "426101",
+        "wall_time_seconds": 6.75e-06,
+        "exit_code": 3,
+        "original_token_count": 305,
+        "output_bytes": 1218,
+        "output_sha256": "60d6bdd6204ea2e7ed7ee77062bd81b5383392c76cbeac9b361e7126e3c2329c",
+        "first_line": "docs/evidence/appearance-2026-10-19/artist-checklist-reconciliation/CANDIDATE.diff:4: trailing whitespace.",
+        "PID_scope": "Only explicitly printed observer PID available; Git wrapper/child PIDs not exposed."
+      }
+    },
+    {
+      "name": "scope",
+      "tool": "exec_command",
+      "command": "git diff --exit-code 0da37fc750c5317fbcb5bebacd4fb9b05ab58605 -- docs/PROJECT-CHECKLIST.md docs/ARTIST-WARDROBE.html docs/PRODUCT-ROADMAP.md",
+      "result": {
+        "chunk_id": "b09980",
+        "wall_time_seconds": 5.75e-06,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output_bytes": 0,
+        "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "first_line": "",
+        "PID_scope": "Only explicitly printed observer PID available; Git wrapper/child PIDs not exposed."
+      }
+    }
+  ],
+  "input_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 112669,
+      "sha256": "8f688321e190ec269bcae5f8f91eefd0056cfa0d8dfb719afed8a5b67cd31b65"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 137733,
+      "sha256": "f6be64c80079b5f9db0996da3de5b3ab8007c49bdcea712e501934c9326d3551"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2175,
+      "sha256": "f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/ROOT-IMAGE.json",
+      "bytes": 8693,
+      "sha256": "ed6b263253aaa8a17b35241fb7f6738f44ae69dd4c6766094c3b113c0a06d6ac"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+      "bytes": 2023441,
+      "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2092,
+      "sha256": "1ecfdc33f35a4631a0942fc20eaa144844372802edfe36764e365e569efd8358"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround/ROOT-IMAGE.json",
+      "bytes": 9848,
+      "sha256": "d991168a8bf103a2ded5c7c93c1f6733ab9848130ab5833ee6e390f9bb20e672"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround/first.png",
+      "bytes": 1991838,
+      "sha256": "32d3a7b9037408fee44ff588c42d5225771a6885d6d911b1352fe76258fc6daa"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/artist-checklist-reconciliation/BASELINE.md.txt",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/artist-checklist-reconciliation/PLAN.md",
+      "bytes": 2533,
+      "sha256": "0d7f96f56192fb8cf3f0e665e6134cc8a28a382ff82ab6526189954aad9fca64"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/artist-checklist-reconciliation/INPUTS.json",
+      "bytes": 2954,
+      "sha256": "afc8ac85387926f69c534a352a524bfb86eb92f3c9a1e541c81dcf7ca3932fb0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/artist-checklist-reconciliation/PROJECT-CHECKLIST.candidate.md",
+      "bytes": 8120,
+      "sha256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/artist-checklist-reconciliation/CANDIDATE.diff",
+      "bytes": 3224,
+      "sha256": "73bd7401e023d6be8750b860a560640293fa8dd5acf9b0db5e309f0b00c42fea"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/artist-checklist-reconciliation/CANDIDATE.json",
+      "bytes": 1459,
+      "sha256": "eec09d6adef1c5efed695a826bab7c7c9c9f729b15af9ae9b66ad2ca88ad953f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/IMAGE-REVIEW.md",
+      "bytes": 3625,
+      "sha256": "8e1d1c3bbdda63ef5827c364bcf36341bbb76652ff27fa1610c8744b82c95a54"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/IMAGE-RECEIPT.json",
+      "bytes": 18556,
+      "sha256": "284c4042233be6a4473e69f851269af291a099e8fe9c9041b0070fb27f28c93c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround/IMAGE-REVIEW.md",
+      "bytes": 3411,
+      "sha256": "7f4daf5be79a826e18e86e0985ce43ff8960cf795382ab2af475883c414c4aef"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround/IMAGE-RECEIPT.json",
+      "bytes": 17019,
+      "sha256": "02fb92c005aa9386835004b62d6de7e605d8b1523d48ed22e2e3cdaad7444b42"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    }
+  ],
+  "verified_unique_paths": 21,
+  "collection": {
+    "pid": 41656,
+    "utc": "2026-10-19T21:08:38.327414+00:00",
+    "exclusive_pair_only": true
+  },
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/artist-checklist-reconciliation/REVIEW.md",
+    "bytes": 3626,
+    "sha256": "5183408e966a9f60273283bdf50746b087ba753d0a8625674dc5c547a8800007"
+  }
+}

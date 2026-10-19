@@ -1,0 +1,41 @@
+{
+  "schema": "artist-checklist-documentary-diff-format-proposal-v1",
+  "pid": 37377,
+  "utc": "2026-10-19T21:06:36.798524+00:00",
+  "root_verdict": "SUPPORT_NARROW_DOCUMENTARY_EXCEPTION_PENDING_CRITIC",
+  "witness": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/artist-checklist-reconciliation/CANDIDATE.diff",
+    "bytes": 3224,
+    "sha256": "73bd7401e023d6be8750b860a560640293fa8dd5acf9b0db5e309f0b00c42fea"
+  },
+  "actual_check": "56ce04 no-indexexit3,10trailing-context-space flags+EOFblank29",
+  "single_space_context_rows": [
+    4,
+    6,
+    13,
+    15,
+    18,
+    20,
+    22,
+    24,
+    27,
+    29
+  ],
+  "EOFblank_row": 29,
+  "total_flags": 11,
+  "scope": "ONLY exact conventionaldiff contextmarkers in this immutable documentarydiff; canonical/candidate Markdown and all other ownedpaths mustpass. No source/runtime/style override or globalcleanclaim.",
+  "alternatives": [
+    {
+      "choice": "Preserveexact conventionaldiff and acceptonlythese11documentaryflags",
+      "benefit": "Exactreviewed context and validnativeunifieddiff remain recoverable",
+      "tradeoff": "Fullstagedwhitespacecheck remains nonzero; exceptionmustbeexplicitandexact."
+    },
+    {
+      "choice": "Stripcontext/reformatcurrentdiff",
+      "benefit": "Avoid these11checkerflags",
+      "tradeoff": "Mutatesalreadypinnedliteralreviewbytes andlosescontext; notchosen, noactualmutation."
+    }
+  ],
+  "new_source_or_target_entry": false,
+  "candidate_and_baseline_markdown_whitespace_clean": true
+}

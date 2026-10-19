@@ -1,0 +1,15 @@
+# Artist references now discoverable in the project checklist
+
+The current PROJECT-CHECKLIST now links the already-qualified complete knitwear sheet and Mara supplementary views with limited artist wording. One new artist row and an extension of the existing Mara row make those references easier to find; the selected-board overview wording clarifies that supplementary sheets are separate. No board/render repair or new asset qualification.
+
+Root and critic independently whole-reviewed the exact8120B candidate, SHA32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6. Whole stable pairaf5386 precedes fresh25-row0ff584 and one identical-copy adoption21:09:54UTC. All7usable-feature rows, every other artist row and the entire Outstanding tail remain exact. Counts are23scopedchecked/10broadopen, not project percent completion. All30 Markdown link occurrences resolve from intended canonical docs context. No browser/layout/newpixel qualification.
+
+Only a documentary-format exception is accepted: exact CANDIDATE.diff has10standard single-space blank-context rows4,6,13,15,18,20,22,24,27,29 and EOFblank29. Root56ce04 and critic426101 independently report those11 flags. All other owned/canonical paths must pass staged whitespace checks; never claim the full check clean. The exact reviewed diff is preserved, with no code/logic exception.
+
+The first inert candidate-construction assertion59ad54 failed on escaped line breaks before writes or canonical change. Corrected constructionc73b9e produced the isolated candidate. Both commands/outcomes are in JOBS.json. This was not an image/source/native target retry. No app code, image, renderer, runtime test, browser/native/GPU/capture, generation, online reference or constructor work occurred.
+
+Prior actual whole-image qualifications are reused at freshly verified exact bytes; no new image views. Artist references remain unregistered authored choices and do not qualify body/foundation/physical/native/3D/fit/rig/morph/motion/runtime/AAA or perceived demographics. Assets/defaults/frozen evidence/oldclosures/HOLD/unrelatedwork/fullroadmap remain. No further checklist/drawing/graphical successor under this nomination.
+
+BASELINE.md.txt preserves canonical's former7487B/SHAe6e79712…; parent0da37fc750c5317fbcb5bebacd4fb9b05ab58605 also recovers it and old main-note epochs. Frozen prior checklist/status pins stay historical, never rewrite them to current8120B/32f5098f. ADOPTION.json records both epochs. Exact commands, candidate/diff, reviewer findings/alternatives and root records remain here.21:20UTC ceiling historical after early closure.
+
+Next recovery should return to a genuinely substantive Phase1 character/wardrobe responsibility under freshcriticworth; no further inventory churn without a new deliverable, no repeated refused method or inferred constructor admission. Human check-in/pause wins; retain Vite/ACTIVE10minute recovery. No push/publication/install/purchase/model/subscription/reset-credit/other-project action.
