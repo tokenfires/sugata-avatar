@@ -1,0 +1,147 @@
+{
+  "utc": "2026-10-19T09:15:11.330563+00:00",
+  "current_source_pins": [
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/faceservice.py",
+      "bytes": 42894,
+      "sha256": "389940c62dfa623409dadc5b2a38f4edeaa0fe45a8315ac887ad696a37bbd950"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/targetservice.py",
+      "bytes": 62066,
+      "sha256": "8287e87f466b44c6bcf145e6ad6ef5807acef961af948376c07dd0fa8abd1f2d"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/clothesservice.py",
+      "bytes": 40732,
+      "sha256": "20b60daeb862e35652035b9e94d1830f1bd2d86706b1e6056f0f2cee43c8d40b"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/objectservice.py",
+      "bytes": 41911,
+      "sha256": "a618794f0bf6d7fb76e3381bd1ac2741250a84d5f291e223ba7751ae812d41c6"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/humanservice.py",
+      "bytes": 86233,
+      "sha256": "a88e4150753b371527963fa3d99dd70f1ea957b9baaec8200438ffa4d9c1e207"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/locationservice.py",
+      "bytes": 15297,
+      "sha256": "64ed1b6046ef1eb158a61f06ea3d53ca731f172676b087ee193f1b01287ce687"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/build_figure.py",
+      "bytes": 130865,
+      "sha256": "270e87d563ab0212835ec2c63b4d6364a1031397979152b0af14bccdc7753065"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/install_deps.sh",
+      "bytes": 5144,
+      "sha256": "534e9d0735b5f09ced320248778276385f0a92d33a71a5607a9e2d3fe24d0b37"
+    }
+  ],
+  "reads": [
+    {
+      "job": "469417",
+      "files": [
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/create_source_logged.py",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/create_source.py",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/function_module.py",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/SOURCE-PINS.json"
+      ],
+      "semantic_bytes": 27888
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/build_figure.py",
+      "function": "create_figure",
+      "start": 492,
+      "end": 513,
+      "semantic_bytes": 928
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/build_figure.py",
+      "function": "attach_face_parts",
+      "start": 516,
+      "end": 552,
+      "semantic_bytes": 1771
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/build_figure.py",
+      "function": "bind_mhclo_parts_to_rig",
+      "start": 555,
+      "end": 583,
+      "semantic_bytes": 1771
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/build_figure.py",
+      "function": "apply_skin",
+      "start": 1997,
+      "end": 2009,
+      "semantic_bytes": 576
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/build_figure.py",
+      "function": "load_expression_shape_keys",
+      "start": 2012,
+      "end": 2026,
+      "semantic_bytes": 696
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/targetservice.py",
+      "function": "reapply_macro_details",
+      "start": 1158,
+      "end": 1205,
+      "semantic_bytes": 3122,
+      "whole_source_sha256": "8287e87f466b44c6bcf145e6ad6ef5807acef961af948376c07dd0fa8abd1f2d"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/humanservice.py",
+      "function": "create_human",
+      "start": 1485,
+      "end": 1549,
+      "semantic_bytes": 3011,
+      "whole_source_sha256": "a88e4150753b371527963fa3d99dd70f1ea957b9baaec8200438ffa4d9c1e207"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/humanservice.py",
+      "function": "add_builtin_rig",
+      "start": 1552,
+      "end": 1624,
+      "semantic_bytes": 3172,
+      "whole_source_sha256": "a88e4150753b371527963fa3d99dd70f1ea957b9baaec8200438ffa4d9c1e207"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/targetservice.py",
+      "function": "calculate_target_stack_from_macro_info_dict",
+      "start": 933,
+      "end": 1110,
+      "semantic_bytes": 11641,
+      "whole_source_sha256": "8287e87f466b44c6bcf145e6ad6ef5807acef961af948376c07dd0fa8abd1f2d"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/humanservice.py",
+      "function": "set_character_skin",
+      "start": 745,
+      "end": 868,
+      "semantic_bytes": 6833,
+      "whole_source_sha256": "a88e4150753b371527963fa3d99dd70f1ea957b9baaec8200438ffa4d9c1e207"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-neutral-native-source/SKIN-METADATA.json",
+      "semantic_bytes": 377,
+      "sha256": "ba8ff61e64e4509ac612524a788e628c69170afb81614bad6c80411043f45bbf"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-neutral-native-source/SKIN-WITNESS.json",
+      "semantic_bytes": 1842,
+      "sha256": "186cec1bb663c79cc5717e2d6acfe2108d6346ded71fe0adabfb3753463265d5"
+    }
+  ],
+  "limit": 4194304,
+  "no_execution": "All source text/AST only; no old source import/compileexec/MPFB/native API call. No parameter selected.",
+  "semantic_bytes": 63628,
+  "last_read_utc": "2026-10-19T09:16:09.150923+00:00",
+  "last_reader_pid": 90231
+}

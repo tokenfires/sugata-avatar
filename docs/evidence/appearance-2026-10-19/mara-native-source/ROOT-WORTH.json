@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-19T09:14:44.093841+00:00",
+  "pid": 90083,
+  "decision": "ADMIT_BOUNDED_SOURCE_PATH_PREPARATION_ONLY_NO_VALUES_OR_NATIVE",
+  "whole_review_read": "735a71 whole3321+8916bytes",
+  "root_additional_source_read": "c38ad5 whole4491byte COLD-RESULT-REVIEW and481byte ROOT-FINAL-REVIEW",
+  "current_pin_readback": "b59341/PID90057 verifies12critic inputs+result and scene0444",
+  "own_original_image": "Root whole unchanged1536x1024 Mara original viewed before PLAN; agrees outer-eye/lower-lid/cheek folds are cues, not recovered anatomy or perceived age/gender",
+  "source_preparation_stop": "2026-10-19T09:59:44.093841+00:00",
+  "max_additional_semantic_source_bytes": 4194304,
+  "allowed": "Exact existing source path and complete Mara cue/dependency responsibility only. No generic source/morph census, values, setters/nativeopen/save/render, oldscriptimports or assetchanges. First missing dependency stops. At most2officialpages after exactAPI selected. Separate complete source/workload/root gates for any candidate.",
+  "pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-source/PLAN.json",
+      "bytes": 6546,
+      "sha256": "b70a09dad789ff2db5b14589d6e19e2db05473c071a5d4a39899118bf9ff3b10"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-source/WORTH.md",
+      "bytes": 3321,
+      "sha256": "6500c54c1620bf2a75e104dbc89e4872b10efdc2b68972b543053cbf41414934"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-source/WORTH-RECEIPT.json",
+      "bytes": 8916,
+      "sha256": "5674e00c48bfa72f391ab1d88a5b4c5ad1682c9fecd052267a741bf2dc7d752f"
+    }
+  ]
+}

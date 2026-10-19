@@ -1,0 +1,302 @@
+{
+  "schema": "mara-native-source-path-critic-v1",
+  "verdict": "B_COMPLETE_MARA_PATH_UNQUALIFIED_STOP_PREPARATION",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/PLAN.json",
+      "bytes": 6546,
+      "sha256": "b70a09dad789ff2db5b14589d6e19e2db05473c071a5d4a39899118bf9ff3b10"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/WORTH.md",
+      "bytes": 3321,
+      "sha256": "6500c54c1620bf2a75e104dbc89e4872b10efdc2b68972b543053cbf41414934"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/WORTH-RECEIPT.json",
+      "bytes": 8916,
+      "sha256": "5674e00c48bfa72f391ab1d88a5b4c5ad1682c9fecd052267a741bf2dc7d752f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/ROOT-WORTH.json",
+      "bytes": 1661,
+      "sha256": "5db2fe9525787f2c26cc5030917806c4300a2632fbbcb6f634f7f4eea751203f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/SOURCE-READS.json",
+      "bytes": 6077,
+      "sha256": "a8c67ac9cede52e9d0dee42ad926f8622c5ad6568b17174a3f7500ce33ef523e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/SOURCE-PATH-GAP.json",
+      "bytes": 5009,
+      "sha256": "1a778aeab27a5c270d5239872b2254c9b95381f336e40541449a6f295cbc1a2d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/create_source_logged.py",
+      "bytes": 12357,
+      "sha256": "7e8a5cbf1075979939167550402c1abbcca6e31aa4979178e6af8301af639856"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/create_source.py",
+      "bytes": 11434,
+      "sha256": "4c0f4dd7317219721a35796cfec9003f70d80a382223ef1f44918b4be7fca67e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/function_module.py",
+      "bytes": 992,
+      "sha256": "ad25e48b56faf74e12001dd994963f3b2bf5afb09db7f36cca90550778858d82"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/SOURCE-PINS.json",
+      "bytes": 3105,
+      "sha256": "290f6c086c83dbc7d068abca6630a335a66146149e44b07852084b59fa6b3ffd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/SKIN-METADATA.json",
+      "bytes": 377,
+      "sha256": "ba8ff61e64e4509ac612524a788e628c69170afb81614bad6c80411043f45bbf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/SKIN-WITNESS.json",
+      "bytes": 1842,
+      "sha256": "186cec1bb663c79cc5717e2d6acfe2108d6346ded71fe0adabfb3753463265d5"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/faceservice.py",
+      "bytes": 42894,
+      "sha256": "389940c62dfa623409dadc5b2a38f4edeaa0fe45a8315ac887ad696a37bbd950"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/targetservice.py",
+      "bytes": 62066,
+      "sha256": "8287e87f466b44c6bcf145e6ad6ef5807acef961af948376c07dd0fa8abd1f2d"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/clothesservice.py",
+      "bytes": 40732,
+      "sha256": "20b60daeb862e35652035b9e94d1830f1bd2d86706b1e6056f0f2cee43c8d40b"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/objectservice.py",
+      "bytes": 41911,
+      "sha256": "a618794f0bf6d7fb76e3381bd1ac2741250a84d5f291e223ba7751ae812d41c6"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/humanservice.py",
+      "bytes": 86233,
+      "sha256": "a88e4150753b371527963fa3d99dd70f1ea957b9baaec8200438ffa4d9c1e207"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/services/locationservice.py",
+      "bytes": 15297,
+      "sha256": "64ed1b6046ef1eb158a61f06ea3d53ca731f172676b087ee193f1b01287ce687"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/build_figure.py",
+      "bytes": 130865,
+      "sha256": "270e87d563ab0212835ec2c63b4d6364a1031397979152b0af14bccdc7753065"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/figure-pipeline/install_deps.sh",
+      "bytes": 5144,
+      "sha256": "534e9d0735b5f09ced320248778276385f0a92d33a71a5607a9e2d3fe24d0b37"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/user/data/skins/young_caucasian_female/young_lightskinned_female_diffuse.png",
+      "bytes": 4391156,
+      "sha256": "b2a6ac8cd4f9febdb447368e29c76cd68410bb66e46d9dcfa2d5f75126eea8fc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/PREPARATION.json",
+      "bytes": 5754,
+      "sha256": "6d8d92cf7ae23d5eeddf188068f052935c1b97f44d234ae9fb905653992b9f8d"
+    }
+  ],
+  "original_plan_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 16672,
+      "sha256": "bf5fbe99e773de1531538f281817681d3085d641a6f675052c01649db66350a2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "bytes": 3053,
+      "sha256": "f0f6118b1916220de67cb8748ec7232e1ab1b32e745415eb9c1d7629f429ca1d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/README.md",
+      "bytes": 4979,
+      "sha256": "f776ef8a5b99573d27fec9e68398c5d0d8132fef4c0daa57db3fc1a4fdb5ac37"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/INPUTS.json",
+      "bytes": 760639,
+      "sha256": "b15f76537b65e86c6f453cae3a36c1e9e25dce28243bfed2cd1cc1e88eae8da9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/ROOT-CLOSE.json",
+      "bytes": 8769,
+      "sha256": "a3fd3955492fc899ca00110168e62422cc7e0d971856cbdab4b6ace0b67430a8"
+    }
+  ],
+  "verification": {
+    "preparation_rows": 21,
+    "plus_preparation_self_pin": true,
+    "original_plan_rows": 8,
+    "recorded_semantic_scopes_recomputed_bytes": 63628,
+    "semantic_cap": 4194304,
+    "effort_root_gate": "2026-10-19T09:14:44.093841+00:00",
+    "effort_stop": "2026-10-19T09:59:44.093841+00:00",
+    "texture_dimensions": [
+      2048,
+      2048
+    ],
+    "texture_mode": "0o444"
+  },
+  "read_scopes": [
+    {
+      "path": "SOURCE-PATH-GAP.json, PREPARATION.json, SOURCE-READS.json",
+      "scope": "All three complete."
+    },
+    {
+      "path": "SKIN-METADATA.json, SKIN-WITNESS.json, function_module.py, SOURCE-PINS.json",
+      "scope": "All complete, source text/metadata only; loader not imported or called."
+    },
+    {
+      "path": "create_source_logged.py",
+      "scope": "Whole205lines/12357bytes. Historical values read, none newly selected."
+    },
+    {
+      "path": "build_figure.py",
+      "scope": "Lines492–583 and1997–2026."
+    },
+    {
+      "path": "targetservice.py",
+      "scope": "Lines933–1110 and1158–1205."
+    },
+    {
+      "path": "humanservice.py",
+      "scope": "Lines745–868 and1485–1624."
+    },
+    {
+      "path": "create_source.py and remaining installed source files",
+      "scope": "Current whole-file pin verification only, no full semantic audit."
+    },
+    {
+      "path": "Original Mara, handoff and prior worth/persistence evidence",
+      "scope": "Prior independent whole-original/source views reused after all8current PLAN hashes; no new original/candidate render."
+    }
+  ],
+  "jobs": [
+    {
+      "chunk": "ed0aa2",
+      "exit": 0,
+      "pid": 90539,
+      "utc": "2026-10-19T09:18:30.124857+00:00",
+      "scope": "Whole gap/preparation/source-read ledger."
+    },
+    {
+      "chunk": "f2f908",
+      "exit": 0,
+      "pid": 90646,
+      "utc": "2026-10-19T09:19:29.209368+00:00",
+      "scope": "Whole skin metadata/witness/loader/sourcepins and exact builder/target methods."
+    },
+    {
+      "chunk": "acf268",
+      "exit": 0,
+      "pid": 90676,
+      "utc": "2026-10-19T09:19:47.687247+00:00",
+      "scope": "Whole logged creator; exact human/material/rig methods."
+    },
+    {
+      "chunk": "8672f3",
+      "exit": 0,
+      "pid": 90789,
+      "utc": "2026-10-19T09:20:53.204958+00:00",
+      "scope": "All21pins+prep and8PLANpins; independently recomputed recorded semantic-byte accounting; PNG dimensions/mode; whole ROOT-WORTH metadata."
+    }
+  ],
+  "visual_scopes": [
+    {
+      "tool": "tools.view_image",
+      "detail": "original",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/user/data/skins/young_caucasian_female/young_lightskinned_female_diffuse.png",
+      "utc_bracket": [
+        "2026-10-19T09:18:30.124857+00:00",
+        "2026-10-19T09:19:29.209368+00:00"
+      ],
+      "result": "Whole existing bitmap viewed successfully; original PNG2048x2048. Tool presentation not a new saved image/crop/edit.",
+      "witness": "Broad body colour islands and rotated face island at right; no registered correspondence or geometric/normal/expression conclusion."
+    },
+    {
+      "tool": "tools.view_image prior worth",
+      "detail": "original",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "utc_bracket": [
+        "2026-10-19T09:10:42.845134+00:00",
+        "2026-10-19T09:11:13.400079+00:00"
+      ],
+      "result": "Whole1536x1024 unchanged original, current hash reverified.",
+      "witness": "Outer-eye/lower-lid990–1270/275–350 and cheek/smilefold1040–1240/340–455, qualitative artist cues only."
+    }
+  ],
+  "findings": [
+    {
+      "id": "G1",
+      "classification": "Missing selected creative-source ownership",
+      "source_witness": "Logged creator98–103 fixed existing skin/macros; build492–513 generic macro inputs; TargetService933–1110/1158–1205 macro stacks; HumanService785–791 selected material creation; SKIN-WITNESS single diffuse.",
+      "image_witness": "Actual Mara portrait crease/cheek cues versus complete existing UV diffuse viewed separately, without registration.",
+      "effect": "The selected packet does not bind Mara cues to a chosen form/material/UV/rest-expression master; complete authoring contract and parameter/native admission withheld.",
+      "not_proved": [
+        "No universal absence of facial detail or geometric wrinkles.",
+        "No broken MPFB/tool/install/model or current render defect.",
+        "No perceived age/gender/skin identity determined from filenames or pixels."
+      ],
+      "alternatives": [
+        {
+          "choice": "Stop and retain the exact source-path gap handoff",
+          "tradeoff": "Avoids unsupported label-driven candidate; no Mara scene delivered. Selected."
+        },
+        {
+          "choice": "Separately select/author a concrete complete facial form/material master with UV/auxiliary/rig/expression ownership",
+          "tradeoff": "Could supply missing creative source, but requires a new named input/method and fresh worth; no current hunt/edit/age sweep/retry admitted."
+        }
+      ]
+    }
+  ],
+  "next_authoring_decision": "Only when a concrete owner/method exists: can a chosen complete facial rest-form plus UV/material-detail source encode Mara's intended cues while retaining auxiliaries/53rig/expressions? No sufficiently specified immediate successor now.",
+  "errors": [],
+  "limits": [
+    "Only own exclusive path-review pair written; all referenced code remains read-only.",
+    "No code import/compileexec/oldscript/target API call, .blend/native/GLB/model/target geometry decode, setter or coefficient selection.",
+    "Existing PNG viewed through image tool only; no new capture/render/texture edit/asset copy or native material evaluation.",
+    "Recorded source-read accounting verified, not a claim to have semantically read every installed file or completed entire future API graph.",
+    "No network/current primary pages used;22scoped/10broad/fullroadmap and all closed routes preserved."
+  ],
+  "fixed_checkpoint_stop_utc": "2026-10-19T10:40:00Z",
+  "collected_utc": "2026-10-19T09:22:04.885303+00:00",
+  "writer_pid": 90918,
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW.md",
+    "bytes": 3405,
+    "sha256": "687ab7c57d062a018bd4e2fdffd0de7b97ae96a993abbb684545d931c7be09bc"
+  }
+}

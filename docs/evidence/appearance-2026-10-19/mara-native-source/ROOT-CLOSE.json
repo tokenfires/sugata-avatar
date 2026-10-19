@@ -1,0 +1,89 @@
+{
+  "utc": "2026-10-19T09:23:20.115305+00:00",
+  "pid": 91055,
+  "decision": "CLOSE_CURRENT_MARA_PREPARATION_FIRST_CREATIVE_DEPENDENCY_NO_PARAMETER_OR_NATIVE",
+  "whole_handoff_read": "2fcdde3405+13918bytes",
+  "verified_critic_direct_inputs": 22,
+  "verified_original_plan_inputs": 8,
+  "verified_result": true,
+  "independent_root_witnesses": "Original Mara whole image;469417/6141ff/bd9fc6/00202f source scopes;25ea77 exact existing atlas actual view. No registered face/age inference.",
+  "historic_main_doc_pin_epoch": "d378ced7cd9322c29b20ff39b909d7a9a3a9a193",
+  "pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW-RECEIPT.json",
+      "bytes": 13918,
+      "sha256": "08621e8a6c8d8765090e2bc74edaf5cd891f3609a87236efc261c6a7c4292a89"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW.md",
+      "bytes": 3405,
+      "sha256": "687ab7c57d062a018bd4e2fdffd0de7b97ae96a993abbb684545d931c7be09bc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-source/PLAN.json",
+      "bytes": 6546,
+      "sha256": "b70a09dad789ff2db5b14589d6e19e2db05473c071a5d4a39899118bf9ff3b10"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-source/PREPARATION.json",
+      "bytes": 5754,
+      "sha256": "6d8d92cf7ae23d5eeddf188068f052935c1b97f44d234ae9fb905653992b9f8d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-source/README.md",
+      "bytes": 4476,
+      "sha256": "a75d60b87af0fbb8e40f3d027afcb1989c67b379a789884f24e7215d994edb3a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-source/ROOT-WORTH.json",
+      "bytes": 1661,
+      "sha256": "5db2fe9525787f2c26cc5030917806c4300a2632fbbcb6f634f7f4eea751203f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-source/SOURCE-PATH-GAP.json",
+      "bytes": 5009,
+      "sha256": "1a778aeab27a5c270d5239872b2254c9b95381f336e40541449a6f295cbc1a2d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-source/SOURCE-READS.json",
+      "bytes": 6077,
+      "sha256": "a8c67ac9cede52e9d0dee42ad926f8622c5ad6568b17174a3f7500ce33ef523e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-source/WORTH-RECEIPT.json",
+      "bytes": 8916,
+      "sha256": "5674e00c48bfa72f391ab1d88a5b4c5ad1682c9fecd052267a741bf2dc7d752f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-source/WORTH.md",
+      "bytes": 3321,
+      "sha256": "6500c54c1620bf2a75e104dbc89e4872b10efdc2b68972b543053cbf41414934"
+    },
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 17924,
+      "sha256": "512991e78524fb65ad76e3d7400f02a5108c70dd8b621d1011edc80d38d279c0"
+    },
+    {
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 34166,
+      "sha256": "37379d31be69da7c5fa2a62a31c4be10fadd68e1fb12c90d338756836968a5b0"
+    }
+  ],
+  "exact_commit_paths": [
+    "docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW-RECEIPT.json",
+    "docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW.md",
+    "docs/evidence/appearance-2026-10-19/mara-native-source/PLAN.json",
+    "docs/evidence/appearance-2026-10-19/mara-native-source/PREPARATION.json",
+    "docs/evidence/appearance-2026-10-19/mara-native-source/README.md",
+    "docs/evidence/appearance-2026-10-19/mara-native-source/ROOT-WORTH.json",
+    "docs/evidence/appearance-2026-10-19/mara-native-source/SOURCE-PATH-GAP.json",
+    "docs/evidence/appearance-2026-10-19/mara-native-source/SOURCE-READS.json",
+    "docs/evidence/appearance-2026-10-19/mara-native-source/WORTH-RECEIPT.json",
+    "docs/evidence/appearance-2026-10-19/mara-native-source/WORTH.md",
+    "docs/RESUME-2026-10-18.md",
+    "docs/WORK-WINDOW-2026-10-18.md",
+    "docs/evidence/appearance-2026-10-19/mara-native-source/ROOT-CLOSE.json"
+  ],
+  "limits": "No Mara scene/image or complete source/appearance qualification. No native/API/parameters. Keep all closures/HOLD/fullroadmap22/10; active10minuteheartbeat retained; no human pause. No push."
+}
