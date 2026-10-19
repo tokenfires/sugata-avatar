@@ -1,0 +1,30 @@
+{
+  "observedUTC": "2026-10-19T21:39:39.275063+00:00",
+  "reason": "Robert reports brief power outage and explicitly asks to resume.",
+  "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,datetime,subprocess,tomllib\nroot=Path('/Users/robault/GitHub/sugata-avatar')\nleaf=root/'docs/evidence/appearance-2026-10-19/coupled-garment-surface-worth'\np=Path('/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml')\nb=p.read_bytes();a=tomllib.loads(b.decode())\nr={'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'head':subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip(),'git':subprocess.check_output(['git','status','--short'],cwd=root,text=True),'automation':{'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'config':{k:a.get(k) for k in ('id','status','rrule','kind','target_thread_id','targetThreadId')}},'leafFiles':[]}\nfor q in sorted(leaf.iterdir()):\n if q.is_file():\n  z=q.read_bytes();r['leafFiles'].append({'name':q.name,'bytes':len(z),'sha256':hashlib.sha256(z).hexdigest()})\nprint(json.dumps(r,indent=2))\nPY",
+  "return": {
+    "chunk_id": "36bbc6",
+    "wall_time_seconds": 0.011550541,
+    "exit_code": 0,
+    "original_token_count": 259,
+    "output": "{\n  \"utc\": \"2026-10-19T21:39:39.275063+00:00\",\n  \"head\": \"74943616e515bafb3aa3deec4043453877a2480c\",\n  \"git\": \"?? docs/evidence/appearance-2026-10-19/coupled-garment-surface-worth/\\n\",\n  \"automation\": {\n    \"bytes\": 3344,\n    \"sha256\": \"9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a\",\n    \"config\": {\n      \"id\": \"advance-sugata-avatar-visual-quality\",\n      \"status\": \"ACTIVE\",\n      \"rrule\": \"FREQ=MINUTELY;INTERVAL=10\",\n      \"kind\": \"heartbeat\",\n      \"target_thread_id\": \"01a0ff57-d720-7db2-923f-9e3e0521216c\",\n      \"targetThreadId\": null\n    }\n  },\n  \"leafFiles\": [\n    {\n      \"name\": \"INPUTS.json\",\n      \"bytes\": 2153,\n      \"sha256\": \"3736d39577cbfdaad951b58c22ff0c8f17fff4713045361cd50fe534a6988c70\"\n    },\n    {\n      \"name\": \"PLAN.md\",\n      \"bytes\": 4940,\n      \"sha256\": \"7959d08f3e61d08c621a9520a5c5d1783601b65361af63e6dba152a110084c68\"\n    },\n    {\n      \"name\": \"ROOT-FIRST.json\",\n      \"bytes\": 3103,\n      \"sha256\": \"97737c120d4d74d32869ac2310747b97ff3b7074e55529cc0bf6359112a3ae10\"\n    }\n  ]\n}\n"
+  },
+  "services": {
+    "command": "lsof -nP -iTCP:5173 -sTCP:LISTEN; ps -axo pid,ppid,etime,command | rg 'sugata-avatar|coupled-garment|ari-volume' | head -18",
+    "chunk_id": "984168",
+    "exit_code": 0,
+    "observation": "Vite PID870 remains loopback5173; matching rows are its process, this read-only shell/rg and older CUA worker pair30235/30236. This narrow pattern is not a global job census or a claim of GPU physical retirement."
+  },
+  "automationAppAPI": {
+    "tool": "mcp__codex_app__automation_update",
+    "arguments": {
+      "id": "advance-sugata-avatar-visual-quality",
+      "mode": "view"
+    },
+    "isError": false,
+    "result": "Rendered existing automation card in app. Separate saved config read confirms ACTIVE same-chat ten-minute recurrence. No update/duplicate created; future delivery/mobile notifications untested."
+  },
+  "ownership": "No target/native/GPU/browser/constructor job was launched by this nomination. Existing critic review is continuing; no restart or duplicate.",
+  "scope": "Worth-only preparation. Root first opinion conditional A; preliminary independent A is not a stable final handoff or source/execution admission.",
+  "next": "Collect complete stable critic pair, whole-read and independently verify named inputs before advancing. Until then leave all source/geometry/online/render work unrun."
+}
