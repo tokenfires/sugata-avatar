@@ -1,0 +1,13 @@
+# Final interior artist image
+
+A for this exact final editable artist discussion sheet. I actually viewed the whole unchanged second.jpg at original detail before reading the second native/root records. No remaining actionable delivered-scale defect is demonstrated. Both permitted captures are used; no further variant, retake or reference inquiry is worthwhile here.
+
+F1 is resolved. Detail 03’s caption, approximately x70–315, y1068–1080, reads “LF-L meets F-L at their shared edge.” It fits and describes the visible solid facing/lining boundary around x221, y837–1038. interior-caption.svg:91–99 retains those panels and changes only the caption. It no longer promises a dashed join. The prior first-image refusal remains preserved as historical evidence.
+
+The front view (x175–425, y275–635) shows two lining/facing/zip halves and labels the dashed bags as hidden. Detail 04 (x445–775, y847–1053) makes the shell mouth, bag and uninterrupted lining cover visibly separate; captions keep access on the shell, matching source :105–115. It does not read as a new accessible inside pocket. The back/sleeve view (x750–1080, y275–650) supplies both sleeves, cuffs, back and neck facing. Detail 05 (x870–1112, y848–1062) locates the fold below N and explicitly leaves allowance unmeasured, matching :119–129. Named joins remain editing intent, not matched cut edges.
+
+The entire 1280×1660 page retains both context images and source links without clipping. The second saved native/operation records agree on the three loaded images, default1280×720 viewport, whole-page dimensions and candidate2. Exact stored image/source pins match; these are not browser fetched-byte or GPU readback certificates.
+
+A limited local delivery is worthwhile after root verifies the complete handoff and exact wording: add one Ari interior link to the existing artist board and one narrowly named checked artist-deliverable entry, such as “Original editable Ari interior/lining/facing artist sheet reviewed.” Alternative 1, that limited linkage, makes a usable drawing discoverable with honest scope. Alternative 2, retain it only as isolated evidence, avoids documentation changes but makes artist reuse harder. Prefer the limited linkage. This is delivery worth, not approval of an unseen final documentation diff.
+
+No sewing compatibility, physical dimensions, registered surface, actual interior topology, pocket capacity, closure mechanics, material behavior, 3D, body fit, motion, runtime, complete character or AAA qualification follows. Broader roadmap items and accepted/default/original/frozen assets remain unchanged. No additional graphical change is justified by this review.

@@ -1,0 +1,48 @@
+{
+  "collected_utc": "2026-10-19T05:37:38.582355+00:00",
+  "writer_pid": 63029,
+  "root_closure": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ROOT-CLOSE.json",
+    "sha256": "92bc954de3c5586b58cad0edfdbe6397c72db8552c22c6c1c2f4790da8062f23"
+  },
+  "staged_scope": "54 paths before thisreceipt:50leaf+4main docs, exactscope22d1ca/exit0. This receipt addsoneleafpath.",
+  "checks": [
+    {
+      "command": "git diff --cached --check",
+      "chunk": "03ec7a",
+      "exit": 2,
+      "finding": "Only15 literal single-space context-marker lines in the frozen DELIVERY.diff patch artifact. They are required exact unified-diff context, not whitespace in artist or delivery source.",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/DELIVERY.diff",
+      "lines": [
+        20,
+        23,
+        25,
+        27,
+        29,
+        33,
+        40,
+        42,
+        53,
+        55,
+        57,
+        59,
+        62,
+        64,
+        71
+      ],
+      "each_complete_line_exact": " "
+    },
+    {
+      "command": "git diff --cached --check -- . :(exclude)docs/evidence/appearance-2026-10-18/ari-interior-artist/DELIVERY.diff",
+      "exit": 0,
+      "stdout": "",
+      "stderr": "",
+      "decision": "Allactualsource/documentarychanges pass. Preserve exact frozenpatch ratherthan rewrite evidence."
+    }
+  ],
+  "frozen_diff": {
+    "bytes": 14662,
+    "sha256": "e7802011be537bbb605bb6ed6eeba51c0123b2745499585faba8220f10751977"
+  },
+  "next": "Stage onlythisreceipt; localcheckpointcommit, verifyexact55pathscope/currentworkingtree/hashbindings. No push/publish or additionalvisualexperiment."
+}

@@ -1,0 +1,47 @@
+{
+  "collected_utc": "2026-10-19T05:30:06.702496+00:00",
+  "writer_pid": 61895,
+  "root_whole_pair_read": "f11d09 exit0 complete pair no truncation",
+  "root_own_checks": [
+    "6406db prior handoff12pins and root/source/image witness verification",
+    "66d8e7 exact oneSVGcaption/fourJSONvalues/full151nodeXMLtree/9HTMLrefs",
+    "5d7bcf all23 preparation rows and whole corrected viewer"
+  ],
+  "fresh_critic_input_rows_verified": 21,
+  "decision": "A exactly remaining full-page root capture of review-caption.html; no appearance promotion yet",
+  "review_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/CORRECTION-SOURCE.md",
+      "bytes": 2498,
+      "sha256": "55075120d43820c61b3eb08f4140fec60a6c9b2d8bcdd192695cb51cceaccfd1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/CORRECTION-SOURCE-RECEIPT.json",
+      "bytes": 11491,
+      "sha256": "bb24b4053ece5b8051f5ea4bc98d70a940076a8abb3ee31a1a1e5a5b9607da2e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/CORRECTION-PREPARATION.json",
+      "bytes": 7907,
+      "sha256": "6f0aeb907231bc2cdcb12f95755894964daaf1910f5d24e511914a216cd35d4e"
+    }
+  ],
+  "capture_conditions": {
+    "root_independent_gate": true,
+    "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/review-caption.html",
+    "remaining_capture": 1,
+    "reference_views_remaining": 0,
+    "viewport": "actualdefault1280x720",
+    "page_max_height": 2200,
+    "all3images_loaded_required": true,
+    "no_more_correction": true
+  },
+  "stops": {
+    "source": "2026-10-19T05:40:00Z",
+    "root_gate": "2026-10-19T05:45:00Z",
+    "capture": "2026-10-19T05:50:00Z",
+    "image": "2026-10-19T06:00:00Z",
+    "closure": "2026-10-19T06:10:00Z"
+  },
+  "limits": "Artistclarity only. No further sourcevariant/retake/referenceview; preserveoriginal andfirstimage; no sewing/fit/3D/motion/runtime/AAA/computational claims."
+}

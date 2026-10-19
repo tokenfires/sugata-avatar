@@ -1,0 +1,216 @@
+{
+  "collected_utc": "2026-10-19T05:29:42.852426+00:00",
+  "writer_pid": 61845,
+  "verdict": "A exact corrected source and worth one remaining root-owned whole capture only",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/CORRECTION-PREPARATION.json",
+      "bytes": 7907,
+      "sha256": "6f0aeb907231bc2cdcb12f95755894964daaf1910f5d24e511914a216cd35d4e",
+      "scope": "Whole literal JSON read."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ROOT-CORRECTION.json",
+      "bytes": 1856,
+      "sha256": "721a3387f791af125582478a51f252a7efcefac19ca98a22185e299053f46603",
+      "read_scope": "Whole-file byte hash and exact preparation binding verified; prior full scope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/IMAGE-REVIEW.md",
+      "bytes": 2995,
+      "sha256": "81056464a42ec2590ecdd061020aec87355b6a4b199c0f6f2469bc99e683342b",
+      "read_scope": "Whole-file byte hash and exact preparation binding verified; prior full scope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/IMAGE-REVIEW-RECEIPT.json",
+      "bytes": 9259,
+      "sha256": "0ee702bfc02f1a177c46c8026cbf7fbe59354e75e6b5562eee2746a7522c389a",
+      "read_scope": "Whole-file byte hash and exact preparation binding verified; prior full scope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ROOT-FIRST.md",
+      "bytes": 2290,
+      "sha256": "904fbf80bb93fd910e650185691583f9e6022408badd2e948f2410b9c411b21b",
+      "read_scope": "Whole-file byte hash and exact preparation binding verified; prior full scope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/PLAN.json",
+      "bytes": 6584,
+      "sha256": "9a4ea9f58d0487c0a41584883f4056a04feb348cd947024fd5c72ae53bb1fbed",
+      "read_scope": "Whole-file byte hash and exact preparation binding verified; prior full scope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/interior.svg",
+      "bytes": 13141,
+      "sha256": "15113ff3d719b7ca78d0e1c729f59b2b7dd95e7919bab781537268b42c0bb731",
+      "read_scope": "Whole raw text compared; exact one replacement; all new XML elements parsed without rendering; previous complete literal original source review reused."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/design.json",
+      "bytes": 51677,
+      "sha256": "e69d3d8bb1c48884e5918d22d9c6d996a2492d605d0f18feda592abe5ad1467c",
+      "read_scope": "Whole saved JSON parsed; recursive exact4-value delta; complete new151-node tree compared to newXML."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/review.html",
+      "bytes": 2330,
+      "sha256": "d361826f764c402666911c432098a95c96b32952fd2c0623d1504db03bb7fb89",
+      "read_scope": "Whole raw text compared; new13-line wrapper read; nineHTMLrefs resolved and static checks."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/first.jpg",
+      "bytes": 175268,
+      "sha256": "531f67358df4f283e5b7683937d97261982cea059d71dbd270de4371b42aaf7e",
+      "read_scope": "Whole-file byte hash and exact preparation binding verified; prior full scope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/NATIVE.json",
+      "bytes": 4180,
+      "sha256": "d606b40987cf697d7257f5d5443c343fa59064811b987572d1ee0814e24870a6",
+      "read_scope": "Whole-file byte hash and exact preparation binding verified; prior full scope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/CAPTURE-OPERATION.json",
+      "bytes": 1322,
+      "sha256": "e3d3b1900fa098aa3c32dd0b916ccd0bc25751a9c0d5ac7c02ea3f37f4936d47",
+      "read_scope": "Whole-file byte hash and exact preparation binding verified; prior full scope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/interior-caption.svg",
+      "bytes": 13143,
+      "sha256": "9ee8e1ede810689eca0ff558a952dba6915fcf827f223dbbc5ff9c0131ce33f2",
+      "read_scope": "Whole raw text compared; exact one replacement; all new XML elements parsed without rendering; previous complete literal original source review reused."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/design-caption.json",
+      "bytes": 51687,
+      "sha256": "2dc007e18b153d339374a340d24638d5767eab41eae9c6cb3930aa6844d09058",
+      "read_scope": "Whole saved JSON parsed; recursive exact4-value delta; complete new151-node tree compared to newXML."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/review-caption.html",
+      "bytes": 2354,
+      "sha256": "bb0fefc21b0aed842f9a9f37d4c67fe747d3f8dc369e93c6ad680cec52d56e32",
+      "read_scope": "Whole raw text compared; new13-line wrapper read; nineHTMLrefs resolved and static checks."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/review.html",
+      "bytes": 1180,
+      "sha256": "a7d8613e1d21bb7b0d9fa9dfece8e8f93c8f4ce83f02e899103525baf0bc0afd",
+      "read_scope": "Whole raw text compared; new13-line wrapper read; nineHTMLrefs resolved and static checks."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/original-first.jpg",
+      "bytes": 133854,
+      "sha256": "6b177483ed331b187d66146ae3f17296eaa2604a176a84de4e0abb40772ca93d",
+      "read_scope": "Whole-file byte hash and exact preparation binding verified; prior full scope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md",
+      "bytes": 2270,
+      "sha256": "3a5b0493387b14d164455996e2ab3840d02e10341220f0282968d3720878899c",
+      "read_scope": "Whole-file byte hash and exact preparation binding verified; prior full scope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d",
+      "read_scope": "Whole-file byte hash and exact preparation binding verified; prior full scope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/BRIEF.md",
+      "bytes": 5718,
+      "sha256": "c82e40c491a04d6881f9d60b72834f73bb60886311bcdc7b06c19f33d48b580a",
+      "read_scope": "Whole-file byte hash and exact preparation binding verified; prior full scope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/REFERENCES.md",
+      "bytes": 2159,
+      "sha256": "41d9f4aa8ad7cba49207793c5fe1c3f209952370b6e4f179c69ee2cae70ca094",
+      "read_scope": "Whole-file byte hash and exact preparation binding verified; prior full scope reused where applicable."
+    }
+  ],
+  "verified_preparation_rows": 23,
+  "verified_unique_preparation_paths": 20,
+  "verification": {
+    "SVG_delta": "Exactly onecaptiontextreplacement at line99; remaining byte sequence identical.",
+    "JSON_deltas": [
+      "/authoritative_file",
+      "/svg_bytes",
+      "/svg_sha256",
+      "/complete_svg_tree/children/20/text"
+    ],
+    "complete_XML_JSON_nodes": 151,
+    "tree_scope": "tags,completeattributes,nonblanktextverbatim,orderedchildren; whitespace-onlytextNone; rawSVGhashbindsremainingbytes; no tail reconstruction claim",
+    "viewer": "Only filename substitutions;9existinglocalrefs; no script/eventhandlers",
+    "originals_unchanged": true
+  },
+  "prior_whole_image_witness": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/first.jpg",
+    "sha256": "531f67358df4f283e5b7683937d97261982cea059d71dbd270de4371b42aaf7e",
+    "scope": "Own immediately prior original-detail whole-image review reused; no new visual inspection or capture in this source task."
+  },
+  "jobs": [
+    {
+      "chunk": "fc1e2a",
+      "exit": 0,
+      "pid": 61750,
+      "utc": "2026-10-19T05:28:52.176691+00:00",
+      "command_scope": "Read/hash wholeCORRECTION-PREPARATION and newviewer."
+    },
+    {
+      "chunk": "4db2a3",
+      "exit": 0,
+      "pid": 61783,
+      "utc": "2026-10-19T05:29:08.747489+00:00",
+      "command_scope": "Read-only stdlibhash/XML/JSON/HTMLmetadata:all23pins,fullSVGexactreplacement,fullJSON4delta,151-nodeXMLassociation,viewer9refs,outputabsence."
+    },
+    {
+      "tool": "exec_command",
+      "pid": 61845,
+      "utc": "2026-10-19T05:29:42.852426+00:00",
+      "command_scope": "Exclusiveownpairwritesandreadback; returnedchunk/exit reported in finalstablemessage."
+    }
+  ],
+  "findings": "No new actionable source issue demonstrated. F1 textual repair matches selected first-image witness; actual corrected pixels pending.",
+  "alternatives": [
+    {
+      "choice": "Minimalcaptionclonepluslastwholecapture",
+      "tradeoff": "Preservesdrawingandresolvesfactuallabel;spendsremainingcaptureandstillrequiresimagejudgment."
+    },
+    {
+      "choice": "Retainoriginalpartialstudy,withholdfinaldelivery",
+      "tradeoff": "Nofurthercaptureeffort;avoidablecaptionambiguityremains."
+    }
+  ],
+  "next_conditions": {
+    "root_independent_gate": true,
+    "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/review-caption.html",
+    "remaining_capture": 1,
+    "reference_views_remaining": 0,
+    "viewport": "actualdefault1280x720",
+    "page_max_height": 2200,
+    "all3images_loaded_required": true,
+    "no_more_correction": true
+  },
+  "limits": [
+    "No source import/evaluation/renderer/browser/network/capture/generation or product writes.",
+    "No new image qualification; source/first image/original handoffs unchanged.",
+    "No sewing/physical dimensions/registered surfaces/3D/fit/motion/runtime/AAA/computational admission."
+  ],
+  "errors": [],
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/CORRECTION-SOURCE.md",
+    "bytes": 2498,
+    "sha256": "55075120d43820c61b3eb08f4140fec60a6c9b2d8bcdd192695cb51cceaccfd1",
+    "scope": "Whole own result read back exact."
+  },
+  "stops": {
+    "source": "2026-10-19T05:40:00Z",
+    "root_gate": "2026-10-19T05:45:00Z",
+    "capture": "2026-10-19T05:50:00Z",
+    "image": "2026-10-19T06:00:00Z",
+    "closure": "2026-10-19T06:10:00Z"
+  }
+}

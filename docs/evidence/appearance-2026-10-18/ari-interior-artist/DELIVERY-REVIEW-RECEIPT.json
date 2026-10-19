@@ -1,0 +1,197 @@
+{
+  "collected_utc": "2026-10-19T05:36:19.120573+00:00",
+  "writer_pid": 62824,
+  "verdict": "A exact documentary delivery; no actionable issue demonstrated",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/DELIVERY-PREPARATION.json",
+      "bytes": 4097,
+      "sha256": "62fdd58ffbf982dd0b3ede2de5f2c728b10fb36a0975bf4ee73998fa437d1785",
+      "read_scope": "Whole literal JSON read; all23delivery/root-image binding rows checked."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 15779,
+      "sha256": "195a0b970cfa28bfb0b793f41dd065228c902a40e3481d927800a8daed2e28cd",
+      "read_scope": "Whole bytes compared against Git baseline; exact1anchor delta; entire changed Ari context read in full diff, unchanged remainder not re-audited."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 6891,
+      "sha256": "cfbca0389c5f3447b8479372a143538184589e8ff4aa511930c345aac2c5c44b",
+      "read_scope": "Whole current checklist read; whole baseline byte comparison, alloldcheckboxorder and entireOutstanding exact."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 6311,
+      "sha256": "04eee19511380af9e74b1f5dc9f85a1cff4796845de3ef42978c26f8135e0a06",
+      "read_scope": "Whole current/baseline bytes compared through actualfull4filediff; all changed prose and retained context read in full diff; unrelated unchanged historical prose not re-audited."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 11033,
+      "sha256": "20c25a1f8ccb9c79e1c7cd500318c7491397cf4dfa25d664a753616fe905459d",
+      "read_scope": "Whole current/baseline bytes compared through actualfull4filediff; all changed prose and retained context read in full diff; unrelated unchanged historical prose not re-audited."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ARTIST-HANDOFF.md",
+      "bytes": 2418,
+      "sha256": "08fdb8eaa61304a2af305e357516345ccf26a1a5d5e42c2ece0685fc1f90af40",
+      "read_scope": "Whole literal content read in this documentary review."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/README.md",
+      "bytes": 3681,
+      "sha256": "74ac32840255895973646b22bdf5ced1922d035f5706eebcbf641b4678c65b08",
+      "read_scope": "Whole literal content read in this documentary review."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ROOT-IMAGE.json",
+      "bytes": 5094,
+      "sha256": "77cc97891fa262f9b5c23e9f7cb9050700a7e26dbd6e051de849382724326a9f",
+      "read_scope": "Whole literal content read in this documentary review."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/IMAGE-REVIEW-2.md",
+      "bytes": 2709,
+      "sha256": "5ff5c635042a23795d319994a5d6baf8c53b9f27f738b4430f9b4f68423695af",
+      "read_scope": "Whole-byte hash verified; previous actual image/source scope reused; no new rendering/evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/IMAGE-REVIEW-2-RECEIPT.json",
+      "bytes": 11151,
+      "sha256": "8fa960df1501d1ceb29722c5c7a0beaeb6bddbf24b1c8e26f3089a6b76111f37",
+      "read_scope": "Whole-byte hash verified; previous actual image/source scope reused; no new rendering/evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/NATIVE-2.json",
+      "bytes": 5204,
+      "sha256": "969e8f526d6a4e486435f918886678224408977858a00c8ede651b8bf4cde5b7",
+      "read_scope": "Whole-byte hash verified; previous actual image/source scope reused; no new rendering/evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/DELIVERY.diff",
+      "bytes": 14662,
+      "sha256": "e7802011be537bbb605bb6ed6eeba51c0123b2745499585faba8220f10751977",
+      "read_scope": "Whole literal content read in this documentary review."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/interior-caption.svg",
+      "bytes": 13143,
+      "sha256": "9ee8e1ede810689eca0ff558a952dba6915fcf827f223dbbc5ff9c0131ce33f2",
+      "read_scope": "Whole-byte hash verified; previous actual image/source scope reused; no new rendering/evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/design-caption.json",
+      "bytes": 51687,
+      "sha256": "2dc007e18b153d339374a340d24638d5767eab41eae9c6cb3930aa6844d09058",
+      "read_scope": "Whole-byte hash verified; previous actual image/source scope reused; no new rendering/evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/review-caption.html",
+      "bytes": 2354,
+      "sha256": "bb0fefc21b0aed842f9a9f37d4c67fe747d3f8dc369e93c6ad680cec52d56e32",
+      "read_scope": "Whole-byte hash verified; previous actual image/source scope reused; no new rendering/evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/second.jpg",
+      "bytes": 175382,
+      "sha256": "89299e3be5e45c4ffb8b449bcfcac75f59b84d388c08f1a2bf1855cf0bfd6ee4",
+      "read_scope": "Whole-byte hash verified; previous actual image/source scope reused; no new rendering/evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/interior.svg",
+      "bytes": 13141,
+      "sha256": "15113ff3d719b7ca78d0e1c729f59b2b7dd95e7919bab781537268b42c0bb731",
+      "read_scope": "Whole-byte hash verified; previous actual image/source scope reused; no new rendering/evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/design.json",
+      "bytes": 51677,
+      "sha256": "e69d3d8bb1c48884e5918d22d9c6d996a2492d605d0f18feda592abe5ad1467c",
+      "read_scope": "Whole-byte hash verified; previous actual image/source scope reused; no new rendering/evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/review.html",
+      "bytes": 2330,
+      "sha256": "d361826f764c402666911c432098a95c96b32952fd2c0623d1504db03bb7fb89",
+      "read_scope": "Whole-byte hash verified; previous actual image/source scope reused; no new rendering/evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/first.jpg",
+      "bytes": 175268,
+      "sha256": "531f67358df4f283e5b7683937d97261982cea059d71dbd270de4371b42aaf7e",
+      "read_scope": "Whole-byte hash verified; previous actual image/source scope reused; no new rendering/evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/NATIVE.json",
+      "bytes": 4180,
+      "sha256": "d606b40987cf697d7257f5d5443c343fa59064811b987572d1ee0814e24870a6",
+      "read_scope": "Whole-byte hash verified; previous actual image/source scope reused; no new rendering/evaluation."
+    }
+  ],
+  "checks": {
+    "binding_rows_verified": 23,
+    "unique_binding_paths": 20,
+    "all_passed": true,
+    "baseline": "50aba62b2cccd197fa2387965e538376262396bd",
+    "saved_diff_equals_actual4file_gitdiff": true,
+    "board_exactly1anchor_no_other_bytes_changed": true,
+    "checklist_date_plus1row_only": true,
+    "all_old_checkbox_rows_exact_inorder": true,
+    "entire_Outstanding_exact": true,
+    "checked_before": 19,
+    "checked_after": 20,
+    "open_before": 10,
+    "open_after": 10,
+    "handoff_README_local_link_occurrences": 19,
+    "all_link_targets_exist": true,
+    "new_board_destination_exists": true,
+    "browser_click_behavior_tested": false
+  },
+  "jobs": [
+    {
+      "chunk": "f2c192",
+      "exit": 0,
+      "pid": 62680,
+      "utc": "2026-10-19T05:35:08.705414+00:00",
+      "command_scope": "WholeliteralDELIVERY-PREPARATION,DELIVERY.diff,ARTIST-HANDOFF,README,ROOT-IMAGE reads and hashes."
+    },
+    {
+      "chunk": "0b2b24",
+      "exit": 0,
+      "pid": 62735,
+      "utc": "2026-10-19T05:35:36.011363+00:00",
+      "command_scope": "Read-onlystdlibhash/JSON/regex and gitshow/diff:23bindingrows,exact4filediff,boardanchorreverse,checklistdate/rowreverse,checkboxorder/count/Outstanding,19localMarkdownlinks,currentwholechecklist,ownoutputabsence."
+    },
+    {
+      "tool": "exec_command",
+      "pid": 62824,
+      "utc": "2026-10-19T05:36:19.120573+00:00",
+      "command_scope": "Exclusiveownpairwritesandreadback;returnedchunk/exitreportedwithstablehandoff."
+    }
+  ],
+  "prior_visual_scope": "Own whole original-detail second.jpg inspection in IMAGE-REVIEW-2; unchanged89299e3be5e45c4ffb8b449bcfcac75f59b84d388c08f1a2bf1855cf0bfd6ee4 hash verified. No new image inspection needed in this task.",
+  "findings": "None demonstrated. Exact artist row and source/image claims remain bounded.",
+  "alternatives": {
+    "selected": "Retain exact local handoff/link/artistrow and checkpoint: discoverable usable artist drawing with explicit limits.",
+    "other": "Isolated evidence only: fewer documentary changes but poorer discoverability."
+  },
+  "limits": [
+    "No browser/network/newcapture/render/sourceevaluation/programtest/product/sourceedit bycritic; ownhandoffpaironly.",
+    "Literal local target existence is not actual click/native UI qualification.",
+    "Root service/timer/lifecycle statements are historical/root recovery scope; no fresh machine/browser/GPU census here.",
+    "No physical topology/sewing/dimensions/registeredprojection/pocketcapacity/zipphysics/materialbehavior/3D/bodyfit/motion/runtime/AAA or wholecharacter qualification.",
+    "No further graphic/capture/reference variants; computational route remainsclosedthiswindow; entire broadOutstanding unchanged."
+  ],
+  "errors": [],
+  "next": "Root fullread/independentpinanddiffverification then exactlocalcheckpoint. No newexperiment admitted.",
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/DELIVERY-REVIEW.md",
+    "bytes": 2764,
+    "sha256": "336d9a00845098c879968705ae22fb4a28f404d910878a91fed1e130aecccdc5",
+    "read_scope": "Wholeownresultreadbackexact."
+  },
+  "closure_stop": "2026-10-19T06:10:00Z"
+}

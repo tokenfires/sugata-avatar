@@ -1,0 +1,87 @@
+{
+  "utc": "2026-10-19T05:07:02.100844+00:00",
+  "pid": 36313,
+  "searches": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/SEARCH-1.json",
+      "bytes": 11180,
+      "sha256": "e521d79078b5447bd19434adf6e1599b66a50861f7def29987aa0866e45b714f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/SEARCH-2.json",
+      "bytes": 6959,
+      "sha256": "6bd91e44eb9248156fc6066ebc4a1da8d130d8187627a242e25523fb4a6f91ec"
+    }
+  ],
+  "primary_pages": [
+    {
+      "raw": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/PRIMARY-CLARE.json",
+        "bytes": 72896,
+        "sha256": "fdc8848eaff53bc387765aa0fc64d1545d375ef4d99f6a3bfb0eceb6870711bc"
+      },
+      "url": "https://blog.closetcorepatterns.com/clare-sewalong-sewing-the-lining-facing/",
+      "metadata": {
+        "statusCode": 200,
+        "scrapeId": "01a1528a-89bf-705e-83c1-6bec05b313c5",
+        "creditsUsed": 1,
+        "sourceURL": "https://blog.closetcorepatterns.com/clare-sewalong-sewing-the-lining-facing/",
+        "publishedTime": "2015-12-15T18:38:22+00:00"
+      },
+      "scope": "Clare: full relevant main article through lining/facing/collar assembly read; unrelated footer excluded. Baracuta: full relevant Product Details/materials and exact image-links selection read; shop/iframe footer irrelevant. Initial aggregate metadata/page output truncated, selected product block recovered via stored result. Not a full website semantic audit."
+    },
+    {
+      "raw": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/PRIMARY-BARACUTA.json",
+        "bytes": 52272,
+        "sha256": "389d9c3607e42b466d104a7f0c3583cd0833d6c0219eb7043f871e45cba6810a"
+      },
+      "url": "https://us.baracuta.com/products/baracuta-g9-harrington-jacket-brcps3001ut3124-1007",
+      "metadata": {
+        "statusCode": 200,
+        "scrapeId": "01a1528a-7512-70fb-870a-a9bb792312da",
+        "creditsUsed": 1,
+        "sourceURL": "https://us.baracuta.com/products/baracuta-g9-harrington-jacket-brcps3001ut3124-1007",
+        "publishedTime": null
+      },
+      "scope": "Clare: full relevant main article through lining/facing/collar assembly read; unrelated footer excluded. Baracuta: full relevant Product Details/materials and exact image-links selection read; shop/iframe footer irrelevant. Initial aggregate metadata/page output truncated, selected product block recovered via stored result. Not a full website semantic audit."
+    }
+  ],
+  "primary_screenshot_views": [
+    {
+      "file": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/reference-clare.jpg",
+        "bytes": 54019,
+        "sha256": "7ec785ef5a8ba1c1559e63bccc052258a62044f07aef78e022694802deefb440"
+      },
+      "browser": "IAB3/tab1",
+      "url": "https://blog.closetcorepatterns.com/wp-content/uploads/2015/12/Clare-Coat-sewalong_Sewing-coat-lining-and-facing-23.jpg",
+      "original_media_size": "749x498 reported browser title",
+      "actual_view": "Whole749x498 photo centered in1280x720 JPEG screenshot. Blue lining, contrasting purple neck/front facing and both lining sleeves visible. Backfold not certified by this photo."
+    },
+    {
+      "file": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/reference-baracuta.jpg",
+        "bytes": 45186,
+        "sha256": "093ebbd706f6a1c705c3fb79be90fdcc03a99d462bc798f041f7532c339cf1c0"
+      },
+      "browser": "IAB3/tab1",
+      "url": "https://us.baracuta.com/cdn/shop/files/BRCPS3001UT3124_1007_BRC_5.jpg?v=1784542814",
+      "original_media_size": "1200x1800 reported browser title",
+      "actual_view": "Whole portrait photo fitted480x720 within1280x720. Only narrow contrasting red inner-edge strips at opened front; no complete interior/bag/sleeve detail. Do not use as full construction evidence."
+    }
+  ],
+  "capture_count": 2,
+  "remaining_primary_views": 0,
+  "online_search_count": 2,
+  "primary_page_count": 2,
+  "reported_firecrawl_credits": 6,
+  "retained_warnings": [
+    "Search responses: some tool discovery results unavailable; useful primary web results returned.",
+    "Baracuta page footer includes blocked auxiliary shop/chat frames; main product text/image links returnedHTTP200.",
+    "web.run image open did not provide a verified image witness and Baracuta returned tool inaccessibility; no source/media was downloaded from that tool. Root used ordinary IAB viewing of the observed exact image URLs, which visibly loaded."
+  ],
+  "actions": "Read-only remote pages and two exact primary-image browser screenshots, no reference source pixel edits or trace/copy into art. Screenshot bytes exclusive-write preserved. No candidate capture yet.",
+  "decision": "Complete declared artist lining/facing intent is worth authorship: Clare gives real separable neckline/front facing and sleeve lining precedent, text describes backfold. Original warmlining colour and two outer-mouth bag roles retained; Baracuta supports only visible inner-edge contrast, not structure. All quantitative/sewing/physical properties authored-unproved.",
+  "source_budget_complete": true
+}

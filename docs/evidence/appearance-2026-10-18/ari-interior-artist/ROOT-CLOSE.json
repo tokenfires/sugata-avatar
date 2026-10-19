@@ -1,0 +1,317 @@
+{
+  "closed_utc": "2026-10-19T05:37:04.026297+00:00",
+  "writer_pid": 62946,
+  "decision": "Retain exact reviewed Ari interior artist source and limited discoverable delivery; slice complete",
+  "root_whole_documentary_pair_read": "46abf8 exit0 complete2764+10894byte pair no truncation",
+  "fresh_critic_input_rows_verified": 21,
+  "root_own_reads": [
+    "a68a5b complete ARTIST-HANDOFF/README",
+    "58d4a1 complete fourfilediff",
+    "492221 exact boardanchor/checklistrow/Outstanding/links scope verification",
+    "46568d root actualfinalimage and fullimagehandoff19pins"
+  ],
+  "final_delivery_scope": "Oneboardanchor, checklistdate+oneartistcheckedrow, currentcheckpoint/journal, editableSVG+declarativeJSON+staticviewer and actualimage. Source labels are artist responsibility intent only.",
+  "checks": {
+    "saved_diff_equals_actual": true,
+    "allpriorcheckboxes_inorder": true,
+    "entireOutstanding_exact": true,
+    "checked_before_after": [
+      19,
+      20
+    ],
+    "open_before_after": [
+      10,
+      10
+    ],
+    "fresh_diff_check": 0
+  },
+  "image": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/second.jpg",
+    "bytes": 175382,
+    "sha256": "89299e3be5e45c4ffb8b449bcfcac75f59b84d388c08f1a2bf1855cf0bfd6ee4"
+  },
+  "frozen_leaf_manifest": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ARTIST-HANDOFF.md",
+      "bytes": 2418,
+      "sha256": "08fdb8eaa61304a2af305e357516345ccf26a1a5d5e42c2ece0685fc1f90af40"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/BRIEF-REVIEW-RECEIPT.json",
+      "bytes": 13700,
+      "sha256": "3e5500e7f26727e8cc2178e910fa2c2265fb70d4401c7ce22fa8049e6298bd74"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/BRIEF-REVIEW.md",
+      "bytes": 3149,
+      "sha256": "295424d6482fb710bc667d652e3714688e6d4f3445b4307d8dc3c712811ef3be"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/BRIEF.md",
+      "bytes": 5718,
+      "sha256": "c82e40c491a04d6881f9d60b72834f73bb60886311bcdc7b06c19f33d48b580a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/CAPTURE-OPERATION-2.json",
+      "bytes": 1338,
+      "sha256": "43af82cc5e0e0f3e5b86e44eb01bf3d0bf6279cc3cb077a528fb4150520441ef"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/CAPTURE-OPERATION.json",
+      "bytes": 1322,
+      "sha256": "e3d3b1900fa098aa3c32dd0b916ccd0bc25751a9c0d5ac7c02ea3f37f4936d47"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/CORRECTION-PREPARATION.json",
+      "bytes": 7907,
+      "sha256": "6f0aeb907231bc2cdcb12f95755894964daaf1910f5d24e511914a216cd35d4e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/CORRECTION-SOURCE-RECEIPT.json",
+      "bytes": 11491,
+      "sha256": "bb24b4053ece5b8051f5ea4bc98d70a940076a8abb3ee31a1a1e5a5b9607da2e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/CORRECTION-SOURCE.md",
+      "bytes": 2498,
+      "sha256": "55075120d43820c61b3eb08f4140fec60a6c9b2d8bcdd192695cb51cceaccfd1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/DELIVERY-PREPARATION.json",
+      "bytes": 4097,
+      "sha256": "62fdd58ffbf982dd0b3ede2de5f2c728b10fb36a0975bf4ee73998fa437d1785"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/DELIVERY-REVIEW-RECEIPT.json",
+      "bytes": 10894,
+      "sha256": "edae5aa503e74730fb89c0157dc8f465a4d9617dea564c14a7e6c1944f2d3e69"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/DELIVERY-REVIEW.md",
+      "bytes": 2764,
+      "sha256": "336d9a00845098c879968705ae22fb4a28f404d910878a91fed1e130aecccdc5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/DELIVERY.diff",
+      "bytes": 14662,
+      "sha256": "e7802011be537bbb605bb6ed6eeba51c0123b2745499585faba8220f10751977"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/IMAGE-REVIEW-2-RECEIPT.json",
+      "bytes": 11151,
+      "sha256": "8fa960df1501d1ceb29722c5c7a0beaeb6bddbf24b1c8e26f3089a6b76111f37"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/IMAGE-REVIEW-2.md",
+      "bytes": 2709,
+      "sha256": "5ff5c635042a23795d319994a5d6baf8c53b9f27f738b4430f9b4f68423695af"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/IMAGE-REVIEW-RECEIPT.json",
+      "bytes": 9259,
+      "sha256": "0ee702bfc02f1a177c46c8026cbf7fbe59354e75e6b5562eee2746a7522c389a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/IMAGE-REVIEW.md",
+      "bytes": 2995,
+      "sha256": "81056464a42ec2590ecdd061020aec87355b6a4b199c0f6f2469bc99e683342b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/NATIVE-2.json",
+      "bytes": 5204,
+      "sha256": "969e8f526d6a4e486435f918886678224408977858a00c8ede651b8bf4cde5b7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/NATIVE.json",
+      "bytes": 4180,
+      "sha256": "d606b40987cf697d7257f5d5443c343fa59064811b987572d1ee0814e24870a6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/PLAN.json",
+      "bytes": 6584,
+      "sha256": "9a4ea9f58d0487c0a41584883f4056a04feb348cd947024fd5c72ae53bb1fbed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/PRIMARY-BARACUTA.json",
+      "bytes": 52272,
+      "sha256": "389d9c3607e42b466d104a7f0c3583cd0833d6c0219eb7043f871e45cba6810a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/PRIMARY-CLARE.json",
+      "bytes": 72896,
+      "sha256": "fdc8848eaff53bc387765aa0fc64d1545d375ef4d99f6a3bfb0eceb6870711bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/README.md",
+      "bytes": 3681,
+      "sha256": "74ac32840255895973646b22bdf5ced1922d035f5706eebcbf641b4678c65b08"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/REFERENCES-RECEIPT.json",
+      "bytes": 5380,
+      "sha256": "4039036e010ba5f52dd40802957c5bbef6708f9d26f7adf21257505618314ca9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/REFERENCES.md",
+      "bytes": 2159,
+      "sha256": "41d9f4aa8ad7cba49207793c5fe1c3f209952370b6e4f179c69ee2cae70ca094"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ROOT-BRIEF.json",
+      "bytes": 1412,
+      "sha256": "7268f1913c006b47bdfe3fb611658cc002abdaa02a7165b9bda13ea5b9b21ffa"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ROOT-CAPTURE-2.json",
+      "bytes": 2138,
+      "sha256": "84c5ff81448cfb7e759ecabc51745b95c7c7f61f9d229ce3a435385f5cb47fe6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ROOT-CORRECTION.json",
+      "bytes": 1856,
+      "sha256": "721a3387f791af125582478a51f252a7efcefac19ca98a22185e299053f46603"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ROOT-FIRST.md",
+      "bytes": 2290,
+      "sha256": "904fbf80bb93fd910e650185691583f9e6022408badd2e948f2410b9c411b21b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ROOT-IMAGE.json",
+      "bytes": 5094,
+      "sha256": "77cc97891fa262f9b5c23e9f7cb9050700a7e26dbd6e051de849382724326a9f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ROOT-SOURCE.json",
+      "bytes": 9578,
+      "sha256": "c03ae23f2f1d0e11e4b2c698630045e53c526e63306505b7c44642837ffe3f5f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ROOT-WORTH.json",
+      "bytes": 1679,
+      "sha256": "5b98bcb9b0dba8fbd4f666ccebad6c3350de4f3b9e4e3bd6d4cf547ff7672d54"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/SEARCH-1.json",
+      "bytes": 11180,
+      "sha256": "e521d79078b5447bd19434adf6e1599b66a50861f7def29987aa0866e45b714f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/SEARCH-2.json",
+      "bytes": 6959,
+      "sha256": "6bd91e44eb9248156fc6066ebc4a1da8d130d8187627a242e25523fb4a6f91ec"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/SOURCE-PREPARATION.json",
+      "bytes": 10572,
+      "sha256": "62a4fc0c13cdacb62b33da2547a6274caa5c8f52bde304bb3f18926761865daf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/SOURCE-REVIEW-RECEIPT.json",
+      "bytes": 16438,
+      "sha256": "c64280c3612415e2a36615c300d61a795a2963cb7dee0c364a672a03748cb82d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/SOURCE-REVIEW.md",
+      "bytes": 3377,
+      "sha256": "74a9b8a29fb973b0eac0902a21e5dc110b3de49966bb890ca81f4ca08789940b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/WORTH-RECEIPT.json",
+      "bytes": 12169,
+      "sha256": "ee36681c759c3ca815edf2e82b8704208976f6450cb5b76c6e9c12a767599e16"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/WORTH.md",
+      "bytes": 3157,
+      "sha256": "4a0d58be2f0b1d358d2cc0f28c11d6d99cc5955a9fb588fb1db6125a0bc7368a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/design-caption.json",
+      "bytes": 51687,
+      "sha256": "2dc007e18b153d339374a340d24638d5767eab41eae9c6cb3930aa6844d09058"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/design.json",
+      "bytes": 51677,
+      "sha256": "e69d3d8bb1c48884e5918d22d9c6d996a2492d605d0f18feda592abe5ad1467c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/first.jpg",
+      "bytes": 175268,
+      "sha256": "531f67358df4f283e5b7683937d97261982cea059d71dbd270de4371b42aaf7e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/interior-caption.svg",
+      "bytes": 13143,
+      "sha256": "9ee8e1ede810689eca0ff558a952dba6915fcf827f223dbbc5ff9c0131ce33f2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/interior.svg",
+      "bytes": 13141,
+      "sha256": "15113ff3d719b7ca78d0e1c729f59b2b7dd95e7919bab781537268b42c0bb731"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/reference-baracuta.jpg",
+      "bytes": 45186,
+      "sha256": "093ebbd706f6a1c705c3fb79be90fdcc03a99d462bc798f041f7532c339cf1c0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/reference-clare.jpg",
+      "bytes": 54019,
+      "sha256": "7ec785ef5a8ba1c1559e63bccc052258a62044f07aef78e022694802deefb440"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/review-caption.html",
+      "bytes": 2354,
+      "sha256": "bb0fefc21b0aed842f9a9f37d4c67fe747d3f8dc369e93c6ad680cec52d56e32"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/review.html",
+      "bytes": 2330,
+      "sha256": "d361826f764c402666911c432098a95c96b32952fd2c0623d1504db03bb7fb89"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/second.jpg",
+      "bytes": 175382,
+      "sha256": "89299e3be5e45c4ffb8b449bcfcac75f59b84d388c08f1a2bf1855cf0bfd6ee4"
+    }
+  ],
+  "mutable_document_epoch": {
+    "files": [
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+        "bytes": 15779,
+        "sha256": "195a0b970cfa28bfb0b793f41dd065228c902a40e3481d927800a8daed2e28cd"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+        "bytes": 6891,
+        "sha256": "cfbca0389c5f3447b8479372a143538184589e8ff4aa511930c345aac2c5c44b"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+        "bytes": 6311,
+        "sha256": "04eee19511380af9e74b1f5dc9f85a1cff4796845de3ef42978c26f8135e0a06"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+        "bytes": 11033,
+        "sha256": "20c25a1f8ccb9c79e1c7cd500318c7491397cf4dfa25d664a753616fe905459d"
+      }
+    ],
+    "note": "Exact review epoch, recoverable by frozen DELIVERY.diff against50aba62b or subsequent localcommit. Main checkpoint/journal may advance afterthisclosure; do not treat historical rawpath hashes as latest-document expectations."
+  },
+  "jobs_and_commands": "Each gate has exact input/job/command scope receipts in frozen manifest. RootCua screenshot operations separately saved; no native3Dworker. Sourcea92a73/correction66d8e7; critiques506ba4/e9427b/4c136d/b91e8e/ceeda9; rootwholehandoffs a4ee6e/fc7632/f11d09/894292/46abf8; sourceproof details inSOURCE-PREPARATION/CORRECTION-PREPARATION.",
+  "budgets": {
+    "candidate_captures": 2,
+    "candidate_remaining": 0,
+    "primary_reference_views": 2,
+    "reference_remaining": 0,
+    "Firecrawl_searches": 2,
+    "primary_pages": 2
+  },
+  "errors_rejections_limits": "Retain firstimagecaption B, root/critic readererrors and missingPIL metadataerror. No further graphicaltweak/capture/refhunt worth. No physical dimensions/sewing/topology/fit/3D/motion/runtime/AAA pass. Computationalsource-checkerrouteclosedthiswindow and constructorHOLD; no data-member decode/field/geometry/nativeavatar/Blender/WebGPU worker. No accepted/default/production/3Dsourcegeometry change.",
+  "owned_work": "No pendingcritic edits. Static reviewserver/tab retained; no ownedlongrunninggenerationworker. Heartbeat remainsACTIVE10minthischat asrestored/readback earlier; no freshdeliverytimingclaim.",
+  "next": "Local checkpoint commit of exactleaf andfourdocs, verifytrackedscopedbytes andcleanstatus; then prepare a distinct bounded Ari trouser-waist/pleat authorship nomination from retained gap, freshcriticworthbeforeinvestigation. Human checkin/pause wins."
+}

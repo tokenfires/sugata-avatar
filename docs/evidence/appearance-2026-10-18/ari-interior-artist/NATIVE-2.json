@@ -1,0 +1,136 @@
+{
+  "collected_utc": "2026-10-19T05:30:55.049494+00:00",
+  "writer_pid": 61998,
+  "candidate": 2,
+  "capture_operation": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/CAPTURE-OPERATION-2.json",
+    "bytes": 1338,
+    "sha256": "43af82cc5e0e0f3e5b86e44eb01bf3d0bf6279cc3cb077a528fb4150520441ef"
+  },
+  "image": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/second.jpg",
+    "bytes": 175382,
+    "sha256": "89299e3be5e45c4ffb8b449bcfcac75f59b84d388c08f1a2bf1855cf0bfd6ee4"
+  },
+  "image_dimensions": [
+    1280,
+    1660
+  ],
+  "format": "JPEG SOF metadata, no image alteration",
+  "source_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/interior-caption.svg",
+      "bytes": 13143,
+      "sha256": "9ee8e1ede810689eca0ff558a952dba6915fcf827f223dbbc5ff9c0131ce33f2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/design-caption.json",
+      "bytes": 51687,
+      "sha256": "2dc007e18b153d339374a340d24638d5767eab41eae9c6cb3930aa6844d09058"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/review-caption.html",
+      "bytes": 2354,
+      "sha256": "bb0fefc21b0aed842f9a9f37d4c67fe747d3f8dc369e93c6ad680cec52d56e32"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ROOT-CAPTURE-2.json",
+      "bytes": 2138,
+      "sha256": "84c5ff81448cfb7e759ecabc51745b95c7c7f61f9d229ce3a435385f5cb47fe6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/CORRECTION-PREPARATION.json",
+      "bytes": 7907,
+      "sha256": "6f0aeb907231bc2cdcb12f95755894964daaf1910f5d24e511914a216cd35d4e"
+    }
+  ],
+  "preserved_first_source_and_image": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/interior.svg",
+      "bytes": 13141,
+      "sha256": "15113ff3d719b7ca78d0e1c729f59b2b7dd95e7919bab781537268b42c0bb731"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/design.json",
+      "bytes": 51677,
+      "sha256": "e69d3d8bb1c48884e5918d22d9c6d996a2492d605d0f18feda592abe5ad1467c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/review.html",
+      "bytes": 2330,
+      "sha256": "d361826f764c402666911c432098a95c96b32952fd2c0623d1504db03bb7fb89"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/first.jpg",
+      "bytes": 175268,
+      "sha256": "531f67358df4f283e5b7683937d97261982cea059d71dbd270de4371b42aaf7e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/NATIVE.json",
+      "bytes": 4180,
+      "sha256": "d606b40987cf697d7257f5d5443c343fa59064811b987572d1ee0814e24870a6"
+    }
+  ],
+  "observed_dom": {
+    "images": [
+      {
+        "complete": true,
+        "display": [
+          1232,
+          1212.75
+        ],
+        "natural": [
+          1280,
+          1260
+        ],
+        "src": "interior-caption.svg"
+      },
+      {
+        "complete": true,
+        "display": [
+          280,
+          230
+        ],
+        "natural": [
+          1280,
+          1261
+        ],
+        "src": "../../appearance-2026-10-07/ari-bomber-drawing/original-first.jpg"
+      },
+      {
+        "complete": true,
+        "display": [
+          928,
+          230
+        ],
+        "natural": [
+          1536,
+          1024
+        ],
+        "src": "../../appearance-2026-10-07/larger-frame-character/concept-v1.png"
+      }
+    ],
+    "page": [
+      1280,
+      1660
+    ],
+    "title": "Ari \u00b7 inside the short bomber",
+    "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/review-caption.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "root_visual_observation": "Root actual full-page CUA image and saved second.jpg original-detail view_image inspected. Shared-edge caption visible and fits under03; main views, other details, context and source links remain visible. No pixel-exact wholepage equality claim.",
+  "operation": "05:30:20.563\u2013.692UTC IAB3 tab1 root fullPage screenshot, exclusive second.jpg unchanged byte save, CAPTURE-OPERATION-2 exclusive.",
+  "capture_budget": {
+    "used": 2,
+    "remaining": 0
+  },
+  "references_remaining": 0,
+  "next": "Independent critic second-image review, root complete handoff/pin/actual-source-image verification; then limited artist delivery if qualified. No more sourcevariants or captures.",
+  "limits": [
+    "Artist visualclarity only, no sewn/cut compatibility/dimensions/physical topology/pocket mechanics/3D/fit/posemotion/runtime/AAA or computational admission.",
+    "Originalsources/acceptedassets/defaults unchanged."
+  ]
+}

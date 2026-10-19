@@ -1,0 +1,74 @@
+{
+  "collected_utc": "2026-10-19T05:34:53.396027+00:00",
+  "writer_pid": 62582,
+  "HEAD_before": "50aba62b2cccd197fa2387965e538376262396bd",
+  "intended_changes": "One existing Ari board link, checklistdate andonecheckedartistscope row, currentcheckpoint/journal plus twoartist handoffdocs. No graph/production/accepted asset change.",
+  "files": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 15779,
+      "sha256": "195a0b970cfa28bfb0b793f41dd065228c902a40e3481d927800a8daed2e28cd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 6891,
+      "sha256": "cfbca0389c5f3447b8479372a143538184589e8ff4aa511930c345aac2c5c44b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 6311,
+      "sha256": "04eee19511380af9e74b1f5dc9f85a1cff4796845de3ef42978c26f8135e0a06"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 11033,
+      "sha256": "20c25a1f8ccb9c79e1c7cd500318c7491397cf4dfa25d664a753616fe905459d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ARTIST-HANDOFF.md",
+      "bytes": 2418,
+      "sha256": "08fdb8eaa61304a2af305e357516345ccf26a1a5d5e42c2ece0685fc1f90af40"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/README.md",
+      "bytes": 3681,
+      "sha256": "74ac32840255895973646b22bdf5ced1922d035f5706eebcbf641b4678c65b08"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ROOT-IMAGE.json",
+      "bytes": 5094,
+      "sha256": "77cc97891fa262f9b5c23e9f7cb9050700a7e26dbd6e051de849382724326a9f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/IMAGE-REVIEW-2.md",
+      "bytes": 2709,
+      "sha256": "5ff5c635042a23795d319994a5d6baf8c53b9f27f738b4430f9b4f68423695af"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/IMAGE-REVIEW-2-RECEIPT.json",
+      "bytes": 11151,
+      "sha256": "8fa960df1501d1ceb29722c5c7a0beaeb6bddbf24b1c8e26f3089a6b76111f37"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/NATIVE-2.json",
+      "bytes": 5204,
+      "sha256": "969e8f526d6a4e486435f918886678224408977858a00c8ede651b8bf4cde5b7"
+    }
+  ],
+  "diff": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/DELIVERY.diff",
+    "bytes": 14662,
+    "sha256": "e7802011be537bbb605bb6ed6eeba51c0123b2745499585faba8220f10751977"
+  },
+  "source_invariants": {
+    "board_exactly1anchor_added_nootherbytechange": true,
+    "all_old_checkboxes_preserved_inorder": true,
+    "new_artist_row": "- [x] Original editable Ari lining and facing artist sheet with front, back, both sleeve linings and pocket-layer details; physical interior, sewing, 3D fit and motion remain open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-18/ari-interior-artist/ARTIST-HANDOFF.md)",
+    "entire_outstanding_section_exact": true,
+    "alllocal_links_in_artist_handoff_andREADME_exist": true
+  },
+  "root_scope": "Own exact changes authored after full actual-image A and independent root46568d. Documentarycritic/root readback pending before localcommit; no newcapture needed or permitted.",
+  "status": " M docs/ARTIST-WARDROBE.html\n M docs/PROJECT-CHECKLIST.md\n M docs/RESUME-2026-10-18.md\n M docs/WORK-WINDOW-2026-10-18.md\n?? docs/evidence/appearance-2026-10-18/ari-interior-artist/\n",
+  "next": "Independent exact documentary scope/link review, then root complete handoff andpin verification, ROOT-CLOSE and local checkpoint commit.",
+  "limits": "No broadproductquality credit. Two candidatecaptures/primaryviews exhausted. No morecollectorrepair/trialthiswindow; fullconstructorHOLD."
+}

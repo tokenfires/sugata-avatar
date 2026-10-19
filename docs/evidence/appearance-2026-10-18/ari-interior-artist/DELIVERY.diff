@@ -1,0 +1,82 @@
+diff --git a/docs/ARTIST-WARDROBE.html b/docs/ARTIST-WARDROBE.html
+index bdd2e279..a6ff38e5 100644
+--- a/docs/ARTIST-WARDROBE.html
++++ b/docs/ARTIST-WARDROBE.html
+@@ -29,7 +29,7 @@
+ <article class="card" aria-labelledby="item-7">
+ <div class="copy"><p class="label">Illustrated character direction</p><h3 id="item-7">Short rust layers, broader volume</h3></div>
+ <figure><img src="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png" alt="Original Ari front, profile, rear and portrait concept with short dark curls, an open rust jacket, slate tee, generous ink trousers and ivory shoes" decoding="async"><figcaption><p>Ari's short jacket and generous trousers, with distinct front, profile and rear views to discuss torso depth, seat and garment balance.</p><p class="limit">Artist discussion artwork. Material and waist details need further authorship; editable character, wearable fit and motion remain open.</p><a class="original" href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png">Open complete original image ↗</a></figcaption></figure>
+-<div class="links" aria-label="Ari character files"><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md">Character brief</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/review.html">Bomber drawing</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/bomber.svg">Editable SVG</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/design.json">Design JSON</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-source-authority/SOURCE-HANDOFF.md">Body source baseline</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-body-recipe/AUTHORING-REQUEST.md">Body recipe request (held)</a></div>
++<div class="links" aria-label="Ari character files"><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md">Character brief</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/review.html">Bomber drawing</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/review-caption.html">Interior and lining drawing</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/bomber.svg">Editable SVG</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/design.json">Design JSON</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-source-authority/SOURCE-HANDOFF.md">Body source baseline</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-body-recipe/AUTHORING-REQUEST.md">Body recipe request (held)</a></div>
+ </article>
+ </div></section>
+ <section id="pieces" aria-labelledby="pieces-title"><div class="section-head"><h2 id="pieces-title">Editable wardrobe drafts</h2><p>Retained actual mesh images. Each piece has its own authored, unitless frame.</p></div><div class="grid">
+diff --git a/docs/PROJECT-CHECKLIST.md b/docs/PROJECT-CHECKLIST.md
+index 81f56db4..b76a3ba6 100644
+--- a/docs/PROJECT-CHECKLIST.md
++++ b/docs/PROJECT-CHECKLIST.md
+@@ -1,6 +1,6 @@
+ # Sugata project checklist
+ 
+-Updated October 7, 2026. **Customization is usable; complete character quality is still in progress.** Checked items describe the supported features or artist deliverables below, within their recorded review limits.
++Updated October 18, 2026. **Customization is usable; complete character quality is still in progress.** Checked items describe the supported features or artist deliverables below, within their recorded review limits.
+ 
+ ## Usable now
+ 
+@@ -35,6 +35,8 @@ Updated October 7, 2026. **Customization is usable; complete character quality i
+ 
+ - [x] Original editable Ari bomber technical drawing with front, right profile, rear, inside front-panel schematic and zipper/hem details; sewing, physical dimensions, full interior, 3D fit and motion remain open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-07/ari-bomber-drawing/ARTIST-HANDOFF.md)
+ 
++- [x] Original editable Ari lining and facing artist sheet with front, back, both sleeve linings and pocket-layer details; physical interior, sewing, 3D fit and motion remain open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-18/ari-interior-artist/ARTIST-HANDOFF.md)
++
+ [Open the visual wardrobe board](ARTIST-WARDROBE.html) to inspect the retained character directions and editable drafts together.
+ 
+ These references do not establish physical folding, wearable fit or finished garment appearance. The original body/foundation source data and coverage guide support further authorship. The latest sewn-panel trial failed its clearance requirement and remains isolated. [Current evidence and recovery](DAY-REPORT-2026-10-04.md)
+diff --git a/docs/RESUME-2026-10-18.md b/docs/RESUME-2026-10-18.md
+index 7ec69dac..c43eda31 100644
+--- a/docs/RESUME-2026-10-18.md
++++ b/docs/RESUME-2026-10-18.md
+@@ -2,7 +2,15 @@
+ 
+ Robert explicitly resumed after updates in this chat, with the independent quality critic and ten-minute recovery timer. This revokes the human pause for Sugata. It does not admit expired trials or bypass a source/constructor HOLD.
+ 
+-The current checkout is `codex/bob-appearance-2026-09-29`, HEAD `2fb6d2bf26c237a4481e188ed1c3c4e309f4c20d`. Nine untracked files under `docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/` are preserved. Root verified their seven current and seven source bindings and reproduced the eight-path old/new semantic comparison. The pending README and independent REVIEW remain unchanged. [Recovery receipt](evidence/appearance-2026-10-18/resume-from-checkpoint/RECOVERY.json).
++## Latest current checkpoint — Ari interior artist drawing
++
++[Open the reviewed editable lining/facing sheet](evidence/appearance-2026-10-18/ari-interior-artist/ARTIST-HANDOFF.md). It adds back and both sleeve linings, facing/zip-edge relationships, hidden outer-pocket bag layers and neck/fold details to the retained exterior. Actual final image, independent critic and root reviews qualify artist discussion only. Two captures used; no more variants or reference views in this slice. One first-image caption mismatch was corrected in separate files; originals are exact. [Slice receipt](evidence/appearance-2026-10-18/ari-interior-artist/README.md), [root image result](evidence/appearance-2026-10-18/ari-interior-artist/ROOT-IMAGE.json).
++
++The checklist and existing wardrobe board gain only this specific artist deliverable/link. All physical/sewing/3D/body-fit/material/morph/pose/motion/runtime/AAA and full-character goals remain open. The collector/source-checker route is closed for this window, the large constructor remains held, and the17-case synthetic repair stays limited. No accepted/default/production/source-geometry change occurred. Review server retained; ten-minute recovery remains active in this chat. After documentary closure/local checkpoint, select a distinct bounded improvement with fresh critic worth. Human check-in/pause takes precedence.
++
++## Recovered starting state
++
++The starting checkout was `codex/bob-appearance-2026-09-29`, HEAD `2fb6d2bf26c237a4481e188ed1c3c4e309f4c20d`. Nine then-untracked files under `docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/` are preserved unchanged in local commit aecfdaee. Root verified their seven current and seven source bindings and reproduced the eight-path old/new semantic comparison. The pending README and independent REVIEW remain unchanged. [Recovery receipt](evidence/appearance-2026-10-18/resume-from-checkpoint/RECOVERY.json). Read live Git state and the latest work-window receipt before resuming any job.
+ 
+ The October 6 checkpoint is historical. Ari's original concept, drawings and later source studies have already progressed beyond that nomination. Read the [October 7–10 work window](WORK-WINDOW-2026-10-07.md), especially its final material-volume contract receipt, and the [latest prospective contract review](evidence/appearance-2026-10-10/ari-volume-owner-revision/REVIEW.md).
+ 
+@@ -10,7 +18,7 @@ The revised contract defines initial native distance U0, range minimum U1 and co
+ 
+ The review service was observed as Vite PID 870 on loopback port 5173; the root returned HTTP 200. The scoped Sugata/Blender/capture census found no other matching worker. This is service availability, not a machine-wide census or visual qualification.
+ 
+-Continue with a concrete bounded implementation/preflight question, using the independent critic and root verification. Preserve the nine untracked files, accepted assets, original references, ignored source buffers, frozen evidence and unrelated worktrees. Do not repeat the closed jacket searches, refused loft/control recipes, local foundation tuning or historical native observers. Numerical/source results cannot qualify appearance, fit, physical occupancy or motion. The complete character, expression, representation, wardrobe, coupled-fit, performance, VTuber and Mii roadmap remains open.
++Continue with a concrete bounded question, using the independent critic and root verification, subject to the latest closures above. Preserve the nine now-committed files, accepted assets, original references, ignored source buffers, frozen evidence and unrelated worktrees. Do not repeat the closed jacket searches, refused loft/control recipes, local foundation tuning or historical native observers. Numerical/source results cannot qualify appearance, fit, physical occupancy or motion. The complete character, expression, representation, wardrobe, coupled-fit, performance, VTuber and Mii roadmap remains open.
+ 
+ The existing timer is restored through the app API and read back separately. It belongs to this chat; its ten-minute cadence and quiet notification intent remain. A human check-in gets a concise status before another substantial slice. On pause, stop or collect owned work, checkpoint, retain the review server and pause the timer through the app API with readback. No purchases, subscription/model/reset-credit changes, pushing, publishing or other-project resumption are authorized.
+ 
+diff --git a/docs/WORK-WINDOW-2026-10-18.md b/docs/WORK-WINDOW-2026-10-18.md
+index 312299dd..aa808b5b 100644
+--- a/docs/WORK-WINDOW-2026-10-18.md
++++ b/docs/WORK-WINDOW-2026-10-18.md
+@@ -42,3 +42,13 @@ Critic130e60/PID6545 at04:51:26UTC independently checked all17 actual call/outco
+ The distinct [v2 integration](evidence/appearance-2026-10-18/ari-source-eligibility-v2/README.md) received fresh worth2c81f0 and exact-copy preparation7d6852, then stable source B (a781b5/PID17676/04:57:15UTC). Critic found an interrupted-poll/group-signalling ownership gap outside the17 synthetic evidence/link cases. Root independently verified the whole collector and installed pinned subprocess clauses (8faf84,b50c23), read the full3482+35092-byte handoff (6abe91), and verified70CONFIG pins/four exact copies plus direct/runtime/output bindings. No actual process fault or PID reuse was inferred.
+ 
+ ROOT-CLOSE.json records zero admission/source decode/worker/observer/native/field/mesh/render jobs and no cache. All original/repair sources and synthetic credit remain exact at their limited scope. **No further collector correction or trial this window.** Do not launch either closed candidate or revive its deadlines. The formal source/grid question is unanswered; the large constructor remains held. Next is a distinct artist-owned Ari interior/lining design nomination with a bounded question, current primary visual references, fresh critic worth and actual image review. Full AAA/character/expression/representation/wardrobe/physical/morph/pose/motion/runtime/performance/VTuber/Mii remain. Timer active; human steering wins.
++
++## October 18, 22:33 Pacific — Ari inside drawing reviewed
++
++The [editable lining and facing artist sheet](evidence/appearance-2026-10-18/ari-interior-artist/ARTIST-HANDOFF.md) adds front/back/both-sleeve lining intent, neck and front facings, hidden outer-pocket bags and enlarged zipper/pocket/fold details. The bounded full-lining versus partial/defer question is resolved at artist discussion scope. Retained exterior and character artwork are unchanged. Two Firecrawl searches, two current primary pages and two actual primary image views informed the brief; no more reference investigation is warranted here.
++
++Source gates and actual first image found one caption/mark mismatch, independently witnessed by root and critic. A separate caption-only clone preserves every vector operand/style and all original files. The final root-owned full-page capture was05:30:20.563–.692UTC, IAB3/tab1, default1280×720, three loaded images, image1280×1660/175382bytes/SHA89299e3be5e45c4ffb8b449bcfcac75f59b84d388c08f1a2bf1855cf0bfd6ee4. Criticb91e8e/PID62225 at05:32:09UTC gives stable image A. Root read the complete2709+11151-byte pair (894292), verified all19 current inputs and independently inspected the actual final image (46568d). [Root result and exact limits](evidence/appearance-2026-10-18/ari-interior-artist/ROOT-IMAGE.json).
++
++The two candidate captures and two primary image views are exhausted; do not keep polishing this sheet. One local board link and one narrow checked artist-deliverable row make it discoverable. The full slice receipt is in its README and final documentary closure. System Python's missing PIL was retained as a pre-write metadata error; JPEG SOF metadata was read with stdlib, without install or image modification. All earlier source-reader corrections and first-image refusal remain recorded.
++
++No physical interior topology, measured sewing/ease, material/pocket/zip mechanics,3D, body fit, rig/morph/pose/motion, runtime, complete-character or AAA quality is qualified. No accepted/default asset, source geometry or production code changed. No data-member decode or computational/native-avatar/Blender/WebGPU trial occurred. Collector repairs/trials remain closed for this window and the constructor remains held. Next is a distinct useful improvement with a fresh bounded question and critic worth, preserving the entire roadmap. Timer stays active; human check-in or pause wins.

@@ -1,0 +1,50 @@
+{
+  "collected_utc": "2026-10-19T05:28:20.585307+00:00",
+  "writer_pid": 61623,
+  "root_whole_handoff_read": "fc7632 exit0 complete MD/receipt",
+  "verified_input_rows": 12,
+  "handoff_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/IMAGE-REVIEW.md",
+      "bytes": 2995,
+      "sha256": "81056464a42ec2590ecdd061020aec87355b6a4b199c0f6f2469bc99e683342b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/IMAGE-REVIEW-RECEIPT.json",
+      "bytes": 9259,
+      "sha256": "0ee702bfc02f1a177c46c8026cbf7fbe59354e75e6b5562eee2746a7522c389a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ROOT-FIRST.md",
+      "bytes": 2290,
+      "sha256": "904fbf80bb93fd910e650185691583f9e6022408badd2e948f2410b9c411b21b"
+    }
+  ],
+  "decision": "Agree critic F1, same source/image defect independently recorded as root F4. A one isolated caption-only correction; no drawing/style or scope change.",
+  "exact_change": {
+    "element": "facing-caption-1",
+    "old": "LF-L meets F-L at the dashed join.",
+    "new": "LF-L meets F-L at their shared edge."
+  },
+  "filenames": [
+    "interior-caption.svg",
+    "design-caption.json",
+    "review-caption.html"
+  ],
+  "preserve": [
+    "interior.svg",
+    "design.json",
+    "review.html",
+    "first.jpg",
+    "NATIVE.json"
+  ],
+  "capture_budget": {
+    "used": 1,
+    "remaining": 1
+  },
+  "next": "Prepare exact isolated text clone and complete metadata association; independent source review then root gate before last whole capture.",
+  "limits": [
+    "No physical sewing/3D/bodyfit/motion/AAA or source eligibility claim.",
+    "No more variants or reference views after this correction budget."
+  ]
+}

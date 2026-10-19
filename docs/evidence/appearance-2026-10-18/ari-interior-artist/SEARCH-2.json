@@ -1,0 +1,75 @@
+{
+  "query": {
+    "query": "G9 Harrington jacket inside Fraser tartan lining",
+    "includeDomains": [
+      "baracuta.com"
+    ],
+    "sources": [
+      "web"
+    ],
+    "domainTools": false,
+    "limit": 6
+  },
+  "result": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://us.baracuta.com/collections/g9-jacket\",\"title\":\"Baracuta G9 Harrington Jacket | Shop the Original Classic\",\"description\":\"# G9 Jacket\\nCrafted from Baracuta Cloth and lined with the signature Fraser Tartan in breathable Coolmax® fabric, the jacket is defined by a series of considered details.\",\"position\":1},{\"url\":\"https://us.baracuta.com/products/baracuta-g9-harrington-jacket-brcps3001ut3124-1007\",\"title\":\"G9 Harrington Jacket Mist | Baracuta\",\"description\":\"In stock Rating 5.0(2)• Internal pocket in external cloth with personalised Baracuta button closure; • Fraser Tartan lining in breathable Coolmax® fabric; • Made from a poly-cotton ...\",\"position\":2},{\"url\":\"https://www.baracuta.com/blogs/focus/fraser-tartan-tartan-up-your-life?srsltid=AU7gw4WJ4CLRBXGpSXXNC4MDKt3HZFb7_Dhd2xMjWuUcgXrHvhs1iVhy\",\"title\":\"TARTAN - Baracuta\",\"description\":\"The G9 was designed to protect against wet and windy weather and for those who needed extra movement space. The brothers also included innovative features in ...\",\"position\":3},{\"url\":\"https://us.baracuta.com/products/baracuta-g9-harrington-jacket-brcps1123bcnyz-100\",\"title\":\"G9 Harrington Jacket Black | Baracuta\",\"description\":\"Rating 4.9559 · 14-day returns• Internal pocket in external cloth with personalised Baracuta button closure; • Fraser Tartan lining in breathable Coolmax® fabric; • Made from a poly-cotton ...\",\"position\":4},{\"url\":\"https://www.baracuta.com/blogs/focus/how-baracuta-went-on-to-having-a-fabric-named-after-itself?srsltid=AU7gw4XWh5yNY8SoTIgE9E4Thmxtkf7JZfRATce77u19f3o69Xzu-2En\",\"title\":\"BARACUTA CLOTH\",\"description\":\"Made in beautiful Manchester in the UK, the G9 Harrington is the first of its kind. It was created to assist golfers carry out a successful game of golf.\",\"position\":5},{\"url\":\"https://www.baracuta.com/pages/about?srsltid=AU7gw4UBe0Q0CvdbiS5BooVrz1LmH6cva0ygiJF8OEkyxpUOpt8OQSqr\",\"title\":\"About - Baracuta\",\"description\":\"Even though our G9 Harrington dates back to 1937, the Fraser Tartan lining the inside has Scottish-Gaelic roots going all the way back to the 13th century.\",\"position\":6}],\"tools\":[]},\"creditsUsed\":2,\"id\":\"01a15289-f5b5-736b-8329-5bd607c7519b\",\"warning\":\"Some tool discovery results are unavailable.\",\"agent_hints\":[\"All 6 web results are excerpts only (#1 \\\"https://us.baracuta.com/collections/g9-jacket\\\", #2 \\\"https://us.baracuta.com/products/baracuta-g9-harrington-jacket-brcps3001ut3124-1007\\\", #3 \\\"https://www.baracuta.com/blogs/focus/fraser-tartan-tartan-up-your-life?srsltid=AU7gw4WJ4CLRBXGpSXXNC4MDKt3HZFb7_Dhd2xMjWuUcgXrHvhs1iVhy\\\" and 3 more). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+        }
+      ],
+      "structuredContent": {
+        "success": true,
+        "data": {
+          "web": [
+            {
+              "url": "https://us.baracuta.com/collections/g9-jacket",
+              "title": "Baracuta G9 Harrington Jacket | Shop the Original Classic",
+              "description": "# G9 Jacket\nCrafted from Baracuta Cloth and lined with the signature Fraser Tartan in breathable Coolmax® fabric, the jacket is defined by a series of considered details.",
+              "position": 1
+            },
+            {
+              "url": "https://us.baracuta.com/products/baracuta-g9-harrington-jacket-brcps3001ut3124-1007",
+              "title": "G9 Harrington Jacket Mist | Baracuta",
+              "description": "In stock Rating 5.0(2)• Internal pocket in external cloth with personalised Baracuta button closure; • Fraser Tartan lining in breathable Coolmax® fabric; • Made from a poly-cotton ...",
+              "position": 2
+            },
+            {
+              "url": "https://www.baracuta.com/blogs/focus/fraser-tartan-tartan-up-your-life?srsltid=AU7gw4WJ4CLRBXGpSXXNC4MDKt3HZFb7_Dhd2xMjWuUcgXrHvhs1iVhy",
+              "title": "TARTAN - Baracuta",
+              "description": "The G9 was designed to protect against wet and windy weather and for those who needed extra movement space. The brothers also included innovative features in ...",
+              "position": 3
+            },
+            {
+              "url": "https://us.baracuta.com/products/baracuta-g9-harrington-jacket-brcps1123bcnyz-100",
+              "title": "G9 Harrington Jacket Black | Baracuta",
+              "description": "Rating 4.9559 · 14-day returns• Internal pocket in external cloth with personalised Baracuta button closure; • Fraser Tartan lining in breathable Coolmax® fabric; • Made from a poly-cotton ...",
+              "position": 4
+            },
+            {
+              "url": "https://www.baracuta.com/blogs/focus/how-baracuta-went-on-to-having-a-fabric-named-after-itself?srsltid=AU7gw4XWh5yNY8SoTIgE9E4Thmxtkf7JZfRATce77u19f3o69Xzu-2En",
+              "title": "BARACUTA CLOTH",
+              "description": "Made in beautiful Manchester in the UK, the G9 Harrington is the first of its kind. It was created to assist golfers carry out a successful game of golf.",
+              "position": 5
+            },
+            {
+              "url": "https://www.baracuta.com/pages/about?srsltid=AU7gw4UBe0Q0CvdbiS5BooVrz1LmH6cva0ygiJF8OEkyxpUOpt8OQSqr",
+              "title": "About - Baracuta",
+              "description": "Even though our G9 Harrington dates back to 1937, the Fraser Tartan lining the inside has Scottish-Gaelic roots going all the way back to the 13th century.",
+              "position": 6
+            }
+          ],
+          "tools": []
+        },
+        "warning": "Some tool discovery results are unavailable.",
+        "id": "01a15289-f5b5-736b-8329-5bd607c7519b",
+        "creditsUsed": 2,
+        "agent_hints": [
+          "All 6 web results are excerpts only (#1 \"https://us.baracuta.com/collections/g9-jacket\", #2 \"https://us.baracuta.com/products/baracuta-g9-harrington-jacket-brcps3001ut3124-1007\", #3 \"https://www.baracuta.com/blogs/focus/fraser-tartan-tartan-up-your-life?srsltid=AU7gw4WJ4CLRBXGpSXXNC4MDKt3HZFb7_Dhd2xMjWuUcgXrHvhs1iVhy\" and 3 more). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+        ]
+      },
+      "isError": false
+    }
+  }
+}
