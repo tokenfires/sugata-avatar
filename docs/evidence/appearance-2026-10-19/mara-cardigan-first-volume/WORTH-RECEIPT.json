@@ -1,0 +1,198 @@
+{
+  "schema": "critic-Mara-cardigan-first-volume-worth-v1",
+  "decision": "A bounded reference and complete inert source preparation only",
+  "pending_edits": false,
+  "whole_image_view": {
+    "tool": "tools.view_image",
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/original-first.jpg",
+    "detail": "original",
+    "scope": "Whole1280x1131 saved accepted drawing; no capture/render/edit; tool process/job identity not exposed"
+  },
+  "read_scopes": {
+    "full_current": [
+      "PLAN.md",
+      "WORTH-INPUTS.json (all13 exact bindings)"
+    ],
+    "full_retained": [
+      "mara-cardigan-first-native/ARTIST-HANDOFF.md (13lines)",
+      "mara-cardigan-first-native/README.md (9lines)",
+      "mara-cardigan-first-native/IMAGE-RESULT.md (15lines)",
+      "mara-cardigan-first-native/ROOT-IMAGE-CLOSE.json (20lines)",
+      "mara-cardigan-technical-design/BRIEF.md (22lines)",
+      "mara-cardigan-technical-design/REFERENCES.md (11lines)",
+      "docs/PROJECT-CHECKLIST.md (61lines)"
+    ],
+    "selected": "PRODUCT-ROADMAP.md Phase1 rows/artist-draft and coupling limits38–66, expression121, phases123–129, immediate work order131–138; board selected Mara/cardigan line26. No whole roadmap/board audit claimed.",
+    "svg": "Exact raw bytes hashed under13-row manifest; not a new complete vector-operand or XML-tree qualification.",
+    "json": "Parsed saved JSON, source/palette/features/editability/scope and top-level key inventory read; not a new full element_tree comparison. Initial overbroad dump was truncated; final non-tree semantic scope recovered separately.",
+    "memory": "Quick registry lookup and642–643 scope only: historical checkpoint-specific caution, not current source/asset/authorization evidence. Current explicit parent contract controls; no historical runtime conclusion used.",
+    "instructions": "Checked ancestor/leaf AGENTS.md paths; none present in reported checks. No skill required for this local read-only worth decision."
+  },
+  "witness": {
+    "image": "Whole1280x1131 original-first.jpg: long front silhouettex97–390/y315–749;bandx188–294;two pocketsx152–187 and293–328/y568–655; full cuffs above lower body hem; profilex573–653 and inside schematicx953–1059 are separate artist views.",
+    "source": [
+      "ARTIST-HANDOFF.md:9,11,13 (graphic pocket/band roles; 3D open; fixed drawing/capture closed)",
+      "BRIEF.md:3,9–14,20–22 (unitless original roles, independent views, no 3D/fit authority)",
+      "design.json featuresB/P-R/P-L/C-R/C-L/H/S (complete role proposals, no thickness/sewn equality)",
+      "PLAN.md paragraphs4–6 (new source/interface/actual-appearance ownership; no primitives substitute)",
+      "PROJECT-CHECKLIST.md:30,46,48–61 and PRODUCT-ROADMAP.md:44,52–66,131–138 (artist-source versus wearable/full-goal limits)"
+    ],
+    "classification": "New unowned3D artist responsibility, not a proved drawing defect or universal absence of a cardigan asset."
+  },
+  "alternatives": [
+    {
+      "choice": "Bounded original standalone artist volume",
+      "tradeoff": "Immediate editable common depth/inner-face/opening/interface source; can fail stiffness, silhouette or coherence and remains unfitted."
+    },
+    {
+      "choice": "Defer to complete coupled body/foundation/garment owner",
+      "tradeoff": "Stronger wearable relevance and less isolated draft accumulation, but much larger unresolved effort and no immediate depth ownership."
+    }
+  ],
+  "admission_limits": {
+    "yes": "Only bounded reference and complete inert source/workload preparation after root independently verifies this whole pair.",
+    "no": [
+      "No source authoring by critic",
+      "No CPU build/check/import/target evaluation",
+      "No GPU/browser/native/capture",
+      "No reference/network call",
+      "No copying or modifying accepted drawing/source/assets",
+      "No source/data/image qualification or checklist/board credit"
+    ],
+    "future_gates": "Full new source+root gate before sole CPU entry, actual CPU qualification before separate GPU gate/one fixed six-view packet/whole image, truthful separate delivery only after full image A.",
+    "reference_budget": "Plan up to2 focused queries/1 primarypage/1 whole image/6reportedcredits; if inadequate, stop retrieval and require separate original-only worth. None used by critic.",
+    "prospective_clock": "90minutes only after future root worth acceptance, through complete closure; no new clock started by this critic.",
+    "first_failure": "First new source/data/image B/unknown/capacity closes without source/shape/material/topology/shader/parameter/camera/render/retake/relabel/numerical successor.",
+    "preserved": "Frozen original drawing and its capture; all closed routes; constructorHOLD; accepted/default assets;22scoped checks/10broad open/fullroadmap. No wearable/fit/cloth/mechanical/manufacturing/runtime/AAA claim."
+  },
+  "errors": [
+    {
+      "job": "f53001",
+      "kind": "read-output truncation",
+      "detail": "Initial combined read printed JSON element_tree because exclusion keys missed actual element_tree; resulting output was truncated. No target/source mutation. 80f954 recovers complete references/checklist and selected non-tree JSON semantics. No full JSON-tree audit claimed."
+    }
+  ],
+  "actionable_blockers": [],
+  "jobs": [
+    {
+      "purpose": "Whole plan/13-row input manifest read",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib\nroot=Path('/Users/robault/GitHub/sugata-avatar')\np=root/'docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor q in [Path('/Users/robault/AGENTS.md'),Path('/Users/robault/GitHub/AGENTS.md'),root/'AGENTS.md']:\n if q.exists():print('AGENTS',q);print(q.read_text())\nfor n in ['PLAN.md','WORTH-INPUTS.json']:\n q=p/n;b=q.read_bytes();print('FILE',q,'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "3a928d",
+      "exit_code": 0,
+      "pid": 54746,
+      "utc": "2026-10-19T14:42:17.585733+00:00"
+    },
+    {
+      "purpose": "All13 current pins; full retained handoffs/brief/image decision/closure plus selected roadmap/board; initial JSON dump truncated",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\nroot=Path('/Users/robault/GitHub/sugata-avatar');p=root/'docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume'\ndef pin(q):\n b=q.read_bytes();return {'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nv=json.loads((p/'WORTH-INPUTS.json').read_text());assert len(v['inputs'])==13\nfor r in v['inputs']:assert pin(Path(r['path']))==r,r\nprint(json.dumps({'pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'verified_rows':len(v['inputs']),'manifest':pin(p/'WORTH-INPUTS.json')},indent=2))\nfor rel in ['docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md','docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/README.md','docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/IMAGE-RESULT.md','docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ROOT-IMAGE-CLOSE.json','docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/BRIEF.md','docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/REFERENCES.md','docs/PROJECT-CHECKLIST.md']:\n q=root/rel;print('\\nFILE',q)\n for i,l in enumerate(q.read_text().splitlines(),1):print(f'{i}: {l}')\nq=root/'docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/design.json';j=json.loads(q.read_text());print('\\nJSON_KEYS',list(j));print('JSON_NON_TREE',json.dumps({k:v for k,v in j.items() if k not in ['tree','elements','nodes','source_xml']},ensure_ascii=False,indent=2))\nq=root/'docs/PRODUCT-ROADMAP.md';ls=q.read_text().splitlines();print('\\nROADMAP_SELECTED')\nfor i,l in enumerate(ls,1):\n if 1<=i<=72 or 115<=i<=138 or 'Immediate work order' in l or 'Continue Phase' in l or 'wardrobe' in l.lower():print(f'{i}: {l}')\nq=root/'docs/ARTIST-WARDROBE.html';print('\\nBOARD_CARDIGAN_LINES')\nfor i,l in enumerate(q.read_text().splitlines(),1):\n if 'Mara' in l or 'cardigan' in l.lower():print(f'{i}: {l}')\nPY",
+      "chunk_id": "f53001",
+      "exit_code": 0,
+      "pid": 55755,
+      "utc": "2026-10-19T14:42:52.074637+00:00",
+      "output_truncated": true
+    },
+    {
+      "purpose": "Complete omitted references/checklist and targeted JSON semantic recovery",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,os,datetime\nroot=Path('/Users/robault/GitHub/sugata-avatar')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor rel in ['docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/REFERENCES.md','docs/PROJECT-CHECKLIST.md']:\n q=root/rel;print('\\nFILE',q)\n for i,l in enumerate(q.read_text().splitlines(),1):print(f'{i}: {l}')\nj=json.loads((root/'docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/design.json').read_text());print('\\nJSON_TOP_KEYS',[(k,type(v).__name__) for k,v in j.items()])\nfor k,v in j.items():\n if k in ['schema','title','source','svg','views','features','limits','coordinate_system','palette','authorship','source_sha256','source_bytes','source_xml_sha256'] or not isinstance(v,(list,dict)):print(k,json.dumps(v,ensure_ascii=False))\nq=root/'docs/PROJECT-CHECKLIST.md';s=q.read_text();print('CHECKED',sum(1 for l in s.splitlines() if l.lstrip().startswith('- [x]')),'OPEN',sum(1 for l in s.splitlines() if l.lstrip().startswith('- [ ]')))\nPY",
+      "chunk_id": "80f954",
+      "exit_code": 0,
+      "pid": 56122,
+      "utc": "2026-10-19T14:43:03.183475+00:00"
+    },
+    {
+      "purpose": "Applicable instruction-path check, memory scope only, exclusive output absence",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport datetime,os,json\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor d in list(p.parents)[:5]+[p]:\n q=d/'AGENTS.md'\n if q.exists():print('APPLICABLE_INSTRUCTIONS',q);print(q.read_text())\nm=Path('/Users/robault/.codex/memories/MEMORY.md').read_text().splitlines()\nprint('MEMORY_SCOPE_ONLY')\nfor i in [642,643]:print(i,m[i-1])\nprint('WORTH_PAIR_ABSENT',not(p/'WORTH.md').exists(),not(p/'WORTH-RECEIPT.json').exists())\nPY",
+      "chunk_id": "130f5e",
+      "exit_code": 0,
+      "pid": 57629,
+      "utc": "2026-10-19T14:43:54.333805+00:00"
+    }
+  ],
+  "writes_only": [
+    "WORTH.md",
+    "WORTH-RECEIPT.json"
+  ],
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/PLAN.md",
+      "bytes": 6415,
+      "sha256": "b283791d8cac0a120bd0b81a9b7ef586da027caea380326ae4c39dd72b06e934"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md",
+      "bytes": 2119,
+      "sha256": "38c5bada9d90499073eb1e8cd3162d1a42f581d6c7a2b5aa70530176c3f9a4c3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/README.md",
+      "bytes": 1533,
+      "sha256": "fee544d57b753876ecb7683aca5923880647913a81d8a5bb3ddbb85e0e8a8d18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/original-first.jpg",
+      "bytes": 116380,
+      "sha256": "639a012ffda45999b721ac602a88ad6a3c109564fffb5b75c871ef6b6360e0a5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/IMAGE-RESULT.md",
+      "bytes": 5993,
+      "sha256": "89b5e839a03d11cdeccff1b0af0b1e517a508a86dcff8bdc903261263ed3eba2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ROOT-IMAGE-CLOSE.json",
+      "bytes": 2405,
+      "sha256": "4c03153b9b8a65b28403afbfe2402868965f36711c806acab17e30795660d020"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/BRIEF.md",
+      "bytes": 5986,
+      "sha256": "f2cbe86da7ce1465bab123c8bdfbf66b2af69c60506955b01f5003ceb0c4a750"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/REFERENCES.md",
+      "bytes": 3135,
+      "sha256": "7e0a318caa2bed5d591ec3e4907485027c572bf5aa23133a5bd2c5c4c757dc1e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/cardigan.svg",
+      "bytes": 10437,
+      "sha256": "63be0628cfd6afbaa43550c5e2ed4efda3bbb95a4020bbb81289859c9d99b3a8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/design.json",
+      "bytes": 38240,
+      "sha256": "554a38612244346f49f8109805c3224947fed071299092a99bc1487147b6f124"
+    }
+  ],
+  "input_manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/WORTH-INPUTS.json",
+    "bytes": 3305,
+    "sha256": "8b61840846773e1f3aa0de0dc88de81d7532da7b936533558b57567b07b2e5ee"
+  },
+  "verified_manifest_rows": 13,
+  "collection": {
+    "pid": 59300,
+    "utc": "2026-10-19T14:44:50.566778+00:00",
+    "exclusive_writes": true
+  },
+  "worth_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/WORTH.md",
+    "bytes": 3364,
+    "sha256": "1307fc17bbc0c757beffb562e6107f1bdc512c010969e236f4db2e8a8dba3b4b"
+  }
+}

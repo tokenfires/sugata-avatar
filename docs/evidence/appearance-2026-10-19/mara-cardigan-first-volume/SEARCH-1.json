@@ -1,0 +1,66 @@
+{
+  "arguments": {
+    "query": "site:landsend.com women long open cardigan patch pockets",
+    "sources": [
+      "web"
+    ],
+    "limit": 3,
+    "highlights": true
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://business.landsend.com/Women/Sweaters/Cardigans/Women%27s-Long-Sleeve-Performance-Open-Cardigan-Sweater/p/74753\",\"title\":\"Women's Long Sleeve Performance Open Cardigan Sweater\",\"description\":\"In stock Rating 4.5(39)Neck and placket trim · Ribbed cuffs and bottom trim · Two functional patch pockets · Gathered back yoke · 78% acrylic/22% nylon · Machine wash cold, lay flat to dry ...\",\"position\":1},{\"url\":\"https://www.landsend.com/products/womens-cotton-modal-long-sleeve-zip-front-cardigan-sweater-jacket/id_390771\",\"title\":\"Women's Cotton Modal Long Sleeve Zip Front Cardigan Sweater Jacket\",\"description\":\"Two pockets 60% Better CottonTM/40% rayon modal. Made from our softest yarns to resist pilling and fading. open giving a collar like look. use the pockets.\",\"position\":2},{\"url\":\"https://business.landsend.com/Women/Sweaters/Cardigans/Women%27s-Cotton-Modal-Long-Sleeve-V-Neck-Cardigan-Sweater/p/56401v2\",\"title\":\"Women's Cotton Modal Long Sleeve V-Neck Cardigan Sweater\",\"description\":\"In stock Rating 4.7(74)A V-neck cardigan. Fully fashioned for a great fit Front patch pockets Rib-knit cuff and bottom trim 60% cotton/40% rayon modal\",\"position\":3}],\"tools\":[{\"provider\":\"commbuys-com\",\"capability\":\"public-tenders/list_open_bids\",\"description\":\"Enumerate everything currently open for responses without choosing a filter; follow `next_cursor` for later pages and pass a row's `bid_number` to get_bid.\"},{\"provider\":\"ziprecruiter-com\",\"capability\":\"jobs/company_jobs\",\"description\":\"After search_jobs, with the company slug from a card's company_url (e.g. YO-AI-Labs from /co/YO-AI-Labs/Jobs) and a city.\"},{\"provider\":\"newegg-com\",\"capability\":\"products/open_box\",\"description\":\"Open-box availability on Newegg US for a model number or product keywords: the retailer's Open Box facet, only listings flagged open-box, each with price, in-stock flag and seller. An empty results list means no open-box units are listed right now.\"}]},\"creditsUsed\":2,\"id\":\"01a154a0-4a1d-7172-9592-b935064e27e5\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://business.landsend.com/Women/Sweaters/Cardigans/Women%27s-Long-Sleeve-Performance-Open-Cardigan-Sweater/p/74753\\\", #2 \\\"https://www.landsend.com/products/womens-cotton-modal-long-sleeve-zip-front-cardigan-sweater-jacket/id_390771\\\", #3 \\\"https://business.landsend.com/Women/Sweaters/Cardigans/Women%27s-Cotton-Modal-Long-Sleeve-V-Neck-Cardigan-Sweater/p/56401v2\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://business.landsend.com/Women/Sweaters/Cardigans/Women%27s-Long-Sleeve-Performance-Open-Cardigan-Sweater/p/74753",
+            "title": "Women's Long Sleeve Performance Open Cardigan Sweater",
+            "description": "In stock Rating 4.5(39)Neck and placket trim · Ribbed cuffs and bottom trim · Two functional patch pockets · Gathered back yoke · 78% acrylic/22% nylon · Machine wash cold, lay flat to dry ...",
+            "position": 1
+          },
+          {
+            "url": "https://www.landsend.com/products/womens-cotton-modal-long-sleeve-zip-front-cardigan-sweater-jacket/id_390771",
+            "title": "Women's Cotton Modal Long Sleeve Zip Front Cardigan Sweater Jacket",
+            "description": "Two pockets 60% Better CottonTM/40% rayon modal. Made from our softest yarns to resist pilling and fading. open giving a collar like look. use the pockets.",
+            "position": 2
+          },
+          {
+            "url": "https://business.landsend.com/Women/Sweaters/Cardigans/Women%27s-Cotton-Modal-Long-Sleeve-V-Neck-Cardigan-Sweater/p/56401v2",
+            "title": "Women's Cotton Modal Long Sleeve V-Neck Cardigan Sweater",
+            "description": "In stock Rating 4.7(74)A V-neck cardigan. Fully fashioned for a great fit Front patch pockets Rib-knit cuff and bottom trim 60% cotton/40% rayon modal",
+            "position": 3
+          }
+        ],
+        "tools": [
+          {
+            "provider": "commbuys-com",
+            "capability": "public-tenders/list_open_bids",
+            "description": "Enumerate everything currently open for responses without choosing a filter; follow `next_cursor` for later pages and pass a row's `bid_number` to get_bid."
+          },
+          {
+            "provider": "ziprecruiter-com",
+            "capability": "jobs/company_jobs",
+            "description": "After search_jobs, with the company slug from a card's company_url (e.g. YO-AI-Labs from /co/YO-AI-Labs/Jobs) and a city."
+          },
+          {
+            "provider": "newegg-com",
+            "capability": "products/open_box",
+            "description": "Open-box availability on Newegg US for a model number or product keywords: the retailer's Open Box facet, only listings flagged open-box, each with price, in-stock flag and seller. An empty results list means no open-box units are listed right now."
+          }
+        ]
+      },
+      "id": "01a154a0-4a1d-7172-9592-b935064e27e5",
+      "creditsUsed": 2,
+      "agent_hints": [
+        "All 3 web results are excerpts only (#1 \"https://business.landsend.com/Women/Sweaters/Cardigans/Women%27s-Long-Sleeve-Performance-Open-Cardigan-Sweater/p/74753\", #2 \"https://www.landsend.com/products/womens-cotton-modal-long-sleeve-zip-front-cardigan-sweater-jacket/id_390771\", #3 \"https://business.landsend.com/Women/Sweaters/Cardigans/Women%27s-Cotton-Modal-Long-Sleeve-V-Neck-Cardigan-Sweater/p/56401v2\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+      ]
+    },
+    "isError": false
+  }
+}

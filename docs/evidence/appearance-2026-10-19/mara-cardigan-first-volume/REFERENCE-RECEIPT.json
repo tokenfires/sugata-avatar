@@ -1,0 +1,48 @@
+{
+  "schema": "Mara-cardigan-reference-receipt-v1",
+  "utc": "2026-10-19T14:47:12.234332+00:00",
+  "pid": 63567,
+  "queries": 1,
+  "primary_pages": 1,
+  "whole_actual_image_observations": 1,
+  "reported_credits": 3,
+  "unused_budget_retired": true,
+  "root_decision": "A broadvisibleband/cuff/lowpatchmouth cues only, no physical/sourceauthority",
+  "browser": {
+    "id": "3",
+    "owned_tab": "11",
+    "source_image_dimensions": [
+      360,
+      360
+    ],
+    "screenshot_dimensions": [
+      1280,
+      720
+    ],
+    "status": "closedafteronewholeobservation",
+    "capture_args": {
+      "fullPage": true
+    },
+    "unchanged_output": "reference-1.jpg"
+  },
+  "tool_calls": {
+    "search": {
+      "query": "site:landsend.com women long open cardigan patch pockets",
+      "sources": [
+        "web"
+      ],
+      "limit": 3,
+      "highlights": true
+    },
+    "scrape": {
+      "url": "https://business.landsend.com/Women/Sweaters/Cardigans/Women%27s-Long-Sleeve-Performance-Open-Cardigan-Sweater/p/74753",
+      "formats": [
+        "markdown"
+      ],
+      "maxAge": 0,
+      "onlyMainContent": true,
+      "timeout": 30000
+    }
+  },
+  "limits": "No source authoring/evaluation/build/native/GPU/renderer yet; fullsourcegate required. No refetch/extraquery/image/retake."
+}

@@ -1,0 +1,68 @@
+{
+  "utc": "2026-10-19T14:54:30.979494+00:00",
+  "reader_pid": 76743,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferGeometry.js",
+      "bytes": 34470,
+      "sha256": "be1b8ad6ce3e502904fd989f5b6690d8fedcbadb74508aec99fc87dfd567e8c7",
+      "read_ranges": [
+        [
+          230,
+          246
+        ],
+        [
+          293,
+          303
+        ],
+        [
+          335,
+          345
+        ],
+        [
+          1005,
+          1090
+        ],
+        [
+          1472,
+          1482
+        ]
+      ]
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/MeshStandardMaterial.js",
+      "bytes": 13835,
+      "sha256": "c1dc5c36d5360498cccae2513dae74349de62a48a9ed19b540cf3d7905a03a1f",
+      "read_ranges": [
+        [
+          68,
+          98
+        ]
+      ]
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js",
+      "bytes": 108498,
+      "sha256": "867948b57a6abb84d4cfd7619b38ea14fbb2c100c1b6f78d59de2383662ab7a0",
+      "read_ranges": [
+        [
+          1074,
+          1125
+        ]
+      ]
+    },
+    {
+      "path": "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+      "bytes": 132848,
+      "sha256": "91ed66b8cd139609427a3e9d93518dd3b0d5407c737fc9a265bfd991ec623d8a",
+      "mode": "0o555"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df",
+      "version": "0.185.1"
+    }
+  ],
+  "scope": "Selected installed primary API bodies/currentpackage and exact executable bytes/mode, no runtime execution, source evaluation, compiler or wholeengine qualification. Prior0d9ab8 read only generic transport/lifetime of oldviewer, no oldshoe geometry/build/run/reuse or rescue."
+}

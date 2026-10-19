@@ -1,0 +1,17 @@
+# Mara first cardigan volume — source B, never run
+
+The independent critic found a real output-witness error before the first build. The source names an outer patch vertex while reporting the contact distance measured from the inner counterpart. The outer point is0.45units ahead of that contact. **Freeze this exact source unrun.** There is no model, OBJ/MTL, runtime result or rendered image to qualify, and no geometry/appearance failure is inferred.
+
+The accepted Mara technical drawing and reference remain unchanged. New authored source proposes a connected torso/sleeve shell, inward faces/real openings and two contacting patch shells. Source topology counts are expectations, not measured results.
+
+## Exact receipt
+
+- Worth A085c93/f02f6d,3364/SHA1307fc17…3b4b and14604/SHAbb596cad…25b9. Root fullpairf3b409/fresh15pins3527de/PID61011 accepts preparation14:45:47.377593UTC; absolute stop16:15:47.377593UTC, including closure.
+- One current official Lands' End query/page/whole360px product-image observation,3reportedcredits. `REFERENCES`/raw wrappers/`REFERENCE-RECEIPT` retain exact requests, redirect, screenshot and broad cue limits. No hidden connectivity/fit authority; unused research retired, tab11closed.
+- Complete inert source: design3240/SHAf3a046b4…,build15544/SHA47bdbb05…,viewer7990/SHA1e928438…,HTML1892/SHA3673419a…,BRIEF7765/SHA4a860ecd…,SOURCE6919/SHA022f2833…. `CPU-REQUEST` is an unexecuted proposal. Final `PREFLIGHT`11113/SHA b2b6cba0c66f8616e2d3b4b4a99f3fd87b30594d5c6e90bac0ae2f582dbce199 binds39inputs;428cf3/PID85778/14:59:30UTC,rootfreshdc0238. Rootwholebuilder8d139f/viewerHTML609685/briefsourcef10ede and exact side-name/mapping update428cf3. Pre-freeze proportion/naming changes are retained in PREPARATION-NOTES; no target had run.
+- Selected current installed primary APIs/runtime metadata dc5247/609685: Node26.9.0 launcher and mainlib/Three0.185.1. Full transitive OS/libraries/compiler/driver not frozen. Initial otool display clipped; full metadata retained in NODE-LINKAGE, not a target failure.
+- Stable full source B bdc23f/aeda1f: review3886/SHA2b70fabea6b4d20ab298b6fd5960c6ca189bf1a33bf8bd781ad28687b27268a7,receipt19446/SHA8e82b981d5960364c63867b496a5b2876c0381e010936ecb3c1669e565ebcb7b. Rootwholebc3134 and fresh source verification in ROOT-SOURCE independently agree with build184–191 versus materialShell100–102. Critic's API reader EOF overrun was recovered read-only; no target/source mutation.
+
+The two alternatives are to defer a complete coupled body/garment owner, or separately justify a metadata-only correction under an explicit new pre-runtime contract. Critic gives conditional worth A for the latter only after this parent freezes, literal reversible nonmetadata-source equality, the same deadline and **one total CPU entry across parent/sibling**. That is not automatic permission, geometry tuning or measured export equality: this parent has no output. This receipt admits no repair or entry. Any exception to root's own new-plan no-successor rule must be explicit after freeze; no user-closed method is reopened.
+
+No Node syntax check/import/build/evaluation, output model, native/DCC/GPU/browser renderer or capture occurred. No owned target job remains. All accepted/original/frozen assets/defaults,22scoped checked/10broad open/full AAA roadmap, constructor HOLD and older closures remain. Existing Vite/ten-minute recovery retained. Human check-in/pause wins. No push/publication/install/purchase/model/subscription/reset-credit change.

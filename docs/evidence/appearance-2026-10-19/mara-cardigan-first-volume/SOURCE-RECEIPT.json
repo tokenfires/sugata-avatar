@@ -1,0 +1,260 @@
+{
+  "schema": "critic-Mara-cardigan-complete-inert-source-v1",
+  "decision": "B close exact parent source unrun",
+  "pending_edits": false,
+  "absolute_deadline_utc": "2026-10-19T16:15:47.377593+00:00",
+  "complete_authored_scopes": {
+    "build.mjs": "All264lines: math/helper functions, shared mesh construction, materialShell, pockets, validation, exports, errors",
+    "viewer.mjs": "All79lines: oneentry, fetch/hash/expiry/caps, allGPUowners, material/index/group path, fixedcamera fitting/render/publish,cleanup",
+    "review.html": "All13lines and all links/layout",
+    "design.json": "All166lines literalparameters/expected/caps/frame",
+    "BRIEF.md": "All31lines",
+    "SOURCE.md": "All29lines",
+    "CPU-REQUEST.json": "All17lines",
+    "PREFLIGHT.json": "All243lines including39directinputs and exactprospectiveCPU",
+    "saved_references": "FullREFERENCES/REFERENCE-RECEIPT/SEARCH1/PRIMARY-SCRAPE wrappers; textJSON equals structuredContent; requested74753/metadata6229210redirect retained. AI-marked gallery URL observed as text only, never opened.",
+    "metadata": "FullAPI-INPUTS/PREPARATION-NOTES/NODE-LINKAGE/ROOT-WORTH records; library linkage is selected identity, not fulltransitive freeze. Superseded preflight is historical, not currentpin."
+  },
+  "selected_installed_primary_scopes": {
+    "BufferGeometry.js": "230–246setIndex,293–303setAttribute,335–345groups,1005–1090normal computation,1472–1480dispose/end; declared1472–1482 overran actualEOF1480.",
+    "MeshStandardMaterial.js": "68–98diffuse/roughness/metalness; not wholematerial implementation.",
+    "WebGLRenderer.js": "1074–1125dispose/context events plus selected66–121constructor/context attributes,362–389context ownership/listeners,624–651pixelratio,655–682setSize; not wholeengine/compiler/privateconstructor/driver qualification."
+  },
+  "existing_whole_image_views": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/reference-1.jpg",
+      "detail": "original",
+      "scope": "Whole1280x720 screenshot, actual360px product image centered; no new browser/capture/refetch"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/original-first.jpg",
+      "detail": "original",
+      "scope": "Whole1280x1131 accepted original sheet"
+    }
+  ],
+  "finding": {
+    "id": "F1",
+    "title": "Attachment index points to outer vertex; reported distance measures inner vertex",
+    "source_witnesses": [
+      "build.mjs:184–191 a/b construction and attachmentWitnesses registration",
+      "build.mjs:98–108 materialShell serializes outer then inner",
+      "build.mjs:205 publishes witness unchanged",
+      "design.json:127 thickness_z0.45",
+      "BRIEF.md:19 explicit attachmentidentities",
+      "SOURCE.md:9 actualinterface witnesses"
+    ],
+    "static_reasoning": "At side/bottom gap is asserted zero. Contact point b is inner; outer a=b+[0,0,0.45]. Combined shell.vertices lists all outer first and allinner at+n, but witness.pocketVertex=i names outer. witness.distance is computed fromb. Source orientation only changes face order, not vertices. No geometry was evaluated to establish this mismatch.",
+    "impact": "Prospective serialized exact attachment record is false under its combined mesh vertex indexing. It can mislead a data consumer even if intended geometry is correct. SourceB, not actualdata/topology/appearance/fit failure.",
+    "alternatives": [
+      {
+        "choice": "Publish actualinnerindex=i+outerCount and explicit layer/body/pocket index-space; later audit distance fromreferencedactualpoints.",
+        "tradeoff": "Narrow evidence correction preserves creative source but needs separate explicitpre-runtime rulechange/newsourcegate. Not an admitted edit."
+      },
+      {
+        "choice": "Closeunrun/defercompletecoupledbody/foundation/garmentowner.",
+        "tradeoff": "Avoidsmoreisolatedsourcework; strongerwearableauthority atlargerunresolvedcost andnoimmediateartistvolume."
+      }
+    ]
+  },
+  "next_worth": {
+    "verdict": "ConditionalA for bounded metadata-only inert correction, after parentfreeze and explicitrootcontractchange; noautomaticadmission",
+    "exact_scope": "Actualinnerindex plus explicitlayer/index-space only. Preserve coordinate/topology/material/export calculations, viewer/lifetime bytes, limits and absolute16:15:47deadline. One totalCPUentryacross parent/sibling.",
+    "equality_limit": "Parent neverran. Source-level invariance/reversiblepatch can be proved; no measuredparent-versus-sibling exportequality may be claimed without anold output.",
+    "gates": "Stable newliteral/source/root gate before anyentry. ActualCPU independently qualified before separatefresh served-identity/GPUgate. This parentB remainsclosedunrun.",
+    "alternative": "Defercompleteowner without another sourceprotocol. No geometry/shape/material/camera/renderer/parameter/image rescue or oldclosedroute reopening."
+  },
+  "reviewed_no_other_blocker": "Remaining full authoredsource/protocol reviewed at declared scopedlimits. No actualmesh/generateddata or renderedappearance exists; sourcecounts/closedmaterial checks do not prove void usability, selfintersectionfreedom or softness.",
+  "execution_scope_refused": "NoCPUentry/check/import/evaluation/targetwork admitted by thisB. NoGPU/browser/native/refetch, sourceedit, primaryimage acquisition, fixture or compilercall.",
+  "resource_limits_reviewed": "Fixedexpected2288vertices/4572triangles/3parts; caps16384/32768/20, modelJSON/OBJ8MiBeach/MTL16KiB;256MiBoldspace notRSS;15scooperativepostimport nothardOSwall;rootcollectexacttoolhandle/status and inventoryon eitherexit; nochild/supervisor changes.",
+  "gpu_limits_reviewed": "OnlyfuturepostCPUA; six570x340/DPR1synchronousPNG<=16MiB+singlewholecapture<=2MiB/18MiBtotal. Oneownedtab/click/context/renderer,3geometries+5materials,rawcontextbeforeconstructor; allawaitguardedbeforeGPUowners. Best-effortabort/dispose/contextloss, no physicaldriver/privatepartialconstructorretirementproof. Currentservedbytes stillowed beforeGPU.",
+  "errors_and_corrections": [
+    {
+      "kind": "own selectedAPIreadererror",
+      "chunk_id": "a4cd95",
+      "exit_code": 1,
+      "detail": "IndexError after reading BufferGeometry1472–1480; requestedrange metadata ended1482 but fileends1480. All39pinverificationalreadycompleted. No target/sourceeffect;605052 recovered remainingAPIs/wrappers."
+    },
+    {
+      "kind": "provisionalopinionchangedbeforereviewfreeze",
+      "detail": "Initial interimno-blocker/sourceA intention was superseded by F1 duringfinal output-index review. No stableAor CPUadmission was issued bycritic. Rootindependently agreedsourcewitness before finalpair."
+    }
+  ],
+  "jobs": [
+    {
+      "purpose": "Complete contract/design/request/preflight",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PREFLIGHT.json','BRIEF.md','SOURCE.md','design.json','CPU-REQUEST.json']:\n q=p/n;b=q.read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest())\n for i,l in enumerate(b.decode().splitlines(),1):print(f'{i}: {l}')\nPY",
+      "chunk_id": "6dede8",
+      "exit_code": 0,
+      "pid": 87134,
+      "utc": "2026-10-19T15:00:12.264617+00:00",
+      "tool_wall_time_seconds": 6.834e-06
+    },
+    {
+      "purpose": "Whole264-line builder",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nq=p/'build.mjs';b=q.read_bytes();print('FILE',q,len(b),hashlib.sha256(b).hexdigest())\nfor i,l in enumerate(b.decode().splitlines(),1):print(f'{i}: {l}')\nPY",
+      "chunk_id": "95bfc1",
+      "exit_code": 0,
+      "pid": 87322,
+      "utc": "2026-10-19T15:00:18.507711+00:00",
+      "tool_wall_time_seconds": 1.3625e-05
+    },
+    {
+      "purpose": "Whole79-line viewer/13-lineHTML/API metadata/references/preparation notes",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['viewer.mjs','review.html','API-INPUTS.json','PREPARATION-NOTES.json','REFERENCES.md','REFERENCE-RECEIPT.json']:\n q=p/n;b=q.read_bytes();print('\\nFILE',n,len(b),hashlib.sha256(b).hexdigest())\n for i,l in enumerate(b.decode().splitlines(),1):print(f'{i}: {l}')\nPY",
+      "chunk_id": "ee9daf",
+      "exit_code": 0,
+      "pid": 87770,
+      "utc": "2026-10-19T15:00:33.180477+00:00",
+      "tool_wall_time_seconds": 5.792e-06
+    },
+    {
+      "purpose": "All39pins and selectedBufferGeometry APIs; reader end-range overrun",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os,stat\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume')\ndef pin(q):\n b=q.read_bytes();return {'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nv=json.loads((p/'PREFLIGHT.json').read_text());assert len(v['inputs'])==39\nfor r in v['inputs']:assert pin(Path(r['path']))==r,r\napi=json.loads((p/'API-INPUTS.json').read_text())\nprint(json.dumps({'pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'verified_preflight_rows':39,'preflight':pin(p/'PREFLIGHT.json'),'node_mode':oct(stat.S_IMODE(Path('/opt/homebrew/Cellar/node/26.9.0/bin/node').stat().st_mode)),'proposed_outputs_absent':{n:not(p/n).exists() for n in ['out','BUILD-RESULT.json','CPU-ADMISSION.json','GPU-ADMISSION.json','first.jpg','SOURCE-REVIEW.md','SOURCE-RECEIPT.json']}},indent=2))\nfor r in api['inputs']:\n if 'read_ranges' not in r:continue\n q=Path(r['path']);ls=q.read_text().splitlines();print('\\nINSTALLED_PRIMARY',q)\n for a,b in r['read_ranges']:\n  print('RANGE',a,b)\n  for i in range(a,b+1):print(f'{i}: {ls[i-1]}')\nfor n in ['SEARCH-1.json','PRIMARY-SCRAPE.json','NODE-LINKAGE.json','ROOT-WORTH.json']:\n q=p/n;print('\\nFILE',n)\n print(q.read_text())\nPY",
+      "chunk_id": "a4cd95",
+      "exit_code": 1,
+      "pid": 89543,
+      "utc": "2026-10-19T15:01:29.919371+00:00",
+      "tool_wall_time_seconds": 5.458e-06
+    },
+    {
+      "purpose": "RemainingselectedAPIs and full savedsearch/primary/linkage/rootworth",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\na=json.loads((p/'API-INPUTS.json').read_text())\nfor r in a['inputs']:\n if 'read_ranges' not in r or r['path'].endswith('BufferGeometry.js'):continue\n q=Path(r['path']);ls=q.read_text().splitlines();print('\\nINSTALLED_PRIMARY',q)\n for aa,bb in r['read_ranges']:\n  print('DECLARED_RANGE',aa,bb,'ACTUAL_END',min(bb,len(ls)))\n  for i in range(aa,min(bb,len(ls))+1):print(f'{i}: {ls[i-1]}')\nfor n in ['SEARCH-1.json','PRIMARY-SCRAPE.json','NODE-LINKAGE.json','ROOT-WORTH.json']:\n print('\\nFILE',n);print((p/n).read_text())\nPY",
+      "chunk_id": "605052",
+      "exit_code": 0,
+      "pid": 89904,
+      "utc": "2026-10-19T15:01:41.029208+00:00",
+      "tool_wall_time_seconds": 7.916e-06
+    },
+    {
+      "purpose": "Selectedrendererconstructor/context/size bodies",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime\nq=Path('/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js');ls=q.read_text().splitlines()\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nanchors=['constructor( parameters','context = null','let _alpha','if ( context !== null )','canvas.getContext','this.setSize = function','this.setPixelRatio = function']\nwindows=[]\nfor a in anchors:\n hits=[i for i,l in enumerate(ls) if a in l]\n print('ANCHOR',a,'LINES',[i+1 for i in hits])\n for i in hits[:2]:windows.append((max(0,i-4),min(len(ls),i+24)))\nseen=set()\nfor a,b in windows:\n for i in range(a,b):\n  if i not in seen:print(f'{i+1}: {ls[i]}');seen.add(i)\nPY",
+      "chunk_id": "560a98",
+      "exit_code": 0,
+      "pid": 91937,
+      "utc": "2026-10-19T15:02:44.012879+00:00",
+      "tool_wall_time_seconds": 5.959e-06
+    },
+    {
+      "purpose": "Exactrequest/design/deadline andsavedwrapper consistency",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume')\nh=lambda q:hashlib.sha256(q.read_bytes()).hexdigest()\na=json.loads((p/'PREFLIGHT.json').read_text());r=json.loads((p/'CPU-REQUEST.json').read_text());d=json.loads((p/'design.json').read_text())\nassert r['argv']==a['future_CPU']['argv']\nassert r['argv'][3]==h(p/'design.json')\nassert a['expected_geometry']==d['expected']\nassert r['absolute_deadline_utc']==a['absolute_deadline_utc']=='2026-10-19T16:15:47.377593+00:00'\nfor n in ['SEARCH-1.json','PRIMARY-SCRAPE.json']:\n q=json.loads((p/n).read_text());v=q['result'];assert json.loads(v['content'][0]['text'])==v['structuredContent']\nassert not(p/'out').exists() and not(p/'BUILD-RESULT.json').exists()\nprint(json.dumps({'pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'argv_design_expected_deadline_exact':True,'saved_primary_text_structured_equal':True,'CPU_outputs_absent':True,'source_lines':{n:len((p/n).read_text().splitlines()) for n in ['build.mjs','viewer.mjs','review.html','BRIEF.md','SOURCE.md','design.json']}},indent=2))\nPY",
+      "chunk_id": "682df2",
+      "exit_code": 0,
+      "pid": 93006,
+      "utc": "2026-10-19T15:03:19.993884+00:00",
+      "tool_wall_time_seconds": 7.083e-06
+    }
+  ],
+  "writes_only": [
+    "SOURCE-REVIEW.md",
+    "SOURCE-RECEIPT.json"
+  ],
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/PREFLIGHT.json",
+      "bytes": 11113,
+      "sha256": "b2b6cba0c66f8616e2d3b4b4a99f3fd87b30594d5c6e90bac0ae2f582dbce199"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/BRIEF.md",
+      "bytes": 7765,
+      "sha256": "4a860ecdf5fe8eabd6fa02fae727070749cc8cd8fbce390420cfcc48e020052d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/SOURCE.md",
+      "bytes": 6919,
+      "sha256": "022f28337ec5a0d1ab93c5728679f38e296ecccf0a765325d1870c34a88545b6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/build.mjs",
+      "bytes": 15544,
+      "sha256": "47bdbb0507f12e408eb9f2d0894d3044662f1ab024d1abfe22dc184d64d039e8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/viewer.mjs",
+      "bytes": 7990,
+      "sha256": "1e928438539348dced48046ab49598f4ef4a6634f59f35b8fed5879871411243"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/review.html",
+      "bytes": 1892,
+      "sha256": "3673419a23c541afa707fb1213fe0ea74b513e17bcd34faf4185a792db3b85e6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/design.json",
+      "bytes": 3240,
+      "sha256": "f3a046b4b93337e3b2827930b1c1e66056070d28075a609b3461bb330bf17cf2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/CPU-REQUEST.json",
+      "bytes": 661,
+      "sha256": "7511ffc9dab5510cff0c4eb734a7fdb59731b734fd8a78c27d97d5f50b305aea"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/API-INPUTS.json",
+      "bytes": 1924,
+      "sha256": "d7a88a9bb9bbf656af11c715605e11a43f0e8aa6b3daa297a44d8ba9e9ad647a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/PREPARATION-NOTES.json",
+      "bytes": 1452,
+      "sha256": "41fe51da5035b1ff16d40fadccb436c68cfa85724e9588aee5f8f67677b98e8a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/REFERENCES.md",
+      "bytes": 3110,
+      "sha256": "93ee63e798a1eae5f0bde45128dfd213c48bc9e2799f4f7b2015cac59c0229bb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/REFERENCE-RECEIPT.json",
+      "bytes": 1291,
+      "sha256": "8428bcc61ed510a98b23a6619f900e8b027198228e99ab7bb3b56e95c3d32498"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/SEARCH-1.json",
+      "bytes": 6397,
+      "sha256": "1d9d88bdc79f53f5e308bbb939bf3e3f1e625f3001addd3f0581351a0adf759f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/PRIMARY-SCRAPE.json",
+      "bytes": 9364,
+      "sha256": "811c5f8215d248c7042c1930274bbfd502bd14b22b9352d30e63eb3287ae4dfa"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/NODE-LINKAGE.json",
+      "bytes": 12566,
+      "sha256": "32e60f96d814460f4b1f7d4612abea081f213fcb7c1ae4ff85eb35dae7fe4ef0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/ROOT-WORTH.json",
+      "bytes": 1748,
+      "sha256": "2c42ae8f0db3916335bc3839ef73eece3d0ffbd93bb6528132a3a319e00427ea"
+    }
+  ],
+  "manifest_binding": {
+    "manifest": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/PREFLIGHT.json",
+      "bytes": 11113,
+      "sha256": "b2b6cba0c66f8616e2d3b4b4a99f3fd87b30594d5c6e90bac0ae2f582dbce199"
+    },
+    "verified_rows": 39,
+    "all_current_rawpins_exact": true,
+    "semantic_scope": "Fullauthored+selectedinstalled/reference scopes above; not wholelibrary/OS."
+  },
+  "source_epoch_absence": {
+    "out": true,
+    "BUILD-RESULT.json": true,
+    "CPU-ADMISSION.json": true,
+    "GPU-ADMISSION.json": true,
+    "first.jpg": true
+  },
+  "collection": {
+    "pid": 98169,
+    "utc": "2026-10-19T15:06:00.433488+00:00",
+    "method": "exclusive ownpairwrites only"
+  },
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/SOURCE-REVIEW.md",
+    "bytes": 3886,
+    "sha256": "2b70fabea6b4d20ab298b6fd5960c6ca189bf1a33bf8bd781ad28687b27268a7"
+  }
+}

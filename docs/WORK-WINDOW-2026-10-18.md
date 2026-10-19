@@ -12,6 +12,12 @@ The existing ten-minute heartbeat is restored to this chat through the app API w
 
 Work within existing allowance and granted credits. Do not purchase capacity, change subscription/models, redeem reset credits, push, publish or resume other projects. If capacity is unavailable, checkpoint without aggressive retries.
 
+## October19,15:07UTC — cardigan source false attachment-index witness; no build
+
+[Closed source receipt](evidence/appearance-2026-10-19/mara-cardigan-first-volume/README.md). Critic/sourceB bdc23f/aeda1f,review3886/SHA2b70fabe…268a7 andreceipt19446/SHA8e82b981…cb7b. Falseattachmentidentity: publishedpocketVertex pointsouteri whilecontactdistance belongsinneri+n,offset0.45. Rootwholebc3134/ROOT-SOURCE independentlyagrees. No actualgeometry/appearance defect alleged; **parentneverran**, no Nodecheck/import/eval/build/model/export/renderer/GPU/native/capture. CPU-REQUEST ishistoricalproposal, notadmission. Exactsource39pins retainedunderPREFLIGHT11113/SHAb2b6cba0…ce199. No sourceeditallowedhere.
+
+Criticseparatenext-worthconditionalA wouldallowroottoexplicitlyjustify a metadata-only inertcorrectionafterparentfreeze: correctinnerindex/layer/bodyindex-space, literalgeometry/exportcalculation/viewer/lifetimeequality, same16:15:47.377593UTCstop andONEtotalCPUacrossparent/sibling. No automaticexceptionorentry isadmittedbythischeckpoint; parentfullBstays. Alternative defercompletecoupledowner. No olduserclosure/HOLD/sourcefield/native/midi/groom/knit/seated/shoeroute reopened. Allfullroadmap/22scoped10broad/acceptedassets/defaults/Vite/ACTIVE10minrecoveryretained;humansteeringwins.
+
 ## October19,14:40UTC — seated Ari literal-contract B; freeze unchanged
 
 [Complete study receipt](evidence/appearance-2026-10-19/ari-seated-artist-target/README.md). One original-reference-only image is complete and isolated. Ari identity/outfit/seatedsupport/twofront-profile roles/restinghands are useful, but required farheel-ahead-of-neartoe placement failed. Bothshoes remain readable; root and critic withdrew initial occlusion inference after samewholeimage reinspection. Literal fullcontractB only, notmissingfoot/anatomy/collision proof. No artistdelivery/board/checklistpromotion or source/prompt/pose/style/wardrobe/image/edit/regen/crop/capture/retake/relabel/numerical successor.

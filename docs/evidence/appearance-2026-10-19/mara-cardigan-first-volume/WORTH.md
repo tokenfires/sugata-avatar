@@ -1,0 +1,16 @@
+# Mara cardigan volume — worth decision
+
+**A for bounded reference and complete inert source preparation only.** This can add a useful editable artist source. It does not admit a build, import, renderer, six-view packet or wearable garment.
+
+The accepted whole sheet supplies a coherent long caramel silhouette: front band at approximately x188–294/y315–749, two low pockets around x152–187 and x293–328/y568–655, and full sleeves ending above the body hem. The narrow profile and small inside schematic remain independently drawn. The [handoff](/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md:11) explicitly leaves 3D and physical behaviour open; its pocket meaning is open top plus attached sides/bottom, without a bag. [BRIEF.md:9–12](/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-technical-design/BRIEF.md:9) and JSON features B/P-R/P-L/C-R/C-L/S declare those roles without thickness, sewn-edge equality or registered projection. This is an unowned responsibility, not a defect in the drawing.
+
+The consequential new decision is whether one original surface can carry those roles together through depth: joined torso/sleeves, neck/front/wrist/hem openings, inward faces, continuous front/nape band and two genuine open-mouth patch pockets. An artist could inspect and alter that common source rather than reconcile unrelated sketches. That is materially different from another flat sheet or a colour change. A set of capped tubes, slabs and decorative pocket plates would not answer it.
+
+The risk is substantial: an unfitted analytic volume can become a stiff coat or disconnected assembly. PLAN paragraphs4–6 correctly require actual interfaces/openings and six-view coherence instead of treating component counts or triangle closure as appearance. Before any CPU admission, the new source must distinguish intentional garment boundaries from unwanted cracks, establish attached sleeve junctions and pocket attachment/mouth ownership, and expose inward/oblique/top responsibilities. Counts, independent closed components and OBJ validity cannot substitute. No additional plan blocker is demonstrated at this worth stage.
+
+Two alternatives:
+
+- **Prepare the bounded standalone artist volume.** It offers immediate shared depth and editable interface choices, with limited cost and a real risk of first-image refusal. Keep all proportions authored/unitless, retain the drawing unchanged, and stop if it merely assembles primitives or any gate fails.
+- **Defer to a complete coupled body/foundation/garment owner.** This gives stronger wearable relevance and avoids isolated draft accumulation, but entails much larger unresolved source/fit work and leaves these particular 3D choices implicit.
+
+Choose the first only at artist-source scope. The limited primary inquiry may clarify visible band, cuff and pocket cues; it cannot supply hidden measurements or mechanics. An inadequate reference requires the plan’s explicit original-only worth decision, not a fallback search. Ninety minutes starts only with future root acceptance. Full source/root, actual CPU and separate GPU/image gates remain necessary. No current execution, quality promotion or checklist change; 22 scoped checks and ten broad goals remain. pending_edits=false.
