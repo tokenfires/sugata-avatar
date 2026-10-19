@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-19T17:23:21.087952+00:00",
+  "pid": 63675,
+  "config": {
+    "path": "/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml",
+    "bytes": 3344,
+    "sha256": "9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a"
+  },
+  "fields": {
+    "id": "advance-sugata-avatar-visual-quality",
+    "name": "Advance Sugata until check-in",
+    "kind": "heartbeat",
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "target_thread_id": "01a0ff57-d720-7db2-923f-9e3e0521216c"
+  },
+  "root_HTTP": 200,
+  "listener": "COMMAND PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    870 robault   23u  IPv4 0x8e2e4daf1ddacb28      0t0  TCP 127.0.0.1:5173 (LISTEN)\n",
+  "status": "?? docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/\n",
+  "HEAD": "768e6ec14b49d964f0b9da8abb75243c25f0f154",
+  "limits": "Scoped savedcadence/target/HTTP/listener only; no future/mobile delivery, globalworker census or physical backend retirement proof. No configuration mutation."
+}

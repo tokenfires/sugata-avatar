@@ -1,0 +1,328 @@
+{
+  "schema": "critic-ari-trouser-first-volume-worth-v1",
+  "verdict": "A — complete inert original artist brief/source/workload preparation only",
+  "pending_edits": false,
+  "worth_stop_utc": "2026-10-19T17:22:00Z",
+  "authorization_scope": "Read-only existing source/whole images; no source authoring/check/import/evaluation/CPU/GPU/browser/native/held constructor/capture/model/export or main/frozen edit. A does not admit target execution.",
+  "input_manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/WORTH-INPUTS.json",
+    "bytes": 8349,
+    "sha256": "172100c321ba39a33d790e5b6cbdb4eb183fe713b9380ddbff15db26648eb01e",
+    "rows": 21,
+    "all_raw_size_sha_exact": true
+  },
+  "read_scopes": [
+    {
+      "scope": "Whole PLAN.md and WORTH-INPUTS.json, including prior observer correction metadata; no old observer replay",
+      "job": {
+        "chunk_id": "93fd9c",
+        "wall_time_seconds": 7.792e-06,
+        "exit_code": 0,
+        "original_token_count": 3524,
+        "pid": 27646,
+        "utc": "2026-10-19T17:04:26.828642+00:00"
+      }
+    },
+    {
+      "scope": "Whole Ari ARTIST-HANDOFF/README/BRIEF/IMAGE-REVIEW-2/ROOT-IMAGE/REFERENCES; whole generic README/AUTHORSHIP/RESULT",
+      "job": {
+        "chunk_id": "fd3e35",
+        "wall_time_seconds": 7.417e-06,
+        "exit_code": 0,
+        "original_token_count": 8055,
+        "pid": 28640,
+        "utc": "2026-10-19T17:04:59.153980+00:00"
+      }
+    },
+    {
+      "scope": "All21 raw input pins; current resume lines1–16 (latest complete closure/recovery section) and work-window lines439–441 (latest complete appended section). Whole prior discovery ROOT-CLOSE parsed; all decisions/limits inspected, long input array structure-only, not recursively reverified.",
+      "job": {
+        "chunk_id": "3f9031",
+        "wall_time_seconds": 5.916e-06,
+        "exit_code": 0,
+        "original_token_count": 1730,
+        "pid": 29452,
+        "utc": "2026-10-19T17:05:24.325997+00:00"
+      }
+    },
+    {
+      "scope": "Whole current roadmap/checklist/board text reused from own preceding complete reads at unchanged b63372b0/e6e79712/7ce463b3 pins, all raw identities freshly verified. No historical roadmap source corpus reread."
+    },
+    {
+      "scope": "trousers-clarity.svg/design-clarity.json raw identity only. No new full AST/tree/projection or geometry qualification claimed."
+    }
+  ],
+  "actual_image_views": {
+    "tool": "tools.view_image",
+    "paths": [
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/second.jpg",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/triptych-first.jpg"
+    ],
+    "detail": "original",
+    "scope": "All three entire accepted originals, no crop/edit/reconstruction/browser/new capture; API process/job IDs unexposed"
+  },
+  "actual_image_scopes": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/second.jpg",
+      "whole_dimensions": [
+        1280,
+        1877
+      ],
+      "witness": "Independent front/right-profile/rear plus waist/fly/pleat, shell/bag and hem details; outward arrows/upper anchors/release circles/lower creases; front smooth band and rear gathered band."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "whole_dimensions": [
+        1536,
+        1024
+      ],
+      "witness": "Covered waist; broad ink straight-leg/seat context and retained complete look, not source of measured fold/bag/closure geometry."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/triptych-first.jpg",
+      "whole_dimensions": [
+        1280,
+        868
+      ],
+      "witness": "Plain front/back columns/simple band, deliberate side seat depth; actual pocket/fly/fold construction is not shown."
+    }
+  ],
+  "actionable_worth_conditions": [
+    {
+      "id": "G1",
+      "classification": "Consequential utility condition, not a defect in either accepted input",
+      "witness": [
+        "Whole accepted second.jpg front/waist-detail/pocket-detail",
+        "Whole generic triptych",
+        "Ari ARTIST-HANDOFF.md:5–13",
+        "Ari BRIEF.md:17–23",
+        "Generic README.md:3–13"
+      ],
+      "explanation": "A complete new fold/fly/pocket volume can add selected editing duties absent from the useful generic starting silhouette. Reusing/rescaling generic or making only another silhouette would not deliver that improvement.",
+      "alternatives": [
+        {
+          "choice": "New independent original source with shell-owned upper pleats/releases, fly/guard and two mouth/bag roles",
+          "tradeoff": "New useful 3D artist intent, with substantial topology/interfaces/appearance duties.",
+          "preferred": "inert preparation only"
+        },
+        {
+          "choice": "Retain accepted drawing and generic source until coupled artist/body ownership",
+          "tradeoff": "Less isolated modelling effort and ambiguity, but no selected 3D waist/pocket source."
+        }
+      ]
+    },
+    {
+      "id": "G2",
+      "classification": "Semantic choice settled; implementation remains wholly new ownership",
+      "witness": [
+        "second.jpg upper pleats approximatelyx170–335/y320–405",
+        "second.jpg enlarged waist approximatelyx120–340/y1015–1090",
+        "Ari BRIEF.md:19–23",
+        "Ari handoff independent-view/left-bag/fit limits:5–13"
+      ],
+      "explanation": "The selected anchored outward fold and release cannot be fulfilled by explanatory marks on a smooth shell. Existing 2D intent does not prescribe exact depth/sections/topology or physical cloth behavior.",
+      "alternatives": [
+        {
+          "choice": "Own real shell fold/anchor/release/lower continuation and interfaces in source",
+          "tradeoff": "Faithful selected artist meaning and inspectable depth; greater implementation and first-shape failure risk.",
+          "preferred": true
+        },
+        {
+          "choice": "Defer geometric promise and retain explanatory 2D marks",
+          "tradeoff": "Simple/honest retained source, insufficient new utility for this volume nomination."
+        }
+      ]
+    }
+  ],
+  "research_decision": "No new online reference needed to select the meaning of outward shell folds over marks-only. Existing brief already distinguishes upper fold/anchor/release/lower crease and records primary limits. Root may retire an unnecessary later reference allowance; no query/page/image retrieval admitted now.",
+  "next_worth": {
+    "scope": "Complete inert brief/source/workload preparation only after root whole handoff verification",
+    "future_constraints": [
+      "Fresh absolute ceiling<=90min from future root admission",
+      "New coordinates/full source, no generic or refused model/builder reuse",
+      "Literal complete shell/seat/shared crotch/legs/waist/fold/fly/guard/mouths/bags/thickness/openings/material/frame/export/visibility responsibilities",
+      "Complete resource/output/partial-failure and actual job ownership gate before sole finite CPU entry",
+      "Independent actual saved-data qualification before separate root admitted fixed<=6 whole/hidden GPU roles plus one natural whole capture",
+      "First source/data/image B or unknown closes without correction/replay/retake/numerical successor",
+      "No automatic target, assets/default/runtime/main/board/checklist promotion"
+    ],
+    "preferred": "Proceed to fully specified source responsibility if root independently agrees; withhold target unless that new source passes."
+  },
+  "commands": {
+    "whole_nomination": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PLAN.md','WORTH-INPUTS.json']:\n b=(p/n).read_bytes();print('FILE',str(p/n),len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+    "whole_source_handoffs": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime\nr=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfiles=[r/'appearance-2026-10-18/ari-trouser-artist'/n for n in ['ARTIST-HANDOFF.md','README.md','BRIEF.md','IMAGE-REVIEW-2.md','ROOT-IMAGE.json','REFERENCES.md']]+[r/'appearance-2026-10-04/trouser-artist-source'/n for n in ['README.md','AUTHORSHIP.md','RESULT.md']]\nfor f in files:\n print('FILE',str(f))\n for i,s in enumerate(f.read_text().splitlines(),1):print(f'{i}: {s}')\nPY",
+    "pin_and_current_authority": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib,re\nr=Path('/Users/robault/GitHub/sugata-avatar');p=r/'docs/evidence/appearance-2026-10-19/ari-trouser-first-volume'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nrows=json.loads((p/'WORTH-INPUTS.json').read_text())['inputs']\nfor x in rows:\n b=Path(x['path']).read_bytes();assert len(b)==x['bytes'] and hashlib.sha256(b).hexdigest()==x['sha256'],x['path']\nprint('ALL_PIN_ROWS_EXACT',len(rows))\nfor n,which in [('RESUME-2026-10-18.md','first'),('WORK-WINDOW-2026-10-18.md','last')]:\n f=r/'docs'/n;ls=f.read_text().splitlines();heads=[i for i,s in enumerate(ls) if s.startswith('## ')]\n if which=='first':start=0;stop=heads[1] if len(heads)>1 else len(ls)\n else:start=heads[-1];stop=len(ls)\n print('SELECTED_CHECKPOINT',str(f),'lines',start+1,stop)\n for i in range(start,stop):print(f'{i+1}: {ls[i]}')\nf=r/'docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/ROOT-CLOSE.json';q=json.loads(f.read_text());print('PRIOR_CLOSE_FULL_JSON_PARSED_KEYS',list(q))\nfor k,v in q.items():\n if k=='inputs':print(k,'IDENTITY_ARRAY_ONLY',len(v))\n elif isinstance(v,str) and len(v)>2400:print(k,'HISTORICAL_LONG_RECORD_NOT_REREAD',len(v))\n else:print(k,json.dumps(v,ensure_ascii=False))\nprint('ROADMAP_CHECKLIST_BOARD_REUSE','Complete own reads at preceding exact pins b63372b0/e6e79712/7ce463b3; current all rows verified; Phase1/full10open and specificcurrentdraft state unchanged. No reread of unrelated historical roadmap study sources.')\nPY"
+  },
+  "jobs": {
+    "whole_nomination": {
+      "chunk_id": "93fd9c",
+      "wall_time_seconds": 7.792e-06,
+      "exit_code": 0,
+      "original_token_count": 3524,
+      "pid": 27646,
+      "utc": "2026-10-19T17:04:26.828642+00:00"
+    },
+    "whole_source_handoffs": {
+      "chunk_id": "fd3e35",
+      "wall_time_seconds": 7.417e-06,
+      "exit_code": 0,
+      "original_token_count": 8055,
+      "pid": 28640,
+      "utc": "2026-10-19T17:04:59.153980+00:00"
+    },
+    "pin_and_current_authority": {
+      "chunk_id": "3f9031",
+      "wall_time_seconds": 5.916e-06,
+      "exit_code": 0,
+      "original_token_count": 1730,
+      "pid": 29452,
+      "utc": "2026-10-19T17:05:24.325997+00:00"
+    }
+  },
+  "errors_and_limits": [
+    "No critic command/import/reader/assertion error occurred; all recorded current commands exit0.",
+    "Prior root postcommit observer4c4d19 wrongly classified an external empty-relative-path as tracked; saved input retains actual failure and corrected da0a04. This is historical metadata correction, not a target failure, source change or new critic execution.",
+    "All three actual whole images viewed original detail; view tool exposes no OS/backend PID or separate durable image-job identifier. No crop/edit/reconstruction/new capture.",
+    "Independent illustration views are unregistered/unmeasured. K-L has no old complete contour; source must own both bags anew.",
+    "No physical sewing/mechanics/ease/stretch/access/driving cloth, anatomical foot/body, fit, normals/GPU parity, rig/morph/pose/motion/runtime/performance/AAA or representative-build acceptance.",
+    "All old source/model/render/readiness/native/collector/constructor closures preserved; original accepted art remains unchanged. Current four board mesh drafts/22 scoped checks/10 broad open retained.",
+    "Root's optional new ROOT-WORTH-FIRST opinion was not read or used as a decision oracle; own image/source judgment precedes any such reconciliation.",
+    "No pending source/art or product edits; only exclusive own worth pair written."
+  ],
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/PLAN.md",
+      "bytes": 5326,
+      "sha256": "ea27397a63cd57b7b70ef9de129380dbddf41c6b221f1de6095f5217719a8cec"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 82791,
+      "sha256": "a5384802d21b6f0cebafef65ed4bfc26aed23f13c3ab71ed93a8c543e01cde2b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 109242,
+      "sha256": "5be1d14ba5e6a6177a849961f6c69b14f85eb3cbd33a5a422640d8cadcca2330"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ARTIST-HANDOFF.md",
+      "bytes": 2662,
+      "sha256": "745de392c59db06e67b328678b6cdd98c93b3a382c8ecfb52bc639325613c232"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/README.md",
+      "bytes": 3675,
+      "sha256": "7bf4096fef6054f92c8ea73d7b8a7df3ee26163fc6727e6fbd8edf05d3e8869c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/BRIEF.md",
+      "bytes": 5828,
+      "sha256": "c9da9310d9c05cad7ee1a88b66251fa693106575a6ec0b9df34abe8742024b71"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/IMAGE-REVIEW-2.md",
+      "bytes": 3003,
+      "sha256": "7cc1a4ce4d66b6344809490a6b139172a604886375aa8244b27e0f23b6f48bd1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-IMAGE.json",
+      "bytes": 5158,
+      "sha256": "bfc55c27a8e9a4aeaed586482d860cbdcf0c0b138c36786a24a9adc29342574d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/REFERENCES.md",
+      "bytes": 2308,
+      "sha256": "50a9f94973151b0781e781612b978869f702618483b280de3c9a853b16a8a6dc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/trousers-clarity.svg",
+      "bytes": 15096,
+      "sha256": "f89d8777233c34c00428d2c142fe96c473c94ecab730e778be32152b48c1695c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/design-clarity.json",
+      "bytes": 55596,
+      "sha256": "0ecf4b83cfd83850956426374da6613e6609ec01c5780c5f3b99e9fb07d7d1d5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/second.jpg",
+      "bytes": 201390,
+      "sha256": "4e10f3f1d84aa1d3b109dabf96df1beeb902244922daf88a407022b0137ad347"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/README.md",
+      "bytes": 1832,
+      "sha256": "da5e9c2fca0bdba39ab2e5cf25179c1476fc515ff04357669267f363235bb463"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/AUTHORSHIP.md",
+      "bytes": 2865,
+      "sha256": "be480043ad1929b5cc7360feb1920fe665ec5759bf6a36a93041bd97871f52f7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/RESULT.md",
+      "bytes": 3096,
+      "sha256": "715adf582e32aceacaf59917a97eb64ae89b29115d7a8c6882f4191c9b934a3e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/triptych-first.jpg",
+      "bytes": 46998,
+      "sha256": "459c0f23d5d46be2c9e1421d132979044cca159f444c12d270b6e50cfe1ef13f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/ROOT-CLOSE.json",
+      "bytes": 11617,
+      "sha256": "59922123d184de4d20e58c7947597312f759d122d530e261d1a29e866fffadda"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/WORTH-INPUTS.json",
+      "bytes": 8349,
+      "sha256": "172100c321ba39a33d790e5b6cbdb4eb183fe713b9380ddbff15db26648eb01e"
+    }
+  ],
+  "collection": {
+    "pid": 32979,
+    "utc": "2026-10-19T17:07:11.587556+00:00",
+    "mode": "Exclusive x, own pair only",
+    "completed": true,
+    "pending_edits": false,
+    "pre_handoff_scope_wording": {
+      "pid": 33515,
+      "utc": "2026-10-19T17:07:29.740796+00:00",
+      "old_report_bytes": 3464,
+      "old_report_sha256": "1b2dbd7f698a592eb29ab930b15da5a2d5bf69d8255b9e1442f8c02e1d47561f",
+      "old_receipt_bytes": 18254,
+      "old_receipt_sha256": "22a082dc888f2f0b8b2179c3392d75a93295f8d8f4d077f7b4163140e415ce9f",
+      "exact_old": "lining/thickness",
+      "exact_new": "inward faces/thickness",
+      "reason": "Do not imply a new separate full trouser-lining duty; declaration concerns inward surface/thickness ownership. No input, verdict, geometry or artifact changed. Before first stable handoff."
+    }
+  },
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/WORTH.md",
+    "bytes": 3470,
+    "sha256": "7173643bd6c69e27a2fdb68560824ad4fae1188a4a8d2470205851254c0d4908"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "ari-trouser-checkpoint-whitespace-v1",
+  "command": "git diff --cached --check",
+  "result": {
+    "chunk_id": "5d0e3a",
+    "wall_time_seconds": 0.000007,
+    "exit_code": 0,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "decision": "All staged authored source/docs pass. Frozen source B remains unrun; no source/target correction."
+}

@@ -1,0 +1,43 @@
+{
+  "schema": "sugata-original-ari-trouser-volume-v1",
+  "coordinates": "New unitless artwork; +Y up,+Z front,+X wearer left. No body/old mesh/pattern registration.",
+  "leg_samples": 64,
+  "leg_rows": [
+    [0, 0.80, 0.70, 0.76, 0.86, 0],
+    [0.12, 0.80, 0.70, 0.76, 0.86, 0],
+    [0.50, 0.80, 0.71, 0.77, 0.87, 0.012],
+    [1.00, 0.80, 0.72, 0.78, 0.89, 0.022],
+    [1.80, 0.80, 0.73, 0.80, 0.94, 0.025],
+    [2.40, 0.80, 0.75, 0.82, 1.00, 0.025],
+    [2.90, 0.80, 0.77, 0.84, 1.06, 0.020],
+    [3.20, 0.80, 0.78, 0.86, 1.10, 0.012],
+    [3.40, 0.79, 0.79, 0.88, 1.12, 0.006]
+  ],
+  "leg_row_columns": ["y","centre_abs_x","half_width","front_depth","rear_depth","lower_crease_z"],
+  "pelvis_rows": [
+    [3.65, 1.60, 0.95, 1.28, 0.55, 0, 0, 0.004],
+    [3.90, 1.62, 1.00, 1.30, 0.95, 0.20, -0.20, 0.008],
+    [4.10, 1.61, 1.00, 1.25, 1, 0.65, -0.11, 0.008],
+    [4.35, 1.58, 0.96, 1.18, 1, 1, -0.03, 0],
+    [4.60, 1.53, 0.90, 1.10, 1, 1, 0.03, 0],
+    [4.82, 1.47, 0.85, 1.04, 1, 0, 0, 0],
+    [5.00, 1.43, 0.82, 1.02, 1, 0, 0, 0]
+  ],
+  "pelvis_row_columns": ["y","radius_x","front_depth","rear_depth","ellipse_blend","upper_fold_weight","pocket_slant_x","lower_crease_z"],
+  "pleat": {"hinge_sample":15,"lip_sample":16,"hinge_dx":-0.13,"hinge_dz":-0.14,"lip_dx":0.17,"lip_dz":0.12,"scale":0.79,"anchor_y":[4.35,4.60],"release_y":[3.90,4.10]},
+  "pockets": {"upper_grid_rows":[2,5],"positive_side_columns":[3,7],"negative_side_columns":[57,61],"new_rings":[[1,-0.025,-0.06,-0.12],[0.92,-0.045,-0.35,-0.23],[0.65,-0.055,-0.70,-0.25]],"ring_columns":["scale_about_mouth_centroid","toward_centre_x","drop_y","inward_z"],"cap_extra_drop":0.08},
+  "fly": {"notch_rows":[4,7],"notch_columns":[31,33],"overlap_root_column":31,"guard_root_column":33,"overlap_free_x":-0.085,"overlap_forward":0.07,"guard_free_x":0.065,"guard_forward":-0.045,"thickness":0.018,"tape_width":0.018,"tape_forward":0.003,"tape_thickness":0.006},
+  "rear_gather": {"start_y":4.82,"amplitude":0.025,"cycles":9},
+  "thickness":0.025,
+  "materials": {
+    "cloth":{"color":"#30414e","roughness":0.90},
+    "inside":{"color":"#3c4a54","roughness":0.94},
+    "band":{"color":"#293944","roughness":0.90},
+    "bag":{"color":"#43515b","roughness":0.95},
+    "tape":{"color":"#202e36","roughness":0.86}
+  },
+  "forecast": {"parts":5,"outer_used_vertices":2118,"outer_triangles":3976,"outer_boundary_edges":262,"closed_vertices":4300,"closed_triangles":8588,"contacts":16},
+  "caps": {"checked_cpu_ms":10000,"sampled_rss_bytes":402653184,"vertices":12000,"triangles":24000,"model_bytes":4194304,"obj_bytes":2097152,"mtl_bytes":8192,"total_output_bytes":8388608},
+  "absolute_stop_utc":"2026-10-19T18:38:47.963515+00:00",
+  "limits":"Artist source only. No physicalsewing/globalclearance/collision/fit/cloth/rig/morph/pose/motion/runtime/performance/AAA acceptance. Forecast is not execution."
+}

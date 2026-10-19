@@ -1,0 +1,347 @@
+{
+  "schema": "root-ari-trouser-source-B-closed-checkpoint-v1",
+  "utc": "2026-10-19T17:27:25.479064+00:00",
+  "pid": 71419,
+  "base_HEAD": "768e6ec14b49d964f0b9da8abb75243c25f0f154",
+  "decision": "CLOSED exact complete programme B/unrun; unused CPU/GPU/capture retired. No correction/exception/successor.",
+  "root_handoff": "59dfd4whole stablepair;286926/PID68085/17:25:40UTC87rows56paths and actualF1independentlyverified; no targetexecution/geometry/appearance result.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/ROOT-WORTH-FIRST.json",
+      "bytes": 8129,
+      "sha256": "abb31387bf56cd3e67acfc05eaebebf5a0dbebe65a8a9493ed24f075aff143a8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/SOURCE-REVIEW.md",
+      "bytes": 3361,
+      "sha256": "3b5be8c8794e0778d2d715d818483a56d9f592909fc7b629f222267ca4ed5eb1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/ROOT-SOURCE.json",
+      "bytes": 17993,
+      "sha256": "77b6addb5bcfa4faf96e9a4ad5dc1bb6202a04769bbd3235f17ca288f4e6d9f8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/review.html",
+      "bytes": 2268,
+      "sha256": "adf81fd41c4319dd70e2ee8c19db4a2ae3c43924404806588511db2681beed3e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/CPU-REQUEST.json",
+      "bytes": 607,
+      "sha256": "51c3001ee700b0a98e077a021fe06598f995d41311a94331e67e5b7bbe50e5e8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/SOURCE.md",
+      "bytes": 8756,
+      "sha256": "e9d2d04c37598ffa533219bb896f9497d0ea5f5e23a4922356152e6301e11108"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/TOOL-PREPARATION.json",
+      "bytes": 48603,
+      "sha256": "e287560eadf62e12cb9d6f6e38a1176d484acd1c0aef8334877b0167d70bb48e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/ROOT-WORTH.json",
+      "bytes": 7960,
+      "sha256": "0ffe9cb3f862cfcbcd88eacb01a06f35137a231c6a5d5e315135b1855d10fb64"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/viewer.mjs",
+      "bytes": 9213,
+      "sha256": "b8d7e050e93b5a2271b9ca27ca7e27bbf1ddc85409076d279220dc3af4567ed8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/README.md",
+      "bytes": 4693,
+      "sha256": "9832abeacee67e05a42d65a5dbdbf95e17fe125136085c9e181b0e8f308de566"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/WORTH-RECEIPT.json",
+      "bytes": 18913,
+      "sha256": "569d45d5125fc504dbb29a535af86cdd2bd760934505c7dfcf56fbb83b89c6c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/API-INPUTS.json",
+      "bytes": 5070,
+      "sha256": "91b93b45a1e30782100ab9888e238ec6c2773bc302d0fd4edc04506683c8ce9e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/build.mjs",
+      "bytes": 17250,
+      "sha256": "4af178dd4e51eacbd9225e1a208005dc8a485d693257bc8fa20bd7ffb3cf7fab"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/CHECKPOINT-CHECKS.json",
+      "bytes": 360,
+      "sha256": "d0a20b5e5fcd0e7c47df7244d8c29f6ba2c1f3219dce628210058c794f6845cb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/PLAN.md",
+      "bytes": 5326,
+      "sha256": "ea27397a63cd57b7b70ef9de129380dbddf41c6b221f1de6095f5217719a8cec"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/WORTH-INPUTS.json",
+      "bytes": 8349,
+      "sha256": "172100c321ba39a33d790e5b6cbdb4eb183fe713b9380ddbff15db26648eb01e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/SOURCE-RECEIPT.json",
+      "bytes": 16182,
+      "sha256": "90dbb317b4d33f18626a8ea1e24fac1d60940c5bd5790668dfa565acdbb7c0d0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/BRIEF.md",
+      "bytes": 5695,
+      "sha256": "92ec0bda92e6c5b1521385d0535e7b23a6cd24c2f8982dfcc7721acb975596a0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/ROOT-SOURCE-FIRST.json",
+      "bytes": 15788,
+      "sha256": "2f6d4f1714aa157aca4dcd8b082cf348bc015236333fbe199541efd37dba8955"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/WORTH.md",
+      "bytes": 3470,
+      "sha256": "7173643bd6c69e27a2fdb68560824ad4fae1188a4a8d2470205851254c0d4908"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/PREFLIGHT.json",
+      "bytes": 14952,
+      "sha256": "3e723ece3c21a9917a08ae7e2a87a44c1a42fb25b6100ca194f75d2e3fe38605"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/design.json",
+      "bytes": 2860,
+      "sha256": "d9a270c2d35052e516c333e5b0f77f2b9caa9f99d75b718e5e3371bfe85e5b30"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/LIVE-SERVICES.json",
+      "bytes": 1062,
+      "sha256": "76e4eae0d23d466475007ae64358a4488748f58ded6fbea372ac830e136b66c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 85635,
+      "sha256": "d1d8fa1234463d18290198100a0df4472efb7e2492dc4f4994728c8b7c953d29"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 111043,
+      "sha256": "f52e4ae417086c604939f4aac339b744851d93378c35d28ec7796a025f760115"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ARTIST-HANDOFF.md",
+      "bytes": 2662,
+      "sha256": "745de392c59db06e67b328678b6cdd98c93b3a382c8ecfb52bc639325613c232"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/README.md",
+      "bytes": 3675,
+      "sha256": "7bf4096fef6054f92c8ea73d7b8a7df3ee26163fc6727e6fbd8edf05d3e8869c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/BRIEF.md",
+      "bytes": 5828,
+      "sha256": "c9da9310d9c05cad7ee1a88b66251fa693106575a6ec0b9df34abe8742024b71"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/IMAGE-REVIEW-2.md",
+      "bytes": 3003,
+      "sha256": "7cc1a4ce4d66b6344809490a6b139172a604886375aa8244b27e0f23b6f48bd1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-IMAGE.json",
+      "bytes": 5158,
+      "sha256": "bfc55c27a8e9a4aeaed586482d860cbdcf0c0b138c36786a24a9adc29342574d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/REFERENCES.md",
+      "bytes": 2308,
+      "sha256": "50a9f94973151b0781e781612b978869f702618483b280de3c9a853b16a8a6dc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/trousers-clarity.svg",
+      "bytes": 15096,
+      "sha256": "f89d8777233c34c00428d2c142fe96c473c94ecab730e778be32152b48c1695c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/design-clarity.json",
+      "bytes": 55596,
+      "sha256": "0ecf4b83cfd83850956426374da6613e6609ec01c5780c5f3b99e9fb07d7d1d5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/second.jpg",
+      "bytes": 201390,
+      "sha256": "4e10f3f1d84aa1d3b109dabf96df1beeb902244922daf88a407022b0137ad347"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/README.md",
+      "bytes": 1832,
+      "sha256": "da5e9c2fca0bdba39ab2e5cf25179c1476fc515ff04357669267f363235bb463"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/AUTHORSHIP.md",
+      "bytes": 2865,
+      "sha256": "be480043ad1929b5cc7360feb1920fe665ec5759bf6a36a93041bd97871f52f7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/RESULT.md",
+      "bytes": 3096,
+      "sha256": "715adf582e32aceacaf59917a97eb64ae89b29115d7a8c6882f4191c9b934a3e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/triptych-first.jpg",
+      "bytes": 46998,
+      "sha256": "459c0f23d5d46be2c9e1421d132979044cca159f444c12d270b6e50cfe1ef13f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/ROOT-CLOSE.json",
+      "bytes": 11617,
+      "sha256": "59922123d184de4d20e58c7947597312f759d122d530e261d1a29e866fffadda"
+    },
+    {
+      "path": "/opt/homebrew/bin/node",
+      "bytes": 132848,
+      "sha256": "91ed66b8cd139609427a3e9d93518dd3b0d5407c737fc9a265bfd991ec623d8a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+      "bytes": 132848,
+      "sha256": "91ed66b8cd139609427a3e9d93518dd3b0d5407c737fc9a265bfd991ec623d8a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/node/26.9.0/lib/libnode.147.dylib",
+      "bytes": 57140096,
+      "sha256": "962d6add54b805dfcdd847d5830baae73e4348928fc1b2fd5e7886ed39a6d7f5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferGeometry.js",
+      "bytes": 34470,
+      "sha256": "be1b8ad6ce3e502904fd989f5b6690d8fedcbadb74508aec99fc87dfd567e8c7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferAttribute.js",
+      "bytes": 24876,
+      "sha256": "ffd9bdc55ea7c0b5cec9865a68b71ebd076d0c49f9d50adb5f9ce570c1961c09"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/Object3D.js",
+      "bytes": 40918,
+      "sha256": "99d720abcea9720a2743dcbbd84e393d7094538d4a8495ea4869150030aa7d82"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/Material.js",
+      "bytes": 42885,
+      "sha256": "3af196049d118e5c8a81e07cb9d90c44524ac5a319263e64f18f3ee08178ca68"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/MeshStandardMaterial.js",
+      "bytes": 13835,
+      "sha256": "c1dc5c36d5360498cccae2513dae74349de62a48a9ed19b540cf3d7905a03a1f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js",
+      "bytes": 108498,
+      "sha256": "867948b57a6abb84d4cfd7619b38ea14fbb2c100c1b6f78d59de2383662ab7a0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Box3.js",
+      "bytes": 21469,
+      "sha256": "382b33a3b235b3f5a37a8949d8f8a9efdf056c62ce5ed79692b54944a80487e1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Vector3.js",
+      "bytes": 28243,
+      "sha256": "834c56c4a10a54ee1f967f111d792be37639b5a8761c6f190622184297bf3dc8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/cameras/OrthographicCamera.js",
+      "bytes": 5806,
+      "sha256": "5525c2365774222ee96c4e4303d0257a4b16739e1e69769977c0a739b4f3fd54"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/constants.js",
+      "bytes": 32951,
+      "sha256": "3444ef8433dedd2d8b391bc1139b5f3c9f433ea3487473b366e624814d73d26e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/lights/Light.js",
+      "bytes": 1449,
+      "sha256": "3c06d07fb1ff6bb3e6a78a03ac8301afb2f0f488b420c44e6e89756d9a91b44b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/lights/LightShadow.js",
+      "bytes": 8268,
+      "sha256": "d4d3faaaae0ad570174674d125f863ad8a1695ee4a1c548fdb891f0c66c1dde4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/lights/HemisphereLight.js",
+      "bytes": 1515,
+      "sha256": "801fc56baaee3a0c60993cf601ae94298e23aacfb058384e3c1daea48330467c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/lights/DirectionalLight.js",
+      "bytes": 2837,
+      "sha256": "142b2d35911bb8c52d6465b4841729cc4616166e4486c61b4959281454af2644"
+    },
+    {
+      "path": "/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml",
+      "bytes": 3344,
+      "sha256": "9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a"
+    }
+  ],
+  "historical_main_manifest_resolution": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "epoch": "768e6ec14b49d964f0b9da8abb75243c25f0f154",
+      "bytes": 82791,
+      "sha256": "a5384802d21b6f0cebafef65ed4bfc26aed23f13c3ab71ed93a8c543e01cde2b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "epoch": "768e6ec14b49d964f0b9da8abb75243c25f0f154",
+      "bytes": 109242,
+      "sha256": "5be1d14ba5e6a6177a849961f6c69b14f85eb3cbd33a5a422640d8cadcca2330"
+    }
+  ],
+  "README_links_checked": 14,
+  "target_absence": [
+    "ENTRY.json",
+    "CPU-ADMISSION.json",
+    "GPU-ADMISSION.json",
+    "BUILD-FAILED.json",
+    "out",
+    "first.jpg"
+  ],
+  "main": "Exact4drafts/22scoped10broad/unchangedroadmap; onlyadditiverecoverydocs. All prior frozen/original/accepted/defaults preserved.",
+  "services": "AppAPI+fff325/17:23:21UTC Vite870HTTP200/sameACTIVE10min config; no futuredelivery/globalworker/physicalbackend proof.",
+  "next": "Onlyfreshworth separate reusableterminalasyncowner withsamefunctiondeferred/fakeresourceproof, no currentrepair/clientGPUadoption. Deferral/otherdistinctgoalalsoavailable.",
+  "limits": "Forecast5parts4300V8588T remains prospective. Static lifetimecounterexample is not an executedleak. No sourcecheck/import/eval/helper/CPU/GPU/browser/native/heldconstructor/model/export/capture. Fullroadmap/oldclosures/HOLD/humansteering retained; no push/publication/purchase/install/model/subscription/reset-credit/otherproject."
+}

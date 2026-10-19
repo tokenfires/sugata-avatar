@@ -1,0 +1,263 @@
+{
+  "schema": "critic-ari-trouser-complete-inert-source-v1",
+  "verdict": "B — unresolved async preview lifetime; exact complete source closes unrun, no CPU/GPU admission",
+  "pending_edits": false,
+  "absolute_stop_utc": "2026-10-19T18:38:47.963515+00:00",
+  "bound_preflight": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/PREFLIGHT.json",
+    "bytes": 14952,
+    "sha256": "3e723ece3c21a9917a08ae7e2a87a44c1a42fb25b6100ca194f75d2e3fe38605",
+    "rows": 52,
+    "all_exact": true
+  },
+  "bound_API_manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/API-INPUTS.json",
+    "bytes": 5070,
+    "sha256": "91b93b45a1e30782100ab9888e238ec6c2773bc302d0fd4edc04506683c8ce9e",
+    "rows": 18,
+    "all_exact": true
+  },
+  "read_scopes": [
+    {
+      "scope": "Whole BRIEF.md29lines, SOURCE.md37, design.json43, CPU-REQUEST.json12, API-INPUTS.json110 and PREFLIGHT.json331; all literals/roles/limits/caps/prospective counts, not actual results",
+      "job": {
+        "chunk_id": "31e689",
+        "wall_time_seconds": 8.709e-06,
+        "exit_code": 0,
+        "original_token_count": 10384,
+        "pid": 59663,
+        "utc": "2026-10-19T17:21:13.863452+00:00"
+      }
+    },
+    {
+      "scope": "Whole build.mjs186lines, viewer.mjs69lines and review.html4lines, every authored operand/branch/export/error/cancellation/publication path statically inspected",
+      "job": {
+        "chunk_id": "638a97",
+        "wall_time_seconds": 6.834e-06,
+        "exit_code": 0,
+        "original_token_count": 7555,
+        "pid": 59914,
+        "utc": "2026-10-19T17:21:21.316093+00:00"
+      }
+    },
+    {
+      "scope": "All52 preflight+18 API raw bytes/size/SHA, exact Node symlink target/mode by read-only filesystem metadata, six exact target absence checks",
+      "job": {
+        "chunk_id": "5839b6",
+        "wall_time_seconds": 7.75e-06,
+        "exit_code": 0,
+        "original_token_count": 253,
+        "pid": 63276,
+        "utc": "2026-10-19T17:23:07.733416+00:00"
+      }
+    },
+    {
+      "scope": "Own whole three-image/source/limits worth review reused at exact frozen pins, including accepted drawing/context/generic comparisons; no new rendering or image qualification"
+    },
+    {
+      "scope": "Selected installed API semantic proof from preceding reviews reused only at unchanged applicable pins. Whole API library was not read; new additional API semantic expansion stopped at decisive JavaScript F1. All18 runtime/executable identity rows freshly verified."
+    }
+  ],
+  "source_identity_and_absence": {
+    "preflight_rows": 52,
+    "API_rows": 18,
+    "total_rows": 70,
+    "unique_paths": 52,
+    "all_exact": true,
+    "target_absence": {
+      "ENTRY.json": true,
+      "CPU-ADMISSION.json": true,
+      "GPU-ADMISSION.json": true,
+      "BUILD-FAILED.json": true,
+      "out": true,
+      "first.jpg": true
+    },
+    "node_alias_resolved": "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+    "node_mode": "0o555",
+    "authored_source_lines": {
+      "BRIEF.md": 29,
+      "SOURCE.md": 37,
+      "design.json": 43,
+      "build.mjs": 186,
+      "viewer.mjs": 69,
+      "review.html": 4,
+      "CPU-REQUEST.json": 12,
+      "API-INPUTS.json": 110,
+      "PREFLIGHT.json": 331
+    },
+    "review_scope": "Whole authored literal programme/contract read, selected installed API proof from previous unchanged pins reused only where applicable; additional current API semantic expansion stops at decisive source F1. Hash identity is not semantic/runtime approval.",
+    "no_target_import_evaluation_check_execution": true
+  },
+  "actionable_findings": [
+    {
+      "id": "F1",
+      "classification": "Concrete static source error-path/lifetime gap; no runtime invocation or observed leak",
+      "witnesses": [
+        "viewer.mjs:17–24 cleanup/pagehide has no terminal cancellation state; active is not cleared until finally",
+        "viewer.mjs:25 guard checks only elapsed/expiry, not controller.signal.aborted or closure token",
+        "viewer.mjs:26 awaits fetch/arrayBuffer/digest; digest is not governed by fetch abort",
+        "viewer.mjs:43–49 model digest continuation reaches renderer/material constructors with no lifetime check",
+        "viewer.mjs:57–58 pending img.decode and digest allow later DOM append/role publication",
+        "viewer.mjs:63–67 can set success/COMPLETE and publish after pagehide on the last pending role"
+      ],
+      "schedule": [
+        "Enter one admitted click and reach model SHA await",
+        "Pagehide while digest is pending calls cleanup/abort with no terminal state",
+        "Digest settles within clock/expiry; continuation creates renderer/materials and can progress",
+        "For last decode/digest, cleanup can occur before continuation appends or records the last role, then success/COMPLETE still publishes"
+      ],
+      "explanation": "A source-owned preview lifetime needs terminal close and post-await admission to ownership/publication. Aborting fetch and disposing only current owners does not own future continuations. Eventual finally disposal does not erase late owner/publication behavior.",
+      "alternatives": [
+        {
+          "choice": "Freeze whole programme unrun and withhold sole CPU/GPU entries",
+          "tradeoff": "Honest bounded closure; proposed volume remains unavailable.",
+          "preferred_now": true
+        },
+        {
+          "choice": "Separately nominate an actual reusable terminal owner with post-await tokens/guarded ownership/publication and deterministic same-function deferred/fake-resource proof",
+          "tradeoff": "Could prevent recurrence; adds engineering, no browser/private-constructor/physical-driver qualification and no current trouser repair.",
+          "admitted_here": false
+        }
+      ],
+      "limits": "No actual leak/GPU/model/geometry/renderer/private-constructor/OS failure observed. No source patch or test/replay justified by this finding."
+    }
+  ],
+  "static_source_assessment": {
+    "geometry": "Source declares original64-sample legs/9rows, shared saddle/128-entry pelvic rows, explicit shell fold hinge/lip/release,14-node shared mouth branches/caps, stable index compaction, inward faces/rims, actual fly notch/closed layers/16 prospective contacts. Source is not evaluated, and no numerical/topology/shape/appearance pass is inferred.",
+    "forecast": {
+      "parts": 5,
+      "vertices": 4300,
+      "triangles": 8588,
+      "contacts": 16,
+      "status": "prospective only"
+    },
+    "CPU": "Node built-ins only, exclusive entry/out, exact admission/design/input hashes, cooperative10s and sampled384MiB RSS with256MiB V8 old-space (not OS wall/peak/RSS hard guarantee). Export caps/partial and best-effort failure duties plus independent root inventory on either exit are explicit. Source B blocks the complete programme before entry.",
+    "exports": "JSON fullparts/proofs/mouth/saddle/contact/material metadata; OBJ global indices/material transitions and adjacent trousers.mtl; no UV/rig/physical seam certificate. Actual roundtrip is untested/unrun.",
+    "GPU": "Six literal fixed whole/upper/bag/fly selections retain coordinates;3x570x440 and3x570x400, one context, predicted43 known owners, perPNG768KiB/all4MiB/wholecapture2MiB. Prospective only; F1 blocks lifetime approval. No generic private constructor/physical driver guarantee.",
+    "workload": "Fixed loops and declared forecast/caps inspected as source, no builder or geometry helper executed."
+  },
+  "commands": {
+    "whole_contracts": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['BRIEF.md','SOURCE.md','design.json','CPU-REQUEST.json','API-INPUTS.json','PREFLIGHT.json']:\n b=(p/n).read_bytes();print('FILE',str(p/n),len(b),hashlib.sha256(b).hexdigest())\n for i,s in enumerate(b.decode().splitlines(),1):print(f'{i}: {s}')\nPY",
+    "whole_programmes": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['build.mjs','viewer.mjs','review.html']:\n print('FILE',str(p/n))\n for i,s in enumerate((p/n).read_text().splitlines(),1):print(f'{i}: {s}')\nPY",
+    "all_pins_and_absence": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nf=json.loads((p/'PREFLIGHT.json').read_text());a=json.loads((p/'API-INPUTS.json').read_text());rows=f['inputs']+a['inputs']\nfor x in rows:\n b=Path(x['path']).read_bytes();assert len(b)==x['bytes'] and hashlib.sha256(b).hexdigest()==x['sha256'],x['path']\nabsent={n:not (p/n).exists() for n in f['absent']};assert all(absent.values()),absent\nassert (p/'build.mjs').read_text().count(\"from 'node:\")==5\nprint(json.dumps({'preflight_rows':len(f['inputs']),'API_rows':len(a['inputs']),'total_rows':len(rows),'unique_paths':len({x['path'] for x in rows}),'all_exact':True,'target_absence':absent,'node_alias_resolved':str(Path(a['node_alias']).resolve()),'node_mode':oct(Path(a['node_resolved']).stat().st_mode&0o777),'authored_source_lines':{n:len((p/n).read_text().splitlines()) for n in ['BRIEF.md','SOURCE.md','design.json','build.mjs','viewer.mjs','review.html','CPU-REQUEST.json','API-INPUTS.json','PREFLIGHT.json']},'review_scope':'Whole authored literal programme/contract read, selected installed API proof from previous unchanged pins reused only where applicable; additional current API semantic expansion stops at decisive source F1. Hash identity is not semantic/runtime approval.','no_target_import_evaluation_check_execution':True},indent=2))\nPY"
+  },
+  "jobs": {
+    "whole_contracts": {
+      "chunk_id": "31e689",
+      "wall_time_seconds": 8.709e-06,
+      "exit_code": 0,
+      "original_token_count": 10384,
+      "pid": 59663,
+      "utc": "2026-10-19T17:21:13.863452+00:00"
+    },
+    "whole_programmes": {
+      "chunk_id": "638a97",
+      "wall_time_seconds": 6.834e-06,
+      "exit_code": 0,
+      "original_token_count": 7555,
+      "pid": 59914,
+      "utc": "2026-10-19T17:21:21.316093+00:00"
+    },
+    "all_pins_and_absence": {
+      "chunk_id": "5839b6",
+      "wall_time_seconds": 7.75e-06,
+      "exit_code": 0,
+      "original_token_count": 253,
+      "pid": 63276,
+      "utc": "2026-10-19T17:23:07.733416+00:00"
+    }
+  },
+  "next_nomination_worth": {
+    "decision": "Conditional A for a genuinely separate reusable preview-lifetime contract/component nomination only, not implementation/test/adoption/current repair",
+    "value_witness": "Current viewer F1 has concrete getJSON SHA and img.decode/PNG SHA seams where terminal close cannot be enforced by clock/fetch abort alone.",
+    "required_boundaries": [
+      "Freeze/close/checkpoint current programme first",
+      "No current trouser source/model/renderer/camera repair or target invocation",
+      "A real shared owner with terminal close, post-await tokens, registration and publication rules; fake resources exercise that exact owner, not a shadow implementation",
+      "No geometry/GPU/browser/native workload in deterministic proof",
+      "Synthetic success does not admit future browser/client adoption",
+      "Fresh root scope/source/runtime gates and explicit stopping rules, no automatic exception"
+    ],
+    "alternative": {
+      "choice": "Defer reusable infrastructure until a genuinely new real client owner is selected",
+      "tradeoff": "Less speculative infrastructure; retains the demonstrated gap and requires careful future manual review."
+    }
+  },
+  "errors_and_limits": [
+    "No critic reader/assertion/import error or target failure occurred in this source review; all current read/hash commands exited0.",
+    "Root's prior worth-serialization reader correction6742b8/76ec18 was metadata-only; current source was not altered in response to this source finding.",
+    "Whole authored programme reviewed statically; no Node syntax check/import, source/geometry evaluation, helper/fixture, decode/model, CPU/GPU/native/browser/capture/network call.",
+    "No old generic garment producer or geometry read/replayed; previous accepted images/source limits reused at exact pins.",
+    "Current source B blocks all target allowances. No patch, correction, source/dimension/renderer/readiness/camera/capture/parameter successor is admitted in this method.",
+    "Current main docs,22scoped10broad, all original/accepted/default/frozen assets, old closures and constructor HOLD remain."
+  ],
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/BRIEF.md",
+      "bytes": 5695,
+      "sha256": "92ec0bda92e6c5b1521385d0535e7b23a6cd24c2f8982dfcc7721acb975596a0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/SOURCE.md",
+      "bytes": 8756,
+      "sha256": "e9d2d04c37598ffa533219bb896f9497d0ea5f5e23a4922356152e6301e11108"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/design.json",
+      "bytes": 2860,
+      "sha256": "d9a270c2d35052e516c333e5b0f77f2b9caa9f99d75b718e5e3371bfe85e5b30"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/build.mjs",
+      "bytes": 17250,
+      "sha256": "4af178dd4e51eacbd9225e1a208005dc8a485d693257bc8fa20bd7ffb3cf7fab"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/viewer.mjs",
+      "bytes": 9213,
+      "sha256": "b8d7e050e93b5a2271b9ca27ca7e27bbf1ddc85409076d279220dc3af4567ed8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/review.html",
+      "bytes": 2268,
+      "sha256": "adf81fd41c4319dd70e2ee8c19db4a2ae3c43924404806588511db2681beed3e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/API-INPUTS.json",
+      "bytes": 5070,
+      "sha256": "91b93b45a1e30782100ab9888e238ec6c2773bc302d0fd4edc04506683c8ce9e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/CPU-REQUEST.json",
+      "bytes": 607,
+      "sha256": "51c3001ee700b0a98e077a021fe06598f995d41311a94331e67e5b7bbe50e5e8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/PREFLIGHT.json",
+      "bytes": 14952,
+      "sha256": "3e723ece3c21a9917a08ae7e2a87a44c1a42fb25b6100ca194f75d2e3fe38605"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/WORTH.md",
+      "bytes": 3470,
+      "sha256": "7173643bd6c69e27a2fdb68560824ad4fae1188a4a8d2470205851254c0d4908"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/WORTH-RECEIPT.json",
+      "bytes": 18913,
+      "sha256": "569d45d5125fc504dbb29a535af86cdd2bd760934505c7dfcf56fbb83b89c6c6"
+    }
+  ],
+  "collection": {
+    "pid": 66170,
+    "utc": "2026-10-19T17:24:39.448163+00:00",
+    "mode": "Exclusive x, own pair only",
+    "completed": true,
+    "pending_edits": false
+  },
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-trouser-first-volume/SOURCE-REVIEW.md",
+    "bytes": 3361,
+    "sha256": "3b5be8c8794e0778d2d715d818483a56d9f592909fc7b629f222267ca4ed5eb1"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "schema": "ari-trouser-current-installed-primary-API-v1",
+  "utc": "2026-10-19T17:20:52.588300+00:00",
+  "pid": 58929,
+  "node_alias": "/opt/homebrew/bin/node",
+  "node_resolved": "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+  "node_alias_is_declared_symlink": true,
+  "node_resolved_mode": "0o555",
+  "three_version": "0.185.1",
+  "inputs": [
+    {
+      "path": "/opt/homebrew/bin/node",
+      "bytes": 132848,
+      "sha256": "91ed66b8cd139609427a3e9d93518dd3b0d5407c737fc9a265bfd991ec623d8a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+      "bytes": 132848,
+      "sha256": "91ed66b8cd139609427a3e9d93518dd3b0d5407c737fc9a265bfd991ec623d8a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/node/26.9.0/lib/libnode.147.dylib",
+      "bytes": 57140096,
+      "sha256": "962d6add54b805dfcdd847d5830baae73e4348928fc1b2fd5e7886ed39a6d7f5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferGeometry.js",
+      "bytes": 34470,
+      "sha256": "be1b8ad6ce3e502904fd989f5b6690d8fedcbadb74508aec99fc87dfd567e8c7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferAttribute.js",
+      "bytes": 24876,
+      "sha256": "ffd9bdc55ea7c0b5cec9865a68b71ebd076d0c49f9d50adb5f9ce570c1961c09"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/Object3D.js",
+      "bytes": 40918,
+      "sha256": "99d720abcea9720a2743dcbbd84e393d7094538d4a8495ea4869150030aa7d82"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/Material.js",
+      "bytes": 42885,
+      "sha256": "3af196049d118e5c8a81e07cb9d90c44524ac5a319263e64f18f3ee08178ca68"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/MeshStandardMaterial.js",
+      "bytes": 13835,
+      "sha256": "c1dc5c36d5360498cccae2513dae74349de62a48a9ed19b540cf3d7905a03a1f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js",
+      "bytes": 108498,
+      "sha256": "867948b57a6abb84d4cfd7619b38ea14fbb2c100c1b6f78d59de2383662ab7a0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Box3.js",
+      "bytes": 21469,
+      "sha256": "382b33a3b235b3f5a37a8949d8f8a9efdf056c62ce5ed79692b54944a80487e1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Vector3.js",
+      "bytes": 28243,
+      "sha256": "834c56c4a10a54ee1f967f111d792be37639b5a8761c6f190622184297bf3dc8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/cameras/OrthographicCamera.js",
+      "bytes": 5806,
+      "sha256": "5525c2365774222ee96c4e4303d0257a4b16739e1e69769977c0a739b4f3fd54"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/constants.js",
+      "bytes": 32951,
+      "sha256": "3444ef8433dedd2d8b391bc1139b5f3c9f433ea3487473b366e624814d73d26e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/lights/Light.js",
+      "bytes": 1449,
+      "sha256": "3c06d07fb1ff6bb3e6a78a03ac8301afb2f0f488b420c44e6e89756d9a91b44b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/lights/LightShadow.js",
+      "bytes": 8268,
+      "sha256": "d4d3faaaae0ad570174674d125f863ad8a1695ee4a1c548fdb891f0c66c1dde4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/lights/HemisphereLight.js",
+      "bytes": 1515,
+      "sha256": "801fc56baaee3a0c60993cf601ae94298e23aacfb058384e3c1daea48330467c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/lights/DirectionalLight.js",
+      "bytes": 2837,
+      "sha256": "142b2d35911bb8c52d6465b4841729cc4616166e4486c61b4959281454af2644"
+    }
+  ],
+  "selected_read_jobs": [
+    "688c7b rg method inventories",
+    "02b3aa complete selected API ranges",
+    "877f51 correct Material.dispose1170-1220 and complete HemisphereLight/DirectionalLight constructor/dispose ranges",
+    "c241d1 Light.dispose/LightShadow.dispose and Object3D.lookAt/updateMatrixWorld"
+  ],
+  "selected_semantics": "Indexed BufferAttribute/Geometry groups/normals/dispose; material parameters/frontside/dispose; orthographic frustum/lookAt; renderer size/pixelratio/colourspace/dispose/contextloss; lights and shadow disposal. Current hashes exact. Initial Material range964-990 was unrelated serialized-property context; correct1170-1220 explicitly read before source freeze. No runtime call/import/evaluation.",
+  "limits": "Installed selected primary sources only; no whole-engine/transitive compiler/driver/physicalretirement claim. No new external retrieval. Alias/installed files are external current bindings, not Git artifacts."
+}
