@@ -1,0 +1,509 @@
+{
+  "schema": "critic-Mara-cardigan-actual-CPU-v1",
+  "decision": "A finite actualsaveddata only; conditionalworthA foronefixedGPUafterfreshrootgate",
+  "pending_edits": false,
+  "absolute_deadline_utc": "2026-10-19T16:15:47.377593+00:00",
+  "read_scopes": {
+    "actual_records": "CompleteCPU-ADMISSION(all59bindings),CPU-JOB,TOOL-CPU,BUILD-RESULT,OUTPUT-INVENTORY; fullRootCPUread only after own independent audit completed.",
+    "model": "Entire312209byteJSON parsed. Every savedposition/face/material/interface/loop/witness traversed computationally; metadata and all18witnesses printed/read. No claim of linguistically printing312209bytes.",
+    "exports": "WholeOBJ158628 andMTL467 read and parsed; every vertex/face/group/material andallMTLrecords compared toJSON/sourcepalette, no replacement/exportgenerated.",
+    "source": "Freshall59rawpins; completeprevioussourcegate/readscopes reused at exactbytes. No generator/helper/root-auditroutine import/read/replay; root audit-cpu.py was not used.",
+    "serving": "FullSERVED-MODULES/SERVED-READER-ERRORrecords; all3savedarchive bytehashes verified; fullauthoredviewertext comparison excludingobservedfirstimport andappendedsuffix. No newHTTP/browser/compiler/runtimeevaluation; runtime semantic scope selectedsources fromsourcegate, notwholelibrary.",
+    "images": "No newmodelimage exists or viewed here. Prior accepted drawing/reference actualwholeimage sourcewitnesses retained by exactpins."
+  },
+  "independent_data_checks": {
+    "pid": 23177,
+    "utc": "2026-10-19T15:19:11.929740+00:00",
+    "admission_pins": 59,
+    "source_model_design_association_exact": true,
+    "tool_exit": 0,
+    "tool_session": "none returned",
+    "combined_tool_JSON_equals_BUILD": true,
+    "counts": {
+      "parts": 3,
+      "vertices": 2288,
+      "triangles": 4572
+    },
+    "parts": [
+      {
+        "id": "continuous_body_and_sleeves",
+        "vertices": 2228,
+        "triangles": 4460,
+        "edges": 6690,
+        "euler": -2,
+        "min_area": 0.1951846836307584,
+        "translated_signed_volume": 7106.0550995338845,
+        "min_Float32_area": 0.195184799442897,
+        "material_counts": {
+          "band": 364,
+          "rib": 424,
+          "body": 1608,
+          "inside": 2064
+        },
+        "bounds": [
+          [
+            -34.57030051386446,
+            -0.06954040182247195,
+            -12.35
+          ],
+          [
+            34.57030051386446,
+            102,
+            11.972984252209995
+          ]
+        ]
+      },
+      {
+        "id": "patch_posX",
+        "vertices": 30,
+        "triangles": 56,
+        "edges": 84,
+        "euler": 2,
+        "min_area": 0.32799447736452825,
+        "translated_signed_volume": 66.25218012216854,
+        "min_Float32_area": 0.3279944597843496,
+        "material_counts": {
+          "pocket": 40,
+          "inside": 16
+        },
+        "bounds": [
+          [
+            12.207304711920575,
+            20,
+            5.918759020022641
+          ],
+          [
+            20.271234355498503,
+            40,
+            10.886309101059544
+          ]
+        ]
+      },
+      {
+        "id": "patch_negX",
+        "vertices": 30,
+        "triangles": 56,
+        "edges": 84,
+        "euler": 2,
+        "min_area": 0.3279944773645291,
+        "translated_signed_volume": 66.25218012216854,
+        "min_Float32_area": 0.3279944597843496,
+        "material_counts": {
+          "pocket": 40,
+          "inside": 16
+        },
+        "bounds": [
+          [
+            -20.271234355498503,
+            20,
+            5.918759020022641
+          ],
+          [
+            -12.207304711920573,
+            40,
+            10.886309101059544
+          ]
+        ]
+      }
+    ],
+    "outer_boundary_sizes": [
+      20,
+      20,
+      126
+    ],
+    "outer_inner_rim_faces": [
+      2064,
+      2064,
+      332
+    ],
+    "shared_body_sleeve_edges": 40,
+    "outer_band_faces_connected": 208,
+    "max_inner_offset_error": 7.105427357601002e-15,
+    "corrected_actual_contacts": [
+      {
+        "part": "patch_posX",
+        "inner": 15,
+        "body": 149,
+        "distance": 0
+      },
+      {
+        "part": "patch_posX",
+        "inner": 16,
+        "body": 150,
+        "distance": 0
+      },
+      {
+        "part": "patch_posX",
+        "inner": 17,
+        "body": 151,
+        "distance": 0
+      },
+      {
+        "part": "patch_posX",
+        "inner": 18,
+        "body": 152,
+        "distance": 0
+      },
+      {
+        "part": "patch_posX",
+        "inner": 19,
+        "body": 153,
+        "distance": 0
+      },
+      {
+        "part": "patch_posX",
+        "inner": 20,
+        "body": 198,
+        "distance": 0
+      },
+      {
+        "part": "patch_posX",
+        "inner": 24,
+        "body": 202,
+        "distance": 0
+      },
+      {
+        "part": "patch_posX",
+        "inner": 25,
+        "body": 247,
+        "distance": 0
+      },
+      {
+        "part": "patch_posX",
+        "inner": 29,
+        "body": 251,
+        "distance": 0
+      },
+      {
+        "part": "patch_negX",
+        "inner": 15,
+        "body": 189,
+        "distance": 0
+      },
+      {
+        "part": "patch_negX",
+        "inner": 16,
+        "body": 190,
+        "distance": 0
+      },
+      {
+        "part": "patch_negX",
+        "inner": 17,
+        "body": 191,
+        "distance": 0
+      },
+      {
+        "part": "patch_negX",
+        "inner": 18,
+        "body": 192,
+        "distance": 0
+      },
+      {
+        "part": "patch_negX",
+        "inner": 19,
+        "body": 193,
+        "distance": 0
+      },
+      {
+        "part": "patch_negX",
+        "inner": 20,
+        "body": 238,
+        "distance": 0
+      },
+      {
+        "part": "patch_negX",
+        "inner": 24,
+        "body": 242,
+        "distance": 0
+      },
+      {
+        "part": "patch_negX",
+        "inner": 25,
+        "body": 287,
+        "distance": 0
+      },
+      {
+        "part": "patch_negX",
+        "inner": 29,
+        "body": 291,
+        "distance": 0
+      }
+    ],
+    "matching_attachment_edges": 16,
+    "pocket_inner_gap_ranges": [
+      {
+        "part": "patch_posX",
+        "all_inner_gap_min": 0,
+        "all_inner_gap_max": 2
+      },
+      {
+        "part": "patch_negX",
+        "all_inner_gap_min": 0,
+        "all_inner_gap_max": 2
+      }
+    ],
+    "Float32_max_coordinate_error": 3.814255876477546e-06,
+    "all_Float32_triangles_nondegenerate": true,
+    "OBJ_all_vertices_faces_materials_checked": true,
+    "OBJ_max_rounding_error": 4.998172542514112e-09,
+    "MTL_all5materials_checked": true,
+    "inventory_entries": 5,
+    "all_output_caps": {
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.json": 312209,
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.obj": 158628,
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.mtl": 467
+    },
+    "limits": "Data-only audit of existing numbers, no target/library import, construction, replay, render or source edit. No selfintersection/collisionfree/sewnunion/physicalfit/appearance proof; Float32 is predicted conversion, not actualGPUbuffer."
+  },
+  "actual_collection": {
+    "tool_chunk": "350d68",
+    "exit_code": 0,
+    "session": "none returned",
+    "builder_pid": 13128,
+    "launch_gate_pid": 13126,
+    "requested_utc": "2026-10-19T15:13:42.538Z",
+    "builder_result_utc": "2026-10-19T15:13:42.654Z",
+    "returned_utc": "2026-10-19T15:13:42.682Z",
+    "clocks": "BuildercheckedPostImportMs27.00275 andRSS82345984sample; toolreturned wall scalar retained inrawTOOL, notCPU/OS/performance orpeakRSSproof.",
+    "streams": "Combinedtooltext is oneJSONdocument equal toBUILD-RESULT; separate stdout/stderr identities are not exposed/claimed.",
+    "budget": "SoleCPUconsumed, parentunrun; no retry/helper/constructor/test execution bycritic."
+  },
+  "actual_finding": "None demonstrated atfinite saved-data scope. Parentfalseindex remainsfrozenB; correctedactualinner/bodyreferencedpoints nowverified.",
+  "next_worth": {
+    "decision": "A oneunchangedfixedGPU6viewpacket onlyafterrootwholehandoff/model/servedidentityverificationandfreshadmission",
+    "purpose": "Decide actuallongcardigan silhouette/innerfaces/voids/band/pocketcommunication/stiffness; no data/countsproxy forappearance.",
+    "alternatives": [
+      {
+        "choice": "Onefixedfirstvisualpacket",
+        "tradeoff": "Obtainsfirstactualappearancewitness; canfailsoftness/coherence andcloseswithoutretune."
+      },
+      {
+        "choice": "Retainisolateddataonly/defercoupledartistbody-garmentowner",
+        "tradeoff": "Avoidsadditionalvisualtrialandgainstrongerwearableauthoritylater, butleavesstandalonevolumeunseen."
+      }
+    ],
+    "conditions": "Same16:15:47.377593stop, no newsource/shape/material/camera/renderer/capture/relabel/parametersuccessor; onefreshGPUadmission afteractualCPUrootgate; no broadqualitypromotion."
+  },
+  "limitations": [
+    "No selfintersection/globalcollisionfree/clearance/physicalfit/sewnunion/manufacturing/cloth/rig/motion/runtime/AAAproof.",
+    "Positivevolumes/manifoldlinks arefinite data properties.",
+    "Float32conversion is predicted fromsaveddata, not actualGPUattributes/normals/readback.",
+    "Archiveimport/body identity is notwholecompiler/engine/driver/cache/privateconstructorretirementproof.",
+    "No separate stderrbytes/performance/peakRSS or globalprocess census claim."
+  ],
+  "errors": [
+    {
+      "chunk": "ba06a1",
+      "exit_code": 1,
+      "type": "own archived-source reader assumption",
+      "detail": "All3archivehashes andCPUjob/admissionchecks passed; body equality failed because removingmapline leavesoneextra appendedblanknewline. No target/source/model failure. 87dd47exactdiffproves unchangedauthoredprefix plusoneappendednewline; no sourcepatch/refetch."
+    },
+    {
+      "type": "root reader history retained",
+      "detail": "SERVED-READER-ERROR822d8b is read-onlysame-originpathallowlist correction fromactualspecifier; no targetepochretry/policyworkaround. Not used asappearance/runtimeproof."
+    }
+  ],
+  "jobs": [
+    {
+      "purpose": "Full actual launch/admission/inventory/result and model semantic metadata",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat());print('FILES',sorted(x.name for x in p.iterdir()))\nfor n in ['TOOL-CPU.json','BUILD-RESULT.json','OUTPUT-INVENTORY.json','CPU-ADMISSION.json']:\n q=p/n\n if not q.exists():print('ABSENT_NAME',n);continue\n b=q.read_bytes();print('\\nFILE',n,len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nm=json.loads((p/'out/model.json').read_text());print('\\nMODEL_KEYS',list(m));print('MODEL_NONPARTS',json.dumps({k:v for k,v in m.items() if k!='parts'},indent=2));\nfor x in m['parts']:\n print('PART_METADATA',json.dumps({k:v for k,v in x.items() if k not in ['vertices','faces']},indent=2));print('PART_TYPES',x['id'],len(x['vertices']),len(x['faces']),x['faces'][:2])\nprint('\\nMTL_WHOLE');print((p/'out/model.mtl').read_text())\nPY",
+      "chunk_id": "31545a",
+      "exit_code": 0,
+      "pid": 18860,
+      "utc": "2026-10-19T15:16:49.831427+00:00",
+      "tool_wall_time_seconds": 5e-06
+    },
+    {
+      "purpose": "Independent complete saved-data and export audit",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,math,hashlib,struct,os,datetime,collections,re,stat\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index')\ndef pin(q):\n b=q.read_bytes();return {'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\ndef sub(a,b):return [x-y for x,y in zip(a,b)]\ndef cross(a,b):return [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]\ndef dot(a,b):return sum(x*y for x,y in zip(a,b))\ndef edgebook(fs):\n e=collections.defaultdict(list)\n for fi,f in enumerate(fs):\n  a=f['v']\n  for u,v in zip(a,a[1:]+a[:1]):e[tuple(sorted((u,v)))].append((fi,u,v))\n return e\ndef connected(adj):\n seen=set();todo=[next(iter(adj))]\n while todo:\n  a=todo.pop()\n  if a in seen:continue\n  seen.add(a);todo.extend(adj[a]-seen)\n return len(seen)==len(adj)\ndef cycles(es):\n d={};incoming={}\n for _,a,b in es:\n  assert a not in d and b not in incoming;d[a]=b;incoming[b]=a\n assert set(d)==set(incoming);out=[];left=set(d)\n while left:\n  start=min(left);q=[];a=start\n  while a in left:q.append(a);left.remove(a);a=d[a]\n  assert a==start;out.append(q)\n return out\ndef loopedges(q):return {tuple(sorted((a,b))) for a,b in zip(q,q[1:]+q[:1])}\nf32=lambda v:struct.unpack('<f',struct.pack('<f',v))[0]\na=json.loads((p/'CPU-ADMISSION.json').read_text());assert len(a['inputs'])==59\nfor row in a['inputs']:assert pin(Path(row['path']))==row,row\nm=json.loads((p/'out/model.json').read_text());d=json.loads((p/'design.json').read_text());r=json.loads((p/'BUILD-RESULT.json').read_text());t=json.loads((p/'TOOL-CPU.json').read_text());inv=json.loads((p/'OUTPUT-INVENTORY.json').read_text())\nassert json.loads(t['result']['output'])==r and t['result']['exit_code']==0 and 'session_id' not in t['result']\nassert t['launch']['argv']==a['argv']==json.loads((p/'CPU-REQUEST.json').read_text())['argv']\nassert r['argv'][1:]==[str(p/'build.mjs'),pin(p/'design.json')['sha256']]\nassert m['designSha256']==r['designSha256']==pin(p/'design.json')['sha256']\nassert m['materials']==d['materials'] and m['frame']==d['frame'] and m['units']==d['units']\nfor x in r['outputs']:assert pin(Path(x['path']))==x\nparse=lambda s:datetime.datetime.fromisoformat(s.replace('Z','+00:00'))\nassert parse(a['utc'])<parse(t['launch']['requested_utc'])<parse(r['utc'])<=parse(t['returned_utc'])<parse(a['expires_utc'])<parse(a['absolute_deadline_utc'])\nparts=m['parts'];assert [x['id'] for x in parts]==['continuous_body_and_sleeves','patch_posX','patch_negX'];stats=[];books={};face_sets={};float32_error=0\nfor part in parts:\n vs=part['vertices'];fs=part['faces'];n=len(vs);assert all(type(v) is list and len(v)==3 and all(type(x) in [int,float] and math.isfinite(x) for x in v) for v in vs)\n assert all(type(f['v']) is list and len(f['v'])==3 and len(set(f['v']))==3 and all(type(i)is int and 0<=i<n for i in f['v']) and f['material'] in m['materials'] for f in fs)\n assert len({tuple(sorted(f['v'])) for f in fs})==len(fs)\n e=edgebook(fs);books[part['id']]=e;face_sets[part['id']]={tuple(sorted(f['v'])) for f in fs};adj={i:set() for i in range(len(fs))};links=[collections.defaultdict(set) for _ in vs]\n for es in e.values():\n  assert len(es)==2 and es[0][1:]==es[1][1:][::-1]\n  x,y=es[0][0],es[1][0];adj[x].add(y);adj[y].add(x)\n assert connected(adj)\n mins=math.inf;vol=0;origin=vs[0];v32=[[f32(x) for x in v] for v in vs];min32=math.inf\n for v,w in zip(vs,v32):float32_error=max(float32_error,max(abs(x-y) for x,y in zip(v,w)))\n for f in fs:\n  aa,bb,cc=[vs[i] for i in f['v']];area=math.sqrt(dot(cross(sub(bb,aa),sub(cc,aa)),cross(sub(bb,aa),sub(cc,aa))))/2;assert area>0;mins=min(mins,area)\n  vol+=dot(sub(aa,origin),cross(sub(bb,origin),sub(cc,origin)))/6\n  aa,bb,cc=[v32[i] for i in f['v']];q=cross(sub(bb,aa),sub(cc,aa));ar32=math.sqrt(dot(q,q))/2;assert ar32>0;min32=min(min32,ar32)\n  for k,i in enumerate(f['v']):\n   b,c=f['v'][(k+1)%3],f['v'][(k+2)%3];links[i][b].add(c);links[i][c].add(b)\n assert all(len(link)>=3 and all(len(q)==2 for q in link.values()) and connected(link) for link in links)\n assert vol>0 and math.isclose(vol,part['materialVolume'],rel_tol=1e-10,abs_tol=1e-9)\n got={'id':part['id'],'vertices':n,'triangles':len(fs),'edges':len(e),'euler':n-len(e)+len(fs),'min_area':mins,'translated_signed_volume':vol,'min_Float32_area':min32,'material_counts':dict(collections.Counter(f['material'] for f in fs)),'bounds':[[min(v[k] for v in vs) for k in range(3)],[max(v[k] for v in vs) for k in range(3)]]};stats.append(got)\n reported=next(q for q in r['partChecks'] if q['id']==part['id']);assert all(got[k]==reported[k] for k in ['vertices','triangles','edges','euler']) and math.isclose(mins,reported['minTriangleArea'],rel_tol=1e-12)\nmain=parts[0];n=len(main['vertices'])//2;outer=[f for f in main['faces'] if all(i<n for i in f['v'])];inner=[f for f in main['faces'] if all(i>=n for i in f['v'])];rim=[f for f in main['faces'] if not(all(i<n for i in f['v'])or all(i>=n for i in f['v']))]\nassert [n,len(outer),len(inner),len(rim)]==[1114,2064,2064,332]\ne=edgebook(outer);loop=cycles([es[0] for es in e.values() if len(es)==1]);assert sorted(map(len,loop))==[20,20,126]\nassert {frozenset(loopedges(q)) for q in loop}=={frozenset(loopedges(q)) for q in main['openSurfaceBoundaryLoops']}\nassert {tuple(f['v']) for f in inner}=={(f['v'][0]+n,f['v'][2]+n,f['v'][1]+n) for f in outer}\nacc=[[0.,0.,0.]for _ in range(n)]\nfor f in outer:\n aa,bb,cc=[main['vertices'][i]for i in f['v']];q=cross(sub(bb,aa),sub(cc,aa))\n for i in f['v']:\n  for k in range(3):acc[i][k]+=q[k]\nmaxoffset=0\nfor i,q in enumerate(acc):\n length=math.sqrt(dot(q,q));assert length>0\n want=[d['body']['thickness']*x/length for x in q];delta=sub(main['vertices'][i],main['vertices'][i+n]);maxoffset=max(maxoffset,max(abs(x-y) for x,y in zip(want,delta)))\nassert maxoffset<1e-10\nfor face in rim:assert len({i%n for i in face['v']})==2\nshared_edges=0;basebody=n-2*len(d['sleeves']['new_ring_t'])*20\nfor it in main['interfaces']:\n q=it['sharedBodyRing'];assert len(q)==20 and len(set(q))==20 and all(i<basebody for i in q)\n for a,b in zip(q,q[1:]+q[:1]):\n  es=e[tuple(sorted((a,b)))];assert len(es)==2\n  flags=[all(i<basebody for i in outer[x[0]]['v'])for x in es];assert sorted(flags)==[False,True];shared_edges+=1\n cuff=it['terminalCuffRing'];assert len(cuff)==20 and any(set(cuff)==set(v)for v in loop if len(v)==20)\nband=[f for f in outer if f['material']=='band'];be=edgebook(band);badj={i:set()for i in range(len(band))}\nfor es in be.values():\n if len(es)==2:badj[es[0][0]].add(es[1][0]);badj[es[1][0]].add(es[0][0])\nassert connected(badj)\ncontacts=[];contact_edges=0;pocketgaps=[]\nfor part in parts[1:]:\n vs=part['vertices'];nn=len(vs)//2;assert nn==15 and len(part['attachmentWitnesses'])==9\n assert all(max(abs(a-b-t)for a,b,t in zip(vs[i],vs[i+nn],[0,0,d['pocket_shell']['thickness_z']]))<1e-12 for i in range(nn))\n wm={w['pocketVertex']:w['bodyVertex']for w in part['attachmentWitnesses']}\n for w in part['attachmentWitnesses']:\n  assert w['pocketLayer']=='inner' and w['pocketIndexSpace']=='this part.vertices, zero-based' and w['bodyPart']==main['id'] and w['bodyIndexSpace']=='named body part.vertices, zero-based outer layer'\n  pi,bi=w['pocketVertex'],w['bodyVertex'];assert type(pi)is int and nn<=pi<2*nn and type(bi)is int and 0<=bi<n\n  dist=math.dist(vs[pi],main['vertices'][bi]);assert dist==w['distance']==0\n  contacts.append({'part':part['id'],'inner':pi,'body':bi,'distance':dist})\n for path in [[15,16,17,18,19],[15,20,25],[19,24,29]]:\n  for a,b in zip(path,path[1:]):assert tuple(sorted((a,b))) in books[part['id']] and tuple(sorted((wm[a],wm[b]))) in e;contact_edges+=1\n gaps=[]\n for i in range(nn,2*nn):\n  v=vs[i];matches=[(j,q)for j,q in enumerate(main['vertices'][:n])if abs(v[0]-q[0])<1e-10 and abs(v[1]-q[1])<1e-10];assert matches\n  j,b=max(matches,key=lambda t:t[1][2]);gap=v[2]-b[2];assert gap>=-1e-12;gaps.append(gap)\n assert math.isclose(max(gaps),2,abs_tol=1e-12)and part['topMouthCenterGapZ']==2;pocketgaps.append({'part':part['id'],'all_inner_gap_min':min(gaps),'all_inner_gap_max':max(gaps)})\n# Full actual OBJ pass: no generated replacement; compare every saved record against saved JSON.\nobj=(p/'out/model.obj').read_text().splitlines();oi=-1;vi=0;fi=0;offset=0;mat=None;mtllib=[];max_obj_error=0\nfor line in obj:\n fields=line.split()\n if not fields or fields[0].startswith('#'):continue\n tag=fields[0]\n if tag=='mtllib':mtllib.append(fields[1]);continue\n if tag=='o':\n  if oi>=0:assert vi==len(parts[oi]['vertices'])and fi==len(parts[oi]['faces']);offset+=vi\n  oi+=1;assert fields[1]==parts[oi]['id'];vi=fi=0;mat=None\n elif tag=='v':\n  assert all(re.fullmatch(r'-?\\d+\\.\\d{8}',x)for x in fields[1:]) and len(fields)==4\n  actual=list(map(float,fields[1:]));expected=parts[oi]['vertices'][vi];err=max(abs(a-b)for a,b in zip(actual,expected));assert err<=5.0001e-9;max_obj_error=max(max_obj_error,err);vi+=1\n elif tag=='usemtl':mat=fields[1];assert mat in m['materials']\n elif tag=='f':assert [int(x)-1-offset for x in fields[1:]]==parts[oi]['faces'][fi]['v'] and mat==parts[oi]['faces'][fi]['material'];fi+=1\n else:raise AssertionError(('unexpected OBJ record',tag))\nassert oi==2 and vi==30 and fi==56 and mtllib==['model.mtl']\nmtl={};current=None\nfor line in (p/'out/model.mtl').read_text().splitlines():\n fields=line.split()\n if not fields:continue\n if fields[0]=='newmtl':current=fields[1];assert current not in mtl;mtl[current]={}\n else:assert fields[0]not in mtl[current];mtl[current][fields[0]]=fields[1:]\nassert set(mtl)==set(m['materials'])\nfor name,hexcol in m['materials'].items():\n q=mtl[name];assert set(q)=={'Kd','Ka','Ks','Ns','d','illum'}\n assert max(abs(float(v)-int(hexcol[i:i+2],16)/255)for v,i in zip(q['Kd'],[1,3,5]))<5.0001e-9\n assert q['Ka']==['0.05']*3 and q['Ks']==['0']*3 and q['Ns']==['8'] and q['d']==['1'] and q['illum']==['2']\n# Actual declared output inventory independently read without following a symlink.\nactual=[p/'out',p/'BUILD-RESULT.json']+list((p/'out').iterdir());assert len(actual)==5 and len(list((p/'out').iterdir()))==3\nfor q in actual:assert not q.is_symlink() and (q.is_file()or q.is_dir())\nfor row in inv['entries']:\n q=Path(row['path']);assert q in actual\n if row['kind']=='regular':assert pin(q)=={k:row[k]for k in ['path','bytes','sha256']}\ncounts={'parts':len(parts),'vertices':sum(len(q['vertices'])for q in parts),'triangles':sum(len(q['faces'])for q in parts)};assert counts==r['counts']==m['counts']=={'parts':3,'vertices':2288,'triangles':4572}\nassert len(contacts)==18\nprint(json.dumps({'pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'admission_pins':59,'source_model_design_association_exact':True,'tool_exit':0,'tool_session':'none returned','combined_tool_JSON_equals_BUILD':True,'counts':counts,'parts':stats,'outer_boundary_sizes':sorted(map(len,loop)),'outer_inner_rim_faces':[len(outer),len(inner),len(rim)],'shared_body_sleeve_edges':shared_edges,'outer_band_faces_connected':len(band),'max_inner_offset_error':maxoffset,'corrected_actual_contacts':contacts,'matching_attachment_edges':contact_edges,'pocket_inner_gap_ranges':pocketgaps,'Float32_max_coordinate_error':float32_error,'all_Float32_triangles_nondegenerate':True,'OBJ_all_vertices_faces_materials_checked':True,'OBJ_max_rounding_error':max_obj_error,'MTL_all5materials_checked':True,'inventory_entries':len(actual),'all_output_caps':{row['path']:row['bytes'] for row in r['outputs']},'limits':'Data-only audit of existing numbers, no target/library import, construction, replay, render or source edit. No selfintersection/collisionfree/sewnunion/physicalfit/appearance proof; Float32 is predicted conversion, not actualGPUbuffer.'},indent=2))\nPY",
+      "chunk_id": "9f7da8",
+      "exit_code": 0,
+      "pid": 23177,
+      "utc": "2026-10-19T15:19:11.929740+00:00",
+      "tool_wall_time_seconds": 6.625e-06
+    },
+    {
+      "purpose": "CPUjob/root comparison after own audit, serving metadata and byte caps",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['CPU-JOB.json','ROOT-CPU.json','SERVED-MODULES.json','SERVED-READER-ERROR.json']:\n q=p/n\n if q.exists():\n  b=q.read_bytes();print('\\nFILE',n,len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nd=json.loads((p/'design.json').read_text());r=json.loads((p/'BUILD-RESULT.json').read_text());caps={'model.json':d['caps']['json_bytes'],'model.obj':d['caps']['obj_bytes'],'model.mtl':d['caps']['mtl_bytes']}\nfor x in r['outputs']:assert x['bytes']==Path(x['path']).stat().st_size<=caps[Path(x['path']).name]\nprint('ACTUAL_OUTPUT_BYTE_CAPS_PASS',True)\nPY",
+      "chunk_id": "30e201",
+      "exit_code": 0,
+      "pid": 24249,
+      "utc": "2026-10-19T15:19:47.202327+00:00",
+      "tool_wall_time_seconds": 8.084e-06
+    },
+    {
+      "purpose": "CPUjob/admission identity and archived-serving hash/body read; blank-newline reader assumption",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index')\ndef pin(q):\n b=q.read_bytes();return {'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\na=json.loads((p/'CPU-ADMISSION.json').read_text());j=json.loads((p/'CPU-JOB.json').read_text());t=json.loads((p/'TOOL-CPU.json').read_text());s=json.loads((p/'SERVED-MODULES.json').read_text())\nassert j['admission_sha256']==pin(p/'CPU-ADMISSION.json')['sha256'] and j['argv']==t['launch']['argv']==a['argv']\nassert json.loads(t['launch']['gate']['output'])['pid']==j['pid'] and j['utc']==json.loads(t['launch']['gate']['output'])['utc']\nfor q in s['scripts']:assert pin(Path(q['archive']))=={k:q[k]for k in ['bytes','sha256']}|{'path':q['archive']}\nb=Path(s['scripts'][0]['archive']).read_text();lines=b.splitlines();print('SAVED_VIEWER_FIRST',lines[0]);print('SAVED_VIEWER_LAST_PREFIX',lines[-1][:80]);print('SOURCEMAP_LINES',sum(1 for l in lines if l.startswith('//# sourceMappingURL=')))\n# Compare all authored text after exactly the observed first import and one appended source-map line.\nplain='\\n'.join(l for l in lines if not l.startswith('//# sourceMappingURL='))+'\\n'\nfirst=plain.splitlines()[0];plain=plain.replace(first,\"import * as THREE from 'three';\",1)\nassert plain==(p/'viewer.mjs').read_text()\nassert not(p/'GPU-ADMISSION.json').exists()and not(p/'first.jpg').exists()\nprint(json.dumps({'pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'CPU_JOB_admission_tool_identity':True,'served_archive_hashes_verified':3,'authored_fullbody_equal_after_firstimport_and_oneappendedsourcemap':True,'served_scope':'Saved archivedsource data only, not liveHTTP/browser/runtime/compiler/driver proof','GPU_images_absent_snapshot':True},indent=2))\nPY",
+      "chunk_id": "ba06a1",
+      "exit_code": 1,
+      "pid": "not emitted by failed reader before exception",
+      "utc": "not emitted by failed reader",
+      "tool_wall_time_seconds": 7.209e-06
+    },
+    {
+      "purpose": "Exact saved-source diff and reader correction",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,datetime,os,difflib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index');s=json.loads((p/'SERVED-MODULES.json').read_text());b=Path(s['scripts'][0]['archive']).read_text();lines=b.splitlines();body='\\n'.join(l for l in lines if not l.startswith('//# sourceMappingURL='))+'\\n';body=body.replace(body.splitlines()[0],\"import * as THREE from 'three';\",1);original=(p/'viewer.mjs').read_text()\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat());print('EXACT_TEXT_DIFF', ''.join(difflib.unified_diff(original.splitlines(True),body.splitlines(True))));print('LENGTHS',len(original),len(body),'SUFFIX',repr(body[len(original):])if body.startswith(original) else 'notprefix')\nassert body.startswith(original) and body[len(original):]=='\\n'\nassert not(p/'GPU-ADMISSION.json').exists()and not(p/'first.jpg').exists()\nprint('EXACT_AUTHORED_PREFIX_PLUS_ONE_APPENDED_NEWLINE',True,'GPU_IMAGES_ABSENT_SNAPSHOT',True)\nPY",
+      "chunk_id": "87dd47",
+      "exit_code": 0,
+      "pid": 25742,
+      "utc": "2026-10-19T15:20:35.410834+00:00",
+      "tool_wall_time_seconds": 5.917e-06
+    }
+  ],
+  "writes_only": [
+    "CPU-REVIEW.md",
+    "CPU-RECEIPT.json"
+  ],
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/CPU-ADMISSION.json",
+      "bytes": 15327,
+      "sha256": "3de02cb6246f560a241d5a0928c94441936c3f8426bea5e120ab57c1a400a7ce"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/CPU-JOB.json",
+      "bytes": 578,
+      "sha256": "1c5a876afc9e3947054c8de3dda7422353aefbc885cc8b785bb596c74b53c5f6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/CPU-REQUEST.json",
+      "bytes": 718,
+      "sha256": "803977d0594066c8e81ac8b6ab621bbe8dea200a0dd1406182e2e499d6ac2f44"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/TOOL-CPU.json",
+      "bytes": 3138,
+      "sha256": "08441fc0f2f64beb92d1d274b637101dc1d5010dc77bd6545bbd2d8aa9aef0c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/BUILD-RESULT.json",
+      "bytes": 2285,
+      "sha256": "1e873a2918510bb319f16b0736a5bb5302b752e10849a48277d7e1c88f24b758"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/OUTPUT-INVENTORY.json",
+      "bytes": 1692,
+      "sha256": "2448c4a6fd914620a41c3c825d73a17583efc5727d19371234abd6db5599ee67"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/ROOT-CPU.json",
+      "bytes": 2031,
+      "sha256": "559c364c7824eefb22e7caac3c163757446afc28679b9f724fc9a191e22800bd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/PREFLIGHT.json",
+      "bytes": 14362,
+      "sha256": "98f0f825864d88949a69365c92a56664838eeac135245df005bd71baf803947a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/SOURCE-REVIEW.md",
+      "bytes": 3355,
+      "sha256": "8fe53300d23ebc2c3c0619c15f240067e5ad76b37a99226643dbfe6004fccbf5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/SOURCE-RECEIPT.json",
+      "bytes": 12608,
+      "sha256": "aceee09d7a92938a947c31245bd4df580ed3cd07c1d3a4a7d6219938f8897b39"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/CONTRACT.md",
+      "bytes": 4358,
+      "sha256": "53ebf7a82eb715ec43b723f31a27f47c25bb99e9651894232a876f8d316959b9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/BRIEF.md",
+      "bytes": 1704,
+      "sha256": "f2b484e282c437796ab3aaf14e5103858ff3d7f1b8ec92deaa9a512a61829f90"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/SOURCE.md",
+      "bytes": 2894,
+      "sha256": "4afdb714e706cf4571436cf077a589c7facc3c2767938dbc22784b88517ec801"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/build.mjs",
+      "bytes": 15768,
+      "sha256": "f5b50f8f73d3c9826e5b71d516317e91cd3d44789c9883bcd6f80b9faa1eb2c0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/design.json",
+      "bytes": 3240,
+      "sha256": "f3a046b4b93337e3b2827930b1c1e66056070d28075a609b3461bb330bf17cf2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/viewer.mjs",
+      "bytes": 7990,
+      "sha256": "1e928438539348dced48046ab49598f4ef4a6634f59f35b8fed5879871411243"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/review.html",
+      "bytes": 1892,
+      "sha256": "3673419a23c541afa707fb1213fe0ea74b513e17bcd34faf4185a792db3b85e6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.json",
+      "bytes": 312209,
+      "sha256": "0f59daa8cdeb7686bcf76ced2f4b6fe5397c06296fb763f6ae63baa2da4de99d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.obj",
+      "bytes": 158628,
+      "sha256": "1f975f43642272b8d86235ae44208846712215d709182ab7592cebe336fb2c54"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.mtl",
+      "bytes": 467,
+      "sha256": "87db47d3188a6466fef907c7fdb8691e80d5166e9c523724b4da21b6d5007683"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/SERVED-MODULES.json",
+      "bytes": 2532,
+      "sha256": "51518d3d1e9476e01abddb22c0657f427689f2162b207705b70cbcc315f345e0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/SERVED-READER-ERROR.json",
+      "bytes": 475,
+      "sha256": "01587517763e91bb540d1922239b9a9ec8acc8618abb49286232a10a97163b8a"
+    }
+  ],
+  "served_archive_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/SERVED-VIEWER.txt",
+      "bytes": 40111,
+      "sha256": "e360d58d9458231c0bbd44645af93a56ea2de55c3cc6aea9728a989745444e66"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/SERVED-RUNTIME-1.txt",
+      "bytes": 1828892,
+      "sha256": "da356c10c205f2337f5a033094e16bc36bdf2ea8d52398864c5b3c752949ece5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/SERVED-RUNTIME-2.txt",
+      "bytes": 4078536,
+      "sha256": "3253d631ed61edb9c257cbc1fc6ed5ff363ff054f192b4130dc6bd7375574e19"
+    }
+  ],
+  "admission_binding": {
+    "manifest": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/CPU-ADMISSION.json",
+      "bytes": 15327,
+      "sha256": "3de02cb6246f560a241d5a0928c94441936c3f8426bea5e120ab57c1a400a7ce"
+    },
+    "verified_rows": 59,
+    "sourceepoch_limits": "Prelaunchconsumed0/absence fields are historical, not currentoutputabsencepromises."
+  },
+  "current_absence": {
+    "GPU-ADMISSION.json": true,
+    "first.jpg": true
+  },
+  "collection": {
+    "pid": 29385,
+    "utc": "2026-10-19T15:22:34.109636+00:00",
+    "exclusivewrites": true
+  },
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/CPU-REVIEW.md",
+    "bytes": 3662,
+    "sha256": "d4b2f2a53b642f011fa51cee03a79da5a0d2d0a0b64514e32c36a95c79e7e7c0"
+  }
+}

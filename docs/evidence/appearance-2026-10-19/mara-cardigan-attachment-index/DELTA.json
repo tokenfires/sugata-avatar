@@ -1,0 +1,27 @@
+{
+  "schema": "literal-reversible-attachment-metadata-delta-v1",
+  "utc": "2026-10-19T15:09:24.108508+00:00",
+  "pid": 5130,
+  "parent_commit": "8a7f4a8e50ff19bec3beb287d85245d761ef1660",
+  "changes": [
+    {
+      "before": "return {shell,originalVertices:vertices,grid};",
+      "after": "return {shell,originalVertices:vertices,grid,originalToMain:c.oldToNew};"
+    },
+    {
+      "before": "attachments.push({pocketVertex:index(r,j),bodyGridVertex:body.grid[p.row0+r][p.col0+j],distance:length(sub(b,base))});",
+      "after": "attachments.push({pocketVertex:index(r,j)+(rows+1)*(cols+1),pocketLayer:'inner',pocketIndexSpace:'this part.vertices, zero-based',bodyPart:body.shell.id,bodyVertex:body.originalToMain.get(body.grid[p.row0+r][p.col0+j]),bodyIndexSpace:'named body part.vertices, zero-based outer layer',distance:length(sub(b,base))});"
+    }
+  ],
+  "reverse_exact_parent": true,
+  "identical_files": [
+    "design.json",
+    "viewer.mjs",
+    "review.html"
+  ],
+  "limits": "Only sourceinvariance; no parent/siblingtarget evaluated or outputs compared. Mapexposure and emittedwitnessfields only; allgeometry/topology/material/exportcalculations unchanged.",
+  "parent_builder_sha256": "47bdbb0507f12e408eb9f2d0894d3044662f1ab024d1abfe22dc184d64d039e8",
+  "sibling_builder_sha256": "f5b50f8f73d3c9826e5b71d516317e91cd3d44789c9883bcd6f80b9faa1eb2c0",
+  "deadline": "2026-10-19T16:15:47.377593+00:00",
+  "total_CPU_budget": 1
+}

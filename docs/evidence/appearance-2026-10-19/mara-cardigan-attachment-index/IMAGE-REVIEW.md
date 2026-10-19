@@ -1,0 +1,17 @@
+# Mara cardigan — first image review
+
+**A — retain this first packet as a standalone, stylized artist blockout.** This is a visual decision from the saved pixels, separate from the earlier topology/data qualification. No actionable missing or contradictory required role was demonstrated.
+
+I viewed the whole saved sheet and all six whole native 570 × 340 PNGs, plus the unchanged accepted drawing, before reading the root image opinion. The sheet tool resized the tall 1280 × 5568 JPEG to 471 × 2048 for display; the six separate native views supplied the delivered-scale judgment.
+
+The front and obliques communicate a long, open caramel cardigan with attached hanging sleeves, cuffs above the lower body hem, continuous front/nape band and a quiet back. High-front exposes the neck opening and inner back; low-front exposes inward faces, curved back hem and cuff openings. The side cuff has a visible bore around x281–303, y238–250. The brown surface seen through the front is the garment's inner back, rather than an inserted torso. These observations meet the combined six-view duties in the original BRIEF, lines 25–27; the views are not registered projections of the drawing.
+
+Both low patch fronts are subtle in the frontal lighting. High-front shows the near patch around x303–326, y210–262 and the far patch around x229–243, y194–233, with raised edges and thin open-top intentions; side views add depth. This supports the declared pocket role, without proving a functional cavity, stitching or detailed bag construction. Coarse faceting, an angular neckline and a straight, planar body remain visible blockout limits. I do not qualify soft cloth or a finished wearable garment. The brief expressly permits stylization and leaves global intersection, fit and sewing duties unproved (lines 11, 17, 19, 27).
+
+The independent saved-record audit verifies all 77 admission bindings, the ordered six roles, each complete PNG's identity and chunk CRCs, JPEG dimensions, the admitted model association and 558,255 total image bytes. Each frame records eight draw calls and 4,572 submitted triangles. Nine known owners have disposal-call records without reported errors; abort and context-loss requests are recorded. These are bounded recorded observations, not proof of physical driver retirement, GPU buffer readback or generic constructor-failure cleanup. The 41 ms source timestamp interval and 39.9 ms checked-entry timer are distinct limited clocks.
+
+My blind judgment was recorded before the root opinion; the subsequently read root opinion independently agrees at the same limited scope. No graphical correction or further packet is worthwhile.
+
+**Next worth:** A for a separate documentary delivery gate only. Alternative 1 is a concise artist handoff/README linking the unchanged editable model, OBJ/MTL, six views and explicit limitations: useful access to this new volume, with no new visual or broad-quality credit. Alternative 2 is to retain the isolated evidence and defer delivery until a coupled body/garment owner: less immediate utility, but less risk of mistaking the blockout for wearable clothing. Prefer the first, after independent root verification. Neither alternative admits appearance edits, board/default changes, broad checklist promotion or another experiment.
+
+No fit, collision-free construction, sewn union, manufacturing, rig, motion, runtime avatar or AAA qualification is granted. Pending edits: false.

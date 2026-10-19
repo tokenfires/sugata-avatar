@@ -1,0 +1,72 @@
+{
+  "schema": "root-cardigan-UI-execution-receipt-v1",
+  "utc": "2026-10-19T15:30:06.714353+00:00",
+  "pid": 43093,
+  "surface": "CUA selectedIAB3",
+  "ownedtab": "12",
+  "sequence": [
+    {
+      "operation": "await cua.rewriteDocumentation()",
+      "purpose": "Restore current computer/browser API after compaction; no capture or targetentry"
+    },
+    {
+      "operation": "await cua.createBrowserTab('3','http://127.0.0.1:5173/@fs'+maraCardiganLeaf+'/review.html',{visible:false})",
+      "utc": "2026-10-19T15:26:42.700Z",
+      "result": "Tab12; initialAXbutton5; no GPU untilUIclick"
+    },
+    {
+      "operation": "await maraCardiganTab.click(5); await maraCardiganTab.getAXState()",
+      "utc": "2026-10-19T15:26:45.312Z",
+      "result": "Disabledbutton andcomplete6viewpacket+publicJSON; oneclick consumed"
+    },
+    {
+      "operation": "await maraCardiganTab.playwright.evaluate(()=>({record:document.querySelector('#record').textContent,status:document.querySelector('#status').textContent,images:Array.from(document.querySelectorAll('#views img')).map(i=>({role:i.dataset.role,src:i.getAttribute('src'),width:i.naturalWidth,height:i.naturalHeight,alt:i.alt}))}))",
+      "result": "Readonly actualDOM copy. Decoded sixPNGdataURLs unchanged withBuffer.from(base64); exclusivefswrite originalbytes to role.png; publicrecord copied toGPU-RESULT.json. No hiddenstate/fetch/evaluate mutation."
+    },
+    {
+      "operation": "await maraCardiganTab.screenshot({fullPage:true})",
+      "requested_utc": "2026-10-19T15:26:58.854Z",
+      "returned_utc": "2026-10-19T15:26:59.035Z",
+      "result": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/first.jpg",
+        "bytes": 328939,
+        "sha256": "b562caa0305f037114f0ec7d22cb0956aa9a08596bef8fae117ff6b93899910d",
+        "magic": "ffd8ffe000104a464946"
+      },
+      "limits": "Exactlyoneunchangednaturalwholepagecapture, no viewport/DPRoverride/crop/resize/retake. NativeJPEG1280x5568; toolview laterdisplayresized471x2048 only; sixoriginalPNG570x340 separatelyviewed."
+    },
+    {
+      "operation": "await maraCardiganTab.close(); await cua.listTabs({browser:'3'})",
+      "result": "Returnedclose; onlyaccepted1/2/3tabsremain, rootownedtab12absent. BROWSER-CLOSE exactUTC."
+    }
+  ],
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/GPU-ADMISSION.json",
+      "bytes": 19753,
+      "sha256": "6c074e66f1e80f6c7bc3b8b0e0d2626f4d34b84d30e3bda6a9e1701159fc6ac4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/CAPTURE.json",
+      "bytes": 2383,
+      "sha256": "6d54a6b237a63bda469a2532d97c4a440f4a0bb60c4c1dd97236cb800ceaf7de"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/GPU-RESULT.json",
+      "bytes": 4667,
+      "sha256": "a0efcceb4d75c5ea9f56960d0fdaf54b45ee36f92f01af0a0f21fdf09fbb5410"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/ROOT-GPU.json",
+      "bytes": 3178,
+      "sha256": "fac5fbee2149f9abf40a10afef4bb1c17b4551211236a0342929d443446e9258"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/BROWSER-CLOSE.json",
+      "bytes": 287,
+      "sha256": "42b6914a10efe5936e70769cbc6d8680304462ba76e871d69e6574ca57d8b684"
+    }
+  ],
+  "jobs": "SoleCPU350d68complete/no session and oneGPUclickcomplete; no currentnative/helper/imagegeneration entry or renderloop started. Critic actualimageaudit maystillrun; no duplicatejobpermission.",
+  "limits": "Actual publiccleanup9knownownerdisposecallsnoerror/contextlossrequested; no physicaldriverretirement/privateconstructor/peakmemory/performance/fit/cloth/runtime/AAA proof."
+}

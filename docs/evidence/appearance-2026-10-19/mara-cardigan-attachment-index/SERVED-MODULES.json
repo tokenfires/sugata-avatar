@@ -1,0 +1,47 @@
+{
+  "schema": "current-cardigan-served-module-observation-v1",
+  "utc": "2026-10-19T15:18:14.430329+00:00",
+  "pid": 21411,
+  "scripts": [
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/viewer.mjs",
+      "archive": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/SERVED-VIEWER.txt",
+      "bytes": 40111,
+      "sha256": "e360d58d9458231c0bbd44645af93a56ea2de55c3cc6aea9728a989745444e66",
+      "status": 200,
+      "content_type": "text/javascript",
+      "imports": [
+        "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.js?v=1264994a"
+      ],
+      "revision_assignments": []
+    },
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.js?v=1264994a",
+      "archive": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/SERVED-RUNTIME-1.txt",
+      "bytes": 1828892,
+      "sha256": "da356c10c205f2337f5a033094e16bc36bdf2ea8d52398864c5b3c752949ece5",
+      "status": 200,
+      "content_type": "text/javascript",
+      "imports": [
+        "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.core-Ddh2Zg6B.js?v=1264994a"
+      ],
+      "revision_assignments": []
+    },
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.core-Ddh2Zg6B.js?v=1264994a",
+      "archive": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/SERVED-RUNTIME-2.txt",
+      "bytes": 4078536,
+      "sha256": "3253d631ed61edb9c257cbc1fc6ed5ff363ff054f192b4130dc6bd7375574e19",
+      "status": 200,
+      "content_type": "text/javascript",
+      "imports": [],
+      "revision_assignments": [
+        "185"
+      ]
+    }
+  ],
+  "total_bytes": 5947539,
+  "local_served_body_equal_after_import_and_sourcemap": true,
+  "scope": "Current same-origin HTTP dependencygraph followedfromexactreviewedviewer; complete rawresponsesarchived, selectedimport/revision observations only. One822d8breaderprefixerror correctedfromactualspecifier, nottargetsourcefailure orcapture-epochhunt.",
+  "limits": "CurrentHTTPbytes/importgraph andlocalbody equivalence, notwholecompiler/runtime/driver/cache/privateconstructor orphysicalretirement proof. ActualCPUcritic gate/rootstillpending,noGPUadmission."
+}

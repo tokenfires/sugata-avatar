@@ -1,0 +1,74 @@
+{
+  "schema": "root-full-saved-cardigan-CPU-audit-v1",
+  "utc": "2026-10-19T15:16:04.071458+00:00",
+  "pid": 17393,
+  "decision": "A finite saved model/topology/interface/export data only; actual rendered appearance unqualified",
+  "reverified_admission_pins": 59,
+  "sole_tool_chunk": "350d68",
+  "exit_code": 0,
+  "actual_builder_pid": 13128,
+  "part_checks": [
+    {
+      "id": "continuous_body_and_sleeves",
+      "vertices": 2228,
+      "triangles": 4460,
+      "edges": 6690,
+      "euler": -2,
+      "min_area": 0.1951846836307584,
+      "volume": 7106.055099534046
+    },
+    {
+      "id": "patch_posX",
+      "vertices": 30,
+      "triangles": 56,
+      "edges": 84,
+      "euler": 2,
+      "min_area": 0.32799447736452825,
+      "volume": 66.25218012216894
+    },
+    {
+      "id": "patch_negX",
+      "vertices": 30,
+      "triangles": 56,
+      "edges": 84,
+      "euler": 2,
+      "min_area": 0.3279944773645291,
+      "volume": 66.25218012216844
+    }
+  ],
+  "outside_boundary_loop_lengths": [
+    20,
+    20,
+    126
+  ],
+  "shared_sleeve_rings": 2,
+  "normal_offset_max_error": 3.5596458096434965e-15,
+  "continuous_outer_band": true,
+  "corrected_actual_contact_checks": [
+    {
+      "id": "patch_posX",
+      "verified_inner_contacts": 9,
+      "max_recomputed_distance": 0.0,
+      "top_mouth_center_gap_z": 2.0
+    },
+    {
+      "id": "patch_negX",
+      "verified_inner_contacts": 9,
+      "max_recomputed_distance": 0.0,
+      "top_mouth_center_gap_z": 2.0
+    }
+  ],
+  "OBJ_vertices": 2288,
+  "OBJ_triangles": 4572,
+  "OBJ_max_rounding_error": 4.998172542514112e-09,
+  "MTL_roles": [
+    "body",
+    "band",
+    "rib",
+    "pocket",
+    "inside"
+  ],
+  "predictedFloat32_max_position_error": 3.814255876477546e-06,
+  "all_predictedFloat32_triangles_nondegenerate": true,
+  "limits": "No generator replay/import, geometry modification, selfintersection/collisionfree/sewnunion/fit/cloth/motion/runtime/AAA or appearance proof. Actual independent data critic/root gate still required before separateGPU."
+}

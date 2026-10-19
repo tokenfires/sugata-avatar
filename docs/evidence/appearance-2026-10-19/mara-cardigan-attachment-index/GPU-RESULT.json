@@ -1,0 +1,229 @@
+{
+  "schema": "Mara-first-volume-six-view-result-v1",
+  "started_utc": "2026-10-19T15:26:45.326Z",
+  "views": [
+    {
+      "id": "front",
+      "width": 570,
+      "height": 340,
+      "bytes": 47609,
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "camera": [
+        0,
+        50.96522979810834,
+        299.81149196624756
+      ],
+      "halfHeight": 57.158942626118666,
+      "drawCalls": 8,
+      "submittedTriangles": 4572
+    },
+    {
+      "id": "side",
+      "width": 570,
+      "height": 340,
+      "bytes": 23208,
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "camera": [
+        300,
+        50.96522979810834,
+        -0.1885080337524414
+      ],
+      "halfHeight": 57.158942626118666,
+      "drawCalls": 8,
+      "submittedTriangles": 4572
+    },
+    {
+      "id": "rear",
+      "width": 570,
+      "height": 340,
+      "bytes": 41509,
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "camera": [
+        0,
+        50.96522979810834,
+        -300.18850803375244
+      ],
+      "halfHeight": 57.158942626118666,
+      "drawCalls": 8,
+      "submittedTriangles": 4572
+    },
+    {
+      "id": "high-front",
+      "width": 570,
+      "height": 340,
+      "bytes": 39479,
+      "direction": [
+        0.3924186481772526,
+        0.4796227922166421,
+        0.7848372963545052
+      ],
+      "up": [
+        -0.2144938333909338,
+        0.8774747729629109,
+        -0.4289876667818676
+      ],
+      "camera": [
+        117.72559445317577,
+        194.85206746310098,
+        235.2626808725991
+      ],
+      "halfHeight": 64.30364642006188,
+      "drawCalls": 8,
+      "submittedTriangles": 4572
+    },
+    {
+      "id": "low-front",
+      "width": 570,
+      "height": 340,
+      "bytes": 41460,
+      "direction": [
+        -0.354593765742349,
+        -0.48756642789572996,
+        0.7978359729202853
+      ],
+      "up": [
+        -0.19801948112473067,
+        0.8730858940499486,
+        0.44554383253064395
+      ],
+      "camera": [
+        -106.3781297227047,
+        -95.30469857061064,
+        239.16228384233315
+      ],
+      "halfHeight": 63.64042603146255,
+      "drawCalls": 8,
+      "submittedTriangles": 4572
+    },
+    {
+      "id": "rear-oblique",
+      "width": 570,
+      "height": 340,
+      "bytes": 36051,
+      "direction": [
+        -0.5184758473652126,
+        0.20739033894608505,
+        -0.8295613557843402
+      ],
+      "up": [
+        0.10991665980832531,
+        0.9782582722940952,
+        0.1758666556933205
+      ],
+      "camera": [
+        -155.54275420956378,
+        113.18233148193386,
+        -249.05691476905452
+      ],
+      "halfHeight": 62.56749982861874,
+      "drawCalls": 8,
+      "submittedTriangles": 4572
+    }
+  ],
+  "cleanup": [
+    {
+      "name": "geometry0",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "geometry1",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "geometry2",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "material0",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "material1",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "material2",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "material3",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "material4",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "renderer",
+      "present": true,
+      "error": null
+    }
+  ],
+  "scope": "One original unitless standalone cardigan; no body/fit/cloth/rig/runtime/AAA qualification",
+  "admissionSHA256": "6c074e66f1e80f6c7bc3b8b0e0d2626f4d34b84d30e3bda6a9e1701159fc6ac4",
+  "modelSHA256": "0f59daa8cdeb7686bcf76ced2f4b6fe5397c06296fb763f6ae63baa2da4de99d",
+  "counts": {
+    "parts": 3,
+    "vertices": 2288,
+    "triangles": 4572
+  },
+  "threeRevision": "185",
+  "contextAttributes": {
+    "alpha": false,
+    "antialias": true,
+    "depth": true,
+    "desynchronized": false,
+    "failIfMajorPerformanceCaveat": false,
+    "powerPreference": "default",
+    "premultipliedAlpha": true,
+    "preserveDrawingBuffer": true,
+    "stencil": false,
+    "xrCompatible": false
+  },
+  "outputBytes": 229316,
+  "status": "complete",
+  "checkedEntryMs": 39.8999999910593,
+  "abortRequested": true,
+  "cleanupReason": "six-view packet complete",
+  "contextLoss": {
+    "available": true,
+    "requested": true,
+    "error": null
+  },
+  "finished_utc": "2026-10-19T15:26:45.367Z"
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "root-independent-cardigan-output-inventory-v1",
+  "utc": "2026-10-19T15:14:02.931853+00:00",
+  "pid": 13772,
+  "tool_chunk": "350d68",
+  "exit_code": 0,
+  "session_id": null,
+  "reverified_admission_pins": 59,
+  "entries": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out",
+      "kind": "directory",
+      "bytes": 160
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.json",
+      "kind": "regular",
+      "bytes": 312209,
+      "sha256": "0f59daa8cdeb7686bcf76ced2f4b6fe5397c06296fb763f6ae63baa2da4de99d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.mtl",
+      "kind": "regular",
+      "bytes": 467,
+      "sha256": "87db47d3188a6466fef907c7fdb8691e80d5166e9c523724b4da21b6d5007683"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.obj",
+      "kind": "regular",
+      "bytes": 158628,
+      "sha256": "1f975f43642272b8d86235ae44208846712215d709182ab7592cebe336fb2c54"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/BUILD-RESULT.json",
+      "kind": "regular",
+      "bytes": 2285,
+      "sha256": "1e873a2918510bb319f16b0736a5bb5302b752e10849a48277d7e1c88f24b758"
+    }
+  ],
+  "limits": "Actualfilesystem inventory aftersolecompleteentry, not syscalltrace/peakmemory/CPUbenchmark; no targetreplay or appearancequalification."
+}

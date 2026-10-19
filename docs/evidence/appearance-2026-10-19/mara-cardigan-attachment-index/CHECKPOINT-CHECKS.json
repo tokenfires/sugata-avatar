@@ -1,0 +1,27 @@
+{
+  "schema": "root-cardigan-checkpoint-checks-v1",
+  "utc": "2026-10-19T15:41:41.648495+00:00",
+  "pid": 64538,
+  "staged_paths_before_this_record": 61,
+  "scope": "Onlynewcardiganattachment-indexleaf+twoexistingcheckpoint/workwindowfiles; no product/default/board/checklist/roadmap/otherworktree edit",
+  "diffcheck_full": {
+    "chunk": "30a15d",
+    "exit": 2,
+    "cause": "Four trailingwhitespace records inrawarchivedofficialservedlibrary at8511/8560/16253/35957. Preserveexactfrozenarchivebytes/hash, no format/rescue."
+  },
+  "diffcheck_excluding_raw_archive": {
+    "exit": 0,
+    "command": "git diff --cached --check -- . ':(exclude)docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/SERVED-RUNTIME-2.txt'"
+  },
+  "raw_archive": {
+    "path": "docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/SERVED-RUNTIME-2.txt",
+    "bytes": 4078536,
+    "sha256": "3253d631ed61edb9c257cbc1fc6ed5ff363ff054f192b4130dc6bd7375574e19"
+  },
+  "closure": {
+    "path": "docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/ROOT-CLOSE.json",
+    "bytes": 27825,
+    "sha256": "c5fcdada7c81f1e10873e5118430732e666f31f2657ecd5fa184f6baeedf5799"
+  },
+  "tests": "No production/runtimecode changed; independentfullsource/data/actualimage/documentaryreviews androotverification alreadycomplete; no furthermodel/render/tests warranted. Scopedlink/pin/PNGchecks areevidencequalification, notbroadfeaturetests."
+}

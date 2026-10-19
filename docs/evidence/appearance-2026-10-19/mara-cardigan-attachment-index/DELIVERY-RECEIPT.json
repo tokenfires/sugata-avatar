@@ -1,0 +1,193 @@
+{
+  "schema": "critic-mara-cardigan-documentary-delivery-v1",
+  "verdict": "A — exact handoff/README documentary closure only",
+  "actionable_findings": [],
+  "reviewed_documents": [
+    "ARTIST-HANDOFF.md",
+    "README.md",
+    "DELIVERY-INPUTS.json"
+  ],
+  "scopes": [
+    {
+      "scope": "Whole handoff, whole README, complete DELIVERY-INPUTS",
+      "job": "5a09b8",
+      "complete": true
+    },
+    {
+      "scope": "All 11 manifest inputs plus 31 immediate link records; literal Markdown link occurrence sequence, relative file resolution and bytes/SHA; saved GPU count/byte correspondence; exact image-review reuse",
+      "job": "867efa",
+      "verified_rows": 42,
+      "unique_paths": 29,
+      "complete": true
+    },
+    {
+      "scope": "Whole LIVE-SERVICES.json, UI-EXECUTION.json and retained primary REFERENCES.md",
+      "job": "867efa",
+      "complete": true,
+      "limits": "Saved attributed observations only. No critic live service/browser/API/network check."
+    },
+    {
+      "scope": "Board/checklist unchanged against current HEAD",
+      "job": "867efa",
+      "method": "git diff --quiet HEAD -- docs/ARTIST-WARDROBE.html docs/PROJECT-CHECKLIST.md",
+      "exit_code": 0
+    },
+    {
+      "scope": "Earlier full source and independent complete data/whole-image judgments",
+      "method": "Reused exact IMAGE-REVIEW/RECEIPT and CPU-REVIEW/RECEIPT pins; no repeat imports/evaluation/reconstruction/render/view required"
+    },
+    {
+      "scope": "ROOT-IMAGE.json",
+      "method": "Exact current hash binding only in this documentary review; root accepts own preceding full review, while critic judgment remains own unchanged image pair"
+    }
+  ],
+  "manifest_verification": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/DELIVERY-INPUTS.json",
+    "inputs": 11,
+    "immediate_link_occurrences": 31,
+    "verified_rows": 42,
+    "unique_paths": 29,
+    "all_exact": true,
+    "all_links_resolve": true,
+    "plain_pending_record_pointers": "DELIVERY-REVIEW.md and ROOT-DELIVERY.json are separate approval records, not active premature links or evidence of approval"
+  },
+  "reuse": {
+    "image_review": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/IMAGE-REVIEW.md",
+      "bytes": 3462,
+      "sha256": "f48985a40fcfdbfbc27c810aa67ab90abd7f12f5f1583cbaf919cf92a171b029"
+    },
+    "image_receipt": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/IMAGE-RECEIPT.json",
+      "bytes": 22886,
+      "sha256": "aaf18eefcec090b9b1643b73eda15a90b7a488d746f92bf269d3668d3a0e7826"
+    },
+    "visual_scope": "Standalone stylized artist blockout only; native six whole views already inspected independently before root opinion, unchanged accepted original drawing; no new visual qualification granted by documentary review."
+  },
+  "actual_correspondence": {
+    "parts": 3,
+    "vertices": 2288,
+    "triangles": 4572,
+    "corrected_indexed_contacts": 18,
+    "colour_roles": 5,
+    "frame": "+Y up/+Z front/+X page-right front; side from +X, no anatomical side",
+    "roles": [
+      "front",
+      "side",
+      "rear",
+      "high-front",
+      "low-front",
+      "rear-oblique"
+    ],
+    "per_frame": [
+      570,
+      340
+    ],
+    "png_total_bytes": 229316,
+    "sheet_bytes": 328939,
+    "total_image_bytes": 558255,
+    "exports": "Unchanged JSON/OBJ/MTL association independently qualified earlier; artist-editor import untested, no UV/normal/rig/sewing claim",
+    "limits": "No functional cavity, soft cloth, sewn union, global intersection/collision-free fit, body/morph/pose registration, physics, rig/motion/runtime/performance or AAA acceptance."
+  },
+  "jobs": [
+    {
+      "kind": "whole authored prose/manifest read",
+      "chunk_id": "5a09b8",
+      "exit_code": 0,
+      "pid": 58408,
+      "utc": "2026-10-19T15:38:20.639018+00:00"
+    },
+    {
+      "kind": "independent exact-pin/link/correspondence/protected-doc audit and full relevant saved service/UI/reference reads",
+      "chunk_id": "867efa",
+      "exit_code": 0,
+      "pid": 59314,
+      "utc": "2026-10-19T15:38:50.508814+00:00"
+    }
+  ],
+  "commands": {
+    "complete_prose_and_manifest_read": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['ARTIST-HANDOFF.md','README.md','DELIVERY-INPUTS.json']:\n q=p/n;b=q.read_bytes();print('\\nFILE',n,len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+    "independent_documentary_audit": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,re,datetime,os,subprocess\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index')\ndef pin(q):\n b=q.read_bytes();return {'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nm=json.loads((p/'DELIVERY-INPUTS.json').read_text());rows=m['inputs']+[x['file'] for x in m['immediate_links']]\nfor x in rows:assert pin(Path(x['path']))==x,x\nlinks=[]\nfor name in ['ARTIST-HANDOFF.md','README.md']:\n actual=re.findall(r'\\[[^\\]]*\\]\\(([^)]+)\\)',(p/name).read_text());declared=[x for x in m['immediate_links']if x['document']==name]\n assert actual==[x['target']for x in declared],name\n for target,row in zip(actual,declared):\n  assert not re.match(r'^[a-zA-Z]+:',target)and not target.startswith('/'),target\n  q=(p/target).resolve();assert str(q)==row['file']['path']and q.is_file()and not q.is_symlink(),target\n  links.append({'document':name,'target':target,'resolved':str(q)})\nassert len(links)==31\nir=json.loads((p/'IMAGE-RECEIPT.json').read_text()); assert ir['review_output']==pin(p/'IMAGE-REVIEW.md')\nassert ir['decision'].startswith('A')and ir['pending_edits']is False\nassert [pin(p/(r+'.png'))['sha256']for r in ir['actual_packet']['roles']]==[x['sha256']for x in ir['direct_inputs']if x['path'].endswith(tuple('/'+r+'.png'for r in ir['actual_packet']['roles']))]\ng=json.loads((p/'GPU-RESULT.json').read_text());c=json.loads((p/'CAPTURE.json').read_text())\nassert g['counts']=={'parts':3,'vertices':2288,'triangles':4572}and len(g['views'])==6\nassert sum(x['bytes']for x in c['PNGs'])==229316and c['screenshot']['bytes']==328939\nassert c['screenshot']['sha256']=='b562caa0305f037114f0ec7d22cb0956aa9a08596bef8fae117ff6b93899910d'\nassert g['outputBytes']+c['screenshot']['bytes']==558255\nprotected=['docs/ARTIST-WARDROBE.html','docs/PROJECT-CHECKLIST.md']\nz=subprocess.run(['git','diff','--quiet','HEAD','--',*protected],cwd='/Users/robault/GitHub/sugata-avatar',capture_output=True);assert z.returncode==0and z.stdout==z.stderr==b''\nprint(json.dumps({'pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'manifest_input_rows':len(m['inputs']),'literal_link_occurrences':len(links),'verified_rows':len(rows),'unique_paths':len({x['path']for x in rows}),'links':links,'image_review_reused_exact':True,'actual_numeric_packet_correspondence':True,'protected_board_checklist_diff_from_HEAD_exit':z.returncode,'pending_approval_pointers':'DELIVERY-REVIEW.md and ROOT-DELIVERY.json are backticked separate records, not premature active delivery links','scope':'Documentary saved-file audit only; no numerical generator import, browser, GPU, rendering, new image, source or artifact edit.'},indent=2))\nfor n in ['LIVE-SERVICES.json','UI-EXECUTION.json','../mara-cardigan-first-volume/REFERENCES.md']:\n q=p/n;b=q.read_bytes();print('\\nRELEVANT RECORD',str(q),len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY"
+  },
+  "errors": [
+    {
+      "kind": "Read-only observer syntax warnings",
+      "job": "867efa",
+      "detail": "Python emitted two SyntaxWarnings for adjacent numeric literals and 'and' in the audit command. Exit0 and all assertions completed. Literal command retained, no rerun, candidate change or target failure."
+    }
+  ],
+  "decision_and_tradeoffs": [
+    {
+      "choice": "Proceed with truthful local documentary closure",
+      "decision": "Preferred",
+      "tradeoff": "Provides useful access to the accepted standalone editable blockout while explicit limits prevent wearable/finished-cloth promotion."
+    },
+    {
+      "choice": "Retain isolated evidence until coupled body/garment ownership",
+      "decision": "Valid alternative",
+      "tradeoff": "Reduces premature interpretation risk but withholds immediate artist access; it does not justify changing the accepted graphics."
+    }
+  ],
+  "next": "Root independently verifies this stable pair, then may close/checkpoint. No new experiment, graphics, board/default/broad-checklist promotion or target entry admitted.",
+  "pending_edits": false,
+  "no_critic_target_execution": true,
+  "absolute_stop_utc": "2026-10-19T16:15:47.377593+00:00",
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/ARTIST-HANDOFF.md",
+      "bytes": 3381,
+      "sha256": "c4272c4bcbb1e970a37d829eb26c30b0c17d17c8b2bdce7133ca497069e94cbb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/README.md",
+      "bytes": 4024,
+      "sha256": "f84e1d7738bf75afd5b34df539606a90a2619407f91a8018d8b141080902ad09"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/DELIVERY-INPUTS.json",
+      "bytes": 14642,
+      "sha256": "cda1cb47575adb12f63e853ab4507129eedec6db5ecba062b0cc7f592f69e840"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/IMAGE-REVIEW.md",
+      "bytes": 3462,
+      "sha256": "f48985a40fcfdbfbc27c810aa67ab90abd7f12f5f1583cbaf919cf92a171b029"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/IMAGE-RECEIPT.json",
+      "bytes": 22886,
+      "sha256": "aaf18eefcec090b9b1643b73eda15a90b7a488d746f92bf269d3668d3a0e7826"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/LIVE-SERVICES.json",
+      "bytes": 4762,
+      "sha256": "3fe7fb4f5b5d898a6142aca439f23e48488fd370860478efdaf416a4f4e9b841"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/UI-EXECUTION.json",
+      "bytes": 4010,
+      "sha256": "5e582c5cd4e8d46a5f6033085a2f9a79a07c399a20cebd9bcfa33e9120a7781f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/GPU-RESULT.json",
+      "bytes": 4667,
+      "sha256": "a0efcceb4d75c5ea9f56960d0fdaf54b45ee36f92f01af0a0f21fdf09fbb5410"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/CAPTURE.json",
+      "bytes": 2383,
+      "sha256": "6d54a6b237a63bda469a2532d97c4a440f4a0bb60c4c1dd97236cb800ceaf7de"
+    }
+  ],
+  "collection": {
+    "pid": 60885,
+    "utc": "2026-10-19T15:39:41.093039+00:00",
+    "mode": "Exclusive x; own review pair only",
+    "pending_edits": false
+  },
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/DELIVERY-REVIEW.md",
+    "bytes": 2389,
+    "sha256": "53f35f66b502064dffa04d88567143afb5474489b620835487c82c3468984762"
+  }
+}
