@@ -1,0 +1,92 @@
+{
+  "utc": "2026-10-19T23:14:27.531511+00:00",
+  "pid": 89188,
+  "role": "Complete inert source/sole original raster/primary one-page reference/baseline/worth chain, before source review; no target admission",
+  "sourceEraCommit": "b2976eef777fa5f10c5070331735f3efad8a8622",
+  "bindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/PLAN.md",
+      "bytes": 7020,
+      "sha256": "317d3c34d3cedda0947663f6eeabd5e44648fc816a32d5eb8d0dda6969a6eee6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/BRIEF.md",
+      "bytes": 6014,
+      "sha256": "fccce73ff912c7887e1812496bd1421620005cb86bdd3b5cf31e55383884032a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/PROMPT.txt",
+      "bytes": 2646,
+      "sha256": "69a47e1c5a836e8443e8bf2466f3909b87651731d0189d358a9a0df893ec8a3f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/REFERENCES.md",
+      "bytes": 1808,
+      "sha256": "5b0406208d1927562aaaf0edfdb1d3e0cfbc5374b5485b0403e0468ad81cd98e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/REFERENCE-RAW.json",
+      "bytes": 21894,
+      "sha256": "858b8f30e756486950806e5d57492fa7b375e64b5245b5f4f85006d603a4794d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/BASELINE-PROJECT-CHECKLIST.md",
+      "bytes": 8120,
+      "sha256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8120,
+      "sha256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/PLAN.md",
+      "bytes": 4087,
+      "sha256": "83d468d1ac4e1f3dba3e4fd706b0655d93505f18bcd3faa035fa9de56b176706"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/WORTH.md",
+      "bytes": 3555,
+      "sha256": "1bfa0c6704b745e09315c5b67360cde5da2c55624e5456ee07c331db059df05e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/CRITIC-RECEIPT.json",
+      "bytes": 12566,
+      "sha256": "ae59f4a5c054f20fff6600901dfbde220c5d0aed173cf7f00600ee71d64b06f5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/ROOT-WORTH.json",
+      "bytes": 3627,
+      "sha256": "96eb093135b25f56d0a4308e4559f5d9b1986d18a0f68fd9dc567ddeda90f4a3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/ROOT-CLOSE.json",
+      "bytes": 3025,
+      "sha256": "87e0926bd2c9707cbf989df411ccc043bdbeb177c0eeabb345dcb2031f2ea089"
+    }
+  ],
+  "generationArguments": {
+    "promptFile": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/PROMPT.txt",
+    "referenced_image_paths": [
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png"
+    ],
+    "transparent_background": false
+  },
+  "jobCounts": {
+    "Firecrawl_page": 1,
+    "native_remote_image_pixels_seen": 0,
+    "image_generation": 0,
+    "other_targets": 0
+  },
+  "managedServiceLimits": "Model/version/PID/memory/hard cancellation not exposed or measured. One call, existing allowance, no duplication of unknown/pending outcome; explicit output collection guards only."
+}

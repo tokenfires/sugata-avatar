@@ -1,5 +1,11 @@
 # Sugata work window — October 18, 2026
 
+## October 19, 23:18 UTC — masculine three-view source A; one managed call next
+
+Complete inert brief/reference/output/workload source passed independent and root review. Stable SOURCE-REVIEW3917/SHAd5c81f0b… and receipt17015/SHA373ff3c2… were whole-read209ca3; fresh root verifies17bindings. One current J.Crew page returned text only plus an uninspected screenshotURL; no rear authority, no further query/image. Back/yoke/hem remain original choices. SourceA admits one exact built-in imagegen call only after fresh admission/start marker; no call has started at this checkpoint. [Complete contract](evidence/appearance-2026-10-19/masculine-clothed-turnaround/PLAN.md).
+
+A pending/unknown call must never be duplicated; inspect CALL.json and returned state first. Managed model/PID/memory/hard cancellation unexposed; local one-file/20MiB/dimensions are collection checks only. First B/unknown stops without retake/CLI/transport/view/headgroom successor. All assets/defaults/baselinechecklist23/10/fullroadmap/priorclosures/constructorHOLD remain. ReviewHTTP200/same10minuteACTIVE automation freshf55238, no config change, future delivery untested. Human check-in/pause wins; no push/publication/install/purchase/model/subscription/reset-credit or other project work.
+
 ## October 19, 23:10 UTC — complete clothed masculine views worth A
 
 Root and independent critic inspected the sole original whole character sheet and separately agree: complete clothed profile/rear middle, seat, layering and hem-to-boot intent is missing from its front figure plus portrait. Exactly one separately gated first-image brief is worth preparing; no generation yet. Stable worth3555/SHA1bfa0c67… and critic receipt12566/SHAae59f4a5… were whole-read a3a46a; fresh root e22b7a verifies8bindings. [Bounded worth receipt](evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/README.md).

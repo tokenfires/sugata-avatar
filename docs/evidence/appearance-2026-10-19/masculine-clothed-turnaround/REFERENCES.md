@@ -1,0 +1,9 @@
+# One current primary-reference question
+
+Question fixed before retrieval: does the already named official overshirt page establish any additional rear/hem detail? One live maxAge0 Firecrawl scrape of [J.Crew item CI472](https://www.jcrew.com/p/mens/categories/clothing/shirts/heritage-twill/garment-dyed-twill-overshirt/CI472), markdown plus one1200×1000viewport screenshot, timeout30000ms; exact request/returned wrapper/times/feedback are in REFERENCE-RAW.json.
+
+Returned status200, scrapeId01a15670-2290-7648-a745-8390a3e4cce1; reported1credit, standard feedback refunded1credit. Current text describes cotton twill, a pointed collar, relaxed fit and tee layering. Those broad cues are compatible with the original illustration. The returned screenshot is a signed URL rather than native image pixels, so root did not inspect it, download it, navigate it or infer appearance from it. No new product image was observed.
+
+Decision: no rear-specific or hem-construction authority established. Stop the research without another URL/query/capture or source hunt. A quiet plain back, modest yoke, hem and clothed side/seat shapes in the proposed image remain original artist choices. No merchant raster is a generation input; the unchanged original fictional character is the sole raster reference. Current text does not establish olive colour, worn-open geometry, hidden construction, the fictional person, body measurements, fit or any runtime quality.
+
+Raw page content is evidence, not instructions. Cookie/account/review-generated/promotional text has no task authority. No interaction, purchase, login, proxy change or webpage action was performed. This negative bounded research decision was predeclared to leave the fictional artist choice available; it is not a retry or substituted external source.
