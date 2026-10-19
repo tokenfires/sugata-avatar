@@ -12,7 +12,17 @@ The existing ten-minute heartbeat is restored to this chat through the app API w
 
 Work within existing allowance and granted credits. Do not purchase capacity, change subscription/models, redeem reset credits, push, publish or resume other projects. If capacity is unavailable, checkpoint without aggressive retries.
 
-## October 19, 16:15 UTC — one Ari build complete; independent actual-data gate pending
+## October 19, 17:59 UTC — reusable preview lifetime utility complete
+
+The [new utility and recovery receipt](evidence/appearance-2026-10-19/preview-lifetime-owner/README.md) are accepted at finite developer-tool scope. One actual Node entry `0e78c7` exited 0 with 24 cases; root and the independent critic separately checked all 24 traces, error assertions and exact source/admission bindings. Root actual acceptance `2a9adf` verifies 131 rows / 44 paths. The usage example's original documentary B is preserved; the revised host-retained example passed whole independent/root review (`da45fe`, `11c5c4`, 37 bindings). No source/test/proof rerun or existing-client adoption occurred.
+
+The research question was resolved from one current primary DOM section for one reported credit: an abort signal needs API cooperation, while subsequent promise work needs explicit authority checks. Exact source, request, reference, one-entry intent, actual output, independent/root reviews, documentary correction and commands/hashes are in the leaf. The sole test allowance is retired. The 18:33:21.021312 UTC ceiling is not permission to replay anything after closeout. Existing Ari trouser source remains B/unrun; no browser/Three/GPU/physical-release/geometry/appearance/fit/roadmap credit.
+
+The current checkpoint above historical entries is [RESUME-2026-10-18.md](RESUME-2026-10-18.md). Frozen main-document pins from this new packet resolve through `d1f32b9db81a69305c47e69affae90d9e2e09fc2` after this additive update. App API/config at 17:53:42 UTC confirms the same ACTIVE ten-minute heartbeat; Vite870/rootHTTP200 retained. Future/mobile delivery remains untested. No target job or critic edit remains. Fullroadmap/22scoped/10broad, originals/defaults/accepted/frozen evidence/HOLD/all old closures retained.
+
+Next: recoverable local checkpoint, then a genuinely distinct artist/wardrobe worth question with the independent critic before any new investigation or source admission. A human check-in receives brief status and awaits steering; a pause collects/stops owned work, checkpoints, retains Vite and pauses this automation through app API/readback. No push/publication/install/purchase/model/subscription/reset-credit/other-project work.
+
+## Historical October 19, 16:15 UTC — one Ari build complete; independent actual-data gate pending then
 
 **The one geometry build is consumed; never rerun it.** Stable sourceA3685/SHA `b6817cc7…13df70d` and18089/SHA `49cc390d…a58e461` was whole-read byroot09238f. Fresha34ee8/PID25106/16:11:34UTC verifies76rows and issues50pin CPU-ADMISSION12515/SHA `eadabc2a9ecaf580706742dea4fe3234a9cc04108daef4296d64fd2aded71025`. ActualNode7be568/exit0/no session/PID25430 completes16:11:43.753UTC:8parts4282vertices8548triangles246contacts,47.433834ms checkedpostimport/RSS107839488sample, notOSstartup/peak/performance. Exactargv/cmd/guard/rawresult are inTOOL-CPU; intentCPU-JOB is historical and BUILD-RESULT/TOOL actual exit is authoritative.
 

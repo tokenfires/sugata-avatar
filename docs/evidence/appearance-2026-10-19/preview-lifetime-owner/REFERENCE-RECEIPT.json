@@ -1,0 +1,224 @@
+{
+  "schema": "preview-lifetime-primary-reference-v1",
+  "utc": "2026-10-19T17:35:20.070035+00:00",
+  "pid": 86674,
+  "request_and_transport": {
+    "args": {
+      "url": "https://dom.spec.whatwg.org/#interface-abortsignal",
+      "formats": [
+        "markdown"
+      ],
+      "maxAge": 0,
+      "onlyMainContent": true,
+      "timeout": 30000
+    },
+    "metadata": {
+      "title": "DOM Standard",
+      "theme-color": "#3c790a",
+      "revision": "3c53f93a3e1fb11ef5bd38029b7a9c97baaf0177",
+      "viewport": "width=device-width, initial-scale=1, shrink-to-fit=no",
+      "language": "en",
+      "generator": "Bikeshed version 49e9fdd4f, updated Tue Oct 13 14:27:53 2026 -0700",
+      "color-scheme": "light dark",
+      "favicon": "https://resources.whatwg.org/logo-dom.svg",
+      "scrapeId": "01a1553a-0301-70ab-855b-ba0bd69b6aee",
+      "sourceURL": "https://dom.spec.whatwg.org/#interface-abortsignal",
+      "url": "https://dom.spec.whatwg.org/#interface-abortsignal",
+      "statusCode": 200,
+      "contentType": "text/html; charset=utf-8",
+      "timezone": "America/New_York",
+      "proxyUsed": "basic",
+      "indexId": "35f9e477-4d44-4e44-ac47-27bf25976045",
+      "creditsUsed": 1,
+      "concurrencyLimited": false
+    },
+    "feedback_args": {
+      "endpoint": "scrape",
+      "jobId": "01a1553a-0301-70ab-855b-ba0bd69b6aee",
+      "rating": "good",
+      "url": "https://dom.spec.whatwg.org/#interface-abortsignal",
+      "note": "Primary DOM section 3 clarifies that promises lack built-in abortion and APIs must explicitly observe abort state; sufficient for the bounded terminal preview-owner design. No browser or arbitrary-promise cancellation inferred."
+    },
+    "feedback_result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"success\": true,\n  \"feedbackId\": \"01a1553a-d6ac-71af-bd1e-67520f3db39e\",\n  \"creditsRefunded\": 0,\n  \"creditsRefundedToday\": 0,\n  \"dailyRefundCap\": 50\n}"
+        }
+      ],
+      "structuredContent": {
+        "success": true,
+        "feedbackId": "01a1553a-d6ac-71af-bd1e-67520f3db39e",
+        "creditsRefunded": 0,
+        "creditsRefundedToday": 0,
+        "dailyRefundCap": 50
+      },
+      "isError": false
+    },
+    "transport_results": [
+      {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "81f953",
+          "wall_time_seconds": 1.1958e-05,
+          "exit_code": 0,
+          "original_token_count": 28,
+          "output": "{\"part\": \"000\", \"bytes\": 50169, \"sha256\": \"ef5756096701d5c1721825c9d8bb5bcbc26317ec7d46db95d20cc1dc1ed88050\"}\n"
+        }
+      },
+      {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "a6c70c",
+          "wall_time_seconds": 4.875e-06,
+          "exit_code": 0,
+          "original_token_count": 28,
+          "output": "{\"part\": \"001\", \"bytes\": 50296, \"sha256\": \"51462a372f471f02c03999925ba6eb458c828bc4f5a3601c98f04efe7e79d367\"}\n"
+        }
+      },
+      {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "6ab9af",
+          "wall_time_seconds": 8.917e-06,
+          "exit_code": 0,
+          "original_token_count": 28,
+          "output": "{\"part\": \"002\", \"bytes\": 50218, \"sha256\": \"5d1271f91421c8feaef641eb14f20466f9d8dba721ca8d4b2b255da1b3c6e26d\"}\n"
+        }
+      },
+      {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "9dd72b",
+          "wall_time_seconds": 1.375e-05,
+          "exit_code": 0,
+          "original_token_count": 28,
+          "output": "{\"part\": \"003\", \"bytes\": 50208, \"sha256\": \"dcf8146bea804dd9c6712fef08d39eb3280f75472facdcd8173407a8e4f74bc8\"}\n"
+        }
+      },
+      {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "722f4b",
+          "wall_time_seconds": 6.541e-06,
+          "exit_code": 0,
+          "original_token_count": 28,
+          "output": "{\"part\": \"004\", \"bytes\": 50238, \"sha256\": \"63f58c44f6355c3c095e7e047362ca539755b0d811bf69be26162c4a6559461c\"}\n"
+        }
+      },
+      {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "0695a7",
+          "wall_time_seconds": 1.1958e-05,
+          "exit_code": 0,
+          "original_token_count": 28,
+          "output": "{\"part\": \"005\", \"bytes\": 50162, \"sha256\": \"a474f511c0ea07b71adeb408580a931a5a11c37c79275df44573631585df4d93\"}\n"
+        }
+      },
+      {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "f8ed31",
+          "wall_time_seconds": 1.4375e-05,
+          "exit_code": 0,
+          "original_token_count": 28,
+          "output": "{\"part\": \"006\", \"bytes\": 50236, \"sha256\": \"0704b65fda59716ca070de9ecd273e66c13fc29a5c9c473f039411518fec3d60\"}\n"
+        }
+      },
+      {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "765c2b",
+          "wall_time_seconds": 6.459e-06,
+          "exit_code": 0,
+          "original_token_count": 28,
+          "output": "{\"part\": \"007\", \"bytes\": 50256, \"sha256\": \"893763a880cddb2f2cfa62935bdc1214999d5a909ba0383709c20732817fb3b0\"}\n"
+        }
+      },
+      {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "89b409",
+          "wall_time_seconds": 3.2875e-05,
+          "exit_code": 0,
+          "original_token_count": 28,
+          "output": "{\"part\": \"008\", \"bytes\": 50213, \"sha256\": \"a14edb48d8cbbaba3da115dad0d5c01c91570c5bd22673d701e29d574c7a031f\"}\n"
+        }
+      },
+      {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "287bca",
+          "wall_time_seconds": 6.333e-06,
+          "exit_code": 0,
+          "original_token_count": 28,
+          "output": "{\"part\": \"009\", \"bytes\": 50302, \"sha256\": \"bbcdba8fe4747533259146d06a9a332956af87d6f3fe2bc91db71e34b8ff6116\"}\n"
+        }
+      },
+      {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "338cdc",
+          "wall_time_seconds": 6.584e-06,
+          "exit_code": 0,
+          "original_token_count": 28,
+          "output": "{\"part\": \"010\", \"bytes\": 50676, \"sha256\": \"3bf30942b93e0ece226cb6179357cdc1428af6b3378ec0b6b7f85b9feac92c3a\"}\n"
+        }
+      },
+      {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "c1eb34",
+          "wall_time_seconds": 1.2042e-05,
+          "exit_code": 0,
+          "original_token_count": 28,
+          "output": "{\"part\": \"011\", \"bytes\": 51587, \"sha256\": \"5d4492efbe81f9f00e667065119f9ea7e717da87800b4ed345349f1a9e13e24c\"}\n"
+        }
+      },
+      {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "62ff4f",
+          "wall_time_seconds": 2.3125e-05,
+          "exit_code": 0,
+          "original_token_count": 28,
+          "output": "{\"part\": \"012\", \"bytes\": 50728, \"sha256\": \"c3060ec2c5325b4952bafa424e85f3f5ead39b81edf598c2b7a9e7569e88d45f\"}\n"
+        }
+      },
+      {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "a1bf61",
+          "wall_time_seconds": 2.0125e-05,
+          "exit_code": 0,
+          "original_token_count": 28,
+          "output": "{\"part\": \"013\", \"bytes\": 11347, \"sha256\": \"2fc51d793d96b73e3010c64c9a0922e7b4ab75eea1af9d35f11173d500eccb87\"}\n"
+        }
+      }
+    ]
+  },
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PRIMARY-DOM.json",
+      "bytes": 666636,
+      "sha256": "a56e8fae5f76a74cc547cff5dfbda21206be5357b412768743c53d60b8125b1d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PRIMARY-DOM-SECTION.md",
+      "bytes": 17275,
+      "sha256": "598fecc330f755ca24ff7667d44325e4c79587935a944d73103426a7eeae945f"
+    }
+  ],
+  "read_scope": "Root actually read complete section3 including3.1/3.2/3.2.1/3.3 from one live returnedmarkdown plus header/metadata; adjacent section4 initialcontext incidental, wholeDOMstandard not read or qualified. RawreturnedJSON preserved verbatim; selectedsection extractedunchanged.",
+  "decision": "Promises lack builtinabortion; API must explicitly observe abort. Use an irreversible owner state and postawait/factory/publication authority, with AbortSignal reason/state as integration only. Source example is illustration, not browser/client test.",
+  "reported_usage": {
+    "searches": 0,
+    "primary_pages": 1,
+    "actual_images": 0,
+    "credits_used": 1,
+    "credits_refunded": 0,
+    "unused_budget_retired": true
+  },
+  "limits": "HTTP200/maxAge0 transport and currentrevisionmetadata only; no wholesale browser/Node compliance or arbitrarypromise/privateconstructor/driver guarantee. No target helper/test import/check/evaluation or clientadoption."
+}

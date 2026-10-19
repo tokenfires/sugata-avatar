@@ -1,0 +1,31 @@
+{
+  "schema": "root-preview-usage-first-doc-finding-v1",
+  "utc": "2026-10-19T17:56:34.246555+00:00",
+  "pid": 28652,
+  "decision": "B_DOCUMENTATION_ONLY_KEEP_SOURCE_AND_PROOF_A",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE.md",
+      "bytes": 4950,
+      "sha256": "412a7886e7599b21a383101683ad43de81586d264b5f1e1fe6da1c130cb6abd0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/artist-preview-lifetime.mjs",
+      "bytes": 6006,
+      "sha256": "2f5063af4b94a82f5bfe7da38de74cae568fd9712f08629fafe84b937853ea41"
+    }
+  ],
+  "witness": "USAGE lines24-39 local owner only returns on success; catch discards close snapshot and throws. Module33-56 contains disposer errors in its failures array. Root whole source b10d98/usage656dd5 independently confirms host cannot inspect this failed local owner.",
+  "alternatives": [
+    {
+      "choice": "Nonthrowing host error recorder inside catch",
+      "tradeoff": "Can preserve cleanup snapshot but introduces another callback whose failure contract needs explicit handling."
+    },
+    {
+      "choice": "Host creates and retains owner, passes it to preparePreview",
+      "tradeoff": "Owner inspect remains accessible on success/failure with a slightly more explicit caller responsibility."
+    }
+  ],
+  "selected": "Host-owned lifetime in illustrative example; ordinary doc correction only after critic freezes original pair. No executable source/test/client change, proof rerun or source/proof reopening.",
+  "next": "Collect stable original documentary handoff, revise only guide and independently re-review that documentary handoff."
+}

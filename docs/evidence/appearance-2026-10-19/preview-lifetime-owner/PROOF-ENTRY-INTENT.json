@@ -1,0 +1,18 @@
+{
+  "schema": "preview-lifetime-exact-one-entry-intent-v1",
+  "utc": "2026-10-19T17:52:27.112312+00:00",
+  "pid": 20772,
+  "admission_sha256": "f798d93a3ab3853448836ebfa1f2d2ee65859f0596da562decddf9562c144973",
+  "argv": [
+    "/opt/homebrew/bin/node",
+    "--max-old-space-size=256",
+    "/Users/robault/GitHub/sugata-avatar/tools/artist-preview-lifetime.selftest.mjs"
+  ],
+  "environment": {
+    "NODE_OPTIONS": "",
+    "NODE_PATH": "",
+    "SUGATA_PREVIEW_PROOF_STOP": "2026-10-19T18:33:21.021312+00:00"
+  },
+  "one_entry": true,
+  "actual_job": "Next single root exec_command exact environment+argv; actual tool result authoritative; no rerun."
+}

@@ -1,0 +1,185 @@
+{
+  "schema": "sugata-preview-lifetime-proof-v1",
+  "status": "PASS",
+  "pid": 20841,
+  "utc": "2026-10-19T17:52:30.374Z",
+  "node": "26.9.0",
+  "groups": 24,
+  "cases": [
+    {
+      "name": "open data/factory/publication/manual release/close",
+      "trace": [
+        "create:model",
+        "publish",
+        "release:model"
+      ]
+    },
+    {
+      "name": "terminal close refuses new factory and publication invocation",
+      "trace": []
+    },
+    {
+      "name": "model data fulfils after close without factory or publication",
+      "trace": []
+    },
+    {
+      "name": "rejected deferred data after close reports lifetime reason",
+      "trace": []
+    },
+    {
+      "name": "open data rejection preserves original error identity",
+      "trace": []
+    },
+    {
+      "name": "close between fulfilled wait and next owner operation",
+      "trace": [
+        "settled"
+      ]
+    },
+    {
+      "name": "last decode/hash seam cannot publish after close",
+      "trace": [
+        "decoded"
+      ]
+    },
+    {
+      "name": "reverse drain skips explicit release and repeated close",
+      "trace": [
+        "create:a",
+        "create:b",
+        "create:c",
+        "release:b",
+        "release:c",
+        "release:a"
+      ]
+    },
+    {
+      "name": "release errors remain visible while reverse cleanup continues",
+      "trace": [
+        "create:a",
+        "create:b",
+        "create:c",
+        "release:c",
+        "release:b",
+        "release:a"
+      ]
+    },
+    {
+      "name": "explicit failed release propagates exactly and is never retried",
+      "trace": [
+        "create:a",
+        "release:a"
+      ]
+    },
+    {
+      "name": "throw undefined is still a release failure",
+      "trace": [
+        "create:a",
+        "release:a"
+      ]
+    },
+    {
+      "name": "disposer reentrancy preserves terminal state and reverse order",
+      "trace": [
+        "create:a",
+        "create:b",
+        "release:b",
+        "reenter",
+        "closing:true",
+        "PreviewClosedError",
+        "release:a"
+      ]
+    },
+    {
+      "name": "factory reenters close and late completed resource is not returned",
+      "trace": [
+        "create:early",
+        "factory:late",
+        "release:early",
+        "release:late"
+      ]
+    },
+    {
+      "name": "late completed disposer failure is recorded before closed error",
+      "trace": [
+        "late-attempt"
+      ]
+    },
+    {
+      "name": "resource identity is registered once for the entire lifetime",
+      "trace": [
+        "create:one",
+        "release:one"
+      ]
+    },
+    {
+      "name": "factory throw preserves error and releases its reserved slot",
+      "trace": [
+        "throwing-factory",
+        "create:next",
+        "release:next"
+      ]
+    },
+    {
+      "name": "pre-aborted parent creates no listener or resources",
+      "trace": []
+    },
+    {
+      "name": "parent abort detaches exact listener before notification and drain",
+      "trace": [
+        "listen:add",
+        "create:a",
+        "create:b",
+        "listen:remove",
+        "owned:abort",
+        "release:b",
+        "release:a"
+      ]
+    },
+    {
+      "name": "manual close removes parent listener once and preserves first reason",
+      "trace": [
+        "listen:add",
+        "create:a",
+        "listen:remove",
+        "release:a"
+      ]
+    },
+    {
+      "name": "resource cap reserves synchronous reentrant factory slots",
+      "trace": [
+        "outer-factory",
+        "release:outer"
+      ]
+    },
+    {
+      "name": "capacity is lifetime-wide and invalid callbacks never invoke factories",
+      "trace": [
+        "create:a",
+        "release:a"
+      ]
+    },
+    {
+      "name": "already closed data call consumes supplied rejected promise",
+      "trace": []
+    },
+    {
+      "name": "publication error preserves error and publication-close refuses its return",
+      "trace": [
+        "commit-start",
+        "commit-end"
+      ]
+    },
+    {
+      "name": "unknown release and repeated release have no side effects",
+      "trace": [
+        "create:a",
+        "release:a"
+      ]
+    }
+  ],
+  "error": null,
+  "post_import_ms": 2.693792000000002,
+  "sampled_rss_bytes": 45973504,
+  "limits": "Deterministic actual shared owner/deferred data/synchronous fake resource and publication traces only. No geometry/DOM/browser/GPU/network/file mutation, private constructor/physical retirement/performance/appearance or future client adoption proof."
+}

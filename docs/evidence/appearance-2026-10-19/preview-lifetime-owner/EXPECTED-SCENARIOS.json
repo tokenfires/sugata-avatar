@@ -1,0 +1,30 @@
+{
+  "schema": "preview-lifetime-literal-scenario-names-v1",
+  "names": [
+    "open data/factory/publication/manual release/close",
+    "terminal close refuses new factory and publication invocation",
+    "model data fulfils after close without factory or publication",
+    "rejected deferred data after close reports lifetime reason",
+    "open data rejection preserves original error identity",
+    "close between fulfilled wait and next owner operation",
+    "last decode/hash seam cannot publish after close",
+    "reverse drain skips explicit release and repeated close",
+    "release errors remain visible while reverse cleanup continues",
+    "explicit failed release propagates exactly and is never retried",
+    "throw undefined is still a release failure",
+    "disposer reentrancy preserves terminal state and reverse order",
+    "factory reenters close and late completed resource is not returned",
+    "late completed disposer failure is recorded before closed error",
+    "resource identity is registered once for the entire lifetime",
+    "factory throw preserves error and releases its reserved slot",
+    "pre-aborted parent creates no listener or resources",
+    "parent abort detaches exact listener before notification and drain",
+    "manual close removes parent listener once and preserves first reason",
+    "resource cap reserves synchronous reentrant factory slots",
+    "capacity is lifetime-wide and invalid callbacks never invoke factories",
+    "already closed data call consumes supplied rejected promise",
+    "publication error preserves error and publication-close refuses its return",
+    "unknown release and repeated release have no side effects"
+  ],
+  "scope": "Static named scenario inventory only, not an executed proof or shadow lifetime implementation."
+}

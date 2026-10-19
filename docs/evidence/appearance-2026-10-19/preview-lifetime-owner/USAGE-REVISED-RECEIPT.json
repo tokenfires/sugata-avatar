@@ -1,0 +1,178 @@
+{
+  "schema": "independent-preview-lifetime-revised-usage-review-v1",
+  "verdict": "A_DOCUMENTATION_ONLY_USAGE_HANDOFF",
+  "collected_utc": "2026-10-19T17:58:43.614448+00:00",
+  "pid": 32828,
+  "reviewer": "/root/quality_critic",
+  "pending_edits": false,
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE.md",
+      "bytes": 5424,
+      "sha256": "ddb557e01ceb8d8e38113980cee7a710395603d4740f746f84d38178cdd1c2b6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE-ORIGINAL.md",
+      "bytes": 4950,
+      "sha256": "412a7886e7599b21a383101683ad43de81586d264b5f1e1fe6da1c130cb6abd0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/ROOT-USAGE-CORRECTION.json",
+      "bytes": 4076,
+      "sha256": "a32b8b5334a9f4a89c7742f0f4fb2be458a7ed5af05214fd14d2ed1762d0e559"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE-REVIEW.md",
+      "bytes": 2141,
+      "sha256": "b1d90c82d49f81883b17f4f396332c80619137276934e07252288d9ca8f6c70e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE-RECEIPT.json",
+      "bytes": 8122,
+      "sha256": "0b19b5c63ffacfaf761b61f582b83ff953d63a7ee10ededfeb1146cd3e7408e7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-REVIEW.md",
+      "bytes": 2958,
+      "sha256": "7d5f19a96cc83880c14849e43140ec6748de8a2fe6389f4bdd7715e225565a26"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-RECEIPT.json",
+      "bytes": 24437,
+      "sha256": "8f6d57dd6af4d3bb372850c44c5ea7c2712ee857d84c3986a5fa1c5f2b77aa16"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-REPORT.json",
+      "bytes": 4481,
+      "sha256": "efedbc5c08564e861587c66a354ef379ae4b605e6defb0a28a773c575320a22a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-TOOL.json",
+      "bytes": 5764,
+      "sha256": "76e63f350b47e4795bb5f30510bf20b168b70f2c801a66ab9c6480347fb15a0e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-STDOUT.txt",
+      "bytes": 4666,
+      "sha256": "9c4c4704bb875b70d81f97b2515587693abdf29cf6021482bb492c8e9a78487c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/artist-preview-lifetime.mjs",
+      "bytes": 6006,
+      "sha256": "2f5063af4b94a82f5bfe7da38de74cae568fd9712f08629fafe84b937853ea41"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/artist-preview-lifetime.selftest.mjs",
+      "bytes": 15856,
+      "sha256": "42783449f08796747444362fff9ac51222d109f2587b364297fb7b65c1dff7ce"
+    }
+  ],
+  "read_scopes": [
+    {
+      "files": [
+        "USAGE.md",
+        "ROOT-USAGE-CORRECTION.json"
+      ],
+      "scope": "Whole revised 48-line guide and full correction record read. Complete decoded old/new diff reviewed and exact three-change reconstruction checked."
+    },
+    {
+      "files": [
+        "USAGE-ORIGINAL.md",
+        "USAGE-REVIEW.md",
+        "USAGE-RECEIPT.json"
+      ],
+      "scope": "Whole original guide reused from first documentary review, exact original snapshot and preserved original review bindings verified; old usage path resolves through snapshot."
+    },
+    {
+      "files": [
+        "tools/artist-preview-lifetime.mjs",
+        "tools/artist-preview-lifetime.selftest.mjs",
+        "PROOF-REVIEW.md",
+        "PROOF-RECEIPT.json",
+        "PROOF-REPORT.json",
+        "PROOF-TOOL.json",
+        "PROOF-STDOUT.txt"
+      ],
+      "scope": "Previous complete source/actual-proof opinions reused only at exact unchanged current pins; no replay or renewed semantic investigation."
+    }
+  ],
+  "resolved_finding": {
+    "id": "D1",
+    "prior_verdict": "B_DOCUMENTARY_EXAMPLE_FAILURE_OBSERVATION",
+    "witness": [
+      "USAGE.md:21 host creates and retains owner on success/rejection",
+      "USAGE.md:24 owner is a parameter",
+      "USAGE.md:35–37 closes then preserves original error",
+      "USAGE.md:42 host inspects/preserves failure and parentDetach evidence on both outcomes"
+    ],
+    "explanation": "The owner no longer becomes inaccessible when preparation rejects. Inspection/reporting is an explicit host duty, not an implemented or tested new client.",
+    "selected_alternative": "Host-created and retained owner, the prior B alternative. It is slightly longer documentation but keeps original error and cleanup evidence separately accessible."
+  },
+  "checks": {
+    "corrected_epoch_map_rows_verified": 13,
+    "original_review_binding_rows_verified": 10,
+    "exact_three_text_change_reconstruction": true,
+    "all_other_usage_bytes_unchanged": true,
+    "old_and_new_link_targets_equal": true,
+    "local_links": [
+      "PROOF-REPORT.json",
+      "PROOF-TOOL.json",
+      "PROOF-STDOUT.txt"
+    ],
+    "all_three_local_links_present": true,
+    "shared_module_unchanged": true,
+    "selftest_unchanged": true,
+    "sole_proof_unchanged": true,
+    "prior_documentary_B_pair_unchanged": true,
+    "new_execution_count": 0
+  },
+  "historical_mapping": {
+    "original_logical_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE.md",
+    "original_bytes": 4950,
+    "original_sha256": "412a7886e7599b21a383101683ad43de81586d264b5f1e1fe6da1c130cb6abd0",
+    "resolve_historical_original_via": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE-ORIGINAL.md",
+    "revised_logical_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE.md",
+    "revised_bytes": 5424,
+    "revised_sha256": "ddb557e01ceb8d8e38113980cee7a710395603d4740f746f84d38178cdd1c2b6",
+    "old_review_status": "B retained; not overwritten or relabelled"
+  },
+  "actionable_findings": [],
+  "next": "Retain revised usage handoff and close documentary delivery after root verification. No new target/client operation is admitted.",
+  "limits": [
+    "Illustrative host responsibilities only; diagnostic/removal/rollback callbacks are not implemented or qualified.",
+    "Finite 24-case fake-resource/deferred-data proof remains the complete actual runtime scope.",
+    "No DOM, Three, GPU, physical retirement, new preview client, geometry, appearance, roadmap credit or old closed viewer repair.",
+    "No import/evaluation/check/test rerun, primary retrieval, browser/capture/native action, source/proof edit or subagent."
+  ],
+  "jobs": [
+    {
+      "name": "read",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['USAGE.md','ROOT-USAGE-CORRECTION.json']:\n b=(leaf/name).read_bytes();print('FILE',str(leaf/name),len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(str(i)+': '+line)\nPY",
+      "chunk_id": "f5e1f0",
+      "wall_time_seconds": 5.291e-06,
+      "exit_code": 0,
+      "original_token_count": 2602,
+      "process_line": "PID 30960 UTC 2026-10-19T17:57:43.828357+00:00"
+    },
+    {
+      "name": "audit",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib,re,difflib\nroot=Path('/Users/robault/GitHub/sugata-avatar');leaf=root/'docs/evidence/appearance-2026-10-19/preview-lifetime-owner'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\ndef pin(p):\n p=Path(p);b=p.read_bytes();return {'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nc=json.loads((leaf/'ROOT-USAGE-CORRECTION.json').read_text());old=Path(c['original_snapshot']['path']);new=Path(c['revised']['path'])\nfor row in c['verified_original_inputs']+[c['original_snapshot'],c['revised']]:\n p=old if row['path']==str(new) and row['sha256']==c['original_snapshot']['sha256'] else Path(row['path'])\n actual=pin(p);assert all(actual[k]==row[k] for k in ['bytes','sha256']),row\noriginal_receipt=json.loads((leaf/'USAGE-RECEIPT.json').read_text())\nfor row in original_receipt['direct_inputs']+[original_receipt['output_review']]:\n p=old if row['path']==str(new) else Path(row['path']);actual=pin(p)\n assert all(actual[k]==row[k] for k in ['bytes','sha256']),row\noldtext=old.read_text();newtext=new.read_text()\nold_intro='This example is documentation, not an installed or executed client. `loadData`, `makeResource`, `attach` and their resource-removal responsibilities must be designed and qualified for that client.'\nnew_intro='This example is documentation, not an installed or executed client. The host creates and retains `const owner = createPreviewLifetime({ parentSignal })` before calling `preparePreview(owner, inputs)`. It keeps that same owner on success and rejection, so cleanup evidence remains accessible. `loadData`, `makeResource`, `attach` and their resource-removal responsibilities must be designed and qualified for that client.'\nold_function='async function preparePreview({ loadData, makeResource, attach, parentSignal }) {'+chr(10)+'    const owner = createPreviewLifetime({ parentSignal });'\nnew_function='async function preparePreview(owner, { loadData, makeResource, attach }) {'\nold_host='The host must retain the owner and call `close` when the preview ends.'\nnew_host='The host must call `close` when the preview ends. On both successful closure and preparation rejection, it must inspect the retained owner and preserve `failures` and `parentDetach` alongside any original operation error. `close` contains cleanup errors; catching the original operation error alone is insufficient. This is a host responsibility, not an implemented diagnostic callback.'\nexpected=oldtext\nfor before,after in [(old_intro,new_intro),(old_function,new_function),(old_host,new_host)]:\n assert expected.count(before)==1;expected=expected.replace(before,after,1)\nassert expected==newtext\nassert re.findall(r'\\]\\(([^)]+)\\)',oldtext)==re.findall(r'\\]\\(([^)]+)\\)',newtext)\nfor ref in re.findall(r'\\]\\(([^)]+)\\)',newtext):\n if '://' not in ref:assert (leaf/ref).is_file(),ref\nprint('COMPLETE_EXACT_DIFF')\nprint(''.join(difflib.unified_diff(oldtext.splitlines(keepends=True),newtext.splitlines(keepends=True),fromfile='USAGE-ORIGINAL.md',tofile='USAGE.md')),end='')\nprint('AUDIT_PASS','13 corrected-epoch map rows +10 original review bindings; exact three-text-change reconstruction; unchanged links; no source/proof/entry changes')\nprint('DIRECT_PINS',json.dumps([pin(leaf/n) for n in ['USAGE.md','USAGE-ORIGINAL.md','ROOT-USAGE-CORRECTION.json','USAGE-REVIEW.md','USAGE-RECEIPT.json','PROOF-REVIEW.md','PROOF-RECEIPT.json','PROOF-REPORT.json','PROOF-TOOL.json','PROOF-STDOUT.txt']]+[pin(root/'tools/artist-preview-lifetime.mjs'),pin(root/'tools/artist-preview-lifetime.selftest.mjs')]))\nPY",
+      "chunk_id": "d0c877",
+      "wall_time_seconds": 7.708e-06,
+      "exit_code": 0,
+      "original_token_count": 1254,
+      "process_line": "PID 31794 UTC 2026-10-19T17:58:09.443701+00:00"
+    }
+  ],
+  "observer_errors": [],
+  "output_review": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE-REVISED-REVIEW.md",
+    "bytes": 1708,
+    "sha256": "5a55bc8c9923718a1841add6cd5b37327c69d2c40a77cffe364f37b0752143c2"
+  },
+  "writes": [
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE-REVISED-REVIEW.md",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE-REVISED-RECEIPT.json"
+  ],
+  "collection_method": "Exclusive pair writes following fresh exact pin verification; full own readback/hashes follow externally."
+}

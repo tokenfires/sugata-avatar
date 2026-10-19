@@ -1,0 +1,70 @@
+{
+  "schema": "preview-lifetime-delivery-job-record-v1",
+  "jobs": [
+    {
+      "name": "RootProof",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner')\ndef pin(f):\n f=Path(f);b=f.read_bytes();return {'path':str(f),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\ndef rows(j):\n if isinstance(j,dict):\n  if {'path','bytes','sha256'}<=j.keys():yield j\n  for v in j.values():yield from rows(v)\n elif isinstance(j,list):\n  for v in j:yield from rows(v)\na=json.loads((p/'PROOF-RECEIPT.json').read_text());s=json.loads((p/'SOURCE-RECEIPT.json').read_text());root=json.loads((p/'ROOT-SOURCE.json').read_text());adm=json.loads((p/'PROOF-ADMISSION.json').read_text());z=json.loads((p/'PROOF-REPORT.json').read_text())\nr=list(rows(a))+list(rows(s))+list(rows(root))+list(rows(adm))\nexpected=[{'path':str(p/'PROOF-REVIEW.md'),'bytes':2958,'sha256':'7d5f19a96cc83880c14849e43140ec6748de8a2fe6389f4bdd7715e225565a26'},{'path':str(p/'PROOF-RECEIPT.json'),'bytes':24437,'sha256':'8f6d57dd6af4d3bb372850c44c5ea7c2712ee857d84c3986a5fa1c5f2b77aa16'}];r+=expected\nfor x in r:assert all(pin(x['path'])[k]==x[k] for k in ('path','bytes','sha256')),x\nassert a['pending_edits'] is False and a['verdict']=='A_RETAIN_FINITE_SHARED_MODULE_PROTOCOL_PROOF' and not a['actionable_findings'];assert [dict(name=x['name'],trace=x['trace']) for x in a['actual_cases']]==z['cases'];assert sum(len(x['trace']) for x in z['cases'])==57 and sum(not x['trace'] for x in z['cases'])==6\nunique={x['path']:pin(x['path']) for x in r};o={'schema':'root-preview-lifetime-actual-acceptance-v1','utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'decision':'A_TESTED_LOCAL_SHARED_UTILITY_ONLY','complete_handoff':'f757ef untruncated2958/24437byte pair; no output clipping','root_actual_first':'615942/exit0/PID22714, prior to receipt, b10d98 complete source and all24actual traces independently assessed','fresh_verified_rows':len(r),'distinct_paths':len(unique),'inputs':list(unique.values()),'actual_case_traces':24,'actual_trace_events':57,'empty_traces':6,'actual_entry':'0e78c7/exit0/PID20841/no live session','critique_agreement':'Root and critic independently agree on all24 same-module traces and explicit errors/limits. Object identities are checked in successfully completed executable assertions, not serialized by JSON.','next_decision':'A documentary-only usage handoff worth doing, root selects over raw-source-only because correct API and cancellation/error responsibilities become usable without new execution. Independent documentary review pending.','retired':'Sole targeted entry consumed; no rerun/fault injection/source repair/client/old trouser/geometry/browser/GPU adoption.','limits':'Trusted synchronous callbacks/data-only waits; no physical release, immediate arbitrary-promise cancellation, browser/driver/fit/appearance/roadmap credit.'};(p/'ROOT-PROOF.json').write_text(json.dumps(o,indent=2)+'\\n');print(json.dumps({'utc':o['utc'],'pid':o['pid'],'rows':len(r),'paths':len(unique),'output':pin(p/'ROOT-PROOF.json')},indent=2))\nPY",
+      "result": {
+        "chunk_id": "2a9adf",
+        "wall_time_seconds": 0.143393334,
+        "exit_code": 0,
+        "original_token_count": 85,
+        "output": "{\n  \"utc\": \"2026-10-19T17:55:43.679189+00:00\",\n  \"pid\": 27034,\n  \"rows\": 131,\n  \"paths\": 44,\n  \"output\": {\n    \"path\": \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/ROOT-PROOF.json\",\n    \"bytes\": 11585,\n    \"sha256\": \"6ef209d21ccde36cdf7f300c583ec9424cfce3ec72818917eb92c3a7a988a3b2\"\n  }\n}\n"
+      }
+    },
+    {
+      "name": "UsageCorrection",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner')\ndef row(f):\n b=f.read_bytes();return {'path':str(f),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nj=json.loads((p/'USAGE-RECEIPT.json').read_text());assert j['pending_edits'] is False and j['verdict']=='B_DOCUMENTARY_EXAMPLE_FAILURE_OBSERVATION'\nexpected=[{'path':str(p/'USAGE-REVIEW.md'),'bytes':2141,'sha256':'b1d90c82d49f81883b17f4f396332c80619137276934e07252288d9ca8f6c70e'},{'path':str(p/'USAGE-RECEIPT.json'),'bytes':8122,'sha256':'0b19b5c63ffacfaf761b61f582b83ff953d63a7ee10ededfeb1146cd3e7408e7'}]\nfor x in j['direct_inputs']+expected:\n assert all(row(Path(x['path']))[k]==x[k] for k in ('path','bytes','sha256')),x\nold=(p/'USAGE.md').read_bytes();assert not(p/'USAGE-ORIGINAL.md').exists();(p/'USAGE-ORIGINAL.md').write_bytes(old)\ns=old.decode();s=s.replace('This example is documentation, not an installed or executed client. `loadData`, `makeResource`, `attach` and their resource-removal responsibilities must be designed and qualified for that client.','This example is documentation, not an installed or executed client. The host creates and retains `const owner = createPreviewLifetime({ parentSignal })` before calling `preparePreview(owner, inputs)`. It keeps that same owner on success and rejection, so cleanup evidence remains accessible. `loadData`, `makeResource`, `attach` and their resource-removal responsibilities must be designed and qualified for that client.')\ns=s.replace('async function preparePreview({ loadData, makeResource, attach, parentSignal }) {\\n    const owner = createPreviewLifetime({ parentSignal });','async function preparePreview(owner, { loadData, makeResource, attach }) {')\ns=s.replace('The host must retain the owner and call `close` when the preview ends.','The host must call `close` when the preview ends. On both successful closure and preparation rejection, it must inspect the retained owner and preserve `failures` and `parentDetach` alongside any original operation error. `close` contains cleanup errors; catching the original operation error alone is insufficient. This is a host responsibility, not an implemented diagnostic callback.')\nassert s!=old.decode() and 'async function preparePreview(owner,' in s;(p/'USAGE.md').write_text(s)\no={'schema':'root-preview-usage-documentary-correction-v1','utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'decision':'Accept D1 independently; select host-retained owner, documentation only','whole_original_pair':'6bd095 untruncated2141/8122bytes; aacfae root independent original finding','verified_original_inputs':j['direct_inputs']+expected,'original_snapshot':row(p/'USAGE-ORIGINAL.md'),'revised':row(p/'USAGE.md'),'exact_changes':'Owner parameter belongs to host; host creates/retains it before preparation and inspects both success/rejection/closure, preserving cleanup status alongside original error. No new diagnostic callback or executed client.','historical_binding':'Original documentary receipt path USAGE.md4950/412a7886 now resolves byte-for-byte via USAGE-ORIGINAL.md; original receipt/review untouched. Fresh original inputs were verified before this ordinary guide correction.','unchanged':'Actual shared module/selftest/proof/source reviews remain exact A; no rerun/evaluation/client adoption.'};(p/'ROOT-USAGE-CORRECTION.json').write_text(json.dumps(o,indent=2)+'\\n');print(json.dumps({'utc':o['utc'],'pid':o['pid'],'original':o['original_snapshot'],'revised':o['revised'],'root':row(p/'ROOT-USAGE-CORRECTION.json')},indent=2))\nPY",
+      "result": {
+        "chunk_id": "0c9bb2",
+        "wall_time_seconds": 6.667e-06,
+        "exit_code": 0,
+        "original_token_count": 202,
+        "output": "{\n  \"utc\": \"2026-10-19T17:57:31.298884+00:00\",\n  \"pid\": 30505,\n  \"original\": {\n    \"path\": \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE-ORIGINAL.md\",\n    \"bytes\": 4950,\n    \"sha256\": \"412a7886e7599b21a383101683ad43de81586d264b5f1e1fe6da1c130cb6abd0\"\n  },\n  \"revised\": {\n    \"path\": \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE.md\",\n    \"bytes\": 5424,\n    \"sha256\": \"ddb557e01ceb8d8e38113980cee7a710395603d4740f746f84d38178cdd1c2b6\"\n  },\n  \"root\": {\n    \"path\": \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/ROOT-USAGE-CORRECTION.json\",\n    \"bytes\": 4076,\n    \"sha256\": \"a32b8b5334a9f4a89c7742f0f4fb2be458a7ed5af05214fd14d2ed1762d0e559\"\n  }\n}\n"
+      }
+    },
+    {
+      "name": "RootUsage",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime,re\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner')\ndef pin(f):\n f=Path(f);b=f.read_bytes();return {'path':str(f),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nc=json.loads((p/'ROOT-USAGE-CORRECTION.json').read_text());a=json.loads((p/'USAGE-REVISED-RECEIPT.json').read_text());o=json.loads((p/'USAGE-RECEIPT.json').read_text());expected=[{'path':str(p/'USAGE-REVISED-REVIEW.md'),'bytes':1708,'sha256':'5a55bc8c9923718a1841add6cd5b37327c69d2c40a77cffe364f37b0752143c2'},{'path':str(p/'USAGE-REVISED-RECEIPT.json'),'bytes':12370,'sha256':'b3fcf13312c2c550685c06defca2d1aad9d938bde582689b452ebd263e20c72d'}]\nrows=a['direct_inputs']+o['direct_inputs']+[o['output_review']]+c['verified_original_inputs']+[c['original_snapshot'],c['revised']]+expected\nfor x in rows:\n f=p/'USAGE-ORIGINAL.md' if x['path']==str(p/'USAGE.md') and x['sha256']=='412a7886e7599b21a383101683ad43de81586d264b5f1e1fe6da1c130cb6abd0' else Path(x['path']);actual=pin(f);assert all(actual[k]==x[k] for k in ('bytes','sha256')),x\nassert a['pending_edits'] is False and a['verdict']=='A_DOCUMENTATION_ONLY_USAGE_HANDOFF' and not a['actionable_findings'];s=(p/'USAGE.md').read_text();assert 'async function preparePreview(owner,' in s and 'On both successful closure and preparation rejection' in s\nfor f in [p/'USAGE.md',p/'README.md']:\n for link in re.findall(r'\\]\\(([^)]+)\\)',f.read_text()):\n  if '://' not in link:assert (f.parent/link).resolve().is_file(),(f,link)\nj={'schema':'root-preview-usage-documentary-acceptance-v1','utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'decision':'A_DOCUMENTARY_DELIVERY_LOCAL_TESTED_UTILITY','whole_revised_handoff':'da45fe complete1708/12370bytepair; whole guide and exact diff f7a5c9, diff exit1 means differences as expected','fresh_rows':len(rows),'inputs':a['direct_inputs']+expected,'original_epoch_resolver':'Old USAGE4950/412a7886 bindings resolve via unchanged USAGE-ORIGINAL.md. Original B review/receipt retained; current guide5424/ddb557e0 is distinct.','resolved':'D1 root independently confirmed and corrected only documentary host ownership. Host can inspect retained lifetime on both outcomes; reporter/client/removal are not implemented.','proof':'Exact shared source and sole24case actual proof unchanged, no rerun/import/client operation.','limits':'Documentary A is a useful local guide, no browser/Three/GPU/physical release/geometry/appearance/fit/roadmap acceptance.'};(p/'ROOT-USAGE.json').write_text(json.dumps(j,indent=2)+'\\n')\nr=(p/'README.md').read_text();needle='This ordinary guide correction changed no source, test, actual proof or frozen preview.';assert r.count(needle)==1;r=r.replace(needle,needle+' The [revised independent review](USAGE-REVISED-REVIEW.md), [receipt](USAGE-REVISED-RECEIPT.json) and [root delivery decision](ROOT-USAGE.json) accept the host-retained example at its stated documentary scope.');(p/'README.md').write_text(r)\nprint(json.dumps({'utc':j['utc'],'pid':j['pid'],'fresh_rows':len(rows),'root':pin(p/'ROOT-USAGE.json'),'README':pin(p/'README.md')},indent=2))\nPY",
+      "result": {
+        "chunk_id": "11c5c4",
+        "wall_time_seconds": 6.792e-06,
+        "exit_code": 0,
+        "original_token_count": 142,
+        "output": "{\n  \"utc\": \"2026-10-19T17:59:22.492366+00:00\",\n  \"pid\": 34068,\n  \"fresh_rows\": 37,\n  \"root\": {\n    \"path\": \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/ROOT-USAGE.json\",\n    \"bytes\": 4376,\n    \"sha256\": \"416f32b00b58924d5ae9d2b911b4dbdd0ade873dde89bf215edab288264645cd\"\n  },\n  \"README\": {\n    \"path\": \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/README.md\",\n    \"bytes\": 4221,\n    \"sha256\": \"0ac9ca9ea4bfd5f97445e4cc6b0c6cc84ebb4d5272b99338fc591e4a2000b0f2\"\n  }\n}\n"
+      }
+    }
+  ],
+  "reads": [
+    {
+      "job": "b10d98",
+      "scope": "Whole current shared module/selftest/24 names, untruncated"
+    },
+    {
+      "job": "f757ef",
+      "scope": "Whole2958/24437 proof pair untruncated"
+    },
+    {
+      "job": "656dd5",
+      "scope": "Whole4950byte original usage"
+    },
+    {
+      "job": "6bd095",
+      "scope": "Whole2141/8122 original documentary B pair"
+    },
+    {
+      "job": "f7a5c9",
+      "scope": "Whole revised guide/exact ordinary diff; exit1 means expected differences, no target failure"
+    },
+    {
+      "job": "da45fe",
+      "scope": "Whole1708/12370 revised documentary A pair"
+    }
+  ],
+  "other_observer_correction": {
+    "job": "dd1bc3",
+    "error": "Read-only primary JSON inspection used absent content key after printing valid fields; saved object has markdown/metadata. No input/target mutation. Corrected643217 exact section association."
+  },
+  "target_entries": 1,
+  "additional_tests": 0
+}

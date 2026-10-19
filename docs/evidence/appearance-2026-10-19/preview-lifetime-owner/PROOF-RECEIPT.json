@@ -1,0 +1,487 @@
+{
+  "schema": "independent-preview-lifetime-actual-proof-review-v1",
+  "verdict": "A_RETAIN_FINITE_SHARED_MODULE_PROTOCOL_PROOF",
+  "collected_utc": "2026-10-19T17:55:05.897843+00:00",
+  "pid": 25858,
+  "reviewer": "/root/quality_critic",
+  "pending_edits": false,
+  "scope": "Independent immutable-data/current-source audit of the sole recorded targeted proof; no module import, evaluation, test or helper invocation.",
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-ADMISSION.json",
+      "bytes": 9185,
+      "sha256": "f798d93a3ab3853448836ebfa1f2d2ee65859f0596da562decddf9562c144973"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-ENTRY-INTENT.json",
+      "bytes": 651,
+      "sha256": "20a14c9d255393b4403926363d93eba59c4372c41bb86d58a0d6f192506c092d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-TOOL.json",
+      "bytes": 5764,
+      "sha256": "76e63f350b47e4795bb5f30510bf20b168b70f2c801a66ab9c6480347fb15a0e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-REPORT.json",
+      "bytes": 4481,
+      "sha256": "efedbc5c08564e861587c66a354ef379ae4b605e6defb0a28a773c575320a22a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-STDOUT.txt",
+      "bytes": 4666,
+      "sha256": "9c4c4704bb875b70d81f97b2515587693abdf29cf6021482bb492c8e9a78487c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/ROOT-GATE-JOBS.json",
+      "bytes": 6776,
+      "sha256": "4ba1831d83cf2bfb9464a9817b4c3daf3ac1895dcd4b97aacf086c9c73626e00"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/ROOT-SOURCE.json",
+      "bytes": 9720,
+      "sha256": "9d483459eac6f1066add97cf2c079df9bf13826aa6b89a52f11ff355ef37a40e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/SOURCE-REVIEW.md",
+      "bytes": 2907,
+      "sha256": "5edbcfaddbb178960e754568ae2e620d762c26077548deb145a242ee9e99f8cd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/SOURCE-RECEIPT.json",
+      "bytes": 25200,
+      "sha256": "5f4a4df297d62b7f7d63e9183c04e74e87716f41b9333ce1bb1df20e029fd2fc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PREFLIGHT.json",
+      "bytes": 9739,
+      "sha256": "8646ff7b9ec195ecd96c4d7837ec3378ed47fe297114356907aee6993861bf72"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/SOURCE.md",
+      "bytes": 9228,
+      "sha256": "e1e5faf395369a2e9acce2f8ebbc29fa5e639cdd449562a92b0ef3916a4cdd6c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-REQUEST.json",
+      "bytes": 700,
+      "sha256": "e7ebc5c15ede288bea9330b292f5f45c82b067e1e660d68468973d9157a6af71"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/EXPECTED-SCENARIOS.json",
+      "bytes": 1797,
+      "sha256": "b3283c4e63d18bb8084c36c9987d6477b171942c24a33a3a12ffa621691ffe45"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/artist-preview-lifetime.mjs",
+      "bytes": 6006,
+      "sha256": "2f5063af4b94a82f5bfe7da38de74cae568fd9712f08629fafe84b937853ea41"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/artist-preview-lifetime.selftest.mjs",
+      "bytes": 15856,
+      "sha256": "42783449f08796747444362fff9ac51222d109f2587b364297fb7b65c1dff7ce"
+    }
+  ],
+  "bound_input_manifests": {
+    "admission_inputs": 35,
+    "static_preflight_inputs": 31,
+    "verified_rows": 112,
+    "unique_bound_source_paths": 36,
+    "manifests": [
+      "PROOF-ADMISSION.json inputs and root_gate",
+      "SOURCE-RECEIPT.json verified_inputs/input_manifest/output_review/read_scopes",
+      "ROOT-SOURCE.json inputs"
+    ]
+  },
+  "read_scopes": [
+    {
+      "files": [
+        "PROOF-ADMISSION.json",
+        "PROOF-ENTRY-INTENT.json",
+        "PROOF-TOOL.json",
+        "PROOF-REPORT.json",
+        "PROOF-STDOUT.txt",
+        "ROOT-GATE-JOBS.json"
+      ],
+      "scope": "Whole literal files, full decoded tool command/output and gate/intent command provenance; no execution."
+    },
+    {
+      "files": [
+        "tools/artist-preview-lifetime.selftest.mjs",
+        "SOURCE.md",
+        "PROOF-REQUEST.json"
+      ],
+      "scope": "Whole current text reread for every returned trace, error-identity assertion, completion order and exact request."
+    },
+    {
+      "files": [
+        "tools/artist-preview-lifetime.mjs",
+        "SOURCE-REVIEW.md",
+        "SOURCE-RECEIPT.json"
+      ],
+      "scope": "Prior complete static review reused only after exact unchanged byte/hash verification; no new implementation evaluation."
+    },
+    {
+      "files": [
+        "ROOT-SOURCE.json",
+        "PREFLIGHT.json",
+        "EXPECTED-SCENARIOS.json"
+      ],
+      "scope": "Whole JSON parsing and current manifest/name/argv/limits binding; root source conclusion is not the actual-result oracle."
+    },
+    {
+      "scope": "All remaining admission/nested input bytes hashed; no repeated parent-history semantic audit, no new primary retrieval, no root actual-proof opinion or audit routine read."
+    }
+  ],
+  "actual_execution": {
+    "command": "NODE_OPTIONS='' NODE_PATH='' SUGATA_PREVIEW_PROOF_STOP='2026-10-19T18:33:21.021312+00:00' /opt/homebrew/bin/node --max-old-space-size=256 /Users/robault/GitHub/sugata-avatar/tools/artist-preview-lifetime.selftest.mjs",
+    "tool_chunk_id": "0e78c7",
+    "tool_exit_code": 0,
+    "live_tool_session": false,
+    "reported_pid": 20841,
+    "reported_utc": "2026-10-19T17:52:30.374Z",
+    "reported_node": "26.9.0",
+    "reported_tool_wall_seconds": 8e-06,
+    "reported_post_import_ms": 2.693792000000002,
+    "reported_sampled_RSS_bytes": 45973504,
+    "resource_interpretation": "Distinct reported clocks/samples, not startup, peak/total RSS, hard OS limits or performance qualification.",
+    "combined_tool_output_text_bytes": 4666,
+    "separate_stdout_stderr_channels_exposed": false,
+    "root_admission_job": "643217/exit0/PID20569",
+    "root_intent_job": "8f122a/exit0/PID20772",
+    "recorded_target_invocations": 1,
+    "critic_target_invocations": 0
+  },
+  "independent_audit": {
+    "verified_binding_rows": 112,
+    "unique_bound_paths": 36,
+    "admission_inputs": 35,
+    "case_names": 24,
+    "exact_external_traces": 24,
+    "trace_events": 57,
+    "empty_traces": 6,
+    "error_identity_assertion_witnesses": {
+      "closed reason identity": "error instanceof PreviewClosedError && error.reason === reason",
+      "open rejection": "e => e === error",
+      "release original identity": "owner.inspect().failures[0].error, error",
+      "undefined thrown value": "assert.equal(didThrow, true); assert.equal(caught, undefined)",
+      "factory original error": "e => e === error",
+      "parent reason object": "owner.signal.reason, reason",
+      "publication original error": "owner.publish(() => { throw error; }), e => e === error",
+      "case completion after body/assertions": "await body(trace); guard(); cases.push({ name, trace })"
+    },
+    "tool_output_text_bytes": 4666,
+    "report_bytes": 4481,
+    "PID": 20841,
+    "actual_utc": "2026-10-19T17:52:30.374Z",
+    "reported_post_import_ms": 2.693792000000002,
+    "reported_sampled_RSS": 45973504,
+    "single_recorded_target_job": "0e78c7",
+    "separate_stdout_stderr_channels_exposed": false
+  },
+  "actual_cases": [
+    {
+      "ordinal": 1,
+      "name": "open data/factory/publication/manual release/close",
+      "trace": [
+        "create:model",
+        "publish",
+        "release:model"
+      ],
+      "matches": true
+    },
+    {
+      "ordinal": 2,
+      "name": "terminal close refuses new factory and publication invocation",
+      "trace": [],
+      "matches": true
+    },
+    {
+      "ordinal": 3,
+      "name": "model data fulfils after close without factory or publication",
+      "trace": [],
+      "matches": true
+    },
+    {
+      "ordinal": 4,
+      "name": "rejected deferred data after close reports lifetime reason",
+      "trace": [],
+      "matches": true
+    },
+    {
+      "ordinal": 5,
+      "name": "open data rejection preserves original error identity",
+      "trace": [],
+      "matches": true
+    },
+    {
+      "ordinal": 6,
+      "name": "close between fulfilled wait and next owner operation",
+      "trace": [
+        "settled"
+      ],
+      "matches": true
+    },
+    {
+      "ordinal": 7,
+      "name": "last decode/hash seam cannot publish after close",
+      "trace": [
+        "decoded"
+      ],
+      "matches": true
+    },
+    {
+      "ordinal": 8,
+      "name": "reverse drain skips explicit release and repeated close",
+      "trace": [
+        "create:a",
+        "create:b",
+        "create:c",
+        "release:b",
+        "release:c",
+        "release:a"
+      ],
+      "matches": true
+    },
+    {
+      "ordinal": 9,
+      "name": "release errors remain visible while reverse cleanup continues",
+      "trace": [
+        "create:a",
+        "create:b",
+        "create:c",
+        "release:c",
+        "release:b",
+        "release:a"
+      ],
+      "matches": true
+    },
+    {
+      "ordinal": 10,
+      "name": "explicit failed release propagates exactly and is never retried",
+      "trace": [
+        "create:a",
+        "release:a"
+      ],
+      "matches": true
+    },
+    {
+      "ordinal": 11,
+      "name": "throw undefined is still a release failure",
+      "trace": [
+        "create:a",
+        "release:a"
+      ],
+      "matches": true
+    },
+    {
+      "ordinal": 12,
+      "name": "disposer reentrancy preserves terminal state and reverse order",
+      "trace": [
+        "create:a",
+        "create:b",
+        "release:b",
+        "reenter",
+        "closing:true",
+        "PreviewClosedError",
+        "release:a"
+      ],
+      "matches": true
+    },
+    {
+      "ordinal": 13,
+      "name": "factory reenters close and late completed resource is not returned",
+      "trace": [
+        "create:early",
+        "factory:late",
+        "release:early",
+        "release:late"
+      ],
+      "matches": true
+    },
+    {
+      "ordinal": 14,
+      "name": "late completed disposer failure is recorded before closed error",
+      "trace": [
+        "late-attempt"
+      ],
+      "matches": true
+    },
+    {
+      "ordinal": 15,
+      "name": "resource identity is registered once for the entire lifetime",
+      "trace": [
+        "create:one",
+        "release:one"
+      ],
+      "matches": true
+    },
+    {
+      "ordinal": 16,
+      "name": "factory throw preserves error and releases its reserved slot",
+      "trace": [
+        "throwing-factory",
+        "create:next",
+        "release:next"
+      ],
+      "matches": true
+    },
+    {
+      "ordinal": 17,
+      "name": "pre-aborted parent creates no listener or resources",
+      "trace": [],
+      "matches": true
+    },
+    {
+      "ordinal": 18,
+      "name": "parent abort detaches exact listener before notification and drain",
+      "trace": [
+        "listen:add",
+        "create:a",
+        "create:b",
+        "listen:remove",
+        "owned:abort",
+        "release:b",
+        "release:a"
+      ],
+      "matches": true
+    },
+    {
+      "ordinal": 19,
+      "name": "manual close removes parent listener once and preserves first reason",
+      "trace": [
+        "listen:add",
+        "create:a",
+        "listen:remove",
+        "release:a"
+      ],
+      "matches": true
+    },
+    {
+      "ordinal": 20,
+      "name": "resource cap reserves synchronous reentrant factory slots",
+      "trace": [
+        "outer-factory",
+        "release:outer"
+      ],
+      "matches": true
+    },
+    {
+      "ordinal": 21,
+      "name": "capacity is lifetime-wide and invalid callbacks never invoke factories",
+      "trace": [
+        "create:a",
+        "release:a"
+      ],
+      "matches": true
+    },
+    {
+      "ordinal": 22,
+      "name": "already closed data call consumes supplied rejected promise",
+      "trace": [],
+      "matches": true
+    },
+    {
+      "ordinal": 23,
+      "name": "publication error preserves error and publication-close refuses its return",
+      "trace": [
+        "commit-start",
+        "commit-end"
+      ],
+      "matches": true
+    },
+    {
+      "ordinal": 24,
+      "name": "unknown release and repeated release have no side effects",
+      "trace": [
+        "create:a",
+        "release:a"
+      ],
+      "matches": true
+    }
+  ],
+  "actual_witnesses": [
+    {
+      "source": "selftest:25–26,41–65; PROOF-REPORT cases3–4/7",
+      "explanation": "Completed cases and empty/decoded-only traces show no fake creation or publication after controlled delayed data closes; each body/assertion and guard precedes case insertion."
+    },
+    {
+      "source": "selftest:66–105; PROOF-REPORT cases8–14",
+      "explanation": "Explicit release is not repeated; reverse close drain continues through failed releases; reentrant close remains terminal; late completed factory resource is separately attempted once."
+    },
+    {
+      "source": "selftest:117–136; PROOF-REPORT cases17–20",
+      "explanation": "Same-realm parent abort listener trace removes the exact owned listener before abort/drain, and nested creation is refused by the reserved lifetime slot."
+    },
+    {
+      "source": "selftest:52–55,78–86,112–115,147–150; successful completed array and exit0",
+      "explanation": "Original error identities and undefined throws are checked inside executable assertions. JSON is not an independent serialization of object identity."
+    }
+  ],
+  "actionable_findings": [],
+  "documentation_only_next_worth": {
+    "decision": "A",
+    "admitted_now": false,
+    "scope": "A concise usage handoff delivering the tested local utility, with explicit synchronous/data-only/cancellation/failure boundaries. No new execution or client repair.",
+    "alternatives": [
+      {
+        "choice": "A: concise documentation-only usage handoff",
+        "tradeoff": "Makes correct utility use discoverable; must retain explicit limits to prevent fake-resource proof being misread as client/GPU qualification."
+      },
+      {
+        "choice": "B: retain source and raw proof only",
+        "tradeoff": "Avoids more documentation, but leaves the ownership protocol and correct future-client boundaries harder to use."
+      }
+    ]
+  },
+  "limits": [
+    "Exactly 24 deterministic same-module controlled sequences. No general asynchronous factory/callback or foreign-thenable safety.",
+    "Parent AbortSignal listener behavior is observed in these Node cases; no general browser or DOM conformance claim.",
+    "Release attempts/errors are truthful protocol outcomes, not physical resource retirement. Pending non-abortable data need not settle until its source does.",
+    "The complete raw returned text is preserved; separate channel identity and OS startup/peak memory are not exposed.",
+    "No client adoption, Three/GPU/geometry/native/browser/preview-renderer/capture, old trouser rescue, appearance or roadmap/checklist qualification.",
+    "No rerun, fault-injection extension, retry, source repair or automatic successor. Absolute slice stop18:33:21.021312UTC."
+  ],
+  "jobs": [
+    {
+      "name": "records",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['PROOF-ADMISSION.json','PROOF-ENTRY-INTENT.json','PROOF-TOOL.json','PROOF-REPORT.json','PROOF-STDOUT.txt','ROOT-GATE-JOBS.json']:\n b=(p/name).read_bytes();print('FILE',str(p/name),len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(str(i)+': '+line)\nPY",
+      "chunk_id": "f1d4fd",
+      "wall_time_seconds": 6.458e-06,
+      "exit_code": 0,
+      "original_token_count": 8818,
+      "process_line": "PID 22124 UTC 2026-10-19T17:53:07.150630+00:00"
+    },
+    {
+      "name": "assertions",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\nr=Path('/Users/robault/GitHub/sugata-avatar');p=r/'docs/evidence/appearance-2026-10-19/preview-lifetime-owner'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor f in [r/'tools/artist-preview-lifetime.selftest.mjs',p/'SOURCE.md',p/'PROOF-REQUEST.json']:\n b=f.read_bytes();print('FILE',str(f),len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(str(i)+': '+line)\nPY",
+      "chunk_id": "23d83d",
+      "wall_time_seconds": 6.042e-06,
+      "exit_code": 0,
+      "original_token_count": 6819,
+      "process_line": "PID 22653 UTC 2026-10-19T17:53:22.970809+00:00"
+    },
+    {
+      "name": "audit",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib,re,shlex\nroot=Path('/Users/robault/GitHub/sugata-avatar');leaf=root/'docs/evidence/appearance-2026-10-19/preview-lifetime-owner'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\ndef strict(s):\n def obj(pairs):\n  out={}\n  for k,v in pairs:\n   assert k not in out,('duplicate',k);out[k]=v\n  return out\n return json.loads(s,object_pairs_hook=obj,parse_constant=lambda x:(_ for _ in ()).throw(ValueError(x)))\ndef load(name):return strict((leaf/name).read_bytes().decode())\ndef pin(path):\n path=Path(path);b=path.read_bytes();return {'path':str(path),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\ndef verify(row):\n actual=pin(row['path']);assert all(actual[k]==row[k] for k in ('path','bytes','sha256')),row\nadm=load('PROOF-ADMISSION.json');intent=load('PROOF-ENTRY-INTENT.json');tool=load('PROOF-TOOL.json');report=load('PROOF-REPORT.json');req=load('PROOF-REQUEST.json');source=load('SOURCE-RECEIPT.json');pref=load('PREFLIGHT.json');gates=load('ROOT-GATE-JOBS.json');rootgate=load('ROOT-SOURCE.json')\nrows=adm['inputs']+[adm['root_gate']]+source['verified_inputs']+[source['input_manifest'],source['output_review']]+source['read_scopes']+rootgate['inputs']\nfor row in rows:verify(row)\nassert len(adm['inputs'])==35 and adm['inputs'][:31]==pref['inputs']\nassert source['pending_edits'] is False and source['verdict']=='A_SOURCE_ONLY_ONE_TARGETED_PROOF_WORTH_ROOT_GATE'\nassert adm['status']=='ADMITTED_ONE_TARGETED_PROOF' and adm['argv']==req['argv']==intent['argv'] and adm['environment']==req['environment']==intent['environment']\nassert intent['admission_sha256']==pin(leaf/'PROOF-ADMISSION.json')['sha256'] and intent['one_entry'] is True\nexpected_tokens=[k+'='+v for k,v in adm['environment'].items()]+adm['argv']\nassert shlex.split(tool['command'])==expected_tokens\nresult=tool['result'];assert result['chunk_id']=='0e78c7' and result['exit_code']==0 and 'session_id' not in result\nraw=(leaf/'PROOF-STDOUT.txt').read_bytes();assert result['output'].encode()==raw and strict(raw.decode())==report\nassert report['status']=='PASS' and report['groups']==24 and report['error'] is None and report['pid']==20841 and report['node']=='26.9.0'\nassert 0<=report['post_import_ms']<req['cooperative_ms'] and 0<report['sampled_rss_bytes']<req['sampled_RSS_bytes'] and len(raw)<=req['stdout_bytes']\nts=lambda x:datetime.datetime.fromisoformat(x.replace('Z','+00:00'))\nassert ts(adm['utc'])<ts(intent['utc'])<=ts(report['utc'])<ts(adm['expires_utc'])<ts(adm['absolute_stop_utc'])\nassert strict(gates[0]['result']['output'])['admission']==pin(leaf/'PROOF-ADMISSION.json') and gates[0]['result']['exit_code']==0\nassert strict(gates[1]['result']['output'])==intent and gates[1]['result']['exit_code']==0\ns=(root/'tools/artist-preview-lifetime.selftest.mjs').read_text();names=re.findall(r\"await scenario\\('([^']+)'\",s)\nassert names==load('EXPECTED-SCENARIOS.json')['names']==[c['name'] for c in report['cases']]\nexpected=[\n ['create:model','publish','release:model'],[],[],[],[],['settled'],['decoded'],\n ['create:a','create:b','create:c','release:b','release:c','release:a'],\n ['create:a','create:b','create:c','release:c','release:b','release:a'],\n ['create:a','release:a'],['create:a','release:a'],\n ['create:a','create:b','release:b','reenter','closing:true','PreviewClosedError','release:a'],\n ['create:early','factory:late','release:early','release:late'],['late-attempt'],['create:one','release:one'],\n ['throwing-factory','create:next','release:next'],[],\n ['listen:add','create:a','create:b','listen:remove','owned:abort','release:b','release:a'],\n ['listen:add','create:a','listen:remove','release:a'],['outer-factory','release:outer'],['create:a','release:a'],[],\n ['commit-start','commit-end'],['create:a','release:a']]\nassert len(expected)==24 and [c['trace'] for c in report['cases']]==expected\nidentity_checks={\n 'closed reason identity':'error instanceof PreviewClosedError && error.reason === reason',\n 'open rejection':'e => e === error',\n 'release original identity':'owner.inspect().failures[0].error, error',\n 'undefined thrown value':'assert.equal(didThrow, true); assert.equal(caught, undefined)',\n 'factory original error':'e => e === error',\n 'parent reason object':'owner.signal.reason, reason',\n 'publication original error':'owner.publish(() => { throw error; }), e => e === error',\n 'case completion after body/assertions':'await body(trace); guard(); cases.push({ name, trace })'}\nfor label,literal in identity_checks.items():assert literal in s,label\nprint('AUDIT_SUMMARY',json.dumps({'verified_binding_rows':len(rows),'unique_bound_paths':len({x['path'] for x in rows}),'admission_inputs':len(adm['inputs']),'case_names':len(names),'exact_external_traces':len(expected),'trace_events':sum(map(len,expected)),'empty_traces':sum(not t for t in expected),'error_identity_assertion_witnesses':identity_checks,'tool_output_text_bytes':len(raw),'report_bytes':(leaf/'PROOF-REPORT.json').stat().st_size,'PID':report['pid'],'actual_utc':report['utc'],'reported_post_import_ms':report['post_import_ms'],'reported_sampled_RSS':report['sampled_rss_bytes'],'single_recorded_target_job':result['chunk_id'],'separate_stdout_stderr_channels_exposed':False},ensure_ascii=False))\nprint('ALL24',json.dumps([{'ordinal':i+1,'name':name,'trace':trace,'matches':True} for i,(name,trace) in enumerate(zip(names,expected))],ensure_ascii=False))\nprint('DIRECT_PINS',json.dumps([pin(leaf/name) for name in ['PROOF-ADMISSION.json','PROOF-ENTRY-INTENT.json','PROOF-TOOL.json','PROOF-REPORT.json','PROOF-STDOUT.txt','ROOT-GATE-JOBS.json','ROOT-SOURCE.json','SOURCE-REVIEW.md','SOURCE-RECEIPT.json','PREFLIGHT.json','SOURCE.md','PROOF-REQUEST.json','EXPECTED-SCENARIOS.json']],ensure_ascii=False))\nprint('INDEPENDENT_SAVED_DATA_AUDIT_PASS','No target/helper import or invocation; no root actual-proof opinion used.')\nPY",
+      "chunk_id": "200457",
+      "wall_time_seconds": 6.083e-06,
+      "exit_code": 0,
+      "original_token_count": 1923,
+      "process_line": "PID 23696 UTC 2026-10-19T17:53:57.615111+00:00"
+    }
+  ],
+  "read_only_observer_errors": [],
+  "target_failure": null,
+  "output_review": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-REVIEW.md",
+    "bytes": 2958,
+    "sha256": "7d5f19a96cc83880c14849e43140ec6748de8a2fe6389f4bdd7715e225565a26"
+  },
+  "writes": [
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-REVIEW.md",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-RECEIPT.json"
+  ],
+  "collection_method": "Exclusive pair writes after fresh direct/nested pin verification. Full own stable readback and hashes follow externally."
+}

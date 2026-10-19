@@ -1,0 +1,77 @@
+{
+  "schema": "root-preview-usage-documentary-correction-v1",
+  "utc": "2026-10-19T17:57:31.298884+00:00",
+  "pid": 30505,
+  "decision": "Accept D1 independently; select host-retained owner, documentation only",
+  "whole_original_pair": "6bd095 untruncated2141/8122bytes; aacfae root independent original finding",
+  "verified_original_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE.md",
+      "bytes": 4950,
+      "sha256": "412a7886e7599b21a383101683ad43de81586d264b5f1e1fe6da1c130cb6abd0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/artist-preview-lifetime.mjs",
+      "bytes": 6006,
+      "sha256": "2f5063af4b94a82f5bfe7da38de74cae568fd9712f08629fafe84b937853ea41"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/artist-preview-lifetime.selftest.mjs",
+      "bytes": 15856,
+      "sha256": "42783449f08796747444362fff9ac51222d109f2587b364297fb7b65c1dff7ce"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/SOURCE.md",
+      "bytes": 9228,
+      "sha256": "e1e5faf395369a2e9acce2f8ebbc29fa5e639cdd449562a92b0ef3916a4cdd6c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-REVIEW.md",
+      "bytes": 2958,
+      "sha256": "7d5f19a96cc83880c14849e43140ec6748de8a2fe6389f4bdd7715e225565a26"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-RECEIPT.json",
+      "bytes": 24437,
+      "sha256": "8f6d57dd6af4d3bb372850c44c5ea7c2712ee857d84c3986a5fa1c5f2b77aa16"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-REPORT.json",
+      "bytes": 4481,
+      "sha256": "efedbc5c08564e861587c66a354ef379ae4b605e6defb0a28a773c575320a22a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-TOOL.json",
+      "bytes": 5764,
+      "sha256": "76e63f350b47e4795bb5f30510bf20b168b70f2c801a66ab9c6480347fb15a0e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-STDOUT.txt",
+      "bytes": 4666,
+      "sha256": "9c4c4704bb875b70d81f97b2515587693abdf29cf6021482bb492c8e9a78487c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE-REVIEW.md",
+      "bytes": 2141,
+      "sha256": "b1d90c82d49f81883b17f4f396332c80619137276934e07252288d9ca8f6c70e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE-RECEIPT.json",
+      "bytes": 8122,
+      "sha256": "0b19b5c63ffacfaf761b61f582b83ff953d63a7ee10ededfeb1146cd3e7408e7"
+    }
+  ],
+  "original_snapshot": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE-ORIGINAL.md",
+    "bytes": 4950,
+    "sha256": "412a7886e7599b21a383101683ad43de81586d264b5f1e1fe6da1c130cb6abd0"
+  },
+  "revised": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE.md",
+    "bytes": 5424,
+    "sha256": "ddb557e01ceb8d8e38113980cee7a710395603d4740f746f84d38178cdd1c2b6"
+  },
+  "exact_changes": "Owner parameter belongs to host; host creates/retains it before preparation and inspects both success/rejection/closure, preserving cleanup status alongside original error. No new diagnostic callback or executed client.",
+  "historical_binding": "Original documentary receipt path USAGE.md4950/412a7886 now resolves byte-for-byte via USAGE-ORIGINAL.md; original receipt/review untouched. Fresh original inputs were verified before this ordinary guide correction.",
+  "unchanged": "Actual shared module/selftest/proof/source reviews remain exact A; no rerun/evaluation/client adoption."
+}

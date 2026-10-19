@@ -1,0 +1,84 @@
+{
+  "schema": "root-preview-usage-documentary-acceptance-v1",
+  "utc": "2026-10-19T17:59:22.492366+00:00",
+  "pid": 34068,
+  "decision": "A_DOCUMENTARY_DELIVERY_LOCAL_TESTED_UTILITY",
+  "whole_revised_handoff": "da45fe complete1708/12370bytepair; whole guide and exact diff f7a5c9, diff exit1 means differences as expected",
+  "fresh_rows": 37,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE.md",
+      "bytes": 5424,
+      "sha256": "ddb557e01ceb8d8e38113980cee7a710395603d4740f746f84d38178cdd1c2b6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE-ORIGINAL.md",
+      "bytes": 4950,
+      "sha256": "412a7886e7599b21a383101683ad43de81586d264b5f1e1fe6da1c130cb6abd0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/ROOT-USAGE-CORRECTION.json",
+      "bytes": 4076,
+      "sha256": "a32b8b5334a9f4a89c7742f0f4fb2be458a7ed5af05214fd14d2ed1762d0e559"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE-REVIEW.md",
+      "bytes": 2141,
+      "sha256": "b1d90c82d49f81883b17f4f396332c80619137276934e07252288d9ca8f6c70e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE-RECEIPT.json",
+      "bytes": 8122,
+      "sha256": "0b19b5c63ffacfaf761b61f582b83ff953d63a7ee10ededfeb1146cd3e7408e7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-REVIEW.md",
+      "bytes": 2958,
+      "sha256": "7d5f19a96cc83880c14849e43140ec6748de8a2fe6389f4bdd7715e225565a26"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-RECEIPT.json",
+      "bytes": 24437,
+      "sha256": "8f6d57dd6af4d3bb372850c44c5ea7c2712ee857d84c3986a5fa1c5f2b77aa16"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-REPORT.json",
+      "bytes": 4481,
+      "sha256": "efedbc5c08564e861587c66a354ef379ae4b605e6defb0a28a773c575320a22a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-TOOL.json",
+      "bytes": 5764,
+      "sha256": "76e63f350b47e4795bb5f30510bf20b168b70f2c801a66ab9c6480347fb15a0e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/PROOF-STDOUT.txt",
+      "bytes": 4666,
+      "sha256": "9c4c4704bb875b70d81f97b2515587693abdf29cf6021482bb492c8e9a78487c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/artist-preview-lifetime.mjs",
+      "bytes": 6006,
+      "sha256": "2f5063af4b94a82f5bfe7da38de74cae568fd9712f08629fafe84b937853ea41"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/artist-preview-lifetime.selftest.mjs",
+      "bytes": 15856,
+      "sha256": "42783449f08796747444362fff9ac51222d109f2587b364297fb7b65c1dff7ce"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE-REVISED-REVIEW.md",
+      "bytes": 1708,
+      "sha256": "5a55bc8c9923718a1841add6cd5b37327c69d2c40a77cffe364f37b0752143c2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE-REVISED-RECEIPT.json",
+      "bytes": 12370,
+      "sha256": "b3fcf13312c2c550685c06defca2d1aad9d938bde582689b452ebd263e20c72d"
+    }
+  ],
+  "original_epoch_resolver": "Old USAGE4950/412a7886 bindings resolve via unchanged USAGE-ORIGINAL.md. Original B review/receipt retained; current guide5424/ddb557e0 is distinct.",
+  "resolved": "D1 root independently confirmed and corrected only documentary host ownership. Host can inspect retained lifetime on both outcomes; reporter/client/removal are not implemented.",
+  "proof": "Exact shared source and sole24case actual proof unchanged, no rerun/import/client operation.",
+  "limits": "Documentary A is a useful local guide, no browser/Three/GPU/physical release/geometry/appearance/fit/roadmap acceptance."
+}

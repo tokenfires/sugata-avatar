@@ -1,0 +1,20 @@
+{
+  "schema": "prospective-preview-lifetime-one-proof-v1",
+  "status": "NOT_ADMITTED",
+  "argv": [
+    "/opt/homebrew/bin/node",
+    "--max-old-space-size=256",
+    "/Users/robault/GitHub/sugata-avatar/tools/artist-preview-lifetime.selftest.mjs"
+  ],
+  "environment": {
+    "NODE_OPTIONS": "",
+    "NODE_PATH": "",
+    "SUGATA_PREVIEW_PROOF_STOP": "2026-10-19T18:33:21.021312+00:00"
+  },
+  "absolute_stop_utc": "2026-10-19T18:33:21.021312+00:00",
+  "cooperative_ms": 5000,
+  "sampled_RSS_bytes": 402653184,
+  "stdout_bytes": 65536,
+  "one_entry_only": true,
+  "requires": "FullstableindependentSOURCEA+rootwholecurrentpinverification/freshPROOF-ADMISSION, no client/geometry/GPU/browser adoption."
+}
