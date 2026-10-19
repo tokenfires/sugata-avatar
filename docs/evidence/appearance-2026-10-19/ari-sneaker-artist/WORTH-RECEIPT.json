@@ -1,0 +1,166 @@
+{
+  "schema": "ari-sneaker-worth-critic-v1",
+  "verdict": "A_BOUNDED_REFERENCE_AND_BRIEF_PREPARATION_WORTH_ONLY",
+  "collected_utc": "2026-10-19T07:32:36.767822+00:00",
+  "writer_pid": 78071,
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 12359,
+      "sha256": "3c131d32572b053d9c826da2d2991a7a7cfb7183f874bdae13ce447467da6e6a",
+      "read_scope": "Current exactbytes pin; just-completed whole changed checkpoint/diff review reused, no fresh broad audit."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 24922,
+      "sha256": "94fc92a1c7fd25676e673438466fca311e6c74a909f6ec93ad0153eab303479f",
+      "read_scope": "Current exactbytes pin; just-completed whole changed checkpoint/diff review reused, no fresh broad audit."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7161,
+      "sha256": "7ce48fa51bff4087e469934635d048ef997d68d900a6ae449849c01e3bccd00f",
+      "read_scope": "Wholebytes hashed; selected rows3,24,32,34,36,38,40,46-59 read for declared artist scopes/broad goals."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 15923,
+      "sha256": "a11432b33af9df3f64d14ecec6e5af08faa06c0f3f7ea07887ca46a835fa5ea2",
+      "read_scope": "Wholebytes hashed; complete actual Ari figure/link lines31-32 read, no global catalogue absence inference."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md",
+      "bytes": 2270,
+      "sha256": "3a5b0493387b14d164455996e2ab3840d02e10341220f0282968d3720878899c",
+      "read_scope": "Whole2270-byte original Ari handoff."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d",
+      "read_scope": "Actual whole unchanged original viewed via view_image(detail=original), not thumbnail/receipt; exactbytes/SHA and PNG dimensions1536×1024 independently verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/ROOT-CLOSE.json",
+      "bytes": 9870,
+      "sha256": "2c8e661346a572b240bf67be1acc01b8baa66349c02be9011d8dd24e19bfcea7",
+      "read_scope": "Hash-only declared sequential-component closure input; parent closure is preserved, not a new numerical inquiry."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-first-native/README.md",
+      "bytes": 1198,
+      "sha256": "e641963f211f225a4b320c628683a0987e40d1cc0f780f0bc4fe0d94ea5e35b2",
+      "read_scope": "Whole1198-byte Mara midi CLOSED acquisition/readme, not a source rescue invitation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/PLAN.json",
+      "bytes": 7465,
+      "sha256": "8b6b57c2c1aa1af78f00391479df1036115a35b2fec5a37a9861ce52df1558eb",
+      "read_scope": "Whole7465-byte plan and all8 exact input rows."
+    }
+  ],
+  "verified_plan_input_rows": 8,
+  "jobs": [
+    {
+      "chunk": "01840b",
+      "exit": 0,
+      "pid": 77836,
+      "utc": "2026-10-19T07:30:24.913005+00:00",
+      "command": "python3 stdin read/hash wholePLAN."
+    },
+    {
+      "tool": "view_image",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "detail": "original",
+      "success": true,
+      "spawned_pid": null,
+      "utc_bracket": [
+        "2026-10-19T07:30:24.913005+00:00",
+        "2026-10-19T07:31:14.221270+00:00"
+      ],
+      "scope": "Actually inspected whole1536x1024 source image; no crop/render/capture."
+    },
+    {
+      "chunk": "77e38c",
+      "exit": 0,
+      "pid": 77920,
+      "utc": "2026-10-19T07:31:14.221270+00:00",
+      "command": "python3 stdin stdlib read/hash/PNGheader/selected text print",
+      "scope": "All8pins; wholeAri handoff andMara closedREADME; selectedboard/checklist scopes; originalPNGdimensions."
+    }
+  ],
+  "visual_observations": [
+    {
+      "region": "front shoes,approx x50-339/y850-918",
+      "witness": "Pale rounded toe silhouettes, lacing, flat pale lower edge; dark hem overlaps upper."
+    },
+    {
+      "region": "profile shoes,approx x435-600/y840-920",
+      "witness": "Quiet pale low-top outline and low sidewall; upper collar substantially obscured by hem. No cupsole/vulcanized physical inference."
+    },
+    {
+      "region": "rear shoes,approx x714-982/y860-918",
+      "witness": "Pale heel edges below trouser hems; hidden lining/outsole not visible."
+    }
+  ],
+  "findings": [],
+  "alternatives": [
+    {
+      "choice": "Quiet cupsole-like/plain roundedtoe language",
+      "tradeoff": "Preserves observed calm outline; demands new explicit collar/quarter/sole junction authorship."
+    },
+    {
+      "choice": "Wrappedsidewall/toebumper language",
+      "tradeoff": "Clearer construction marks but risks added forefoot bulk."
+    },
+    {
+      "choice": "Defer",
+      "tradeoff": "Avoids flat-art churn but leaves useful Ari-specific shoe intent implicit."
+    }
+  ],
+  "next_contract_duties": [
+    "First choose visual construction vocabulary from bounded references, not manufacturing inference.",
+    "Own allleft-shoe views, medial/lateral labels, tongue/laces/eyelet/entry/lining/counter/sole and hidden marks asoriginalart.",
+    "Written rightcounterpart only; no anatomical registeredpair/last/body/physicalfit claim.",
+    "Declare finiteSVG/node/JSON/publisher caps before sourcegate; complete element tree association.",
+    "Actual wholeimage and independentroot/critic review before artistdelivery; no sourcecounts substitute."
+  ],
+  "budgets_and_deadlines": {
+    "research": {
+      "searches": 2,
+      "primary_pages": 2,
+      "actual_primary_image_views": 2,
+      "stop": "Stop at budget or earlier once the construction-language decision is supported. Do not hunt for favorable examples or exact commercial replicas. No new primary API/numerical investigation."
+    },
+    "candidate": {
+      "captures": 2,
+      "correction": "At most one separate communication/clarity clone only if actual first image proves an actionable defect; preserve original source/image/rejection. A structural creative failure closes rather than retuning.",
+      "qualification": "Source/registry gates do not qualify appearance. Root owns/serializes real browser captures; root and critic inspect whole actual images independently before any artist-only delivery. Every actionable finding cites actual source/image/frame, explains it and gives two alternatives/tradeoffs."
+    },
+    "deadlines_utc": {
+      "worth": "2026-10-19T07:40:00Z",
+      "reference_and_brief": "2026-10-19T08:00:00Z",
+      "source_author": "2026-10-19T08:20:00Z",
+      "source_review": "2026-10-19T08:35:00Z",
+      "root_source_gate": "2026-10-19T08:40:00Z",
+      "first_capture": "2026-10-19T08:45:00Z",
+      "final_capture": "2026-10-19T08:55:00Z",
+      "image_review": "2026-10-19T09:00:00Z",
+      "closure": "2026-10-19T09:10:00Z"
+    }
+  },
+  "errors": [],
+  "limits": [
+    "Only localexistingfile/image review; no onlinecalls/newbrowser/native/capture/render/drawing/geometry/bodyimport or programinvocation.",
+    "No global absence, gender/health/anatomy, manufacturing/comfort/traction/material/fit/runtime/AAA inference.",
+    "Genericboots/Mara loafer are referenced only at current checklist-declared scope; their images/sources were not re-audited.",
+    "Old numerical/collector/source/capture closures remain; no Mara midi rescue or successor automatically admitted.",
+    "Only exclusiveWORTH pair written; source/assets/defaults/frozen records unchanged."
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/WORTH.md",
+    "bytes": 3060,
+    "sha256": "3dcfb43029a6ccf4b6f050468aa2258d858e7a3e99961259fad7888c188620d4"
+  }
+}

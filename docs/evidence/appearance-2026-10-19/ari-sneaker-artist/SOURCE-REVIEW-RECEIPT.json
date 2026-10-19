@@ -1,0 +1,229 @@
+{
+  "schema": "ari-sneaker-source-critic-v1",
+  "verdict": "A_EXACT_FIRST_CAPTURE_WORTH_AFTER_ROOT_GATE",
+  "collected_utc": "2026-10-19T07:52:35.799037+00:00",
+  "writer_pid": 80457,
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/BRIEF-REVIEW-RECEIPT.json",
+      "bytes": 10749,
+      "sha256": "779dc2965b943a8ad636d3874942a263a6cbe8c564fd8fc585f2881efeddbae1",
+      "read_scope": "Own prior complete brief receipt reused, exact pin."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/BRIEF-REVIEW.md",
+      "bytes": 3339,
+      "sha256": "21541af1dfec12ea7f1daccf5adb4ea0cd30cfc00bd1db9df991a65d4826bc02",
+      "read_scope": "Own prior complete brief judgment reused, exact pin."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/BRIEF.md",
+      "bytes": 6388,
+      "sha256": "5b54f615fbb179cb5428ccf6a0b90c27035605c34a723400a443a23e85f22923",
+      "read_scope": "Prior whole exact brief review reused after fresh pin."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/PLAN.json",
+      "bytes": 7465,
+      "sha256": "8b6b57c2c1aa1af78f00391479df1036115a35b2fec5a37a9861ce52df1558eb",
+      "read_scope": "Prior whole exact worth/brief plan reused; its8 transitive input pins freshly checked."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/PRIMARY-1.json",
+      "bytes": 22546,
+      "sha256": "ff417ab62b45857e79fb7d40a8aa1a947c7db04e5317da8ae8e7727c6a6fa036",
+      "read_scope": "Prior complete8018-character markdown/metadata scope reused after fresh byte pin; no refetch."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/PRIMARY-2.json",
+      "bytes": 89108,
+      "sha256": "ab43fc285107b38765d1a234a1d603f4a3b8c4b29457bf23fa95a58463fe8622",
+      "read_scope": "Prior0:25000-of38397 markdown/metadata scope reused after fresh byte pin; no new reading of remaining tail."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/REFERENCES-RECEIPT.json",
+      "bytes": 5164,
+      "sha256": "5b8175f5b62e47284256f9b82feae904bb2d87fc4e32493080641ed9b0f87034",
+      "read_scope": "Prior whole5164-byte reading reused, exact pin."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/REFERENCES.md",
+      "bytes": 3026,
+      "sha256": "57916892d4e699762d32a789807754561ec23899cdd7c0b6a449d0591523a599",
+      "read_scope": "Prior whole3026-byte reading reused, exact pin."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ROOT-BRIEF.json",
+      "bytes": 1280,
+      "sha256": "1f741b19dad1890cfc10b3778d751dc90acb23958537e1ee2f97b7ccaf522018",
+      "read_scope": "Byte pin only, no root opinion substituted for own source judgment."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ROOT-REFERENCE-CHECK.json",
+      "bytes": 833,
+      "sha256": "8c6cf82b15b0271ff9f96098cf7724b0d8e228775cfd6c7b7fee0aea084adc48",
+      "read_scope": "Byte pin only."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ROOT-WORTH.json",
+      "bytes": 916,
+      "sha256": "e867db4a3f6d4488e58d2c78db606f4e95775ffd3693a76b96603596a4d69f4f",
+      "read_scope": "Byte pin only."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/SEARCH-1.json",
+      "bytes": 6759,
+      "sha256": "7c7f6cd5d256bb8414f4066d5720f3c517943f34c11a69bb1a3115a4f390fe30",
+      "read_scope": "Byte pin only; no new full content claim."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/SEARCH-2.json",
+      "bytes": 9735,
+      "sha256": "21c25008d11e2da50e3228849984b69f6f49504993cd3b3c2501bdef73b6fd12",
+      "read_scope": "Byte pin only; no new full content claim."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/WORTH-RECEIPT.json",
+      "bytes": 8252,
+      "sha256": "71329ee2722f2fb204b012e9e54336af11099df418a08a79df647d2bea23fab6",
+      "read_scope": "Own prior whole worth receipt reused, exact pin."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/WORTH.md",
+      "bytes": 3060,
+      "sha256": "3dcfb43029a6ccf4b6f050468aa2258d858e7a3e99961259fad7888c188620d4",
+      "read_scope": "Own prior whole worth judgment reused, exact pin."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/design.json",
+      "bytes": 187765,
+      "sha256": "fd242916ecfb995d9b721bf257da3064589ed36289353beac038353472e332d6",
+      "read_scope": "All JSON non-tree semantics fully printed/read; repeated source_xml equals complete raw SVG; complete177-node tree independently compared field by field, not merely counted."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/reference-converse.jpg",
+      "bytes": 35713,
+      "sha256": "8562d72cdc9e4a9c909e09187bd3f04f00038d3dafdb037a740f10fefae80466",
+      "read_scope": "Prior actual whole original-detail inspection reused after exact unchanged pin; no new image view."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/reference-veja.jpg",
+      "bytes": 19613,
+      "sha256": "f9f477f62044acc7ea9e4929451f442a08d60720536fe729ab86977393a63542",
+      "read_scope": "Prior actual whole original-detail inspection reused after exact unchanged pin; no new image view."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/review.html",
+      "bytes": 2732,
+      "sha256": "f7d19d621d455f0135d603938bf11bc26378eb34ca4511861921751e957d0fbf",
+      "read_scope": "Whole2732-byte static source read; no script; all7 local src/href occurrences checked."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/shoe.svg",
+      "bytes": 20445,
+      "sha256": "3931b4f1875257888ca6003ff106a36d7dd81db83adbccaed0299be64fc0e377",
+      "read_scope": "Whole190 lines:1-125 in8472a8,126-190 in3c9b7d; all XML nodes/attributes/text/style/path operands read; independently parsed only."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/SOURCE-PREPARATION.json",
+      "bytes": 7043,
+      "sha256": "cf067f8a7a9f916eae9864fc28419e5129956c320cbb07dc61ccfc05f2f01ac7",
+      "read_scope": "Whole7043-byte record; all20 pins and3 duplicate source rows verified."
+    }
+  ],
+  "checked_rows": {
+    "preparation_pins": 20,
+    "source_rows_repeated_in_preparation": 3,
+    "transitive_plan_inputs": 8,
+    "total_checked_rows": 31,
+    "unique_checked_paths": 28,
+    "plus_preparation_self_pin": true
+  },
+  "jobs": [
+    {
+      "chunk": "8472a8",
+      "exit": 0,
+      "pid": 79872,
+      "utc": "2026-10-19T07:48:08.029534+00:00",
+      "scope": "Whole preparation/viewer; SVG1-125; JSON root/schema metadata."
+    },
+    {
+      "chunk": "3c9b7d",
+      "exit": 0,
+      "pid": 79889,
+      "utc": "2026-10-19T07:48:17.513180+00:00",
+      "scope": "SVG126-190; all non-tree/non-repeated-source JSON semantics and root/child schema."
+    },
+    {
+      "chunk": "8b4c70",
+      "exit": 0,
+      "pid": 80287,
+      "utc_started": "2026-10-19T07:50:55.841358+00:00",
+      "utc_report": "2026-10-19T07:50:55.845419+00:00",
+      "scope": "Independent full XML/JSON/HTML parsing and all31 exact binding rows; no rendering."
+    }
+  ],
+  "independent_source_observer": {
+    "command": "python3 stdin, exact source below",
+    "exact_source": "import os,datetime,json,hashlib,xml.etree.ElementTree as ET\nfrom pathlib import Path\nfrom collections import defaultdict,Counter\nfrom html.parser import HTMLParser\nR=Path('/Users/robault/GitHub/sugata-avatar');P=R/'docs/evidence/appearance-2026-10-19/ari-sneaker-artist'\nprint('SOURCE_OBSERVER',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nprep=json.loads((P/'SOURCE-PREPARATION.json').read_bytes())\nchecks=[]\nfor row in prep['sources']+prep['pins']+json.loads((P/'PLAN.json').read_bytes())['inputs']:\n p=R/row['path'];b=p.read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256']\n checks.append(str(p))\nsvg=(P/'shoe.svg').read_bytes();design=json.loads((P/'design.json').read_bytes())\nassert design['source_file']=='shoe.svg' and design['source_bytes']==len(svg) and design['source_sha256']==hashlib.sha256(svg).hexdigest()\nassert design['source_xml'].encode()==svg\nassert b'<!DOCTYPE' not in svg and b'<!ENTITY' not in svg\nroot=ET.fromstring(svg);ids={};views=defaultdict(list);features=defaultdict(list);ancestors={}\ndef visit(e,parent=None,index=0,view=None,feature=None,chain=()):\n ident=e.get('id');assert ident and ident not in ids\n ids[ident]=e;ancestors[ident]=chain\n view=e.get('data-view',view);feature=e.get('data-feature',feature)\n assert view and feature\n views[view].append(ident);features[feature].append(ident)\n return {'id':ident,'tag':e.tag,'attributes':list(map(list,e.attrib.items())),'text':e.text,'tail':e.tail,\n         'parent_id':parent,'sibling_index':index,'view':view,'feature':feature,\n         'children':[visit(c,ident,j,view,feature,chain+(ident,)) for j,c in enumerate(e)]}\ntree=visit(root)\nassert tree==design['tree'] and dict(views)==design['view_map'] and dict(features)==design['feature_map']\nassert len(ids)==design['element_count']==177 and len(views)==8 and len(features)==37\nassert len(svg)<=32768 and (P/'design.json').stat().st_size<=196608 and (P/'review.html').stat().st_size<=8192 and len(ids)<=280\nassert all(e.tag.split('}')[-1] in {'svg','title','desc','style','rect','text','line','g','path','circle','ellipse','tspan'} for e in ids.values())\nassert not any(k.lower().startswith('on') or k.endswith('href') for e in ids.values() for k in e.attrib)\nowned=design['five_pair_ownership']\nouter=owned['outer'];inner=owned['inner']\nassert outer==['top-eye-outer-'+str(i) for i in range(1,6)] and inner==['top-eye-inner-'+str(i) for i in range(1,6)]\nassert all(ids[x].tag.endswith('circle') for x in outer+inner)\nfor a,b in zip(outer,inner):assert ids[a].get('cy')==ids[b].get('cy')\nassert [ids[x].get('cy') for x in outer]==['155','179','203','227','251']\nassert all(len([x for x in ids if x.startswith(side+'-eye-')])==5 for side in ['lateral','medial'])\nassert len([x for x in ids if x.startswith('detail-eye-')])==6\nfor k in ['tongue','under_layer','over_layer','finish','inset']:assert owned[k] in ids\nchildren=list(ids['top-shoe']);order=[x.get('id') for x in children]\nassert order.index('top-tongue')<order.index('top-eyelet-stays')<order.index('top-five-eyelet-pairs')<order.index('top-lace-under')<order.index('top-lace-over')\ndetail=[x.get('id') for x in ids['detail-three-central-pairs']]\nassert detail.index('detail-under-border')<detail.index('detail-under-tape')<detail.index('detail-over-border')<detail.index('detail-over-tape')\nassert len(design['view_conventions'])==7 and set(design['view_conventions'])==set(views)-{'sheet'}\nclass Viewer(HTMLParser):\n def __init__(self):super().__init__();self.links=[];self.tags=[]\n def handle_starttag(self,tag,attrs):\n  self.tags.append(tag);assert tag!='script' and all(not k.lower().startswith('on') for k,v in attrs)\n  for k,v in attrs:\n   if k in ['src','href']:\n    assert v and '://' not in v and not v.startswith(('data:','javascript:'))\n    assert (P/v.split('#',1)[0]).exists()\n    self.links.append(v)\nviewer=Viewer();viewer.feed((P/'review.html').read_text())\nassert viewer.links==prep['viewer_references'] and len(viewer.links)==7<=12\nout={'pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),\n'scope':'source XML/JSON/HTML parsing only; no rendering or target/helper import',\n'verified_binding_rows':len(checks),'unique_binding_paths':len(set(checks)),\n'complete_source_xml_equal':True,'all_tree_fields_and_child_order_equal':True,\n'node_count':len(ids),'view_owners':list(views),'feature_count':len(features),\n'view_map_partition_complete':True,'feature_map_partition_complete':True,'all_role_refs_resolve':True,\n'top_eyelet_pairs':5,'each_profile_visible_eyelets':5,'detail_pairs':3,'lace_paint_order_bound':True,\n'viewer_local_references':viewer.links,'caps_pass':True,\n'attribute_text_tag_counts':dict(Counter(e.tag.split('}')[-1] for e in ids.values())),\n'limits':'Not computed style, layout, paint output, physical pattern, registered projection, fit or appearance qualification.'}\nprint(json.dumps(out,indent=2))\n",
+    "sha256": "71f72c2bf736213f3bb713aadd37cecebe4d91e3a29bcc09bd4153a68bfbe48b",
+    "tool_result": {
+      "chunk_id": "8b4c70",
+      "wall_time_seconds": 5.625e-06,
+      "exit_code": 0,
+      "original_token_count": 364,
+      "output": "SOURCE_OBSERVER 80287 2026-10-19T07:50:55.841358+00:00\n{\n  \"pid\": 80287,\n  \"utc\": \"2026-10-19T07:50:55.845419+00:00\",\n  \"scope\": \"source XML/JSON/HTML parsing only; no rendering or target/helper import\",\n  \"verified_binding_rows\": 31,\n  \"unique_binding_paths\": 28,\n  \"complete_source_xml_equal\": true,\n  \"all_tree_fields_and_child_order_equal\": true,\n  \"node_count\": 177,\n  \"view_owners\": [\n    \"sheet\",\n    \"left-top\",\n    \"left-lateral\",\n    \"left-medial\",\n    \"left-front\",\n    \"left-rear\",\n    \"left-outsole\",\n    \"entry-and-lacing-detail\"\n  ],\n  \"feature_count\": 37,\n  \"view_map_partition_complete\": true,\n  \"feature_map_partition_complete\": true,\n  \"all_role_refs_resolve\": true,\n  \"top_eyelet_pairs\": 5,\n  \"each_profile_visible_eyelets\": 5,\n  \"detail_pairs\": 3,\n  \"lace_paint_order_bound\": true,\n  \"viewer_local_references\": [\n    \"shoe.svg\",\n    \"design.json\",\n    \"BRIEF.md\",\n    \"REFERENCES.md\",\n    \"shoe.svg\",\n    \"../../appearance-2026-10-07/larger-frame-character/concept-v1.png\",\n    \"../../appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md\"\n  ],\n  \"caps_pass\": true,\n  \"attribute_text_tag_counts\": {\n    \"svg\": 1,\n    \"title\": 1,\n    \"desc\": 1,\n    \"style\": 1,\n    \"rect\": 1,\n    \"text\": 36,\n    \"line\": 3,\n    \"g\": 27,\n    \"tspan\": 7,\n    \"path\": 72,\n    \"circle\": 26,\n    \"ellipse\": 1\n  },\n  \"limits\": \"Not computed style, layout, paint output, physical pattern, registered projection, fit or appearance qualification.\"\n}\n"
+    }
+  },
+  "manual_semantic_witnesses": {
+    "five_pairs": "shoe.svg29-34 and JSON five_pair_ownership, explicit ten circles.",
+    "tongue_and_crossing_layers": "shoe.svg24-45, detail169-179; paint order declared, visibility awaits actual image.",
+    "profiles_and_orientation": "shoe.svg55-97, top46-52, outsole144-149; independent schematic conventions, no registered geometry.",
+    "front_vamp_sidewall": "shoe.svg105-107 shared curved boundary and distinct contact band.",
+    "rear_entry_counter_join": "shoe.svg116-123.",
+    "outsole_intent": "shoe.svg130-149.",
+    "inside_and_leaders": "shoe.svg155-166; explicit opened section and actual lining/footbed operand targets.",
+    "limits_and_counterpart": "shoe.svg182-189; JSON limits/view_conventions/authorial_choices; whole viewer footer."
+  },
+  "findings": [],
+  "alternatives": [
+    {
+      "choice": "One first whole-image capture of exact source",
+      "tradeoff": "Can decide artist readability/silhouette and all7 areas; selected after root gate."
+    },
+    {
+      "choice": "Retain source only",
+      "tradeoff": "Avoids capture but leaves actual artist delivery unqualified."
+    }
+  ],
+  "root_capture_conditions": [
+    "Verify exact source/storage pins and own actual loaded-page/image identity, full capture and collection.",
+    "No remaining reference calls/views; no old-route rescue.",
+    "At most2 candidate captures; only one specific image-witnessed clarity clone. Structural creative failure closes.",
+    "Source counts/paint order/JSON equality do not qualify actual appearance or browser fetched-byte identity."
+  ],
+  "deadlines_utc": {
+    "worth": "2026-10-19T07:40:00Z",
+    "reference_and_brief": "2026-10-19T08:00:00Z",
+    "source_author": "2026-10-19T08:20:00Z",
+    "source_review": "2026-10-19T08:35:00Z",
+    "root_source_gate": "2026-10-19T08:40:00Z",
+    "first_capture": "2026-10-19T08:45:00Z",
+    "final_capture": "2026-10-19T08:55:00Z",
+    "image_review": "2026-10-19T09:00:00Z",
+    "closure": "2026-10-19T09:10:00Z"
+  },
+  "errors": [],
+  "limits": [
+    "No target/helper import, numerical/geometric construction, browser/navigation/render/capture/network or source artwork edit bycritic.",
+    "Parsing is for this pinned literal packet, not a general SVG sanitizer or computed-style/layout validator.",
+    "No physical pattern/lining continuity/manufacturing/anatomical pair/last/body/3D fit/motion/runtime/AAA acceptance.",
+    "Only own exclusive SOURCE pair written; all accepted/default/frozen sources and closed routes preserved."
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/SOURCE-REVIEW.md",
+    "bytes": 3144,
+    "sha256": "70753d4f071cf7e4dbc29c34f44228129d3327d696d4812af05ca662ba5189ca"
+  }
+}

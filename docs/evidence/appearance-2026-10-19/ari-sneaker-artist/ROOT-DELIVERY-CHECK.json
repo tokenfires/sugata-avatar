@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-19T08:04:44.946921+00:00",
+  "pid": 81967,
+  "decision": "ROOT_DOCUMENTARY_PRELIMINARY_AWAIT_CRITIC",
+  "actual_full_diff_read": "af02fc, full14206bytes/no truncation",
+  "prepared_pins_verified": 12,
+  "exact_diff": {
+    "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/DELIVERY.diff",
+    "bytes": 14206,
+    "sha256": "59cfe28c5b0311e132b61b94a1b2da7b0594f4a9ca2692c14793529af333f84b"
+  },
+  "single_board_link_only": true,
+  "one_checklist_row_plus_date_only": true,
+  "counts": [
+    22,
+    10
+  ],
+  "outstanding_verbatim": true,
+  "work_window_append_only": true,
+  "old_resume_content_preserved": true,
+  "md_local_link_occurrences_resolve": 84,
+  "source_preparation_and_plan_epoch_rows": {
+    "current": 27,
+    "historical_via_git9a8e": 4
+  },
+  "source_image_reference_current": true,
+  "no_second_capture": true,
+  "frozen_diff_whitespace_note": "Any standalone single-space unified-context lines are literal patch context, not edits to frozen patch. All actual source/docs receive normal whitespace check.",
+  "status": " M docs/ARTIST-WARDROBE.html\n M docs/PROJECT-CHECKLIST.md\n M docs/RESUME-2026-10-18.md\n M docs/WORK-WINDOW-2026-10-18.md\n?? docs/evidence/appearance-2026-10-19/ari-sneaker-artist/\n",
+  "next": "Collect complete independent documentary handoff, verify before close/localcommit. No source/visual experiment."
+}

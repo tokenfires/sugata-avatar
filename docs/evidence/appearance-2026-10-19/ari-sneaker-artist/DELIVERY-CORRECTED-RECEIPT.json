@@ -1,0 +1,128 @@
+{
+  "schema": "ari-sneaker-delivery-corrected-critic-v1",
+  "verdict": "A_LOCAL_DOCUMENTARY_CLOSURE_CHECKPOINT_WORTH",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/DELIVERY-CORRECTION.json",
+      "bytes": 5092,
+      "sha256": "3a9dfd9759a23f2db66e0087aeb64a40c7aea2fe8928b1c41444bc3f9c00533f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/README-PRE-CLARITY.md",
+      "bytes": 5416,
+      "sha256": "0011dafa2417d613ec07b908563277c4b84537b137e4b71a1ff9a097ea261644"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/README.md",
+      "bytes": 5436,
+      "sha256": "f8ec7e192ae6624f701d40dff42cdc65bdcdeb590aa0e96aff919735c3ebbed7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/README-CLARITY.diff",
+      "bytes": 2777,
+      "sha256": "4b7b5cc9588818fd4fd94bfb313d85266b35427e136b4668913cca3b35fac2a5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/LIVE-SERVICES.json",
+      "bytes": 1889,
+      "sha256": "b70099d1cc3f91e3cacac08ba86627283e739b25142470794dc09365f9852240"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/DELIVERY-PREPARATION.json",
+      "bytes": 2753,
+      "sha256": "d1afa1518ae4515e58588feb4b9aef258ecb394b1e745129ad531d341d6cd6e1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/DELIVERY.diff",
+      "bytes": 14206,
+      "sha256": "59cfe28c5b0311e132b61b94a1b2da7b0594f4a9ca2692c14793529af333f84b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/DELIVERY-REVIEW.md",
+      "bytes": 2813,
+      "sha256": "d76a5afc09974c9d2ecf9203437b72358a102bb4dbc8967a5543f5c6544dfa00"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/DELIVERY-REVIEW-RECEIPT.json",
+      "bytes": 17926,
+      "sha256": "72bcdd8a67ed87a11e9c0cf8b02d47157484a762c215fdd972dd13dc74f9e067"
+    }
+  ],
+  "read_scopes": [
+    "Whole DELIVERY-CORRECTION.json, README-CLARITY.diff, LIVE-SERVICES.json and corrected README.md read in636076.",
+    "Exact reversible sentence delta, exact unified diff,19correction rows and30historical/direct preparation rows verified in1f6324. Two earlier README occurrences resolve retained exact README-PRE-CLARITY.md.",
+    "Prior actual image and documentary judgments reused only after unchanged byte checks; no repeated source/image/numerical audit."
+  ],
+  "jobs": [
+    {
+      "chunk": "636076",
+      "exit": 0,
+      "pid": 82259,
+      "utc": "2026-10-19T08:06:41.504055+00:00",
+      "scope": "Complete four current correction/document/service artifacts."
+    },
+    {
+      "chunk": "1f6324",
+      "exit": 0,
+      "pid": 82315,
+      "utc": "2026-10-19T08:07:10.732523+00:00",
+      "scope": "Independent local byte/hash/JSON/difflib checks; no target imports or execution."
+    }
+  ],
+  "checks": {
+    "correction_rows": 19,
+    "prior_input_and_preparation_rows": 30,
+    "historical_readme_rows_resolved": 2,
+    "exact_reversible_one_sentence": true,
+    "exact_unified_delta": true,
+    "all_other_inputs_unchanged": true,
+    "links_unchanged": true,
+    "prior_checklist_counts": [
+      [
+        21,
+        10
+      ],
+      [
+        22,
+        10
+      ]
+    ],
+    "prior_local_links": 29
+  },
+  "resolved_findings": [
+    {
+      "id": "D1",
+      "old": "Both raw primary JPEGs are preserved unchanged.",
+      "new": "Both unchanged whole-view reference screenshot JPEGs are preserved.",
+      "outcome": "Exact minimal noun correction, with prior epoch preserved. Actual screenshot/remote-original identity boundary now truthful."
+    }
+  ],
+  "remaining_actionable_findings": [],
+  "next": {
+    "preferred": "Root independently verify and locally checkpoint exact scoped delivery.",
+    "alternative": "Keep isolated handoff only.",
+    "tradeoff": "Checkpoint makes the actually reviewed design discoverable without new image work; isolation loses that benefit without addressing any demonstrated defect.",
+    "no_successor_admitted": true
+  },
+  "services": {
+    "saved_record_utc": "2026-10-19T08:05:13.810926+00:00",
+    "limits": "API rendered card only. Saved configuration supplies ACTIVE/ten minute/same chat readback. Future delivery/notifications untested. Existing timer only; no mutation or duplicate.",
+    "critic_fresh_probe": false
+  },
+  "errors": [],
+  "limits": [
+    "No reviewed input/artwork/source/image changed by critic.",
+    "No target/helper imports/evaluation, browser/native/render/capture/network or new reference view.",
+    "No new live-service verification by critic; saved root record read only.",
+    "Image/source A remains2Dartist scope only, with22scoped checks and10broad open; spare capture retired."
+  ],
+  "closure_deadline_utc": "2026-10-19T09:10:00Z",
+  "collected_utc": "2026-10-19T08:07:44.205700+00:00",
+  "writer_pid": 82380,
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/DELIVERY-CORRECTED-REVIEW.md",
+    "bytes": 2436,
+    "sha256": "ec91859032ce28222343896e7a52c8fb474dba568a3f88c19d895d0bf1049cf9"
+  }
+}

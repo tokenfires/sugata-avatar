@@ -1,0 +1,26 @@
+{
+  "schema": "ari-sneaker-live-services-v1",
+  "automation_view": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Rendered automation card in the app."
+        }
+      ],
+      "isError": false
+    }
+  },
+  "saved_config_and_vite_tool": {
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "0ef9b7",
+      "wall_time_seconds": 0.000006792,
+      "exit_code": 0,
+      "original_token_count": 277,
+      "output": "{\n  \"utc\": \"2026-10-19T08:05:13.810926+00:00\",\n  \"pid\": 82034,\n  \"saved_config_path\": \"/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml\",\n  \"saved_config_bytes\": 3344,\n  \"saved_config_sha256\": \"9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a\",\n  \"saved_fields\": {\n    \"version\": 1,\n    \"id\": \"advance-sugata-avatar-visual-quality\",\n    \"kind\": \"heartbeat\",\n    \"name\": \"Advance Sugata until check-in\",\n    \"status\": \"ACTIVE\",\n    \"rrule\": \"FREQ=MINUTELY;INTERVAL=10\",\n    \"target_thread_id\": \"01a0ff57-d720-7db2-923f-9e3e0521216c\",\n    \"created_at\": 1788907651118,\n    \"updated_at\": 1792383268578\n  },\n  \"prompt_sha256\": \"26f93b8cc3fc5efedbc3e93cd6bcae325ebcfaa6ae98cd804a762cbc5f2594be\",\n  \"vite\": \"870     1 13:04:53 /opt/homebrew/bin/node /Users/robault/GitHub/sugata-avatar/node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173 --strictPort\",\n  \"loopback_http\": 200,\n  \"limit\": \"Saved cadence/status/target readback is not future delivery/mobile notification proof. No new worker/render/native/numerical job started by this service read.\"\n}\n"
+    }
+  },
+  "limit": "API rendered card only. Saved configuration supplies ACTIVE/ten minute/same chat readback. Future delivery/notifications untested. Existing timer only; no mutation or duplicate."
+}

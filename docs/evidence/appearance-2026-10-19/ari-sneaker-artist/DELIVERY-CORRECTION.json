@@ -1,0 +1,113 @@
+{
+  "utc": "2026-10-19T08:06:25.190629+00:00",
+  "pid": 82165,
+  "decision": "APPLY_ONLY_D1_REFERENCE_SCREENSHOT_NOUN_CORRECTION",
+  "root_whole_handoff_read": "405265 complete2813+17926bytes",
+  "verified_pre_correction": {
+    "direct_inputs": 18,
+    "preparation_rows": 12,
+    "root_image_rows": 21
+  },
+  "witness": "README research bullet says raw primary JPEGs, while FIRST/REFERENCES receipts actually bind original whole browser screenshot JPEGs only. Root confirms exact sentence and source capture provenance.",
+  "alternative_selected": "Minimal screenshot wording; keeps preservation claim and precise artifact type. Alternative omit sentence shorter but less explicit.",
+  "old_readme": {
+    "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/README-PRE-CLARITY.md",
+    "bytes": 5416,
+    "sha256": "0011dafa2417d613ec07b908563277c4b84537b137e4b71a1ff9a097ea261644"
+  },
+  "new_readme": {
+    "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/README.md",
+    "bytes": 5436,
+    "sha256": "f8ec7e192ae6624f701d40dff42cdc65bdcdeb590aa0e96aff919735c3ebbed7"
+  },
+  "delta": {
+    "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/README-CLARITY.diff",
+    "bytes": 2777,
+    "sha256": "4b7b5cc9588818fd4fd94bfb313d85266b35427e136b4668913cca3b35fac2a5"
+  },
+  "old_pin_resolution": "Prior README path SHA0011dafa2417d613ec07b908563277c4b84537b137e4b71a1ff9a097ea261644 resolves retained README-PRE-CLARITY.md; old DELIVERY-PREPARATION/DELIVERY-REVIEW stay unchanged. Main old PLAN pins resolveGit9a8ef61c.",
+  "other_delivery_pins": [
+    {
+      "path": "docs/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 14551,
+      "sha256": "0da7331a24671fc0ed455f892de23a1b0c576ebb16a899d48a5f6b8be2ad9aaf"
+    },
+    {
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 28493,
+      "sha256": "dbd146813f13eb5e49d5177d8b2872c0dcc6c03c623753aedc20ad013990fad4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md",
+      "bytes": 2527,
+      "sha256": "4c24433a6562c2f0c363ca99ba7776dbaa3a65fdcb86484b9d99cd9d7667224d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/DELIVERY.diff",
+      "bytes": 14206,
+      "sha256": "59cfe28c5b0311e132b61b94a1b2da7b0594f4a9ca2692c14793529af333f84b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ROOT-IMAGE.json",
+      "bytes": 6333,
+      "sha256": "be80e72aebe9923d6b2d69360bffbaecbd3b5e78dfb8e34f5a1ea28a9cfad054"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/FIRST-IMAGE-REVIEW.md",
+      "bytes": 3316,
+      "sha256": "e23709cc7665c6c8fdcf1da982b343d2519038d363847e1573cebfdf0fee9dcf"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/FIRST-IMAGE-REVIEW-RECEIPT.json",
+      "bytes": 10922,
+      "sha256": "d8a0322902fa44920a4e77bf427c3f42af69d18e3c49dc4979cd2fc2a4f9c663"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/shoe.svg",
+      "bytes": 20445,
+      "sha256": "3931b4f1875257888ca6003ff106a36d7dd81db83adbccaed0299be64fc0e377"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/design.json",
+      "bytes": 187765,
+      "sha256": "fd242916ecfb995d9b721bf257da3064589ed36289353beac038353472e332d6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/review.html",
+      "bytes": 2732,
+      "sha256": "f7d19d621d455f0135d603938bf11bc26378eb34ca4511861921751e957d0fbf"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/first.jpg",
+      "bytes": 235475,
+      "sha256": "60c9a3337eaa51ced70496718dc7d88c65a378aae13dbb848173cf0b09be27ce"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/DELIVERY-REVIEW.md",
+      "bytes": 2813,
+      "sha256": "d76a5afc09974c9d2ecf9203437b72358a102bb4dbc8967a5543f5c6544dfa00"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/DELIVERY-REVIEW-RECEIPT.json",
+      "bytes": 17926,
+      "sha256": "72bcdd8a67ed87a11e9c0cf8b02d47157484a762c215fdd972dd13dc74f9e067"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/LIVE-SERVICES.json",
+      "bytes": 1889,
+      "sha256": "b70099d1cc3f91e3cacac08ba86627283e739b25142470794dc09365f9852240"
+    }
+  ],
+  "scope": "Exactly one prose sentence replacement. Source,design,viewer,actual image,network/capture counts and four tracked delivery diff unchanged. No new graphical experiment. Original documentary B and all exact epochs retained.",
+  "next": "Fresh critic corrected-byte verification, then root complete readback/localclosure. Fixed09:10UTCstop unchanged."
+}

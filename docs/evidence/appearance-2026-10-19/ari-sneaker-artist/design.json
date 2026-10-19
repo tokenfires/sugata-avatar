@@ -1,0 +1,5604 @@
+{
+  "name": "Ari ivory low-top: original left-shoe artist design",
+  "scope": "Unitless independent schematics, no registered anatomical pair, physical pattern, last, manufacturing or body-fit result. SVG is authoritative.",
+  "source_file": "shoe.svg",
+  "source_bytes": 20445,
+  "source_sha256": "3931b4f1875257888ca6003ff106a36d7dd81db83adbccaed0299be64fc0e377",
+  "source_xml": "<svg xmlns=\"http://www.w3.org/2000/svg\" id=\"ari-shoe-sheet\" width=\"1440\" height=\"1180\" viewBox=\"0 0 1440 1180\" data-view=\"sheet\" data-feature=\"layout\">\n  <title id=\"sheet-title\">Ari — quiet ivory low-top, left shoe</title>\n  <desc id=\"sheet-description\">Original unitless artist design. Six independent left-shoe schematics and an entry/lacing detail. These are not registered projections, a physical pattern or foot-fit evidence.</desc>\n  <style id=\"sheet-style\">text{font-family:Arial,Helvetica,sans-serif;fill:#514c43}path,ellipse,circle,rect,line{stroke-linejoin:round;stroke-linecap:round}.upper{fill:#f4f0e6;stroke:#655f53;stroke-width:2.2}.panel{fill:#e8e3d8;stroke:#655f53;stroke-width:2}.sole{fill:#dfd9c9;stroke:#655f53;stroke-width:2.2}.edge{fill:#bdb7a8;stroke:#655f53;stroke-width:1.5}.lining{fill:#c6c6bd;stroke:#77796f;stroke-width:1.8}.bed{fill:#e0ddd2;stroke:#929184;stroke-width:1.5}.line{fill:none;stroke:#7b7568;stroke-width:1.6}.eye{fill:#d8d2c4;stroke:#817b6d;stroke-width:1.8}.lace-dark{fill:none;stroke:#999486;stroke-width:7}.lace-light{fill:none;stroke:#faf7ee;stroke-width:4}.heading{font-size:18px;font-weight:700;letter-spacing:1px}.label{font-size:15px}.small{font-size:14px;fill:#766e60}.number{fill:#a05e45}.rule{stroke:#d6cdbd;stroke-width:1.2}.leader{fill:none;stroke:#a05e45;stroke-width:1.3}</style>\n  <rect id=\"paper\" x=\"0\" y=\"0\" width=\"1440\" height=\"1180\" fill=\"#f8f5ee\" stroke=\"none\"/>\n  <text id=\"main-heading\" x=\"54\" y=\"53\" font-size=\"31\" font-weight=\"700\" data-feature=\"heading\">ARI / QUIET IVORY LOW-TOP</text>\n  <text id=\"main-subheading\" x=\"54\" y=\"83\" class=\"label\" data-feature=\"scope\">Original left-shoe artist design · plain toe, unstriped sidewall, five lace pairs</text>\n  <text id=\"header-scope\" x=\"1386\" y=\"57\" text-anchor=\"end\" class=\"small\" data-feature=\"scope\">UNITLESS · NOT A SEWING PATTERN</text>\n  <line id=\"header-rule\" x1=\"54\" y1=\"101\" x2=\"1386\" y2=\"101\" class=\"rule\"/>\n\n  <g id=\"top-view\" data-view=\"left-top\" data-feature=\"top-shell\">\n    <text id=\"top-title\" x=\"65\" y=\"131\" class=\"heading\"><tspan id=\"top-number\" class=\"number\">01</tspan>  LEFT / TOP</text>\n    <g id=\"top-shoe\" transform=\"translate(70 155)\">\n      <path id=\"top-shell\" class=\"upper\" d=\"M150 0 C85 0 40 35 39 85 C36 134 62 180 75 230 L80 325 C82 370 110 390 146 390 C185 390 210 365 211 327 L209 240 C214 180 246 140 253 89 C261 35 219 0 150 0 Z\"/>\n      <g id=\"top-quarter-panels\" data-feature=\"quarters\">\n        <path id=\"top-outer-quarter\" class=\"panel\" d=\"M44 119 Q72 136 109 148 L129 268 Q111 291 100 310 L83 337 L75 230 Q66 185 44 119 Z\"/>\n        <path id=\"top-inner-quarter\" class=\"panel\" d=\"M249 119 Q221 137 183 148 L165 268 Q184 291 196 310 L211 337 L209 240 Q217 185 249 119 Z\"/>\n      </g>\n      <g id=\"top-entry\" data-feature=\"collar-lining\">\n        <path id=\"top-collar-rim\" class=\"upper\" d=\"M118 267 Q146 258 174 267 Q199 298 194 336 Q186 372 146 379 Q105 372 97 336 Q92 298 118 267 Z\"/>\n        <path id=\"top-entry-lining\" class=\"lining\" d=\"M123 278 Q146 270 169 278 Q188 302 183 334 Q177 358 146 366 Q114 358 108 334 Q103 302 123 278 Z\"/>\n        <path id=\"top-footbed\" class=\"bed\" data-feature=\"footbed\" d=\"M126 299 Q146 286 166 299 Q179 318 173 336 Q166 352 146 357 Q124 351 118 334 Q112 316 126 299 Z\"/>\n      </g>\n      <path id=\"top-tongue\" class=\"upper\" data-feature=\"tongue\" d=\"M108 145 Q145 127 184 145 L175 274 Q147 290 120 274 Z\"/>\n      <g id=\"top-eyelet-stays\" data-feature=\"eyelet-stays\">\n        <path id=\"top-outer-stay\" class=\"panel\" d=\"M89 132 L112 144 L132 274 L114 285 L94 171 Z\"/>\n        <path id=\"top-inner-stay\" class=\"panel\" d=\"M204 132 L181 144 L163 274 L180 285 L201 171 Z\"/>\n      </g>\n      <g id=\"top-five-eyelet-pairs\" data-feature=\"five-eyelet-pairs\">\n        <circle id=\"top-eye-outer-1\" class=\"eye\" cx=\"105\" cy=\"155\" r=\"4.5\"/><circle id=\"top-eye-inner-1\" class=\"eye\" cx=\"186\" cy=\"155\" r=\"4.5\"/>\n        <circle id=\"top-eye-outer-2\" class=\"eye\" cx=\"109\" cy=\"179\" r=\"4.5\"/><circle id=\"top-eye-inner-2\" class=\"eye\" cx=\"182\" cy=\"179\" r=\"4.5\"/>\n        <circle id=\"top-eye-outer-3\" class=\"eye\" cx=\"113\" cy=\"203\" r=\"4.5\"/><circle id=\"top-eye-inner-3\" class=\"eye\" cx=\"178\" cy=\"203\" r=\"4.5\"/>\n        <circle id=\"top-eye-outer-4\" class=\"eye\" cx=\"117\" cy=\"227\" r=\"4.5\"/><circle id=\"top-eye-inner-4\" class=\"eye\" cx=\"174\" cy=\"227\" r=\"4.5\"/>\n        <circle id=\"top-eye-outer-5\" class=\"eye\" cx=\"121\" cy=\"251\" r=\"4.5\"/><circle id=\"top-eye-inner-5\" class=\"eye\" cx=\"170\" cy=\"251\" r=\"4.5\"/>\n      </g>\n      <g id=\"top-lace-under\" data-feature=\"lace-under-layer\">\n        <path id=\"top-lace-under-border\" class=\"lace-dark\" d=\"M105 155 L186 155 M105 155 L182 179 M109 179 L178 203 M113 203 L174 227 M117 227 L170 251\"/>\n        <path id=\"top-lace-under-tape\" class=\"lace-light\" d=\"M105 155 L186 155 M105 155 L182 179 M109 179 L178 203 M113 203 L174 227 M117 227 L170 251\"/>\n      </g>\n      <g id=\"top-lace-over\" data-feature=\"lace-over-layer\">\n        <path id=\"top-lace-over-border\" class=\"lace-dark\" d=\"M186 155 L109 179 M182 179 L113 203 M178 203 L117 227 M174 227 L121 251\"/>\n        <path id=\"top-lace-over-tape\" class=\"lace-light\" d=\"M186 155 L109 179 M182 179 L113 203 M178 203 L117 227 M174 227 L121 251\"/>\n      </g>\n      <path id=\"top-lace-finish-border\" class=\"lace-dark\" data-feature=\"lace-finish\" d=\"M121 251 Q144 264 170 251 M143 258 Q123 251 125 273 Q142 283 147 261 Q170 255 169 276 Q150 281 147 261\"/>\n      <path id=\"top-lace-finish-tape\" class=\"lace-light\" data-feature=\"lace-finish\" d=\"M121 251 Q144 264 170 251 M143 258 Q123 251 125 273 Q142 283 147 261 Q170 255 169 276 Q150 281 147 261\"/>\n      <text id=\"top-toe-label\" x=\"146\" y=\"-8\" text-anchor=\"middle\" class=\"small\" data-feature=\"orientation\">TOE ↑</text>\n      <text id=\"top-medial-label\" x=\"245\" y=\"300\" class=\"small\" data-feature=\"orientation\">Medial</text>\n      <path id=\"top-medial-leader\" class=\"leader\" data-feature=\"orientation\" d=\"M238 295 L218 295 L209 311\"/>\n    </g>\n    <text id=\"top-caption-1\" x=\"65\" y=\"580\" class=\"label\" data-feature=\"caption\">Plain vamp · two quarter panels</text>\n    <text id=\"top-caption-2\" x=\"65\" y=\"603\" class=\"label\" data-feature=\"caption\">Five pairs; crossing layers over tongue</text>\n    <text id=\"top-caption-3\" x=\"65\" y=\"626\" class=\"small\" data-feature=\"caption\">Left shoe: medial edge at viewer-right.</text>\n  </g>\n\n  <g id=\"lateral-view\" data-view=\"left-lateral\" data-feature=\"lateral-shell\">\n    <text id=\"lateral-title\" x=\"450\" y=\"131\" class=\"heading\"><tspan id=\"lateral-number\" class=\"number\">02</tspan>  LATERAL / OUTER</text>\n    <g id=\"lateral-shoe\" transform=\"translate(440 180)\">\n      <path id=\"lateral-upper\" class=\"upper\" data-feature=\"vamp\" d=\"M10 131 C25 103 59 87 112 89 L178 67 Q208 34 234 33 L253 45 Q257 68 278 65 Q300 43 325 43 L413 60 Q441 67 451 93 L460 128 Z\"/>\n      <path id=\"lateral-quarter\" class=\"panel\" data-feature=\"outer-quarter\" d=\"M167 72 L244 44 Q253 67 278 65 Q300 43 325 43 L413 60 Q441 67 451 93 L460 128 L190 130 Z\"/>\n      <path id=\"lateral-entry\" class=\"lining\" data-feature=\"collar-lining\" d=\"M253 45 Q260 68 278 65 Q300 43 325 43 L367 49 Q345 70 321 75 L285 78 Q266 73 253 45 Z\"/>\n      <path id=\"lateral-counter\" class=\"upper\" data-feature=\"heel-counter\" d=\"M387 57 L413 60 Q441 67 451 93 L460 128 L384 129 Z\"/>\n      <path id=\"lateral-tongue\" class=\"upper\" data-feature=\"tongue\" d=\"M181 68 Q204 29 229 22 L244 34 L233 48 L208 78 Z\"/>\n      <path id=\"lateral-stay\" class=\"upper\" data-feature=\"eyelet-stays\" d=\"M161 76 Q193 41 233 33 L253 45 L225 75 L179 93 Z\"/>\n      <g id=\"lateral-eyelet-row\" data-feature=\"five-eyelet-pairs\">\n        <circle id=\"lateral-eye-1\" class=\"eye\" cx=\"178\" cy=\"78\" r=\"3.8\"/><circle id=\"lateral-eye-2\" class=\"eye\" cx=\"192\" cy=\"66\" r=\"3.8\"/><circle id=\"lateral-eye-3\" class=\"eye\" cx=\"207\" cy=\"54\" r=\"3.8\"/><circle id=\"lateral-eye-4\" class=\"eye\" cx=\"222\" cy=\"44\" r=\"3.8\"/><circle id=\"lateral-eye-5\" class=\"eye\" cx=\"237\" cy=\"40\" r=\"3.8\"/>\n      </g>\n      <path id=\"lateral-lace-abbreviation\" class=\"line\" data-feature=\"lace-profile-abbreviation\" d=\"M178 78 L192 81 M192 66 L208 70 M207 54 L223 60 M222 44 L238 50 M237 40 L248 44\"/>\n      <path id=\"lateral-sidewall\" class=\"sole\" data-feature=\"sidewall\" d=\"M10 131 L460 128 Q469 134 468 147 L467 163 L8 163 Q3 147 10 131 Z\"/>\n      <path id=\"lateral-contact-band\" class=\"edge\" data-feature=\"contact-edge\" d=\"M7 157 L467 157 L467 163 L8 163 Z\"/>\n      <path id=\"lateral-attachment-line\" class=\"line\" data-feature=\"upper-sidewall-junction\" d=\"M12 134 L459 131\"/>\n      <text id=\"lateral-toe-direction\" x=\"11\" y=\"190\" class=\"small\" data-feature=\"orientation\">← TOE</text>\n      <text id=\"lateral-heel-direction\" x=\"467\" y=\"190\" text-anchor=\"end\" class=\"small\" data-feature=\"orientation\">HEEL →</text>\n    </g>\n    <text id=\"lateral-caption\" x=\"450\" y=\"401\" class=\"small\" data-feature=\"caption\">Five near-side eyelets shown; far row concealed. Low unstriped sidewall.</text>\n  </g>\n\n  <g id=\"medial-view\" data-view=\"left-medial\" data-feature=\"medial-shell\">\n    <text id=\"medial-title\" x=\"450\" y=\"443\" class=\"heading\"><tspan id=\"medial-number\" class=\"number\">03</tspan>  MEDIAL / INNER</text>\n    <g id=\"medial-shoe\" transform=\"translate(440 465)\">\n      <path id=\"medial-upper\" class=\"upper\" data-feature=\"vamp\" d=\"M12 128 L22 91 Q28 63 61 57 L147 42 Q174 42 194 65 Q215 68 224 45 L243 33 Q267 33 298 67 L364 89 C418 87 451 103 465 131 Z\"/>\n      <path id=\"medial-quarter\" class=\"panel\" data-feature=\"inner-quarter\" d=\"M12 128 L22 91 Q28 63 61 57 L147 42 Q174 42 194 65 Q215 68 224 45 L243 33 L309 76 L286 130 Z\"/>\n      <path id=\"medial-entry\" class=\"lining\" data-feature=\"collar-lining\" d=\"M105 49 L147 42 Q174 42 194 65 Q215 68 224 45 Q211 74 193 78 L154 75 Q130 70 105 49 Z\"/>\n      <path id=\"medial-counter\" class=\"upper\" data-feature=\"heel-counter\" d=\"M61 57 L86 57 L88 129 L12 128 L22 91 Q28 63 61 57 Z\"/>\n      <path id=\"medial-tongue\" class=\"upper\" data-feature=\"tongue\" d=\"M233 48 L224 34 L239 22 Q264 28 287 68 L261 78 Z\"/>\n      <path id=\"medial-stay\" class=\"upper\" data-feature=\"eyelet-stays\" d=\"M223 45 L243 33 Q270 40 299 76 L281 93 L231 75 Z\"/>\n      <g id=\"medial-eyelet-row\" data-feature=\"five-eyelet-pairs\">\n        <circle id=\"medial-eye-5\" class=\"eye\" cx=\"239\" cy=\"40\" r=\"3.8\"/><circle id=\"medial-eye-4\" class=\"eye\" cx=\"254\" cy=\"44\" r=\"3.8\"/><circle id=\"medial-eye-3\" class=\"eye\" cx=\"269\" cy=\"54\" r=\"3.8\"/><circle id=\"medial-eye-2\" class=\"eye\" cx=\"284\" cy=\"66\" r=\"3.8\"/><circle id=\"medial-eye-1\" class=\"eye\" cx=\"298\" cy=\"78\" r=\"3.8\"/>\n      </g>\n      <path id=\"medial-lace-abbreviation\" class=\"line\" data-feature=\"lace-profile-abbreviation\" d=\"M239 40 L228 44 M254 44 L238 50 M269 54 L253 60 M284 66 L268 70 M298 78 L284 81\"/>\n      <path id=\"medial-sidewall\" class=\"sole\" data-feature=\"sidewall\" d=\"M12 128 L465 131 Q472 147 467 163 L8 163 L7 147 Q6 134 12 128 Z\"/>\n      <path id=\"medial-contact-band\" class=\"edge\" data-feature=\"contact-edge\" d=\"M8 157 L467 157 L467 163 L8 163 Z\"/>\n      <path id=\"medial-attachment-line\" class=\"line\" data-feature=\"upper-sidewall-junction\" d=\"M14 131 L463 134\"/>\n      <text id=\"medial-heel-direction\" x=\"11\" y=\"190\" class=\"small\" data-feature=\"orientation\">← HEEL</text>\n      <text id=\"medial-toe-direction\" x=\"467\" y=\"190\" text-anchor=\"end\" class=\"small\" data-feature=\"orientation\">TOE →</text>\n    </g>\n    <text id=\"medial-caption\" x=\"450\" y=\"683\" class=\"small\" data-feature=\"caption\">Independent inner view; near row shown, far row concealed. No vent holes.</text>\n  </g>\n\n  <g id=\"front-view\" data-view=\"left-front\" data-feature=\"toe-shell\">\n    <text id=\"front-title\" x=\"1040\" y=\"131\" class=\"heading\"><tspan id=\"front-number\" class=\"number\">04</tspan>  FRONT / TOE</text>\n    <g id=\"front-shoe\" transform=\"translate(1060 195)\">\n      <path id=\"front-tongue\" class=\"upper\" data-feature=\"tongue\" d=\"M86 82 L86 23 Q120 6 154 23 L154 82 Z\"/>\n      <path id=\"front-lace-hints-border\" class=\"lace-dark\" data-feature=\"lace-profile-abbreviation\" d=\"M90 34 Q120 43 150 34 M88 49 Q120 60 152 49 M87 64 Q120 75 153 64\"/>\n      <path id=\"front-lace-hints-tape\" class=\"lace-light\" data-feature=\"lace-profile-abbreviation\" d=\"M90 34 Q120 43 150 34 M88 49 Q120 60 152 49 M87 64 Q120 75 153 64\"/>\n      <path id=\"front-vamp\" class=\"upper\" data-feature=\"vamp\" d=\"M8 140 C16 104 36 77 70 59 Q120 40 170 59 C209 77 230 104 237 140 Q120 154 8 140 Z\"/>\n      <path id=\"front-sidewall\" class=\"sole\" data-feature=\"sidewall\" d=\"M8 140 Q120 154 237 140 L239 161 Q120 177 5 161 Z\"/>\n      <path id=\"front-contact-band\" class=\"edge\" data-feature=\"contact-edge\" d=\"M5 155 Q120 171 239 155 L239 161 Q120 177 5 161 Z\"/>\n    </g>\n    <text id=\"front-caption-1\" x=\"1040\" y=\"398\" class=\"label\" data-feature=\"caption\">Plain rounded forefoot; no toe cap.</text>\n    <text id=\"front-caption-2\" x=\"1040\" y=\"420\" class=\"small\" data-feature=\"caption\">Rear lace rows partly occluded.</text>\n  </g>\n\n  <g id=\"rear-view\" data-view=\"left-rear\" data-feature=\"heel-shell\">\n    <text id=\"rear-title\" x=\"1040\" y=\"453\" class=\"heading\"><tspan id=\"rear-number\" class=\"number\">05</tspan>  REAR / HEEL</text>\n    <g id=\"rear-shoe\" transform=\"translate(1080 477)\">\n      <path id=\"rear-upper\" class=\"upper\" data-feature=\"quarters\" d=\"M15 36 Q100 3 185 36 L183 139 Q102 162 17 139 Z\"/>\n      <ellipse id=\"rear-entry-lining\" class=\"lining\" data-feature=\"collar-lining\" cx=\"100\" cy=\"35\" rx=\"69\" ry=\"21\"/>\n      <path id=\"rear-counter\" class=\"panel\" data-feature=\"heel-counter\" d=\"M22 65 Q100 84 178 65 L181 139 Q102 158 19 139 Z\"/>\n      <path id=\"rear-back-join\" class=\"line\" data-feature=\"back-join\" d=\"M100 76 L100 148\"/>\n      <path id=\"rear-sidewall\" class=\"sole\" data-feature=\"sidewall\" d=\"M17 139 Q102 158 183 139 L185 163 Q102 181 15 163 Z\"/>\n      <path id=\"rear-contact-band\" class=\"edge\" data-feature=\"contact-edge\" d=\"M15 157 Q102 175 185 157 L185 163 Q102 181 15 163 Z\"/>\n    </g>\n    <text id=\"rear-caption\" x=\"1040\" y=\"681\" class=\"small\" data-feature=\"caption\">Collar entry · counter overlay · central back join</text>\n  </g>\n  <line id=\"bottom-separator\" x1=\"54\" y1=\"705\" x2=\"1386\" y2=\"705\" class=\"rule\"/>\n\n  <g id=\"outsole-view\" data-view=\"left-outsole\" data-feature=\"outsole-silhouette\">\n    <text id=\"outsole-title\" x=\"65\" y=\"737\" class=\"heading\"><tspan id=\"outsole-number\" class=\"number\">06</tspan>  OUTSOLE / BELOW</text>\n    <g id=\"outsole-shoe\" transform=\"translate(106 765)\">\n      <path id=\"outsole-edge\" class=\"edge\" d=\"M118 0 C59 0 24 28 20 65 C16 105 49 139 61 171 L58 244 C56 276 82 299 116 300 C151 301 179 278 179 246 L177 174 C177 138 205 106 209 66 C214 29 177 0 118 0 Z\"/>\n      <path id=\"outsole-field\" class=\"sole\" d=\"M118 9 C65 9 34 32 30 66 C27 101 58 135 71 170 L68 243 C66 270 87 289 116 290 C146 291 169 271 169 246 L167 174 C168 136 195 102 199 65 C203 32 172 9 118 9 Z\"/>\n      <g id=\"outsole-forefoot-marks\" data-feature=\"outsole-mark-intent\">\n        <path id=\"outsole-forefoot-mark-1\" class=\"line\" d=\"M53 51 Q116 29 178 51\"/>\n        <path id=\"outsole-forefoot-mark-2\" class=\"line\" d=\"M45 72 Q117 51 185 72\"/>\n        <path id=\"outsole-forefoot-mark-3\" class=\"line\" d=\"M49 94 Q117 77 181 94\"/>\n        <path id=\"outsole-forefoot-mark-4\" class=\"line\" d=\"M59 116 Q118 103 171 116\"/>\n        <path id=\"outsole-forefoot-mark-5\" class=\"line\" d=\"M74 139 Q118 129 157 139\"/>\n      </g>\n      <g id=\"outsole-heel-marks\" data-feature=\"outsole-mark-intent\">\n        <path id=\"outsole-heel-mark-1\" class=\"line\" d=\"M84 230 Q116 221 153 230\"/>\n        <path id=\"outsole-heel-mark-2\" class=\"line\" d=\"M82 250 Q116 241 154 250\"/>\n        <path id=\"outsole-heel-mark-3\" class=\"line\" d=\"M94 270 Q116 265 143 270\"/>\n      </g>\n      <text id=\"outsole-medial-label\" x=\"-38\" y=\"180\" class=\"small\" data-feature=\"orientation\">Medial</text>\n      <path id=\"outsole-medial-leader\" class=\"leader\" data-feature=\"orientation\" d=\"M8 176 L48 176 L61 186\"/>\n      <text id=\"outsole-arch-label\" x=\"122\" y=\"190\" text-anchor=\"middle\" class=\"small\" data-feature=\"caption\">Arch break</text>\n    </g>\n    <text id=\"outsole-caption-1\" x=\"65\" y=\"1090\" class=\"small\" data-feature=\"caption\">Toe up; medial at viewer-left.</text>\n    <text id=\"outsole-caption-2\" x=\"65\" y=\"1111\" class=\"small\" data-feature=\"caption\">Original surface marks; no grip claim.</text>\n  </g>\n\n  <g id=\"inside-detail\" data-view=\"entry-and-lacing-detail\" data-feature=\"inside-ownership\">\n    <text id=\"inside-title\" x=\"450\" y=\"737\" class=\"heading\"><tspan id=\"inside-number\" class=\"number\">07</tspan>  ENTRY + LACE ORDER / ENLARGED INTENT</text>\n    <g id=\"entry-section\" transform=\"translate(470 785)\" data-feature=\"lining-return\">\n      <path id=\"entry-outer-wall\" class=\"upper\" d=\"M24 55 Q82 20 137 50 Q187 21 240 55 L237 165 Q182 186 135 166 Q80 186 27 165 Z\"/>\n      <path id=\"entry-lining-return\" class=\"lining\" d=\"M24 55 Q82 20 137 50 Q187 21 240 55 L226 66 Q184 42 137 65 Q82 42 38 66 L39 154 Q85 169 135 152 Q182 169 225 154 L226 66 L240 55 L237 165 Q182 186 135 166 Q80 186 27 165 Z\"/>\n      <path id=\"entry-footbed-surface\" class=\"bed\" data-feature=\"footbed\" d=\"M48 139 Q89 123 135 136 Q182 122 217 139 L212 153 Q177 166 135 153 Q89 166 51 153 Z\"/>\n      <path id=\"entry-cut-edge-left\" class=\"leader\" data-feature=\"section-convention\" d=\"M16 48 L33 62 M19 60 L35 74\"/>\n      <path id=\"entry-cut-edge-right\" class=\"leader\" data-feature=\"section-convention\" d=\"M233 49 L248 62 M232 61 L247 74\"/>\n      <text id=\"entry-section-caption\" x=\"132\" y=\"206\" text-anchor=\"middle\" class=\"small\" data-feature=\"caption\">Opened section, not a measured foot cavity.</text>\n    </g>\n    <g id=\"entry-labels\" data-feature=\"inside-labels\">\n      <text id=\"lining-label\" x=\"752\" y=\"837\" class=\"label\">Lining returns over collar</text>\n      <path id=\"lining-leader\" class=\"leader\" d=\"M743 832 L719 832 L706 842\"/>\n      <text id=\"footbed-label\" x=\"752\" y=\"922\" class=\"label\">Footbed surface intent</text>\n      <path id=\"footbed-leader\" class=\"leader\" d=\"M742 917 L713 917 L686 931\"/>\n    </g>\n    <g id=\"lace-detail\" transform=\"translate(1060 785)\" data-feature=\"tongue-under-laces\">\n      <path id=\"detail-tongue\" class=\"upper\" data-feature=\"tongue\" d=\"M46 8 Q121 -4 194 8 L185 198 Q121 214 56 198 Z\"/>\n      <path id=\"detail-outer-quarter\" class=\"panel\" data-feature=\"outer-quarter\" d=\"M8 20 L55 9 L74 200 L25 212 Z\"/>\n      <path id=\"detail-inner-quarter\" class=\"panel\" data-feature=\"inner-quarter\" d=\"M232 20 L186 9 L168 200 L215 212 Z\"/>\n      <g id=\"detail-three-central-pairs\" data-feature=\"lace-detail-abbreviation\">\n        <circle id=\"detail-eye-outer-1\" class=\"eye\" cx=\"48\" cy=\"55\" r=\"6\"/><circle id=\"detail-eye-inner-1\" class=\"eye\" cx=\"193\" cy=\"55\" r=\"6\"/>\n        <circle id=\"detail-eye-outer-2\" class=\"eye\" cx=\"54\" cy=\"108\" r=\"6\"/><circle id=\"detail-eye-inner-2\" class=\"eye\" cx=\"187\" cy=\"108\" r=\"6\"/>\n        <circle id=\"detail-eye-outer-3\" class=\"eye\" cx=\"60\" cy=\"161\" r=\"6\"/><circle id=\"detail-eye-inner-3\" class=\"eye\" cx=\"181\" cy=\"161\" r=\"6\"/>\n        <path id=\"detail-under-border\" class=\"lace-dark\" data-feature=\"lace-under-layer\" d=\"M48 55 L187 108 M54 108 L181 161\"/>\n        <path id=\"detail-under-tape\" class=\"lace-light\" data-feature=\"lace-under-layer\" d=\"M48 55 L187 108 M54 108 L181 161\"/>\n        <path id=\"detail-over-border\" class=\"lace-dark\" data-feature=\"lace-over-layer\" d=\"M193 55 L54 108 M187 108 L60 161\"/>\n        <path id=\"detail-over-tape\" class=\"lace-light\" data-feature=\"lace-over-layer\" d=\"M193 55 L54 108 M187 108 L60 161\"/>\n      </g>\n    </g>\n    <text id=\"inside-caption-1\" x=\"450\" y=\"1040\" class=\"label\" data-feature=\"caption\">Tongue below laces; quarter edges bound the opening. Right inset shows central pairs only.</text>\n    <text id=\"inside-caption-2\" x=\"450\" y=\"1064\" class=\"small\" data-feature=\"caption\">Full top view owns all five pairs. Solid marks show visible design lines; section breaks are labelled.</text>\n    <text id=\"right-counterpart-note\" x=\"450\" y=\"1100\" class=\"small\" data-feature=\"right-counterpart-intent\">Right counterpart: mirrored stylistic roles intended; no right shoe or anatomical pair is drawn.</text>\n  </g>\n\n  <line id=\"footer-rule\" x1=\"54\" y1=\"1131\" x2=\"1386\" y2=\"1131\" class=\"rule\"/>\n  <text id=\"footer-scope\" x=\"54\" y=\"1155\" class=\"small\" data-feature=\"scope\">Artist schematics, independently authored views. Physical pattern, lining continuity, manufacturing, materials and foot/body fit remain open.</text>\n  <text id=\"footer-motion-scope\" x=\"1386\" y=\"1155\" text-anchor=\"end\" class=\"small\" data-feature=\"scope\">Motion / runtime unqualified</text>\n</svg>\n",
+  "element_count": 177,
+  "tree": {
+    "id": "ari-shoe-sheet",
+    "tag": "{http://www.w3.org/2000/svg}svg",
+    "attributes": [
+      [
+        "id",
+        "ari-shoe-sheet"
+      ],
+      [
+        "width",
+        "1440"
+      ],
+      [
+        "height",
+        "1180"
+      ],
+      [
+        "viewBox",
+        "0 0 1440 1180"
+      ],
+      [
+        "data-view",
+        "sheet"
+      ],
+      [
+        "data-feature",
+        "layout"
+      ]
+    ],
+    "text": "\n  ",
+    "tail": null,
+    "parent_id": null,
+    "sibling_index": 0,
+    "view": "sheet",
+    "feature": "layout",
+    "children": [
+      {
+        "id": "sheet-title",
+        "tag": "{http://www.w3.org/2000/svg}title",
+        "attributes": [
+          [
+            "id",
+            "sheet-title"
+          ]
+        ],
+        "text": "Ari — quiet ivory low-top, left shoe",
+        "tail": "\n  ",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 0,
+        "view": "sheet",
+        "feature": "layout",
+        "children": []
+      },
+      {
+        "id": "sheet-description",
+        "tag": "{http://www.w3.org/2000/svg}desc",
+        "attributes": [
+          [
+            "id",
+            "sheet-description"
+          ]
+        ],
+        "text": "Original unitless artist design. Six independent left-shoe schematics and an entry/lacing detail. These are not registered projections, a physical pattern or foot-fit evidence.",
+        "tail": "\n  ",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 1,
+        "view": "sheet",
+        "feature": "layout",
+        "children": []
+      },
+      {
+        "id": "sheet-style",
+        "tag": "{http://www.w3.org/2000/svg}style",
+        "attributes": [
+          [
+            "id",
+            "sheet-style"
+          ]
+        ],
+        "text": "text{font-family:Arial,Helvetica,sans-serif;fill:#514c43}path,ellipse,circle,rect,line{stroke-linejoin:round;stroke-linecap:round}.upper{fill:#f4f0e6;stroke:#655f53;stroke-width:2.2}.panel{fill:#e8e3d8;stroke:#655f53;stroke-width:2}.sole{fill:#dfd9c9;stroke:#655f53;stroke-width:2.2}.edge{fill:#bdb7a8;stroke:#655f53;stroke-width:1.5}.lining{fill:#c6c6bd;stroke:#77796f;stroke-width:1.8}.bed{fill:#e0ddd2;stroke:#929184;stroke-width:1.5}.line{fill:none;stroke:#7b7568;stroke-width:1.6}.eye{fill:#d8d2c4;stroke:#817b6d;stroke-width:1.8}.lace-dark{fill:none;stroke:#999486;stroke-width:7}.lace-light{fill:none;stroke:#faf7ee;stroke-width:4}.heading{font-size:18px;font-weight:700;letter-spacing:1px}.label{font-size:15px}.small{font-size:14px;fill:#766e60}.number{fill:#a05e45}.rule{stroke:#d6cdbd;stroke-width:1.2}.leader{fill:none;stroke:#a05e45;stroke-width:1.3}",
+        "tail": "\n  ",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 2,
+        "view": "sheet",
+        "feature": "layout",
+        "children": []
+      },
+      {
+        "id": "paper",
+        "tag": "{http://www.w3.org/2000/svg}rect",
+        "attributes": [
+          [
+            "id",
+            "paper"
+          ],
+          [
+            "x",
+            "0"
+          ],
+          [
+            "y",
+            "0"
+          ],
+          [
+            "width",
+            "1440"
+          ],
+          [
+            "height",
+            "1180"
+          ],
+          [
+            "fill",
+            "#f8f5ee"
+          ],
+          [
+            "stroke",
+            "none"
+          ]
+        ],
+        "text": null,
+        "tail": "\n  ",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 3,
+        "view": "sheet",
+        "feature": "layout",
+        "children": []
+      },
+      {
+        "id": "main-heading",
+        "tag": "{http://www.w3.org/2000/svg}text",
+        "attributes": [
+          [
+            "id",
+            "main-heading"
+          ],
+          [
+            "x",
+            "54"
+          ],
+          [
+            "y",
+            "53"
+          ],
+          [
+            "font-size",
+            "31"
+          ],
+          [
+            "font-weight",
+            "700"
+          ],
+          [
+            "data-feature",
+            "heading"
+          ]
+        ],
+        "text": "ARI / QUIET IVORY LOW-TOP",
+        "tail": "\n  ",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 4,
+        "view": "sheet",
+        "feature": "heading",
+        "children": []
+      },
+      {
+        "id": "main-subheading",
+        "tag": "{http://www.w3.org/2000/svg}text",
+        "attributes": [
+          [
+            "id",
+            "main-subheading"
+          ],
+          [
+            "x",
+            "54"
+          ],
+          [
+            "y",
+            "83"
+          ],
+          [
+            "class",
+            "label"
+          ],
+          [
+            "data-feature",
+            "scope"
+          ]
+        ],
+        "text": "Original left-shoe artist design · plain toe, unstriped sidewall, five lace pairs",
+        "tail": "\n  ",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 5,
+        "view": "sheet",
+        "feature": "scope",
+        "children": []
+      },
+      {
+        "id": "header-scope",
+        "tag": "{http://www.w3.org/2000/svg}text",
+        "attributes": [
+          [
+            "id",
+            "header-scope"
+          ],
+          [
+            "x",
+            "1386"
+          ],
+          [
+            "y",
+            "57"
+          ],
+          [
+            "text-anchor",
+            "end"
+          ],
+          [
+            "class",
+            "small"
+          ],
+          [
+            "data-feature",
+            "scope"
+          ]
+        ],
+        "text": "UNITLESS · NOT A SEWING PATTERN",
+        "tail": "\n  ",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 6,
+        "view": "sheet",
+        "feature": "scope",
+        "children": []
+      },
+      {
+        "id": "header-rule",
+        "tag": "{http://www.w3.org/2000/svg}line",
+        "attributes": [
+          [
+            "id",
+            "header-rule"
+          ],
+          [
+            "x1",
+            "54"
+          ],
+          [
+            "y1",
+            "101"
+          ],
+          [
+            "x2",
+            "1386"
+          ],
+          [
+            "y2",
+            "101"
+          ],
+          [
+            "class",
+            "rule"
+          ]
+        ],
+        "text": null,
+        "tail": "\n\n  ",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 7,
+        "view": "sheet",
+        "feature": "layout",
+        "children": []
+      },
+      {
+        "id": "top-view",
+        "tag": "{http://www.w3.org/2000/svg}g",
+        "attributes": [
+          [
+            "id",
+            "top-view"
+          ],
+          [
+            "data-view",
+            "left-top"
+          ],
+          [
+            "data-feature",
+            "top-shell"
+          ]
+        ],
+        "text": "\n    ",
+        "tail": "\n\n  ",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 8,
+        "view": "left-top",
+        "feature": "top-shell",
+        "children": [
+          {
+            "id": "top-title",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "top-title"
+              ],
+              [
+                "x",
+                "65"
+              ],
+              [
+                "y",
+                "131"
+              ],
+              [
+                "class",
+                "heading"
+              ]
+            ],
+            "text": null,
+            "tail": "\n    ",
+            "parent_id": "top-view",
+            "sibling_index": 0,
+            "view": "left-top",
+            "feature": "top-shell",
+            "children": [
+              {
+                "id": "top-number",
+                "tag": "{http://www.w3.org/2000/svg}tspan",
+                "attributes": [
+                  [
+                    "id",
+                    "top-number"
+                  ],
+                  [
+                    "class",
+                    "number"
+                  ]
+                ],
+                "text": "01",
+                "tail": "  LEFT / TOP",
+                "parent_id": "top-title",
+                "sibling_index": 0,
+                "view": "left-top",
+                "feature": "top-shell",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "top-shoe",
+            "tag": "{http://www.w3.org/2000/svg}g",
+            "attributes": [
+              [
+                "id",
+                "top-shoe"
+              ],
+              [
+                "transform",
+                "translate(70 155)"
+              ]
+            ],
+            "text": "\n      ",
+            "tail": "\n    ",
+            "parent_id": "top-view",
+            "sibling_index": 1,
+            "view": "left-top",
+            "feature": "top-shell",
+            "children": [
+              {
+                "id": "top-shell",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "top-shell"
+                  ],
+                  [
+                    "class",
+                    "upper"
+                  ],
+                  [
+                    "d",
+                    "M150 0 C85 0 40 35 39 85 C36 134 62 180 75 230 L80 325 C82 370 110 390 146 390 C185 390 210 365 211 327 L209 240 C214 180 246 140 253 89 C261 35 219 0 150 0 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "top-shoe",
+                "sibling_index": 0,
+                "view": "left-top",
+                "feature": "top-shell",
+                "children": []
+              },
+              {
+                "id": "top-quarter-panels",
+                "tag": "{http://www.w3.org/2000/svg}g",
+                "attributes": [
+                  [
+                    "id",
+                    "top-quarter-panels"
+                  ],
+                  [
+                    "data-feature",
+                    "quarters"
+                  ]
+                ],
+                "text": "\n        ",
+                "tail": "\n      ",
+                "parent_id": "top-shoe",
+                "sibling_index": 1,
+                "view": "left-top",
+                "feature": "quarters",
+                "children": [
+                  {
+                    "id": "top-outer-quarter",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-outer-quarter"
+                      ],
+                      [
+                        "class",
+                        "panel"
+                      ],
+                      [
+                        "d",
+                        "M44 119 Q72 136 109 148 L129 268 Q111 291 100 310 L83 337 L75 230 Q66 185 44 119 Z"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "top-quarter-panels",
+                    "sibling_index": 0,
+                    "view": "left-top",
+                    "feature": "quarters",
+                    "children": []
+                  },
+                  {
+                    "id": "top-inner-quarter",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-inner-quarter"
+                      ],
+                      [
+                        "class",
+                        "panel"
+                      ],
+                      [
+                        "d",
+                        "M249 119 Q221 137 183 148 L165 268 Q184 291 196 310 L211 337 L209 240 Q217 185 249 119 Z"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n      ",
+                    "parent_id": "top-quarter-panels",
+                    "sibling_index": 1,
+                    "view": "left-top",
+                    "feature": "quarters",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "top-entry",
+                "tag": "{http://www.w3.org/2000/svg}g",
+                "attributes": [
+                  [
+                    "id",
+                    "top-entry"
+                  ],
+                  [
+                    "data-feature",
+                    "collar-lining"
+                  ]
+                ],
+                "text": "\n        ",
+                "tail": "\n      ",
+                "parent_id": "top-shoe",
+                "sibling_index": 2,
+                "view": "left-top",
+                "feature": "collar-lining",
+                "children": [
+                  {
+                    "id": "top-collar-rim",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-collar-rim"
+                      ],
+                      [
+                        "class",
+                        "upper"
+                      ],
+                      [
+                        "d",
+                        "M118 267 Q146 258 174 267 Q199 298 194 336 Q186 372 146 379 Q105 372 97 336 Q92 298 118 267 Z"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "top-entry",
+                    "sibling_index": 0,
+                    "view": "left-top",
+                    "feature": "collar-lining",
+                    "children": []
+                  },
+                  {
+                    "id": "top-entry-lining",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-entry-lining"
+                      ],
+                      [
+                        "class",
+                        "lining"
+                      ],
+                      [
+                        "d",
+                        "M123 278 Q146 270 169 278 Q188 302 183 334 Q177 358 146 366 Q114 358 108 334 Q103 302 123 278 Z"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "top-entry",
+                    "sibling_index": 1,
+                    "view": "left-top",
+                    "feature": "collar-lining",
+                    "children": []
+                  },
+                  {
+                    "id": "top-footbed",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-footbed"
+                      ],
+                      [
+                        "class",
+                        "bed"
+                      ],
+                      [
+                        "data-feature",
+                        "footbed"
+                      ],
+                      [
+                        "d",
+                        "M126 299 Q146 286 166 299 Q179 318 173 336 Q166 352 146 357 Q124 351 118 334 Q112 316 126 299 Z"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n      ",
+                    "parent_id": "top-entry",
+                    "sibling_index": 2,
+                    "view": "left-top",
+                    "feature": "footbed",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "top-tongue",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "top-tongue"
+                  ],
+                  [
+                    "class",
+                    "upper"
+                  ],
+                  [
+                    "data-feature",
+                    "tongue"
+                  ],
+                  [
+                    "d",
+                    "M108 145 Q145 127 184 145 L175 274 Q147 290 120 274 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "top-shoe",
+                "sibling_index": 3,
+                "view": "left-top",
+                "feature": "tongue",
+                "children": []
+              },
+              {
+                "id": "top-eyelet-stays",
+                "tag": "{http://www.w3.org/2000/svg}g",
+                "attributes": [
+                  [
+                    "id",
+                    "top-eyelet-stays"
+                  ],
+                  [
+                    "data-feature",
+                    "eyelet-stays"
+                  ]
+                ],
+                "text": "\n        ",
+                "tail": "\n      ",
+                "parent_id": "top-shoe",
+                "sibling_index": 4,
+                "view": "left-top",
+                "feature": "eyelet-stays",
+                "children": [
+                  {
+                    "id": "top-outer-stay",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-outer-stay"
+                      ],
+                      [
+                        "class",
+                        "panel"
+                      ],
+                      [
+                        "d",
+                        "M89 132 L112 144 L132 274 L114 285 L94 171 Z"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "top-eyelet-stays",
+                    "sibling_index": 0,
+                    "view": "left-top",
+                    "feature": "eyelet-stays",
+                    "children": []
+                  },
+                  {
+                    "id": "top-inner-stay",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-inner-stay"
+                      ],
+                      [
+                        "class",
+                        "panel"
+                      ],
+                      [
+                        "d",
+                        "M204 132 L181 144 L163 274 L180 285 L201 171 Z"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n      ",
+                    "parent_id": "top-eyelet-stays",
+                    "sibling_index": 1,
+                    "view": "left-top",
+                    "feature": "eyelet-stays",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "top-five-eyelet-pairs",
+                "tag": "{http://www.w3.org/2000/svg}g",
+                "attributes": [
+                  [
+                    "id",
+                    "top-five-eyelet-pairs"
+                  ],
+                  [
+                    "data-feature",
+                    "five-eyelet-pairs"
+                  ]
+                ],
+                "text": "\n        ",
+                "tail": "\n      ",
+                "parent_id": "top-shoe",
+                "sibling_index": 5,
+                "view": "left-top",
+                "feature": "five-eyelet-pairs",
+                "children": [
+                  {
+                    "id": "top-eye-outer-1",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-eye-outer-1"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "105"
+                      ],
+                      [
+                        "cy",
+                        "155"
+                      ],
+                      [
+                        "r",
+                        "4.5"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": null,
+                    "parent_id": "top-five-eyelet-pairs",
+                    "sibling_index": 0,
+                    "view": "left-top",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  },
+                  {
+                    "id": "top-eye-inner-1",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-eye-inner-1"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "186"
+                      ],
+                      [
+                        "cy",
+                        "155"
+                      ],
+                      [
+                        "r",
+                        "4.5"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "top-five-eyelet-pairs",
+                    "sibling_index": 1,
+                    "view": "left-top",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  },
+                  {
+                    "id": "top-eye-outer-2",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-eye-outer-2"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "109"
+                      ],
+                      [
+                        "cy",
+                        "179"
+                      ],
+                      [
+                        "r",
+                        "4.5"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": null,
+                    "parent_id": "top-five-eyelet-pairs",
+                    "sibling_index": 2,
+                    "view": "left-top",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  },
+                  {
+                    "id": "top-eye-inner-2",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-eye-inner-2"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "182"
+                      ],
+                      [
+                        "cy",
+                        "179"
+                      ],
+                      [
+                        "r",
+                        "4.5"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "top-five-eyelet-pairs",
+                    "sibling_index": 3,
+                    "view": "left-top",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  },
+                  {
+                    "id": "top-eye-outer-3",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-eye-outer-3"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "113"
+                      ],
+                      [
+                        "cy",
+                        "203"
+                      ],
+                      [
+                        "r",
+                        "4.5"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": null,
+                    "parent_id": "top-five-eyelet-pairs",
+                    "sibling_index": 4,
+                    "view": "left-top",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  },
+                  {
+                    "id": "top-eye-inner-3",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-eye-inner-3"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "178"
+                      ],
+                      [
+                        "cy",
+                        "203"
+                      ],
+                      [
+                        "r",
+                        "4.5"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "top-five-eyelet-pairs",
+                    "sibling_index": 5,
+                    "view": "left-top",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  },
+                  {
+                    "id": "top-eye-outer-4",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-eye-outer-4"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "117"
+                      ],
+                      [
+                        "cy",
+                        "227"
+                      ],
+                      [
+                        "r",
+                        "4.5"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": null,
+                    "parent_id": "top-five-eyelet-pairs",
+                    "sibling_index": 6,
+                    "view": "left-top",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  },
+                  {
+                    "id": "top-eye-inner-4",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-eye-inner-4"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "174"
+                      ],
+                      [
+                        "cy",
+                        "227"
+                      ],
+                      [
+                        "r",
+                        "4.5"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "top-five-eyelet-pairs",
+                    "sibling_index": 7,
+                    "view": "left-top",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  },
+                  {
+                    "id": "top-eye-outer-5",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-eye-outer-5"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "121"
+                      ],
+                      [
+                        "cy",
+                        "251"
+                      ],
+                      [
+                        "r",
+                        "4.5"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": null,
+                    "parent_id": "top-five-eyelet-pairs",
+                    "sibling_index": 8,
+                    "view": "left-top",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  },
+                  {
+                    "id": "top-eye-inner-5",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-eye-inner-5"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "170"
+                      ],
+                      [
+                        "cy",
+                        "251"
+                      ],
+                      [
+                        "r",
+                        "4.5"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n      ",
+                    "parent_id": "top-five-eyelet-pairs",
+                    "sibling_index": 9,
+                    "view": "left-top",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "top-lace-under",
+                "tag": "{http://www.w3.org/2000/svg}g",
+                "attributes": [
+                  [
+                    "id",
+                    "top-lace-under"
+                  ],
+                  [
+                    "data-feature",
+                    "lace-under-layer"
+                  ]
+                ],
+                "text": "\n        ",
+                "tail": "\n      ",
+                "parent_id": "top-shoe",
+                "sibling_index": 6,
+                "view": "left-top",
+                "feature": "lace-under-layer",
+                "children": [
+                  {
+                    "id": "top-lace-under-border",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-lace-under-border"
+                      ],
+                      [
+                        "class",
+                        "lace-dark"
+                      ],
+                      [
+                        "d",
+                        "M105 155 L186 155 M105 155 L182 179 M109 179 L178 203 M113 203 L174 227 M117 227 L170 251"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "top-lace-under",
+                    "sibling_index": 0,
+                    "view": "left-top",
+                    "feature": "lace-under-layer",
+                    "children": []
+                  },
+                  {
+                    "id": "top-lace-under-tape",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-lace-under-tape"
+                      ],
+                      [
+                        "class",
+                        "lace-light"
+                      ],
+                      [
+                        "d",
+                        "M105 155 L186 155 M105 155 L182 179 M109 179 L178 203 M113 203 L174 227 M117 227 L170 251"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n      ",
+                    "parent_id": "top-lace-under",
+                    "sibling_index": 1,
+                    "view": "left-top",
+                    "feature": "lace-under-layer",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "top-lace-over",
+                "tag": "{http://www.w3.org/2000/svg}g",
+                "attributes": [
+                  [
+                    "id",
+                    "top-lace-over"
+                  ],
+                  [
+                    "data-feature",
+                    "lace-over-layer"
+                  ]
+                ],
+                "text": "\n        ",
+                "tail": "\n      ",
+                "parent_id": "top-shoe",
+                "sibling_index": 7,
+                "view": "left-top",
+                "feature": "lace-over-layer",
+                "children": [
+                  {
+                    "id": "top-lace-over-border",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-lace-over-border"
+                      ],
+                      [
+                        "class",
+                        "lace-dark"
+                      ],
+                      [
+                        "d",
+                        "M186 155 L109 179 M182 179 L113 203 M178 203 L117 227 M174 227 L121 251"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "top-lace-over",
+                    "sibling_index": 0,
+                    "view": "left-top",
+                    "feature": "lace-over-layer",
+                    "children": []
+                  },
+                  {
+                    "id": "top-lace-over-tape",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "top-lace-over-tape"
+                      ],
+                      [
+                        "class",
+                        "lace-light"
+                      ],
+                      [
+                        "d",
+                        "M186 155 L109 179 M182 179 L113 203 M178 203 L117 227 M174 227 L121 251"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n      ",
+                    "parent_id": "top-lace-over",
+                    "sibling_index": 1,
+                    "view": "left-top",
+                    "feature": "lace-over-layer",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "top-lace-finish-border",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "top-lace-finish-border"
+                  ],
+                  [
+                    "class",
+                    "lace-dark"
+                  ],
+                  [
+                    "data-feature",
+                    "lace-finish"
+                  ],
+                  [
+                    "d",
+                    "M121 251 Q144 264 170 251 M143 258 Q123 251 125 273 Q142 283 147 261 Q170 255 169 276 Q150 281 147 261"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "top-shoe",
+                "sibling_index": 8,
+                "view": "left-top",
+                "feature": "lace-finish",
+                "children": []
+              },
+              {
+                "id": "top-lace-finish-tape",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "top-lace-finish-tape"
+                  ],
+                  [
+                    "class",
+                    "lace-light"
+                  ],
+                  [
+                    "data-feature",
+                    "lace-finish"
+                  ],
+                  [
+                    "d",
+                    "M121 251 Q144 264 170 251 M143 258 Q123 251 125 273 Q142 283 147 261 Q170 255 169 276 Q150 281 147 261"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "top-shoe",
+                "sibling_index": 9,
+                "view": "left-top",
+                "feature": "lace-finish",
+                "children": []
+              },
+              {
+                "id": "top-toe-label",
+                "tag": "{http://www.w3.org/2000/svg}text",
+                "attributes": [
+                  [
+                    "id",
+                    "top-toe-label"
+                  ],
+                  [
+                    "x",
+                    "146"
+                  ],
+                  [
+                    "y",
+                    "-8"
+                  ],
+                  [
+                    "text-anchor",
+                    "middle"
+                  ],
+                  [
+                    "class",
+                    "small"
+                  ],
+                  [
+                    "data-feature",
+                    "orientation"
+                  ]
+                ],
+                "text": "TOE ↑",
+                "tail": "\n      ",
+                "parent_id": "top-shoe",
+                "sibling_index": 10,
+                "view": "left-top",
+                "feature": "orientation",
+                "children": []
+              },
+              {
+                "id": "top-medial-label",
+                "tag": "{http://www.w3.org/2000/svg}text",
+                "attributes": [
+                  [
+                    "id",
+                    "top-medial-label"
+                  ],
+                  [
+                    "x",
+                    "245"
+                  ],
+                  [
+                    "y",
+                    "300"
+                  ],
+                  [
+                    "class",
+                    "small"
+                  ],
+                  [
+                    "data-feature",
+                    "orientation"
+                  ]
+                ],
+                "text": "Medial",
+                "tail": "\n      ",
+                "parent_id": "top-shoe",
+                "sibling_index": 11,
+                "view": "left-top",
+                "feature": "orientation",
+                "children": []
+              },
+              {
+                "id": "top-medial-leader",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "top-medial-leader"
+                  ],
+                  [
+                    "class",
+                    "leader"
+                  ],
+                  [
+                    "data-feature",
+                    "orientation"
+                  ],
+                  [
+                    "d",
+                    "M238 295 L218 295 L209 311"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n    ",
+                "parent_id": "top-shoe",
+                "sibling_index": 12,
+                "view": "left-top",
+                "feature": "orientation",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "top-caption-1",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "top-caption-1"
+              ],
+              [
+                "x",
+                "65"
+              ],
+              [
+                "y",
+                "580"
+              ],
+              [
+                "class",
+                "label"
+              ],
+              [
+                "data-feature",
+                "caption"
+              ]
+            ],
+            "text": "Plain vamp · two quarter panels",
+            "tail": "\n    ",
+            "parent_id": "top-view",
+            "sibling_index": 2,
+            "view": "left-top",
+            "feature": "caption",
+            "children": []
+          },
+          {
+            "id": "top-caption-2",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "top-caption-2"
+              ],
+              [
+                "x",
+                "65"
+              ],
+              [
+                "y",
+                "603"
+              ],
+              [
+                "class",
+                "label"
+              ],
+              [
+                "data-feature",
+                "caption"
+              ]
+            ],
+            "text": "Five pairs; crossing layers over tongue",
+            "tail": "\n    ",
+            "parent_id": "top-view",
+            "sibling_index": 3,
+            "view": "left-top",
+            "feature": "caption",
+            "children": []
+          },
+          {
+            "id": "top-caption-3",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "top-caption-3"
+              ],
+              [
+                "x",
+                "65"
+              ],
+              [
+                "y",
+                "626"
+              ],
+              [
+                "class",
+                "small"
+              ],
+              [
+                "data-feature",
+                "caption"
+              ]
+            ],
+            "text": "Left shoe: medial edge at viewer-right.",
+            "tail": "\n  ",
+            "parent_id": "top-view",
+            "sibling_index": 4,
+            "view": "left-top",
+            "feature": "caption",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "lateral-view",
+        "tag": "{http://www.w3.org/2000/svg}g",
+        "attributes": [
+          [
+            "id",
+            "lateral-view"
+          ],
+          [
+            "data-view",
+            "left-lateral"
+          ],
+          [
+            "data-feature",
+            "lateral-shell"
+          ]
+        ],
+        "text": "\n    ",
+        "tail": "\n\n  ",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 9,
+        "view": "left-lateral",
+        "feature": "lateral-shell",
+        "children": [
+          {
+            "id": "lateral-title",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "lateral-title"
+              ],
+              [
+                "x",
+                "450"
+              ],
+              [
+                "y",
+                "131"
+              ],
+              [
+                "class",
+                "heading"
+              ]
+            ],
+            "text": null,
+            "tail": "\n    ",
+            "parent_id": "lateral-view",
+            "sibling_index": 0,
+            "view": "left-lateral",
+            "feature": "lateral-shell",
+            "children": [
+              {
+                "id": "lateral-number",
+                "tag": "{http://www.w3.org/2000/svg}tspan",
+                "attributes": [
+                  [
+                    "id",
+                    "lateral-number"
+                  ],
+                  [
+                    "class",
+                    "number"
+                  ]
+                ],
+                "text": "02",
+                "tail": "  LATERAL / OUTER",
+                "parent_id": "lateral-title",
+                "sibling_index": 0,
+                "view": "left-lateral",
+                "feature": "lateral-shell",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "lateral-shoe",
+            "tag": "{http://www.w3.org/2000/svg}g",
+            "attributes": [
+              [
+                "id",
+                "lateral-shoe"
+              ],
+              [
+                "transform",
+                "translate(440 180)"
+              ]
+            ],
+            "text": "\n      ",
+            "tail": "\n    ",
+            "parent_id": "lateral-view",
+            "sibling_index": 1,
+            "view": "left-lateral",
+            "feature": "lateral-shell",
+            "children": [
+              {
+                "id": "lateral-upper",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "lateral-upper"
+                  ],
+                  [
+                    "class",
+                    "upper"
+                  ],
+                  [
+                    "data-feature",
+                    "vamp"
+                  ],
+                  [
+                    "d",
+                    "M10 131 C25 103 59 87 112 89 L178 67 Q208 34 234 33 L253 45 Q257 68 278 65 Q300 43 325 43 L413 60 Q441 67 451 93 L460 128 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "lateral-shoe",
+                "sibling_index": 0,
+                "view": "left-lateral",
+                "feature": "vamp",
+                "children": []
+              },
+              {
+                "id": "lateral-quarter",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "lateral-quarter"
+                  ],
+                  [
+                    "class",
+                    "panel"
+                  ],
+                  [
+                    "data-feature",
+                    "outer-quarter"
+                  ],
+                  [
+                    "d",
+                    "M167 72 L244 44 Q253 67 278 65 Q300 43 325 43 L413 60 Q441 67 451 93 L460 128 L190 130 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "lateral-shoe",
+                "sibling_index": 1,
+                "view": "left-lateral",
+                "feature": "outer-quarter",
+                "children": []
+              },
+              {
+                "id": "lateral-entry",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "lateral-entry"
+                  ],
+                  [
+                    "class",
+                    "lining"
+                  ],
+                  [
+                    "data-feature",
+                    "collar-lining"
+                  ],
+                  [
+                    "d",
+                    "M253 45 Q260 68 278 65 Q300 43 325 43 L367 49 Q345 70 321 75 L285 78 Q266 73 253 45 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "lateral-shoe",
+                "sibling_index": 2,
+                "view": "left-lateral",
+                "feature": "collar-lining",
+                "children": []
+              },
+              {
+                "id": "lateral-counter",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "lateral-counter"
+                  ],
+                  [
+                    "class",
+                    "upper"
+                  ],
+                  [
+                    "data-feature",
+                    "heel-counter"
+                  ],
+                  [
+                    "d",
+                    "M387 57 L413 60 Q441 67 451 93 L460 128 L384 129 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "lateral-shoe",
+                "sibling_index": 3,
+                "view": "left-lateral",
+                "feature": "heel-counter",
+                "children": []
+              },
+              {
+                "id": "lateral-tongue",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "lateral-tongue"
+                  ],
+                  [
+                    "class",
+                    "upper"
+                  ],
+                  [
+                    "data-feature",
+                    "tongue"
+                  ],
+                  [
+                    "d",
+                    "M181 68 Q204 29 229 22 L244 34 L233 48 L208 78 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "lateral-shoe",
+                "sibling_index": 4,
+                "view": "left-lateral",
+                "feature": "tongue",
+                "children": []
+              },
+              {
+                "id": "lateral-stay",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "lateral-stay"
+                  ],
+                  [
+                    "class",
+                    "upper"
+                  ],
+                  [
+                    "data-feature",
+                    "eyelet-stays"
+                  ],
+                  [
+                    "d",
+                    "M161 76 Q193 41 233 33 L253 45 L225 75 L179 93 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "lateral-shoe",
+                "sibling_index": 5,
+                "view": "left-lateral",
+                "feature": "eyelet-stays",
+                "children": []
+              },
+              {
+                "id": "lateral-eyelet-row",
+                "tag": "{http://www.w3.org/2000/svg}g",
+                "attributes": [
+                  [
+                    "id",
+                    "lateral-eyelet-row"
+                  ],
+                  [
+                    "data-feature",
+                    "five-eyelet-pairs"
+                  ]
+                ],
+                "text": "\n        ",
+                "tail": "\n      ",
+                "parent_id": "lateral-shoe",
+                "sibling_index": 6,
+                "view": "left-lateral",
+                "feature": "five-eyelet-pairs",
+                "children": [
+                  {
+                    "id": "lateral-eye-1",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "lateral-eye-1"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "178"
+                      ],
+                      [
+                        "cy",
+                        "78"
+                      ],
+                      [
+                        "r",
+                        "3.8"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": null,
+                    "parent_id": "lateral-eyelet-row",
+                    "sibling_index": 0,
+                    "view": "left-lateral",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  },
+                  {
+                    "id": "lateral-eye-2",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "lateral-eye-2"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "192"
+                      ],
+                      [
+                        "cy",
+                        "66"
+                      ],
+                      [
+                        "r",
+                        "3.8"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": null,
+                    "parent_id": "lateral-eyelet-row",
+                    "sibling_index": 1,
+                    "view": "left-lateral",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  },
+                  {
+                    "id": "lateral-eye-3",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "lateral-eye-3"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "207"
+                      ],
+                      [
+                        "cy",
+                        "54"
+                      ],
+                      [
+                        "r",
+                        "3.8"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": null,
+                    "parent_id": "lateral-eyelet-row",
+                    "sibling_index": 2,
+                    "view": "left-lateral",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  },
+                  {
+                    "id": "lateral-eye-4",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "lateral-eye-4"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "222"
+                      ],
+                      [
+                        "cy",
+                        "44"
+                      ],
+                      [
+                        "r",
+                        "3.8"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": null,
+                    "parent_id": "lateral-eyelet-row",
+                    "sibling_index": 3,
+                    "view": "left-lateral",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  },
+                  {
+                    "id": "lateral-eye-5",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "lateral-eye-5"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "237"
+                      ],
+                      [
+                        "cy",
+                        "40"
+                      ],
+                      [
+                        "r",
+                        "3.8"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n      ",
+                    "parent_id": "lateral-eyelet-row",
+                    "sibling_index": 4,
+                    "view": "left-lateral",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "lateral-lace-abbreviation",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "lateral-lace-abbreviation"
+                  ],
+                  [
+                    "class",
+                    "line"
+                  ],
+                  [
+                    "data-feature",
+                    "lace-profile-abbreviation"
+                  ],
+                  [
+                    "d",
+                    "M178 78 L192 81 M192 66 L208 70 M207 54 L223 60 M222 44 L238 50 M237 40 L248 44"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "lateral-shoe",
+                "sibling_index": 7,
+                "view": "left-lateral",
+                "feature": "lace-profile-abbreviation",
+                "children": []
+              },
+              {
+                "id": "lateral-sidewall",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "lateral-sidewall"
+                  ],
+                  [
+                    "class",
+                    "sole"
+                  ],
+                  [
+                    "data-feature",
+                    "sidewall"
+                  ],
+                  [
+                    "d",
+                    "M10 131 L460 128 Q469 134 468 147 L467 163 L8 163 Q3 147 10 131 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "lateral-shoe",
+                "sibling_index": 8,
+                "view": "left-lateral",
+                "feature": "sidewall",
+                "children": []
+              },
+              {
+                "id": "lateral-contact-band",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "lateral-contact-band"
+                  ],
+                  [
+                    "class",
+                    "edge"
+                  ],
+                  [
+                    "data-feature",
+                    "contact-edge"
+                  ],
+                  [
+                    "d",
+                    "M7 157 L467 157 L467 163 L8 163 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "lateral-shoe",
+                "sibling_index": 9,
+                "view": "left-lateral",
+                "feature": "contact-edge",
+                "children": []
+              },
+              {
+                "id": "lateral-attachment-line",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "lateral-attachment-line"
+                  ],
+                  [
+                    "class",
+                    "line"
+                  ],
+                  [
+                    "data-feature",
+                    "upper-sidewall-junction"
+                  ],
+                  [
+                    "d",
+                    "M12 134 L459 131"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "lateral-shoe",
+                "sibling_index": 10,
+                "view": "left-lateral",
+                "feature": "upper-sidewall-junction",
+                "children": []
+              },
+              {
+                "id": "lateral-toe-direction",
+                "tag": "{http://www.w3.org/2000/svg}text",
+                "attributes": [
+                  [
+                    "id",
+                    "lateral-toe-direction"
+                  ],
+                  [
+                    "x",
+                    "11"
+                  ],
+                  [
+                    "y",
+                    "190"
+                  ],
+                  [
+                    "class",
+                    "small"
+                  ],
+                  [
+                    "data-feature",
+                    "orientation"
+                  ]
+                ],
+                "text": "← TOE",
+                "tail": "\n      ",
+                "parent_id": "lateral-shoe",
+                "sibling_index": 11,
+                "view": "left-lateral",
+                "feature": "orientation",
+                "children": []
+              },
+              {
+                "id": "lateral-heel-direction",
+                "tag": "{http://www.w3.org/2000/svg}text",
+                "attributes": [
+                  [
+                    "id",
+                    "lateral-heel-direction"
+                  ],
+                  [
+                    "x",
+                    "467"
+                  ],
+                  [
+                    "y",
+                    "190"
+                  ],
+                  [
+                    "text-anchor",
+                    "end"
+                  ],
+                  [
+                    "class",
+                    "small"
+                  ],
+                  [
+                    "data-feature",
+                    "orientation"
+                  ]
+                ],
+                "text": "HEEL →",
+                "tail": "\n    ",
+                "parent_id": "lateral-shoe",
+                "sibling_index": 12,
+                "view": "left-lateral",
+                "feature": "orientation",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "lateral-caption",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "lateral-caption"
+              ],
+              [
+                "x",
+                "450"
+              ],
+              [
+                "y",
+                "401"
+              ],
+              [
+                "class",
+                "small"
+              ],
+              [
+                "data-feature",
+                "caption"
+              ]
+            ],
+            "text": "Five near-side eyelets shown; far row concealed. Low unstriped sidewall.",
+            "tail": "\n  ",
+            "parent_id": "lateral-view",
+            "sibling_index": 2,
+            "view": "left-lateral",
+            "feature": "caption",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "medial-view",
+        "tag": "{http://www.w3.org/2000/svg}g",
+        "attributes": [
+          [
+            "id",
+            "medial-view"
+          ],
+          [
+            "data-view",
+            "left-medial"
+          ],
+          [
+            "data-feature",
+            "medial-shell"
+          ]
+        ],
+        "text": "\n    ",
+        "tail": "\n\n  ",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 10,
+        "view": "left-medial",
+        "feature": "medial-shell",
+        "children": [
+          {
+            "id": "medial-title",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "medial-title"
+              ],
+              [
+                "x",
+                "450"
+              ],
+              [
+                "y",
+                "443"
+              ],
+              [
+                "class",
+                "heading"
+              ]
+            ],
+            "text": null,
+            "tail": "\n    ",
+            "parent_id": "medial-view",
+            "sibling_index": 0,
+            "view": "left-medial",
+            "feature": "medial-shell",
+            "children": [
+              {
+                "id": "medial-number",
+                "tag": "{http://www.w3.org/2000/svg}tspan",
+                "attributes": [
+                  [
+                    "id",
+                    "medial-number"
+                  ],
+                  [
+                    "class",
+                    "number"
+                  ]
+                ],
+                "text": "03",
+                "tail": "  MEDIAL / INNER",
+                "parent_id": "medial-title",
+                "sibling_index": 0,
+                "view": "left-medial",
+                "feature": "medial-shell",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "medial-shoe",
+            "tag": "{http://www.w3.org/2000/svg}g",
+            "attributes": [
+              [
+                "id",
+                "medial-shoe"
+              ],
+              [
+                "transform",
+                "translate(440 465)"
+              ]
+            ],
+            "text": "\n      ",
+            "tail": "\n    ",
+            "parent_id": "medial-view",
+            "sibling_index": 1,
+            "view": "left-medial",
+            "feature": "medial-shell",
+            "children": [
+              {
+                "id": "medial-upper",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "medial-upper"
+                  ],
+                  [
+                    "class",
+                    "upper"
+                  ],
+                  [
+                    "data-feature",
+                    "vamp"
+                  ],
+                  [
+                    "d",
+                    "M12 128 L22 91 Q28 63 61 57 L147 42 Q174 42 194 65 Q215 68 224 45 L243 33 Q267 33 298 67 L364 89 C418 87 451 103 465 131 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "medial-shoe",
+                "sibling_index": 0,
+                "view": "left-medial",
+                "feature": "vamp",
+                "children": []
+              },
+              {
+                "id": "medial-quarter",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "medial-quarter"
+                  ],
+                  [
+                    "class",
+                    "panel"
+                  ],
+                  [
+                    "data-feature",
+                    "inner-quarter"
+                  ],
+                  [
+                    "d",
+                    "M12 128 L22 91 Q28 63 61 57 L147 42 Q174 42 194 65 Q215 68 224 45 L243 33 L309 76 L286 130 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "medial-shoe",
+                "sibling_index": 1,
+                "view": "left-medial",
+                "feature": "inner-quarter",
+                "children": []
+              },
+              {
+                "id": "medial-entry",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "medial-entry"
+                  ],
+                  [
+                    "class",
+                    "lining"
+                  ],
+                  [
+                    "data-feature",
+                    "collar-lining"
+                  ],
+                  [
+                    "d",
+                    "M105 49 L147 42 Q174 42 194 65 Q215 68 224 45 Q211 74 193 78 L154 75 Q130 70 105 49 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "medial-shoe",
+                "sibling_index": 2,
+                "view": "left-medial",
+                "feature": "collar-lining",
+                "children": []
+              },
+              {
+                "id": "medial-counter",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "medial-counter"
+                  ],
+                  [
+                    "class",
+                    "upper"
+                  ],
+                  [
+                    "data-feature",
+                    "heel-counter"
+                  ],
+                  [
+                    "d",
+                    "M61 57 L86 57 L88 129 L12 128 L22 91 Q28 63 61 57 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "medial-shoe",
+                "sibling_index": 3,
+                "view": "left-medial",
+                "feature": "heel-counter",
+                "children": []
+              },
+              {
+                "id": "medial-tongue",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "medial-tongue"
+                  ],
+                  [
+                    "class",
+                    "upper"
+                  ],
+                  [
+                    "data-feature",
+                    "tongue"
+                  ],
+                  [
+                    "d",
+                    "M233 48 L224 34 L239 22 Q264 28 287 68 L261 78 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "medial-shoe",
+                "sibling_index": 4,
+                "view": "left-medial",
+                "feature": "tongue",
+                "children": []
+              },
+              {
+                "id": "medial-stay",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "medial-stay"
+                  ],
+                  [
+                    "class",
+                    "upper"
+                  ],
+                  [
+                    "data-feature",
+                    "eyelet-stays"
+                  ],
+                  [
+                    "d",
+                    "M223 45 L243 33 Q270 40 299 76 L281 93 L231 75 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "medial-shoe",
+                "sibling_index": 5,
+                "view": "left-medial",
+                "feature": "eyelet-stays",
+                "children": []
+              },
+              {
+                "id": "medial-eyelet-row",
+                "tag": "{http://www.w3.org/2000/svg}g",
+                "attributes": [
+                  [
+                    "id",
+                    "medial-eyelet-row"
+                  ],
+                  [
+                    "data-feature",
+                    "five-eyelet-pairs"
+                  ]
+                ],
+                "text": "\n        ",
+                "tail": "\n      ",
+                "parent_id": "medial-shoe",
+                "sibling_index": 6,
+                "view": "left-medial",
+                "feature": "five-eyelet-pairs",
+                "children": [
+                  {
+                    "id": "medial-eye-5",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "medial-eye-5"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "239"
+                      ],
+                      [
+                        "cy",
+                        "40"
+                      ],
+                      [
+                        "r",
+                        "3.8"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": null,
+                    "parent_id": "medial-eyelet-row",
+                    "sibling_index": 0,
+                    "view": "left-medial",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  },
+                  {
+                    "id": "medial-eye-4",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "medial-eye-4"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "254"
+                      ],
+                      [
+                        "cy",
+                        "44"
+                      ],
+                      [
+                        "r",
+                        "3.8"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": null,
+                    "parent_id": "medial-eyelet-row",
+                    "sibling_index": 1,
+                    "view": "left-medial",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  },
+                  {
+                    "id": "medial-eye-3",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "medial-eye-3"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "269"
+                      ],
+                      [
+                        "cy",
+                        "54"
+                      ],
+                      [
+                        "r",
+                        "3.8"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": null,
+                    "parent_id": "medial-eyelet-row",
+                    "sibling_index": 2,
+                    "view": "left-medial",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  },
+                  {
+                    "id": "medial-eye-2",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "medial-eye-2"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "284"
+                      ],
+                      [
+                        "cy",
+                        "66"
+                      ],
+                      [
+                        "r",
+                        "3.8"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": null,
+                    "parent_id": "medial-eyelet-row",
+                    "sibling_index": 3,
+                    "view": "left-medial",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  },
+                  {
+                    "id": "medial-eye-1",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "medial-eye-1"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "298"
+                      ],
+                      [
+                        "cy",
+                        "78"
+                      ],
+                      [
+                        "r",
+                        "3.8"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n      ",
+                    "parent_id": "medial-eyelet-row",
+                    "sibling_index": 4,
+                    "view": "left-medial",
+                    "feature": "five-eyelet-pairs",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "medial-lace-abbreviation",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "medial-lace-abbreviation"
+                  ],
+                  [
+                    "class",
+                    "line"
+                  ],
+                  [
+                    "data-feature",
+                    "lace-profile-abbreviation"
+                  ],
+                  [
+                    "d",
+                    "M239 40 L228 44 M254 44 L238 50 M269 54 L253 60 M284 66 L268 70 M298 78 L284 81"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "medial-shoe",
+                "sibling_index": 7,
+                "view": "left-medial",
+                "feature": "lace-profile-abbreviation",
+                "children": []
+              },
+              {
+                "id": "medial-sidewall",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "medial-sidewall"
+                  ],
+                  [
+                    "class",
+                    "sole"
+                  ],
+                  [
+                    "data-feature",
+                    "sidewall"
+                  ],
+                  [
+                    "d",
+                    "M12 128 L465 131 Q472 147 467 163 L8 163 L7 147 Q6 134 12 128 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "medial-shoe",
+                "sibling_index": 8,
+                "view": "left-medial",
+                "feature": "sidewall",
+                "children": []
+              },
+              {
+                "id": "medial-contact-band",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "medial-contact-band"
+                  ],
+                  [
+                    "class",
+                    "edge"
+                  ],
+                  [
+                    "data-feature",
+                    "contact-edge"
+                  ],
+                  [
+                    "d",
+                    "M8 157 L467 157 L467 163 L8 163 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "medial-shoe",
+                "sibling_index": 9,
+                "view": "left-medial",
+                "feature": "contact-edge",
+                "children": []
+              },
+              {
+                "id": "medial-attachment-line",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "medial-attachment-line"
+                  ],
+                  [
+                    "class",
+                    "line"
+                  ],
+                  [
+                    "data-feature",
+                    "upper-sidewall-junction"
+                  ],
+                  [
+                    "d",
+                    "M14 131 L463 134"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "medial-shoe",
+                "sibling_index": 10,
+                "view": "left-medial",
+                "feature": "upper-sidewall-junction",
+                "children": []
+              },
+              {
+                "id": "medial-heel-direction",
+                "tag": "{http://www.w3.org/2000/svg}text",
+                "attributes": [
+                  [
+                    "id",
+                    "medial-heel-direction"
+                  ],
+                  [
+                    "x",
+                    "11"
+                  ],
+                  [
+                    "y",
+                    "190"
+                  ],
+                  [
+                    "class",
+                    "small"
+                  ],
+                  [
+                    "data-feature",
+                    "orientation"
+                  ]
+                ],
+                "text": "← HEEL",
+                "tail": "\n      ",
+                "parent_id": "medial-shoe",
+                "sibling_index": 11,
+                "view": "left-medial",
+                "feature": "orientation",
+                "children": []
+              },
+              {
+                "id": "medial-toe-direction",
+                "tag": "{http://www.w3.org/2000/svg}text",
+                "attributes": [
+                  [
+                    "id",
+                    "medial-toe-direction"
+                  ],
+                  [
+                    "x",
+                    "467"
+                  ],
+                  [
+                    "y",
+                    "190"
+                  ],
+                  [
+                    "text-anchor",
+                    "end"
+                  ],
+                  [
+                    "class",
+                    "small"
+                  ],
+                  [
+                    "data-feature",
+                    "orientation"
+                  ]
+                ],
+                "text": "TOE →",
+                "tail": "\n    ",
+                "parent_id": "medial-shoe",
+                "sibling_index": 12,
+                "view": "left-medial",
+                "feature": "orientation",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "medial-caption",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "medial-caption"
+              ],
+              [
+                "x",
+                "450"
+              ],
+              [
+                "y",
+                "683"
+              ],
+              [
+                "class",
+                "small"
+              ],
+              [
+                "data-feature",
+                "caption"
+              ]
+            ],
+            "text": "Independent inner view; near row shown, far row concealed. No vent holes.",
+            "tail": "\n  ",
+            "parent_id": "medial-view",
+            "sibling_index": 2,
+            "view": "left-medial",
+            "feature": "caption",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "front-view",
+        "tag": "{http://www.w3.org/2000/svg}g",
+        "attributes": [
+          [
+            "id",
+            "front-view"
+          ],
+          [
+            "data-view",
+            "left-front"
+          ],
+          [
+            "data-feature",
+            "toe-shell"
+          ]
+        ],
+        "text": "\n    ",
+        "tail": "\n\n  ",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 11,
+        "view": "left-front",
+        "feature": "toe-shell",
+        "children": [
+          {
+            "id": "front-title",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "front-title"
+              ],
+              [
+                "x",
+                "1040"
+              ],
+              [
+                "y",
+                "131"
+              ],
+              [
+                "class",
+                "heading"
+              ]
+            ],
+            "text": null,
+            "tail": "\n    ",
+            "parent_id": "front-view",
+            "sibling_index": 0,
+            "view": "left-front",
+            "feature": "toe-shell",
+            "children": [
+              {
+                "id": "front-number",
+                "tag": "{http://www.w3.org/2000/svg}tspan",
+                "attributes": [
+                  [
+                    "id",
+                    "front-number"
+                  ],
+                  [
+                    "class",
+                    "number"
+                  ]
+                ],
+                "text": "04",
+                "tail": "  FRONT / TOE",
+                "parent_id": "front-title",
+                "sibling_index": 0,
+                "view": "left-front",
+                "feature": "toe-shell",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "front-shoe",
+            "tag": "{http://www.w3.org/2000/svg}g",
+            "attributes": [
+              [
+                "id",
+                "front-shoe"
+              ],
+              [
+                "transform",
+                "translate(1060 195)"
+              ]
+            ],
+            "text": "\n      ",
+            "tail": "\n    ",
+            "parent_id": "front-view",
+            "sibling_index": 1,
+            "view": "left-front",
+            "feature": "toe-shell",
+            "children": [
+              {
+                "id": "front-tongue",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "front-tongue"
+                  ],
+                  [
+                    "class",
+                    "upper"
+                  ],
+                  [
+                    "data-feature",
+                    "tongue"
+                  ],
+                  [
+                    "d",
+                    "M86 82 L86 23 Q120 6 154 23 L154 82 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "front-shoe",
+                "sibling_index": 0,
+                "view": "left-front",
+                "feature": "tongue",
+                "children": []
+              },
+              {
+                "id": "front-lace-hints-border",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "front-lace-hints-border"
+                  ],
+                  [
+                    "class",
+                    "lace-dark"
+                  ],
+                  [
+                    "data-feature",
+                    "lace-profile-abbreviation"
+                  ],
+                  [
+                    "d",
+                    "M90 34 Q120 43 150 34 M88 49 Q120 60 152 49 M87 64 Q120 75 153 64"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "front-shoe",
+                "sibling_index": 1,
+                "view": "left-front",
+                "feature": "lace-profile-abbreviation",
+                "children": []
+              },
+              {
+                "id": "front-lace-hints-tape",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "front-lace-hints-tape"
+                  ],
+                  [
+                    "class",
+                    "lace-light"
+                  ],
+                  [
+                    "data-feature",
+                    "lace-profile-abbreviation"
+                  ],
+                  [
+                    "d",
+                    "M90 34 Q120 43 150 34 M88 49 Q120 60 152 49 M87 64 Q120 75 153 64"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "front-shoe",
+                "sibling_index": 2,
+                "view": "left-front",
+                "feature": "lace-profile-abbreviation",
+                "children": []
+              },
+              {
+                "id": "front-vamp",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "front-vamp"
+                  ],
+                  [
+                    "class",
+                    "upper"
+                  ],
+                  [
+                    "data-feature",
+                    "vamp"
+                  ],
+                  [
+                    "d",
+                    "M8 140 C16 104 36 77 70 59 Q120 40 170 59 C209 77 230 104 237 140 Q120 154 8 140 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "front-shoe",
+                "sibling_index": 3,
+                "view": "left-front",
+                "feature": "vamp",
+                "children": []
+              },
+              {
+                "id": "front-sidewall",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "front-sidewall"
+                  ],
+                  [
+                    "class",
+                    "sole"
+                  ],
+                  [
+                    "data-feature",
+                    "sidewall"
+                  ],
+                  [
+                    "d",
+                    "M8 140 Q120 154 237 140 L239 161 Q120 177 5 161 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "front-shoe",
+                "sibling_index": 4,
+                "view": "left-front",
+                "feature": "sidewall",
+                "children": []
+              },
+              {
+                "id": "front-contact-band",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "front-contact-band"
+                  ],
+                  [
+                    "class",
+                    "edge"
+                  ],
+                  [
+                    "data-feature",
+                    "contact-edge"
+                  ],
+                  [
+                    "d",
+                    "M5 155 Q120 171 239 155 L239 161 Q120 177 5 161 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n    ",
+                "parent_id": "front-shoe",
+                "sibling_index": 5,
+                "view": "left-front",
+                "feature": "contact-edge",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "front-caption-1",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "front-caption-1"
+              ],
+              [
+                "x",
+                "1040"
+              ],
+              [
+                "y",
+                "398"
+              ],
+              [
+                "class",
+                "label"
+              ],
+              [
+                "data-feature",
+                "caption"
+              ]
+            ],
+            "text": "Plain rounded forefoot; no toe cap.",
+            "tail": "\n    ",
+            "parent_id": "front-view",
+            "sibling_index": 2,
+            "view": "left-front",
+            "feature": "caption",
+            "children": []
+          },
+          {
+            "id": "front-caption-2",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "front-caption-2"
+              ],
+              [
+                "x",
+                "1040"
+              ],
+              [
+                "y",
+                "420"
+              ],
+              [
+                "class",
+                "small"
+              ],
+              [
+                "data-feature",
+                "caption"
+              ]
+            ],
+            "text": "Rear lace rows partly occluded.",
+            "tail": "\n  ",
+            "parent_id": "front-view",
+            "sibling_index": 3,
+            "view": "left-front",
+            "feature": "caption",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "rear-view",
+        "tag": "{http://www.w3.org/2000/svg}g",
+        "attributes": [
+          [
+            "id",
+            "rear-view"
+          ],
+          [
+            "data-view",
+            "left-rear"
+          ],
+          [
+            "data-feature",
+            "heel-shell"
+          ]
+        ],
+        "text": "\n    ",
+        "tail": "\n  ",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 12,
+        "view": "left-rear",
+        "feature": "heel-shell",
+        "children": [
+          {
+            "id": "rear-title",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "rear-title"
+              ],
+              [
+                "x",
+                "1040"
+              ],
+              [
+                "y",
+                "453"
+              ],
+              [
+                "class",
+                "heading"
+              ]
+            ],
+            "text": null,
+            "tail": "\n    ",
+            "parent_id": "rear-view",
+            "sibling_index": 0,
+            "view": "left-rear",
+            "feature": "heel-shell",
+            "children": [
+              {
+                "id": "rear-number",
+                "tag": "{http://www.w3.org/2000/svg}tspan",
+                "attributes": [
+                  [
+                    "id",
+                    "rear-number"
+                  ],
+                  [
+                    "class",
+                    "number"
+                  ]
+                ],
+                "text": "05",
+                "tail": "  REAR / HEEL",
+                "parent_id": "rear-title",
+                "sibling_index": 0,
+                "view": "left-rear",
+                "feature": "heel-shell",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "rear-shoe",
+            "tag": "{http://www.w3.org/2000/svg}g",
+            "attributes": [
+              [
+                "id",
+                "rear-shoe"
+              ],
+              [
+                "transform",
+                "translate(1080 477)"
+              ]
+            ],
+            "text": "\n      ",
+            "tail": "\n    ",
+            "parent_id": "rear-view",
+            "sibling_index": 1,
+            "view": "left-rear",
+            "feature": "heel-shell",
+            "children": [
+              {
+                "id": "rear-upper",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "rear-upper"
+                  ],
+                  [
+                    "class",
+                    "upper"
+                  ],
+                  [
+                    "data-feature",
+                    "quarters"
+                  ],
+                  [
+                    "d",
+                    "M15 36 Q100 3 185 36 L183 139 Q102 162 17 139 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "rear-shoe",
+                "sibling_index": 0,
+                "view": "left-rear",
+                "feature": "quarters",
+                "children": []
+              },
+              {
+                "id": "rear-entry-lining",
+                "tag": "{http://www.w3.org/2000/svg}ellipse",
+                "attributes": [
+                  [
+                    "id",
+                    "rear-entry-lining"
+                  ],
+                  [
+                    "class",
+                    "lining"
+                  ],
+                  [
+                    "data-feature",
+                    "collar-lining"
+                  ],
+                  [
+                    "cx",
+                    "100"
+                  ],
+                  [
+                    "cy",
+                    "35"
+                  ],
+                  [
+                    "rx",
+                    "69"
+                  ],
+                  [
+                    "ry",
+                    "21"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "rear-shoe",
+                "sibling_index": 1,
+                "view": "left-rear",
+                "feature": "collar-lining",
+                "children": []
+              },
+              {
+                "id": "rear-counter",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "rear-counter"
+                  ],
+                  [
+                    "class",
+                    "panel"
+                  ],
+                  [
+                    "data-feature",
+                    "heel-counter"
+                  ],
+                  [
+                    "d",
+                    "M22 65 Q100 84 178 65 L181 139 Q102 158 19 139 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "rear-shoe",
+                "sibling_index": 2,
+                "view": "left-rear",
+                "feature": "heel-counter",
+                "children": []
+              },
+              {
+                "id": "rear-back-join",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "rear-back-join"
+                  ],
+                  [
+                    "class",
+                    "line"
+                  ],
+                  [
+                    "data-feature",
+                    "back-join"
+                  ],
+                  [
+                    "d",
+                    "M100 76 L100 148"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "rear-shoe",
+                "sibling_index": 3,
+                "view": "left-rear",
+                "feature": "back-join",
+                "children": []
+              },
+              {
+                "id": "rear-sidewall",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "rear-sidewall"
+                  ],
+                  [
+                    "class",
+                    "sole"
+                  ],
+                  [
+                    "data-feature",
+                    "sidewall"
+                  ],
+                  [
+                    "d",
+                    "M17 139 Q102 158 183 139 L185 163 Q102 181 15 163 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "rear-shoe",
+                "sibling_index": 4,
+                "view": "left-rear",
+                "feature": "sidewall",
+                "children": []
+              },
+              {
+                "id": "rear-contact-band",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "rear-contact-band"
+                  ],
+                  [
+                    "class",
+                    "edge"
+                  ],
+                  [
+                    "data-feature",
+                    "contact-edge"
+                  ],
+                  [
+                    "d",
+                    "M15 157 Q102 175 185 157 L185 163 Q102 181 15 163 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n    ",
+                "parent_id": "rear-shoe",
+                "sibling_index": 5,
+                "view": "left-rear",
+                "feature": "contact-edge",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "rear-caption",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "rear-caption"
+              ],
+              [
+                "x",
+                "1040"
+              ],
+              [
+                "y",
+                "681"
+              ],
+              [
+                "class",
+                "small"
+              ],
+              [
+                "data-feature",
+                "caption"
+              ]
+            ],
+            "text": "Collar entry · counter overlay · central back join",
+            "tail": "\n  ",
+            "parent_id": "rear-view",
+            "sibling_index": 2,
+            "view": "left-rear",
+            "feature": "caption",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "bottom-separator",
+        "tag": "{http://www.w3.org/2000/svg}line",
+        "attributes": [
+          [
+            "id",
+            "bottom-separator"
+          ],
+          [
+            "x1",
+            "54"
+          ],
+          [
+            "y1",
+            "705"
+          ],
+          [
+            "x2",
+            "1386"
+          ],
+          [
+            "y2",
+            "705"
+          ],
+          [
+            "class",
+            "rule"
+          ]
+        ],
+        "text": null,
+        "tail": "\n\n  ",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 13,
+        "view": "sheet",
+        "feature": "layout",
+        "children": []
+      },
+      {
+        "id": "outsole-view",
+        "tag": "{http://www.w3.org/2000/svg}g",
+        "attributes": [
+          [
+            "id",
+            "outsole-view"
+          ],
+          [
+            "data-view",
+            "left-outsole"
+          ],
+          [
+            "data-feature",
+            "outsole-silhouette"
+          ]
+        ],
+        "text": "\n    ",
+        "tail": "\n\n  ",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 14,
+        "view": "left-outsole",
+        "feature": "outsole-silhouette",
+        "children": [
+          {
+            "id": "outsole-title",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "outsole-title"
+              ],
+              [
+                "x",
+                "65"
+              ],
+              [
+                "y",
+                "737"
+              ],
+              [
+                "class",
+                "heading"
+              ]
+            ],
+            "text": null,
+            "tail": "\n    ",
+            "parent_id": "outsole-view",
+            "sibling_index": 0,
+            "view": "left-outsole",
+            "feature": "outsole-silhouette",
+            "children": [
+              {
+                "id": "outsole-number",
+                "tag": "{http://www.w3.org/2000/svg}tspan",
+                "attributes": [
+                  [
+                    "id",
+                    "outsole-number"
+                  ],
+                  [
+                    "class",
+                    "number"
+                  ]
+                ],
+                "text": "06",
+                "tail": "  OUTSOLE / BELOW",
+                "parent_id": "outsole-title",
+                "sibling_index": 0,
+                "view": "left-outsole",
+                "feature": "outsole-silhouette",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "outsole-shoe",
+            "tag": "{http://www.w3.org/2000/svg}g",
+            "attributes": [
+              [
+                "id",
+                "outsole-shoe"
+              ],
+              [
+                "transform",
+                "translate(106 765)"
+              ]
+            ],
+            "text": "\n      ",
+            "tail": "\n    ",
+            "parent_id": "outsole-view",
+            "sibling_index": 1,
+            "view": "left-outsole",
+            "feature": "outsole-silhouette",
+            "children": [
+              {
+                "id": "outsole-edge",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "outsole-edge"
+                  ],
+                  [
+                    "class",
+                    "edge"
+                  ],
+                  [
+                    "d",
+                    "M118 0 C59 0 24 28 20 65 C16 105 49 139 61 171 L58 244 C56 276 82 299 116 300 C151 301 179 278 179 246 L177 174 C177 138 205 106 209 66 C214 29 177 0 118 0 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "outsole-shoe",
+                "sibling_index": 0,
+                "view": "left-outsole",
+                "feature": "outsole-silhouette",
+                "children": []
+              },
+              {
+                "id": "outsole-field",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "outsole-field"
+                  ],
+                  [
+                    "class",
+                    "sole"
+                  ],
+                  [
+                    "d",
+                    "M118 9 C65 9 34 32 30 66 C27 101 58 135 71 170 L68 243 C66 270 87 289 116 290 C146 291 169 271 169 246 L167 174 C168 136 195 102 199 65 C203 32 172 9 118 9 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "outsole-shoe",
+                "sibling_index": 1,
+                "view": "left-outsole",
+                "feature": "outsole-silhouette",
+                "children": []
+              },
+              {
+                "id": "outsole-forefoot-marks",
+                "tag": "{http://www.w3.org/2000/svg}g",
+                "attributes": [
+                  [
+                    "id",
+                    "outsole-forefoot-marks"
+                  ],
+                  [
+                    "data-feature",
+                    "outsole-mark-intent"
+                  ]
+                ],
+                "text": "\n        ",
+                "tail": "\n      ",
+                "parent_id": "outsole-shoe",
+                "sibling_index": 2,
+                "view": "left-outsole",
+                "feature": "outsole-mark-intent",
+                "children": [
+                  {
+                    "id": "outsole-forefoot-mark-1",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "outsole-forefoot-mark-1"
+                      ],
+                      [
+                        "class",
+                        "line"
+                      ],
+                      [
+                        "d",
+                        "M53 51 Q116 29 178 51"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "outsole-forefoot-marks",
+                    "sibling_index": 0,
+                    "view": "left-outsole",
+                    "feature": "outsole-mark-intent",
+                    "children": []
+                  },
+                  {
+                    "id": "outsole-forefoot-mark-2",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "outsole-forefoot-mark-2"
+                      ],
+                      [
+                        "class",
+                        "line"
+                      ],
+                      [
+                        "d",
+                        "M45 72 Q117 51 185 72"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "outsole-forefoot-marks",
+                    "sibling_index": 1,
+                    "view": "left-outsole",
+                    "feature": "outsole-mark-intent",
+                    "children": []
+                  },
+                  {
+                    "id": "outsole-forefoot-mark-3",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "outsole-forefoot-mark-3"
+                      ],
+                      [
+                        "class",
+                        "line"
+                      ],
+                      [
+                        "d",
+                        "M49 94 Q117 77 181 94"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "outsole-forefoot-marks",
+                    "sibling_index": 2,
+                    "view": "left-outsole",
+                    "feature": "outsole-mark-intent",
+                    "children": []
+                  },
+                  {
+                    "id": "outsole-forefoot-mark-4",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "outsole-forefoot-mark-4"
+                      ],
+                      [
+                        "class",
+                        "line"
+                      ],
+                      [
+                        "d",
+                        "M59 116 Q118 103 171 116"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "outsole-forefoot-marks",
+                    "sibling_index": 3,
+                    "view": "left-outsole",
+                    "feature": "outsole-mark-intent",
+                    "children": []
+                  },
+                  {
+                    "id": "outsole-forefoot-mark-5",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "outsole-forefoot-mark-5"
+                      ],
+                      [
+                        "class",
+                        "line"
+                      ],
+                      [
+                        "d",
+                        "M74 139 Q118 129 157 139"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n      ",
+                    "parent_id": "outsole-forefoot-marks",
+                    "sibling_index": 4,
+                    "view": "left-outsole",
+                    "feature": "outsole-mark-intent",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "outsole-heel-marks",
+                "tag": "{http://www.w3.org/2000/svg}g",
+                "attributes": [
+                  [
+                    "id",
+                    "outsole-heel-marks"
+                  ],
+                  [
+                    "data-feature",
+                    "outsole-mark-intent"
+                  ]
+                ],
+                "text": "\n        ",
+                "tail": "\n      ",
+                "parent_id": "outsole-shoe",
+                "sibling_index": 3,
+                "view": "left-outsole",
+                "feature": "outsole-mark-intent",
+                "children": [
+                  {
+                    "id": "outsole-heel-mark-1",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "outsole-heel-mark-1"
+                      ],
+                      [
+                        "class",
+                        "line"
+                      ],
+                      [
+                        "d",
+                        "M84 230 Q116 221 153 230"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "outsole-heel-marks",
+                    "sibling_index": 0,
+                    "view": "left-outsole",
+                    "feature": "outsole-mark-intent",
+                    "children": []
+                  },
+                  {
+                    "id": "outsole-heel-mark-2",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "outsole-heel-mark-2"
+                      ],
+                      [
+                        "class",
+                        "line"
+                      ],
+                      [
+                        "d",
+                        "M82 250 Q116 241 154 250"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "outsole-heel-marks",
+                    "sibling_index": 1,
+                    "view": "left-outsole",
+                    "feature": "outsole-mark-intent",
+                    "children": []
+                  },
+                  {
+                    "id": "outsole-heel-mark-3",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "outsole-heel-mark-3"
+                      ],
+                      [
+                        "class",
+                        "line"
+                      ],
+                      [
+                        "d",
+                        "M94 270 Q116 265 143 270"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n      ",
+                    "parent_id": "outsole-heel-marks",
+                    "sibling_index": 2,
+                    "view": "left-outsole",
+                    "feature": "outsole-mark-intent",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "id": "outsole-medial-label",
+                "tag": "{http://www.w3.org/2000/svg}text",
+                "attributes": [
+                  [
+                    "id",
+                    "outsole-medial-label"
+                  ],
+                  [
+                    "x",
+                    "-38"
+                  ],
+                  [
+                    "y",
+                    "180"
+                  ],
+                  [
+                    "class",
+                    "small"
+                  ],
+                  [
+                    "data-feature",
+                    "orientation"
+                  ]
+                ],
+                "text": "Medial",
+                "tail": "\n      ",
+                "parent_id": "outsole-shoe",
+                "sibling_index": 4,
+                "view": "left-outsole",
+                "feature": "orientation",
+                "children": []
+              },
+              {
+                "id": "outsole-medial-leader",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "outsole-medial-leader"
+                  ],
+                  [
+                    "class",
+                    "leader"
+                  ],
+                  [
+                    "data-feature",
+                    "orientation"
+                  ],
+                  [
+                    "d",
+                    "M8 176 L48 176 L61 186"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "outsole-shoe",
+                "sibling_index": 5,
+                "view": "left-outsole",
+                "feature": "orientation",
+                "children": []
+              },
+              {
+                "id": "outsole-arch-label",
+                "tag": "{http://www.w3.org/2000/svg}text",
+                "attributes": [
+                  [
+                    "id",
+                    "outsole-arch-label"
+                  ],
+                  [
+                    "x",
+                    "122"
+                  ],
+                  [
+                    "y",
+                    "190"
+                  ],
+                  [
+                    "text-anchor",
+                    "middle"
+                  ],
+                  [
+                    "class",
+                    "small"
+                  ],
+                  [
+                    "data-feature",
+                    "caption"
+                  ]
+                ],
+                "text": "Arch break",
+                "tail": "\n    ",
+                "parent_id": "outsole-shoe",
+                "sibling_index": 6,
+                "view": "left-outsole",
+                "feature": "caption",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "outsole-caption-1",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "outsole-caption-1"
+              ],
+              [
+                "x",
+                "65"
+              ],
+              [
+                "y",
+                "1090"
+              ],
+              [
+                "class",
+                "small"
+              ],
+              [
+                "data-feature",
+                "caption"
+              ]
+            ],
+            "text": "Toe up; medial at viewer-left.",
+            "tail": "\n    ",
+            "parent_id": "outsole-view",
+            "sibling_index": 2,
+            "view": "left-outsole",
+            "feature": "caption",
+            "children": []
+          },
+          {
+            "id": "outsole-caption-2",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "outsole-caption-2"
+              ],
+              [
+                "x",
+                "65"
+              ],
+              [
+                "y",
+                "1111"
+              ],
+              [
+                "class",
+                "small"
+              ],
+              [
+                "data-feature",
+                "caption"
+              ]
+            ],
+            "text": "Original surface marks; no grip claim.",
+            "tail": "\n  ",
+            "parent_id": "outsole-view",
+            "sibling_index": 3,
+            "view": "left-outsole",
+            "feature": "caption",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "inside-detail",
+        "tag": "{http://www.w3.org/2000/svg}g",
+        "attributes": [
+          [
+            "id",
+            "inside-detail"
+          ],
+          [
+            "data-view",
+            "entry-and-lacing-detail"
+          ],
+          [
+            "data-feature",
+            "inside-ownership"
+          ]
+        ],
+        "text": "\n    ",
+        "tail": "\n\n  ",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 15,
+        "view": "entry-and-lacing-detail",
+        "feature": "inside-ownership",
+        "children": [
+          {
+            "id": "inside-title",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "inside-title"
+              ],
+              [
+                "x",
+                "450"
+              ],
+              [
+                "y",
+                "737"
+              ],
+              [
+                "class",
+                "heading"
+              ]
+            ],
+            "text": null,
+            "tail": "\n    ",
+            "parent_id": "inside-detail",
+            "sibling_index": 0,
+            "view": "entry-and-lacing-detail",
+            "feature": "inside-ownership",
+            "children": [
+              {
+                "id": "inside-number",
+                "tag": "{http://www.w3.org/2000/svg}tspan",
+                "attributes": [
+                  [
+                    "id",
+                    "inside-number"
+                  ],
+                  [
+                    "class",
+                    "number"
+                  ]
+                ],
+                "text": "07",
+                "tail": "  ENTRY + LACE ORDER / ENLARGED INTENT",
+                "parent_id": "inside-title",
+                "sibling_index": 0,
+                "view": "entry-and-lacing-detail",
+                "feature": "inside-ownership",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "entry-section",
+            "tag": "{http://www.w3.org/2000/svg}g",
+            "attributes": [
+              [
+                "id",
+                "entry-section"
+              ],
+              [
+                "transform",
+                "translate(470 785)"
+              ],
+              [
+                "data-feature",
+                "lining-return"
+              ]
+            ],
+            "text": "\n      ",
+            "tail": "\n    ",
+            "parent_id": "inside-detail",
+            "sibling_index": 1,
+            "view": "entry-and-lacing-detail",
+            "feature": "lining-return",
+            "children": [
+              {
+                "id": "entry-outer-wall",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "entry-outer-wall"
+                  ],
+                  [
+                    "class",
+                    "upper"
+                  ],
+                  [
+                    "d",
+                    "M24 55 Q82 20 137 50 Q187 21 240 55 L237 165 Q182 186 135 166 Q80 186 27 165 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "entry-section",
+                "sibling_index": 0,
+                "view": "entry-and-lacing-detail",
+                "feature": "lining-return",
+                "children": []
+              },
+              {
+                "id": "entry-lining-return",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "entry-lining-return"
+                  ],
+                  [
+                    "class",
+                    "lining"
+                  ],
+                  [
+                    "d",
+                    "M24 55 Q82 20 137 50 Q187 21 240 55 L226 66 Q184 42 137 65 Q82 42 38 66 L39 154 Q85 169 135 152 Q182 169 225 154 L226 66 L240 55 L237 165 Q182 186 135 166 Q80 186 27 165 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "entry-section",
+                "sibling_index": 1,
+                "view": "entry-and-lacing-detail",
+                "feature": "lining-return",
+                "children": []
+              },
+              {
+                "id": "entry-footbed-surface",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "entry-footbed-surface"
+                  ],
+                  [
+                    "class",
+                    "bed"
+                  ],
+                  [
+                    "data-feature",
+                    "footbed"
+                  ],
+                  [
+                    "d",
+                    "M48 139 Q89 123 135 136 Q182 122 217 139 L212 153 Q177 166 135 153 Q89 166 51 153 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "entry-section",
+                "sibling_index": 2,
+                "view": "entry-and-lacing-detail",
+                "feature": "footbed",
+                "children": []
+              },
+              {
+                "id": "entry-cut-edge-left",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "entry-cut-edge-left"
+                  ],
+                  [
+                    "class",
+                    "leader"
+                  ],
+                  [
+                    "data-feature",
+                    "section-convention"
+                  ],
+                  [
+                    "d",
+                    "M16 48 L33 62 M19 60 L35 74"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "entry-section",
+                "sibling_index": 3,
+                "view": "entry-and-lacing-detail",
+                "feature": "section-convention",
+                "children": []
+              },
+              {
+                "id": "entry-cut-edge-right",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "entry-cut-edge-right"
+                  ],
+                  [
+                    "class",
+                    "leader"
+                  ],
+                  [
+                    "data-feature",
+                    "section-convention"
+                  ],
+                  [
+                    "d",
+                    "M233 49 L248 62 M232 61 L247 74"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "entry-section",
+                "sibling_index": 4,
+                "view": "entry-and-lacing-detail",
+                "feature": "section-convention",
+                "children": []
+              },
+              {
+                "id": "entry-section-caption",
+                "tag": "{http://www.w3.org/2000/svg}text",
+                "attributes": [
+                  [
+                    "id",
+                    "entry-section-caption"
+                  ],
+                  [
+                    "x",
+                    "132"
+                  ],
+                  [
+                    "y",
+                    "206"
+                  ],
+                  [
+                    "text-anchor",
+                    "middle"
+                  ],
+                  [
+                    "class",
+                    "small"
+                  ],
+                  [
+                    "data-feature",
+                    "caption"
+                  ]
+                ],
+                "text": "Opened section, not a measured foot cavity.",
+                "tail": "\n    ",
+                "parent_id": "entry-section",
+                "sibling_index": 5,
+                "view": "entry-and-lacing-detail",
+                "feature": "caption",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "entry-labels",
+            "tag": "{http://www.w3.org/2000/svg}g",
+            "attributes": [
+              [
+                "id",
+                "entry-labels"
+              ],
+              [
+                "data-feature",
+                "inside-labels"
+              ]
+            ],
+            "text": "\n      ",
+            "tail": "\n    ",
+            "parent_id": "inside-detail",
+            "sibling_index": 2,
+            "view": "entry-and-lacing-detail",
+            "feature": "inside-labels",
+            "children": [
+              {
+                "id": "lining-label",
+                "tag": "{http://www.w3.org/2000/svg}text",
+                "attributes": [
+                  [
+                    "id",
+                    "lining-label"
+                  ],
+                  [
+                    "x",
+                    "752"
+                  ],
+                  [
+                    "y",
+                    "837"
+                  ],
+                  [
+                    "class",
+                    "label"
+                  ]
+                ],
+                "text": "Lining returns over collar",
+                "tail": "\n      ",
+                "parent_id": "entry-labels",
+                "sibling_index": 0,
+                "view": "entry-and-lacing-detail",
+                "feature": "inside-labels",
+                "children": []
+              },
+              {
+                "id": "lining-leader",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "lining-leader"
+                  ],
+                  [
+                    "class",
+                    "leader"
+                  ],
+                  [
+                    "d",
+                    "M743 832 L719 832 L706 842"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "entry-labels",
+                "sibling_index": 1,
+                "view": "entry-and-lacing-detail",
+                "feature": "inside-labels",
+                "children": []
+              },
+              {
+                "id": "footbed-label",
+                "tag": "{http://www.w3.org/2000/svg}text",
+                "attributes": [
+                  [
+                    "id",
+                    "footbed-label"
+                  ],
+                  [
+                    "x",
+                    "752"
+                  ],
+                  [
+                    "y",
+                    "922"
+                  ],
+                  [
+                    "class",
+                    "label"
+                  ]
+                ],
+                "text": "Footbed surface intent",
+                "tail": "\n      ",
+                "parent_id": "entry-labels",
+                "sibling_index": 2,
+                "view": "entry-and-lacing-detail",
+                "feature": "inside-labels",
+                "children": []
+              },
+              {
+                "id": "footbed-leader",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "footbed-leader"
+                  ],
+                  [
+                    "class",
+                    "leader"
+                  ],
+                  [
+                    "d",
+                    "M742 917 L713 917 L686 931"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n    ",
+                "parent_id": "entry-labels",
+                "sibling_index": 3,
+                "view": "entry-and-lacing-detail",
+                "feature": "inside-labels",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "lace-detail",
+            "tag": "{http://www.w3.org/2000/svg}g",
+            "attributes": [
+              [
+                "id",
+                "lace-detail"
+              ],
+              [
+                "transform",
+                "translate(1060 785)"
+              ],
+              [
+                "data-feature",
+                "tongue-under-laces"
+              ]
+            ],
+            "text": "\n      ",
+            "tail": "\n    ",
+            "parent_id": "inside-detail",
+            "sibling_index": 3,
+            "view": "entry-and-lacing-detail",
+            "feature": "tongue-under-laces",
+            "children": [
+              {
+                "id": "detail-tongue",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "detail-tongue"
+                  ],
+                  [
+                    "class",
+                    "upper"
+                  ],
+                  [
+                    "data-feature",
+                    "tongue"
+                  ],
+                  [
+                    "d",
+                    "M46 8 Q121 -4 194 8 L185 198 Q121 214 56 198 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "lace-detail",
+                "sibling_index": 0,
+                "view": "entry-and-lacing-detail",
+                "feature": "tongue",
+                "children": []
+              },
+              {
+                "id": "detail-outer-quarter",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "detail-outer-quarter"
+                  ],
+                  [
+                    "class",
+                    "panel"
+                  ],
+                  [
+                    "data-feature",
+                    "outer-quarter"
+                  ],
+                  [
+                    "d",
+                    "M8 20 L55 9 L74 200 L25 212 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "lace-detail",
+                "sibling_index": 1,
+                "view": "entry-and-lacing-detail",
+                "feature": "outer-quarter",
+                "children": []
+              },
+              {
+                "id": "detail-inner-quarter",
+                "tag": "{http://www.w3.org/2000/svg}path",
+                "attributes": [
+                  [
+                    "id",
+                    "detail-inner-quarter"
+                  ],
+                  [
+                    "class",
+                    "panel"
+                  ],
+                  [
+                    "data-feature",
+                    "inner-quarter"
+                  ],
+                  [
+                    "d",
+                    "M232 20 L186 9 L168 200 L215 212 Z"
+                  ]
+                ],
+                "text": null,
+                "tail": "\n      ",
+                "parent_id": "lace-detail",
+                "sibling_index": 2,
+                "view": "entry-and-lacing-detail",
+                "feature": "inner-quarter",
+                "children": []
+              },
+              {
+                "id": "detail-three-central-pairs",
+                "tag": "{http://www.w3.org/2000/svg}g",
+                "attributes": [
+                  [
+                    "id",
+                    "detail-three-central-pairs"
+                  ],
+                  [
+                    "data-feature",
+                    "lace-detail-abbreviation"
+                  ]
+                ],
+                "text": "\n        ",
+                "tail": "\n    ",
+                "parent_id": "lace-detail",
+                "sibling_index": 3,
+                "view": "entry-and-lacing-detail",
+                "feature": "lace-detail-abbreviation",
+                "children": [
+                  {
+                    "id": "detail-eye-outer-1",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "detail-eye-outer-1"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "48"
+                      ],
+                      [
+                        "cy",
+                        "55"
+                      ],
+                      [
+                        "r",
+                        "6"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": null,
+                    "parent_id": "detail-three-central-pairs",
+                    "sibling_index": 0,
+                    "view": "entry-and-lacing-detail",
+                    "feature": "lace-detail-abbreviation",
+                    "children": []
+                  },
+                  {
+                    "id": "detail-eye-inner-1",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "detail-eye-inner-1"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "193"
+                      ],
+                      [
+                        "cy",
+                        "55"
+                      ],
+                      [
+                        "r",
+                        "6"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "detail-three-central-pairs",
+                    "sibling_index": 1,
+                    "view": "entry-and-lacing-detail",
+                    "feature": "lace-detail-abbreviation",
+                    "children": []
+                  },
+                  {
+                    "id": "detail-eye-outer-2",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "detail-eye-outer-2"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "54"
+                      ],
+                      [
+                        "cy",
+                        "108"
+                      ],
+                      [
+                        "r",
+                        "6"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": null,
+                    "parent_id": "detail-three-central-pairs",
+                    "sibling_index": 2,
+                    "view": "entry-and-lacing-detail",
+                    "feature": "lace-detail-abbreviation",
+                    "children": []
+                  },
+                  {
+                    "id": "detail-eye-inner-2",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "detail-eye-inner-2"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "187"
+                      ],
+                      [
+                        "cy",
+                        "108"
+                      ],
+                      [
+                        "r",
+                        "6"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "detail-three-central-pairs",
+                    "sibling_index": 3,
+                    "view": "entry-and-lacing-detail",
+                    "feature": "lace-detail-abbreviation",
+                    "children": []
+                  },
+                  {
+                    "id": "detail-eye-outer-3",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "detail-eye-outer-3"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "60"
+                      ],
+                      [
+                        "cy",
+                        "161"
+                      ],
+                      [
+                        "r",
+                        "6"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": null,
+                    "parent_id": "detail-three-central-pairs",
+                    "sibling_index": 4,
+                    "view": "entry-and-lacing-detail",
+                    "feature": "lace-detail-abbreviation",
+                    "children": []
+                  },
+                  {
+                    "id": "detail-eye-inner-3",
+                    "tag": "{http://www.w3.org/2000/svg}circle",
+                    "attributes": [
+                      [
+                        "id",
+                        "detail-eye-inner-3"
+                      ],
+                      [
+                        "class",
+                        "eye"
+                      ],
+                      [
+                        "cx",
+                        "181"
+                      ],
+                      [
+                        "cy",
+                        "161"
+                      ],
+                      [
+                        "r",
+                        "6"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "detail-three-central-pairs",
+                    "sibling_index": 5,
+                    "view": "entry-and-lacing-detail",
+                    "feature": "lace-detail-abbreviation",
+                    "children": []
+                  },
+                  {
+                    "id": "detail-under-border",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "detail-under-border"
+                      ],
+                      [
+                        "class",
+                        "lace-dark"
+                      ],
+                      [
+                        "data-feature",
+                        "lace-under-layer"
+                      ],
+                      [
+                        "d",
+                        "M48 55 L187 108 M54 108 L181 161"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "detail-three-central-pairs",
+                    "sibling_index": 6,
+                    "view": "entry-and-lacing-detail",
+                    "feature": "lace-under-layer",
+                    "children": []
+                  },
+                  {
+                    "id": "detail-under-tape",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "detail-under-tape"
+                      ],
+                      [
+                        "class",
+                        "lace-light"
+                      ],
+                      [
+                        "data-feature",
+                        "lace-under-layer"
+                      ],
+                      [
+                        "d",
+                        "M48 55 L187 108 M54 108 L181 161"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "detail-three-central-pairs",
+                    "sibling_index": 7,
+                    "view": "entry-and-lacing-detail",
+                    "feature": "lace-under-layer",
+                    "children": []
+                  },
+                  {
+                    "id": "detail-over-border",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "detail-over-border"
+                      ],
+                      [
+                        "class",
+                        "lace-dark"
+                      ],
+                      [
+                        "data-feature",
+                        "lace-over-layer"
+                      ],
+                      [
+                        "d",
+                        "M193 55 L54 108 M187 108 L60 161"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n        ",
+                    "parent_id": "detail-three-central-pairs",
+                    "sibling_index": 8,
+                    "view": "entry-and-lacing-detail",
+                    "feature": "lace-over-layer",
+                    "children": []
+                  },
+                  {
+                    "id": "detail-over-tape",
+                    "tag": "{http://www.w3.org/2000/svg}path",
+                    "attributes": [
+                      [
+                        "id",
+                        "detail-over-tape"
+                      ],
+                      [
+                        "class",
+                        "lace-light"
+                      ],
+                      [
+                        "data-feature",
+                        "lace-over-layer"
+                      ],
+                      [
+                        "d",
+                        "M193 55 L54 108 M187 108 L60 161"
+                      ]
+                    ],
+                    "text": null,
+                    "tail": "\n      ",
+                    "parent_id": "detail-three-central-pairs",
+                    "sibling_index": 9,
+                    "view": "entry-and-lacing-detail",
+                    "feature": "lace-over-layer",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "inside-caption-1",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "inside-caption-1"
+              ],
+              [
+                "x",
+                "450"
+              ],
+              [
+                "y",
+                "1040"
+              ],
+              [
+                "class",
+                "label"
+              ],
+              [
+                "data-feature",
+                "caption"
+              ]
+            ],
+            "text": "Tongue below laces; quarter edges bound the opening. Right inset shows central pairs only.",
+            "tail": "\n    ",
+            "parent_id": "inside-detail",
+            "sibling_index": 4,
+            "view": "entry-and-lacing-detail",
+            "feature": "caption",
+            "children": []
+          },
+          {
+            "id": "inside-caption-2",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "inside-caption-2"
+              ],
+              [
+                "x",
+                "450"
+              ],
+              [
+                "y",
+                "1064"
+              ],
+              [
+                "class",
+                "small"
+              ],
+              [
+                "data-feature",
+                "caption"
+              ]
+            ],
+            "text": "Full top view owns all five pairs. Solid marks show visible design lines; section breaks are labelled.",
+            "tail": "\n    ",
+            "parent_id": "inside-detail",
+            "sibling_index": 5,
+            "view": "entry-and-lacing-detail",
+            "feature": "caption",
+            "children": []
+          },
+          {
+            "id": "right-counterpart-note",
+            "tag": "{http://www.w3.org/2000/svg}text",
+            "attributes": [
+              [
+                "id",
+                "right-counterpart-note"
+              ],
+              [
+                "x",
+                "450"
+              ],
+              [
+                "y",
+                "1100"
+              ],
+              [
+                "class",
+                "small"
+              ],
+              [
+                "data-feature",
+                "right-counterpart-intent"
+              ]
+            ],
+            "text": "Right counterpart: mirrored stylistic roles intended; no right shoe or anatomical pair is drawn.",
+            "tail": "\n  ",
+            "parent_id": "inside-detail",
+            "sibling_index": 6,
+            "view": "entry-and-lacing-detail",
+            "feature": "right-counterpart-intent",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "footer-rule",
+        "tag": "{http://www.w3.org/2000/svg}line",
+        "attributes": [
+          [
+            "id",
+            "footer-rule"
+          ],
+          [
+            "x1",
+            "54"
+          ],
+          [
+            "y1",
+            "1131"
+          ],
+          [
+            "x2",
+            "1386"
+          ],
+          [
+            "y2",
+            "1131"
+          ],
+          [
+            "class",
+            "rule"
+          ]
+        ],
+        "text": null,
+        "tail": "\n  ",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 16,
+        "view": "sheet",
+        "feature": "layout",
+        "children": []
+      },
+      {
+        "id": "footer-scope",
+        "tag": "{http://www.w3.org/2000/svg}text",
+        "attributes": [
+          [
+            "id",
+            "footer-scope"
+          ],
+          [
+            "x",
+            "54"
+          ],
+          [
+            "y",
+            "1155"
+          ],
+          [
+            "class",
+            "small"
+          ],
+          [
+            "data-feature",
+            "scope"
+          ]
+        ],
+        "text": "Artist schematics, independently authored views. Physical pattern, lining continuity, manufacturing, materials and foot/body fit remain open.",
+        "tail": "\n  ",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 17,
+        "view": "sheet",
+        "feature": "scope",
+        "children": []
+      },
+      {
+        "id": "footer-motion-scope",
+        "tag": "{http://www.w3.org/2000/svg}text",
+        "attributes": [
+          [
+            "id",
+            "footer-motion-scope"
+          ],
+          [
+            "x",
+            "1386"
+          ],
+          [
+            "y",
+            "1155"
+          ],
+          [
+            "text-anchor",
+            "end"
+          ],
+          [
+            "class",
+            "small"
+          ],
+          [
+            "data-feature",
+            "scope"
+          ]
+        ],
+        "text": "Motion / runtime unqualified",
+        "tail": "\n",
+        "parent_id": "ari-shoe-sheet",
+        "sibling_index": 18,
+        "view": "sheet",
+        "feature": "scope",
+        "children": []
+      }
+    ]
+  },
+  "view_map": {
+    "sheet": [
+      "ari-shoe-sheet",
+      "sheet-title",
+      "sheet-description",
+      "sheet-style",
+      "paper",
+      "main-heading",
+      "main-subheading",
+      "header-scope",
+      "header-rule",
+      "bottom-separator",
+      "footer-rule",
+      "footer-scope",
+      "footer-motion-scope"
+    ],
+    "left-top": [
+      "top-view",
+      "top-title",
+      "top-number",
+      "top-shoe",
+      "top-shell",
+      "top-quarter-panels",
+      "top-outer-quarter",
+      "top-inner-quarter",
+      "top-entry",
+      "top-collar-rim",
+      "top-entry-lining",
+      "top-footbed",
+      "top-tongue",
+      "top-eyelet-stays",
+      "top-outer-stay",
+      "top-inner-stay",
+      "top-five-eyelet-pairs",
+      "top-eye-outer-1",
+      "top-eye-inner-1",
+      "top-eye-outer-2",
+      "top-eye-inner-2",
+      "top-eye-outer-3",
+      "top-eye-inner-3",
+      "top-eye-outer-4",
+      "top-eye-inner-4",
+      "top-eye-outer-5",
+      "top-eye-inner-5",
+      "top-lace-under",
+      "top-lace-under-border",
+      "top-lace-under-tape",
+      "top-lace-over",
+      "top-lace-over-border",
+      "top-lace-over-tape",
+      "top-lace-finish-border",
+      "top-lace-finish-tape",
+      "top-toe-label",
+      "top-medial-label",
+      "top-medial-leader",
+      "top-caption-1",
+      "top-caption-2",
+      "top-caption-3"
+    ],
+    "left-lateral": [
+      "lateral-view",
+      "lateral-title",
+      "lateral-number",
+      "lateral-shoe",
+      "lateral-upper",
+      "lateral-quarter",
+      "lateral-entry",
+      "lateral-counter",
+      "lateral-tongue",
+      "lateral-stay",
+      "lateral-eyelet-row",
+      "lateral-eye-1",
+      "lateral-eye-2",
+      "lateral-eye-3",
+      "lateral-eye-4",
+      "lateral-eye-5",
+      "lateral-lace-abbreviation",
+      "lateral-sidewall",
+      "lateral-contact-band",
+      "lateral-attachment-line",
+      "lateral-toe-direction",
+      "lateral-heel-direction",
+      "lateral-caption"
+    ],
+    "left-medial": [
+      "medial-view",
+      "medial-title",
+      "medial-number",
+      "medial-shoe",
+      "medial-upper",
+      "medial-quarter",
+      "medial-entry",
+      "medial-counter",
+      "medial-tongue",
+      "medial-stay",
+      "medial-eyelet-row",
+      "medial-eye-5",
+      "medial-eye-4",
+      "medial-eye-3",
+      "medial-eye-2",
+      "medial-eye-1",
+      "medial-lace-abbreviation",
+      "medial-sidewall",
+      "medial-contact-band",
+      "medial-attachment-line",
+      "medial-heel-direction",
+      "medial-toe-direction",
+      "medial-caption"
+    ],
+    "left-front": [
+      "front-view",
+      "front-title",
+      "front-number",
+      "front-shoe",
+      "front-tongue",
+      "front-lace-hints-border",
+      "front-lace-hints-tape",
+      "front-vamp",
+      "front-sidewall",
+      "front-contact-band",
+      "front-caption-1",
+      "front-caption-2"
+    ],
+    "left-rear": [
+      "rear-view",
+      "rear-title",
+      "rear-number",
+      "rear-shoe",
+      "rear-upper",
+      "rear-entry-lining",
+      "rear-counter",
+      "rear-back-join",
+      "rear-sidewall",
+      "rear-contact-band",
+      "rear-caption"
+    ],
+    "left-outsole": [
+      "outsole-view",
+      "outsole-title",
+      "outsole-number",
+      "outsole-shoe",
+      "outsole-edge",
+      "outsole-field",
+      "outsole-forefoot-marks",
+      "outsole-forefoot-mark-1",
+      "outsole-forefoot-mark-2",
+      "outsole-forefoot-mark-3",
+      "outsole-forefoot-mark-4",
+      "outsole-forefoot-mark-5",
+      "outsole-heel-marks",
+      "outsole-heel-mark-1",
+      "outsole-heel-mark-2",
+      "outsole-heel-mark-3",
+      "outsole-medial-label",
+      "outsole-medial-leader",
+      "outsole-arch-label",
+      "outsole-caption-1",
+      "outsole-caption-2"
+    ],
+    "entry-and-lacing-detail": [
+      "inside-detail",
+      "inside-title",
+      "inside-number",
+      "entry-section",
+      "entry-outer-wall",
+      "entry-lining-return",
+      "entry-footbed-surface",
+      "entry-cut-edge-left",
+      "entry-cut-edge-right",
+      "entry-section-caption",
+      "entry-labels",
+      "lining-label",
+      "lining-leader",
+      "footbed-label",
+      "footbed-leader",
+      "lace-detail",
+      "detail-tongue",
+      "detail-outer-quarter",
+      "detail-inner-quarter",
+      "detail-three-central-pairs",
+      "detail-eye-outer-1",
+      "detail-eye-inner-1",
+      "detail-eye-outer-2",
+      "detail-eye-inner-2",
+      "detail-eye-outer-3",
+      "detail-eye-inner-3",
+      "detail-under-border",
+      "detail-under-tape",
+      "detail-over-border",
+      "detail-over-tape",
+      "inside-caption-1",
+      "inside-caption-2",
+      "right-counterpart-note"
+    ]
+  },
+  "feature_map": {
+    "layout": [
+      "ari-shoe-sheet",
+      "sheet-title",
+      "sheet-description",
+      "sheet-style",
+      "paper",
+      "header-rule",
+      "bottom-separator",
+      "footer-rule"
+    ],
+    "heading": [
+      "main-heading"
+    ],
+    "scope": [
+      "main-subheading",
+      "header-scope",
+      "footer-scope",
+      "footer-motion-scope"
+    ],
+    "top-shell": [
+      "top-view",
+      "top-title",
+      "top-number",
+      "top-shoe",
+      "top-shell"
+    ],
+    "quarters": [
+      "top-quarter-panels",
+      "top-outer-quarter",
+      "top-inner-quarter",
+      "rear-upper"
+    ],
+    "collar-lining": [
+      "top-entry",
+      "top-collar-rim",
+      "top-entry-lining",
+      "lateral-entry",
+      "medial-entry",
+      "rear-entry-lining"
+    ],
+    "footbed": [
+      "top-footbed",
+      "entry-footbed-surface"
+    ],
+    "tongue": [
+      "top-tongue",
+      "lateral-tongue",
+      "medial-tongue",
+      "front-tongue",
+      "detail-tongue"
+    ],
+    "eyelet-stays": [
+      "top-eyelet-stays",
+      "top-outer-stay",
+      "top-inner-stay",
+      "lateral-stay",
+      "medial-stay"
+    ],
+    "five-eyelet-pairs": [
+      "top-five-eyelet-pairs",
+      "top-eye-outer-1",
+      "top-eye-inner-1",
+      "top-eye-outer-2",
+      "top-eye-inner-2",
+      "top-eye-outer-3",
+      "top-eye-inner-3",
+      "top-eye-outer-4",
+      "top-eye-inner-4",
+      "top-eye-outer-5",
+      "top-eye-inner-5",
+      "lateral-eyelet-row",
+      "lateral-eye-1",
+      "lateral-eye-2",
+      "lateral-eye-3",
+      "lateral-eye-4",
+      "lateral-eye-5",
+      "medial-eyelet-row",
+      "medial-eye-5",
+      "medial-eye-4",
+      "medial-eye-3",
+      "medial-eye-2",
+      "medial-eye-1"
+    ],
+    "lace-under-layer": [
+      "top-lace-under",
+      "top-lace-under-border",
+      "top-lace-under-tape",
+      "detail-under-border",
+      "detail-under-tape"
+    ],
+    "lace-over-layer": [
+      "top-lace-over",
+      "top-lace-over-border",
+      "top-lace-over-tape",
+      "detail-over-border",
+      "detail-over-tape"
+    ],
+    "lace-finish": [
+      "top-lace-finish-border",
+      "top-lace-finish-tape"
+    ],
+    "orientation": [
+      "top-toe-label",
+      "top-medial-label",
+      "top-medial-leader",
+      "lateral-toe-direction",
+      "lateral-heel-direction",
+      "medial-heel-direction",
+      "medial-toe-direction",
+      "outsole-medial-label",
+      "outsole-medial-leader"
+    ],
+    "caption": [
+      "top-caption-1",
+      "top-caption-2",
+      "top-caption-3",
+      "lateral-caption",
+      "medial-caption",
+      "front-caption-1",
+      "front-caption-2",
+      "rear-caption",
+      "outsole-arch-label",
+      "outsole-caption-1",
+      "outsole-caption-2",
+      "entry-section-caption",
+      "inside-caption-1",
+      "inside-caption-2"
+    ],
+    "lateral-shell": [
+      "lateral-view",
+      "lateral-title",
+      "lateral-number",
+      "lateral-shoe"
+    ],
+    "vamp": [
+      "lateral-upper",
+      "medial-upper",
+      "front-vamp"
+    ],
+    "outer-quarter": [
+      "lateral-quarter",
+      "detail-outer-quarter"
+    ],
+    "heel-counter": [
+      "lateral-counter",
+      "medial-counter",
+      "rear-counter"
+    ],
+    "lace-profile-abbreviation": [
+      "lateral-lace-abbreviation",
+      "medial-lace-abbreviation",
+      "front-lace-hints-border",
+      "front-lace-hints-tape"
+    ],
+    "sidewall": [
+      "lateral-sidewall",
+      "medial-sidewall",
+      "front-sidewall",
+      "rear-sidewall"
+    ],
+    "contact-edge": [
+      "lateral-contact-band",
+      "medial-contact-band",
+      "front-contact-band",
+      "rear-contact-band"
+    ],
+    "upper-sidewall-junction": [
+      "lateral-attachment-line",
+      "medial-attachment-line"
+    ],
+    "medial-shell": [
+      "medial-view",
+      "medial-title",
+      "medial-number",
+      "medial-shoe"
+    ],
+    "inner-quarter": [
+      "medial-quarter",
+      "detail-inner-quarter"
+    ],
+    "toe-shell": [
+      "front-view",
+      "front-title",
+      "front-number",
+      "front-shoe"
+    ],
+    "heel-shell": [
+      "rear-view",
+      "rear-title",
+      "rear-number",
+      "rear-shoe"
+    ],
+    "back-join": [
+      "rear-back-join"
+    ],
+    "outsole-silhouette": [
+      "outsole-view",
+      "outsole-title",
+      "outsole-number",
+      "outsole-shoe",
+      "outsole-edge",
+      "outsole-field"
+    ],
+    "outsole-mark-intent": [
+      "outsole-forefoot-marks",
+      "outsole-forefoot-mark-1",
+      "outsole-forefoot-mark-2",
+      "outsole-forefoot-mark-3",
+      "outsole-forefoot-mark-4",
+      "outsole-forefoot-mark-5",
+      "outsole-heel-marks",
+      "outsole-heel-mark-1",
+      "outsole-heel-mark-2",
+      "outsole-heel-mark-3"
+    ],
+    "inside-ownership": [
+      "inside-detail",
+      "inside-title",
+      "inside-number"
+    ],
+    "lining-return": [
+      "entry-section",
+      "entry-outer-wall",
+      "entry-lining-return"
+    ],
+    "section-convention": [
+      "entry-cut-edge-left",
+      "entry-cut-edge-right"
+    ],
+    "inside-labels": [
+      "entry-labels",
+      "lining-label",
+      "lining-leader",
+      "footbed-label",
+      "footbed-leader"
+    ],
+    "tongue-under-laces": [
+      "lace-detail"
+    ],
+    "lace-detail-abbreviation": [
+      "detail-three-central-pairs",
+      "detail-eye-outer-1",
+      "detail-eye-inner-1",
+      "detail-eye-outer-2",
+      "detail-eye-inner-2",
+      "detail-eye-outer-3",
+      "detail-eye-inner-3"
+    ],
+    "right-counterpart-intent": [
+      "right-counterpart-note"
+    ]
+  },
+  "view_conventions": {
+    "left-top": "Toe up; medial at viewer-right.",
+    "left-lateral": "Toe left / heel right; near outer row visible, far row concealed.",
+    "left-medial": "Toe right / heel left; near inner row visible, far row concealed.",
+    "left-front": "Toward toe; rear laces partly occluded.",
+    "left-rear": "Toward heel; collar opening, counter and central join.",
+    "left-outsole": "Looking from below; toe up / medial at viewer-left.",
+    "entry-and-lacing-detail": "Opened section and central crossing detail; not measured anatomy or a complete second shoe."
+  },
+  "five_pair_ownership": {
+    "outer": [
+      "top-eye-outer-1",
+      "top-eye-outer-2",
+      "top-eye-outer-3",
+      "top-eye-outer-4",
+      "top-eye-outer-5"
+    ],
+    "inner": [
+      "top-eye-inner-1",
+      "top-eye-inner-2",
+      "top-eye-inner-3",
+      "top-eye-inner-4",
+      "top-eye-inner-5"
+    ],
+    "tongue": "top-tongue",
+    "under_layer": "top-lace-under",
+    "over_layer": "top-lace-over",
+    "finish": "top-lace-finish-tape",
+    "inset": "detail-three-central-pairs",
+    "inset_scope": "Three central pairs shown enlarged; full top view owns all five."
+  },
+  "authorial_choices": [
+    "Quiet ivory rounded plain vamp; no separate toe cap, commercial branding, stripe or copied diamond tread.",
+    "Two quarters/eyelet stays, independent tongue below crossing flat laces, five pairs and an explicit finish.",
+    "Collar/lining entry and footbed surface, heel counter/back join, sidewall/contact-edge and new outsole mark intent.",
+    "Medial contour, hidden views and inside section are newly authored schematic choices.",
+    "Written mirrored stylistic right counterpart only; no right shoe, foot/body import or registered anatomical pair."
+  ],
+  "appearance_intent": {
+    "upper": "ivory",
+    "quarters": "slightly shaded ivory",
+    "lining": "light grey with a darker edge",
+    "sidewall": "low pale unstriped field",
+    "contact_edge": "thin darker band",
+    "marks": "original visual surface intent, no grip/material/comfort claim"
+  },
+  "limits": [
+    "SVG paths do not prove sewing, real lining continuity, closure/adhesive/removal/load or manufacturing mechanics.",
+    "No anatomy/foot/last/body/foundation/3D fit, paired registration, rig/morph/pose/motion/runtime/performance or AAA qualification.",
+    "Accepted/default/frozen sources and all closed numerical/collector/Mara routes are preserved."
+  ]
+}

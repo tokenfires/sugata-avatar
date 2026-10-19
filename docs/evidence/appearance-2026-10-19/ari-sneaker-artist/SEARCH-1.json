@@ -1,0 +1,73 @@
+{
+  "request": {
+    "query": "site:veja-store.com CAMPO white leather sneaker rubber sole official",
+    "includeDomains": [
+      "veja-store.com"
+    ],
+    "sources": [
+      "web"
+    ],
+    "domainTools": false,
+    "limit": 3,
+    "highlights": true
+  },
+  "result": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://www.veja-store.com/en_us/p/campo-leather-white-natural-CP0502429.html?srsltid=AU7gw4XpHrcOfwGCdR_9EEs27juQu65CuKJqcyBI6sTXoXDNW1fK8mpG\",\"title\":\"CAMPO LEATHER WHITE NATURAL - VEJA\",\"description\":\"In stock Rating 4.43,270Sneakers CAMPO LEATHER WHITE NATURAL, Made with sustainable and organic materials. Insole: Amazonian rubber (11%), Outsole: Amazonian rubber (40%), recycled ...\",\"position\":1},{\"url\":\"https://www.veja-store.com/en_us/p/campo-leather-white-black-CP0501537.html?srsltid=AU7gw4XR9tEwWgH6OjjVbfINGIRT493-G4CpEHeYEarUVkEvC7lYE2fj\",\"title\":\"CAMPO LEATHER WHITE BLACK - VEJA\",\"description\":\"In stock Rating 4.32,517CAMPO LEATHER WHITE BLACK, BLACK $175 White / Insole: Amazonian rubber (11%), Outsole: Amazonian rubber (40%), recycled rubber scraps (10%), synthetic rubber ( ...\",\"position\":2},{\"url\":\"https://www.veja-store.com/en_us/women-campo?srsltid=AU7gw4VnqngEI4xOgwI63Sx5aIEDjhkNJiQZ84N_mWjMGYhSMoSezSWj\",\"title\":\"Campo | Women's Sneakers and Shoes - VEJA\",\"description\":\"3.89.7K · Free delivery over $95Discover the Campo,a VEJA classic, available in leather, suede, and organic cotton. Available for Women. CAMPO LEATHER WHITE NATURAL $175\",\"position\":3}],\"tools\":[{\"provider\":\"tiendanube-com\",\"capability\":\"products/list_products\",\"description\":\"Catalogue, new products (sort created-descending), prices or stock of a store on Tiendanube / Nuvemshop (*.mitiendanube.com, *.lojavirtualnuvem.com.br or a custom domain). Get category paths from list_categories and product details from get_product.\"},{\"provider\":\"microcenter-com\",\"capability\":\"products/list_stores\",\"description\":\"To find the store_id for a city before calling search_products, lookup_by_sku or get_product.\"},{\"provider\":\"microcenter-com\",\"capability\":\"products/search_products\",\"description\":\"Discovery: find products by keyword or browse a category (e.g. \\\"Graphics Cards|518\\\") for a given store_id. Use lookup_by_sku for a known SKU and get_product for full details.\"}]},\"creditsUsed\":2,\"id\":\"01a15314-8536-7741-8ae7-f8668f07fc4b\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://www.veja-store.com/en_us/p/campo-leather-white-natural-CP0502429.html?srsltid=AU7gw4XpHrcOfwGCdR_9EEs27juQu65CuKJqcyBI6sTXoXDNW1fK8mpG\\\", #2 \\\"https://www.veja-store.com/en_us/p/campo-leather-white-black-CP0501537.html?srsltid=AU7gw4XR9tEwWgH6OjjVbfINGIRT493-G4CpEHeYEarUVkEvC7lYE2fj\\\", #3 \\\"https://www.veja-store.com/en_us/women-campo?srsltid=AU7gw4VnqngEI4xOgwI63Sx5aIEDjhkNJiQZ84N_mWjMGYhSMoSezSWj\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+        }
+      ],
+      "structuredContent": {
+        "success": true,
+        "data": {
+          "web": [
+            {
+              "url": "https://www.veja-store.com/en_us/p/campo-leather-white-natural-CP0502429.html?srsltid=AU7gw4XpHrcOfwGCdR_9EEs27juQu65CuKJqcyBI6sTXoXDNW1fK8mpG",
+              "title": "CAMPO LEATHER WHITE NATURAL - VEJA",
+              "description": "In stock Rating 4.43,270Sneakers CAMPO LEATHER WHITE NATURAL, Made with sustainable and organic materials. Insole: Amazonian rubber (11%), Outsole: Amazonian rubber (40%), recycled ...",
+              "position": 1
+            },
+            {
+              "url": "https://www.veja-store.com/en_us/p/campo-leather-white-black-CP0501537.html?srsltid=AU7gw4XR9tEwWgH6OjjVbfINGIRT493-G4CpEHeYEarUVkEvC7lYE2fj",
+              "title": "CAMPO LEATHER WHITE BLACK - VEJA",
+              "description": "In stock Rating 4.32,517CAMPO LEATHER WHITE BLACK, BLACK $175 White / Insole: Amazonian rubber (11%), Outsole: Amazonian rubber (40%), recycled rubber scraps (10%), synthetic rubber ( ...",
+              "position": 2
+            },
+            {
+              "url": "https://www.veja-store.com/en_us/women-campo?srsltid=AU7gw4VnqngEI4xOgwI63Sx5aIEDjhkNJiQZ84N_mWjMGYhSMoSezSWj",
+              "title": "Campo | Women's Sneakers and Shoes - VEJA",
+              "description": "3.89.7K · Free delivery over $95Discover the Campo,a VEJA classic, available in leather, suede, and organic cotton. Available for Women. CAMPO LEATHER WHITE NATURAL $175",
+              "position": 3
+            }
+          ],
+          "tools": [
+            {
+              "provider": "tiendanube-com",
+              "capability": "products/list_products",
+              "description": "Catalogue, new products (sort created-descending), prices or stock of a store on Tiendanube / Nuvemshop (*.mitiendanube.com, *.lojavirtualnuvem.com.br or a custom domain). Get category paths from list_categories and product details from get_product."
+            },
+            {
+              "provider": "microcenter-com",
+              "capability": "products/list_stores",
+              "description": "To find the store_id for a city before calling search_products, lookup_by_sku or get_product."
+            },
+            {
+              "provider": "microcenter-com",
+              "capability": "products/search_products",
+              "description": "Discovery: find products by keyword or browse a category (e.g. \"Graphics Cards|518\") for a given store_id. Use lookup_by_sku for a known SKU and get_product for full details."
+            }
+          ]
+        },
+        "id": "01a15314-8536-7741-8ae7-f8668f07fc4b",
+        "creditsUsed": 2,
+        "agent_hints": [
+          "All 3 web results are excerpts only (#1 \"https://www.veja-store.com/en_us/p/campo-leather-white-natural-CP0502429.html?srsltid=AU7gw4XpHrcOfwGCdR_9EEs27juQu65CuKJqcyBI6sTXoXDNW1fK8mpG\", #2 \"https://www.veja-store.com/en_us/p/campo-leather-white-black-CP0501537.html?srsltid=AU7gw4XR9tEwWgH6OjjVbfINGIRT493-G4CpEHeYEarUVkEvC7lYE2fj\", #3 \"https://www.veja-store.com/en_us/women-campo?srsltid=AU7gw4VnqngEI4xOgwI63Sx5aIEDjhkNJiQZ84N_mWjMGYhSMoSezSWj\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+        ]
+      },
+      "isError": false
+    }
+  }
+}

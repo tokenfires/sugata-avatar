@@ -1,0 +1,27 @@
+# Ari ivory low-top — bounded artist delivery
+
+Retain the original editable left-shoe sheet at 2D artist scope. [Usable handoff](ARTIST-HANDOFF.md), [review page](review.html), [actual first image](first.jpg), [root decision](ROOT-IMAGE.json). No clarity clone or second capture is warranted; the remaining capture allowance is retired. All source files, original concept and frozen references remain exact.
+
+## Question and decision
+
+The retained Ari concept visibly owns quiet ivory low-tops but leaves collar, inside and sole details unspecified. A fresh worth gate admitted one usable artist sheet and a bounded question: plain rounded vamp/unstriped sidewall, separate cap/wrapped sidewall, or defer? The two current maker pages and two actual maker image views support choosing the first visual language. The final broad toe and hidden details are original schematic choices, not exact concept reproduction or maker construction. Six independently authored left-shoe views plus enlarged entry/lace intent remain unregistered; only written right-counterpart intent is supplied.
+
+## Exact preparation and jobs
+
+Starting local HEAD is `9a8ef61c3d22676b0bc97f042123d7389e74ecd5`. PLAN records that epoch's main-document pins. After delivery edits, resolve those four historical main-document pins through this commit; they are not current-byte assertions. All source/image/reference pins remain current.
+
+- Worth A: critic ebc200 / PID78071 / 07:32:36UTC; root5113ea/3d0a7e. Fresh plan and root gate preceded all investigation.
+- Research: exactly two Firecrawl searches, two live primary markdown pages and two actual whole primary-image views. VEJA Campo white/natural and Converse Chuck low-top are documented in REFERENCES and raw SEARCH/PRIMARY receipts. Six observed credits; no capacity purchase or subscription/model/reset-credit change. No third example/refetch/capture. Both raw primary JPEGs are preserved unchanged. Initial provider-wrapper reader error and output truncation were recovered against the same saved bytes, without new network work.
+- Brief A: critic5ce138 / PID78991 / 07:40:24UTC; root686bd7/5a8085. REFERENCES/BRIEF and all original limits were frozen before authorship.
+- Inert source: a53bae parse; 537e65 writer; db2a32 / PID79767 / 07:47:44UTC preparation. shoe.svg20,445bytes/SHA3931b4f1875257888ca6003ff106a36d7dd81db83adbccaed0299be64fc0e377; design.json187,765/SHAfd242916ecfb995d9b721bf257da3064589ed36289353beac038353472e332d6; review.html2,732/SHAf7d19d621d455f0135d603938bf11bc26378eb34ca4511861921751e957d0fbf. Registry177elements/8view owners including sheet/37feature groups. An inert front-vamp/sidewall alignment was completed before initial source freeze, review or capture; no trial/image repair.
+- Source A: critic00ca82 / PID80457 / 07:52:35UTC; independent observer8b4c70 checks the full177-node tree, all layer/role associations and seven viewer references. Root actual reads412063/798eea and separate source audit e704d9; complete critic handoff61c791; fresh gate1e8689 / PID80935 / 07:56:59UTC verifies21direct and31nested rows. Initial root admission e7640e failed on a mistyped expected receipt hash before write/navigation/capture; only the expectation literal was corrected. Source and critic bytes did not change.
+- Sole actual candidate capture: CUA IAB3/tab3, fullPage true, default1280×720/DPR2, two complete images. UTC07:57:15.415–.498. Original unchanged JPEG235,475bytes/SHA60c9a3337eaa51ced70496718dc7d88c65a378aae13dbb848173cf0b09be27ce; actual1280×1969. FIRST-CAPTURE-RAW records loaded URL/dimensions. Storage pins and loaded src do not prove fetched-byte identity. Root977fe6/PID80998 verifies metadata and source pins; actual whole image inspected in CUA, independently recorded e85ece/PID81458.
+- Actual image A: critic80b9b0 / PID81545 / 08:01:39UTC, complete image viewed independently before root opinion. Root7201e2 reads entire3316-byte review and10922-byte receipt; b1058c/PID81604/08:02:12UTC verifies19direct and66nested rows/35paths and agrees with the independent pixel witnesses. No actionable defect; main lacing density is resolved by central-pair inset, broad toe accepted as artist simplification. Stop graphical work.
+
+No native-avatar, Blender, GPU, source-member decode, field/mesh/constructor or numerical fixture was run by this slice. No production/default/accepted or 3D source asset changed. Source counts support editability; the actual image supplies appearance qualification only at the stated artist scope.
+
+## Scope and recovery
+
+Delivery adds one link on the existing Ari wardrobe card and one narrow artist checklist row; all ten broad outstanding goals remain verbatim. The whole character, expression/gaze/gesture, representation, complete wardrobe/physical fit, material/morph/pose/motion, runtime/performance, VTuber/Mii and AAA roadmap remains open. No physical lining continuity, pattern/sewing/manufacturing, grip, anatomical pair/last/body fit or registered geometry is qualified.
+
+The one image and two-reference budgets are closed; leave the unused capture unused. All older source/collector/numerical/Mara/capture/tuning closures remain. Next work requires a distinct useful bounded question and fresh independent worth, not another modification of this sheet. Retain Vite and the existing active ten-minute recovery heartbeat. Human check-in or pause takes precedence; no push or publication.

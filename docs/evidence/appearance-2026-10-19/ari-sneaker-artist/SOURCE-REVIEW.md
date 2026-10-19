@@ -1,0 +1,15 @@
+A — the exact source/registry packet is suitable and one first whole-image capture is worth doing after root’s fresh gate. Appearance remains unobserved.
+
+I read the whole190-line SVG, complete viewer and all JSON non-tree semantics. Independent parsing compares the complete177-node JSON tree against XML: exact raw source, expanded tags, ordered attributes, verbatim text/tail, child order, parent ID/index and inherited view/feature all agree. All8 view owners (sheet plus7 areas),37 feature associations and every role reference resolve. Current size/node caps pass; the script-free viewer’s7 local references exist.
+
+The source owns the requested shoe rather than merely naming parts. Top29–34 has five explicit eyelet pairs; tongue24 precedes stays and laces. Under37–38, over41–42 and finish44–45 supply separate bordered paint layers, with an enlarged three-pair detail explicitly abbreviated at172–183. This is a declared legibility mechanism, not a pixel pass. Lateral/medial profiles show five near-side eyelets and label the far row concealed; opposite toe directions and top/underside medial labels match the written independent-view conventions. Collar lining/footbed, profile entries, counters and rear join are explicit.
+
+The plain front vamp105 shares its curved lower boundary with sidewall106. Distinct pale sidewall/contact-band roles occur in both profiles, front and rear. Outsole130–149 has original forefoot/heel marks and a named arch break. The opened entry155–160 owns lining return and footbed intent, with leaders to those actual operands; it expressly disclaims a measured cavity. The written right counterpart remains intent only. All captions and JSON limits preserve unitless, unregistered artist scope.
+
+No actionable source or registry defect is demonstrated. Alternative A is the first serialized whole-page capture of this exact packet, which can answer whether silhouette, five-pair crossing order, entry and seven-area captions are readable at delivery scale. Alternative B is retaining source-only without visual delivery, avoiding a capture but leaving the usable artist result unqualified. I select A. Do not treat XML counts, source paint order or JSON equality as actual readability.
+
+No reference work remains. Root must reverify exact storage pins and own the actual loaded-page/image/capture/collection gate; local reference existence is not browser fetched-byte or paint evidence. Maximum2 candidate captures permit only one witnessed clarity clone. A structural creative failure or unavailable fixed gate closes without geometric/style/transport rescue.
+
+Source08:20/review08:35/root08:40/first capture08:45/final08:55/image09:00/closure09:10UTC remain fixed. No sewing, physical lining continuity, manufacturing, anatomical pairing, body/last fit, 3D, motion/runtime or AAA qualification follows. Existing sources/assets and all closed computational/Mara routes remain. Critic used only source parsing/reads/hashes; no rendering, navigation, capture, network or drawing edit. Only this pair was written. pending_edits=false.
+
+Collected UTC: 2026-10-19T07:52:35.799037+00:00

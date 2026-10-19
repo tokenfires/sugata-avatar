@@ -1,0 +1,77 @@
+diff --git a/docs/ARTIST-WARDROBE.html b/docs/ARTIST-WARDROBE.html
+index 806634c4..895cc09f 100644
+--- a/docs/ARTIST-WARDROBE.html
++++ b/docs/ARTIST-WARDROBE.html
+@@ -29,7 +29,7 @@
+ <article class="card" aria-labelledby="item-7">
+ <div class="copy"><p class="label">Illustrated character direction</p><h3 id="item-7">Short rust layers, broader volume</h3></div>
+ <figure><img src="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png" alt="Original Ari front, profile, rear and portrait concept with short dark curls, an open rust jacket, slate tee, generous ink trousers and ivory shoes" decoding="async"><figcaption><p>Ari's short jacket and generous trousers, with distinct front, profile and rear views to discuss torso depth, seat and garment balance.</p><p class="limit">Artist discussion artwork. Material and waist details need further authorship; editable character, wearable fit and motion remain open.</p><a class="original" href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png">Open complete original image ↗</a></figcaption></figure>
+-<div class="links" aria-label="Ari character files"><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md">Character brief</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/review.html">Bomber drawing</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/review-caption.html">Interior and lining drawing</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/review-clarity.html">Trouser drawing</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/bomber.svg">Editable SVG</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/design.json">Design JSON</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-source-authority/SOURCE-HANDOFF.md">Body source baseline</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-body-recipe/AUTHORING-REQUEST.md">Body recipe request (held)</a></div>
++<div class="links" aria-label="Ari character files"><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md">Character brief</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/review.html">Bomber drawing</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/review-caption.html">Interior and lining drawing</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/review-clarity.html">Trouser drawing</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/review.html">Ivory shoe drawing</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/bomber.svg">Editable SVG</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/design.json">Design JSON</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-source-authority/SOURCE-HANDOFF.md">Body source baseline</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-body-recipe/AUTHORING-REQUEST.md">Body recipe request (held)</a></div>
+ </article>
+ </div></section>
+ <section id="pieces" aria-labelledby="pieces-title"><div class="section-head"><h2 id="pieces-title">Editable wardrobe drafts</h2><p>Retained actual mesh images. Each piece has its own authored, unitless frame.</p></div><div class="grid">
+diff --git a/docs/PROJECT-CHECKLIST.md b/docs/PROJECT-CHECKLIST.md
+index 6ba187a6..8e884fd4 100644
+--- a/docs/PROJECT-CHECKLIST.md
++++ b/docs/PROJECT-CHECKLIST.md
+@@ -1,6 +1,6 @@
+ # Sugata project checklist
+ 
+-Updated October 18, 2026. **Customization is usable; complete character quality is still in progress.** Checked items describe the supported features or artist deliverables below, within their recorded review limits.
++Updated October 19, 2026. **Customization is usable; complete character quality is still in progress.** Checked items describe the supported features or artist deliverables below, within their recorded review limits.
+ 
+ ## Usable now
+ 
+@@ -39,6 +39,8 @@ Updated October 18, 2026. **Customization is usable; complete character quality
+ 
+ - [x] Original editable Ari trouser artist sheet with front, profile, rear and waist/pleat/fly/pocket-layer/hem intent; sewing, physical fit, 3D and motion remain open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-18/ari-trouser-artist/ARTIST-HANDOFF.md)
+ 
++- [x] Original editable Ari ivory low-top artist sheet with six left-shoe views and enlarged entry/lacing intent; unitless 2D design, with physical continuity, manufacturing, anatomical pairing, 3D fit and motion still open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md)
++
+ [Open the visual wardrobe board](ARTIST-WARDROBE.html) to inspect the retained character directions and editable drafts together.
+ 
+ These references do not establish physical folding, wearable fit or finished garment appearance. The original body/foundation source data and coverage guide support further authorship. The latest sewn-panel trial failed its clearance requirement and remains isolated. [Current evidence and recovery](DAY-REPORT-2026-10-04.md)
+diff --git a/docs/RESUME-2026-10-18.md b/docs/RESUME-2026-10-18.md
+index 55bdf6fc..c17d5e9a 100644
+--- a/docs/RESUME-2026-10-18.md
++++ b/docs/RESUME-2026-10-18.md
+@@ -2,7 +2,17 @@
+ 
+ Robert explicitly resumed after updates in this chat, with the independent quality critic and ten-minute recovery timer. This revokes the human pause for Sugata. It does not admit expired trials or bypass a source/constructor HOLD.
+ 
+-## Latest current checkpoint — sequential local cell component
++## Latest current checkpoint — Ari ivory shoe artist sheet
++
++[Open the reviewed editable left-shoe sheet](evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md). Six independent views and enlarged entry/lacing intent make the quiet ivory low-top's new tongue, collar lining, footbed, heel and sole choices explicit. Full top owns five lace pairs; enlarged inset shows three central pairs. Right counterpart is written intent only; broad toe is original schematic authorship rather than exact concept reproduction or registered anatomy.
++
++The sole actual first image passes independent critic and root review at 2D artist scope. Complete177-element SVG/JSON association supports editability, not physical construction. Small main-view lacing density is resolved by the enlargement; no actionable communication defect is demonstrated. One of two possible captures used; the unused allowance is retired and this graphical slice is closed. [Exact slice receipt](evidence/appearance-2026-10-19/ari-sneaker-artist/README.md), [actual image decision](evidence/appearance-2026-10-19/ari-sneaker-artist/ROOT-IMAGE.json). Two searches/two live primary pages/two actual primary image views are exhausted; no further examples or variants.
++
++One existing Ari-card link and one narrow artist row make the sheet available. Checklist now has22scoped checked items and the same ten broad outstanding goals. Physical continuity, manufacturing/material/grip, anatomical pair/last/body fit,3D,rig/morph/pose/motion/runtime/performance and full AAA character quality remain open. No accepted/default/production/3D source asset changed. Collector/source decode and all older numerical/Mara/capture/tuning routes remain closed; real material-volume construction remains held.
++
++Next is a distinct usable character/wardrobe improvement with one bounded research question and fresh critic worth before investigation. Stop repeated refinements that cannot change a decision. Preserve every character, expression, representation, wardrobe, physical fit, VTuber/Mii and AAA goal. Vite remains retained and the existing active ten-minute heartbeat belongs to this chat; no duplicate timer. Human check-in/pause takes precedence.
++
++## Retained sequential local cell component
+ 
+ [Reusable selected-method component and receipt](evidence/appearance-2026-10-19/sequential-material-cell/README.md). The one source-reviewed sequential clipping packet passed all 34 calls: 17 exact frozen-reference comparisons, seven explicit invalid payloads and ten new collapse/order/world-transform cases. Root and critic independently verify 72 vertices, 66 facets and 96 fan triangles across 12 nondegenerate outputs, plus the seven degenerate outcomes. [Actual result decision](evidence/appearance-2026-10-19/sequential-material-cell/ROOT-ACCEPT.json).
+ 
+diff --git a/docs/WORK-WINDOW-2026-10-18.md b/docs/WORK-WINDOW-2026-10-18.md
+index c129a8a0..2290919d 100644
+--- a/docs/WORK-WINDOW-2026-10-18.md
++++ b/docs/WORK-WINDOW-2026-10-18.md
+@@ -102,3 +102,15 @@ Actual independent critic A 71c1ea / PID 76921 at 07:23:33 UTC and separate root
+ This is substantive selected-method code at finite synthetic local scope. Its packet/source are closed to replay, tuning or further numerical harness expansion. No production/default/accepted asset or 3D source-geometry change; no real field/global assembly/cancellation/openings, physical garment contact/coverage, material, rig/morph/pose/motion, runtime/performance or appearance/AAA result. Board and checklist remain exact at 21 scoped checked / ten broad open. Every character, expression, representation, wardrobe, VTuber/Mii and AAA goal remains.
+ 
+ One unrelated unmatched-glob status read failed before reading; rg inventory corrected it. Recovery also found a historical Mara midi technical drawing/capture route explicitly closed, despite no delivered-image checklist row; it will not be repeated or rescued. Next is a different visual wardrobe/character responsibility with fresh bounded worth and actual image review. Vite PID 870 / HTTP 200 and saved ACTIVE ten-minute heartbeat in this chat were freshly checked at 07:20:51 UTC (3dd841); future delivery is untested. Human check-in/pause wins. No push, publication, purchase or model/subscription/reset-credit/other-project work.
++
++## October 19, 01:03 Pacific — Ari ivory shoe artist sheet retained
++
++Sequential component9a8ef61c is locally saved;53ee19 verified28closure pins/29exact commit paths and a clean checkout. A distinct [shoe artist plan](evidence/appearance-2026-10-19/ari-sneaker-artist/PLAN.json) starts from the actual quiet ivory low-tops in Ari's unchanged original concept. Fresh worthebc200/root3d0a7e preceded two Firecrawl searches/two live maker pages/two actual primary-image views. Choose plain rounded vamp/unstriped low sidewall; separate toe cap/striped wrap adds visual weight. Hidden surfaces, broad toe and original sole marks are new artist choices, not recovered maker/concept geometry. Reference budgets are exhausted; six observed credits, no purchase/refetch.
++
++Complete briefA5ce138/root5a8085 preceded original source authorship. Source A00ca82/PID80457 at07:52:35UTC and independent root source/tree checks verify177SVG/JSONelements,8view owners including sheet,37feature groups and seven local viewer references. Root61c791 reads the whole source handoff, then1e8689/PID80935 at07:56:59UTC verifies21direct/31nested rows and admits one exact full-page capture. A mistyped expected hash caused pre-admission failuree7640e; source/critic bytes stayed unchanged, and only the expectation literal was corrected. Inert front-vamp/sidewall alignment preceded initial source freeze; no post-image source repair.
++
++Root's sole capture07:57:15.415–.498UTC is IAB3/tab3/default1280×720/DPR2, two complete images. Actual original1280×1969 JPEG235475bytes/SHA60c9a3337eaa51ced70496718dc7d88c65a378aae13dbb848173cf0b09be27ce is saved unchanged. Storage hashes and loaded URLs do not separately prove browser fetched-byte identity. Actual image criticA80b9b0/PID81545 at08:01:39UTC and independent root observations agree: all seven areas/captions readable; main lacing density resolved by the central-three-pair enlargement; broad toe acceptable as unregistered schematic authorship. Root7201e2 reads the complete3316+10922-byte handoff; b1058c independently verifies19direct/66nested bindings/35paths and retains the sheet. [Usable artist handoff](evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md), [root image decision](evidence/appearance-2026-10-19/ari-sneaker-artist/ROOT-IMAGE.json).
++
++No consequential communication defect is demonstrated. Retire the unused second capture and close all graphical variants/reference investigation for this slice. Only one existing Ari-card link and one narrow artist checklist row are added:22scoped checked, same ten broad Outstanding goals verbatim. No physical pattern/lining continuity/manufacturing/material/grip/anatomical pair/last/bodyfit/3D/rig/morph/pose/motion/runtime/performance/AAA claim. No production/default/accepted/3D-source asset changed; no source member, native-avatar/Blender/GPU/field/mesh/constructor or numerical fixture ran. Previous closures/HOLD and full character/expression/representation/wardrobe/VTuber/Mii roadmap remain.
++
++Historical main-document pins in the shoe PLAN/preparation/reviews resolve through starting commit9a8ef61c after these four intentional delivery edits. Frozen artwork/reference/image bytes remain current. Next after documentary/root closure and local checkpoint is a distinct useful bounded nomination with fresh critic worth; no automatic further shoe experiment. Review server and existing active ten-minute recovery remain retained. Human check-in/pause wins; no push, publication, purchase, model/subscription/reset-credit change or other-project work.

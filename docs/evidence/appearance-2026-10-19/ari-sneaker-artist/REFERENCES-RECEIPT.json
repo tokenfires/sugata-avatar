@@ -1,0 +1,126 @@
+{
+  "utc": "2026-10-19T07:36:49.904695+00:00",
+  "pid": 78522,
+  "requests": "Exact two search requests and two maxAge0 markdown scrape requests/results are saved in corresponding JSON files. No extra call or retry.",
+  "search_ids": [
+    "01a15314-8536-7741-8ae7-f8668f07fc4b",
+    "01a15314-84e8-779b-81d0-957854fb7053"
+  ],
+  "scrape_ids": [
+    "01a15314-f68c-7540-a751-9837e7f37e76",
+    "01a15315-009a-734a-97c2-7325a580d39d"
+  ],
+  "primary_views": [
+    {
+      "url": "https://media.veja-store.com/images/t_sfcc-pdp-desktop-v2/c_limit,w_1200/v1781690726/VEJA/PACKSHOTS/CP0502429_1/CP0502429_1.jpg",
+      "utc": [
+        "2026-10-19T07:34:51.397Z",
+        "2026-10-19T07:34:51.445Z"
+      ],
+      "browser": "IAB3/tab3/defaultviewport",
+      "intrinsic_image": [
+        1200,
+        1200
+      ],
+      "screenshot_bytes": 19613,
+      "local": "reference-veja.jpg",
+      "observed": "Pair in three-quarter view, plain pale vamp/quarters/tongue/laces/collar/heelpatch/sidewall; commercial V/heel text/toe texture not copied."
+    },
+    {
+      "url": "https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dw4ed57203/images/a_107/M9166C_A_107X1.jpg?sw=964&strip=false",
+      "utc": [
+        "2026-10-19T07:35:06.051Z",
+        "2026-10-19T07:35:06.107Z"
+      ],
+      "browser": "SameIAB3/tab3/defaultviewport",
+      "intrinsic_image": [
+        964,
+        898
+      ],
+      "screenshot_bytes": 35713,
+      "local": "reference-converse.jpg",
+      "observed": "Black shoe, distinct white toe cap/striped sidewall/textured toe bumper, metal eyelets and two arch vents; contrast only."
+    }
+  ],
+  "read_scope": {
+    "VEJA": "Full8018markdowncharacters, plus metadata; all text read, no material/environmental/comfort claims transferred.",
+    "Converse": "Characters0:25000of38397markdown including product image URLs and product-detail section22622+. Remaining reviews/recommendations/navigation not read. Community photos ignored; only selected official product photo viewed."
+  },
+  "budgets_used": {
+    "searches": 2,
+    "primary_pages": 2,
+    "actual_distinct_primary_images": 2,
+    "candidate_captures": 0
+  },
+  "observed_credits": {
+    "search": 4,
+    "pages": 2,
+    "total": 6,
+    "capacity_purchase_or_change": false
+  },
+  "decision": "Quiet ivory plain vamp and cupsole-like unstriped sidewall; visual language only, not manufacturer method proof.",
+  "next": "Fresh independent brief/root gate before any artwork. All research budgets exhausted.",
+  "pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/PLAN.json",
+      "bytes": 7465,
+      "sha256": "8b6b57c2c1aa1af78f00391479df1036115a35b2fec5a37a9861ce52df1558eb"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/WORTH.md",
+      "bytes": 3060,
+      "sha256": "3dcfb43029a6ccf4b6f050468aa2258d858e7a3e99961259fad7888c188620d4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/WORTH-RECEIPT.json",
+      "bytes": 8252,
+      "sha256": "71329ee2722f2fb204b012e9e54336af11099df418a08a79df647d2bea23fab6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ROOT-WORTH.json",
+      "bytes": 916,
+      "sha256": "e867db4a3f6d4488e58d2c78db606f4e95775ffd3693a76b96603596a4d69f4f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/SEARCH-1.json",
+      "bytes": 6759,
+      "sha256": "7c7f6cd5d256bb8414f4066d5720f3c517943f34c11a69bb1a3115a4f390fe30"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/SEARCH-2.json",
+      "bytes": 9735,
+      "sha256": "21c25008d11e2da50e3228849984b69f6f49504993cd3b3c2501bdef73b6fd12"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/PRIMARY-1.json",
+      "bytes": 22546,
+      "sha256": "ff417ab62b45857e79fb7d40a8aa1a947c7db04e5317da8ae8e7727c6a6fa036"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/PRIMARY-2.json",
+      "bytes": 89108,
+      "sha256": "ab43fc285107b38765d1a234a1d603f4a3b8c4b29457bf23fa95a58463fe8622"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/reference-veja.jpg",
+      "bytes": 19613,
+      "sha256": "f9f477f62044acc7ea9e4929451f442a08d60720536fe729ab86977393a63542"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/reference-converse.jpg",
+      "bytes": 35713,
+      "sha256": "8562d72cdc9e4a9c909e09187bd3f04f00038d3dafdb037a740f10fefae80466"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/REFERENCES.md",
+      "bytes": 3026,
+      "sha256": "57916892d4e699762d32a789807754561ec23899cdd7c0b6a449d0591523a599"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-sneaker-artist/BRIEF.md",
+      "bytes": 6388,
+      "sha256": "5b54f615fbb179cb5428ccf6a0b90c27035605c34a723400a443a23e85f22923"
+    }
+  ],
+  "limits": "No tracing, product/foot/body/source geometry, pattern/mechanics/traction/comfort/fit or appearance qualification; no candidate render yet."
+}

@@ -1,6 +1,6 @@
 # Sugata project checklist
 
-Updated October 18, 2026. **Customization is usable; complete character quality is still in progress.** Checked items describe the supported features or artist deliverables below, within their recorded review limits.
+Updated October 19, 2026. **Customization is usable; complete character quality is still in progress.** Checked items describe the supported features or artist deliverables below, within their recorded review limits.
 
 ## Usable now
 
@@ -38,6 +38,8 @@ Updated October 18, 2026. **Customization is usable; complete character quality 
 - [x] Original editable Ari lining and facing artist sheet with front, back, both sleeve linings and pocket-layer details; physical interior, sewing, 3D fit and motion remain open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-18/ari-interior-artist/ARTIST-HANDOFF.md)
 
 - [x] Original editable Ari trouser artist sheet with front, profile, rear and waist/pleat/fly/pocket-layer/hem intent; sewing, physical fit, 3D and motion remain open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-18/ari-trouser-artist/ARTIST-HANDOFF.md)
+
+- [x] Original editable Ari ivory low-top artist sheet with six left-shoe views and enlarged entry/lacing intent; unitless 2D design, with physical continuity, manufacturing, anatomical pairing, 3D fit and motion still open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md)
 
 [Open the visual wardrobe board](ARTIST-WARDROBE.html) to inspect the retained character directions and editable drafts together.
 

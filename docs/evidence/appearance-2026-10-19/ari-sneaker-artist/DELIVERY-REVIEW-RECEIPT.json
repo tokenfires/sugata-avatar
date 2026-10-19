@@ -1,0 +1,362 @@
+{
+  "schema": "ari-sneaker-delivery-critic-v1",
+  "verdict": "B_EXACT_DOCUMENTARY_EPOCH_ONE_PROVENANCE_WORDING_CORRECTION",
+  "local_closure_worth": "A_AFTER_MINIMAL_CORRECTION_AND_FRESH_BYTE_VERIFICATION",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/DELIVERY-PREPARATION.json",
+      "bytes": 2753,
+      "sha256": "d1afa1518ae4515e58588feb4b9aef258ecb394b1e745129ad531d341d6cd6e1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/DELIVERY.diff",
+      "bytes": 14206,
+      "sha256": "59cfe28c5b0311e132b61b94a1b2da7b0594f4a9ca2692c14793529af333f84b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md",
+      "bytes": 2527,
+      "sha256": "4c24433a6562c2f0c363ca99ba7776dbaa3a65fdcb86484b9d99cd9d7667224d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/README.md",
+      "bytes": 5416,
+      "sha256": "0011dafa2417d613ec07b908563277c4b84537b137e4b71a1ff9a097ea261644"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ROOT-IMAGE.json",
+      "bytes": 6333,
+      "sha256": "be80e72aebe9923d6b2d69360bffbaecbd3b5e78dfb8e34f5a1ea28a9cfad054"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/FIRST-IMAGE-REVIEW.md",
+      "bytes": 3316,
+      "sha256": "e23709cc7665c6c8fdcf1da982b343d2519038d363847e1573cebfdf0fee9dcf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/FIRST-IMAGE-REVIEW-RECEIPT.json",
+      "bytes": 10922,
+      "sha256": "d8a0322902fa44920a4e77bf427c3f42af69d18e3c49dc4979cd2fc2a4f9c663"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/REFERENCES.md",
+      "bytes": 3026,
+      "sha256": "57916892d4e699762d32a789807754561ec23899cdd7c0b6a449d0591523a599"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/REFERENCES-RECEIPT.json",
+      "bytes": 5164,
+      "sha256": "5b8175f5b62e47284256f9b82feae904bb2d87fc4e32493080641ed9b0f87034"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/PLAN.json",
+      "bytes": 7465,
+      "sha256": "8b6b57c2c1aa1af78f00391479df1036115a35b2fec5a37a9861ce52df1558eb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/first.jpg",
+      "bytes": 235475,
+      "sha256": "60c9a3337eaa51ced70496718dc7d88c65a378aae13dbb848173cf0b09be27ce"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/shoe.svg",
+      "bytes": 20445,
+      "sha256": "3931b4f1875257888ca6003ff106a36d7dd81db83adbccaed0299be64fc0e377"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/design.json",
+      "bytes": 187765,
+      "sha256": "fd242916ecfb995d9b721bf257da3064589ed36289353beac038353472e332d6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/review.html",
+      "bytes": 2732,
+      "sha256": "f7d19d621d455f0135d603938bf11bc26378eb34ca4511861921751e957d0fbf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 14551,
+      "sha256": "0da7331a24671fc0ed455f892de23a1b0c576ebb16a899d48a5f6b8be2ad9aaf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 28493,
+      "sha256": "dbd146813f13eb5e49d5177d8b2872c0dcc6c03c623753aedc20ad013990fad4"
+    }
+  ],
+  "baseline": {
+    "git": "9a8ef61c3d22676b0bc97f042123d7389e74ecd5",
+    "pins": [
+      {
+        "path": "docs/ARTIST-WARDROBE.html",
+        "bytes": 15923,
+        "sha256": "a11432b33af9df3f64d14ecec6e5af08faa06c0f3f7ea07887ca46a835fa5ea2"
+      },
+      {
+        "path": "docs/PROJECT-CHECKLIST.md",
+        "bytes": 7161,
+        "sha256": "7ce48fa51bff4087e469934635d048ef997d68d900a6ae449849c01e3bccd00f"
+      },
+      {
+        "path": "docs/RESUME-2026-10-18.md",
+        "bytes": 12359,
+        "sha256": "3c131d32572b053d9c826da2d2991a7a7cfb7183f874bdae13ce447467da6e6a"
+      },
+      {
+        "path": "docs/WORK-WINDOW-2026-10-18.md",
+        "bytes": 24922,
+        "sha256": "94fc92a1c7fd25676e673438466fca311e6c74a909f6ec93ad0153eab303479f"
+      }
+    ],
+    "historical_plan_inputs_verified": [
+      "docs/RESUME-2026-10-18.md",
+      "docs/WORK-WINDOW-2026-10-18.md",
+      "docs/PROJECT-CHECKLIST.md",
+      "docs/ARTIST-WARDROBE.html"
+    ]
+  },
+  "read_scopes": [
+    "Whole DELIVERY-PREPARATION.json, ARTIST-HANDOFF.md, README.md and14206-byte DELIVERY.diff read in094500.",
+    "Whole REFERENCES.md and ROOT-IMAGE.json read in1aa941.",
+    "Actual four-document diff and baseline/current byte equality, exact checklist/board/resume/work-window change mapping,29 local links and12+21 pins independently checked in34d478.",
+    "Prior whole image judgment and full source association reused after current byte-pin verification; no new image required."
+  ],
+  "jobs": [
+    {
+      "chunk": "094500",
+      "exit": 0,
+      "pid": 81882,
+      "utc": "2026-10-19T08:03:58.512328+00:00",
+      "scope": "Complete delivery documents and saved diff."
+    },
+    {
+      "chunk": "1aa941",
+      "exit": 0,
+      "pid": 81913,
+      "utc": "2026-10-19T08:04:17.092638+00:00",
+      "scope": "Whole reference-boundary prose and root retained-image decision."
+    },
+    {
+      "chunk": "34d478",
+      "exit": 0,
+      "pid": 82009,
+      "utc": "2026-10-19T08:05:01.220035+00:00",
+      "scope": "Independent read-only Git/bytes/link/metadata checks; no target invocation."
+    }
+  ],
+  "verified": {
+    "preparation_rows": 12,
+    "root_image_rows": 21,
+    "exact_diff": true,
+    "board_anchor_only": true,
+    "checklist_date_and_one_row_only": true,
+    "counts": [
+      [
+        21,
+        10
+      ],
+      [
+        22,
+        10
+      ]
+    ],
+    "outstanding_verbatim": true,
+    "resume_prior_text_preserved": true,
+    "work_window_append_only": true,
+    "local_link_occurrences": 29
+  },
+  "local_links": [
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md",
+      "link": "review.html",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/review.html"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md",
+      "link": "shoe.svg",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/shoe.svg"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md",
+      "link": "design.json",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/design.json"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md",
+      "link": "first.jpg",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/first.jpg"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md",
+      "link": "BRIEF.md",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/BRIEF.md"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md",
+      "link": "REFERENCES.md",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/REFERENCES.md"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md",
+      "link": "FIRST-IMAGE-REVIEW.md",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/FIRST-IMAGE-REVIEW.md"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md",
+      "link": "ROOT-IMAGE.json",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ROOT-IMAGE.json"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md",
+      "link": "FIRST-CAPTURE-RAW.json",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/FIRST-CAPTURE-RAW.json"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/README.md",
+      "link": "ARTIST-HANDOFF.md",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/README.md",
+      "link": "review.html",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/review.html"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/README.md",
+      "link": "first.jpg",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/first.jpg"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/README.md",
+      "link": "ROOT-IMAGE.json",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ROOT-IMAGE.json"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "link": "/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "link": "/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/review.html",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/review.html"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "link": "/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/review-caption.html",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/review-caption.html"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "link": "/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/review-clarity.html",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/review-clarity.html"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "link": "/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/review.html",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/review.html"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "link": "/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/bomber.svg",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/bomber.svg"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "link": "/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/design.json",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/design.json"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "link": "/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-source-authority/SOURCE-HANDOFF.md",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-source-authority/SOURCE-HANDOFF.md"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "link": "/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-body-recipe/AUTHORING-REQUEST.md",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-body-recipe/AUTHORING-REQUEST.md"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "link": "evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "link": "evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "link": "evidence/appearance-2026-10-19/ari-sneaker-artist/README.md",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/README.md"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "link": "evidence/appearance-2026-10-19/ari-sneaker-artist/ROOT-IMAGE.json",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ROOT-IMAGE.json"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "link": "evidence/appearance-2026-10-19/ari-sneaker-artist/PLAN.json",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/PLAN.json"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "link": "evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md"
+    },
+    {
+      "owner": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "link": "evidence/appearance-2026-10-19/ari-sneaker-artist/ROOT-IMAGE.json",
+      "target": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ROOT-IMAGE.json"
+    }
+  ],
+  "findings": [
+    {
+      "id": "D1",
+      "file": "README.md",
+      "witness": "Research bullet: Both raw primary JPEGs are preserved unchanged.",
+      "evidence": "The two unchanged reference JPEGs are whole browser-view screenshots, actually viewed in prior brief review; remote original media byte identity was not acquired/hashed. REFERENCES actual-view links and the prior brief receipt preserve this boundary.",
+      "effect": "Imprecise provenance wording can imply remote-original preservation beyond observed evidence.",
+      "alternatives": [
+        {
+          "choice": "Identify them as unchanged whole-view reference screenshot JPEGs",
+          "tradeoff": "Minimal wording correction keeps the preservation claim and exact artifact type; preferred."
+        },
+        {
+          "choice": "Remove this redundant preservation sentence",
+          "tradeoff": "Shorter, but delegates the explicit provenance boundary to linked references/receipt."
+        }
+      ]
+    }
+  ],
+  "image_and_source_verdict_preserved": "A_2D_ARTIST_ONLY",
+  "graphical_next": "No new variant/capture. Unused allowance retired.",
+  "errors": [],
+  "limits": [
+    "Only own two exclusive review files written; no reviewed input modified.",
+    "Git show/diff and local hash/parsing were read-only; no helper/source import or target execution.",
+    "Current service/timer not independently probed; prose accepted as retained recovery state only.",
+    "No physical/manufacturing/fit/pair/registeredgeometry/3D/motion/runtime/AAA promotion."
+  ],
+  "deadline_utc": "2026-10-19T09:10:00Z",
+  "collected_utc": "2026-10-19T08:05:43.470089+00:00",
+  "writer_pid": 82089,
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/DELIVERY-REVIEW.md",
+    "bytes": 2813,
+    "sha256": "d76a5afc09974c9d2ecf9203437b72358a102bb4dbc8967a5543f5c6544dfa00"
+  }
+}
