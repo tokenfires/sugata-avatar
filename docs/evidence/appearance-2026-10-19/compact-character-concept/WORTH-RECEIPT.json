@@ -1,0 +1,78 @@
+{
+  "schema": "phase-gated-worth-review-v1",
+  "utc": "2026-10-19T11:49:59.661232+00:00",
+  "pid": 36493,
+  "verdict": "B_NO_COMPACT_CONCEPT_CALL_NOW",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/compact-character-concept/PLAN.md",
+      "bytes": 4966,
+      "sha256": "483e9ea8daf1b754e81a7cb0a5242db3c862f2841a7efcf10c609b1c3a1cbcee"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    }
+  ],
+  "read_scopes": {
+    "whole_text": [
+      "compact-character-concept/PLAN.md1\u201317",
+      "PROJECT-CHECKLIST.md1\u201361"
+    ],
+    "selected_text": "PRODUCT-ROADMAP.md100\u2013145 only; whole-file hash verified,not whole32741byte prose read.",
+    "not_investigated": "No image/source/style/corpus search; phasing settledB. Parent filename inventory is not used as global absence evidence."
+  },
+  "jobs": [
+    {
+      "chunk_id": "34f254",
+      "exit_code": 0,
+      "pid": 36366,
+      "utc": "2026-10-19T11:48:47.153070+00:00",
+      "scope": "Whole plan/checklist,selected roadmap and raw byte pins",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,os,datetime\nr=Path('/Users/robault/GitHub/sugata-avatar');print('PHASING_READ',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor rel in ['docs/evidence/appearance-2026-10-19/compact-character-concept/PLAN.md','docs/PRODUCT-ROADMAP.md','docs/PROJECT-CHECKLIST.md']:\n p=r/rel;b=p.read_bytes();print(json.dumps({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}))\n for n,s in enumerate(b.decode().splitlines(),1):\n  if rel.endswith('PRODUCT-ROADMAP.md') and not (100<=n<=145):continue\n  print(f'{n}: {s}')\nPY"
+    }
+  ],
+  "counts": {
+    "checked": 22,
+    "open": 10
+  },
+  "retained_reader_error": {
+    "chunk_id": "a60978",
+    "exit_code": 1,
+    "pid": "not exposed before assertion",
+    "error": "Over-escaped critic count pattern returned0/0; assertion failed before either output was written. Corrected to literal line prefixes; no input or target effect."
+  },
+  "finding": {
+    "id": "F1",
+    "witnesses": [
+      "newPLAN3 phase3 nomination",
+      "PRODUCT-ROADMAP125/136 phased entry condition",
+      "PROJECT-CHECKLIST50\u201359 stillopen;61 genericartistrequest"
+    ],
+    "classification": "Currentphasing mismatch; no compactstyle capability/quality or globalabsence diagnosis.",
+    "alternatives": [
+      "Defer compact target until explicitPhase1/performance acceptance supports stylized entry; preserve ambition,visualanchor later.",
+      "One bounded originalconcept now;potentialartistanchor,butnominationmovesPhase3withoutrequiredacceptance andisdeclined."
+    ]
+  },
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/compact-character-concept/WORTH.md",
+    "bytes": 2151,
+    "sha256": "2086df6c88b756ab20e80ec996becc1f3be986953db6d556112c6ec70a7fadd5"
+  },
+  "limits": [
+    "No browser/GPU/native/imagegen/imageread/decode/network/reference/prompt/sourceartifact or target/helper execution.",
+    "No source/product/checklist/roadmap edit or knit repair.",
+    "No permissionquestion,prioritywaiver or replacementtask inferred.",
+    "All earlierclosures/accepted/default/frozen/HOLD and22scoped10open preserved."
+  ],
+  "deadline": "45minuteproposalwindow is declined and never starts; worth stops now becausephasing isdecisive.",
+  "next": "Root independentlyverifiespair,freezesplanunrun; no concept/research successor admitted."
+}

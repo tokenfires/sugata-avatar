@@ -1,0 +1,15 @@
+# Knit cancellation contract — worth decision
+
+**A: explicitly supersede the prior self-imposed no-source-repair rule for one isolated, inert cancellation-correctness sibling.** This admits source preparation and a declared check plan only, not checks or GPU execution. Keep the old leaf and its B unchanged.
+
+The concrete witness remains viewer.mjs:38–42/44/51/62 and cleanup:10–16: geometry exists across awaited hashes, cleanup can close first, then materials/renderer can be created after the one-shot disposal pass. The frozen SOURCE-REVIEW.md:5 and ROOT-RESULT independently agree; selected closure pins still match. No leak or material appearance was observed.
+
+This explicit reopening is worthwhile because it changes readiness through a proved correctness fix rather than weakening the failed requirement. PLAN.md:11 adds stronger invariants: pure hashes before acquisition, guards after every await, synchronous registered ownership, abortable fetches, partial-constructor cleanup and no successful publication after closure. Unlike a post-image silhouette redraw, the normal field's first appearance has never been examined. Unlike the declined frozen-image relabeling, this proposal does not bypass a failed runtime/image gate to obtain the same acceptance.
+
+Two alternatives: **preferred, prepare exactly this correctness sibling with the unchanged material, mesh and rendering constants**. It can resolve a specific blocking ownership fault and enable a first genuine visual decision, but costs another bounded source/check gate and may still close before rendering. **Alternatively, keep all preview work closed and defer the material study**. That saves the preparation cost and avoids repeated infrastructure, but leaves the actionable readiness fault and first surface question unanswered.
+
+Conditions matter. The controlled pending-promise checks must call the actual helper used by the viewer, cover every declared preparation suspension and normal completion, and retain explicit cancellation/publication observations. Require full literal source/Node-entry review before the sole≤10-second/8MiB check entry, then independent actual CPU-result qualification before any separate GPU admission. Pure checks cannot prove Three constructors, context release or browser behavior. Partial synchronous constructor/context ownership must be concrete in the source; guards and cleanup-error recording remain owed.
+
+The full material/API/shader/coordinate/workload review previously stopped at F1 and is still incomplete. Do not promote old pins or tests into that missing gate. One revision only; any further failure closes without another repair, mapping/parameter/renderer change or reference. The30-minute window through first image decision/checkpoint must include all gates, without extension.
+
+No source was repaired, imported, tested or rendered here. No new image/reference/browser/native work occurred; all six Mara PNGs remain unviewed. Old freezes, user-imposed route closures, Phase1 work order, accepted assets and22scoped/10broad/fullAAA remain. Pending edits: false.

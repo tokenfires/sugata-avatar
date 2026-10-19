@@ -1,0 +1,11 @@
+{
+  "schema": "root-worth-stop-v1",
+  "utc": "2026-10-19T11:51:36.195293+00:00",
+  "pid": 36676,
+  "verdict": "B compactconcept deferred at phase gate",
+  "witness": "Root actual afd108 Phase3/Immediateworkorder reads; Phase1/performance open inwholechecklist822362. Full critic pair read now and bothhashesverified. No reference/prompt/generation started.",
+  "review_sha256": "2086df6c88b756ab20e80ec996becc1f3be986953db6d556112c6ec70a7fadd5",
+  "receipt_sha256": "adb93330381a29bda7b8f7b0cb545085bd90f15e70f5be6a3e76da9970509748",
+  "decision": "Concept-only label does not supply phase acceptance. Defer retains ambition; no implied userprioritychange.",
+  "next": "Different Phase1 responsibility under fresh worth; no compactgeneration/refs now."
+}
