@@ -1,0 +1,105 @@
+{
+  "schema": "bounded-material-worth-review-v1",
+  "utc": "2026-10-19T11:33:54.050194+00:00",
+  "pid": 34588,
+  "verdict": "A_BOUNDED_REFERENCE_AND_COMPLETE_SOURCE_WORKLOAD_PREPARATION_ONLY",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/PLAN.md",
+      "bytes": 3768,
+      "sha256": "13a20a0fa0ba103913392888bcb497f2bde6bc78d49ba8e3aa6412729c6e3b54"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/README.md",
+      "bytes": 1459,
+      "sha256": "29c047836ee3f21954d50e701041b9548a487d0a18f1e93620e2eef610a27c52"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/mesh.json",
+      "bytes": 145508,
+      "sha256": "0e0460f465cd7c4570abd4510be9a8ba45cb0c3fc7983fa8e22e3e7e56e67fb1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/front.jpg",
+      "bytes": 37822,
+      "sha256": "4b7bae3c4852540bfa8f39a28ad8e016cabc7c0f0153fb35afbccebe4fe7b986"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/KNIT-UPSTREAM-SOURCE-2026-10-04.md",
+      "bytes": 5847,
+      "sha256": "7f9876bd8bb744331ae07b1b9d42ca7aa1de6add9f1db18ba3438af02a2d37de"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/wardrobe-system.md",
+      "bytes": 113454,
+      "sha256": "a9ec3b630ffa0a419932577cca19a05345f1dd51fa09ba825ed1afb72c066905"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/RECOVERY.json",
+      "bytes": 2704,
+      "sha256": "a8cf7d3afee27e0fc6c231836576d825e47159a920393e08a31e9cf8231ab048"
+    }
+  ],
+  "verified_direct_rows": 7,
+  "read_scopes": {
+    "whole_text": [
+      "PLAN.md1\u201315",
+      "RECOVERY.json1\u201366",
+      "whole-knit-serving/README.md1\u20139",
+      "KNIT-UPSTREAM-SOURCE-2026-10-04.md1\u201321"
+    ],
+    "selected_text": "wardrobe-system.md735\u2013775 only; whole file byte hash verified,not whole113454byte prose read.",
+    "mesh": "Whole byte hash/size only; no vertex/topology/UV payload parser or construction. Counts/bounds/noUV are RECOVERY metadata,not independently decoded here. Fresh full source gate owes actual associations.",
+    "image": {
+      "tool": "view_image",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/front.jpg",
+      "detail": "original",
+      "scope": "Whole1280x720 original existing screenshot. Grey torso/extended sleeves and no resolved loop cue at review scale; no new render/capture."
+    }
+  },
+  "jobs": [
+    {
+      "chunk_id": "d4c84c",
+      "exit_code": 0,
+      "pid": 34408,
+      "utc": "2026-10-19T11:32:12.997925+00:00",
+      "scope": "Whole plan/recovery read and exact hashes",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,os,datetime\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material')\nprint('WORTH_READ',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['PLAN.md','RECOVERY.json']:\n p=leaf/name;b=p.read_bytes();print(json.dumps({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}))\n for n,s in enumerate(b.decode().splitlines(),1):print(f'{n}: {s}')\nPY"
+    },
+    {
+      "chunk_id": "64aee3",
+      "exit_code": 0,
+      "pid": 34442,
+      "utc": "2026-10-19T11:32:31.882148+00:00",
+      "scope": "Whole serving/upstream notes,selected research,all six recovery pins independently verified",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,os,datetime\nr=Path('/Users/robault/GitHub/sugata-avatar');print('SOURCE_LIMITS',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor rel in ['docs/evidence/appearance-2026-10-04/whole-knit-serving/README.md','docs/research/KNIT-UPSTREAM-SOURCE-2026-10-04.md','docs/research/wardrobe-system.md']:\n p=r/rel;b=p.read_bytes();print(json.dumps({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}))\n for n,s in enumerate(b.decode().splitlines(),1):\n  if rel.endswith('wardrobe-system.md') and not (735<=n<=775):continue\n  print(f'{n}: {s}')\nmeta=json.loads((r/'docs/evidence/appearance-2026-10-19/knit-surface-material/RECOVERY.json').read_bytes())\nfor row in meta['pins']:\n b=Path(row['path']).read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256']\nprint('ALL_SIX_RECOVERY_PINS_EXACT')\nPY"
+    }
+  ],
+  "decision_basis": "Explicit open knit-finish responsibility plus actual smooth control; no garment defect/global absence claim. Surface study retains geometry and all physical/fit holds.",
+  "alternatives": [
+    "Prepare one exact material/source owner then separately gated fixedbefore/after packet: reusable surface intent but projection/filtering may fail.",
+    "Defer until wornform/coordinates selected: less throwaway mapping effort,knitcue remains open."
+  ],
+  "future_gate_conditions": [
+    "No assumed renderer/WebGPU portability; pin exactinstalledThree source/API choice before code/runtime admission.",
+    "Explicit fullsurface/noUV/course-wale/projection/normal-space/amplitude/frequency/filtering/seam contract,not physicalcalibration.",
+    "Two searches/two primarypages/two unchangedreferenceviews maximum; decisiveknit+renderingauthority must fit budget. No inherited extra APIpage.",
+    "Full source/workload/root verification and finite resource/render/canvas/tab/output/lifetime owner before any GPU; sharedgeometry/basecolour/roughness/scene/cameras.",
+    "One first fixedpacket only;failure/unknown/unclear result closes,no postimage variant/retune/crop/renderer swap."
+  ],
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/WORTH.md",
+    "bytes": 2911,
+    "sha256": "4e81642d4a985023d1a6118f74d13341d8f065dbf80fb7e659064f02e48c81ca"
+  },
+  "limits": [
+    "No externalcalls/refetch/newcapture/shader/artwork/implementation or targetimports/evaluation/native/Blender/helper/probe.",
+    "No mesh/UV payload decode or new geometry/bodyfit/sourcebody investigation.",
+    "Mara sixPNGsunviewed; earlier closures/constructorHOLD and22scoped10broad preserved.",
+    "No pattern/physicalyarn/garmentthickness/skin/fit/motion/curatedruntime/AAA credit.",
+    "No existingfile modified;onlyownexclusivepair."
+  ],
+  "deadline": "Future60minutes from independent rootworthacceptance to firstimage decision/checkpoint; no timer begins or runtime is admitted bycritic.",
+  "next": "Root independentlyverifies fullpair before bounded references/complete materialsource preparation. Actualsource/GPU/image gates remain owed."
+}

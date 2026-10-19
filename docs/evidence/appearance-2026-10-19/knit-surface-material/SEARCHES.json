@@ -1,0 +1,143 @@
+[
+  {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://www.purlsoho.com/create/picking-up-stitches/\",\"title\":\"Picking Up Stitches Tutorial - Purl Soho\",\"description\":\"I am going to show you how to pick up stitches along a horizontal edge. I have a stockinette stitch swatch here, one needle, and contrast color ...\",\"position\":1},{\"url\":\"https://www.purlsoho.com/create/knit-front-and-back-kfb/\",\"title\":\"Knit Front And Back (KFB) Tutorial - Purl Soho\",\"description\":\"# Knit Front And Back (kfb)\\nOn the knit side of stockinette, a kfb looks a bit like a purl stitch, and in fact, it is sometimes called a “bar increase” because of the horizontal “bar” on the increased stitch.\",\"position\":2},{\"url\":\"https://www.youtube.com/watch?v=J6Sm5VNcbIQ\",\"title\":\"Purl Front and Back (pfb) | Purl Soho - YouTube\",\"description\":\"Visit https://www.purlsoho.com for free tutorials, projects and more! In this video, we show you how to increase one stitch with a technique ...\",\"position\":3}],\"tools\":[{\"provider\":\"ironplanet-com\",\"capability\":\"equipment-auctions/list_auction_lots\",\"description\":\"List the lots of an auction found with `list_upcoming_auctions`.\"},{\"provider\":\"steelcitycollectibles-com\",\"capability\":\"products/get_product\",\"description\":\"After search_products, list_category or list_group_breaks with a result's `slug`, or when the user pastes a www.steelcitycollectibles.com/i/... URL.\"},{\"provider\":\"fanatics-com\",\"capability\":\"products/list_products\",\"description\":\"Use when the user wants a team's or league's gear or a department within it. league_id comes from a search facet (type o), team_id from list_teams, department_id from a facet option of type d. Pass url instead of ids to follow a facet or breadcrumb path returned by this function or search_products.\"},{\"provider\":\"youtube\",\"capability\":\"read\",\"description\":\"Read video metadata, description and any available transcript. Transcript availability is not guaranteed. Not channel listings, comments or timestamped captions. Scrape pricing per successful attempt: 1 credit base, plus 4 for audio and 4 for video (5 for either, 9 for both), before other Scrape surcharges. The wrapper adds no charge; underlying Scrape requests are billed separately at their current rate. Invalid YouTube Markdown may trigger one fresh Scrape call.\"}]},\"creditsUsed\":2,\"id\":\"01a153f4-0032-71bf-9075-21d4f74b5a81\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://www.purlsoho.com/create/picking-up-stitches/\\\", #2 \\\"https://www.purlsoho.com/create/knit-front-and-back-kfb/\\\", #3 \\\"https://www.youtube.com/watch?v=J6Sm5VNcbIQ\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+        }
+      ],
+      "structuredContent": {
+        "success": true,
+        "data": {
+          "web": [
+            {
+              "url": "https://www.purlsoho.com/create/picking-up-stitches/",
+              "title": "Picking Up Stitches Tutorial - Purl Soho",
+              "description": "I am going to show you how to pick up stitches along a horizontal edge. I have a stockinette stitch swatch here, one needle, and contrast color ...",
+              "position": 1
+            },
+            {
+              "url": "https://www.purlsoho.com/create/knit-front-and-back-kfb/",
+              "title": "Knit Front And Back (KFB) Tutorial - Purl Soho",
+              "description": "# Knit Front And Back (kfb)\nOn the knit side of stockinette, a kfb looks a bit like a purl stitch, and in fact, it is sometimes called a “bar increase” because of the horizontal “bar” on the increased stitch.",
+              "position": 2
+            },
+            {
+              "url": "https://www.youtube.com/watch?v=J6Sm5VNcbIQ",
+              "title": "Purl Front and Back (pfb) | Purl Soho - YouTube",
+              "description": "Visit https://www.purlsoho.com for free tutorials, projects and more! In this video, we show you how to increase one stitch with a technique ...",
+              "position": 3
+            }
+          ],
+          "tools": [
+            {
+              "provider": "ironplanet-com",
+              "capability": "equipment-auctions/list_auction_lots",
+              "description": "List the lots of an auction found with `list_upcoming_auctions`."
+            },
+            {
+              "provider": "steelcitycollectibles-com",
+              "capability": "products/get_product",
+              "description": "After search_products, list_category or list_group_breaks with a result's `slug`, or when the user pastes a www.steelcitycollectibles.com/i/... URL."
+            },
+            {
+              "provider": "fanatics-com",
+              "capability": "products/list_products",
+              "description": "Use when the user wants a team's or league's gear or a department within it. league_id comes from a search facet (type o), team_id from list_teams, department_id from a facet option of type d. Pass url instead of ids to follow a facet or breadcrumb path returned by this function or search_products."
+            },
+            {
+              "provider": "youtube",
+              "capability": "read",
+              "description": "Read video metadata, description and any available transcript. Transcript availability is not guaranteed. Not channel listings, comments or timestamped captions. Scrape pricing per successful attempt: 1 credit base, plus 4 for audio and 4 for video (5 for either, 9 for both), before other Scrape surcharges. The wrapper adds no charge; underlying Scrape requests are billed separately at their current rate. Invalid YouTube Markdown may trigger one fresh Scrape call."
+            }
+          ]
+        },
+        "id": "01a153f4-0032-71bf-9075-21d4f74b5a81",
+        "creditsUsed": 2,
+        "agent_hints": [
+          "All 3 web results are excerpts only (#1 \"https://www.purlsoho.com/create/picking-up-stitches/\", #2 \"https://www.purlsoho.com/create/knit-front-and-back-kfb/\", #3 \"https://www.youtube.com/watch?v=J6Sm5VNcbIQ\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+        ]
+      },
+      "isError": false
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"success\":true,\"data\":{\"tools\":[{\"provider\":\"openstreetmap-org\",\"capability\":\"places/map_bbox\",\"description\":\"A complete dump of a block or plaza for a local database; for category queries over a larger area use `search_elements`.\"},{\"provider\":\"openstreetmap-org\",\"capability\":\"places/notes\",\"description\":\"Find open data-quality reports in an area before or after importing it.\"},{\"provider\":\"openrouter-ai\",\"capability\":\"model-marketplace/get_docs_page\",\"description\":\"To read the typed Decisions API contract, confidence interpretation or any other OpenRouter guide without an API key. The index of all pages is `llms.txt`.\"},{\"provider\":\"github-com\",\"capability\":\"repositories/contributors\",\"description\":\"One page of a repository's contributors ordered by commit count on the default branch, with login, account type and contribution count. Anonymous (email-only) contributors are not listed. GitHub refuses this listing for repositories with very large histories (for example torvalds/linux), which surfaces as an error naming the reason.\"},{\"provider\":\"github-com\",\"capability\":\"repositories/file\",\"description\":\"The text of one file in a public GitHub repository at a branch, tag or commit, given as a raw.githubusercontent.com URL, a github.com blob URL, or repo plus path (ref defaults to HEAD, the default branch). One ranged GET to raw.githubusercontent.com, which does not use the REST API's 60/hour quota. Returns at most the first 1 MiB: size_bytes is the full size and truncated marks a cut file, reported as partial. A binary or non-UTF-8 file fails with invalid_input (not_text); a missing file, ref or repository is not_found.\"},{\"provider\":\"github-com\",\"capability\":\"repositories/issue_counts\",\"description\":\"Exact issue counts for a repository (pull requests excluded, unlike the repository's open_issues_count): the total for the given state plus one count per requested label, from GitHub's issue search. Makes 1 + labels.length search requests; at most 5 labels per call because GitHub allows 10 keyless searches per minute per IP.\"}],\"web\":[{\"url\":\"https://github.com/mrdoob/three.js/issues/11475\",\"title\":\"Material: Added onBeforeCompile()#11475\",\"description\":\"# Material: Added onBeforeCompile()#11475\\n## Description\\n[http://rawgit.com/mrdoob/three.js/dev/examples/webgl\\\\_materials\\\\_modified.html](http://rawgit.com/mrdoob/three.js/dev/examples/webgl\\\\_materials\\\\_modified.html)\\n\\nToday I thought..\\n\\n#10791\\n\\nI tapped into the unused argument in the WebGLRenderer.\\n\\nI like using this for example to get threejs to work with normal maps, but I've linked some issues that seem like they would be trivial to solve with this.\\n\\n[http://dusanbosnjak.com/test/webGL/three-material-shader-override/webgl\\\\_materials\\\\_shader\\\\_override.html](http://dusanbosnjak.com/test/webGL/three-material-shader-override/webgl\\\\_materials\\\\_shader\\\\_override.html)\\n\\n...similar way to Object3D's onBeforeRender().\\n\\nOwnerAuthor\\n\\n#10791\\n\\nI tapped into the unused argument in the WebGLRenderer.\\n\\nI guess the only advantage of the other one is that it was good to go a few months ago :)\\n\\nOwnerAuthor\\n\\nNow you mention it...\\n\\nIt would be really nice to have this, i haven't worked with that many 3d engines, but unity and scene kit seem to have something like this.\\n\\nOwnerAuthor\",\"position\":1,\"category\":\"developer\"},{\"url\":\"https://discourse.threejs.org/t/how-to-blend-normal-texture-and-detailnormal-texture/26922\",\"title\":\"How to blend normal texture and detailNormal texture? - three.js forum\",\"description\":\"So you need a custom shader or an enhanced version of MeshStandardMaterial (via onBeforeCompile()) that can handle two normal map inputs. In\",\"position\":2,\"category\":\"developer\"},{\"url\":\"https://threejs.org/docs/pages/module-FocusShader.html\",\"title\":\"FocusShader\",\"description\":\"## Core\\n### Materials\\n- Material\\n\\n### Nodes\\n- NormalMapNode\\n\\n### Renderers\\n- WebGLRenderer\\n\\n## Addons\\n### Capabilities\\n- WebGL\",\"position\":3,\"category\":\"developer\"}]},\"creditsUsed\":2,\"id\":\"01a153f4-007b-7659-a8f9-bea52343b1e9\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://github.com/mrdoob/three.js/issues/11475\\\", #2 \\\"https://discourse.threejs.org/t/how-to-blend-normal-texture-and-detailnormal-texture/26922\\\", #3 \\\"https://threejs.org/docs/pages/module-FocusShader.html\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+        }
+      ],
+      "structuredContent": {
+        "success": true,
+        "data": {
+          "tools": [
+            {
+              "provider": "openstreetmap-org",
+              "capability": "places/map_bbox",
+              "description": "A complete dump of a block or plaza for a local database; for category queries over a larger area use `search_elements`."
+            },
+            {
+              "provider": "openstreetmap-org",
+              "capability": "places/notes",
+              "description": "Find open data-quality reports in an area before or after importing it."
+            },
+            {
+              "provider": "openrouter-ai",
+              "capability": "model-marketplace/get_docs_page",
+              "description": "To read the typed Decisions API contract, confidence interpretation or any other OpenRouter guide without an API key. The index of all pages is `llms.txt`."
+            },
+            {
+              "provider": "github-com",
+              "capability": "repositories/contributors",
+              "description": "One page of a repository's contributors ordered by commit count on the default branch, with login, account type and contribution count. Anonymous (email-only) contributors are not listed. GitHub refuses this listing for repositories with very large histories (for example torvalds/linux), which surfaces as an error naming the reason."
+            },
+            {
+              "provider": "github-com",
+              "capability": "repositories/file",
+              "description": "The text of one file in a public GitHub repository at a branch, tag or commit, given as a raw.githubusercontent.com URL, a github.com blob URL, or repo plus path (ref defaults to HEAD, the default branch). One ranged GET to raw.githubusercontent.com, which does not use the REST API's 60/hour quota. Returns at most the first 1 MiB: size_bytes is the full size and truncated marks a cut file, reported as partial. A binary or non-UTF-8 file fails with invalid_input (not_text); a missing file, ref or repository is not_found."
+            },
+            {
+              "provider": "github-com",
+              "capability": "repositories/issue_counts",
+              "description": "Exact issue counts for a repository (pull requests excluded, unlike the repository's open_issues_count): the total for the given state plus one count per requested label, from GitHub's issue search. Makes 1 + labels.length search requests; at most 5 labels per call because GitHub allows 10 keyless searches per minute per IP."
+            }
+          ],
+          "web": [
+            {
+              "url": "https://github.com/mrdoob/three.js/issues/11475",
+              "title": "Material: Added onBeforeCompile()#11475",
+              "description": "# Material: Added onBeforeCompile()#11475\n## Description\n[http://rawgit.com/mrdoob/three.js/dev/examples/webgl\\_materials\\_modified.html](http://rawgit.com/mrdoob/three.js/dev/examples/webgl\\_materials\\_modified.html)\n\nToday I thought..\n\n#10791\n\nI tapped into the unused argument in the WebGLRenderer.\n\nI like using this for example to get threejs to work with normal maps, but I've linked some issues that seem like they would be trivial to solve with this.\n\n[http://dusanbosnjak.com/test/webGL/three-material-shader-override/webgl\\_materials\\_shader\\_override.html](http://dusanbosnjak.com/test/webGL/three-material-shader-override/webgl\\_materials\\_shader\\_override.html)\n\n...similar way to Object3D's onBeforeRender().\n\nOwnerAuthor\n\n#10791\n\nI tapped into the unused argument in the WebGLRenderer.\n\nI guess the only advantage of the other one is that it was good to go a few months ago :)\n\nOwnerAuthor\n\nNow you mention it...\n\nIt would be really nice to have this, i haven't worked with that many 3d engines, but unity and scene kit seem to have something like this.\n\nOwnerAuthor",
+              "position": 1,
+              "category": "developer"
+            },
+            {
+              "url": "https://discourse.threejs.org/t/how-to-blend-normal-texture-and-detailnormal-texture/26922",
+              "title": "How to blend normal texture and detailNormal texture? - three.js forum",
+              "description": "So you need a custom shader or an enhanced version of MeshStandardMaterial (via onBeforeCompile()) that can handle two normal map inputs. In",
+              "position": 2,
+              "category": "developer"
+            },
+            {
+              "url": "https://threejs.org/docs/pages/module-FocusShader.html",
+              "title": "FocusShader",
+              "description": "## Core\n### Materials\n- Material\n\n### Nodes\n- NormalMapNode\n\n### Renderers\n- WebGLRenderer\n\n## Addons\n### Capabilities\n- WebGL",
+              "position": 3,
+              "category": "developer"
+            }
+          ]
+        },
+        "id": "01a153f4-007b-7659-a8f9-bea52343b1e9",
+        "creditsUsed": 2,
+        "agent_hints": [
+          "All 3 web results are excerpts only (#1 \"https://github.com/mrdoob/three.js/issues/11475\", #2 \"https://discourse.threejs.org/t/how-to-blend-normal-texture-and-detailnormal-texture/26922\", #3 \"https://threejs.org/docs/pages/module-FocusShader.html\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+        ]
+      },
+      "isError": false
+    }
+  }
+]

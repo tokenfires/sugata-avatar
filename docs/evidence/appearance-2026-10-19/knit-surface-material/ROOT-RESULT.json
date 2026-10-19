@@ -1,0 +1,34 @@
+{
+  "schema": "root-source-refusal-v1",
+  "utc": "2026-10-19T11:47:02.709589+00:00",
+  "pid": 36064,
+  "verdict": "B exact source closed unrun",
+  "verified_preflight_rows": 29,
+  "verified_critic_direct_rows": 6,
+  "critic_review_sha256": "5cc78a43639669f0410b7d054d9a18daae6dbb12b914ce8c2d7d016efbc4dbc4",
+  "critic_receipt_sha256": "cd2e0ce02bd72deb8881a106838d4f42ae1d5b8c8e3f9ae8c229babfc2493946",
+  "root_whole_pair_read": "ec0245 exit0 no truncation",
+  "root_full_authored_source_read": "56b85d exit0 no truncation",
+  "root_independent_witness": "e7e6af exit0 PID35747 at11:44:05.383312UTC: viewer38-42 creates geometry then awaits SHA; cleanup10-16 may set closed before44/51 allocations;62 guard is later; one-shot cleanup can miss new owners.",
+  "classification": "Actual source ownership gap; no observed GPU leak/runtime failure",
+  "alternatives": [
+    {
+      "choice": "Guard each async continuation and make cleanup account for late owner registration",
+      "tradeoff": "General cancellation coverage,more explicit ownership state."
+    },
+    {
+      "choice": "Move pure input/array hashes before synchronous full resource creation; guard later publication continuations",
+      "tradeoff": "Fewer lateallocation states,but source restructuring and remaining awaitguards still required."
+    }
+  ],
+  "actuals": {
+    "GPU_job": false,
+    "target_browser_tab_created": false,
+    "candidate_images": 0,
+    "native_job": false,
+    "ADMISSION_exists": false,
+    "reference_tab_5": "closed; retained IAB3 acceptedtabs1-3 remain"
+  },
+  "preservation": "No code repair, retune, renderer/mapping successor, default/production/accepted change or checklist completion. AllMaraPNGs unviewed, constructorHOLD/closures/fullroadmap preserved.",
+  "next": "Checkpoint locally, then fresh worth for a different explicit character/wardrobe responsibility; this method is closed."
+}
