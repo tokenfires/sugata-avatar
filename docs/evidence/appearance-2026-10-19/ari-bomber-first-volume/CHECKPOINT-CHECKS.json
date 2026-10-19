@@ -1,0 +1,31 @@
+{
+  "schema": "root-Ari-checkpoint-whitespace-checks-v1",
+  "checks": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "91cfb0",
+        "wall_time_seconds": 0.000005833,
+        "exit_code": 2,
+        "original_token_count": 120,
+        "output": "docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-RUNTIME-2.txt:8511: trailing whitespace.\n+\t\ndocs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-RUNTIME-2.txt:8560: trailing whitespace.\n+\t\ndocs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-RUNTIME-2.txt:16253: trailing whitespace.\n+\t\tObject.defineProperties(this, { \ndocs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-RUNTIME-2.txt:35957: trailing whitespace.\n+\t\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "c63df6",
+        "wall_time_seconds": 0.000006083,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    }
+  ],
+  "decision": "Authored/staged source/docs pass excluding byte-exact raw served archives. Full diff reports four trailing-whitespace lines only in immutable SERVED-RUNTIME-2.txt (8511/8560/16253/35957). Preserve exact raw bytes; no formatter/source patch or target rerun.",
+  "raw_archive_sha256": "3253d631ed61edb9c257cbc1fc6ed5ff363ff054f192b4130dc6bd7375574e19",
+  "commands": [
+    "git diff --cached --check",
+    "git diff --cached --check -- . ':(exclude)docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-RUNTIME-*.txt'"
+  ]
+}

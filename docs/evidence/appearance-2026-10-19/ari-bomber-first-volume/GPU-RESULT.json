@@ -1,0 +1,341 @@
+{
+  "schema": "Ari-first-bomber-six-view-result-v1",
+  "started_utc": "2026-10-19T16:23:54.958Z",
+  "views": [
+    {
+      "id": "front",
+      "mode": "assembly",
+      "shownParts": [
+        "shell_with_outer_bags",
+        "full_lining_and_facings",
+        "pointed_collar",
+        "left_guard_G_L",
+        "separate_zip_R",
+        "separate_zip_L",
+        "outer_mouth_L_tape",
+        "outer_mouth_R_tape"
+      ],
+      "expectedTriangles": 8548,
+      "selection": "Original coordinates unchanged; explicit whole assembly/layer/face selections only",
+      "width": 570,
+      "height": 340,
+      "bytes": 89280,
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "camera": [
+        0,
+        31.95723295211792,
+        299.63841438293457
+      ],
+      "halfHeight": 42.853702316284185,
+      "drawCalls": 23,
+      "submittedTriangles": 8548
+    },
+    {
+      "id": "low-side",
+      "mode": "assembly",
+      "shownParts": [
+        "shell_with_outer_bags",
+        "full_lining_and_facings",
+        "pointed_collar",
+        "left_guard_G_L",
+        "separate_zip_R",
+        "separate_zip_L",
+        "outer_mouth_L_tape",
+        "outer_mouth_R_tape"
+      ],
+      "expectedTriangles": 8548,
+      "selection": "Original coordinates unchanged; explicit whole assembly/layer/face selections only",
+      "width": 570,
+      "height": 340,
+      "bytes": 32123,
+      "direction": [
+        0.9119215051751063,
+        -0.41036467732879783,
+        0
+      ],
+      "up": [
+        0.41036467732879794,
+        0.9119215051751065,
+        0
+      ],
+      "camera": [
+        273.57645155253186,
+        -91.15217024652144,
+        -0.3615856170654297
+      ],
+      "halfHeight": 59.11413021885232,
+      "drawCalls": 23,
+      "submittedTriangles": 8548
+    },
+    {
+      "id": "rear",
+      "mode": "assembly",
+      "shownParts": [
+        "shell_with_outer_bags",
+        "full_lining_and_facings",
+        "pointed_collar",
+        "left_guard_G_L",
+        "separate_zip_R",
+        "separate_zip_L",
+        "outer_mouth_L_tape",
+        "outer_mouth_R_tape"
+      ],
+      "expectedTriangles": 8548,
+      "selection": "Original coordinates unchanged; explicit whole assembly/layer/face selections only",
+      "width": 570,
+      "height": 340,
+      "bytes": 71926,
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "up": [
+        0,
+        1,
+        0
+      ],
+      "camera": [
+        0,
+        31.95723295211792,
+        -300.36158561706543
+      ],
+      "halfHeight": 42.853702316284185,
+      "drawCalls": 23,
+      "submittedTriangles": 8548
+    },
+    {
+      "id": "lining-front",
+      "mode": "lining",
+      "shownParts": [
+        "full_lining_and_facings",
+        "pointed_collar",
+        "left_guard_G_L",
+        "separate_zip_R",
+        "separate_zip_L"
+      ],
+      "expectedTriangles": 4644,
+      "selection": "Original coordinates unchanged; explicit whole assembly/layer/face selections only",
+      "width": 570,
+      "height": 340,
+      "bytes": 67033,
+      "direction": [
+        0.361529790800847,
+        0.27809983907757463,
+        0.8899194850482388
+      ],
+      "up": [
+        -0.10467039619093917,
+        0.9605521742753109,
+        -0.25765020600846567
+      ],
+      "camera": [
+        108.4589372402541,
+        115.3871846753903,
+        266.6142598974062
+      ],
+      "halfHeight": 51.07477659738749,
+      "drawCalls": 13,
+      "submittedTriangles": 4644
+    },
+    {
+      "id": "lining-rear",
+      "mode": "lining",
+      "shownParts": [
+        "full_lining_and_facings",
+        "pointed_collar",
+        "left_guard_G_L",
+        "separate_zip_R",
+        "separate_zip_L"
+      ],
+      "expectedTriangles": 4644,
+      "selection": "Original coordinates unchanged; explicit whole assembly/layer/face selections only",
+      "width": 570,
+      "height": 340,
+      "bytes": 63449,
+      "direction": [
+        -0.3666702827622369,
+        0.22564325093060733,
+        -0.9025730037224293
+      ],
+      "up": [
+        0.08492694045079972,
+        0.9742099995942698,
+        0.20905093034043007
+      ],
+      "camera": [
+        -110.00108482867107,
+        99.65020823130011,
+        -271.1334867337942
+      ],
+      "halfHeight": 49.79049682282347,
+      "drawCalls": 13,
+      "submittedTriangles": 4644
+    },
+    {
+      "id": "outer-bags",
+      "mode": "bags",
+      "shownParts": [
+        "shell_with_outer_bags",
+        "outer_mouth_L_tape",
+        "outer_mouth_R_tape"
+      ],
+      "expectedTriangles": 160,
+      "selection": "Original coordinates unchanged; explicit whole assembly/layer/face selections only",
+      "width": 570,
+      "height": 340,
+      "bytes": 11205,
+      "direction": [
+        0.20438500686582428,
+        0.29197858123689185,
+        0.934331459958054
+      ],
+      "up": [
+        -0.062394911488362126,
+        0.9564248575287511,
+        -0.28523388108965547
+      ],
+      "camera": [
+        61.31550205974728,
+        119.55080732318548,
+        279.93785237035075
+      ],
+      "halfHeight": 49.34794492632345,
+      "drawCalls": 8,
+      "submittedTriangles": 160
+    }
+  ],
+  "cleanup": [
+    {
+      "name": "geometry0",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "geometry1",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "geometry2",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "geometry3",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "geometry4",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "geometry5",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "geometry6",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "geometry7",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "material0",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "material1",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "material2",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "material3",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "material4",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "material5",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "material6",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "material7",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "material8",
+      "present": true,
+      "error": null
+    },
+    {
+      "name": "renderer",
+      "present": true,
+      "error": null
+    }
+  ],
+  "scope": "One original unitless standalone Ari jacket; component selections explicitly hide layers, no fit/cloth/rig/runtime/AAA qualification",
+  "admissionSHA256": "0f55f0d85b34ef855859e88b9d38addca83c99c97b847700924f0b055abe6931",
+  "modelSHA256": "3076186848c38e7283089bb27fc3da4b04628fa79b16cb9f42d6ed4a126d5241",
+  "counts": {
+    "parts": 8,
+    "vertices": 4282,
+    "triangles": 8548
+  },
+  "threeRevision": "185",
+  "contextAttributes": {
+    "alpha": false,
+    "antialias": true,
+    "depth": true,
+    "desynchronized": false,
+    "failIfMajorPerformanceCaveat": false,
+    "powerPreference": "default",
+    "premultipliedAlpha": true,
+    "preserveDrawingBuffer": true,
+    "stencil": false,
+    "xrCompatible": false
+  },
+  "outputBytes": 335016,
+  "status": "complete",
+  "checkedEntryMs": 48.599999994039536,
+  "abortRequested": true,
+  "cleanupReason": "six-view packet complete",
+  "contextLoss": {
+    "available": true,
+    "requested": true,
+    "error": null
+  },
+  "finished_utc": "2026-10-19T16:23:55.007Z"
+}

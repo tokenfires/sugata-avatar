@@ -1,0 +1,111 @@
+{
+  "schema": "Ari-first-bomber-CPU-result-v1",
+  "utc": "2026-10-19T16:11:43.753Z",
+  "pid": 25430,
+  "argv": [
+    "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/build.mjs",
+    "c09d09d324717ad607272fdb1372ac7095a15efa252bb2c4b6cf5a9a56816acc"
+  ],
+  "designSha256": "c09d09d324717ad607272fdb1372ac7095a15efa252bb2c4b6cf5a9a56816acc",
+  "counts": {
+    "parts": 8,
+    "vertices": 4282,
+    "triangles": 8548
+  },
+  "partChecks": [
+    {
+      "id": "shell_with_outer_bags",
+      "vertices": 1930,
+      "triangles": 3864,
+      "edges": 5796,
+      "euler": -2,
+      "minTriangleArea": 0.09478377914132458,
+      "materialVolume": 4506.339338006493
+    },
+    {
+      "id": "full_lining_and_facings",
+      "vertices": 1878,
+      "triangles": 3760,
+      "edges": 5640,
+      "euler": -2,
+      "minTriangleArea": 0.059782668648785,
+      "materialVolume": 2729.129420643272
+    },
+    {
+      "id": "pointed_collar",
+      "vertices": 294,
+      "triangles": 584,
+      "edges": 876,
+      "euler": 2,
+      "minTriangleArea": 0.0892754736885199,
+      "materialVolume": 154.80989479869996
+    },
+    {
+      "id": "left_guard_G_L",
+      "vertices": 52,
+      "triangles": 100,
+      "edges": 150,
+      "euler": 2,
+      "minTriangleArea": 0.15107613974416564,
+      "materialVolume": 20.89698206970098
+    },
+    {
+      "id": "separate_zip_R",
+      "vertices": 52,
+      "triangles": 100,
+      "edges": 150,
+      "euler": 2,
+      "minTriangleArea": 0.04178516483155146,
+      "materialVolume": 5.939930637087089
+    },
+    {
+      "id": "separate_zip_L",
+      "vertices": 52,
+      "triangles": 100,
+      "edges": 150,
+      "euler": 2,
+      "minTriangleArea": 0.04178516483155146,
+      "materialVolume": 5.940950876117648
+    },
+    {
+      "id": "outer_mouth_L_tape",
+      "vertices": 12,
+      "triangles": 20,
+      "edges": 30,
+      "euler": 2,
+      "minTriangleArea": 0.053301811839468326,
+      "materialVolume": 1.7876004955208824
+    },
+    {
+      "id": "outer_mouth_R_tape",
+      "vertices": 12,
+      "triangles": 20,
+      "edges": 30,
+      "euler": 2,
+      "minTriangleArea": 0.05335539595816098,
+      "materialVolume": 1.783429581404604
+    }
+  ],
+  "contactCount": 246,
+  "checkedPostImportMs": 47.433834,
+  "sampledRSS": 107839488,
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/out/model.json",
+      "bytes": 1095322,
+      "sha256": "3076186848c38e7283089bb27fc3da4b04628fa79b16cb9f42d6ed4a126d5241"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/out/model.obj",
+      "bytes": 302305,
+      "sha256": "0bbccf73bcc3f63903607fec3f5bc4bba9a3af5b90738adbb7c222cb34a0f8d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/out/model.mtl",
+      "bytes": 852,
+      "sha256": "4107cab3fc0dfb4f983cb84a24401c30b8c40e6e9a45c8c19fe98cc9fec07147"
+    }
+  ],
+  "scope": "Finite material topology/contact/export checks only; no selfintersection/globalfit, physical layers, cloth/rig/motion/runtime/AAA or appearance proof"
+}

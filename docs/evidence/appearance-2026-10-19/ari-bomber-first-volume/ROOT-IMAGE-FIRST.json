@@ -1,0 +1,107 @@
+{
+  "schema": "root-Ari-whole-actual-image-first-opinion-v1",
+  "utc": "2026-10-19T16:25:28.168878+00:00",
+  "pid": 55855,
+  "before_critic_pixel_opinion": true,
+  "decision": "B / do not retain as reviewed artist appearance. Freeze unchanged for independent critic and closure; no correction or successor.",
+  "whole_images_inspected": [
+    "first.jpg",
+    "front.png",
+    "low-side.png",
+    "rear.png",
+    "lining-front.png",
+    "lining-rear.png",
+    "outer-bags.png"
+  ],
+  "display_limit": "Whole JPEG delivered by view_image resized1280x7635 to1006x6000; all six original570x340PNGs separately inspected without transformation. Reference originals whole viewed before packet.",
+  "positive_observations": [
+    "Broad short rust body, long attached hanging sleeves, darker short hem/cuffs and quiet rear read as a jacket, distinct from the long cardigan.",
+    "Selected warm full lining/back/sleeves, front bands and actual side depth are visible. No new body/mannequin is shown."
+  ],
+  "actionable_findings": [
+    {
+      "id": "IMAGE-COLLAR",
+      "witnesses": [
+        "front.png upper centre aroundx240-330/y15-65",
+        "lining-front.png upper centre aroundx230-335/y40-105",
+        "original-first.jpg front pointed fold and characterconcept front/portrait"
+      ],
+      "observation": "The dominant collar read is a raised narrow rear band with two small downward tabs at the front opening; the broad turned-down shirt-collar points/fold of the retained Ari drawings/concept do not read clearly.",
+      "explanation": "Pointed shirt collar is a required visible identity in BRIEF, not optional metadata. Source three-row naming and finite contacts cannot substitute for that visible read. Faceting is permitted, but this silhouette communication is insufficient for full artist appearance A. This does not assert a topological defect or physical fit error.",
+      "alternatives": [
+        {
+          "choice": "Freeze this actual refused image/data unchanged and retain accepted2Dcollar art as authority",
+          "tradeoff": "Honest appearance boundary with no further isolated tuning; current3Dcollar appearance remains unqualified",
+          "preferred_now": true
+        },
+        {
+          "choice": "Defer a genuinely new coupled artist garment/collar contract to a later separately authorized window",
+          "tradeoff": "Could own fold/stand/point relationship in context but is larger work and explicitly no correction/variant/successor in this window",
+          "admitted_now": false
+        }
+      ]
+    }
+  ],
+  "other_limits": [
+    "Outer-bags view shows two small narrow folded slivers/tapes; alone it cannot demonstrate global layer separation, functional capacity or sewing. No extra crop/close-up is admitted.",
+    "Low-side pale ellipse is an observation through the open lower region, not evidence by itself of a newly capped hem or wrist; saved topology already distinguishes material rims from garment voids.",
+    "No arbitrary faceting/knit/soft-cloth standard is added to this permitted stylized blockout scope.",
+    "No visible bag puncturing its lining cover demonstrated from this packet; no global collision conclusion."
+  ],
+  "image_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/first.jpg",
+      "bytes": 499405,
+      "sha256": "7ea95bd305ab3b0882c4051ad077f6c72a4b467f53d863c5c9e05af962bb5b03"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/front.png",
+      "bytes": 89280,
+      "sha256": "e22be629b20b28c1edb0a3323b194a49a1ce7b8a0b9953e1c5032d172d8ec599"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/low-side.png",
+      "bytes": 32123,
+      "sha256": "7d17517220c0e98eaab002fae707f620ce79f456ec28e2df92883ee4e3ac4cc9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/rear.png",
+      "bytes": 71926,
+      "sha256": "c6b0c5846544774bbbc76d6621cd77a1b50031026432f7a9ef96277e34fb34b7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/lining-front.png",
+      "bytes": 67033,
+      "sha256": "8bedfad165a33a9f73f34175f1d5d128cfd9398946c44475f114bc17fba6db80"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/lining-rear.png",
+      "bytes": 63449,
+      "sha256": "e269394d8f9613c322af994741fec76a77310b403b393cfb0276985749e176a9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/outer-bags.png",
+      "bytes": 11205,
+      "sha256": "e70c7c52b5ad99c8da2d4d3c44163614689652e5366521ecbf6a1841fceeebc9"
+    }
+  ],
+  "reference_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/original-first.jpg",
+      "bytes": 133854,
+      "sha256": "6b177483ed331b187d66146ae3f17296eaa2604a176a84de4e0abb40772ca93d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/second.jpg",
+      "bytes": 175382,
+      "sha256": "89299e3be5e45c4ffb8b449bcfcac75f59b84d388c08f1a2bf1855cf0bfd6ee4"
+    }
+  ],
+  "first_B_closes": "No delivery/promotion/source/shape/material/camera/render/crop/capture/retake/relabel/numerical successor, no exception. SoleCPU/GPU consumed; independent critic is asked to inspect whole packet without root opinion before fixing own.",
+  "absolute_stop_utc": "2026-10-19T17:19:05.041021+00:00"
+}

@@ -1,0 +1,602 @@
+{
+  "schema": "root-Ari-stable-whole-image-handoff-verification-v1",
+  "utc": "2026-10-19T16:34:39.148214+00:00",
+  "pid": 74692,
+  "decision": "B full declared artist appearance. Freeze unchanged with source/data and bounded GPUrecord A retained separately. No fullartistdelivery/promotion/successor.",
+  "whole_stable_pair_read_job": "138389 untruncated",
+  "own_first_whole_image_opinion": "59f10c before critic pixel opinion, unchanged ROOT-IMAGE-FIRST",
+  "critic_blind_pixel_opinion": "FullB on N/backfold, fixed before root opinion read; collar/fronttips positive recognition retained as distinct subjective judgment",
+  "reverified_pin_rows": 109,
+  "unique_paths": 89,
+  "bindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/front.png",
+      "bytes": 89280,
+      "sha256": "e22be629b20b28c1edb0a3323b194a49a1ce7b8a0b9953e1c5032d172d8ec599"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/low-side.png",
+      "bytes": 32123,
+      "sha256": "7d17517220c0e98eaab002fae707f620ce79f456ec28e2df92883ee4e3ac4cc9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/rear.png",
+      "bytes": 71926,
+      "sha256": "c6b0c5846544774bbbc76d6621cd77a1b50031026432f7a9ef96277e34fb34b7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/lining-front.png",
+      "bytes": 67033,
+      "sha256": "8bedfad165a33a9f73f34175f1d5d128cfd9398946c44475f114bc17fba6db80"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/lining-rear.png",
+      "bytes": 63449,
+      "sha256": "e269394d8f9613c322af994741fec76a77310b403b393cfb0276985749e176a9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/outer-bags.png",
+      "bytes": 11205,
+      "sha256": "e70c7c52b5ad99c8da2d4d3c44163614689652e5366521ecbf6a1841fceeebc9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/first.jpg",
+      "bytes": 499405,
+      "sha256": "7ea95bd305ab3b0882c4051ad077f6c72a4b467f53d863c5c9e05af962bb5b03"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/GPU-ADMISSION.json",
+      "bytes": 19624,
+      "sha256": "0f55f0d85b34ef855859e88b9d38addca83c99c97b847700924f0b055abe6931"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/GPU-RESULT.json",
+      "bytes": 7774,
+      "sha256": "15cce9fc450b7783afb02c369363d864c70aab955e330be030db1143dfa38cf4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/GPU-DOM.json",
+      "bytes": 2883,
+      "sha256": "84dbbbe43cf2a3c831b200d8585fc1974c5e3afac7c2e2063217013d71818d11"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/CAPTURE.json",
+      "bytes": 629,
+      "sha256": "7de94c81d3f9bc2dc75d01cdb33cae6455de9d56c1a148a2aae18c64a5937997"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/TAB-CLOSE.json",
+      "bytes": 1288,
+      "sha256": "487b2c5aeb2882649b4cf0d2af6af6f7d85c361eefe725b7ab0c6157b469e1e5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/TOOL-GPU.json",
+      "bytes": 22889,
+      "sha256": "bddd025b92fe72ca4195749f7795000523f80a5b0dcbc964e8c5144fa4389b42"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/ROOT-GPU.json",
+      "bytes": 5495,
+      "sha256": "ceb4f1502d441f12abd2c950d81f976542c3c270de42250a6ddc3ac1ee3a76bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/ROOT-IMAGE-FIRST.json",
+      "bytes": 6008,
+      "sha256": "bfc350d6e39a24dd05a98c9330fc071b5cbeb77952fe4ca5d6c14743a42b2f76"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/first.jpg",
+      "bytes": 499405,
+      "sha256": "7ea95bd305ab3b0882c4051ad077f6c72a4b467f53d863c5c9e05af962bb5b03"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/front.png",
+      "bytes": 89280,
+      "sha256": "e22be629b20b28c1edb0a3323b194a49a1ce7b8a0b9953e1c5032d172d8ec599"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/low-side.png",
+      "bytes": 32123,
+      "sha256": "7d17517220c0e98eaab002fae707f620ce79f456ec28e2df92883ee4e3ac4cc9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/rear.png",
+      "bytes": 71926,
+      "sha256": "c6b0c5846544774bbbc76d6621cd77a1b50031026432f7a9ef96277e34fb34b7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/lining-front.png",
+      "bytes": 67033,
+      "sha256": "8bedfad165a33a9f73f34175f1d5d128cfd9398946c44475f114bc17fba6db80"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/lining-rear.png",
+      "bytes": 63449,
+      "sha256": "e269394d8f9613c322af994741fec76a77310b403b393cfb0276985749e176a9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/outer-bags.png",
+      "bytes": 11205,
+      "sha256": "e70c7c52b5ad99c8da2d4d3c44163614689652e5366521ecbf6a1841fceeebc9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/BRIEF.md",
+      "bytes": 10162,
+      "sha256": "2c0bbcff3f373ff3f856fee0da2fdfe223d9814dd4a0a2248b08ea73c29bb769"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SOURCE.md",
+      "bytes": 7325,
+      "sha256": "73d01cf95e8bc3b0f9420c6b7d2ec5e22123b466e919e870c9ffbd77acb2e49e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/viewer.mjs",
+      "bytes": 9492,
+      "sha256": "c52c72f5c541a189dfa5f30e67059567fe9549c81cbea4f990e90e96cfbe3712"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/out/model.json",
+      "bytes": 1095322,
+      "sha256": "3076186848c38e7283089bb27fc3da4b04628fa79b16cb9f42d6ed4a126d5241"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SOURCE-REVIEW.md",
+      "bytes": 3685,
+      "sha256": "b6817cc7f6953e9cd3793e97806a58d6453d0055d3538f0ef2c329f1613df70d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SOURCE-RECEIPT.json",
+      "bytes": 18089,
+      "sha256": "49cc390d32ee9b8bc6e83bbfd885553d945b1e4d7516049dd975c3ceda58e461"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/CPU-REVIEW.md",
+      "bytes": 3372,
+      "sha256": "42db660a7f2af47222eb9de199ece6363bd5e877ebb7b770f8f9318cd681f843"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/CPU-RECEIPT.json",
+      "bytes": 35501,
+      "sha256": "229d536b9106bbb83a08eef8664ecaf946361f012d75d234d91a9e7ca8bc66f0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVING-REVIEW.md",
+      "bytes": 1808,
+      "sha256": "503c5f4dea850d3ecac569d4528a30f5ee314331b709a82ea4f5e4b4144ff6ac"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVING-RECEIPT.json",
+      "bytes": 17624,
+      "sha256": "d0a7a5eba0d094ac3fd68bff9387d12a22d152648606ba473576742526c04ed3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/original-first.jpg",
+      "bytes": 133854,
+      "sha256": "6b177483ed331b187d66146ae3f17296eaa2604a176a84de4e0abb40772ca93d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/second.jpg",
+      "bytes": 175382,
+      "sha256": "89299e3be5e45c4ffb8b449bcfcac75f59b84d388c08f1a2bf1855cf0bfd6ee4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/IMAGE-REVIEW.md",
+      "bytes": 3657,
+      "sha256": "2cd0cfa191f3def93f4c96999451405bc6101ff950d506a989cb57af21129daf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/PREFLIGHT.json",
+      "bytes": 12397,
+      "sha256": "c2847105258761ef8a23ec8bf48ba6bbfbfec7b27a6553e92e77d7c9b9210211"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/BRIEF.md",
+      "bytes": 10162,
+      "sha256": "2c0bbcff3f373ff3f856fee0da2fdfe223d9814dd4a0a2248b08ea73c29bb769"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SOURCE.md",
+      "bytes": 7325,
+      "sha256": "73d01cf95e8bc3b0f9420c6b7d2ec5e22123b466e919e870c9ffbd77acb2e49e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/build.mjs",
+      "bytes": 19438,
+      "sha256": "090fe81686cc68532d113bc104738d99b28fc47ab368fb95494aefd1b29a6279"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/viewer.mjs",
+      "bytes": 9492,
+      "sha256": "c52c72f5c541a189dfa5f30e67059567fe9549c81cbea4f990e90e96cfbe3712"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/design.json",
+      "bytes": 2961,
+      "sha256": "c09d09d324717ad607272fdb1372ac7095a15efa252bb2c4b6cf5a9a56816acc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/review.html",
+      "bytes": 2100,
+      "sha256": "7f48cd0d8518ec1228c3c3862160463df27653cb9e33ec7b56044b37f8e99b42"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/CPU-REQUEST.json",
+      "bytes": 577,
+      "sha256": "2bf5cef29af9254f893c745b7d393eab542559fb2262142b2499920aca95986c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/API-INPUTS.json",
+      "bytes": 3743,
+      "sha256": "cb70a8004a8575c80d9e5e1a9b8b5dfcfed94b62c580196859c2cad023da264d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/TRANSPORT-PROVENANCE.json",
+      "bytes": 1473,
+      "sha256": "b0d41b792b1d405092fa445492892b1424383b772e67101372b17b5557e888f7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/PALETTE-INPUTS.json",
+      "bytes": 2827,
+      "sha256": "97374787370b81ac9164a6e363d022d7e107d8c29182242781cf2d4beb7ea74f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/AUTHORING-NOTES.json",
+      "bytes": 1191,
+      "sha256": "d5d8b5855264afbcfeb11b934d672e653d60467fa6db1edcb1eaf1e9cec3704a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/WORTH.md",
+      "bytes": 3235,
+      "sha256": "8ecd9aeec292988a421db149b1b33aabce2d7ee3a1a7d2efb2bf63825e7dea15"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/WORTH-RECEIPT.json",
+      "bytes": 11375,
+      "sha256": "e4298b8c812732e4b93484ad145d43411753bbcd57c4133eb9cc19986949c9b2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SOURCE-REVIEW.md",
+      "bytes": 3685,
+      "sha256": "b6817cc7f6953e9cd3793e97806a58d6453d0055d3538f0ef2c329f1613df70d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/PLAN.md",
+      "bytes": 4579,
+      "sha256": "2a45a6b4a278312cdd90094b4c12845292cac699ff3bff91503eada792998feb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/PREPARATION.json",
+      "bytes": 1107,
+      "sha256": "53f5f22cfa563d2c2909a5f9384e38e485eacd4a5bd30c2779e1b63d909d95c2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/ARTIST-HANDOFF.md",
+      "bytes": 2575,
+      "sha256": "de89c9bb6f5de71228e1b0a03e9fb89637c16bc2f4e4b592abbfffc3a1301b74"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/BRIEF.md",
+      "bytes": 3115,
+      "sha256": "3203e58286cdd558a48dc24aed8da3b0a28b1129f13476f3da51a5b8f3a404c5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/original-first.jpg",
+      "bytes": 133854,
+      "sha256": "6b177483ed331b187d66146ae3f17296eaa2604a176a84de4e0abb40772ca93d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/bomber.svg",
+      "bytes": 13197,
+      "sha256": "ff9a259c8fe5a6d576cceda0df230ff56ef0b756c4d58a6e40b3cb695fa77d7f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/design.json",
+      "bytes": 46386,
+      "sha256": "5d37f4263b2a172286619d7fbcc43d5e017e2f69e8867b23e8bc93b55dfe4dd7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ARTIST-HANDOFF.md",
+      "bytes": 2418,
+      "sha256": "08fdb8eaa61304a2af305e357516345ccf26a1a5d5e42c2ece0685fc1f90af40"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/BRIEF.md",
+      "bytes": 5718,
+      "sha256": "c82e40c491a04d6881f9d60b72834f73bb60886311bcdc7b06c19f33d48b580a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/second.jpg",
+      "bytes": 175382,
+      "sha256": "89299e3be5e45c4ffb8b449bcfcac75f59b84d388c08f1a2bf1855cf0bfd6ee4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/interior-caption.svg",
+      "bytes": 13143,
+      "sha256": "9ee8e1ede810689eca0ff558a952dba6915fcf827f223dbbc5ff9c0131ce33f2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/design-caption.json",
+      "bytes": 51687,
+      "sha256": "2dc007e18b153d339374a340d24638d5767eab41eae9c6cb3930aa6844d09058"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md",
+      "bytes": 2270,
+      "sha256": "3a5b0493387b14d164455996e2ab3840d02e10341220f0282968d3720878899c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/REFERENCES.md",
+      "bytes": 1821,
+      "sha256": "bb8d903d04b6b86813f1fd9effffeb624fbabca8a3ef886f7fdd1da9e47ccc29"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+    },
+    {
+      "path": "/opt/homebrew/bin/node",
+      "bytes": 132848,
+      "sha256": "91ed66b8cd139609427a3e9d93518dd3b0d5407c737fc9a265bfd991ec623d8a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+      "bytes": 132848,
+      "sha256": "91ed66b8cd139609427a3e9d93518dd3b0d5407c737fc9a265bfd991ec623d8a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/node/26.9.0/lib/libnode.147.dylib",
+      "bytes": 57140096,
+      "sha256": "962d6add54b805dfcdd847d5830baae73e4348928fc1b2fd5e7886ed39a6d7f5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferGeometry.js",
+      "bytes": 34470,
+      "sha256": "be1b8ad6ce3e502904fd989f5b6690d8fedcbadb74508aec99fc87dfd567e8c7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferAttribute.js",
+      "bytes": 24876,
+      "sha256": "ffd9bdc55ea7c0b5cec9865a68b71ebd076d0c49f9d50adb5f9ce570c1961c09"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/Object3D.js",
+      "bytes": 40918,
+      "sha256": "99d720abcea9720a2743dcbbd84e393d7094538d4a8495ea4869150030aa7d82"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/Material.js",
+      "bytes": 42885,
+      "sha256": "3af196049d118e5c8a81e07cb9d90c44524ac5a319263e64f18f3ee08178ca68"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/MeshStandardMaterial.js",
+      "bytes": 13835,
+      "sha256": "c1dc5c36d5360498cccae2513dae74349de62a48a9ed19b540cf3d7905a03a1f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js",
+      "bytes": 108498,
+      "sha256": "867948b57a6abb84d4cfd7619b38ea14fbb2c100c1b6f78d59de2383662ab7a0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Box3.js",
+      "bytes": 21469,
+      "sha256": "382b33a3b235b3f5a37a8949d8f8a9efdf056c62ce5ed79692b54944a80487e1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Vector3.js",
+      "bytes": 28243,
+      "sha256": "834c56c4a10a54ee1f967f111d792be37639b5a8761c6f190622184297bf3dc8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/cameras/OrthographicCamera.js",
+      "bytes": 5806,
+      "sha256": "5525c2365774222ee96c4e4303d0257a4b16739e1e69769977c0a739b4f3fd54"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/WORTH-INPUTS.json",
+      "bytes": 4630,
+      "sha256": "ea7e862ffcdb4f102d70d1a7c7fe64452c4f2b00029266a059e43071734991c3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/ROOT-WORTH.json",
+      "bytes": 7233,
+      "sha256": "07c62e8a3a60b6f548be5f67624a8a7d5e5bfb03f41a8daa57c5dc934de563b3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/viewer.mjs",
+      "bytes": 7990,
+      "sha256": "1e928438539348dced48046ab49598f4ef4a6634f59f35b8fed5879871411243"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SOURCE-RECEIPT.json",
+      "bytes": 18089,
+      "sha256": "49cc390d32ee9b8bc6e83bbfd885553d945b1e4d7516049dd975c3ceda58e461"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/ROOT-SOURCE.json",
+      "bytes": 12663,
+      "sha256": "efad91291084bdb598c5f9d11ba62e19101ce8f2ad76d18fa33d15d319f50544"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/out/model.json",
+      "bytes": 1095322,
+      "sha256": "3076186848c38e7283089bb27fc3da4b04628fa79b16cb9f42d6ed4a126d5241"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/CPU-ADMISSION.json",
+      "bytes": 12515,
+      "sha256": "eadabc2a9ecaf580706742dea4fe3234a9cc04108daef4296d64fd2aded71025"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/BUILD-RESULT.json",
+      "bytes": 3296,
+      "sha256": "46dcb36a780db454607cda42293c7a8d556eabe55fa5750c0255db51b3288c71"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/OUTPUT-INVENTORY.json",
+      "bytes": 1766,
+      "sha256": "772958ad973e3c5086e31afa8f8d8143c717485d93e945345a89e7cce085f550"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/TOOL-CPU.json",
+      "bytes": 5567,
+      "sha256": "edaf08c8ae3a073bdf85d9a9c69be6f3cb2cdf5410d3d8aeede8bfd192fcc4f1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/TOOL-CPU-ADMISSION.json",
+      "bytes": 4877,
+      "sha256": "81d7bc08a3700eacf062fcf1575038f36cff7fd166d5d8e1a6e5a69c438ed3a7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/CPU-JOB.json",
+      "bytes": 556,
+      "sha256": "4be1c214a857983b3cf4e3f4ec83fb2e33c64785e3e3efd3cb0da45623609adb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/out/model.obj",
+      "bytes": 302305,
+      "sha256": "0bbccf73bcc3f63903607fec3f5bc4bba9a3af5b90738adbb7c222cb34a0f8d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/out/model.mtl",
+      "bytes": 852,
+      "sha256": "4107cab3fc0dfb4f983cb84a24401c30b8c40e6e9a45c8c19fe98cc9fec07147"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/CPU-REVIEW.md",
+      "bytes": 3372,
+      "sha256": "42db660a7f2af47222eb9de199ece6363bd5e877ebb7b770f8f9318cd681f843"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-RUNTIME-0.txt",
+      "bytes": 47125,
+      "sha256": "eff43bc2d02f6706c1607889c754c822eaa9c250692e6beab15839b105b07f03"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-RUNTIME-1.txt",
+      "bytes": 1828892,
+      "sha256": "da356c10c205f2337f5a033094e16bc36bdf2ea8d52398864c5b3c752949ece5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-RUNTIME-2.txt",
+      "bytes": 4078536,
+      "sha256": "3253d631ed61edb9c257cbc1fc6ed5ff363ff054f192b4130dc6bd7375574e19"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-MODULES.json",
+      "bytes": 2935,
+      "sha256": "628c1a8af171facea314fb4e92a9fd782639bbee20c15ebf525560fca1eecfc7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVING-OBSERVER.json",
+      "bytes": 10755,
+      "sha256": "aaeb58a813c40a51adf1c68123537e4dea07c394142b113a08446aeef601a92c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/CPU-RECEIPT.json",
+      "bytes": 35501,
+      "sha256": "229d536b9106bbb83a08eef8664ecaf946361f012d75d234d91a9e7ca8bc66f0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVING-REVIEW.md",
+      "bytes": 1808,
+      "sha256": "503c5f4dea850d3ecac569d4528a30f5ee314331b709a82ea4f5e4b4144ff6ac"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/ROOT-CPU.json",
+      "bytes": 4236,
+      "sha256": "a2e3c6cd69176517f167ba79e7c3954615114938afa9dbceb9f984f5e4212301"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/audit-cpu.py",
+      "bytes": 12778,
+      "sha256": "9b8766e643043980c9ab86ad7863490695792ceaa5e754e6b0c4cd68325115ac"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/ROOT-CPU-REVIEW.json",
+      "bytes": 20775,
+      "sha256": "8de563227520bd58c52bc20c38334796d9293a4d586bcd8203c107bfab98ac12"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/TOOL-CPU-REVIEW.json",
+      "bytes": 5085,
+      "sha256": "944dcb8fa9ec44b2bba01dabeca8c77ee8de77ce0ae51139c42a5c28c838bd33"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVING-RECEIPT.json",
+      "bytes": 17624,
+      "sha256": "d0a7a5eba0d094ac3fd68bff9387d12a22d152648606ba473576742526c04ed3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/ROOT-SERVING.json",
+      "bytes": 1451,
+      "sha256": "41615d3c77f85761db7959fb7b747154bc61a5ea9f8196f8eff8e0b07054f9ab"
+    }
+  ],
+  "stable_pair": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/IMAGE-REVIEW.md",
+      "bytes": 3657,
+      "sha256": "2cd0cfa191f3def93f4c96999451405bc6101ff950d506a989cb57af21129daf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/IMAGE-RECEIPT.json",
+      "bytes": 34492,
+      "sha256": "34083e33ec4be6d5a0708e5fd80339b020d229696264be881876bb927ab476a5"
+    }
+  ],
+  "witness_verification": {
+    "source_job": "984852 exactBRIEF25/57/62 +build118-126; no sourceevaluation",
+    "actual_images": "Rootwholefirst+sixnativePNGs+threeoriginals beforecritic; then re-viewed unchanged native lining-rear/front to verify F1, no new capture/crop/edit",
+    "confirmed_F1": "Native lining-rear is a smooth cream field below rust collar; N continuation and centerbackfold cannot be confidently read, consistent with critic actualwitness. Source/data do establish underlyingroles/relief, so this is communicationB/unknown rather than geometricabsence.",
+    "own_collar_B": "Rootstillfindsraisedband/smalltabs inadequate for retained shirtcollaridentity. Criticreadfronttips usefully; do not manufacture independent agreement on this narrower point."
+  },
+  "alternatives": [
+    {
+      "choice": "Freeze as partial artist/reference data and close this first packet",
+      "tradeoff": "Preserves useful shell/lining source and honest limited views, but withholds complete visual delivery/board promotion; no newrender or tuning."
+    },
+    {
+      "choice": "Defer any complete interior visualization to a future genuinely independent artist/coupled-garment owner, under a separate nomination",
+      "tradeoff": "Can own view-complete surface communication in context, but substantially larger work; not a currentcamera/shape/material/packet rescue."
+    }
+  ],
+  "known_limits": [
+    "FullB is visual communication/unknown; not geometricN/foldabsence, cappedopening, globalcollision/clearance, inaccessiblepocket, sewnunion or physicalfit finding.",
+    "SourceA/CPUdataA and bounded actualGPUrecord integrity remain separately qualified; numbers/labels do not grant fullappearance.",
+    "No complete artistdelivery/board/checklist/default/runtime/cloth/rig/morph/pose/motion/performance/AAA promotion.",
+    "No target/helper/import/geometryevaluation/browser/GPU/native/newreference/capture/retake/crop/imageedit/sourcechange.",
+    "No correction/exception/source/shape/material/camera/render/retake/relabel/numerical successor. OneCPU/GPU/captureconsumed; preservealloldclosures/HOLD/fullroadmap.",
+    "No newnomination admitted; stop current method after root fullhandoff verification, within17:19:05.041021UTC."
+  ],
+  "closed_budget": {
+    "CPU": 1,
+    "fixed_GPU_packet": 1,
+    "whole_screenshot": 1,
+    "retakes": 0
+  },
+  "all_old_closures_HOLD_and_full_roadmap_retained": true,
+  "absolute_stop_utc": "2026-10-19T17:19:05.041021+00:00"
+}

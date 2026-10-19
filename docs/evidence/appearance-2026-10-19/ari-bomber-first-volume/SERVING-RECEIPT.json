@@ -1,0 +1,271 @@
+{
+  "schema": "critic-Ari-archived-serving-check-v1",
+  "verdict": "A — archived served text identity only",
+  "actionable_findings": [],
+  "next_worth": "A — unchanged one fixed6view packet after root independently verifies this pair and prepares fresh GPU admission; no direct runtime admission",
+  "scopes": [
+    {
+      "scope": "Whole SERVED-MODULES and SERVING-OBSERVER including original/corrected commands and returns",
+      "job": "803a3a",
+      "complete": true
+    },
+    {
+      "scope": "All3 complete archived raw texts read/hashed, literal same-origin import graph, exact viewer executable-body transport equivalence and revision/runtime hash association",
+      "job": "bb5ff8",
+      "complete": true,
+      "limit": "Selected fixed textual identities, not whole library semantic/JS parser/engine/compiler/cache/driver proof"
+    },
+    {
+      "scope": "Decoded nonexecuting source-map JSON",
+      "job": "6f4146/bb5ff8",
+      "complete": true,
+      "limit": "Embedded text association only; no mappings/compiler semantics or normalization claim"
+    },
+    {
+      "scope": "Source/API/CPU qualification",
+      "method": "Existing exact SOURCE and CPU pair reused at pinned identities. No target/sourcecheck/import/replay/geometry audit or fresh library investigation."
+    }
+  ],
+  "observations": {
+    "pid": 48114,
+    "utc": "2026-10-19T16:21:54.739244+00:00",
+    "verdict": "A archived text identity/source graph only; fixed first packet worthwhile after fresh root GPU gate",
+    "records": [
+      {
+        "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/viewer.mjs",
+        "status": 200,
+        "content_type": "text/javascript; saved first response e45989",
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-RUNTIME-0.txt",
+        "bytes": 47125,
+        "sha256": "eff43bc2d02f6706c1607889c754c822eaa9c250692e6beab15839b105b07f03",
+        "actual_imports": [
+          "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.js?v=1264994a"
+        ]
+      },
+      {
+        "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.js?v=1264994a",
+        "status": 200,
+        "content_type": "text/javascript",
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-RUNTIME-1.txt",
+        "bytes": 1828892,
+        "sha256": "da356c10c205f2337f5a033094e16bc36bdf2ea8d52398864c5b3c752949ece5",
+        "actual_imports": [
+          "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.core-Ddh2Zg6B.js?v=1264994a"
+        ]
+      },
+      {
+        "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.core-Ddh2Zg6B.js?v=1264994a",
+        "status": 200,
+        "content_type": "text/javascript",
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-RUNTIME-2.txt",
+        "bytes": 4078536,
+        "sha256": "3253d631ed61edb9c257cbc1fc6ed5ff363ff054f192b4130dc6bd7375574e19",
+        "actual_imports": []
+      }
+    ],
+    "whole_archived_bytes_hashed": 5954553,
+    "imports": [
+      {
+        "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/viewer.mjs",
+        "static_literal_specs": [
+          "/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.js?v=1264994a"
+        ],
+        "resolved": [
+          "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.js?v=1264994a"
+        ],
+        "dynamic_import_parenthesis_occurrences": 0
+      },
+      {
+        "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.js?v=1264994a",
+        "static_literal_specs": [
+          "/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.core-Ddh2Zg6B.js?v=1264994a"
+        ],
+        "resolved": [
+          "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.core-Ddh2Zg6B.js?v=1264994a"
+        ],
+        "dynamic_import_parenthesis_occurrences": 0
+      },
+      {
+        "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.core-Ddh2Zg6B.js?v=1264994a",
+        "static_literal_specs": [],
+        "resolved": [],
+        "dynamic_import_parenthesis_occurrences": 0
+      }
+    ],
+    "viewer_first_line": "import * as THREE from \"/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.js?v=1264994a\";",
+    "authored_body_without_first_import_exact": true,
+    "appended_blank_newline": true,
+    "source_map": {
+      "decoded_bytes": 28126,
+      "sources": [
+        "viewer.mjs"
+      ],
+      "sourcesContent_exact_rewritten_import_plus_authored_body": true,
+      "JSON_only_no_evaluation": true
+    },
+    "revision_literal": [
+      "185"
+    ],
+    "frozen_runtime_hashes_match": true,
+    "observer_first_exit": 1,
+    "observer_corrected_exit": 0,
+    "limits": "Saved UTF8 text/byte hashes and literal import graph only, not a general JS parser, compiled module evaluation, browser cache/process/engine/driver proof, GPU output, resource cleanup or appearance. No HTTP/refetch/browser/module import/target execution performed."
+  },
+  "observer_errors": [
+    {
+      "owner": "root",
+      "job": "e45989",
+      "exit_code": 1,
+      "witness": "SERVING-OBSERVER.json first_result and literal overescaped whitespace regex",
+      "effect": "Falsely counted graph size1; first viewer bytes retained.",
+      "correction": "bd09ad reads the saved viewer and follows its2actual dependencies once; no viewer refetch or target failure."
+    },
+    {
+      "owner": "critic",
+      "job": "47058c",
+      "exit_code": 1,
+      "pid": null,
+      "pid_limit": "PID print was after the failed assertion and no PID exposed by tool",
+      "witness": "line32 unsupported source-map sourcesContent==[local] assertion",
+      "effect": "Executable body/import/hash checks had passed; extra metadata assumption was incorrect.",
+      "correction": "6f4146 diagnosed exact unchanged saved metadata; bb5ff8 proves embedded text equals rewritten first import plus authored body. No source/served artifact edit or evaluation."
+    }
+  ],
+  "jobs": [
+    {
+      "chunk_id": "803a3a",
+      "exit_code": 0,
+      "pid": 44864,
+      "utc": "2026-10-19T16:20:27.436086+00:00",
+      "scope": "Whole durable records"
+    },
+    {
+      "chunk_id": "47058c",
+      "exit_code": 1,
+      "pid": null,
+      "utc": null,
+      "scope": "Initial text audit; unsupported map metadata assertion; no target action"
+    },
+    {
+      "chunk_id": "6f4146",
+      "exit_code": 0,
+      "pid": 47193,
+      "utc": "2026-10-19T16:21:30.073285+00:00",
+      "scope": "Exact saved metadata diagnostic"
+    },
+    {
+      "chunk_id": "bb5ff8",
+      "exit_code": 0,
+      "pid": 48114,
+      "utc": "2026-10-19T16:21:54.739244+00:00",
+      "scope": "Complete corrected same-byte text audit"
+    }
+  ],
+  "commands": {
+    "complete_records": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime,json\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['SERVED-MODULES.json','SERVING-OBSERVER.json']:\n q=p/n;b=q.read_bytes();print('\\nWHOLE',n,len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+    "corrected_text_audit": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nfrom urllib.parse import urljoin,urlsplit\nimport json,hashlib,re,base64,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume')\ns=json.loads((p/'SERVED-MODULES.json').read_text());o=json.loads((p/'SERVING-OBSERVER.json').read_text())\ndef pin(q):\n q=Path(q);b=q.read_bytes();return {'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nassert json.loads(o['corrected_result']['output'])==s and o['first_result']['value']['exit_code']==1 and o['corrected_result']['exit_code']==0\ntexts=[];records=s['records'];imports=[]\nassert len(records)==3 and sum(x['bytes']for x in records)==s['total_bytes']==5954553<8388608\nfor row in records:\n assert pin(row['path'])=={k:row[k]for k in ['path','bytes','sha256']} and row['status']==200\n text=Path(row['path']).read_text();texts.append(text)\n specs=[]\n for q in re.findall(r'\\b(?:from|import)\\s*[\\'\"]([^\\'\"]+)[\\'\"]',text):\n  if q not in specs:specs.append(q)\n resolved=[urljoin(row['url'],q)for q in specs]\n assert resolved==row['actual_imports'],(row['url'],resolved)\n assert all((urlsplit(q).scheme,urlsplit(q).netloc)==('http','127.0.0.1:5173')for q in [row['url'],*resolved])\n dynamic=list(re.finditer(r'\\bimport\\s*\\(',text));assert not dynamic,[(x.start(),text[x.start():x.start()+100])for x in dynamic]\n imports.append({'url':row['url'],'static_literal_specs':specs,'resolved':resolved,'dynamic_import_parenthesis_occurrences':len(dynamic)})\nassert records[0]['actual_imports']==[records[1]['url']] and records[1]['actual_imports']==[records[2]['url']] and records[2]['actual_imports']==[]\nlocal=(p/'viewer.mjs').read_text();assert pin(p/'viewer.mjs')==s['local_viewer']\nserved=texts[0];first,rest=served.split('\\n',1);lf,lb=local.split('\\n',1)\nassert lf==\"import * as THREE from 'three';\"\nexpected_spec=urlsplit(records[1]['url']).path+'?'+urlsplit(records[1]['url']).query\nassert first=='import * as THREE from \"'+expected_spec+'\";'\nbody,marker,tail=rest.partition('//# sourceMappingURL=')\nassert marker and body==lb+'\\n'\nassert tail.startswith('data:application/json;base64,')\nmapbytes=base64.b64decode(tail.split(',',1)[1].strip(),validate=True);mapping=json.loads(mapbytes)\nassert mapping['version']==3 and mapping['sourcesContent']==[first+'\\n'+lb] and len(mapping['sources'])==1\nassert records[1]['sha256']=='da356c10c205f2337f5a033094e16bc36bdf2ea8d52398864c5b3c752949ece5'and records[2]['sha256']=='3253d631ed61edb9c257cbc1fc6ed5ff363ff054f192b4130dc6bd7375574e19'\nrevision=re.findall(r'\\bREVISION\\s*=\\s*[\\'\"]([^\\'\"]+)[\\'\"]','\\n'.join(texts));assert revision==s['runtime_revisions']==['185']\nprint(json.dumps({'pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'verdict':'A archived text identity/source graph only; fixed first packet worthwhile after fresh root GPU gate','records':records,'whole_archived_bytes_hashed':s['total_bytes'],'imports':imports,'viewer_first_line':first,'authored_body_without_first_import_exact':True,'appended_blank_newline':True,'source_map':{'decoded_bytes':len(mapbytes),'sources':mapping['sources'],'sourcesContent_exact_rewritten_import_plus_authored_body':True,'JSON_only_no_evaluation':True},'revision_literal':revision,'frozen_runtime_hashes_match':True,'observer_first_exit':o['first_result']['value']['exit_code'],'observer_corrected_exit':o['corrected_result']['exit_code'],'limits':'Saved UTF8 text/byte hashes and literal import graph only, not a general JS parser, compiled module evaluation, browser cache/process/engine/driver proof, GPU output, resource cleanup or appearance. No HTTP/refetch/browser/module import/target execution performed.'},indent=2))\nPY",
+    "initial_command_recovery": {
+      "base": "corrected_text_audit",
+      "reverse_replacements": [
+        {
+          "from": "mapping['sourcesContent']==[first+'\\n'+lb]",
+          "to": "mapping['sourcesContent']==[local]"
+        },
+        {
+          "from": "'sourcesContent_exact_rewritten_import_plus_authored_body':True",
+          "to": "'sourcesContent_exact_whole_authored_viewer':True"
+        }
+      ],
+      "exact_recovery_asserted": true,
+      "original_utf8_bytes": 3694,
+      "original_sha256": "f7d9aecd16d8a16a29b9dbb9d754c73c0fb2456fd8bf908191033dfc610185cf"
+    },
+    "metadata_diagnostic": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,base64,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume');local=(p/'viewer.mjs').read_text();served=(p/'SERVED-RUNTIME-0.txt').read_text();first,rest=served.split('\\n',1);body,mark,tail=rest.partition('//# sourceMappingURL=');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat());print('FIRST',repr(first));print('BODY_EQ',body==local.split('\\n',1)[1]+'\\n');print('TAIL_HEAD',repr(tail[:200]));print('TAIL_END',repr(tail[-200:]));print('SOURCE_MAP_PRESENT',bool(mark))\nif tail.startswith('data:application/json;base64,'):\n m=json.loads(base64.b64decode(tail.split(',',1)[1].strip()));print('MAP_KEYS',list(m));print('MAP_SOURCES',m.get('sources'));print('CONTENT_COUNTS',len(m.get('sourcesContent',[])));print('CONTENT_LENGTHS',[len(x)for x in m.get('sourcesContent',[])]);print('LOCAL_LENGTH',len(local));print('CONTENT_EQUAL',[x==local for x in m.get('sourcesContent',[])]);print('CONTENT_LAST',[repr(x[-80:])for x in m.get('sourcesContent',[])])\nPY"
+  },
+  "alternatives": [
+    {
+      "choice": "Fresh root GPU gate then unchanged sole fixed packet",
+      "preferred": true,
+      "tradeoff": "Answers the consequential appearance question with hard first-refusal risk; no current text/data proof of visibility or attractiveness."
+    },
+    {
+      "choice": "Retain source/data and defer image work",
+      "preferred": false,
+      "tradeoff": "Avoids further execution but leaves artist appearance unqualified."
+    }
+  ],
+  "limits": [
+    "No HTTP/refetch, browser, module execution, target import, native/GPU, render, capture, new references or source/artifact edits.",
+    "HTTP status/content type are saved root observations, not a new critic live request.",
+    "Revision185 and exact bundled bytes are not complete patch-history/compiler/library/engine/cache/driver qualification.",
+    "All appearance, actual GPU submissions/normal-buffer association and physical cleanup remain unobserved.",
+    "Earlier source-epoch absence records are historical, not present-output absence claims after the consumed CPU.",
+    "Firstsource/data/imageB/unknown closes with no correction/exception/successor;17:19:05.041021UTC absolute stop and human steering remain."
+  ],
+  "pending_edits": false,
+  "no_target_evaluation": true,
+  "absolute_stop_utc": "2026-10-19T17:19:05.041021+00:00",
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-MODULES.json",
+      "bytes": 2935,
+      "sha256": "628c1a8af171facea314fb4e92a9fd782639bbee20c15ebf525560fca1eecfc7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVING-OBSERVER.json",
+      "bytes": 10755,
+      "sha256": "aaeb58a813c40a51adf1c68123537e4dea07c394142b113a08446aeef601a92c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-RUNTIME-0.txt",
+      "bytes": 47125,
+      "sha256": "eff43bc2d02f6706c1607889c754c822eaa9c250692e6beab15839b105b07f03"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-RUNTIME-1.txt",
+      "bytes": 1828892,
+      "sha256": "da356c10c205f2337f5a033094e16bc36bdf2ea8d52398864c5b3c752949ece5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-RUNTIME-2.txt",
+      "bytes": 4078536,
+      "sha256": "3253d631ed61edb9c257cbc1fc6ed5ff363ff054f192b4130dc6bd7375574e19"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/viewer.mjs",
+      "bytes": 9492,
+      "sha256": "c52c72f5c541a189dfa5f30e67059567fe9549c81cbea4f990e90e96cfbe3712"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SOURCE-REVIEW.md",
+      "bytes": 3685,
+      "sha256": "b6817cc7f6953e9cd3793e97806a58d6453d0055d3538f0ef2c329f1613df70d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SOURCE-RECEIPT.json",
+      "bytes": 18089,
+      "sha256": "49cc390d32ee9b8bc6e83bbfd885553d945b1e4d7516049dd975c3ceda58e461"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/CPU-REVIEW.md",
+      "bytes": 3372,
+      "sha256": "42db660a7f2af47222eb9de199ece6363bd5e877ebb7b770f8f9318cd681f843"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/CPU-RECEIPT.json",
+      "bytes": 35501,
+      "sha256": "229d536b9106bbb83a08eef8664ecaf946361f012d75d234d91a9e7ca8bc66f0"
+    }
+  ],
+  "collection": {
+    "pid": 50155,
+    "utc": "2026-10-19T16:22:52.078973+00:00",
+    "mode": "exclusive x; own serving pair only",
+    "pending_edits": false
+  },
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVING-REVIEW.md",
+    "bytes": 1808,
+    "sha256": "503c5f4dea850d3ecac569d4528a30f5ee314331b709a82ea4f5e4b4144ff6ac"
+  }
+}

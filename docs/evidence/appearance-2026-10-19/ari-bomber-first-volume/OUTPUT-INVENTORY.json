@@ -1,0 +1,45 @@
+{
+  "schema": "root-independent-Ari-output-inventory-v1",
+  "utc": "2026-10-19T16:12:11.613585+00:00",
+  "pid": 26501,
+  "actualCPUchunk": "7be568",
+  "actualexit": 0,
+  "session": "none returned",
+  "reverified_admission_pins": 50,
+  "entries": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/out",
+      "kind": "directory",
+      "mode": "0o755"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/BUILD-RESULT.json",
+      "kind": "regular",
+      "mode": "0o644",
+      "bytes": 3296,
+      "sha256": "46dcb36a780db454607cda42293c7a8d556eabe55fa5750c0255db51b3288c71"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/out/model.json",
+      "kind": "regular",
+      "mode": "0o644",
+      "bytes": 1095322,
+      "sha256": "3076186848c38e7283089bb27fc3da4b04628fa79b16cb9f42d6ed4a126d5241"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/out/model.mtl",
+      "kind": "regular",
+      "mode": "0o644",
+      "bytes": 852,
+      "sha256": "4107cab3fc0dfb4f983cb84a24401c30b8c40e6e9a45c8c19fe98cc9fec07147"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/out/model.obj",
+      "kind": "regular",
+      "mode": "0o644",
+      "bytes": 302305,
+      "sha256": "0bbccf73bcc3f63903607fec3f5bc4bba9a3af5b90738adbb7c222cb34a0f8d4"
+    }
+  ],
+  "scope": "Independent complete currententry inventory afteractualtoolreturn, notfilesystemsyscalltrace orperformance/appearanceproof; soleentryconsumed."
+}

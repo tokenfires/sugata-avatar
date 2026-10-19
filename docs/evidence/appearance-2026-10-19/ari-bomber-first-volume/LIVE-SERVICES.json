@@ -1,0 +1,53 @@
+{
+  "utc": "2026-10-19T16:27:51.639658+00:00",
+  "pid": 61237,
+  "config": {
+    "path": "/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml",
+    "bytes": 3344,
+    "sha256": "9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a"
+  },
+  "fields": {
+    "id": "advance-sugata-avatar-visual-quality",
+    "name": "Advance Sugata until check-in",
+    "kind": "heartbeat",
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "target_thread_id": "01a0ff57-d720-7db2-923f-9e3e0521216c",
+    "targetThreadId": null
+  },
+  "config_full": {
+    "version": 1,
+    "id": "advance-sugata-avatar-visual-quality",
+    "kind": "heartbeat",
+    "name": "Advance Sugata until check-in",
+    "prompt": "Continue Robert\u2019s authorized Sugata work in this chat at /Users/robault/GitHub/sugata-avatar until he checks back or gives newer steering. Robert explicitly resumed October 18 after updates. Read docs/WORK-WINDOW-2026-10-18.md and its latest bounded receipt, then docs/RESUME-2026-10-18.md and current changes, recorded jobs and latest user messages. This revokes the human pause for Sugata only; older checkpoints and expired deadlines are historical. Preserve the nine untracked October10 ari-volume-owner-revision files. The prospective material-volume constructor remains HOLD until a fresh independent worth decision, complete source/workload preflight and root verification. A resume or heartbeat is not a constructor admission.\n\nThe ten-minute heartbeat is recovery: continue useful bounded work directly while active and never duplicate live jobs. A human check-in receives a concise status and awaits steering before another substantial slice. If Robert pauses or stops, collect or safely stop owned work, save a recoverable checkpoint, retain the review server and pause this automation through the app API with readback.\n\nUse an independent quality critic. Every actionable finding needs an actual source/image/frame witness, an explanation and two alternatives with tradeoffs. Root independently inspects and verifies handoffs. Ask the critic whether each next experiment is worth doing. Plan one usable improvement and one bounded research question, with a decision and concrete stop condition before investigating. Use current online primary references and real design/image examples when they help; Firecrawl is available. Preserve the full AAA character, expression, wardrobe, representation, coupled-fit, motion, performance, VTuber and Mii roadmap. Stop repeated tweaks that do not change a decision.\n\nPreserve accepted/default assets, frozen evidence, original references, ignored source buffers and unrelated worktrees. Keep unqualified candidates isolated. Actual rendered images qualify appearance; numerical checks support them. Root serializes native/GPU/browser captures. Preserve September30\u2019s closed one-ring front proxy, local foundation offset/weight/mask tuning and capture-epoch searches, October2\u2019s rejected seven-card fixed-root/fixed-width mesh-follow construction, and later recorded refused loft/control/search/native-observer recipes. Revisit an underlying problem only under a genuinely new explicit contract with evidence. Read the September30 day report and pose-aware fit proposal for recovery, not static-pass headlines.\n\nRecord concise receipts with exact inputs, commands, jobs, hashes, outputs, rejections, limits and next action. Use existing allowance and granted credits; do not purchase capacity, change subscription/models, redeem reset credits, push, publish or resume other projects. If capacity is unavailable, checkpoint without aggressive retries. Stay quiet on unchanged or non-actionable scheduled states; notify on meaningful progress, completion, failure or required user action.",
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "target_thread_id": "01a0ff57-d720-7db2-923f-9e3e0521216c",
+    "created_at": 1788907651118,
+    "updated_at": 1792383268578
+  },
+  "review_root_HTTP": 200,
+  "listener": "COMMAND PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    870 robault   23u  IPv4 0x8e2e4daf1ddacb28      0t0  TCP 127.0.0.1:5173 (LISTEN)\n",
+  "scoped_processes": "870 /opt/homebrew/bin/node /Users/robault/GitHub/sugata-avatar/node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173 --strictPort\n30235 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node --experimental-vm-modules /var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/.tmpOTTxl4/kernel.js --session-id a07a6f13f1ec469db977cebcd5581e60 --working-dir /Users/robault/GitHub/sugata-avatar\n30236 /Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node /var/folders/w6/84cy02ms2m7b_9sh4wv_xcc80000gn/T/.tmpOTTxl4/trusted-worker.js /Users/robault/GitHub/sugata-avatar\n",
+  "HEAD": "871291aad26007301e16826068e40377db7298ea",
+  "status": " M docs/RESUME-2026-10-18.md\n M docs/WORK-WINDOW-2026-10-18.md\n?? docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/\n",
+  "protected": {
+    "docs/PROJECT-CHECKLIST.md": {
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4",
+      "unchanged_at_HEAD": true
+    },
+    "docs/ARTIST-WARDROBE.html": {
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118",
+      "unchanged_at_HEAD": true
+    },
+    "docs/PRODUCT-ROADMAP.md": {
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "unchanged_at_HEAD": true
+    }
+  },
+  "limits": "Saved ACTIVE cadence/target plus HTTP/listener/scoped process observation only; no future/mobile delivery, machinewide census or GPU physicaldriverretirement proof."
+}

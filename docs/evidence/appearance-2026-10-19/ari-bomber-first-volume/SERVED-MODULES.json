@@ -1,0 +1,52 @@
+{
+  "schema": "root-Ari-text-only-serving-observation-v1",
+  "utc": "2026-10-19T16:19:55.375731+00:00",
+  "pid": 43610,
+  "decision": "A authored viewer body exact except actual first-import rewrite, appended blank newline and source map; three observed same-origin module texts archived without evaluation",
+  "records": [
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/viewer.mjs",
+      "status": 200,
+      "content_type": "text/javascript; saved first response e45989",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-RUNTIME-0.txt",
+      "bytes": 47125,
+      "sha256": "eff43bc2d02f6706c1607889c754c822eaa9c250692e6beab15839b105b07f03",
+      "actual_imports": [
+        "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.js?v=1264994a"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.js?v=1264994a",
+      "status": 200,
+      "content_type": "text/javascript",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-RUNTIME-1.txt",
+      "bytes": 1828892,
+      "sha256": "da356c10c205f2337f5a033094e16bc36bdf2ea8d52398864c5b3c752949ece5",
+      "actual_imports": [
+        "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.core-Ddh2Zg6B.js?v=1264994a"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.core-Ddh2Zg6B.js?v=1264994a",
+      "status": 200,
+      "content_type": "text/javascript",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/SERVED-RUNTIME-2.txt",
+      "bytes": 4078536,
+      "sha256": "3253d631ed61edb9c257cbc1fc6ed5ff363ff054f192b4130dc6bd7375574e19",
+      "actual_imports": []
+    }
+  ],
+  "total_bytes": 5954553,
+  "runtime_revisions": [
+    "185"
+  ],
+  "local_viewer": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/viewer.mjs",
+    "bytes": 9492,
+    "sha256": "c52c72f5c541a189dfa5f30e67059567fe9549c81cbea4f990e90e96cfbe3712"
+  },
+  "authored_body_equal_except_transport": true,
+  "observer_correction": "e45989 regex escaped whitespace twice and falsely counted graph size1. First response already saved unchanged. This reader parses saved first response correctly and fetches only its two actual dependencies once each; no viewer refetch, source change, target failure, evaluation or epoch search.",
+  "method": "One HTTP text read per observed module; actual imports only",
+  "limits": "Text identity/scope only. No whole compiler/cache/library/driver correctness or appearance/performance result."
+}

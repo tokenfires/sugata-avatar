@@ -1,0 +1,164 @@
+{
+  "schema": "root-Ari-full-saved-data-audit-v1",
+  "utc": "2026-10-19T16:14:36.269174+00:00",
+  "pid": 31873,
+  "decision": "A finite saved-data/interface/export scope only; actual independent critic and rendered appearance still owed",
+  "reverified_admission_pins": 50,
+  "sole_tool_chunk": "7be568",
+  "counts": {
+    "parts": 8,
+    "vertices": 4282,
+    "triangles": 8548
+  },
+  "parts": [
+    {
+      "id": "shell_with_outer_bags",
+      "vertices": 1930,
+      "triangles": 3864,
+      "edges": 5796,
+      "euler": -2,
+      "min_area": 0.09478377914132458,
+      "min_predicted_Float32_area": 0.09478345309837448,
+      "translated_volume": 4506.33933800664,
+      "outer_boundary_lengths": [
+        16,
+        16,
+        120
+      ]
+    },
+    {
+      "id": "full_lining_and_facings",
+      "vertices": 1878,
+      "triangles": 3760,
+      "edges": 5640,
+      "euler": -2,
+      "min_area": 0.059782668648785,
+      "min_predicted_Float32_area": 0.059782316894865614,
+      "translated_volume": 2729.129420643327,
+      "outer_boundary_lengths": [
+        16,
+        16,
+        120
+      ]
+    },
+    {
+      "id": "pointed_collar",
+      "vertices": 294,
+      "triangles": 584,
+      "edges": 876,
+      "euler": 2,
+      "min_area": 0.08927547368851992,
+      "min_predicted_Float32_area": 0.08927582855202168,
+      "translated_volume": 154.80989479869675,
+      "outer_boundary_lengths": [
+        100
+      ]
+    },
+    {
+      "id": "left_guard_G_L",
+      "vertices": 52,
+      "triangles": 100,
+      "edges": 150,
+      "euler": 2,
+      "min_area": 0.15107613974416562,
+      "min_predicted_Float32_area": 0.1510752712428067,
+      "translated_volume": 20.89698206970117,
+      "outer_boundary_lengths": [
+        26
+      ]
+    },
+    {
+      "id": "separate_zip_R",
+      "vertices": 52,
+      "triangles": 100,
+      "edges": 150,
+      "euler": 2,
+      "min_area": 0.04178516483155146,
+      "min_predicted_Float32_area": 0.041785015613744134,
+      "translated_volume": 5.939930637087083,
+      "outer_boundary_lengths": [
+        26
+      ]
+    },
+    {
+      "id": "separate_zip_L",
+      "vertices": 52,
+      "triangles": 100,
+      "edges": 150,
+      "euler": 2,
+      "min_area": 0.04178516483155146,
+      "min_predicted_Float32_area": 0.041785042316917716,
+      "translated_volume": 5.940950876117619,
+      "outer_boundary_lengths": [
+        26
+      ]
+    },
+    {
+      "id": "outer_mouth_L_tape",
+      "vertices": 12,
+      "triangles": 20,
+      "edges": 30,
+      "euler": 2,
+      "min_area": 0.053301811839468326,
+      "min_predicted_Float32_area": 0.05330196958354021,
+      "translated_volume": 1.7876004955208784,
+      "outer_boundary_lengths": [
+        6
+      ]
+    },
+    {
+      "id": "outer_mouth_R_tape",
+      "vertices": 12,
+      "triangles": 20,
+      "edges": 30,
+      "euler": 2,
+      "min_area": 0.05335539595816097,
+      "min_predicted_Float32_area": 0.05335546709577386,
+      "translated_volume": 1.7834295814046044,
+      "outer_boundary_lengths": [
+        6
+      ]
+    }
+  ],
+  "actual_contacts": 246,
+  "contact_groups": {
+    "shell_with_outer_bags": 152,
+    "pointed_collar": 49,
+    "left_guard_G_L": 13,
+    "separate_zip_R": 13,
+    "separate_zip_L": 13,
+    "outer_mouth_L_tape": 3,
+    "outer_mouth_R_tape": 3
+  },
+  "shared_sleeve_edges": 64,
+  "shared_outer_mouth_edges": 12,
+  "lining_has_no_pocket_entry": true,
+  "lining_roles": [
+    "C_L",
+    "C_R",
+    "F_L",
+    "F_R",
+    "H",
+    "LB",
+    "LF_L",
+    "LF_R",
+    "LS_L",
+    "LS_R",
+    "N"
+  ],
+  "normal_offset_max_error": 7.16093850883226e-15,
+  "predicted_Float32_max_position_error": 3.7936854369036155e-06,
+  "all_predicted_Float32_triangles_nondegenerate": true,
+  "OBJ_all_positions_faces_materials": true,
+  "OBJ_max_rounding_error": 4.998788938337384e-09,
+  "MTL_roles": 9,
+  "role_triangle_forecasts": [
+    8548,
+    8548,
+    8548,
+    4644,
+    4644,
+    160
+  ],
+  "limits": "Existing saved data only, no generator/helper import/replay or geometry change. No global layer separation/selfintersection/collisionfree/sewnunion/functionalcapacity/physicalfit/cloth/rig/motion/runtime/performance/AAA or appearance proof. Float32 predicted, not actual GPU readback."
+}
