@@ -1,0 +1,68 @@
+{
+  "kind": "existing-root-Avatar-locator-lines-no-new-source-query",
+  "scope": "Exactly35alreadydisplayed locator rows with3exactoriginalcommands/outputs; duplicates count toward412rootsemanticlines. No fresh source inspection, larger pattern, or seventh source.",
+  "records": [
+    {
+      "existingCommand": "python3 - <<'PY'\nfrom pathlib import Path\nimport re,json\nq=Path('packages/core/src/Avatar.js');s=q.read_text().splitlines();pat=re.compile(r'ExpressionLayer|expressionLayer|this\\.expressions|this\\._expression|applyExpression|setExpression|this\\.blink|this\\.gaze');matches=[(i,l) for i,l in enumerate(s,1) if pat.search(l)]\nprint(json.dumps({'file':str(q),'totalLines':len(s),'allLocatorMatches':len(matches),'printedLimit':150}))\nfor i,l in matches[:150]:print(str(i)+': '+l)\nprint('ExpressionMapLines',len(Path('packages/core/src/affect/ExpressionMap.js').read_text().splitlines()))\nPY",
+      "existingChunk": "591115",
+      "exit_code": 0,
+      "header": "{\"file\": \"packages/core/src/Avatar.js\", \"totalLines\": 5056, \"allLocatorMatches\": 6, \"printedLimit\": 150}",
+      "existingRows": [
+        "118: import { ExpressionLayer } from './affect/ExpressionLayer.js';",
+        "1620:      * 🚩 TRAP (c) — THE AFFECT CLOCK HAS EXACTLY ONE OWNER, AND IT IS `ExpressionLayer`.",
+        "1621:      * `ExpressionLayer` is constructed with its default `advanceState: true`, which means IT calls",
+        "1637:      * which looks exactly like the defect the pair exists to close (`ExpressionLayer.js:104-118`).",
+        "1644:         this.expression = new ExpressionLayer( { state: this.affectState } );",
+        "1682:      * `ExpressionLayer` declares brow/eye/cheek/nose plus four mouth CORNER shapes and nothing else."
+      ],
+      "count": 6
+    },
+    {
+      "existingCommand": "python3 - <<'PY'\nfrom pathlib import Path\nimport re,json\ns=Path('packages/core/src/Avatar.js').read_text().splitlines();p=re.compile(r'this\\.expression|this\\.motion|affectState|feel\\(|_buildAffect|_updateAffect|clearTriggers')\nrows=[(i,l) for i,l in enumerate(s,1) if p.search(l)];assert len(rows)<=144\nprint(json.dumps({'secondLocatorMatches':len(rows),'combinedLocatorMatches':len(rows)+6,'sourceLimit':600}))\nfor i,l in rows:print(str(i)+': '+l)\nfor i in range(1560,1771):print(str(i)+': '+s[i-1])\nprint('MotionStackTotalLines',len(Path('packages/core/src/motion/MotionStack.js').read_text().splitlines()))\nPY",
+      "existingChunk": "9a1f88",
+      "exit_code": 0,
+      "header": "{\"secondLocatorMatches\": 26, \"combinedLocatorMatches\": 32, \"sourceLimit\": 600}",
+      "existingRows": [
+        "1159:         this.affectState = null;",
+        "1160:         this.expression = null;",
+        "1623:      * file ever calls `this.affectState.update()` — searching for that string is the check — because",
+        "1643:         this.affectState = new AffectState();",
+        "1644:         this.expression = new ExpressionLayer( { state: this.affectState } );",
+        "1645:         this.posture = this.expression.postureLayer();",
+        "1647:         this.stack.add( this.expression );",
+        "1661:         // 2026-08-17 as `feel({ dominance: +0.9 })` reading back −0.892. `Gesture.js`'s",
+        "1663:         this.stack.context.shared.affect = this.affectState;",
+        "1719:      *     avatar.feel( 'joy', 0.8 );",
+        "1720:      *     avatar.feel( { pleasure: 0.4, arousal: 0.2, dominance: 0.1 } );",
+        "1749:     feel( emotion, intensity ) {",
+        "1753:         if ( this.affectState === null ) {",
+        "1777:             const anchor = nearestAnchorTo( this.affectState.pad, anchors.points );",
+        "1779:             this.affectState.push( {",
+        "1788:             this.expression.trigger( key, intensity );",
+        "1811:         this.affectState.push( emotion );",
+        "1865:         // words exist, and a tier 2 vector blends in later through `feel()` if the host has one.",
+        "1870:         if ( estimate !== null ) this.affectState.push( estimate );",
+        "1908:             { arousal: this.affectState?.target?.arousal ?? 0 }",
+        "2733:             affect: this.affectState === null ? null : {",
+        "2734:                 pad: { ...this.affectState.pad },",
+        "2735:                 moodOctant: this.affectState.moodOctant,",
+        "2736:                 activations: this.expression.activations.map( ( entry ) => ( {",
+        "2902:         this.expression = null;",
+        "2904:         this.affectState = null;"
+      ],
+      "count": 26
+    },
+    {
+      "existingCommand": "python3 - <<'PY'\nfrom pathlib import Path\nimport re,json\ns=Path('packages/core/src/Avatar.js').read_text().splitlines();rows=[(i,l) for i,l in enumerate(s,1) if re.search(r'stack\\.update|clearTriggers|expression\\.reset|^    update\\(',l)]\nassert len(rows)+32<=150\nprint(json.dumps({'thirdLocatorMatches':len(rows),'allLocatorMatches':len(rows)+32,'previousRange':211,'thisRange':55,'totalReturnedSemanticLines':32+len(rows)+211+55}))\nfor i,l in rows:print(str(i)+': '+l)\nfor i in range(1771,1826):print(str(i)+': '+s[i-1])\nPY",
+      "existingChunk": "d40554",
+      "exit_code": 0,
+      "header": "{\"thirdLocatorMatches\": 3, \"allLocatorMatches\": 35, \"previousRange\": 211, \"thisRange\": 55, \"totalReturnedSemanticLines\": 301}",
+      "existingRows": [
+        "47:  *  10. Per frame, in exactly this order: `stack.update( dt )` →",
+        "1961:     update( deltaSeconds ) {",
+        "2946:         this.stack.update( deltaSeconds );"
+      ],
+      "count": 3
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "kind": "final-semantic-source-scope",
+  "wholeSources": [
+    "packages/core/src/affect/ExpressionLayer.js",
+    "packages/core/src/affect/ExpressionMap.js",
+    "packages/core/src/figure/ExpressionBank.js",
+    "packages/core/src/motion/Layer.js",
+    "packages/core/src/motion/MotionStack.js"
+  ],
+  "avatarRanges": [
+    [
+      1560,
+      1770
+    ],
+    [
+      1771,
+      1825
+    ],
+    [
+      1950,
+      2013
+    ],
+    [
+      2920,
+      2966
+    ]
+  ],
+  "avatarLocatorMatches": 35,
+  "avatarCumulativeSemanticLines": 412,
+  "avatarCap": 600,
+  "metadataOnlyUnopened": [
+    "packages/core/src/motion/Blink.js",
+    "packages/core/src/motion/Gaze.js"
+  ],
+  "noOtherSourceAllowed": true,
+  "closureReceipts": {
+    "freshExtraSemanticReads": 0,
+    "retireUnusedAllowance": 2
+  },
+  "rootWholeViews": [
+    {
+      "chunk": "837ea4",
+      "command": "cat packages/core/src/affect/ExpressionLayer.js packages/core/src/figure/ExpressionBank.js",
+      "scope": "wholeLayer+Bank"
+    },
+    {
+      "chunk": "f2c229",
+      "command": "sed -n '1,476p' packages/core/src/affect/ExpressionMap.js",
+      "scope": "wholeMapfirsthalf"
+    },
+    {
+      "chunk": "9b709d",
+      "command": "sed -n '477,970p' packages/core/src/affect/ExpressionMap.js",
+      "scope": "restof952lineMap"
+    },
+    {
+      "chunk": "9c9151",
+      "command": "cat packages/core/src/motion/Layer.js",
+      "scope": "wholeLayer"
+    },
+    {
+      "chunk": "04f078",
+      "command": "sed -n '1,480p' packages/core/src/motion/MotionStack.js",
+      "scope": "firstStack"
+    },
+    {
+      "chunk": "766f96",
+      "command": "sed -n '481,960p' packages/core/src/motion/MotionStack.js",
+      "scope": "middleStack"
+    },
+    {
+      "chunk": "0a54ed",
+      "command": "sed -n '961,1260p' packages/core/src/motion/MotionStack.js",
+      "scope": "restof1244lineStack"
+    },
+    {
+      "chunk": "5f6c23",
+      "command": "cat docs/PROJECT-CHECKLIST.md",
+      "scope": "wholechecklist"
+    }
+  ]
+}

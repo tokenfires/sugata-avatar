@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-19T22:51:33.591642+00:00",
+  "pid": 44948,
+  "actualWitness": "ExpressionLayer imports/constructor/update delegates contribution lifetime to Layer/MotionStack; actual owner correspondence needed to decide stale-write question",
+  "addedTwoNamedOwners": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/Layer.js",
+      "bytes": 11055,
+      "sha256": "e62f85746d87e4e4b7fc24449a2bb1c15e0ff1c0d2a254b4a146f4fab397a5a8",
+      "role": "actual imported per-frame reset/commit owner, whole source"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/MotionStack.js",
+      "bytes": 41310,
+      "sha256": "fbbee9c9608d9cf33e59596a147c24a14c270ad2fadb0edee47fd7aeed6ad9c9",
+      "role": "actual imported per-frame reset/commit owner, whole source"
+    }
+  ],
+  "semanticSourceLimit": 6,
+  "noCodeChangeOrExecution": true,
+  "priorINPUTSPreserved": "5a3912e47efcfe24981fa3c34b88732d9c9d1d51ed7a8bc014d7824dc16a1fcd",
+  "currentINPUTSSHA256": "ed73d1bf948dd3bfc1e9a8cae9326043d796e11f10db749b7a71b69adc9a530d"
+}

@@ -1,0 +1,375 @@
+{
+  "kind": "independent-static-expression-transition-worth",
+  "verdict": "B_NO_CONCRETE_NORMAL_RETIREMENT_GAP",
+  "collectedUTC": "2026-10-19T22:56:45.703440+00:00",
+  "collectionPID": 55465,
+  "deadlineUTC": "2026-10-19T23:10:00Z",
+  "pending_edits": false,
+  "inputBindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/affect/ExpressionLayer.js",
+      "bytes": 9216,
+      "sha256": "4cf99f039ca8c9d9a01828a173e5de4fd4b632554cc1520beb47d29535015478"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/affect/ExpressionMap.js",
+      "bytes": 44748,
+      "sha256": "5d01656e0d5f69fb30eb1c56b2020f644cf12726adf426f2cee6ac454ce4513d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/ExpressionBank.js",
+      "bytes": 14362,
+      "sha256": "9729b9474b62eaaeaf0d70ceeb24feee1e7fab2f6b3701ee3cbb2e4e7947a93e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/Blink.js",
+      "bytes": 46356,
+      "sha256": "71f7286273d118514343ce3f4918583bb02ef520932bb6dbbf5d91a6fc9489c1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/Gaze.js",
+      "bytes": 129610,
+      "sha256": "bc8ecc7a05dcfb103e85077c72a9f18bb9d5aeb05b2145cfdb2af7aebf48a69c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8120,
+      "sha256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 125679,
+      "sha256": "a252387e78c447797074ad3ad3d767b5693ce0a6f4377617342dd8910f920d96"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 150743,
+      "sha256": "f4b6f93361e565eae18b2344be35d7f806983bd29c43ebfefa4a9edbe1a8cd05"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/ROOT-CLOSE.json",
+      "bytes": 12719,
+      "sha256": "e4fda672916363180abb3a7600ebf4f69b68cb74f9c3750973d9dbfa4c03b29f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/expression-transition-worth/PLAN.md",
+      "bytes": 4481,
+      "sha256": "6a82285c7e754a33d38c1ce975fe71d63b4ccd5d340b51f6d868f2b9f1171ad9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/Layer.js",
+      "bytes": 11055,
+      "sha256": "e62f85746d87e4e4b7fc24449a2bb1c15e0ff1c0d2a254b4a146f4fab397a5a8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/MotionStack.js",
+      "bytes": 41310,
+      "sha256": "fbbee9c9608d9cf33e59596a147c24a14c270ad2fadb0edee47fd7aeed6ad9c9"
+    }
+  ],
+  "manifestAndScopeBindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/expression-transition-worth/INPUTS.json",
+      "bytes": 4739,
+      "sha256": "ed73d1bf948dd3bfc1e9a8cae9326043d796e11f10db749b7a71b69adc9a530d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/expression-transition-worth/SEMANTIC-SCOPE.json",
+      "bytes": 1998,
+      "sha256": "e039c45bed9429718ecd05fa1aa0ec338cc762ea45f94f6193e84bc51df78707"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/expression-transition-worth/HOST-OWNERS.json",
+      "bytes": 1098,
+      "sha256": "987f40b06affc39adbc99266c33d04d313697604fb536a32fc78be73f07514a1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/expression-transition-worth/SCOPE-REFINEMENT.json",
+      "bytes": 921,
+      "sha256": "894bc80936305100c7e59e5ff36d43da918d33729fa38101d2c7c0b1bdded884"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/expression-transition-worth/EXISTING-LOCATORS.json",
+      "bytes": 5633,
+      "sha256": "729e7f28cacdde1f077724cf35aa365eb20bff0df18358394a2503e7e95bfee0"
+    }
+  ],
+  "reviewBinding": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/expression-transition-worth/WORTH.md",
+    "bytes": 3504,
+    "sha256": "ea2c5e25e508e21d2c5437f21965e35a433cef2d619f77ed1cd97111c4d98e0c"
+  },
+  "rootOpinion": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/expression-transition-worth/ROOT-FIRST.json",
+    "bytes": 2947,
+    "sha256": "9110aafd01130c1379dd835520ab5b69edd398fac98d64baa43212a32933f138",
+    "read_scope": "hash only; no root opinion text read or used"
+  },
+  "semanticCoverage": {
+    "wholeSources": [
+      "packages/core/src/affect/ExpressionLayer.js:1-220",
+      "packages/core/src/affect/ExpressionMap.js:1-952",
+      "packages/core/src/figure/ExpressionBank.js:1-386",
+      "packages/core/src/motion/Layer.js:1-291",
+      "packages/core/src/motion/MotionStack.js:1-1244"
+    ],
+    "AvatarRanges": [
+      [
+        1560,
+        1825
+      ],
+      [
+        1950,
+        2013
+      ],
+      [
+        2920,
+        2966
+      ]
+    ],
+    "AvatarRangeLines": 377,
+    "AvatarExistingLocatorRows": 35,
+    "AvatarCumulativeLinesIncludingDuplicates": 412,
+    "AvatarCap": 600,
+    "locatorValidation": "Each of the 35 retained rows exactly matches its current pinned Avatar line; no new locator query",
+    "wholeDocumentaryReads": [
+      "PLAN.md",
+      "INPUTS.json",
+      "SEMANTIC-SCOPE.json",
+      "HOST-OWNERS.json",
+      "SCOPE-REFINEMENT.json",
+      "EXISTING-LOCATORS.json",
+      "docs/PROJECT-CHECKLIST.md"
+    ],
+    "metadataHashOnly": [
+      "packages/core/src/motion/Blink.js",
+      "packages/core/src/motion/Gaze.js",
+      "docs/RESUME-2026-10-18.md",
+      "docs/WORK-WINDOW-2026-10-18.md",
+      "docs/evidence/appearance-2026-10-19/coupled-garment-executable/ROOT-CLOSE.json",
+      "ROOT-FIRST.json"
+    ],
+    "additionalClosureReceiptAllowance": "retired unused; no extra closure semantics read"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "classification": "existing normal frame owner; no code defect demonstrated",
+      "witnesses": [
+        "ExpressionLayer.js:151-195",
+        "Layer.js:191-212",
+        "MotionStack.js:267-288,602-611,666-697,799-820,946-952",
+        "Avatar.js:1643-1648,2942-2948"
+      ],
+      "effect": "Omitted/disabled expression contributions do not preserve their previous frame contribution; removed declarations get one final neutral commit. Current other contributors remain composed.",
+      "alternatives": [
+        {
+          "choice": "retain current ownership",
+          "tradeoff": "No new code/proof; preserves composition without adding a demonstrated benefit."
+        },
+        {
+          "choice": "add local resets or final-weight clearing",
+          "tradeoff": "Redundant host duty; broad clearing could erase other contributors and changes behavior without a demonstrated normal gap."
+        }
+      ]
+    },
+    {
+      "id": "F2",
+      "classification": "deliberate cue-state persistence, separate from frame retirement",
+      "witnesses": [
+        "ExpressionMap.js:366-451,492-566",
+        "ExpressionLayer.js:141-147",
+        "Avatar.js:1749-1813"
+      ],
+      "effect": "Trigger intensities persist explicitly until cleared but actual face weights are rebuilt through current activation rules each frame.",
+      "alternatives": [
+        {
+          "choice": "retain explicit trigger semantics",
+          "tradeoff": "Keeps current latched cues and distance gating."
+        },
+        {
+          "choice": "automatic expiry/replacement policy",
+          "tradeoff": "Changes product semantics and needs a separate user-value contract; not justified or admitted here."
+        }
+      ]
+    }
+  ],
+  "nextImplementationWorthwhile": false,
+  "nextBoundary": "Close this nomination without a normal or terminal-error reset, expiry/cache-policy, proof or appearance successor. No next work before root review.",
+  "errorsAndCorrections": [
+    {
+      "kind": "display truncation",
+      "detail": "Combined two-source output exceeded the outer display budget. Stored owners return was redisplayed fully; Map display omitted middle constructor/trigger text, recovered by exact lines347-422 in job229c57. No source/output/target change."
+    },
+    {
+      "kind": "scope epoch",
+      "detail": "Initial six-file metadata selection was reduced before semantic review; actual ExpressionLayer host imports then justified whole Layer/MotionStack within six semantic sources. SCOPE-REFINEMENT old current hashes are historical, HOST-OWNERS and current INPUTS pin the final epoch."
+    },
+    {
+      "kind": "missing locator record",
+      "detail": "SEMANTIC-SCOPE declared35 matches without literal rows. Root supplied EXISTING-LOCATORS from original591115/9a1f88/d40554 tool returns; critic read and validated those35 only. No new pattern/search/source."
+    }
+  ],
+  "toolJobs": [
+    {
+      "name": "initial",
+      "command": "python3 -I -B - <<'PY'\nimport pathlib,hashlib,json,os,datetime\nbase=pathlib.Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/expression-transition-worth')\nprint(json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid()}))\nfor n in ['PLAN.md','INPUTS.json','SEMANTIC-SCOPE.json','SEMANTIC-SCOPE.md']:\n p=base/n\n if p.is_file():\n  b=p.read_bytes();print('\\nFILE',str(p),len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "tool_result": {
+        "chunk_id": "316895",
+        "exit_code": 0,
+        "session_id": null,
+        "wall_time_seconds": 7.916e-06,
+        "original_token_count": 2962
+      },
+      "read_status": "read-only source/record operation; no target evaluation",
+      "returned_output_bytes": 11847,
+      "returned_output_sha256": "3158d96a5d6814bc86d3d0899a8fc89ff5abd1825b069b3208a83470a8e7d07b",
+      "returned_first_line": "{\"utc\": \"2026-10-19T22:54:08.229451+00:00\", \"pid\": 50165}",
+      "returned_truncation_marker": false
+    },
+    {
+      "name": "owners",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport datetime,os\nr=Path('/Users/robault/GitHub/sugata-avatar')\nprint(datetime.datetime.now(datetime.timezone.utc).isoformat(),os.getpid())\nfor n in ['packages/core/src/affect/ExpressionLayer.js','packages/core/src/figure/ExpressionBank.js','packages/core/src/motion/Layer.js']:\n p=r/n;print('\\nFILE',n)\n for i,l in enumerate(p.read_text().splitlines(),1): print(f'{i}: {l}')\nPY",
+      "tool_result": {
+        "chunk_id": "0c014b",
+        "exit_code": 0,
+        "session_id": null,
+        "wall_time_seconds": 6.75e-06,
+        "original_token_count": 9743
+      },
+      "read_status": "read-only source/record operation; no target evaluation",
+      "returned_output_bytes": 38972,
+      "returned_output_sha256": "ccfc1eadedc648c563c9badb91f5a5a1ab51fa9f0d0561b78e6a41417611916b",
+      "returned_first_line": "2026-10-19T22:54:18.727903+00:00 50531",
+      "returned_truncation_marker": false
+    },
+    {
+      "name": "map",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/packages/core/src/affect/ExpressionMap.js')\nprint(datetime.datetime.now(datetime.timezone.utc).isoformat(),os.getpid(),str(p))\nfor i,l in enumerate(p.read_text().splitlines(),1): print(f'{i}: {l}')\nPY",
+      "tool_result": {
+        "chunk_id": "5e23d0",
+        "exit_code": 0,
+        "session_id": null,
+        "wall_time_seconds": 5.75e-06,
+        "original_token_count": 12380
+      },
+      "read_status": "read-only source/record operation; no target evaluation",
+      "returned_output_bytes": 49517,
+      "returned_output_sha256": "ef55d9f3b22dfdcc598dd133849effeca8828eb9910030e5d2d778e941ba2494",
+      "returned_first_line": "2026-10-19T22:54:18.727906+00:00 50530 /Users/robault/GitHub/sugata-avatar/packages/core/src/affect/ExpressionMap.js",
+      "returned_truncation_marker": false
+    },
+    {
+      "name": "stack1",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/MotionStack.js'); print(datetime.datetime.now(datetime.timezone.utc).isoformat(),os.getpid(),str(p),'1:420')\nfor i,l in enumerate(p.read_text().splitlines(),1):\n if 1<=i<=420: print(f'{i}: {l}')\nPY",
+      "tool_result": {
+        "chunk_id": "272cec",
+        "exit_code": 0,
+        "session_id": null,
+        "wall_time_seconds": 7.25e-06,
+        "original_token_count": 4357
+      },
+      "read_status": "read-only source/record operation; no target evaluation",
+      "returned_output_bytes": 17426,
+      "returned_output_sha256": "ae558bb8aaa52cc58418d374596f141983fe76f1508b3b7433e00841671d2a6d",
+      "returned_first_line": "2026-10-19T22:54:35.940069+00:00 51201 /Users/robault/GitHub/sugata-avatar/packages/core/src/motion/MotionStack.js 1:420",
+      "returned_truncation_marker": false
+    },
+    {
+      "name": "stack2",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/MotionStack.js'); print(datetime.datetime.now(datetime.timezone.utc).isoformat(),os.getpid(),str(p),'421:840')\nfor i,l in enumerate(p.read_text().splitlines(),1):\n if 421<=i<=840: print(f'{i}: {l}')\nPY",
+      "tool_result": {
+        "chunk_id": "f36b19",
+        "exit_code": 0,
+        "session_id": null,
+        "wall_time_seconds": 7.209e-06,
+        "original_token_count": 4463
+      },
+      "read_status": "read-only source/record operation; no target evaluation",
+      "returned_output_bytes": 17852,
+      "returned_output_sha256": "f7e769fcb568cb0c55f2f0ec56710c2741a0e741fc54c57495608a415fa9e02d",
+      "returned_first_line": "2026-10-19T22:54:35.940093+00:00 51202 /Users/robault/GitHub/sugata-avatar/packages/core/src/motion/MotionStack.js 421:840",
+      "returned_truncation_marker": false
+    },
+    {
+      "name": "stack3",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/MotionStack.js'); print(datetime.datetime.now(datetime.timezone.utc).isoformat(),os.getpid(),str(p),'841:EOF')\nfor i,l in enumerate(p.read_text().splitlines(),1):\n if i>=841: print(f'{i}: {l}')\nPY",
+      "tool_result": {
+        "chunk_id": "96d6dc",
+        "exit_code": 0,
+        "session_id": null,
+        "wall_time_seconds": 7.25e-06,
+        "original_token_count": 3189
+      },
+      "read_status": "read-only source/record operation; no target evaluation",
+      "returned_output_bytes": 12756,
+      "returned_output_sha256": "1404464c648c03d628a70b98c0b2bbbbd02d6bf1d9c05b7a6af2b8aac6bc6a1e",
+      "returned_first_line": "2026-10-19T22:54:45.119509+00:00 51506 /Users/robault/GitHub/sugata-avatar/packages/core/src/motion/MotionStack.js 841:EOF",
+      "returned_truncation_marker": false
+    },
+    {
+      "name": "avatar",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport datetime,os\nr=Path('/Users/robault/GitHub/sugata-avatar');p=r/'packages/core/src/Avatar.js'\nprint(datetime.datetime.now(datetime.timezone.utc).isoformat(),os.getpid(),str(p))\nls=p.read_text().splitlines()\nfor a,b in [(1560,1825),(1950,2013),(2920,2966)]:\n print('RANGE',a,b)\n for i in range(a,b+1): print(f'{i}: {ls[i-1]}')\nfor n in ['HOST-OWNERS.json','SCOPE-REFINEMENT.json']:\n p=r/'docs/evidence/appearance-2026-10-19/expression-transition-worth'/n\n if p.exists(): print('\\nSCOPE',n,p.read_text())\nPY",
+      "tool_result": {
+        "chunk_id": "00b07b",
+        "exit_code": 0,
+        "session_id": null,
+        "wall_time_seconds": 8.291e-06,
+        "original_token_count": 6078
+      },
+      "read_status": "read-only source/record operation; no target evaluation",
+      "returned_output_bytes": 24312,
+      "returned_output_sha256": "46dd713b1fbc8ac637f7cc67e7ae1f9d66f9877abb4ee04311fa505131953cd7",
+      "returned_first_line": "2026-10-19T22:54:45.119509+00:00 51507 /Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "returned_truncation_marker": false
+    },
+    {
+      "name": "binding",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\nr=Path('/Users/robault/GitHub/sugata-avatar');base=r/'docs/evidence/appearance-2026-10-19/expression-transition-worth'\nprint(datetime.datetime.now(datetime.timezone.utc).isoformat(),os.getpid())\np=r/'packages/core/src/affect/ExpressionMap.js';ls=p.read_text().splitlines();print('MAP CLIPPED MIDDLE RECOVERY 347:422')\nfor i in range(347,423): print(f'{i}: {ls[i-1]}')\np=r/'docs/PROJECT-CHECKLIST.md'; print('\\nCHECKLIST WHOLE')\nfor i,l in enumerate(p.read_text().splitlines(),1): print(f'{i}: {l}')\nrows=json.loads((base/'INPUTS.json').read_text())['pins'];out=[]\nfor row in rows:\n p=Path(row['path']);b=p.read_bytes();actual={'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()};assert actual['bytes']==row['bytes'] and actual['sha256']==row['sha256'];out.append(actual)\nprint('\\nALL13 PINNED',json.dumps(out))\nfor n in ['INPUTS.json','SEMANTIC-SCOPE.json','HOST-OWNERS.json','SCOPE-REFINEMENT.json','ROOT-FIRST.json']:\n p=base/n\n if p.exists():\n  b=p.read_bytes();print('SUPPLEMENT_PIN',json.dumps({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'read_scope':'hash-only' if n=='ROOT-FIRST.json' else 'whole textual record read'}))\nPY",
+      "tool_result": {
+        "chunk_id": "229c57",
+        "exit_code": 0,
+        "session_id": null,
+        "wall_time_seconds": 5.5e-06,
+        "original_token_count": 3950
+      },
+      "read_status": "read-only source/record operation; no target evaluation",
+      "returned_output_bytes": 15797,
+      "returned_output_sha256": "5bfaef7cc4db4cb22bb5fd8125af9c6df99c7e7420406d8876e4480c27233628",
+      "returned_first_line": "2026-10-19T22:55:07.685723+00:00 52295",
+      "returned_truncation_marker": false
+    },
+    {
+      "name": "locators",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport datetime,os,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/expression-transition-worth/EXISTING-LOCATORS.json')\nb=p.read_bytes();print(datetime.datetime.now(datetime.timezone.utc).isoformat(),os.getpid(),len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "tool_result": {
+        "chunk_id": "6077f8",
+        "exit_code": 0,
+        "session_id": null,
+        "wall_time_seconds": 6.959e-06,
+        "original_token_count": 1436
+      },
+      "read_status": "read-only source/record operation; no target evaluation",
+      "returned_output_bytes": 5743,
+      "returned_output_sha256": "024aac65ca4cc7576066b9d98962641bf445b3236391aefe55c360f56aa431df",
+      "returned_first_line": "2026-10-19T22:55:31.782000+00:00 53069 5633 729e7f28cacdde1f077724cf35aa365eb20bff0df18358394a2503e7e95bfee0",
+      "returned_truncation_marker": false
+    }
+  ],
+  "limits": [
+    "Static source and exact binding review only; no transition execution or test/proof result.",
+    "No semantic Blink/Gaze/AffectState/Figure or other client review; no global safety conclusion.",
+    "No source edits, target imports/evaluation/check/test, CPU/GPU/browser/native/network/capture/generation/assets changed.",
+    "No appearance, expression meaning, motion, performance, physical retirement, full-roadmap or constructor qualification.",
+    "Only the exclusive current review pair was written; all former frozen methods and HOLD remain."
+  ],
+  "outputWrites": [
+    "WORTH.md",
+    "CRITIC-RECEIPT.json"
+  ]
+}

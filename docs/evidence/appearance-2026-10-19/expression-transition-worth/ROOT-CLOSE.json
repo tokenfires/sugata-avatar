@@ -1,0 +1,109 @@
+{
+  "kind": "root-expression-worth-local-checkpoint",
+  "atUTC": "2026-10-19T22:59:05.249113+00:00",
+  "pid": 59856,
+  "status": "CLOSED_B_VALUE_NO_NORMAL_RETIREMENT_GAP",
+  "wholePair": "927d18/5899tokens untruncated",
+  "freshAll20BindingsWithMainEpoch": true,
+  "mainEpoch": "e8cdd3dd83ec4b88654d2e20e2fd1d2a6d7101ef,validatedby removing exactlyone additive note fromeach currentmainfile",
+  "filesBeforeSelf": [
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 128662,
+      "sha256": "190ffd2156216ac10468df9edb29065bba1c9aed9bf4f2d9236cec1c2c5e0aec"
+    },
+    {
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 153726,
+      "sha256": "3c6b3119a2670515ede986e25d91debf7255bc9197ef7ad2bb8146e7a678fbc0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/expression-transition-worth/CRITIC-RECEIPT.json",
+      "bytes": 20089,
+      "sha256": "bc37982762dd6688ed1adea41bbc349525242432a517759f9dd1cdd244818962"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/expression-transition-worth/EXISTING-LOCATORS.json",
+      "bytes": 5633,
+      "sha256": "729e7f28cacdde1f077724cf35aa365eb20bff0df18358394a2503e7e95bfee0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/expression-transition-worth/HOST-OWNERS.json",
+      "bytes": 1098,
+      "sha256": "987f40b06affc39adbc99266c33d04d313697604fb536a32fc78be73f07514a1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/expression-transition-worth/INPUTS.before-host-owner.json.txt",
+      "bytes": 4049,
+      "sha256": "5a3912e47efcfe24981fa3c34b88732d9c9d1d51ed7a8bc014d7824dc16a1fcd"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/expression-transition-worth/INPUTS.initial.json.txt",
+      "bytes": 3475,
+      "sha256": "b21da8011a70c92a03efe00e0feaacaea04a89a6da9fc0736edf350b1f9bd87c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/expression-transition-worth/INPUTS.json",
+      "bytes": 4739,
+      "sha256": "ed73d1bf948dd3bfc1e9a8cae9326043d796e11f10db749b7a71b69adc9a530d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/expression-transition-worth/JOBS.json",
+      "bytes": 64321,
+      "sha256": "f39a1041477598ec30b2bf518b1935eb6d86a6967e13fb398e13392401245e9e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/expression-transition-worth/PLAN.initial.md.txt",
+      "bytes": 3534,
+      "sha256": "b91dda26d1ed132aba6f67337b7fc107136ecf323c93871ddff58563a4dfa98f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/expression-transition-worth/PLAN.md",
+      "bytes": 4481,
+      "sha256": "6a82285c7e754a33d38c1ce975fe71d63b4ccd5d340b51f6d868f2b9f1171ad9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/expression-transition-worth/POST-REVIEW-TOOLS.json",
+      "bytes": 37340,
+      "sha256": "ac4dea8bb534169b0390391b8babf5f2d82e3e8752a5533b98fd05fe106259a9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/expression-transition-worth/README.md",
+      "bytes": 2567,
+      "sha256": "ede871b2d42b35af1318c9af3b3c8b7fe35c2a17853a139bc934d862f1c13109"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/expression-transition-worth/ROOT-FIRST.json",
+      "bytes": 2947,
+      "sha256": "9110aafd01130c1379dd835520ab5b69edd398fac98d64baa43212a32933f138"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/expression-transition-worth/ROOT-WORTH.json",
+      "bytes": 7813,
+      "sha256": "49fae08b066a53e3037da49c6ec4ded0ae92967870814432d1f424be14ee7996"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/expression-transition-worth/SCOPE-REFINEMENT.json",
+      "bytes": 921,
+      "sha256": "894bc80936305100c7e59e5ff36d43da918d33729fa38101d2c7c0b1bdded884"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/expression-transition-worth/SEMANTIC-SCOPE.json",
+      "bytes": 1998,
+      "sha256": "e039c45bed9429718ecd05fa1aa0ec338cc762ea45f94f6193e84bc51df78707"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/expression-transition-worth/WORTH.md",
+      "bytes": 3504,
+      "sha256": "ea2c5e25e508e21d2c5437f21965e35a433cef2d619f77ed1cd97111c4d98e0c"
+    }
+  ],
+  "filesBeforeSelfCount": 18,
+  "sourceEdits": 0,
+  "ownedTargetOrPendingCritic": false,
+  "noImplementationProofOrRetry": true,
+  "serviceObservation": "ebd85e/API22:58:32UTC same3344B/9b859344\u2026 ACTIVEevery10samechat,reviewHTTP200; future/mobile deliveryuntested",
+  "next": "Localcheckpoint then fresh worth for consequential artist/wardrobe visual consumer. Current packet admits no implementation.",
+  "deadline": "23:10UTC historicalafterearlyclose,noextension",
+  "preserve": "Allsource/code/assets/checklist23/10/oldclosures/HOLD/fullroadmap/heldfiles/worktrees unchanged."
+}

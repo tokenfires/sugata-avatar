@@ -1,0 +1,98 @@
+{
+  "kind": "fixed-source-worth-scope-before-semantic-reads",
+  "atUTC": "2026-10-19T22:49:52.709122+00:00",
+  "pid": 41831,
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/affect/ExpressionLayer.js",
+      "bytes": 9216,
+      "sha256": "4cf99f039ca8c9d9a01828a173e5de4fd4b632554cc1520beb47d29535015478",
+      "role": "one of six source files"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/affect/ExpressionMap.js",
+      "bytes": 44748,
+      "sha256": "5d01656e0d5f69fb30eb1c56b2020f644cf12726adf426f2cee6ac454ce4513d",
+      "role": "one of six source files"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/ExpressionBank.js",
+      "bytes": 14362,
+      "sha256": "9729b9474b62eaaeaf0d70ceeb24feee1e7fab2f6b3701ee3cbb2e4e7947a93e",
+      "role": "one of six source files"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/Blink.js",
+      "bytes": 46356,
+      "sha256": "71f7286273d118514343ce3f4918583bb02ef520932bb6dbbf5d91a6fc9489c1",
+      "role": "one of six source files"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/motion/Gaze.js",
+      "bytes": 129610,
+      "sha256": "bc8ecc7a05dcfb103e85077c72a9f18bb9d5aeb05b2145cfdb2af7aebf48a69c",
+      "role": "one of six source files"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18",
+      "role": "one of six source files"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8120,
+      "sha256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6",
+      "role": "recovery/protected scope, no new source allowance"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 125679,
+      "sha256": "a252387e78c447797074ad3ad3d767b5693ce0a6f4377617342dd8910f920d96",
+      "role": "recovery/protected scope, no new source allowance"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 150743,
+      "sha256": "f4b6f93361e565eae18b2344be35d7f806983bd29c43ebfefa4a9edbe1a8cd05",
+      "role": "recovery/protected scope, no new source allowance"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/ROOT-CLOSE.json",
+      "bytes": 12719,
+      "sha256": "e4fda672916363180abb3a7600ebf4f69b68cb74f9c3750973d9dbfa4c03b29f",
+      "role": "recovery/protected scope, no new source allowance"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/expression-transition-worth/PLAN.md",
+      "bytes": 3942,
+      "sha256": "5ccfc5a223156777f58cf960f10ffc549030eb61238d2d993e1104ef679161a6",
+      "role": "plan"
+    }
+  ],
+  "selectedSourceCount": 6,
+  "retiredInventoryItems": [
+    "IdleMotion.js",
+    "Gaze.selftest.mjs"
+  ],
+  "selection": "Five exact current expression/blink/gaze files plus known normal Avatar consumer. No seventh source; auxiliary filenames/imports may be noted but not opened.",
+  "priorReceiptAllowance": "At most2 named closure receipts, currently unused. Any addition must be explicit before read within original scope; no code allowance increase.",
+  "semanticScope": {
+    "whole": [
+      "ExpressionLayer.js",
+      "ExpressionMap.js",
+      "ExpressionBank.js"
+    ],
+    "scoped": {
+      "Avatar.js": "max600 semantic lines including max150locator matches and complete relevant short ownedmethods/call-order scopes"
+    },
+    "notOpened": [
+      "Blink.js",
+      "Gaze.js",
+      "IdleMotion.js",
+      "Gaze.selftest.mjs"
+    ],
+    "scopeLimit": "No whole Avatar/blink/gaze audit or compatibility claim; source pins for unread files are metadata preservation only."
+  },
+  "refinementBeforeSemanticReads": true
+}

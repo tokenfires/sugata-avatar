@@ -1,0 +1,23 @@
+{
+  "atUTC": "2026-10-19T22:50:38.343030+00:00",
+  "pid": 43304,
+  "kind": "one-before-read-scope-reduction",
+  "witness": "a30ed1 metadata:Avatar252785B,Gaze129610B,Blink46356B; all6total497077B",
+  "decision": "Reduce semantic scope before any source read/critic handoff; preserve original PLAN/INPUTS. No expansion, retry, execution, deadline extension or code/input change. Same normal expression-transition question.",
+  "currentPLAN": {
+    "bytes": 3942,
+    "sha256": "5ccfc5a223156777f58cf960f10ffc549030eb61238d2d993e1104ef679161a6"
+  },
+  "currentINPUTS": {
+    "bytes": 4049,
+    "sha256": "5a3912e47efcfe24981fa3c34b88732d9c9d1d51ed7a8bc014d7824dc16a1fcd"
+  },
+  "priorPLAN": {
+    "bytes": 3534,
+    "sha256": "b91dda26d1ed132aba6f67337b7fc107136ecf323c93871ddff58563a4dfa98f"
+  },
+  "priorINPUTS": {
+    "bytes": 3475,
+    "sha256": "b21da8011a70c92a03efe00e0feaacaea04a89a6da9fc0736edf350b1f9bd87c"
+  }
+}

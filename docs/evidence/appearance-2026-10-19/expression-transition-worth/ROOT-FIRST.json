@@ -1,0 +1,45 @@
+{
+  "kind": "independent-root-worth-first",
+  "verdict": "B_NO_DEMONSTRATED_NORMAL_FRAME_RETIREMENT_GAP",
+  "sealedBeforeCriticHandoff": true,
+  "observations": [
+    {
+      "source": "MotionStack.js267,276,288,beginFrame/MorphChannelState948,commit807-808",
+      "effect": "Every normal frame resets channel sums and each enabled contribution before update, then commits every declared morph including unwritten zero. Absent/disabled writes do not inherit previous contributions."
+    },
+    {
+      "source": "MotionStack.jsrebuildChannels606-611,commit807-820",
+      "effect": "Last-writer removal retains retiring channels through a rest commit before deletion; a separate expression-only cleanup would duplicate an existing owner."
+    },
+    {
+      "source": "ExpressionLayer.js141-149 andupdate151-211;Layer.jsMotionContribution.clear",
+      "effect": "Reset clears state/triggers/readouts. Neutral returns no contribution; contribution storage is zeroed by normal stack before update. Shared lids/mouth-corner declarations are intentionally additive, not global exclusive reset."
+    },
+    {
+      "source": "Avatar.jsattachAffect1639-1669,feel1749-1815,advanceFrame2942-2965,update1961-1982",
+      "effect": "Actual normal consumer attaches the expression layer and advances the common stack frame; scoped caller evidence only."
+    },
+    {
+      "source": "ExpressionMap.jstriggers366-411,activate/face and fresh morph bag",
+      "effect": "Latched trigger policy is explicit stored intent, cleared by clearTriggers/reset. No cue-expiry/replacement contract or observed normal ghost-weight failure is established. Do not relabel latch policy as frame-resource leakage."
+    }
+  ],
+  "alternatives": [
+    {
+      "choice": "Keep existing per-frame ownership and close without code or proof",
+      "tradeoff": "Avoids redundant reset and changing shared composition; no new runtime/appearance qualification."
+    },
+    {
+      "choice": "Add an expression-specific blanket reset or change trigger expiry",
+      "tradeoff": "Would add/change semantics without a witnessed missing normal consumer; shared blink/gaze/cue intent would need a new product contract and actual qualified proof. Not admitted."
+    }
+  ],
+  "limits": [
+    "Five whole source files plus412cumulativeAvatarsemanticlines/600cap; no wholeAvatar/blink/gaze review or universal runtime safety claim.",
+    "No imports/check/eval/tests/fixture/browser/native/GPU/image/newreferences/source edits.",
+    "Old expression appearance and preview utility routes remain closed, no quality credit gained by source comments or old measurements."
+  ],
+  "next": "Critic independently challenges worth at exact source scope. If B/unknown, close nomination unchanged, no normal-cleanup/terminal-error/cache-policy/cue-expiry/trigger-state/blanket-reset/renderer/proof successor. Full roadmap preserved.",
+  "atUTC": "2026-10-19T22:53:43.604373+00:00",
+  "pid": 49013
+}
