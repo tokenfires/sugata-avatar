@@ -1,0 +1,20 @@
+{
+  "utc": "2026-10-10T00:40:03.598513+00:00",
+  "complete_semantic_changed_paths": [
+    "/authored_utc",
+    "/finishing_attachment_parents/pocket_mouth_and_bags/parents",
+    "/future_metric/boundary_rule",
+    "/future_metric/nearest",
+    "/future_metric/signed_fill",
+    "/future_metric/ties",
+    "/id",
+    "/source_region_transport"
+  ],
+  "expected_paths_only": true,
+  "geometry_parameters_source_physical_gates_unchanged": true,
+  "old_contract_exact": true,
+  "metric_dependency_order": "U0 reportedfirst\u2192radius0\u2192reportedrange d_i\u2192U1\u2192ties\u2192D",
+  "facet_label_transport": "fullnode sets\u2192minimalpositive support vertexunion\u2192wholepolygonfacetunion\u2192faninheritance\u2192exactpredicate",
+  "new_contract_sha256": "974c1cbd3ad811717aec75069f8a2c696aaacf2a8c5631599d8244914d1a7fcf",
+  "no_native_field_or_source_decode": true
+}

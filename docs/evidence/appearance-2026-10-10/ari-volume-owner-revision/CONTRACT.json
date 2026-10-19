@@ -1,0 +1,315 @@
+{
+  "id": "Ari.material-volume.2",
+  "authored_utc": "2026-10-10T00:40:03.598207+00:00",
+  "status": "PROSPECTIVE COMPLETE REPRESENTATION, no field/mesh/fit/appearance result",
+  "sources": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-material-volume-contract/PLAN.md",
+      "bytes": 4387,
+      "sha256": "67a6bf5a8d477a187fcd4b729685133b47d7ec2bd2b429185df204b90bda4583"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-complete-jacket-nomination/ROOT-READBACK.json",
+      "bytes": 817,
+      "sha256": "006c4ab395329016f53421f08d4271c435d4c014840a762b3655ea0ac681dc81"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/after-geometry.npz",
+      "bytes": 840170,
+      "sha256": "10f646e42a868fe84ab14d6e3022918a70e6b0aeec30781f270037b79be2f024"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/fields.npz",
+      "bytes": 1058878,
+      "sha256": "88a158ceadf94ca23d3166bbca3ba40135eb60c5063dcb77dba1918050659d5f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-source-contract/SOURCE-MAP.json",
+      "bytes": 91085,
+      "sha256": "7cdcda00ad43629b558b829afbc76b226f121aabd98d7bb9b270c592b90bb129"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-wrist-registration-contract/WRIST-REFERENCE.json",
+      "bytes": 13132,
+      "sha256": "439acbcee0fb0a6a2ff5aeb6acde58a0de25b928494daea2dd1e985ce9535529"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/README.md",
+      "bytes": 7175,
+      "sha256": "f67477956482652b62c6cec47ef7de6f928d5335b801acc796c9d6f064383dad"
+    }
+  ],
+  "frame": {
+    "world_axes": {
+      "X+": "authored wearer-left",
+      "Y-": "authored front",
+      "Z+": "authored up"
+    },
+    "body_rig_world_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "selected_bone_pose_basis": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "units": "native source coordinates; not calibrated metres",
+    "buffers": [
+      {
+        "name": "Human_world",
+        "dtype": "<f4",
+        "shape": [
+          13380,
+          3
+        ],
+        "bytes": 160560,
+        "raw_sha256": "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c"
+      },
+      {
+        "name": "Human_triangles",
+        "dtype": "<i4",
+        "shape": [
+          26756,
+          3
+        ],
+        "bytes": 321072,
+        "raw_sha256": "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4"
+      },
+      {
+        "name": "l_arm_faces",
+        "dtype": "<i4",
+        "shape": [
+          4221
+        ],
+        "bytes": 16884,
+        "raw_sha256": "9aaae1564484cc20abdd7660ddaa7036bdca85fcb36a14ef078b59a3a7882c80"
+      },
+      {
+        "name": "r_arm_faces",
+        "dtype": "<i4",
+        "shape": [
+          4221
+        ],
+        "bytes": 16884,
+        "raw_sha256": "d4d1a6d94598a52602c4d10563943ea7820544e841def693a8407c74236a93e6"
+      }
+    ],
+    "all_source_triangles_required": 26756,
+    "body_auxiliary_and_pose_scope": "Original full represented Human; original actor auxiliaries/defaults preserved, additional full-actor/pose qualification held"
+  },
+  "grid": {
+    "h": 0.008642871475331049,
+    "definition": "max(body_bbox_extent)/192",
+    "origin_world64": [
+      -0.6056432479865634,
+      -0.39065078439784884,
+      -0.05617864954297147
+    ],
+    "cell_counts": [
+      141,
+      64,
+      205
+    ],
+    "node_count": 1901380,
+    "node_cap": 2097152,
+    "point_formula": "q64=origin+h*(ix,iy,iz); sample q32=one IEEE float32 cast of q64, retained separately",
+    "id_order": "gid=((ix*(Ny+1))+iy)*(Nz+1)+iz; ix then iy then iz",
+    "tetrahedra": "For each of6 permutations p of XYZ: corners000,e[p0],e[p0]+e[p1],111. Swap middle two for odd permutation to orient determinant positive. Shared grid faces use identical global vertex sets. No separate sleeve/torso lattices.",
+    "fresh_levels": {
+      "inner": 0.017285742950662097,
+      "outer": 0.025928614425993146,
+      "front_half_gap": 0.017285742950662097,
+      "inactive_cut": -0.034571485901324195
+    },
+    "no_epoch_or_resolution_retry": true
+  },
+  "future_metric": {
+    "native": "Pinned Blender5.2.2 BVHTree.FromPolygons(full_world32,full_triangles,all_triangles=True,epsilon=0.0), no object/depsgraph masks",
+    "nearest": "One find_nearest(q32) yields first tuple(position0,normal0,index0,distance0). Bind U0=float(distance0), the REPORTED native tuple[3], finite and>=0; no-hit/invalid UNKNOWN. Define radius0=U0*(1+2^-20)+h*2^-20 in binary64. One find_nearest_range(q32,radius0) returns1..64records with finite valid original triangle indices/positions and finite>=0 reported tuple[3] distances d_i=float(record_i[3]). Require the first source index and exact reported U0 to occur in the range; missing/inconsistent UNKNOWN, no fallback or query retry. Bind U1=min(d_i). Store first tuple,U0,radius0,all range tuples,d_i,U1. All metric ties are records with d_i==U1 exactly. Recomputed q32-to-position norms are index-registration validation only, never U0/U1. U1 is a deterministic reported-distance field policy, not an exact-global-nearest or unique-face certificate. No normal sign.",
+    "ties": "Take ALL range records whose REPORTED distance d_i equals U1. Map each original source triangle index to r/l/torso using the two archived disjoint4221face sets; torso here means their numerical complement, a torso-reference label, not anatomy. Retain complete source-index set and complete region-label set L(gid). Evaluate every region-dependent cut at q64 with unchanged saturation below -4h. Accept tie group only if full cut vectors match exactly, otherwise UNKNOWN. Preserve L(gid) even for accepted mixed labels; canonical minimum face ID is storage only and must not reduce that set. No favourable role choice.",
+    "signed_fill": "Three all-hit column scans in positive X/Y/Z through q32 stations. Use ALL original triangles, exact binary-rational projected barycentric tests and hit coordinates; sort hits in coordinate then source-triangle-ID order. Any coplanar/edge/vertex hit marks column UNKNOWN; no altered direction/seed/retry. Proper crossings change oriented degree by minus sign of triangle normal axis and toggle parity. Start outside source bbox with degree/parity0. Exact signed body-chain volume supplies orientation sign o (zero UNKNOWN); node OUTSIDE iff all3degrees0/parities0, INSIDE iff all3degrees o/parities1, else UNKNOWN. At independently proven boundary distance0 D=0; otherwise D=+U1 outside/-U1 inside. Formal chain fill only, never physical/simple-solid proof.",
+    "unknown": "Any missing/tie-unowned/nonfinite/axis conflict/cap exhaustion stops field; no dropped regions or partial whole-field PASS.",
+    "source_chain_prerequisites": "Before any field: full13380/26756buffers exact; all used finite vertices, nonzero triangle areas, one connected source component, all edges exactly2opposed incidences, cyclic vertex links, Euler2. Exact binary-rational signed chain volume nonzero defines o. These are formal chain prerequisites, not non-self/simple-solid proof; physical inside remains held.",
+    "reported_index_registration": "Indices must be original all_triangles input-order IDs. For every returned native position, record source-triangle projected barycentrics, plane residual and reconstructed distance; residual/distance-error<=2^-18*source_bbox_max_extent and barycentrics each in[-2^-12,1+2^-12]. Invalid/degenerate/unbound index is UNKNOWN, never renumbered or retried. These numerical checks do not certify exact global nearest or anatomical uniqueness.",
+    "boundary_rule": "Before using degree, q32 can be BOUNDARY only if U1==0 and exact binary-rational point-on-reported-source-triangle proof gives plane determinant0 and closed barycentric membership; then D=0 independent of ambiguous column. Otherwise any coplanar/edge/vertex column affecting q32 is UNKNOWN. No epsilon boundary classification."
+  },
+  "cuts": {
+    "evaluation": "q64; affine dot products in binary64. All cuts inside<=0; apply max(raw,-4h) before sampling. Inactive regional cuts exactly -4h. These are authored sampled cuts, with world-plane residual eligibility, not inferred sewing boundaries.",
+    "neck": {
+      "origin": [
+        0.0,
+        -0.0051302071660757065,
+        1.413631796836853
+      ],
+      "normal": [
+        0,
+        0,
+        1
+      ],
+      "rule": "q.Z-neck_origin.Z"
+    },
+    "hem": {
+      "origin": [
+        0.0,
+        0.012256888207048178,
+        1.0572128295898438
+      ],
+      "normal": [
+        0,
+        0,
+        -1
+      ],
+      "derivation": "midpoint spine_02 head_local/tail_local in identity rig world",
+      "rule": "hem_origin.Z-q.Z for torso reference region; inactive for r/l"
+    },
+    "wrist_r": {
+      "origin": [
+        -0.4770350456237793,
+        -0.1832285225391388,
+        1.0155318975448608
+      ],
+      "normal": [
+        -0.5112645687989267,
+        -0.6842041407617481,
+        -0.5200704129782098
+      ],
+      "source": "WRIST-REFERENCE /registrations/0",
+      "cut_keep": "dot(normal,q-origin)<=0"
+    },
+    "wrist_l": {
+      "origin": [
+        0.4770350456237793,
+        -0.1832285225391388,
+        1.0155318975448608
+      ],
+      "normal": [
+        0.5112645687989267,
+        -0.6842041407617481,
+        -0.5200704129782098
+      ],
+      "source": "WRIST-REFERENCE /registrations/1",
+      "cut_keep": "dot(normal,q-origin)<=0"
+    },
+    "wrist_scope": "Each wrist active only for its numeric source component, inactive elsewhere; no source course copied as garment boundary.",
+    "front": {
+      "cx": 0.0,
+      "cy": 0.009862011298537254,
+      "half_gap": 0.017285742950662097,
+      "rule": "min(2h-abs(q.X-cx), cy-q.Y); keeps either side of front strip or back halfspace",
+      "front_tags": "All positive-area front-cut facets must have all vertices X<cx (wearerR) or all X>cx (wearerL); straddling/ambiguous REFUSED."
+    }
+  },
+  "material_polytope": {
+    "inequalities": [
+      "2h-D<=0 (INNER)",
+      "D-3h<=0 (OUTER)",
+      "C_neck<=0",
+      "C_hem<=0",
+      "C_wrist_r<=0",
+      "C_wrist_l<=0",
+      "C_front<=0"
+    ],
+    "interpolation": "Each sampled scalar is piecewise linear in globally shared tetra barycentrics. Intersect all7halfspaces with the oriented tetra, never a maximum-only marching mask that could miss a thin paired interval.",
+    "arithmetic": "Finite binary64 coefficients converted via exact as_integer_ratio. Sequential convex polytope clipping with exact rational barycentrics; original vertices and exact edge/plane ratios only. Handle exact zero as on-plane, never epsilon-jitter. Empty/degenerate cases retain status.",
+    "identity": "Vertex key=(sorted minimal supporting global-grid-vertex IDs, all exactly active global inequality IDs); identical support/coefficients solve identically. No per-panel vertices/float-position weld.",
+    "faces": "Original tetra-face clips cancel by identical canonical vertex cycle and opposite orientation, exactly two owners. Remaining global-cut facets point along outward inequality gradient; derive cut cycle from clipped-face boundary adjacency. Multiple positive-area active owners or rank/ordering ambiguity REFUSED. Any unmatched internal lattice face REFUSED.",
+    "triangulation": "Unique simple convex ordered polygon; rotate to lexicographically smallest canonical vertex key, fan from it in outward order; reject repeated/collapsed/nonpositive triangles. Convert complete exact world positions once toF64 then once F32, retaining both and identity table."
+  },
+  "component_and_opening_eligibility": {
+    "material": "One connected closed oriented material-boundary component, opposed edge incidences, cyclic vertex links, Euler -2; not assumed from shared cells",
+    "outer_inner": "Each OUTER and INNER subcomplex one component, Euler -1 and exactly3simple boundary cycles",
+    "cycles": [
+      "r wrist cut only",
+      "l wrist cut only",
+      "one joined neck/frontR/frontL/hem perimeter"
+    ],
+    "bridges": "Every O/I boundary edge belongs its matching cut-rim bridge; no proximal sleeve caps. Every boundary role nonempty and unique; extra/missing components/cycles/roles REFUSED. Zero-area, orientation/label uncertainty UNKNOWN.",
+    "planes": "Cut-rim facet points must meet declared neck/hem/wrist world-plane residual<=1e-9 native units where that cut is active; failures refuse source association, not retune.",
+    "physical": "These are representation eligibility only; all-body/all-material/self, coplanar, full-surface coverage/exposure, enclosed occupancy, rig/morph/pose and images remain separately required/UNKNOWN."
+  },
+  "finishing_attachment_parents": {
+    "collar": "neck_cut OUTER edge chain oriented by material boundary",
+    "hem_trim": "hem_cut OUTER edge chain",
+    "cuff_r": "wrist_r_cut OUTER simple cycle",
+    "cuff_l": "wrist_l_cut OUTER simple cycle",
+    "zip_r": "frontR_cut OUTER ordered chain, bottom-to-top Z; nonmonotone ownership HOLD",
+    "zip_l": "frontL_cut OUTER ordered chain, bottom-to-top Z; nonmonotone ownership HOLD",
+    "facing_r": "frontR_cut INNER ordered chain",
+    "facing_l": "frontL_cut INNER ordered chain",
+    "left_guard": "wearerL frontL_cut INNER chain; future guard behind left zipper, no current guard geometry",
+    "pocket_mouth_and_bags": {
+      "x_abs_start": 0.09682068228721619,
+      "x_abs_end": 0.13139216818854038,
+      "z_start": 1.083141444015837,
+      "z_end": 1.1868559017198095,
+      "parents": "r negativeX/l positiveX OUTER front facets satisfying /source_region_transport/pure_torso_reference_OUTER_front exactly. Intersect unchanged ruled vertical guide plane joining declared X/Z endpoints, restrict endpoint X range and Y<cy. Require exactly1simple ordered front polyline connecting endpoint planes, with per-edge/triangle barycentric ownership; missing/branch/ambiguous HOLD. This owns an attachment guide only, not an open pocket or bag capacity.",
+      "future_real_cut_bag": "Must separately own actual mouth cut/lip/bag material connection and body/foundation contact before any finished-pocket claim."
+    },
+    "qualification": "Each parent exact nonempty ownership chain; child geometry/material/sewing/elastic/UV capacity unbuilt and held. No cosmetic line substitutes for real finishing."
+  },
+  "limits_and_stop": {
+    "no_current_constructor": true,
+    "no_body_mask_changes": true,
+    "no_old_controls_transferred": true,
+    "future_builder": "Separate fresh worth/source-preflight/runtime/time/memory/output/contact/image allocation required; no admission by this specification",
+    "qualification": "Source/numerical eligibility never appearance or moving-avatar acceptance; actual first rendered images required. Full AAA roadmap unchanged."
+  },
+  "source_region_transport": {
+    "label_domain": [
+      "r",
+      "l",
+      "torso"
+    ],
+    "meaning": "torso is the numeric complement of the archived r/l reference components; friendly name torso-reference. No anatomical inference.",
+    "grid_node": "L(gid) is the full accepted region-label set of ALL exact U1 reported-distance tie records, never the canonical minimum storage face. Missing/nonaccepted label set UNKNOWN.",
+    "volume_vertex": "For each exact rational polytope vertex, its minimal support consists of every original global-grid vertex with STRICTLY POSITIVE exact barycentric coefficient. Vertex set L(v) is the union of L(gid) across that complete support; no epsilon/weight cutoff and no new nearest query.",
+    "canonical_identity": "Every occurrence of a canonical vertex key must reproduce the identical support and transported set; mismatch UNKNOWN, never overwrite or choose one occurrence.",
+    "facet": "Facet means the surviving positive-area boundary polygon BEFORE canonical fan triangulation. L(F) is the union of L(v) over ALL its polygon vertices. Each resulting fan triangle inherits the complete polygon-facet set; do not shrink to a favourable triangle subset.",
+    "pure_torso_reference_OUTER_front": "Require generating inequality OUTER and L(F)=={torso}; every exact pre-cast polygon vertex has hem_origin.Z<=Z<=neck_origin.Z and Y<cy. Compare exact rational positions to exact ratios of the declared finite source constants. Undefined/mixed sets or failed predicates make this pocket parent INELIGIBLE/HOLD; not a centroid classification or anatomical proof.",
+    "pocket_assembly": "The existing ruled-guide intersection admits only facets satisfying this exact predicate. Existing unique connected polyline, endpoint-plane and edge/triangle barycentric ownership requirements remain unchanged. Mixed/unbound fragments cannot be used to complete the mouth guide."
+  }
+}
