@@ -1,0 +1,126 @@
+{
+  "schema": "bounded-worth-review-v1",
+  "utc": "2026-10-19T11:00:27.566220+00:00",
+  "pid": 3225,
+  "verdict": "B_NO_CURVED_GROOM_AUTHORING_OR_CAPTURE",
+  "pending_edits": false,
+  "proposal_source": "Direct parent task in this chat; no PLAN file was supplied. Proposed fresh cubic-clump four-view sheet,45-minute authorship,one old/new/original comparison,zero new references,no post-image repair. No candidate authorized.",
+  "decision_scope": "Worth only; decline same silhouette/style correction despite changed SVG construction. No empirical prediction that curves fail.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/short-groom-artist/BRIEF.md",
+      "bytes": 4583,
+      "sha256": "a2b047ac0dfb20af83ff03274827e653c5be98326dd98d415d1389ae2e890a70"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/short-groom-artist/IMAGE-REVIEW.md",
+      "bytes": 3680,
+      "sha256": "b2e2eb392d1e555a1d1160e0726bbffef4631698f58f517cd8462a510f3d214a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/short-groom-artist/ROOT-IMAGE.json",
+      "bytes": 2239,
+      "sha256": "de47a0f95b8190e4eb69f8e69647b8bb5a11ba1c007a2adfc4a267622bc69f39"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/short-groom-artist/groom.svg",
+      "bytes": 15316,
+      "sha256": "a0ebe48a542acea024088f10ae4ca2f1dfb6af824ad2616e5c46778841463f8d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/short-groom-artist/first.jpg",
+      "bytes": 199841,
+      "sha256": "e330cfa6b343226d66b1d38f187b149dacbdae9139055f211361560481916cfb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    }
+  ],
+  "read_scopes": {
+    "whole_text": [
+      "BRIEF.md",
+      "IMAGE-REVIEW.md",
+      "ROOT-IMAGE.json",
+      "MASCULINE-CHARACTER-TARGET-2026-10-04.md"
+    ],
+    "svg": "Whole byte hash; selected literal boundary/flow lines38,39,70,104,105,133,134,135,138,141; no target parse/render/evaluation. Earlier source review is historical, not expanded here.",
+    "images": [
+      {
+        "tool": "view_image",
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/short-groom-artist/first.jpg",
+        "detail": "original",
+        "scope": "Whole1280x1747 actual saved first sheet; existing pixels only."
+      },
+      {
+        "tool": "view_image",
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+        "detail": "original",
+        "scope": "Whole1536x1024 original retained character; existing pixels only."
+      }
+    ],
+    "root_comparison": "Root source/image conclusion full-read as a closure witness; image/source decision independently re-viewed. Prior blind limited-A versus final full-brief-B distinction remains exactly preserved in existing IMAGE-REVIEW/receipt; no overwrite."
+  },
+  "jobs": [
+    {
+      "chunk_id": "dc1a53",
+      "exit_code": 0,
+      "scope": "Quick memory registry orientation search; output truncated; not current source/image authority."
+    },
+    {
+      "chunk_id": "1ccec3",
+      "exit_code": 0,
+      "scope": "Scoped path inventory. rg reported proposed worth leaf absent; no file mutation or target failure."
+    },
+    {
+      "chunk_id": "5f7571",
+      "exit_code": 0,
+      "scope": "Narrow memory registry locator; no current project conclusion derived."
+    },
+    {
+      "chunk_id": "a58521",
+      "exit_code": 0,
+      "pid": 3028,
+      "utc": "2026-10-19T10:58:36.878344+00:00",
+      "scope": "Whole BRIEF, IMAGE-REVIEW, ROOT-IMAGE and original target handoff read; selected SVG lines38,39,70,104,105,133,134,135,138,141; whole-file byte hashes."
+    },
+    {
+      "chunk_id": "73b673",
+      "exit_code": 0,
+      "pid": 3112,
+      "utc": "2026-10-19T10:59:22.239912+00:00",
+      "scope": "Seven direct input whole-byte hashes and sizes read back; direct ancestor instruction paths checked, none present."
+    },
+    {
+      "chunk_id": "77ca3d",
+      "exit_code": 0,
+      "scope": "Memory registry690\u2013708 orientation, independent critique/bounded work guidance only."
+    }
+  ],
+  "exact_final_input_verification_command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\nr=Path('/Users/robault/GitHub/sugata-avatar')\nprint('READBACK',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor rel in ['AGENTS.md','docs/AGENTS.md','docs/evidence/AGENTS.md','docs/evidence/appearance-2026-10-19/AGENTS.md']:\n p=r/rel\n if p.is_file():print('INSTRUCTIONS',str(p),p.read_text())\npaths=['docs/evidence/appearance-2026-10-19/short-groom-artist/BRIEF.md','docs/evidence/appearance-2026-10-19/short-groom-artist/IMAGE-REVIEW.md','docs/evidence/appearance-2026-10-19/short-groom-artist/ROOT-IMAGE.json','docs/evidence/appearance-2026-10-19/short-groom-artist/groom.svg','docs/evidence/appearance-2026-10-19/short-groom-artist/first.jpg','docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png','docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md']\nrows=[]\nfor rel in paths:\n p=r/rel;b=p.read_bytes(); rows.append({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})\nprint(json.dumps(rows,indent=2))\nPY",
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/curved-groom-worth/WORTH.md",
+    "bytes": 2628,
+    "sha256": "6d6bb0ca62eaa7ff32b4c8927b6e4035459a7cf0067f5a7a838ab5b0ddf5b72b"
+  },
+  "retained_errors": [
+    "Scoped rg reported the fresh worth leaf absent; subsequently created only for this review pair. Overall inventory shell exit0.",
+    "Broad first memory search output truncated; narrow orientation follow-up supplied relevant registry context. No current evidence conclusion relies on that truncation."
+  ],
+  "limits": [
+    "No recursive receipt or nested manifest expansion.",
+    "No new web references, drawing, candidate render/capture, browser/native/GPU, model/geometry decode, target/helper import/execution, capability reprobe, original evidence or product edit.",
+    "Existing frozen reference screenshots not re-viewed today; no new reference conclusion required.",
+    "Current checkout clean/HEAD29772010 was parent recovery context, not independently checked here.",
+    "No OS/process/native or physical scalp/fit/identity/AAA claim.",
+    "No new native source suitability verdict; conditional different-responsibility advice only."
+  ],
+  "next": "Root may close this nomination after independent full handoff verification. No curved candidate, comparison capture or other successor admitted.",
+  "deadline": "Parent supplied no separate absolute worth deadline for this fresh task;45-minute limit applies only to declined future authorship. Old study timers/capture allowance are not refreshed."
+}

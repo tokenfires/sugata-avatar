@@ -1,0 +1,13 @@
+# Curved groom comparison — worth decision
+
+**B: do not prepare another drawing or comparison capture.** I re-viewed the whole unchanged first sheet and original character at original detail. Broad cubic clumps could plausibly soften the visible contour, but this proposal addresses the same rejected creative silhouette while retaining the same four views, part, whorl, forehead, ear and nape choices.
+
+The actual front (roughly x240–445/y545–700), rear (x240–445/y1025–1240) and top (x835–1040/y1025–1280) repeat pointed straight boundaries; the original portrait (roughly x925–1380/y15–350) has grouped curved swept locks with sparse tips. Current groom.svg:38/104/133 confirms those boundary operands. This is a real communication shortfall, not a claim that SVG curves cannot depict hair, or that a new curved design would necessarily fail.
+
+**F1 — the proposed construction reopens the closed creative correction.** BRIEF.md:17 permits only a demonstrated text/leader/legend clone and closes silhouette/taper/style failure without a variant. ROOT-IMAGE.json:10 expressly closes the polygon study, redraw and shape correction. A new directory, different path primitives, 45-minute limit and one old/new/original frame bound the cost but do not supply a different artist ownership decision. The likely gain is a better rendition of already selected intent, with no new scalp, attachment, material or moving-groom responsibility.
+
+Two alternatives: **preferred, retain the readable partial direction map and defer the finished silhouette to a complete head/groom artist owner**. This preserves the original and useful hidden-view choices without spending another slice on the same correction; immediate soft-turnaround delivery remains unavailable. **Alternatively, explicitly commission a fresh curved redraw of that rejected silhouette**. It could improve the four-view discussion quickly, but carries the same artistic uncertainty and adds another 2D artifact. I decline that alternative for this work window; it is not a clarity-only correction.
+
+A separately nominated mapped-material/native ownership question could be more consequential because it seeks actual mapped appearance rather than another diagram. That is only conditional agenda advice: no launcher, renderer, capability or native source was investigated or admitted here, and the previous preparation-scope correction must remain explicit.
+
+No new references, artwork, capture or source execution occurred. The first study, unused capture retirement, accepted assets and 22 scoped/10 broad goals remain unchanged. Pending edits: false.

@@ -12,6 +12,12 @@ The existing ten-minute heartbeat is restored to this chat through the app API w
 
 Work within existing allowance and granted credits. Do not purchase capacity, change subscription/models, redeem reset credits, push, publish or resume other projects. If capacity is unavailable, checkpoint without aggressive retries.
 
+## October 19,11:01UTC — curved redraw declined; different mapped question nominated
+
+Fresh curved-clump worthB6a0373/PID3225 at11:00:27UTC and readback9d881b declines another silhouette rendition. Root reads the complete pair128b0f, independently re-views the actual first sheet/original, reads the full SVG03cfa3 and verifies seven inputs/two handoff hashesddf714/PID3750 at11:01:05UTC. [Concise closure](evidence/appearance-2026-10-19/curved-groom-worth/README.md). No drawing/reference/source/capture followed. The completed failed-study temporary tab4 was closed; accepted tabs1–3 and Vite remain.
+
+The separate [mapped-diffuse nomination](evidence/appearance-2026-10-19/mapped-diffuse-first-study/PLAN.md) seeks actual paired native placement evidence, using unchanged corrected source with complete new semantic/render/workload review and historical helper provenance retained. Worth-pending only; no probe, repair, source copy or native admission.22scoped/ten broad/fullroadmap/closures/constructorHOLD remain. Existing ACTIVE ten-minute recovery retained; human check-in/pause wins.
+
 ## October 18, 21:16 Pacific — recovered from the newer contract checkpoint
 
 Root found that the October6 note was superseded by October7–10 work. Current HEAD2fb6d2bf and all nine untracked October10 revision files are preserved.628bae/PID35113 at04:13:47UTC independently verifies7 current+7source bindings and the complete eight-path semantic old/new comparison. The latest independent REVIEW closes the two literal distance/support-label owner gaps, while retaining a prospective contract and first-constructor HOLD. No stale Ari concept study or expired trial was resumed.
