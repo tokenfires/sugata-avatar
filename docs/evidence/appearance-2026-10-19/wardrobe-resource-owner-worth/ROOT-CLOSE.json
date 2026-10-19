@@ -1,0 +1,270 @@
+{
+  "schema": "wardrobe-resource-owner-root-close-v1",
+  "pid": 74763,
+  "utc": "2026-10-19T21:25:16.791173+00:00",
+  "verdict": "B_RETAIN_EXPLICIT_NORMAL_OWNERSHIP_UNCHANGED",
+  "parent": "0739142daca06885f7eab64c38666d48fc46be7e",
+  "whole_stable_pair": {
+    "chunk": "b81e0b",
+    "exit": 0,
+    "tokens": 5598,
+    "untruncated": true
+  },
+  "verified_rows": 39,
+  "bindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentInterior.js",
+      "bytes": 7381,
+      "sha256": "6ad4be9086153e0c51a0aedc3289d2bbf59514b5d3cf8568cb5cd3a9fbaa8ee0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7707,
+      "sha256": "7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 140567,
+      "sha256": "e2c8c5f88521ffb0f77891ac496398fa0079272d21ce4740048d6e8c767d4a95"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 115503,
+      "sha256": "a1fbd1a05e54ec9be8d30c030bee08b6ed5fdf46f99aeef7c571d2d900641377"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8120,
+      "sha256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.js",
+      "bytes": 4807,
+      "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4708,
+      "sha256": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49992,
+      "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 140567,
+      "sha256": "e2c8c5f88521ffb0f77891ac496398fa0079272d21ce4740048d6e8c767d4a95"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 115503,
+      "sha256": "a1fbd1a05e54ec9be8d30c030bee08b6ed5fdf46f99aeef7c571d2d900641377"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8120,
+      "sha256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.js",
+      "bytes": 4807,
+      "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4708,
+      "sha256": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49992,
+      "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentInterior.js",
+      "bytes": 7381,
+      "sha256": "6ad4be9086153e0c51a0aedc3289d2bbf59514b5d3cf8568cb5cd3a9fbaa8ee0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7707,
+      "sha256": "7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/PLAN.md",
+      "bytes": 3382,
+      "sha256": "d60d166e7600120a8b15bd03b63e1d9d6ac6a5d0bbae818f59dbc3614932145f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/INPUTS.json",
+      "bytes": 1827,
+      "sha256": "e2eca570c9142af92cfd42995b27afa3927c172ba35bb3db1bc0fdf861c05cb5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/FOLLOWUP-INPUTS.json",
+      "bytes": 1057,
+      "sha256": "bc30bef77a33402ba9444b1ed5a293ccb3c535ed13ced9c528a66f81f51457de"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/HOST-INPUTS.json",
+      "bytes": 1222,
+      "sha256": "e63e7178d1942efa1dca4689350f8bf82d64c24ef736d2e5bfda53433aaeaf2e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 140567,
+      "sha256": "e2c8c5f88521ffb0f77891ac496398fa0079272d21ce4740048d6e8c767d4a95"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 115503,
+      "sha256": "a1fbd1a05e54ec9be8d30c030bee08b6ed5fdf46f99aeef7c571d2d900641377"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8120,
+      "sha256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.js",
+      "bytes": 4807,
+      "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4708,
+      "sha256": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49992,
+      "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentInterior.js",
+      "bytes": 7381,
+      "sha256": "6ad4be9086153e0c51a0aedc3289d2bbf59514b5d3cf8568cb5cd3a9fbaa8ee0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7707,
+      "sha256": "7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/PLAN.md",
+      "bytes": 3382,
+      "sha256": "d60d166e7600120a8b15bd03b63e1d9d6ac6a5d0bbae818f59dbc3614932145f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/INPUTS.json",
+      "bytes": 1827,
+      "sha256": "e2eca570c9142af92cfd42995b27afa3927c172ba35bb3db1bc0fdf861c05cb5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/FOLLOWUP-INPUTS.json",
+      "bytes": 1057,
+      "sha256": "bc30bef77a33402ba9444b1ed5a293ccb3c535ed13ced9c528a66f81f51457de"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/HOST-INPUTS.json",
+      "bytes": 1222,
+      "sha256": "e63e7178d1942efa1dca4689350f8bf82d64c24ef736d2e5bfda53433aaeaf2e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/WORTH.md",
+      "bytes": 3683,
+      "sha256": "45e2339e1cd3ac62a5317f2f013c581b9341491fb88e400c0f0137a98b27310b"
+    }
+  ],
+  "preclose_files": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/FOLLOWUP-INPUTS.json",
+      "bytes": 1057,
+      "sha256": "bc30bef77a33402ba9444b1ed5a293ccb3c535ed13ced9c528a66f81f51457de"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/HOST-INPUTS.json",
+      "bytes": 1222,
+      "sha256": "e63e7178d1942efa1dca4689350f8bf82d64c24ef736d2e5bfda53433aaeaf2e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/INPUTS.json",
+      "bytes": 1827,
+      "sha256": "e2eca570c9142af92cfd42995b27afa3927c172ba35bb3db1bc0fdf861c05cb5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/JOBS.json",
+      "bytes": 117115,
+      "sha256": "5877f08ef35cbd979fcff5f98d3f26f6420808ef21840ac947b29bb54be14f5e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/PLAN.md",
+      "bytes": 3382,
+      "sha256": "d60d166e7600120a8b15bd03b63e1d9d6ac6a5d0bbae818f59dbc3614932145f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/README.md",
+      "bytes": 3109,
+      "sha256": "5c66583061a43153098e9d64c2e33a345e1f31594ed06db265ae9623e0982f69"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/ROOT-FIRST.json",
+      "bytes": 5602,
+      "sha256": "e107fa4d55261452227d9d3de0242f89b7d88838a819119ffae5a8c426a57aa2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/ROOT-HOST.json",
+      "bytes": 2446,
+      "sha256": "b360f1df8cd7a9020e7506e606c43c6e761fe9dac926ea8fd2964a9d627fb70e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/WORTH-RECEIPT.json",
+      "bytes": 18479,
+      "sha256": "064e52714d975f41065358a5c165c851ea10a3645614c1f159561644ab87d71e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/WORTH.md",
+      "bytes": 3683,
+      "sha256": "45e2339e1cd3ac62a5317f2f013c581b9341491fb88e400c0f0137a98b27310b"
+    }
+  ],
+  "agreement": "Ownwhole4sources/selectedWardrobe+Avatarhost observations and criticcomplete6-filescopes agree cacheisdeliberate andidentified normalretirement/borrowedtransfer/interior/replacementmaterial/host ownerchain alreadyexplicit. No missingnormalduty shown.",
+  "limits": "Static normalpathonly, arbitraryinjected sharing/faultthrows/loaderinternals/actualGPUphysicalrelease/memoryperformanceunqualified. No target/code/proof/CPUexperiment/sourcepreparation or exceptional/cachepolicysuccessor admitted.",
+  "ledger": "InitialROOTFIRSTunusedsixthretirementpremature; HOSTINPUT limitedcorrection withinoriginalcap6 beforecompletecriticdecision. Originalstatement/initialBpreserved, hostinspection retainedB. No seventhfile/targetretry/generalexception.",
+  "closed": "Allallowancesretired/21:30ceilinghistoricalafterearlyclose; nopendingcriticedit/liveownedtarget. Vite/ACTIVE10minute samechatrecovery retained.",
+  "preserved": "All originals/accepted/default/frozenevidence/unrelatedwork/heldfiles/adoptedskinowner/previewutility/closedmethods/HOLD/checklist23scoped10broad/fullroadmap.",
+  "status_epoch_resolver": "0739142daca06885f7eab64c38666d48fc46be7e",
+  "next": "RecoverSept30dayreport/pose-awareproposal/currentacceptedsourceframe+newknittarget for freshworth on genuinelynewcompletejointsourcegarmentresponsibility; no oldnet/loft/field/mapping/observerrepair orconstructoradmission. Humancheckin/pausewins."
+}

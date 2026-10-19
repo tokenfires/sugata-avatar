@@ -1,0 +1,28 @@
+{
+  "schema": "wardrobe-owner-root-host-observation-v1",
+  "pid": 62594,
+  "utc": "2026-10-19T21:19:13.963145+00:00",
+  "verdict": "B_RETAIN_INITIAL_NORMAL_OWNERSHIP_VALUE_DECISION",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/HOST-INPUTS.json",
+      "bytes": 1222,
+      "sha256": "e63e7178d1942efa1dca4689350f8bf82d64c24ef736d2e5bfda53433aaeaf2e"
+    }
+  ],
+  "selected_actual_ranges": "Avatar2440\u20132479,2819\u20132860,3034\u20133150,3825\u20133833 via7187a6/7614be; locatord415ac. No otherAvatar subsystems/codefiles semanticallyread.",
+  "witnesses": [
+    "Avatar2440\u20132472 routes supported outfit requests tocurrentWardrobe and handlesownerreplacementversioning.",
+    "Avatar3061\u20133078 tracks pendingwardrobes andretiresobsolete loads;3082\u20133090 failurepathinvokeswardrobecleanup beforefigure;3107\u20133113 oldwardrobe retiresbeforeoldfigure;3137\u20133140 installsnewowner andremovespendingmembership.",
+    "Avatar2819\u20132829 terminalowner invokespendingwardrobedisposal;2851 callsdisposeWardrobe beforefigure disposal2856, through localreleasecatchcollector;3825\u20133832 actualhelper callsWardrobe.dispose then clearswardrobe/assets."
+  ],
+  "conclusion": "Actualhost wires normalpending/replacement/terminalretirement; togetherwith6fileownershipinspection no missingnormaluniquelyownedgarmentretirementduty demonstrated. Cacheisexplicitpolicy, not inferredleak. No GPU/physicalrelease/memorybenefit or allfault-pathrobustness qualification.",
+  "known_limits": "Exceptional resource/listenerthrow caninterruptlowerWardrobe cleanup andhosthelperfieldclear; suchthrow wasnotexecuted/measured. No renamedexceptionrobustness variant or actualproof admitted. No otherAvatarloaders/materials investigated.",
+  "ledger_correction": "EarlierROOT-FIRST prematurelyretiredoriginalsixth allowance whilecriticreviewincomplete. HOST-INPUTS explicitlycorrectedonlythatallowancewithinoriginalcap6; initialBopinionunchanged afteractualhostread, no closedtarget repair/replay or anynewtarget.",
+  "next": "Awaitstablecompleteindependentworthpair; rootwhole/freshverifythenclose/checkpoint. No furtherfile/readfollowup or source/proof."
+}

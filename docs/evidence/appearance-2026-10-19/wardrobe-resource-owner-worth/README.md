@@ -1,0 +1,15 @@
+# Replaced-garment ownership — unchanged
+
+Root and independent critic agree **B: no normal-path owner correction or CPU experiment justified**. Removed garments deliberately remain cached for reuse; explicit release and wardrobe lifetime disposal retire the identified loaded resources. This is static inspected ownership, not universal leak freedom, fault-path robustness or measured GPU/physical release.
+
+Actual source witnesses: Wardrobe710–741/750–765/808–823/923–945/979–986/1091–1119; GarmentInterior76–107; WardrobeStyles71–81/115–118; Avatar2828/2851/3061–3087/3108/3826–3830. Imported geometry/material/map/original-skeleton sets are captured before binding to the borrowed body skeleton; replacement materials register and borrow original maps; interior clones remove their own set entries before cleanup. Avatar invokes normal pending/current/old-owner retirement. CatalogueDresser selects recipes, not resources.
+
+Retaining the explicit cache/release model preserves reuse and avoids protocol churn, while leaving unworn resources resident until release/dispose. Earlier eviction could reduce retained state but changes refetch/reuse policy and needs a measured budget consumer; it is not a demonstrated omitted-owner fix here. No arbitrary injected-sharing or exceptional-listener variant is admitted.
+
+Exact6sourcefiles only. Shared addenda preceded helper/host reads. Root initially and prematurely wrote that the sixth spare allowance was retired while independent review was incomplete; HOST-INPUTS explicitly corrected only that ledger statement within the original6-file cap. Root initial libraryB remained unchanged after independent actual host inspection. No extra cap, seventh source, target retry or broad exception.
+
+Root wholly read stable pairb81e0b/exit0/5598tokens untruncated, after own source/host observations. ROOT-CLOSE freshly verifies pins and agreement. JOBS retains exact commands/returns/scopes. No source/candidate edit, runtime import/check/eval/test/probe, online reference, image/browser/native/GPU/capture, generation, geometry or constructor. No memory/performance/appearance/fit/AAA credit. First complete B closes; no renamed terminal-error/cache-policy successor.
+
+All accepted/default/original/frozen assets, adopted skin ownership/preview utility, unrelated work/heldfiles, old closures/HOLD,23scoped/10broad checklist and full roadmap remain. Status input epochs resolve through0739142daca06885f7eab64c38666d48fc46be7e after additive recovery notes.21:30UTC ceiling historical after early closure; no owned target or pending critic edit.
+
+Next worthy direction returns to an explicit joint-source garment construction/authoring responsibility: recover September30dayreport/pose-aware proposal and current accepted source-frame/new knitwear target before proposing a genuinely new complete contract. No old net/loft/field/mapping repair or held constructor admission. Human check-in/pause wins; retain review server/ACTIVEten-minute recovery. No push/publication/install/purchase/model/subscription/reset-credit/other-project action.

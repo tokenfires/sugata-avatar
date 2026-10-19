@@ -1,0 +1,20 @@
+{
+  "schema": "wardrobe-resource-owner-shared-followup-v1",
+  "pid": 56642,
+  "utc": "2026-10-19T21:16:15.410942+00:00",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentInterior.js",
+      "bytes": 7381,
+      "sha256": "6ad4be9086153e0c51a0aedc3289d2bbf59514b5d3cf8568cb5cd3a9fbaa8ee0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7707,
+      "sha256": "7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089"
+    }
+  ],
+  "global_source_files_after_addendum": 5,
+  "justification": "Wardrobe.js116/1026\u20131028 directly calls GarmentInterior owner before resource disposer; AvatarWardrobe55 directly imports stylefactory and Wardrobe979\u2013986 registers returnedreplacementmaterial. Need actualclone/resource and replacementmap ownership, nottransferSkin assumptions.",
+  "scope": "Whole2directhelperfiles only; nootherfollowup yet, globalcap6. No import/eval/test/online/target/capture or codechange."
+}

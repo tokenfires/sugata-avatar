@@ -1,0 +1,366 @@
+{
+  "schema": "wardrobe-resource-owner-worth-review-v1",
+  "verdict": "B_NO_PROVED_MISSING_NORMAL_RETIREMENT_DUTY",
+  "pending_edits": false,
+  "worth_stop_utc": "2026-10-19T21:30:00Z",
+  "full_reads": [
+    "PLAN.md",
+    "INPUTS.json",
+    "FOLLOWUP-INPUTS.json",
+    "HOST-INPUTS.json",
+    "CatalogueDresser.js (102lines)",
+    "AvatarWardrobe.js (85lines)",
+    "GarmentInterior.js (142lines)",
+    "WardrobeStyles.js (120lines)"
+  ],
+  "selected_reads": [
+    {
+      "path": "Wardrobe.js",
+      "ranges": [
+        [
+          1,
+          42
+        ],
+        [
+          386,
+          475
+        ],
+        [
+          504,
+          587
+        ],
+        [
+          704,
+          776
+        ],
+        [
+          790,
+          840
+        ],
+        [
+          918,
+          1050
+        ],
+        [
+          1080,
+          1121
+        ]
+      ],
+      "locators": "Bounded ownership/load/remove/dispose/material/texture/cache locators only; actual matches in stored command/output."
+    },
+    {
+      "path": "Avatar.js",
+      "ranges": [
+        [
+          1047,
+          1059
+        ],
+        [
+          2440,
+          2477
+        ],
+        [
+          2819,
+          2837
+        ],
+        [
+          2845,
+          2860
+        ],
+        [
+          3028,
+          3094
+        ],
+        [
+          3095,
+          3143
+        ],
+        [
+          3825,
+          3834
+        ]
+      ],
+      "locators": "Only wardrobe/loadAvatarWardrobe/assignment/swap/terminaldispose matches before selected reads."
+    }
+  ],
+  "metadata_only": [
+    "Main work-window/resume/checklist/roadmap freshly hashed; current closure and broad instruction scopes reused from immediately preceding documentary review rather than broad reread",
+    "No full Avatar class, GLTF payload, installed Three/loader implementation or other source file audited"
+  ],
+  "source_scope": {
+    "initial_fixed": 3,
+    "shared_helpers": 2,
+    "authorized_host": 1,
+    "global_source_files": 6,
+    "max_source_files": 6,
+    "seventh_file_read": false,
+    "authorization": "FOLLOWUP-INPUTS and HOST-INPUTS exact pins verified before respective source reads."
+  },
+  "ownership_witnesses": [
+    {
+      "owner": "Wardrobe cache",
+      "witness": "Wardrobe710–715,808–823,923–926",
+      "effect": "Removed meshes intentionally remain cached; reuse returns same fragment rather than orphaning a new allocation."
+    },
+    {
+      "owner": "Fragment retirement",
+      "witness": "Wardrobe719–765,930–945,1091–1117",
+      "effect": "Explicit release/terminal dispose and late/failure catch retire collected geometry/material/texture/original-skeleton sets; body and adopted skeleton borrowed."
+    },
+    {
+      "owner": "Replacement material",
+      "witness": "Wardrobe979–986; WardrobeStyles71–81,115–118",
+      "effect": "Returned material registered; imported maps borrowed from existing fragment; failed local material allocation retired."
+    },
+    {
+      "owner": "Interior clones",
+      "witness": "GarmentInterior76–107; Wardrobe737–738,761–762,1026–1028",
+      "effect": "Unique cloned geometry/material registered then removed/disposed by interior owner before parent resources; maps/adopted skeleton borrowed."
+    },
+    {
+      "owner": "Avatar host",
+      "witness": "Avatar2828,2851–2856,3061–3087,3108,3826–3830",
+      "effect": "Pending/current/replaced wardrobe owners have actual cleanup calls before borrowed Figure retirement."
+    }
+  ],
+  "findings": [],
+  "alternatives": [
+    {
+      "choice": "Retain reusable cache + explicit release + host lifetime disposal",
+      "benefit": "Preserves supported repeat outfit behavior with an existing normal resource retirement chain",
+      "tradeoff": "Unworn cached resources remain until release/dispose; no measured budget/physicalrelease claim."
+    },
+    {
+      "choice": "Change cache eviction policy to earlier retirement",
+      "benefit": "Could reduce retained unworn resources",
+      "tradeoff": "Changes reuse/refetch behavior, requires a distinct measured consumer/budget justification and is not an omitted-owner correction demonstrated here."
+    }
+  ],
+  "ledger_correction": {
+    "source": "HOST-INPUTS.json and parent messages",
+    "initial_statement": "Root initial libraryB prematurely said unusedsixth allowance retired while critic worth review incomplete.",
+    "correction": "Explicit shared HOST-INPUTS uses only original plan sixth remaining file for actual Avatar ownership scopes; original statement remains provenance.",
+    "scope": "No target/source correction, new cap, general exception or seventh file."
+  },
+  "next": "No next CPU/source ownership experiment justified; close unchanged/unrun with current source findings only.",
+  "limits": [
+    "Static normal ownership/transfer/cache coverage only; not universal leak freedom",
+    "No runtime imports/check/eval/tests/probes/apply/GLBdecode/images/browser/native/GPU/capture/network/online/generation/geometry/constructor",
+    "Arbitrary external/injected sharing and exceptional resource/listener throw paths unexercised, not admitted successors",
+    "No global loader/renderer lazy cache/physical GPU release/memory/performance qualification",
+    "No canonical/candidate/frozen input edits; critic only own review pair",
+    "No transfer of private skin texture assumptions to borrowed/shared garment resources",
+    "Assets/defaults/adopted skinowner/closed preview utility/closedmethods/HOLD/checklist/broad roadmap unchanged"
+  ],
+  "jobs": [
+    {
+      "name": "initial",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PLAN.md','INPUTS.json']:\n q=p/n;b=q.read_bytes();print('\\nFILE',n,len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "result": {
+        "chunk_id": "2a2676",
+        "wall_time_seconds": 7.041e-06,
+        "exit_code": 0,
+        "original_token_count": 1358,
+        "output_bytes": 5430,
+        "output_sha256": "57cdeb3b41a5dc7bf35fca1a8c6ab24694a0ed601c5a0930230039360f997eca",
+        "first_line": "PID 55477 UTC 2026-10-19T21:15:42.989866+00:00"
+      }
+    },
+    {
+      "name": "read",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\nroot=Path('/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['CatalogueDresser.js','AvatarWardrobe.js']:\n q=root/n;b=q.read_bytes();print('\\nFILE',q,len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(f'{i}: {line}')\nq=root/'Wardrobe.js';b=q.read_bytes();lines=b.decode().splitlines();print('\\nWARDROBE',len(b),hashlib.sha256(b).hexdigest(),'lines',len(lines))\nfor i in range(1,43):print(f'{i}: {lines[i-1]}')\nPY",
+      "result": {
+        "chunk_id": "9c662a",
+        "wall_time_seconds": 5.792e-06,
+        "exit_code": 0,
+        "original_token_count": 3417,
+        "output_bytes": 13667,
+        "output_sha256": "ad9780fb5c2748eb9273faeb2e4aa81602121f9b696631cda23736cfe56f9b4a",
+        "first_line": "PID 56358 UTC 2026-10-19T21:16:08.207316+00:00"
+      }
+    },
+    {
+      "name": "locator",
+      "tool": "exec_command",
+      "command": "rg -n 'dispose|undress|remove|load|clone|cache|release|destroy|garmentMeshes|geometry|material|Texture|GarmentInterior|SkeletonUtils' packages/core/src/wardrobe/Wardrobe.js",
+      "result": {
+        "chunk_id": "f8ea31",
+        "wall_time_seconds": 7.083e-06,
+        "exit_code": 0,
+        "original_token_count": 2836,
+        "output_bytes": 11343,
+        "output_sha256": "6371cb0f69b978702717f78c1f86919681e71cb1a9ea788cdc816caa0db5f191",
+        "first_line": "2: * Wardrobe — punch-list 9.3. `dress(ids)` and `undress()` on a live figure, at runtime."
+      }
+    },
+    {
+      "name": "owners",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\nroot=Path('/Users/robault/GitHub/sugata-avatar');p=root/'docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nq=p/'FOLLOWUP-INPUTS.json';b=q.read_bytes();m=json.loads(b);print('SHARED ADDENDUM',len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nfor row in m['pins']:\n q=Path(row['path']);b=q.read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256'];print('\\nWHOLE HELPER',q,len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(f'{i}: {line}')\nq=root/'packages/core/src/wardrobe/Wardrobe.js';b=q.read_bytes();lines=b.decode().splitlines();print('\\nSELECTED WARDROBE',len(b),hashlib.sha256(b).hexdigest())\nfor lo,hi in [(386,475),(504,587),(704,776),(790,840),(918,1050),(1080,1121)]:\n print('RANGE',lo,hi)\n for i in range(lo,min(hi,len(lines))+1):print(f'{i}: {lines[i-1]}')\nPY",
+      "result": {
+        "chunk_id": "8412a3",
+        "wall_time_seconds": 6.042e-06,
+        "exit_code": 0,
+        "original_token_count": 9727,
+        "output_bytes": 38905,
+        "output_sha256": "f4d8c27ae2218b5695bb645cffc2ebd2ada9e6c624b6fd14dafdd6e00dfc44da",
+        "first_line": "PID 58266 UTC 2026-10-19T21:17:04.491435+00:00"
+      }
+    },
+    {
+      "name": "verify",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat());rows=[]\nfor n in ['INPUTS.json','FOLLOWUP-INPUTS.json']:\n for row in json.loads((p/n).read_text())['pins']:\n  b=Path(row['path']).read_bytes();a={'path':row['path'],'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()};assert a==row;rows.append(a)\nprint(json.dumps({'verified_rows':len(rows),'source_files_verified':5,'pins':rows},indent=2))\nPY",
+      "result": {
+        "chunk_id": "7d35cb",
+        "wall_time_seconds": 6.416e-06,
+        "exit_code": 0,
+        "original_token_count": 496,
+        "output_bytes": 1983,
+        "output_sha256": "c0b722a688d7a0936c32ccc911bf7c7a3886b4188439aa1ff7f844f73bd0c447",
+        "first_line": "PID 60461 UTC 2026-10-19T21:18:08.720587+00:00"
+      }
+    },
+    {
+      "name": "host_pin",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth');q=p/'HOST-INPUTS.json';b=q.read_bytes();m=json.loads(b)\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'HOST ADDENDUM',len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nfor row in m['pins']:\n b=Path(row['path']).read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256']\nprint('HOST PIN VERIFIED BEFORE SELECTED READ')\nPY",
+      "result": {
+        "chunk_id": "91414d",
+        "wall_time_seconds": 5.334e-06,
+        "exit_code": 0,
+        "original_token_count": 349,
+        "output_bytes": 1393,
+        "output_sha256": "5807c25828dc7ea34fced1ae45c2e345063c9c706576f54c26109de198021ea5",
+        "first_line": "PID 62134 UTC 2026-10-19T21:18:59.592396+00:00 HOST ADDENDUM 1222 e63e7178d1942efa1dca4689350f8bf82d64c24ef736d2e5bfda53433aaeaf2e"
+      }
+    },
+    {
+      "name": "host_locator",
+      "tool": "exec_command",
+      "command": "rg -n 'loadAvatarWardrobe|this\\.wardrobe|swapFigure|dispose\\(\\)' packages/core/src/Avatar.js",
+      "result": {
+        "chunk_id": "eaadf2",
+        "wall_time_seconds": 5.584e-06,
+        "exit_code": 0,
+        "original_token_count": 2443,
+        "output_bytes": 9770,
+        "output_sha256": "0298b6ffaf12eb0eb988ae9aa9afa82c81c0fce5472c86e9785c692db9e3f484",
+        "first_line": "778:     *      of which 3,327,232 B is a third `await` inside `swapFigure`; and it adds a measured"
+      }
+    },
+    {
+      "name": "host_read",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\nq=Path('/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js');b=q.read_bytes();lines=b.decode().splitlines()\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'FILE',q,len(b),hashlib.sha256(b).hexdigest())\nfor lo,hi in [(1047,1059),(2440,2477),(2819,2837),(2845,2860),(3028,3094),(3095,3143),(3825,3834)]:\n print('RANGE',lo,hi)\n for i in range(lo,min(hi,len(lines))+1):print(f'{i}: {lines[i-1]}')\nPY",
+      "result": {
+        "chunk_id": "922515",
+        "wall_time_seconds": 5.542e-06,
+        "exit_code": 0,
+        "original_token_count": 2409,
+        "output_bytes": 9633,
+        "output_sha256": "143fab5836f1cc9c2512a9ca250b5b63e2b6862594d1df41a727cb9cbba0effa",
+        "first_line": "PID 63110 UTC 2026-10-19T21:19:29.608935+00:00 FILE /Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js 252785 fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+      }
+    },
+    {
+      "name": "final_verify",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth');rows={}\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['INPUTS.json','FOLLOWUP-INPUTS.json','HOST-INPUTS.json']:\n for row in json.loads((p/n).read_text())['pins']:\n  b=Path(row['path']).read_bytes();a={'path':row['path'],'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()};assert a==row;rows[row['path']]=row\nfor n in ['PLAN.md','INPUTS.json','FOLLOWUP-INPUTS.json','HOST-INPUTS.json']:\n q=p/n;b=q.read_bytes();rows[str(q)]={'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nprint(json.dumps({'unique_paths':len(rows),'current_source_files':6,'pins':list(rows.values()),'absence_snapshot':{n:not (p/n).exists() for n in ['WORTH.md','WORTH-RECEIPT.json','SOURCE-PLAN.md','proof.mjs','ADMISSION.json']}},indent=2))\nPY",
+      "result": {
+        "chunk_id": "cf8fb0",
+        "wall_time_seconds": 8e-06,
+        "exit_code": 0,
+        "original_token_count": 837,
+        "output_bytes": 3345,
+        "output_sha256": "14801bb817eb58809a2a38cdd03aacc212575613d4a41af15b604d5ef309a956",
+        "first_line": "PID 65436 UTC 2026-10-19T21:20:37.732517+00:00"
+      }
+    }
+  ],
+  "input_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 140567,
+      "sha256": "e2c8c5f88521ffb0f77891ac496398fa0079272d21ce4740048d6e8c767d4a95"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 115503,
+      "sha256": "a1fbd1a05e54ec9be8d30c030bee08b6ed5fdf46f99aeef7c571d2d900641377"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8120,
+      "sha256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.js",
+      "bytes": 4807,
+      "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4708,
+      "sha256": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49992,
+      "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentInterior.js",
+      "bytes": 7381,
+      "sha256": "6ad4be9086153e0c51a0aedc3289d2bbf59514b5d3cf8568cb5cd3a9fbaa8ee0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7707,
+      "sha256": "7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/PLAN.md",
+      "bytes": 3382,
+      "sha256": "d60d166e7600120a8b15bd03b63e1d9d6ac6a5d0bbae818f59dbc3614932145f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/INPUTS.json",
+      "bytes": 1827,
+      "sha256": "e2eca570c9142af92cfd42995b27afa3927c172ba35bb3db1bc0fdf861c05cb5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/FOLLOWUP-INPUTS.json",
+      "bytes": 1057,
+      "sha256": "bc30bef77a33402ba9444b1ed5a293ccb3c535ed13ced9c528a66f81f51457de"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/HOST-INPUTS.json",
+      "bytes": 1222,
+      "sha256": "e63e7178d1942efa1dca4689350f8bf82d64c24ef736d2e5bfda53433aaeaf2e"
+    }
+  ],
+  "verified_unique_paths": 14,
+  "collection": {
+    "pid": 68242,
+    "utc": "2026-10-19T21:22:02.617510+00:00",
+    "exclusive_pair_only": true
+  },
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/WORTH.md",
+    "bytes": 3683,
+    "sha256": "45e2339e1cd3ac62a5317f2f013c581b9341491fb88e400c0f0137a98b27310b"
+  }
+}

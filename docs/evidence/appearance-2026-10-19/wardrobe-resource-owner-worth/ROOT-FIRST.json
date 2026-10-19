@@ -1,0 +1,89 @@
+{
+  "schema": "wardrobe-resource-owner-root-first-v1",
+  "pid": 58203,
+  "utc": "2026-10-19T21:17:03.084420+00:00",
+  "verdict": "B_DEFER_NORMAL_REPLACEMENT_OWNERSHIP_ALREADY_EXPLICIT",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 140567,
+      "sha256": "e2c8c5f88521ffb0f77891ac496398fa0079272d21ce4740048d6e8c767d4a95"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 115503,
+      "sha256": "a1fbd1a05e54ec9be8d30c030bee08b6ed5fdf46f99aeef7c571d2d900641377"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8120,
+      "sha256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.js",
+      "bytes": 4807,
+      "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4708,
+      "sha256": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49992,
+      "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentInterior.js",
+      "bytes": 7381,
+      "sha256": "6ad4be9086153e0c51a0aedc3289d2bbf59514b5d3cf8568cb5cd3a9fbaa8ee0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeStyles.js",
+      "bytes": 7707,
+      "sha256": "7dcfc646d6d3fd50a739e4ac4ff36a86b422bf581ae5170c610e3e21e9ac0089"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/PLAN.md",
+      "bytes": 3382,
+      "sha256": "d60d166e7600120a8b15bd03b63e1d9d6ac6a5d0bbae818f59dbc3614932145f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/INPUTS.json",
+      "bytes": 1827,
+      "sha256": "e2eca570c9142af92cfd42995b27afa3927c172ba35bb3db1bc0fdf861c05cb5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wardrobe-resource-owner-worth/FOLLOWUP-INPUTS.json",
+      "bytes": 1057,
+      "sha256": "bc30bef77a33402ba9444b1ed5a293ccb3c535ed13ced9c528a66f81f51457de"
+    }
+  ],
+  "read_scope": "WholeCatalogueDresser/AvatarWardrobe872e83; Wardrobeownershiplocatorsc4481a andselectedranges386\u2013475,504\u2013587,704\u2013776,790\u2013840,918\u20131050,1080\u20131122d4b5ac; wholeGarmentInterior/WardrobeStyles38c81c. Exact5globalfiles, no sixth/otherread/image/target.",
+  "finding": {
+    "witness": "Wardrobe710\u2013715 declares intentionalcachedunwornfragments and explicitrelease;719\u2013741 refusesworn/pending and disposesinterior+resources.750\u2013765 ownswholelifetime includingcache.930\u2013944 collectsloadresources BEFOREskeletonadoption;979\u2013986 registersreturnedreplacementmaterial;1090\u20131119 sets ownimportedgeometry/material/texture/originalskeleton. GarmentInterior7/76\u201386/106\u2013107 ownsclones, removesownsetentriesbeforecleanup andborrowsbody skeleton/textures. WardrobeStyles4/76\u201380 borrowsoriginalmaps, no newstyletextureallocation.",
+    "explanation": "Currentnormalreplacementdetachesmeshesbutkeepsintentionalcache; that is an explicitreuse tradeoff withrelease/wholewardroberetirement, not a demonstratedomission. Importedmapsandstyledreplacementmaterials plusinteriorclones have explicitnormalowners. Skinprivate-generatedtextureassumptionsdonotapply. No current leak, GPUretention/physicalrelease or memory/performancebenefit demonstrated.",
+    "alternatives": [
+      {
+        "choice": "Retaincurrentcache/release/retirementmodel",
+        "benefit": "Avoidprotocolchurnandpreservefreecachedre-use andexplicitunload API",
+        "tradeoff": "Hoststillchooseswhen toreleaseunusedgarments; no automaticbudgeteviction."
+      },
+      {
+        "choice": "Separatecompleteowner/errororcachepolicycorrection only after consequential missingduty",
+        "benefit": "Couldmake a proved newfailureorbudgetresponsibilityreliable",
+        "tradeoff": "Newsource/lifecycle/finiteproof qualification for a duty not established by normalreplacement here; no suchpreparationadmitted."
+      }
+    ],
+    "selected": "Bdefercurrentnomination; no source/proof/runtime work."
+  },
+  "boundary": "Wardrobe resourceforloop andinteriorthrow canshortcircuitonexception; selectedsourcealso shows disposedflag setbeforewholecleanup. That exceptional robustness observation is not a demonstratednormalreplacementleak or measuredmemorybenefit, wasnotexercised, anddoesnotadmit a renamedterminal-error successor here. No assertionthatallerrorpaths arealreadyrobust.",
+  "admission": "Zero candidate/canonicalsourceedit/check/import/eval/test/online/browser/native/GPU/image/capture/generation/geometry/constructor. Sixthfollowupallowance retired.",
+  "next": "Collectstableindependentworthpair; rootwhole/currentpins andcheckpoint. Preserveexplicitcache/borrowedownership, alladopted/frozen/closedmethods/HOLD andfullroadmap."
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "wardrobe-resource-owner-worth-inputs-v1",
+  "pid": 54272,
+  "utc": "2026-10-19T21:15:09.226040+00:00",
+  "parent": "0739142daca06885f7eab64c38666d48fc46be7e",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 140567,
+      "sha256": "e2c8c5f88521ffb0f77891ac496398fa0079272d21ce4740048d6e8c767d4a95"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 115503,
+      "sha256": "a1fbd1a05e54ec9be8d30c030bee08b6ed5fdf46f99aeef7c571d2d900641377"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8120,
+      "sha256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/CatalogueDresser.js",
+      "bytes": 4807,
+      "sha256": "99acc09c1e261668d2eb7ae1b3af5d4e1f4ac6ffab48f73030241a4fa474621b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/AvatarWardrobe.js",
+      "bytes": 4708,
+      "sha256": "f257a2ffebdb4881dc79ae72fdd4b1c29f36694f00852de0f9657e7eff262a10"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49992,
+      "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936"
+    }
+  ],
+  "global_source_file_cap": 6,
+  "initial_fixed_source_files": 3,
+  "additional_files": "Only root-sharedaddendum, maximum3directimport/call owners/helpers",
+  "worth_stop_utc": "2026-10-19T21:30:00Z"
+}
