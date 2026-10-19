@@ -1,0 +1,157 @@
+{
+  "stable_utc": "2026-10-19T10:26:20.931060+00:00",
+  "pid": 98731,
+  "verdict": "A_BOUNDED_ORIGINAL_FOUR_VIEW_ARTIST_INTENT_STUDY_ONLY",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 22667,
+      "sha256": "cc67cee758836c5591f995242e1486af773153c1a7f6c38f72baa7a1a97b9a82"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/ROOT-CLOSE.json",
+      "bytes": 7452,
+      "sha256": "bb7492287e1b4d7cd19902344f94c2527b7632640c936cb84a53887edc2866b7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/short-groom-artist/PLAN.json",
+      "bytes": 5202,
+      "sha256": "534ce1b2bccea80343d9d3ebb4b425d8831f3eeba453df031386f81ad271e70d"
+    }
+  ],
+  "verified_plan_rows": 6,
+  "visual_review": {
+    "tool": "tools.view_image",
+    "image": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "requested_detail": "original",
+      "returned_detail": "original"
+    },
+    "scope": "Whole unchanged1536x1024 concept at original detail during this worth review; no crop/edit/new capture. No shellPID for image tool.",
+    "witness": "Portrait approximatelyx925-1380/y15-350: swept dark crest, irregular front locks, open forehead, temple/ear edge. No complete rear/top-whorl/nape view; no physical/identity/gender proof."
+  },
+  "read_scopes": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/short-groom-artist/PLAN.json",
+      "scope": "whole5202byte JSON and all six pins/limits/gates"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "scope": "whole13lines/3264bytes, especially7and11"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "scope": "whole61lines/7487bytes; actual22checked/10open rows independently counted"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/ROOT-CLOSE.json",
+      "scope": "whole7452byte JSON recovered separately after presentation truncation; historical nested rows read but not recursively reaudited"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "scope": "whole-file hash; selected1-27 only, recovered after presentation truncation"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "scope": "whole-file hash; selected lines1-37,42-48,63-65,67-69,87-89,103-105,110-112,115-117,132-134,137-139 only; historical pause/source commentary is not current authorization"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "scope": "whole-file hash plus actual whole original-detail image view; no render/geometry or global source absence inference"
+    }
+  ],
+  "jobs": [
+    {
+      "chunk_id": "1f31a0",
+      "exit_code": 0,
+      "pid": 98520,
+      "utc": "2026-10-19T10:24:19.938228+00:00",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('docs/evidence/appearance-2026-10-19/short-groom-artist/PLAN.json');b=p.read_bytes()\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat());print('PLAN',len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY"
+    },
+    {
+      "chunk_id": "5e6660",
+      "exit_code": 0,
+      "pid": 98574,
+      "utc": "2026-10-19T10:24:50.233376+00:00",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\nR=Path('/Users/robault/GitHub/sugata-avatar');P=R/'docs/evidence/appearance-2026-10-19/short-groom-artist'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nplan=json.loads((P/'PLAN.json').read_bytes())\nfor r in plan['pins']:\n p=R/r['path'];b=p.read_bytes();a={'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()};assert a['bytes']==r['bytes'] and a['sha256']==r['sha256'];print('VERIFIED',json.dumps(a))\nfor rel in ['docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md','docs/PROJECT-CHECKLIST.md','docs/evidence/appearance-2026-10-19/mara-native-retirement/ROOT-CLOSE.json']:\n print('FULL',rel)\n for i,l in enumerate((R/rel).read_text().splitlines(),1):print(f'{i}: {l}')\nprint('RESUME1_27')\nfor i,l in enumerate((R/'docs/RESUME-2026-10-18.md').read_text().splitlines()[:27],1):print(f'{i}: {l}')\np=R/'docs/PRODUCT-ROADMAP.md';lines=p.read_text().splitlines();indices=set(range(min(30,len(lines))))\nfor i,l in enumerate(lines):\n if any(k in l.lower() for k in ['groom','hair','scalp']):indices.update(range(max(0,i-1),min(len(lines),i+2)))\nprint('ROADMAP_SELECTED_LINE_SCOPES',json.dumps([i+1 for i in sorted(indices)]))\nfor i in sorted(indices):print(f'{i+1}: {lines[i]}')\nprint('OWN_REVIEW_ABSENT',json.dumps({n:not (P/n).exists() for n in ['WORTH.md','WORTH-RECEIPT.json']}))\nPY",
+      "limit": "Combined presentation truncated root-close tail and RESUME portion; recovered in047a4a. Full character document/checklist and roadmap selection remained visible."
+    },
+    {
+      "chunk_id": "047a4a",
+      "exit_code": 0,
+      "pid": 98592,
+      "utc": "2026-10-19T10:25:01.016497+00:00",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime\nR=Path('/Users/robault/GitHub/sugata-avatar')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\np=R/'docs/evidence/appearance-2026-10-19/mara-native-retirement/ROOT-CLOSE.json';print('FULL_ROOT_CLOSE');print(p.read_text())\nprint('RESUME1_27')\nfor i,l in enumerate((R/'docs/RESUME-2026-10-18.md').read_text().splitlines()[:27],1):print(f'{i}: {l}')\nPY"
+    }
+  ],
+  "actionable_findings": [],
+  "decision_witness": {
+    "source": "MASCULINE-CHARACTER-TARGET:7and11; checklist26,50,54; roadmap43,46,64",
+    "effect": "Specific groom-flow/scalp-boundary intent remains explicitly unselected despite a usable frontal character target. Four authored views can make an artist-ready choice; not another frontal duplicate or native-source qualification."
+  },
+  "alternatives": [
+    {
+      "choice": "One coherent original editable front/profile/rear/top groom-intent sheet after brief/source gates",
+      "tradeoff": "Selects concrete hidden crown/temple/ear/nape choices and may help future authors; costs art work, can fail coherence, no registered3D/attachment/fit claim."
+    },
+    {
+      "choice": "Keep the portrait and defer hidden choices to complete character/scalp authorship",
+      "tradeoff": "Avoids another flat and gains physical context later, but leaves current explicit design decisions unresolved."
+    }
+  ],
+  "scope": "Worth only. Root verification precedes bounded references/brief; consolidated brief and full source/capture/root gates precede drawing/view. No new references/drawing/capture or source construction admitted by critic action.",
+  "caps": {
+    "searches": 2,
+    "primary_pages": 2,
+    "primary_whole_image_views": 2,
+    "candidate_captures": 2,
+    "clarity_only_clones": 1,
+    "artist_minutes_after_root_brief": 60
+  },
+  "deadlines_utc": {
+    "worth": "2026-10-19T10:45:00Z",
+    "brief": "2026-10-19T11:00:00Z",
+    "firstimage": "2026-10-19T11:50:00Z",
+    "checkpoint": "2026-10-19T12:10:00Z"
+  },
+  "stops": [
+    "First duplicate/marginal or undeclared hidden choice closes rather than renaming a proposal.",
+    "No structural creative/groom/taper/material/shape variants; one clarity-only clone requires actual witness and separate admission.",
+    "No projected/anatomical/physical/scalp-attachment/native/fit/motion/AAA credit; first whole actual sheet decides limited communication."
+  ],
+  "retained_reader_corrections": [
+    {
+      "job": "5e6660",
+      "issue": "Combined output presentation truncation",
+      "resolution": "Whole ROOT-CLOSE and selected RESUME recovered by047a4a, no file or target changed."
+    }
+  ],
+  "preservation": "Only these two exclusive critic files written. No onlinecall/newimage/render/browser/GPU/native/capture/targetimport/sourceconstruction or existing-file edit. All22scoped10broad/fullroadmap/closednative/Rowan/localgroom/foundation routes, acceptedassets/defaults/frozen/sourceHOLD preserved.",
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/short-groom-artist/WORTH.md",
+    "bytes": 3360,
+    "sha256": "a20e1b292232d8cf16370e5135ebbeab7c4de20459ca716747b10b2aaf133bbf"
+  },
+  "receipt_self_binding": "External final readback supplies receipt hash without circular binding."
+}

@@ -1,0 +1,2078 @@
+{
+  "title": "Short swept groom — original artist turnaround",
+  "utc": "2026-10-19T10:36:00.027154+00:00",
+  "coordinate_space": "1440x1480unitless2D, independent front/rightprofile/rear/top context; not projected anatomical source",
+  "svg": {
+    "path": "groom.svg",
+    "bytes": 15316,
+    "sha256": "a0ebe48a542acea024088f10ae4ca2f1dfb6af824ad2616e5c46778841463f8d"
+  },
+  "decisions": {
+    "original_cues": "dark relaxedsweptcrest/openforehead/shorttempleear",
+    "new_choices": [
+      "softcharacterleftseparation",
+      "crest towardcharacterright",
+      "posteriorrightwhorlclockwisefromabove",
+      "closeearclearsoftedges",
+      "shorttaperedsideburn",
+      "roundedlownapetaper"
+    ],
+    "orientation": {
+      "front": "pageleft=characterR;pageright=L",
+      "profile": "rightprofile/nosepageleft",
+      "rear": "pageleft=characterL;pageright=R",
+      "top": "frontpagebottom/reartop;pageleft=characterR;pageright=L"
+    },
+    "limits": "Opposite fullprofile not separately drawn; independentcontours not registered3D. Contexthead/ear/neck not anatomical/identity/scalpfit. Tealguide/dash notcolour/shavedpart."
+  },
+  "node_count": 142,
+  "view_owners": [
+    "front",
+    "profile",
+    "rear",
+    "top"
+  ],
+  "features": [
+    {
+      "group_id": "front-crest",
+      "owner": "front",
+      "feature": "crest",
+      "node_ids": [
+        "front-crest",
+        "front-hair-mass",
+        "groom-node-030",
+        "groom-node-031",
+        "front-crest-flow"
+      ],
+      "scope": "2D artist intent only; no shared3D geometry"
+    },
+    {
+      "group_id": "front-soft-part",
+      "owner": "front",
+      "feature": "soft-part",
+      "node_ids": [
+        "front-soft-part",
+        "front-part-mark"
+      ],
+      "scope": "2D artist intent only; no shared3D geometry"
+    },
+    {
+      "group_id": "profile-crest",
+      "owner": "profile",
+      "feature": "crest",
+      "node_ids": [
+        "profile-crest",
+        "profile-hair-mass",
+        "groom-node-057",
+        "groom-node-058",
+        "profile-crown-flow"
+      ],
+      "scope": "2D artist intent only; no shared3D geometry"
+    },
+    {
+      "group_id": "profile-ear-edge",
+      "owner": "profile",
+      "feature": "ear-edge",
+      "node_ids": [
+        "profile-ear-edge",
+        "groom-node-061"
+      ],
+      "scope": "2D artist intent only; no shared3D geometry"
+    },
+    {
+      "group_id": "profile-nape",
+      "owner": "profile",
+      "feature": "nape",
+      "node_ids": [
+        "profile-nape",
+        "groom-node-063"
+      ],
+      "scope": "2D artist intent only; no shared3D geometry"
+    },
+    {
+      "group_id": "rear-crown",
+      "owner": "rear",
+      "feature": "crown",
+      "node_ids": [
+        "rear-crown",
+        "rear-hair-mass",
+        "groom-node-085",
+        "groom-node-086",
+        "rear-crown-flow-left",
+        "rear-crown-flow-right"
+      ],
+      "scope": "2D artist intent only; no shared3D geometry"
+    },
+    {
+      "group_id": "rear-nape",
+      "owner": "rear",
+      "feature": "nape",
+      "node_ids": [
+        "rear-nape",
+        "groom-node-090"
+      ],
+      "scope": "2D artist intent only; no shared3D geometry"
+    },
+    {
+      "group_id": "top-crown",
+      "owner": "top",
+      "feature": "crown",
+      "node_ids": [
+        "top-crown",
+        "top-hair-mass",
+        "groom-node-109",
+        "groom-node-110"
+      ],
+      "scope": "2D artist intent only; no shared3D geometry"
+    },
+    {
+      "group_id": "top-soft-part",
+      "owner": "top",
+      "feature": "soft-part",
+      "node_ids": [
+        "top-soft-part",
+        "top-part-mark"
+      ],
+      "scope": "2D artist intent only; no shared3D geometry"
+    },
+    {
+      "group_id": "top-whorl",
+      "owner": "top",
+      "feature": "whorl",
+      "node_ids": [
+        "top-whorl",
+        "top-whorl-clockwise"
+      ],
+      "scope": "2D artist intent only; no shared3D geometry"
+    },
+    {
+      "group_id": "top-crest-flow",
+      "owner": "top",
+      "feature": "crest",
+      "node_ids": [
+        "top-crest-flow",
+        "groom-node-116"
+      ],
+      "scope": "2D artist intent only; no shared3D geometry"
+    }
+  ],
+  "svg_tree": {
+    "id": "groom-node-000",
+    "tag": "svg",
+    "owner": null,
+    "attributes": {
+      "width": "1440",
+      "height": "1480",
+      "viewBox": "0 0 1440 1480",
+      "role": "img",
+      "aria-labelledby": "title desc",
+      "id": "groom-node-000"
+    },
+    "text": "\n ",
+    "tail": null,
+    "children": [
+      {
+        "id": "title",
+        "tag": "title",
+        "owner": null,
+        "attributes": {
+          "id": "title"
+        },
+        "text": "Short swept groom — original artist turnaround",
+        "tail": "\n ",
+        "children": []
+      },
+      {
+        "id": "desc",
+        "tag": "desc",
+        "owner": null,
+        "attributes": {
+          "id": "desc"
+        },
+        "text": "Independent front, right profile, rear and top drawings choose an open forehead, soft left separation, rightward crest, posterior right clockwise whorl and rounded close nape. Unitless unregistered artist intent, not a fitted scalp or native groom.",
+        "tail": "\n ",
+        "children": []
+      },
+      {
+        "id": "groom-node-003",
+        "tag": "defs",
+        "owner": null,
+        "attributes": {
+          "id": "groom-node-003"
+        },
+        "text": "\n  ",
+        "tail": "\n ",
+        "children": [
+          {
+            "id": "hair",
+            "tag": "linearGradient",
+            "owner": null,
+            "attributes": {
+              "id": "hair",
+              "x1": "0",
+              "y1": "0",
+              "x2": "0.7",
+              "y2": "1"
+            },
+            "text": "\n   ",
+            "tail": "\n  ",
+            "children": [
+              {
+                "id": "groom-node-005",
+                "tag": "stop",
+                "owner": null,
+                "attributes": {
+                  "offset": "0",
+                  "stop-color": "#4c3d34",
+                  "id": "groom-node-005"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-006",
+                "tag": "stop",
+                "owner": null,
+                "attributes": {
+                  "offset": "0.55",
+                  "stop-color": "#302a26",
+                  "id": "groom-node-006"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-007",
+                "tag": "stop",
+                "owner": null,
+                "attributes": {
+                  "offset": "1",
+                  "stop-color": "#51463e",
+                  "id": "groom-node-007"
+                },
+                "text": null,
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "context",
+            "tag": "linearGradient",
+            "owner": null,
+            "attributes": {
+              "id": "context",
+              "x1": "0",
+              "y1": "0",
+              "x2": "1",
+              "y2": "1"
+            },
+            "text": "\n   ",
+            "tail": "\n  ",
+            "children": [
+              {
+                "id": "groom-node-009",
+                "tag": "stop",
+                "owner": null,
+                "attributes": {
+                  "offset": "0",
+                  "stop-color": "#e7e3dc",
+                  "id": "groom-node-009"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-010",
+                "tag": "stop",
+                "owner": null,
+                "attributes": {
+                  "offset": "1",
+                  "stop-color": "#d6d1c9",
+                  "id": "groom-node-010"
+                },
+                "text": null,
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "arrow",
+            "tag": "marker",
+            "owner": null,
+            "attributes": {
+              "id": "arrow",
+              "viewBox": "0 0 10 10",
+              "refX": "8",
+              "refY": "5",
+              "markerWidth": "5",
+              "markerHeight": "5",
+              "orient": "auto-start-reverse"
+            },
+            "text": "\n   ",
+            "tail": "\n  ",
+            "children": [
+              {
+                "id": "groom-node-012",
+                "tag": "path",
+                "owner": null,
+                "attributes": {
+                  "d": "M1 1L9 5L1 9",
+                  "fill": "none",
+                  "stroke": "#3a8179",
+                  "stroke-width": "1.7",
+                  "id": "groom-node-012"
+                },
+                "text": null,
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "groom-node-013",
+            "tag": "style",
+            "owner": null,
+            "attributes": {
+              "id": "groom-node-013"
+            },
+            "text": "\n   text{font-family:Arial,Helvetica,sans-serif;fill:#302f2c} .title{font-size:40px;font-weight:700;letter-spacing:-1px}.sub{font-size:20px;fill:#67665f}.h{font-size:26px;font-weight:700}.label{font-size:20px}.small{font-size:18px;fill:#67665f}.tiny{font-size:17px;fill:#67665f}.panel{fill:#fffdf7;stroke:#d8d3c8;stroke-width:1.5}.head{fill:url(#context);stroke:#b7b1a7;stroke-width:2}.mass{fill:url(#hair);stroke:#302925;stroke-width:2;stroke-linejoin:round}.wave{fill:none;stroke:#9f8b75;stroke-width:3.5;stroke-linecap:round;opacity:.76}.fine{fill:none;stroke:#746453;stroke-width:2;stroke-linecap:round}.flow{fill:none;stroke:#3a8179;stroke-width:3;marker-end:url(#arrow)}.part{fill:none;stroke:#69b4a9;stroke-width:3;stroke-dasharray:7 5}.leader{fill:none;stroke:#8b877c;stroke-width:1.7}.context-line{fill:none;stroke:#b7b1a7;stroke-width:2;stroke-linecap:round}.tag{font-size:18px;font-weight:700;fill:#3a8179}\n  ",
+            "tail": "\n ",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "paper",
+        "tag": "rect",
+        "owner": null,
+        "attributes": {
+          "id": "paper",
+          "width": "1440",
+          "height": "1480",
+          "fill": "#f2efe6"
+        },
+        "text": null,
+        "tail": "\n ",
+        "children": []
+      },
+      {
+        "id": "heading",
+        "tag": "g",
+        "owner": null,
+        "attributes": {
+          "id": "heading"
+        },
+        "text": "\n  ",
+        "tail": "\n ",
+        "children": [
+          {
+            "id": "groom-node-016",
+            "tag": "text",
+            "owner": null,
+            "attributes": {
+              "class": "title",
+              "x": "48",
+              "y": "65",
+              "id": "groom-node-016"
+            },
+            "text": "Short swept groom",
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-017",
+            "tag": "text",
+            "owner": null,
+            "attributes": {
+              "class": "sub",
+              "x": "49",
+              "y": "100",
+              "id": "groom-node-017"
+            },
+            "text": "Original artist intent · open face / soft separation / close ear edge",
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-018",
+            "tag": "text",
+            "owner": null,
+            "attributes": {
+              "class": "tag",
+              "x": "1033",
+              "y": "55",
+              "id": "groom-node-018"
+            },
+            "text": "FOUR INDEPENDENT VIEWS",
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-019",
+            "tag": "text",
+            "owner": null,
+            "attributes": {
+              "class": "small",
+              "x": "1033",
+              "y": "85",
+              "id": "groom-node-019"
+            },
+            "text": "Unitless · no shared 3D scalp",
+            "tail": "\n ",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "front",
+        "tag": "g",
+        "owner": "front",
+        "attributes": {
+          "id": "front",
+          "data-owner": "front",
+          "transform": "translate(40 132)"
+        },
+        "text": "\n  ",
+        "tail": "\n ",
+        "children": [
+          {
+            "id": "groom-node-021",
+            "tag": "rect",
+            "owner": "front",
+            "attributes": {
+              "class": "panel",
+              "width": "660",
+              "height": "530",
+              "rx": "15",
+              "id": "groom-node-021"
+            },
+            "text": null,
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-022",
+            "tag": "text",
+            "owner": "front",
+            "attributes": {
+              "class": "h",
+              "x": "25",
+              "y": "41",
+              "id": "groom-node-022"
+            },
+            "text": "01 / Front",
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-023",
+            "tag": "text",
+            "owner": "front",
+            "attributes": {
+              "class": "small",
+              "x": "25",
+              "y": "70",
+              "id": "groom-node-023"
+            },
+            "text": "Retained open-face direction; new soft separation",
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "front-context",
+            "tag": "g",
+            "owner": "front",
+            "attributes": {
+              "id": "front-context",
+              "data-role": "context"
+            },
+            "text": "\n   ",
+            "tail": "\n  ",
+            "children": [
+              {
+                "id": "groom-node-025",
+                "tag": "path",
+                "owner": "front",
+                "attributes": {
+                  "class": "head",
+                  "d": "M229 210C223 260 229 322 265 356L280 369L277 420L224 448L435 448L383 420L380 369C424 338 439 280 432 210C418 159 250 149 229 210Z",
+                  "id": "groom-node-025"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-026",
+                "tag": "path",
+                "owner": "front",
+                "attributes": {
+                  "class": "head",
+                  "d": "M231 253C206 238 206 282 218 301L234 309M431 253C455 238 457 282 445 301L430 309",
+                  "id": "groom-node-026"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-027",
+                "tag": "path",
+                "owner": "front",
+                "attributes": {
+                  "class": "context-line",
+                  "d": "M259 279Q278 268 297 277M362 277Q382 268 401 279M329 284L319 319Q329 326 340 319M301 341Q330 349 359 341",
+                  "id": "groom-node-027"
+                },
+                "text": null,
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "front-crest",
+            "tag": "g",
+            "owner": "front",
+            "attributes": {
+              "id": "front-crest",
+              "data-feature": "crest"
+            },
+            "text": "\n   ",
+            "tail": "\n  ",
+            "children": [
+              {
+                "id": "front-hair-mass",
+                "tag": "path",
+                "owner": "front",
+                "attributes": {
+                  "id": "front-hair-mass",
+                  "class": "mass",
+                  "d": "M229 268L220 245L216 210L208 184L215 164L211 149L225 139L225 122L243 112L247 96L269 96L283 83L302 91L319 81L339 91L357 83L374 99L394 96L406 112L424 118L424 134L440 146L441 169L450 189L443 216L441 246L430 269L419 253L417 221L406 196Q391 186 373 195Q343 209 317 194Q293 185 284 203L273 220L274 203L256 212L247 203L240 226L241 255Z"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-030",
+                "tag": "path",
+                "owner": "front",
+                "attributes": {
+                  "class": "wave",
+                  "d": "M404 152C381 112 325 98 282 126C260 140 249 164 248 185M390 166C365 133 321 123 287 145C273 154 267 169 260 185M366 177C339 152 309 150 288 166L279 187M341 185Q316 168 297 184M234 171Q238 142 259 123M411 176Q425 202 427 232",
+                  "id": "groom-node-030"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-031",
+                "tag": "path",
+                "owner": "front",
+                "attributes": {
+                  "class": "fine",
+                  "d": "M316 100Q274 106 256 145M372 109Q320 115 295 138M230 198Q232 230 233 246M437 190L435 226",
+                  "id": "groom-node-031"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "front-crest-flow",
+                "tag": "path",
+                "owner": "front",
+                "attributes": {
+                  "id": "front-crest-flow",
+                  "class": "flow",
+                  "d": "M369 125Q309 104 273 148"
+                },
+                "text": null,
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "front-soft-part",
+            "tag": "g",
+            "owner": "front",
+            "attributes": {
+              "id": "front-soft-part",
+              "data-feature": "soft-part"
+            },
+            "text": "\n   ",
+            "tail": "\n  ",
+            "children": [
+              {
+                "id": "front-part-mark",
+                "tag": "path",
+                "owner": "front",
+                "attributes": {
+                  "id": "front-part-mark",
+                  "class": "part",
+                  "d": "M405 130Q398 151 405 181"
+                },
+                "text": null,
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "front-annotations",
+            "tag": "g",
+            "owner": "front",
+            "attributes": {
+              "id": "front-annotations",
+              "data-role": "annotation"
+            },
+            "text": "\n   ",
+            "tail": "\n ",
+            "children": [
+              {
+                "id": "groom-node-036",
+                "tag": "text",
+                "owner": "front",
+                "attributes": {
+                  "class": "label",
+                  "x": "27",
+                  "y": "123",
+                  "id": "groom-node-036"
+                },
+                "text": "Lifted sweep",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-037",
+                "tag": "path",
+                "owner": "front",
+                "attributes": {
+                  "class": "leader",
+                  "d": "M149 118L192 118L265 133",
+                  "id": "groom-node-037"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-038",
+                "tag": "text",
+                "owner": "front",
+                "attributes": {
+                  "class": "label",
+                  "x": "461",
+                  "y": "144",
+                  "id": "groom-node-038"
+                },
+                "text": "Soft left",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-039",
+                "tag": "text",
+                "owner": "front",
+                "attributes": {
+                  "class": "label",
+                  "x": "461",
+                  "y": "168",
+                  "id": "groom-node-039"
+                },
+                "text": "separation",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-040",
+                "tag": "path",
+                "owner": "front",
+                "attributes": {
+                  "class": "leader",
+                  "d": "M451 170L428 170L405 157",
+                  "id": "groom-node-040"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-041",
+                "tag": "text",
+                "owner": "front",
+                "attributes": {
+                  "class": "label",
+                  "x": "27",
+                  "y": "345",
+                  "id": "groom-node-041"
+                },
+                "text": "Open forehead",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-042",
+                "tag": "path",
+                "owner": "front",
+                "attributes": {
+                  "class": "leader",
+                  "d": "M178 341L197 341L264 247",
+                  "id": "groom-node-042"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-043",
+                "tag": "text",
+                "owner": "front",
+                "attributes": {
+                  "class": "tag",
+                  "x": "198",
+                  "y": "398",
+                  "id": "groom-node-043"
+                },
+                "text": "R",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-044",
+                "tag": "text",
+                "owner": "front",
+                "attributes": {
+                  "class": "tag",
+                  "x": "450",
+                  "y": "398",
+                  "id": "groom-node-044"
+                },
+                "text": "L",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-045",
+                "tag": "text",
+                "owner": "front",
+                "attributes": {
+                  "class": "small",
+                  "x": "27",
+                  "y": "492",
+                  "id": "groom-node-045"
+                },
+                "text": "Small forelock; brows remain visible.",
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "profile",
+        "tag": "g",
+        "owner": "profile",
+        "attributes": {
+          "id": "profile",
+          "data-owner": "profile",
+          "transform": "translate(740 132)"
+        },
+        "text": "\n  ",
+        "tail": "\n ",
+        "children": [
+          {
+            "id": "groom-node-047",
+            "tag": "rect",
+            "owner": "profile",
+            "attributes": {
+              "class": "panel",
+              "width": "660",
+              "height": "530",
+              "rx": "15",
+              "id": "groom-node-047"
+            },
+            "text": null,
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-048",
+            "tag": "text",
+            "owner": "profile",
+            "attributes": {
+              "class": "h",
+              "x": "25",
+              "y": "41",
+              "id": "groom-node-048"
+            },
+            "text": "02 / Right profile",
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-049",
+            "tag": "text",
+            "owner": "profile",
+            "attributes": {
+              "class": "small",
+              "x": "25",
+              "y": "70",
+              "id": "groom-node-049"
+            },
+            "text": "Front toward page-left · newly authored side / nape",
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "profile-context",
+            "tag": "g",
+            "owner": "profile",
+            "attributes": {
+              "id": "profile-context",
+              "data-role": "context"
+            },
+            "text": "\n   ",
+            "tail": "\n  ",
+            "children": [
+              {
+                "id": "groom-node-051",
+                "tag": "path",
+                "owner": "profile",
+                "attributes": {
+                  "class": "head",
+                  "d": "M198 168C215 101 308 97 369 130C421 154 436 221 420 277L408 329L407 399L446 448L255 448L277 391L276 362C243 360 213 346 207 327L186 324L180 313L191 302L168 297L163 287L181 270L193 239Z",
+                  "id": "groom-node-051"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-052",
+                "tag": "path",
+                "owner": "profile",
+                "attributes": {
+                  "class": "context-line",
+                  "d": "M194 277L216 271M197 309L217 309M231 340Q257 348 276 347",
+                  "id": "groom-node-052"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-053",
+                "tag": "path",
+                "owner": "profile",
+                "attributes": {
+                  "class": "head",
+                  "d": "M329 251C351 230 374 245 369 279C365 302 346 320 334 301C339 283 319 274 329 251Z",
+                  "id": "groom-node-053"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-054",
+                "tag": "path",
+                "owner": "profile",
+                "attributes": {
+                  "class": "context-line",
+                  "d": "M340 261Q358 250 357 272L346 290",
+                  "id": "groom-node-054"
+                },
+                "text": null,
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "profile-crest",
+            "tag": "g",
+            "owner": "profile",
+            "attributes": {
+              "id": "profile-crest",
+              "data-feature": "crest"
+            },
+            "text": "\n   ",
+            "tail": "\n  ",
+            "children": [
+              {
+                "id": "profile-hair-mass",
+                "tag": "path",
+                "owner": "profile",
+                "attributes": {
+                  "id": "profile-hair-mass",
+                  "class": "mass",
+                  "d": "M187 237L180 213L166 210L174 190L166 177L182 165L177 148L194 139L196 123L217 121L230 104L250 109L268 97L289 106L312 99L330 111L351 108L365 125L386 131L392 149L410 166L413 190L428 210L425 239L433 261L422 282L418 309L410 322L401 315L390 316L386 300L373 288L371 265Q366 240 346 241L326 249L318 284L309 291L305 264L308 241L291 217Q262 209 232 209L215 201L204 218L199 203Z"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-057",
+                "tag": "path",
+                "owner": "profile",
+                "attributes": {
+                  "class": "wave",
+                  "d": "M347 134C302 109 247 128 217 154L202 180M360 151C310 127 258 147 229 181M374 173C346 154 313 164 289 189M389 188Q402 218 396 244M376 214L391 263M402 267L409 292M321 219L318 254",
+                  "id": "groom-node-057"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-058",
+                "tag": "path",
+                "owner": "profile",
+                "attributes": {
+                  "class": "fine",
+                  "d": "M258 122Q215 139 198 162M304 145Q263 156 248 183M361 176Q336 180 322 200M409 215Q416 247 414 263M399 291L405 309",
+                  "id": "groom-node-058"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "profile-crown-flow",
+                "tag": "path",
+                "owner": "profile",
+                "attributes": {
+                  "id": "profile-crown-flow",
+                  "class": "flow",
+                  "d": "M335 151Q385 166 393 216"
+                },
+                "text": null,
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "profile-ear-edge",
+            "tag": "g",
+            "owner": "profile",
+            "attributes": {
+              "id": "profile-ear-edge",
+              "data-feature": "ear-edge"
+            },
+            "text": "\n   ",
+            "tail": "\n  ",
+            "children": [
+              {
+                "id": "groom-node-061",
+                "tag": "path",
+                "owner": "profile",
+                "attributes": {
+                  "class": "fine",
+                  "d": "M311 252L312 276M383 275L390 291",
+                  "id": "groom-node-061"
+                },
+                "text": null,
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "profile-nape",
+            "tag": "g",
+            "owner": "profile",
+            "attributes": {
+              "id": "profile-nape",
+              "data-feature": "nape"
+            },
+            "text": "\n   ",
+            "tail": "\n  ",
+            "children": [
+              {
+                "id": "groom-node-063",
+                "tag": "path",
+                "owner": "profile",
+                "attributes": {
+                  "class": "fine",
+                  "d": "M399 306L401 318M407 307L409 320M415 300L414 313",
+                  "id": "groom-node-063"
+                },
+                "text": null,
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "profile-annotations",
+            "tag": "g",
+            "owner": "profile",
+            "attributes": {
+              "id": "profile-annotations",
+              "data-role": "annotation"
+            },
+            "text": "\n   ",
+            "tail": "\n ",
+            "children": [
+              {
+                "id": "groom-node-065",
+                "tag": "text",
+                "owner": "profile",
+                "attributes": {
+                  "class": "label",
+                  "x": "25",
+                  "y": "132",
+                  "id": "groom-node-065"
+                },
+                "text": "Raised front",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-066",
+                "tag": "path",
+                "owner": "profile",
+                "attributes": {
+                  "class": "leader",
+                  "d": "M155 127L176 127L208 148",
+                  "id": "groom-node-066"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-067",
+                "tag": "text",
+                "owner": "profile",
+                "attributes": {
+                  "class": "label",
+                  "x": "466",
+                  "y": "193",
+                  "id": "groom-node-067"
+                },
+                "text": "Crest descends",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-068",
+                "tag": "text",
+                "owner": "profile",
+                "attributes": {
+                  "class": "label",
+                  "x": "466",
+                  "y": "217",
+                  "id": "groom-node-068"
+                },
+                "text": "into crown",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-069",
+                "tag": "path",
+                "owner": "profile",
+                "attributes": {
+                  "class": "leader",
+                  "d": "M457 214L438 214L390 176",
+                  "id": "groom-node-069"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-070",
+                "tag": "text",
+                "owner": "profile",
+                "attributes": {
+                  "class": "label",
+                  "x": "25",
+                  "y": "365",
+                  "id": "groom-node-070"
+                },
+                "text": "Ear stays clear",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-071",
+                "tag": "path",
+                "owner": "profile",
+                "attributes": {
+                  "class": "leader",
+                  "d": "M172 360L225 360L334 288",
+                  "id": "groom-node-071"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-072",
+                "tag": "text",
+                "owner": "profile",
+                "attributes": {
+                  "class": "label",
+                  "x": "466",
+                  "y": "351",
+                  "id": "groom-node-072"
+                },
+                "text": "Soft nape",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-073",
+                "tag": "path",
+                "owner": "profile",
+                "attributes": {
+                  "class": "leader",
+                  "d": "M457 345L437 345L410 314",
+                  "id": "groom-node-073"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-074",
+                "tag": "text",
+                "owner": "profile",
+                "attributes": {
+                  "class": "small",
+                  "x": "27",
+                  "y": "492",
+                  "id": "groom-node-074"
+                },
+                "text": "Short sideburn; no disconnected undercut.",
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "rear",
+        "tag": "g",
+        "owner": "rear",
+        "attributes": {
+          "id": "rear",
+          "data-owner": "rear",
+          "transform": "translate(40 686)"
+        },
+        "text": "\n  ",
+        "tail": "\n ",
+        "children": [
+          {
+            "id": "groom-node-076",
+            "tag": "rect",
+            "owner": "rear",
+            "attributes": {
+              "class": "panel",
+              "width": "660",
+              "height": "530",
+              "rx": "15",
+              "id": "groom-node-076"
+            },
+            "text": null,
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-077",
+            "tag": "text",
+            "owner": "rear",
+            "attributes": {
+              "class": "h",
+              "x": "25",
+              "y": "41",
+              "id": "groom-node-077"
+            },
+            "text": "03 / Rear",
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-078",
+            "tag": "text",
+            "owner": "rear",
+            "attributes": {
+              "class": "small",
+              "x": "25",
+              "y": "70",
+              "id": "groom-node-078"
+            },
+            "text": "New crown-to-nape intent · not a traced hidden view",
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "rear-context",
+            "tag": "g",
+            "owner": "rear",
+            "attributes": {
+              "id": "rear-context",
+              "data-role": "context"
+            },
+            "text": "\n   ",
+            "tail": "\n  ",
+            "children": [
+              {
+                "id": "groom-node-080",
+                "tag": "path",
+                "owner": "rear",
+                "attributes": {
+                  "class": "head",
+                  "d": "M227 191C231 133 418 123 432 191L433 297L395 355L391 416L443 448L216 448L269 416L267 355L228 297Z",
+                  "id": "groom-node-080"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-081",
+                "tag": "path",
+                "owner": "rear",
+                "attributes": {
+                  "class": "head",
+                  "d": "M228 255C201 243 205 282 223 301L235 302M432 255C456 243 455 282 438 301L425 302",
+                  "id": "groom-node-081"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-082",
+                "tag": "path",
+                "owner": "rear",
+                "attributes": {
+                  "class": "context-line",
+                  "d": "M279 374Q328 394 380 374",
+                  "id": "groom-node-082"
+                },
+                "text": null,
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "rear-crown",
+            "tag": "g",
+            "owner": "rear",
+            "attributes": {
+              "id": "rear-crown",
+              "data-feature": "crown"
+            },
+            "text": "\n   ",
+            "tail": "\n  ",
+            "children": [
+              {
+                "id": "rear-hair-mass",
+                "tag": "path",
+                "owner": "rear",
+                "attributes": {
+                  "id": "rear-hair-mass",
+                  "class": "mass",
+                  "d": "M224 271L216 250L219 226L211 208L218 187L217 168L231 154L231 135L249 127L255 111L277 112L292 98L314 107L333 100L351 109L372 105L386 122L407 126L414 145L428 159L429 180L441 197L438 221L444 243L435 270L427 292L412 300L406 319L391 325L382 340L364 341L353 350L336 347L322 355L308 349L291 350L281 338L264 336L257 320L243 311L239 292L230 288Z"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-085",
+                "tag": "path",
+                "owner": "rear",
+                "attributes": {
+                  "class": "wave",
+                  "d": "M314 126Q271 139 253 188L242 240M331 132Q358 144 375 184L411 250M300 155Q285 194 280 239L267 290M325 162Q318 211 306 254L297 319M345 168Q357 206 356 244L370 316M379 193L391 235L395 283M329 247Q320 292 327 332",
+                  "id": "groom-node-085"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-086",
+                "tag": "path",
+                "owner": "rear",
+                "attributes": {
+                  "class": "fine",
+                  "d": "M246 168Q235 198 231 223M406 167Q423 194 425 225M271 231L260 277M349 259L352 322M277 305L280 326M308 317L310 338M337 322L338 341M380 305L383 328",
+                  "id": "groom-node-086"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "rear-crown-flow-left",
+                "tag": "path",
+                "owner": "rear",
+                "attributes": {
+                  "id": "rear-crown-flow-left",
+                  "class": "flow",
+                  "d": "M290 169Q271 204 267 245"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "rear-crown-flow-right",
+                "tag": "path",
+                "owner": "rear",
+                "attributes": {
+                  "id": "rear-crown-flow-right",
+                  "class": "flow",
+                  "d": "M345 167Q373 203 380 248"
+                },
+                "text": null,
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "rear-nape",
+            "tag": "g",
+            "owner": "rear",
+            "attributes": {
+              "id": "rear-nape",
+              "data-feature": "nape"
+            },
+            "text": "\n   ",
+            "tail": "\n  ",
+            "children": [
+              {
+                "id": "groom-node-090",
+                "tag": "path",
+                "owner": "rear",
+                "attributes": {
+                  "class": "fine",
+                  "d": "M292 335L294 345M315 338L317 349M343 337L344 346M365 329L367 338",
+                  "id": "groom-node-090"
+                },
+                "text": null,
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "rear-annotations",
+            "tag": "g",
+            "owner": "rear",
+            "attributes": {
+              "id": "rear-annotations",
+              "data-role": "annotation"
+            },
+            "text": "\n   ",
+            "tail": "\n ",
+            "children": [
+              {
+                "id": "groom-node-092",
+                "tag": "text",
+                "owner": "rear",
+                "attributes": {
+                  "class": "label",
+                  "x": "25",
+                  "y": "130",
+                  "id": "groom-node-092"
+                },
+                "text": "Rounded crown",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-093",
+                "tag": "path",
+                "owner": "rear",
+                "attributes": {
+                  "class": "leader",
+                  "d": "M175 126L205 126L276 132",
+                  "id": "groom-node-093"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-094",
+                "tag": "text",
+                "owner": "rear",
+                "attributes": {
+                  "class": "label",
+                  "x": "465",
+                  "y": "241",
+                  "id": "groom-node-094"
+                },
+                "text": "Close side",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-095",
+                "tag": "path",
+                "owner": "rear",
+                "attributes": {
+                  "class": "leader",
+                  "d": "M455 236L437 236L428 263",
+                  "id": "groom-node-095"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-096",
+                "tag": "text",
+                "owner": "rear",
+                "attributes": {
+                  "class": "label",
+                  "x": "25",
+                  "y": "390",
+                  "id": "groom-node-096"
+                },
+                "text": "Rounded low taper",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-097",
+                "tag": "path",
+                "owner": "rear",
+                "attributes": {
+                  "class": "leader",
+                  "d": "M205 385L242 385L309 348",
+                  "id": "groom-node-097"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-098",
+                "tag": "text",
+                "owner": "rear",
+                "attributes": {
+                  "class": "tag",
+                  "x": "197",
+                  "y": "326",
+                  "id": "groom-node-098"
+                },
+                "text": "L",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-099",
+                "tag": "text",
+                "owner": "rear",
+                "attributes": {
+                  "class": "tag",
+                  "x": "452",
+                  "y": "326",
+                  "id": "groom-node-099"
+                },
+                "text": "R",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-100",
+                "tag": "text",
+                "owner": "rear",
+                "attributes": {
+                  "class": "small",
+                  "x": "27",
+                  "y": "492",
+                  "id": "groom-node-100"
+                },
+                "text": "Soft lower edge; no squared line or skin fade.",
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "top",
+        "tag": "g",
+        "owner": "top",
+        "attributes": {
+          "id": "top",
+          "data-owner": "top",
+          "transform": "translate(740 686)"
+        },
+        "text": "\n  ",
+        "tail": "\n ",
+        "children": [
+          {
+            "id": "groom-node-102",
+            "tag": "rect",
+            "owner": "top",
+            "attributes": {
+              "class": "panel",
+              "width": "660",
+              "height": "530",
+              "rx": "15",
+              "id": "groom-node-102"
+            },
+            "text": null,
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-103",
+            "tag": "text",
+            "owner": "top",
+            "attributes": {
+              "class": "h",
+              "x": "25",
+              "y": "41",
+              "id": "groom-node-103"
+            },
+            "text": "04 / Top",
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-104",
+            "tag": "text",
+            "owner": "top",
+            "attributes": {
+              "class": "small",
+              "x": "25",
+              "y": "70",
+              "id": "groom-node-104"
+            },
+            "text": "New whorl / separation map · front toward page-bottom",
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "top-context",
+            "tag": "g",
+            "owner": "top",
+            "attributes": {
+              "id": "top-context",
+              "data-role": "context"
+            },
+            "text": "\n   ",
+            "tail": "\n  ",
+            "children": [
+              {
+                "id": "groom-node-106",
+                "tag": "ellipse",
+                "owner": "top",
+                "attributes": {
+                  "class": "head",
+                  "cx": "330",
+                  "cy": "247",
+                  "rx": "122",
+                  "ry": "163",
+                  "id": "groom-node-106"
+                },
+                "text": null,
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "top-crown",
+            "tag": "g",
+            "owner": "top",
+            "attributes": {
+              "id": "top-crown",
+              "data-feature": "crown"
+            },
+            "text": "\n   ",
+            "tail": "\n  ",
+            "children": [
+              {
+                "id": "top-hair-mass",
+                "tag": "path",
+                "owner": "top",
+                "attributes": {
+                  "id": "top-hair-mass",
+                  "class": "mass",
+                  "d": "M302 102L322 96L341 105L360 103L376 116L395 119L403 136L419 147L420 167L433 182L428 205L440 223L434 247L442 270L433 291L435 311L421 325L418 345L399 351L388 370L369 368L352 382L332 376L314 387L297 378L276 381L264 368L243 365L239 345L224 334L226 312L214 293L220 272L213 252L220 231L216 210L228 193L228 172L244 159L251 141L272 135L281 116Z"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-109",
+                "tag": "path",
+                "owner": "top",
+                "attributes": {
+                  "class": "wave",
+                  "d": "M299 136Q263 146 251 187Q239 225 242 264M313 144Q337 160 352 199Q365 237 364 275M307 158Q302 202 279 242Q264 269 260 313M324 172Q322 227 304 267Q286 308 285 345M342 205Q341 275 318 329M370 182Q399 229 402 285M287 126Q275 112 295 107M349 122Q375 132 389 157M266 337Q292 366 322 358Q353 359 379 338",
+                  "id": "groom-node-109"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-110",
+                "tag": "path",
+                "owner": "top",
+                "attributes": {
+                  "class": "fine",
+                  "d": "M242 287L243 315M418 260L416 300M299 296L296 337M332 309L328 352M359 296L353 338M270 174Q250 203 251 228",
+                  "id": "groom-node-110"
+                },
+                "text": null,
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "top-soft-part",
+            "tag": "g",
+            "owner": "top",
+            "attributes": {
+              "id": "top-soft-part",
+              "data-feature": "soft-part"
+            },
+            "text": "\n   ",
+            "tail": "\n  ",
+            "children": [
+              {
+                "id": "top-part-mark",
+                "tag": "path",
+                "owner": "top",
+                "attributes": {
+                  "id": "top-part-mark",
+                  "class": "part",
+                  "d": "M396 338C394 274 387 205 345 161"
+                },
+                "text": null,
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "top-whorl",
+            "tag": "g",
+            "owner": "top",
+            "attributes": {
+              "id": "top-whorl",
+              "data-feature": "whorl"
+            },
+            "text": "\n   ",
+            "tail": "\n  ",
+            "children": [
+              {
+                "id": "top-whorl-clockwise",
+                "tag": "path",
+                "owner": "top",
+                "attributes": {
+                  "id": "top-whorl-clockwise",
+                  "class": "flow",
+                  "d": "M285 122C314 111 335 142 313 160C291 171 271 148 285 133C300 120 314 137 302 148"
+                },
+                "text": null,
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "top-crest-flow",
+            "tag": "g",
+            "owner": "top",
+            "attributes": {
+              "id": "top-crest-flow",
+              "data-feature": "crest"
+            },
+            "text": "\n   ",
+            "tail": "\n  ",
+            "children": [
+              {
+                "id": "groom-node-116",
+                "tag": "path",
+                "owner": "top",
+                "attributes": {
+                  "class": "flow",
+                  "d": "M371 271Q358 332 307 353",
+                  "id": "groom-node-116"
+                },
+                "text": null,
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "top-annotations",
+            "tag": "g",
+            "owner": "top",
+            "attributes": {
+              "id": "top-annotations",
+              "data-role": "annotation"
+            },
+            "text": "\n   ",
+            "tail": "\n ",
+            "children": [
+              {
+                "id": "groom-node-118",
+                "tag": "text",
+                "owner": "top",
+                "attributes": {
+                  "class": "label",
+                  "x": "25",
+                  "y": "130",
+                  "id": "groom-node-118"
+                },
+                "text": "Rear-right whorl",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-119",
+                "tag": "text",
+                "owner": "top",
+                "attributes": {
+                  "class": "tiny",
+                  "x": "25",
+                  "y": "155",
+                  "id": "groom-node-119"
+                },
+                "text": "Clockwise from above",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-120",
+                "tag": "path",
+                "owner": "top",
+                "attributes": {
+                  "class": "leader",
+                  "d": "M193 149L233 149L285 140",
+                  "id": "groom-node-120"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-121",
+                "tag": "text",
+                "owner": "top",
+                "attributes": {
+                  "class": "label",
+                  "x": "466",
+                  "y": "293",
+                  "id": "groom-node-121"
+                },
+                "text": "Soft left",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-122",
+                "tag": "text",
+                "owner": "top",
+                "attributes": {
+                  "class": "label",
+                  "x": "466",
+                  "y": "317",
+                  "id": "groom-node-122"
+                },
+                "text": "separation",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-123",
+                "tag": "path",
+                "owner": "top",
+                "attributes": {
+                  "class": "leader",
+                  "d": "M456 310L433 310L394 289",
+                  "id": "groom-node-123"
+                },
+                "text": null,
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-124",
+                "tag": "text",
+                "owner": "top",
+                "attributes": {
+                  "class": "tag",
+                  "x": "185",
+                  "y": "254",
+                  "id": "groom-node-124"
+                },
+                "text": "R",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-125",
+                "tag": "text",
+                "owner": "top",
+                "attributes": {
+                  "class": "tag",
+                  "x": "464",
+                  "y": "254",
+                  "id": "groom-node-125"
+                },
+                "text": "L",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-126",
+                "tag": "text",
+                "owner": "top",
+                "attributes": {
+                  "class": "tag",
+                  "x": "305",
+                  "y": "428",
+                  "id": "groom-node-126"
+                },
+                "text": "FRONT ↓",
+                "tail": "\n   ",
+                "children": []
+              },
+              {
+                "id": "groom-node-127",
+                "tag": "text",
+                "owner": "top",
+                "attributes": {
+                  "class": "small",
+                  "x": "27",
+                  "y": "492",
+                  "id": "groom-node-127"
+                },
+                "text": "Whorl location and flow are authored choices.",
+                "tail": "\n  ",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "legend",
+        "tag": "g",
+        "owner": null,
+        "attributes": {
+          "id": "legend",
+          "transform": "translate(48 1252)"
+        },
+        "text": "\n  ",
+        "tail": "\n ",
+        "children": [
+          {
+            "id": "groom-node-129",
+            "tag": "path",
+            "owner": null,
+            "attributes": {
+              "class": "flow",
+              "d": "M0 13L65 13",
+              "id": "groom-node-129"
+            },
+            "text": null,
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-130",
+            "tag": "text",
+            "owner": null,
+            "attributes": {
+              "class": "label",
+              "x": "82",
+              "y": "20",
+              "id": "groom-node-130"
+            },
+            "text": "Direction guide",
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-131",
+            "tag": "path",
+            "owner": null,
+            "attributes": {
+              "class": "part",
+              "d": "M360 13L425 13",
+              "id": "groom-node-131"
+            },
+            "text": null,
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-132",
+            "tag": "text",
+            "owner": null,
+            "attributes": {
+              "class": "label",
+              "x": "442",
+              "y": "20",
+              "id": "groom-node-132"
+            },
+            "text": "Soft separator (annotation)",
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-133",
+            "tag": "path",
+            "owner": null,
+            "attributes": {
+              "class": "context-line",
+              "d": "M854 13L919 13",
+              "id": "groom-node-133"
+            },
+            "text": null,
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-134",
+            "tag": "text",
+            "owner": null,
+            "attributes": {
+              "class": "label",
+              "x": "936",
+              "y": "20",
+              "id": "groom-node-134"
+            },
+            "text": "Head / ear context only",
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-135",
+            "tag": "text",
+            "owner": null,
+            "attributes": {
+              "class": "small",
+              "x": "0",
+              "y": "61",
+              "id": "groom-node-135"
+            },
+            "text": "L / R mean the character's left / right. No shared projection, scale, strand count or anatomical fit is claimed.",
+            "tail": "\n ",
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "authorship-note",
+        "tag": "g",
+        "owner": null,
+        "attributes": {
+          "id": "authorship-note",
+          "transform": "translate(48 1350)"
+        },
+        "text": "\n  ",
+        "tail": "\n",
+        "children": [
+          {
+            "id": "groom-node-137",
+            "tag": "path",
+            "owner": null,
+            "attributes": {
+              "d": "M0 0H1344",
+              "fill": "none",
+              "stroke": "#cfc9ba",
+              "id": "groom-node-137"
+            },
+            "text": null,
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-138",
+            "tag": "text",
+            "owner": null,
+            "attributes": {
+              "class": "tag",
+              "x": "0",
+              "y": "38",
+              "id": "groom-node-138"
+            },
+            "text": "NEW HIDDEN CHOICES",
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-139",
+            "tag": "text",
+            "owner": null,
+            "attributes": {
+              "class": "label",
+              "x": "245",
+              "y": "38",
+              "id": "groom-node-139"
+            },
+            "text": "Soft left separation · rear-right whorl · close ear finish · rounded nape",
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-140",
+            "tag": "text",
+            "owner": null,
+            "attributes": {
+              "class": "small",
+              "x": "0",
+              "y": "77",
+              "id": "groom-node-140"
+            },
+            "text": "The original supplies the swept, open-face direction. This sheet selects missing views for artist discussion.",
+            "tail": "\n  ",
+            "children": []
+          },
+          {
+            "id": "groom-node-141",
+            "tag": "text",
+            "owner": null,
+            "attributes": {
+              "class": "tiny",
+              "x": "0",
+              "y": "104",
+              "id": "groom-node-141"
+            },
+            "text": "Sugata / October 19, 2026 · Original editable illustration · 3D, attachment, materials and moving appearance remain open.",
+            "tail": "\n ",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

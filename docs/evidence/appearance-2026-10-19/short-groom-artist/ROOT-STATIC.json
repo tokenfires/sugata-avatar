@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-19T10:38:35.046606+00:00",
+  "pid": 264,
+  "state": "INDEPENDENT_STATIC_SOURCE_CHECK_NO_CAPTURE",
+  "whole_source_read": "559b82/exit0/PID160/10:37:36.178863UTC: full175-line SVG/9-line viewer/captureplan plus full JSON metadata/features; complete142element JSONtree verified againstXML by70d85b not visualappearance.",
+  "verified_source_rows": 12,
+  "assessment": "Four independently authored view mass contours, context, flow/part/whorl and correct declared anatomicalorientation. Softpart frontpageR/topfrontpageR, topwhorlrearup/pageL=characterR, clockwise path anddirection guides; rearlabelsreversefront. Context/unregistered/nonanatomical boundaries explicit. Actualfirstimage stilldecidesnonhelmet/wave silhouette andtext/leader clarity. No sourceimage judged fromcounts.",
+  "http": "107d77/exit0/PID219/10:38:09.599953: exactreviewHTML/SVG/JSON/originalPNGHTTP200 and allbytes matchlocal; no devclient injection or browserrender occurred.",
+  "pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/short-groom-artist/groom.svg",
+      "bytes": 15316,
+      "sha256": "a0ebe48a542acea024088f10ae4ca2f1dfb6af824ad2616e5c46778841463f8d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/short-groom-artist/design.json",
+      "bytes": 63784,
+      "sha256": "bd769b6e0ce0927748dd4359586502043eb662a20091897ddbe5e5fae801d134"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/short-groom-artist/review.html",
+      "bytes": 2578,
+      "sha256": "bda0d1d3d3185afd0e0e2193db9e67b7d3d67b7e26c93324920d14f306b67d4e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/short-groom-artist/CAPTURE-PLAN.json",
+      "bytes": 2015,
+      "sha256": "03497aa1e693312b5159a5bad9599f94af424f58c8a61cc91eacd96285879343"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/short-groom-artist/SOURCE-PREPARATION.json",
+      "bytes": 3877,
+      "sha256": "4c3f3b045a1cabf59e860cbace9dd433b4d83cbdb1650a3648bd8bb7df3f071b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/short-groom-artist/HTTP-PREFLIGHT.json",
+      "bytes": 2110,
+      "sha256": "186e69c2cafafe22eda62ce0c26155381885e9a081626c41ac41b0df2aba55c2"
+    }
+  ],
+  "pending_capture": "Sourcecritic/root admission stillrequired; allfirst/secondimagepaths absent. No browsercandidatepage or nativeCLI/image yet."
+}

@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-19T10:38:09.599953+00:00",
+  "pid": 219,
+  "scope": "Four exactlocalHTTPbyte responses only; no browser evaluation/image/raster/native/capture",
+  "rows": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/short-groom-artist/review.html",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/short-groom-artist/review.html",
+      "status": 200,
+      "content_type": "text/html;charset=utf-8",
+      "bytes": 2578,
+      "sha256": "bda0d1d3d3185afd0e0e2193db9e67b7d3d67b7e26c93324920d14f306b67d4e",
+      "equals_local_file": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/short-groom-artist/groom.svg",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/short-groom-artist/groom.svg",
+      "status": 200,
+      "content_type": "image/svg+xml",
+      "bytes": 15316,
+      "sha256": "a0ebe48a542acea024088f10ae4ca2f1dfb6af824ad2616e5c46778841463f8d",
+      "equals_local_file": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/short-groom-artist/design.json",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/short-groom-artist/design.json",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 63784,
+      "sha256": "bd769b6e0ce0927748dd4359586502043eb662a20091897ddbe5e5fae801d134",
+      "equals_local_file": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "status": 200,
+      "content_type": "image/png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44",
+      "equals_local_file": true
+    }
+  ]
+}

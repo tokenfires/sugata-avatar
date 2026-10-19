@@ -1,0 +1,65 @@
+{
+  "utc": "2026-10-19T10:29:00.144217+00:00",
+  "pid": 99021,
+  "decision": "Finishreferences; all2searches/2wholeimageviews used;1of2primarypageused, unusedpage retired. No more examples.",
+  "queries": [
+    "site:artstation.com/artwork short wavy male groom hair turnaround",
+    "site:americancrew.com short textured taper haircut back"
+  ],
+  "searches": [
+    "SEARCH-1.json",
+    "SEARCH-2.json"
+  ],
+  "primary": {
+    "url": "https://www.artstation.com/artwork/NG6Lo5",
+    "author": "Salvatore Sorvillo",
+    "title": "Realistic Groom hairstyle #01",
+    "status": 200,
+    "scope": "Artist original portfolio; broad clump/flow organization example only. No reuse of paidgroom/assets, geometry, scalarvalues, likeness or exact shape. AmericanCrewresults are styling/product pages; not selected for visual/source claims."
+  },
+  "actual_views": [
+    {
+      "file": "REFERENCE-1.jpg",
+      "browser": "IAB3/tab4",
+      "url": "https://cdnb.artstation.com/p/assets/images/images/056/422/859/large/salvatore-sorvillo-02.jpg?1669205545",
+      "source_display_title_dimensions": "1447x1303",
+      "observation": "Whole viewer image: wavy dense layers, separate clumps at temple/ear and rear; long forward locks cover more forehead than our retained source. Useful contrast; do not copy fringe/volume."
+    },
+    {
+      "file": "REFERENCE-2.jpg",
+      "browser": "IAB3/tab4",
+      "url": "https://cdnb.artstation.com/p/assets/images/images/056/422/871/large/salvatore-sorvillo-collage02.jpg?1669205571",
+      "source_display_title_dimensions": "1809x1513",
+      "observation": "Whole four-panel collage: top/rear organization and side guide directions. Broad flow paths wrap around scalp and ear; do not infer shared source/scalp/anatomical or exact editableguide availability for Sugata."
+    }
+  ],
+  "capture_provenance": "These are unchanged1280x720browserwhole-view screenshots saved from CUAgetScreenshot; not downloaded original media. First filename initially.png but actualsignatureJPEG; renamed before pins, bytes unchanged. No crop/resize/rasteredit.",
+  "usage": "2searches2reportedcredits each +1primarypage1credit =5reportedcredits;2actualreferenceviews separate from2candidatecaptures; no purchase/subscription/capacitychange.",
+  "pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/short-groom-artist/SEARCH-1.json",
+      "bytes": 1572,
+      "sha256": "6ea36d46da0d9106ebc90c44a924cee1467edfc0d187ff31c1e7fd0cb305ea21"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/short-groom-artist/SEARCH-2.json",
+      "bytes": 2726,
+      "sha256": "fd8818ec7cec1b5aef7228e41f8ee04ccfde06e124bf603cb41624f4910ed145"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/short-groom-artist/PRIMARY-1.json",
+      "bytes": 15225,
+      "sha256": "5ca2bd96ae31b0c37586fee8736e8d507b5191e249ae819684db5aa53bf75846"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/short-groom-artist/REFERENCE-1.jpg",
+      "bytes": 80186,
+      "sha256": "9f4625a7dce8b26bf0f6bd1d595357db07f69f5d514707cc2b43f305e8e4d36f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/short-groom-artist/REFERENCE-2.jpg",
+      "bytes": 128980,
+      "sha256": "91f6803f6f5ae867f0de7557627f3e20d37e17672200ad0be38f9d9a0830b5c1"
+    }
+  ]
+}

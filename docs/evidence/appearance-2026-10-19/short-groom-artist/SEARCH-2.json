@@ -1,0 +1,34 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://www.americancrew.com/collections/styling\",\"title\":\"Hair Styling Products For Men - American Crew\",\"description\":\"Fiber is ideal for shorter hair. It delivers strong, pliable hold with a matte finish and adds thickness to shorter cuts. For a shinier, polished short style,\",\"position\":1},{\"url\":\"https://www.americancrew.com/products/fiber\",\"title\":\"Men's Hair Styling Fiber for Texture & Matte Finish | American Crew\",\"description\":\"Rating 4.0(148) · Free delivery over $45 · 30-day returnsAmerican Crew Texture Fiber delivers high hold and low shine while adding thickness, texture and fullness for bold, defined styles with a natural matte ...\",\"position\":2}],\"tools\":[]},\"creditsUsed\":2,\"id\":\"01a153b3-68c1-73e7-a37d-4507f6ac05e9\",\"agent_hints\":[\"All 2 web results are excerpts only (#1 \\\"https://www.americancrew.com/collections/styling\\\", #2 \\\"https://www.americancrew.com/products/fiber\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+    }
+  ],
+  "structuredContent": {
+    "success": true,
+    "data": {
+      "web": [
+        {
+          "url": "https://www.americancrew.com/collections/styling",
+          "title": "Hair Styling Products For Men - American Crew",
+          "description": "Fiber is ideal for shorter hair. It delivers strong, pliable hold with a matte finish and adds thickness to shorter cuts. For a shinier, polished short style,",
+          "position": 1
+        },
+        {
+          "url": "https://www.americancrew.com/products/fiber",
+          "title": "Men's Hair Styling Fiber for Texture & Matte Finish | American Crew",
+          "description": "Rating 4.0(148) · Free delivery over $45 · 30-day returnsAmerican Crew Texture Fiber delivers high hold and low shine while adding thickness, texture and fullness for bold, defined styles with a natural matte ...",
+          "position": 2
+        }
+      ],
+      "tools": []
+    },
+    "id": "01a153b3-68c1-73e7-a37d-4507f6ac05e9",
+    "creditsUsed": 2,
+    "agent_hints": [
+      "All 2 web results are excerpts only (#1 \"https://www.americancrew.com/collections/styling\", #2 \"https://www.americancrew.com/products/fiber\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+    ]
+  },
+  "isError": false
+}

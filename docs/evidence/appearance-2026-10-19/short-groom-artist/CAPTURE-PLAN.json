@@ -1,0 +1,21 @@
+{
+  "state": "PROSPECTIVE_ONE_FIRST_FULLPAGE_BROWSER_CAPTURE_ONLY_AFTER_CRITIC_AND_ROOT",
+  "browser": "ExistingIAB3/tab4 currentlysourceexample2; root alone serializes UI/GPU/browser/native captures, no other job",
+  "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/short-groom-artist/review.html",
+  "viewport": "Existing normal1280x720, no overrides; fullPage captures complete actualpage, not cropped/resized or imageedited.",
+  "commands": [
+    "await groomRefTab.goto(EXACT_URL); await groomRefTab.getAXState();",
+    "await groomRefTab.playwright.evaluate(()=>({url:location.href,images:[...document.images].map(i=>({src:i.currentSrc,complete:i.complete,width:i.naturalWidth,height:i.naturalHeight})),scrollWidth:document.documentElement.scrollWidth,clientWidth:document.documentElement.clientWidth}));",
+    "let bytes=await groomRefTab.screenshot({fullPage:true}); save exactlyunchanged bytes using localfswriteFile with flagwx and extension from actual JPEG/PNG signature; output only smallmetadata until root actualhash/header/HTTP/source/DOM readback; then root independentlyviewactualsavedimage."
+  ],
+  "absence_before": [
+    "first.jpg",
+    "first.png",
+    "second.jpg",
+    "second.png"
+  ],
+  "ref_budget": "All2searches/2referencewholeviews used,1primarypageused/unusedsecondretired; no more references or referencecapture.",
+  "candidate_budget": "Atmost2candidatecaptures; onefirst actualwholeimage nowprospective; any second must be independentactualfinding+freshworth/source/root clarity-onlyclone, no creativegroom/shape/taper/style variants.",
+  "stop": "Missing/broken/undecodableimage, wrongURL/overflow, changedsource/pins, sourceB or unclear/creativefailure closes withoutcaptureloop. No third image or sourcegeometry/nativeCLI.",
+  "limits": "Browser fullpage only qualifies limited artistcommunication with actualsourcecomparison; no nativehairstyle/scalp/anatomical projection/fit/material/motion/AAA/starter acceptance."
+}

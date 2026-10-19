@@ -1,0 +1,28 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://www.artstation.com/artwork/NG6Lo5\",\"title\":\"Realistic Groom hairstyle #01 - ArtStation\",\"description\":\"Realistic Groom hairstyle #01. Groom done in approximately 30 hours.\",\"position\":1}],\"tools\":[]},\"creditsUsed\":2,\"id\":\"01a153b3-68b9-75f4-b6d8-0cb7607aef3b\",\"agent_hints\":[\"All 1 web results are excerpts only (#1 \\\"https://www.artstation.com/artwork/NG6Lo5\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+    }
+  ],
+  "structuredContent": {
+    "success": true,
+    "data": {
+      "web": [
+        {
+          "url": "https://www.artstation.com/artwork/NG6Lo5",
+          "title": "Realistic Groom hairstyle #01 - ArtStation",
+          "description": "Realistic Groom hairstyle #01. Groom done in approximately 30 hours.",
+          "position": 1
+        }
+      ],
+      "tools": []
+    },
+    "id": "01a153b3-68b9-75f4-b6d8-0cb7607aef3b",
+    "creditsUsed": 2,
+    "agent_hints": [
+      "All 1 web results are excerpts only (#1 \"https://www.artstation.com/artwork/NG6Lo5\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+    ]
+  },
+  "isError": false
+}
