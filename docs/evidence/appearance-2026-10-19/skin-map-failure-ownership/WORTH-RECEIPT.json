@@ -1,0 +1,302 @@
+{
+  "schema": "critic-skin-map-acquisition-failure-worth-v1",
+  "verdict": "A_NARROW_LOGICAL_FAILURE_OWNERSHIP_CANDIDATE_PREPARATION_ONLY",
+  "collected_utc": "2026-10-19T19:31:00.824652+00:00",
+  "pid": 94947,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 96943,
+      "sha256": "f7177e109a491ce69aaef12c9b589223eb4c1acc62e24e543dc90d16d02a9224"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 122007,
+      "sha256": "c25fd33276d51ab5219dfca7c5c20ba29249cec05597885edf1bdbed0a1e6f83"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMaterial.js",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/Figure.js",
+      "bytes": 15821,
+      "sha256": "4e3390925f20a497e6a5cf5ee863a0f372a3dc1f9a1ff3f4f280101a5220b90e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/skin-attribution/INTERPRETATION.md",
+      "bytes": 4902,
+      "sha256": "5cfebebc542c0fcf4774206cb5226edc051e4fc36dbc6e4fc0ea2de3071268ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/skin-attribution/alternate-diffuse/ROOT-REVIEW.md",
+      "bytes": 1216,
+      "sha256": "998f73fc65044afd3a45cc68b5ae50dd75df39abe6114c3da36bb0ab72e34b73"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/README.md",
+      "bytes": 3579,
+      "sha256": "84479e2b761daaad4fea735c1637959d96a67566f391443d657dbb5e1198102c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-map-failure-ownership/PLAN.md",
+      "bytes": 3701,
+      "sha256": "245550cfd7df49d5735eca04b1e9ed2e0dbe59931126301d54afe3d00eb71aff"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-map-failure-ownership/INPUTS.json",
+      "bytes": 2844,
+      "sha256": "dae8254a45c050f27fbce479f0a0fc1cdeabf48edb5df0cd0b387e2a3a34d861"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/README.md",
+      "bytes": 4221,
+      "sha256": "0ac9ca9ea4bfd5f97445e4cc6b0c6cc84ebb4d5272b99338fc591e4a2000b0f2"
+    }
+  ],
+  "verified_manifest_rows": 11,
+  "additional_actual_closure": "docs/evidence/appearance-2026-10-19/preview-lifetime-owner/README.md",
+  "manifest_correction": {
+    "original_note_preserved": true,
+    "actual_missing_nomination": "artist-preview-lifetime-owner/README.md",
+    "actual_existing_closure": "preview-lifetime-owner/README.md",
+    "Figure": "Manifest Figure path exists at exact current hash; nomination note incorrectly anticipated it missing.",
+    "effect": "Metadata locator correction only, not product/source failure or new client adoption."
+  },
+  "read_scope": {
+    "SkinMaterial.js": "897–1342 complete constructor/createSkinMaterial/applyRegionMap/URLhelpers/LUT+microTexture creation/loadCurvatureMap/loadDataMap/applySkinMaterial/exported URLs. Shader/lighting prefix1–896 not a complete semantic reread; entire file hash current.",
+    "Avatar.js": "Selected940–1010 creation catch;1090–1165 fields;2810–2915 dispose path;2980–3165 swapFigure relevant scopes including3048/3052 awaited assignment and3082catch;3820–3860 shading cleanup. Whole252785bytefile hashed; no whole-class claim. Decisive3030–3125/3830–3860 complete in same-byte recovery.",
+    "Figure.js": "Whole1–464 source inspected across initial and recovery output, including constructor/load/parse/scene-only disposal309–330. No Figure or GLB import/evaluation.",
+    "current_core_callers": "rg over packages/core/src finds Avatar3052 plus factory declaration945; not a universal repo/thirdparty caller census.",
+    "closed_records": "Whole skin-attribution INTERPRETATION and alternate-diffuse ROOT-REVIEW; actual preview-lifetime-owner README; current cardigan editor README. No old images, experiments, test replay or source repair.",
+    "main_documents": "Current full byte/hash identity from manifest only; no fresh entire roadmap/journal/resume/checklist semantic reread.",
+    "images": "No image viewed/decoded in this worth task.",
+    "unread_dependencies": "Installed TextureLoader/Texture disposal implementation not independently read or executed in this worth epoch; no physical allocation/retirement fact is inferred."
+  },
+  "finding": {
+    "id": "F1",
+    "source_witnesses": [
+      "SkinMaterial.js949–951 first successful map",
+      "SkinMaterial.js957–959 and969–971 subsequent awaited loads",
+      "SkinMaterial.js976–999 material creation after all loads;1066 return",
+      "SkinMaterial.js1241–1289 loader success/rejection, especially1284",
+      "Avatar.js3048–3057 skin local remainsnull on rejection;3082–3090 catch",
+      "Figure.js309–324 scene traversal only; Avatar.js3835–3854 published shading cleanup"
+    ],
+    "static_schedules": [
+      {
+        "case": "Curvature succeeds, region rejects",
+        "earlier_unreleased_locals": [
+          "curvatureMap"
+        ],
+        "material_returned": false
+      },
+      {
+        "case": "Curvature and region succeed, cavity rejects",
+        "earlier_unreleased_locals": [
+          "curvatureMap",
+          "regionMap"
+        ],
+        "material_returned": false
+      }
+    ],
+    "explanation": "Earlier acquisition locals have no explicit disposal attempt when a later await rejects, and have not been transferred to the caller/scene. Upstream cleanup cannot access those local handles. This is a logical disposal protocol gap only.",
+    "not_proved": [
+      "Actual GPU leak or prior upload of these maps",
+      "Permanent JS/DOM image retention or GC failure",
+      "Measured heap/RSS/GPU memory savings",
+      "Visible skin or appearance fault",
+      "Generic cancellation or successful-material disposal correctness"
+    ]
+  },
+  "worth_limits": "Utility is narrowly logical failed-acquisition closure. No claim this dominates broader visual work or yields measured memory improvement; root independently weighs marginal benefit before preparing any candidate.",
+  "alternatives": [
+    {
+      "choice": "Prepare small failure-only transaction and targeted actual-loader-path proof, critic preference",
+      "tradeoff": "Makes owned release attempts and failure handling explicit for a current runtime path, but costs source/test work and proves no physical reclamation."
+    },
+    {
+      "choice": "Defer to wider material/asset ownership work",
+      "tradeoff": "Avoids another narrow reliability slice and may have more practical visual/resource benefit, but leaves this exact acquisition failure without a release protocol."
+    }
+  ],
+  "future_proof_conditions": [
+    "Full candidate/diff/import/dependency/real-loader fixture/resource/output/collection static review and root verification before one bounded CPU entry.",
+    "Tests call actual candidate createSkinMaterial/loadDataMap, not a shadow transaction.",
+    "Second/third-load failure tracks all earlier owned map release attempts; cleanup errors cannot suppress later attempts or lose the initiating failure.",
+    "Borrowed figure albedo remains untouched on failure; successful construction/options/texture conventions and current default assets stay unchanged.",
+    "No generic lifetime utility replay/adoption, API cancellation expansion, shader/colour/material redesign or Mara/native/held-constructor route."
+  ],
+  "jobs": [
+    {
+      "name": "plan/manifest",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-map-failure-ownership')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PLAN.md','INPUTS.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "result": {
+        "chunk_id": "034104",
+        "wall_time_seconds": 1.275e-05,
+        "exit_code": 0,
+        "original_token_count": 1698,
+        "output_utf8_bytes": 6792,
+        "output_sha256": "f36f7c366bd3a55469b91824fbed4249700fc55639beec5658242870bb65738a",
+        "PID": 94250,
+        "UTC": "2026-10-19T19:27:52.406572+00:00"
+      }
+    },
+    {
+      "name": "caller/disposal locators",
+      "command": "rg -n 'createSkinMaterial|loadDataMap|disposeSkin|_skinMaterial|skinMaterial|\\.dispose\\(|dispose\\(' packages/core/src/material/SkinMaterial.js packages/core/src/figure/Figure.js packages/core/src/Avatar.js",
+      "result": {
+        "chunk_id": "010755",
+        "wall_time_seconds": 1.1125e-05,
+        "exit_code": 0,
+        "original_token_count": 2128,
+        "output_utf8_bytes": 8512,
+        "output_sha256": "ebde262af699edbddb03b0915f38b79b4d7e6c890769b75ed94c51e59e45620d",
+        "PID_UTC_scope": "Not exposed by this rg-only tool result; no invented identity."
+      }
+    },
+    {
+      "name": "complete acquisition factory/helpers/loader",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime\nroot=Path(\"/Users/robault/GitHub/sugata-avatar\")\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name,ranges in [[\"packages/core/src/material/SkinMaterial.js\",[[918,1295]]]]:\n q=root/name;lines=q.read_text().splitlines();print('\\nFILE',str(q),'TOTAL_LINES',len(lines))\n for lo,hi in ranges:\n  for i in range(lo-1,min(hi,len(lines))):print(f'{i+1}: {lines[i]}')\nPY",
+      "result": {
+        "chunk_id": "a42f9d",
+        "wall_time_seconds": 5.25e-06,
+        "exit_code": 0,
+        "original_token_count": 5065,
+        "output_utf8_bytes": 20260,
+        "output_sha256": "45554d2f762c250fb08dc635bb7af9e6a5cc464747f602da4e667860a6d9ebda",
+        "PID": 94291,
+        "UTC": "2026-10-19T19:28:09.265368+00:00"
+      }
+    },
+    {
+      "name": "caller and Figure source",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime\nroot=Path(\"/Users/robault/GitHub/sugata-avatar\")\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name,ranges in [[\"packages/core/src/Avatar.js\",[[940,1010],[1125,1165],[2810,2915],[2980,3135],[3820,3860]]],[\"packages/core/src/figure/Figure.js\",[[1,450]]]]:\n q=root/name;lines=q.read_text().splitlines();print('\\nFILE',str(q),'TOTAL_LINES',len(lines))\n for lo,hi in ranges:\n  for i in range(lo-1,min(hi,len(lines))):print(f'{i+1}: {lines[i]}')\nPY",
+      "result": {
+        "chunk_id": "107144",
+        "wall_time_seconds": 8.083e-06,
+        "exit_code": 0,
+        "original_token_count": 9448,
+        "output_utf8_bytes": 37791,
+        "output_sha256": "757c57570914e7c359ce762bdd43aff2017fddf8b5420fe430b170653de8a021",
+        "PID": 94292,
+        "UTC": "2026-10-19T19:28:09.265383+00:00"
+      }
+    },
+    {
+      "name": "complete decisive caller recovery",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime\nr=Path('/Users/robault/GitHub/sugata-avatar')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name,ranges in [('packages/core/src/Avatar.js',[(1090,1125),(3030,3125),(3830,3860)]),('packages/core/src/figure/Figure.js',[(1,74),(451,470)]),('packages/core/src/material/SkinMaterial.js',[(1291,1342)])]:\n q=r/name;lines=q.read_text().splitlines();print('\\nFILE',name)\n for lo,hi in ranges:\n  for i in range(lo-1,min(hi,len(lines))):print(f'{i+1}: {lines[i]}')\nPY",
+      "result": {
+        "chunk_id": "b4cb3d",
+        "wall_time_seconds": 5.334e-06,
+        "exit_code": 0,
+        "original_token_count": 3679,
+        "output_utf8_bytes": 14713,
+        "output_sha256": "b6c5fa242f1c24fc2a4acc2ebc52edc0a278e083970810c57d3ad84399bf9d60",
+        "PID": 94311,
+        "UTC": "2026-10-19T19:28:18.033656+00:00"
+      }
+    },
+    {
+      "name": "owner locator with unrelated missing test path",
+      "command": "rg -n 'class SkinNodeMaterial|constructor\\(|dispose|close\\(|addEventListener|TextureLoader|createSkinMaterial' packages/core/src/material/SkinMaterial.js packages/core/src/Avatar.js packages/core/src/figure/Figure.js packages/core/src/material/SkinMaterial.selftest.mjs",
+      "result": {
+        "chunk_id": "58cac2",
+        "wall_time_seconds": 7.5e-06,
+        "exit_code": 2,
+        "original_token_count": 3910,
+        "output_utf8_bytes": 14106,
+        "output_sha256": "62d0a799c035beff376361ac879801bc20f0075e83a7028660d31d60288bfd42",
+        "PID_UTC_scope": "Not exposed by this rg-only tool result; no invented identity."
+      }
+    },
+    {
+      "name": "material constructor/closed-method scope",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime\nr=Path('/Users/robault/GitHub/sugata-avatar')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name,ranges in [('packages/core/src/material/SkinMaterial.js',[(897,926)]),('packages/core/src/Avatar.js',[(3126,3165)])]:\n q=r/name;lines=q.read_text().splitlines();print('\\nFILE',name)\n for lo,hi in ranges:\n  for i in range(lo-1,min(hi,len(lines))):print(f'{i+1}: {lines[i]}')\nfor n in ['docs/evidence/nonhair-2026-09-26/skin-attribution/INTERPRETATION.md','docs/evidence/nonhair-2026-09-26/skin-attribution/alternate-diffuse/ROOT-REVIEW.md','docs/evidence/appearance-2026-10-19/preview-lifetime-owner/README.md','docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/README.md']:\n print('\\nFILE',n)\n for i,line in enumerate((r/n).read_text().splitlines(),1):print(f'{i}: {line}')\nPY",
+      "result": {
+        "chunk_id": "033093",
+        "wall_time_seconds": 8.375e-06,
+        "exit_code": 0,
+        "original_token_count": 4349,
+        "output_utf8_bytes": 17395,
+        "output_sha256": "7b74f65c93feaa77ed80e584d1fbad2decc361fd2ce5b83927324c7501a2057c",
+        "PID": 94483,
+        "UTC": "2026-10-19T19:28:52.309660+00:00"
+      }
+    },
+    {
+      "name": "manifest and actual closure correction",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\nr=Path('/Users/robault/GitHub/sugata-avatar');p=r/'docs/evidence/appearance-2026-10-19/skin-map-failure-ownership'\ndef pin(q):\n b=q.read_bytes();return {'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nm=json.loads((p/'INPUTS.json').read_text())\nfor row in m['inputs']:assert pin(Path(row['path']))==row,row['path']\nactual=r/'docs/evidence/appearance-2026-10-19/preview-lifetime-owner/README.md';assert actual.is_file();assert (r/'packages/core/src/figure/Figure.js').is_file()\nprint(json.dumps({'pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'manifest_rows':len(m['inputs']),'additional_actual_closure':pin(actual),'INPUTS_pin':pin(p/'INPUTS.json'),'Figure_present':True,'corrected_note':'Manifest missing item is artist-preview-lifetime-owner/README.md; actual preview-lifetime-owner/README.md is pinned here. Figure exists at manifest exact path. Manifest untouched.','leaf_names':sorted(q.name for q in p.iterdir())},indent=2))\nPY",
+      "result": {
+        "chunk_id": "d47f06",
+        "wall_time_seconds": 6.125e-06,
+        "exit_code": 0,
+        "original_token_count": 227,
+        "output_utf8_bytes": 908,
+        "output_sha256": "7c74759cd3db04382c13dfb58292a32c27b344fc4ac0ad3af301ca3e0e16fcfd",
+        "PID": 94618,
+        "UTC": "2026-10-19T19:29:30.443996+00:00"
+      }
+    },
+    {
+      "name": "bounded core factory caller inventory",
+      "command": "rg -n 'createSkinMaterial\\(' packages/core/src",
+      "result": {
+        "chunk_id": "75873e",
+        "wall_time_seconds": 7.584e-06,
+        "exit_code": 0,
+        "original_token_count": 47,
+        "output_utf8_bytes": 186,
+        "output_sha256": "a9920730c4ce25ff78b5f70e2c83a7f0b45ffcabbb4dd986e5f6f84a63c50414",
+        "PID_UTC_scope": "Not exposed by this rg-only tool result; no invented identity."
+      }
+    }
+  ],
+  "reader_errors": [
+    {
+      "job": "107144",
+      "effect": "Combined caller presentation clipped the decisive Avatar middle and Figure prefix; b4cb3d completely recovered those ranges from same bytes."
+    },
+    {
+      "job": "58cac2",
+      "exit_code": 2,
+      "effect": "An unnecessary guessed SkinMaterial.selftest.mjs path was absent; no test was run and no absence-of-tests inference used. Bounded source matches already resolve the worth question, so no test search followed."
+    }
+  ],
+  "root_opinion_separation": "Critic independent source A was fixed before root communicated its separate marginal/defer opinion. No root routine/source reading was substituted as critic proof. No further scope expansion follows.",
+  "target_paths_absent": [
+    "SOURCE.md",
+    "PREFLIGHT.json",
+    "PROOF-REQUEST.json",
+    "ADMISSION.json",
+    "out"
+  ],
+  "worth_stop_utc": "2026-10-19T19:40:00Z",
+  "output_review": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-map-failure-ownership/WORTH.md",
+    "bytes": 2886,
+    "sha256": "0c8995009d8833e5ed840a52cb908401a3a14674ee800b2a893851a8bcce25f2"
+  },
+  "only_writes": [
+    "WORTH.md",
+    "WORTH-RECEIPT.json"
+  ],
+  "target_or_test_or_reference_admitted": false,
+  "pending_edits": false
+}

@@ -1,0 +1,111 @@
+{
+  "schema": "root-skin-acquisition-worth-first-v1",
+  "pid": 94473,
+  "utc": "2026-10-19T19:28:47.921647+00:00",
+  "decision": "MARGINAL_WORTH_DEFER_PENDING_INDEPENDENT",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 96943,
+      "sha256": "f7177e109a491ce69aaef12c9b589223eb4c1acc62e24e543dc90d16d02a9224"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 122007,
+      "sha256": "c25fd33276d51ab5219dfca7c5c20ba29249cec05597885edf1bdbed0a1e6f83"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMaterial.js",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/Figure.js",
+      "bytes": 15821,
+      "sha256": "4e3390925f20a497e6a5cf5ee863a0f372a3dc1f9a1ff3f4f280101a5220b90e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/skin-attribution/INTERPRETATION.md",
+      "bytes": 4902,
+      "sha256": "5cfebebc542c0fcf4774206cb5226edc051e4fc36dbc6e4fc0ea2de3071268ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/skin-attribution/alternate-diffuse/ROOT-REVIEW.md",
+      "bytes": 1216,
+      "sha256": "998f73fc65044afd3a45cc68b5ae50dd75df39abe6114c3da36bb0ab72e34b73"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/README.md",
+      "bytes": 3579,
+      "sha256": "84479e2b761daaad4fea735c1637959d96a67566f391443d657dbb5e1198102c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-map-failure-ownership/PLAN.md",
+      "bytes": 3701,
+      "sha256": "245550cfd7df49d5735eca04b1e9ed2e0dbe59931126301d54afe3d00eb71aff"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/loaders/TextureLoader.js",
+      "bytes": 2060,
+      "sha256": "e774b09c9bb463e3eac3b35b69d26c733205a27372e2549a604494fec4b9075f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/textures/Texture.js",
+      "bytes": 18698,
+      "sha256": "ab2b297f91c58c69a95849ef8d1d3a9b7c0e7d2c3a574964b0ffd90b107452c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/README.md",
+      "bytes": 4221,
+      "sha256": "0ac9ca9ea4bfd5f97445e4cc6b0c6cc84ebb4d5272b99338fc591e4a2000b0f2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-map-failure-ownership/INPUTS.json",
+      "bytes": 2844,
+      "sha256": "dae8254a45c050f27fbce479f0a0fc1cdeabf48edb5df0cd0b387e2a3a34d861"
+    }
+  ],
+  "actual_source_witnesses": [
+    "1bfb26 fullcreateSkinMaterial945\u20131080 and07942e fullprivate loader1233\u20131293: sequential maps canreject beforematerial is constructed or caller receives ahandle.",
+    "07942e Avatar3052\u20133058 and3082\u20133090: failed promiseleaves skin=null;Figure309\u2013330 onlywalksattachedgeometries/materials, not the private partiallyloadedmaps. No alternateupstreammap owneridentified inthesescopes.",
+    "bddfde wholeinstalledTextureLoader:createsCPU Texture/ImageLoader,setsneedsUpdate andcalls callback, no renderer call; Texture.needsUpdate754\u2013761 incrementsversions/sourceflag forlater render,Texture.dispose647\u2013657dispatchesevent. Earlier mapsinthisfailure-only intervalhavenotbeenattachedtomaterial/rendererbycreateSkinMaterial."
+  ],
+  "limits": "This proves a private logical acquisition interval, not a live or physical GPU leak. CPU garbage collection and browser image/cache ownership are not measured. Calling dispose only dispatches event and does not itself close decoded image data. Therefore an absent explicit mapdispose here is insufficient to claim a meaningful GPU recovery defect.",
+  "alternatives": [
+    {
+      "choice": "Defer narrow failure-only cleanup unless critic shows a concrete consequential owner need",
+      "tradeoff": "Avoids infrastructure with no demonstrated visual/GPU benefit, preserves exactsource; leaves unexercisedfailure behavior as a documented question."
+    },
+    {
+      "choice": "Implement/test failure-only explicit retirement now",
+      "tradeoff": "Might clarify logicalownership but could add source/test code that merely dispatches previouslyunsubscribeddisposeevents for CPUonlyobjects; no established GPU orartistbenefit."
+    }
+  ],
+  "manifest_note_correction": "INPUTS names Figure successfully (actualfileexists), contraryto genericnote anticipatingmissingFigure. The sole missingnominationpathwasmistyped artist-preview-lifetime-owner; actualpreview-lifetime-ownerREADME freshlyboundabove. Do notreinterpretabsenceasmissingownership.",
+  "read_jobs": [
+    "064aa2 exactsource locators",
+    "07942e completecaller/disposal/loader/currentutilitytext",
+    "bddfde installedprimaryTextureLoader/TextureeventandneedsUpdatesource"
+  ],
+  "next": "Independent fullworth verdict androotwholeverifybeforeanyprogram/API/CPU/native/browserwork; firstcompleteB/unknownclosesfailure-onlynomination. No newprovenGPU/appearanceclaim."
+}
