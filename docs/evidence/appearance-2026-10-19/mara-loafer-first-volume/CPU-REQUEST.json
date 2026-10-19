@@ -1,0 +1,13 @@
+{
+  "schema": "mara-loafer-one-CPU-request-v1",
+  "status": "NOT_ADMITTED",
+  "argv": ["/opt/homebrew/bin/node", "--max-old-space-size=128", "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/build.mjs"],
+  "environment": { "NODE_OPTIONS": "", "NODE_PATH": "", "SUGATA_ADMISSION_SHA256": "fresh root admission hash required" },
+  "absolute_stop_utc": "2026-10-19T19:37:55.992117+00:00",
+  "cooperative_post_import_ms": 10000,
+  "sampled_RSS_bytes": 536870912,
+  "stdout_bytes": 32768,
+  "output": "Exclusive new leaf/out with model.json2097152/loafer.obj2097152/materials.mtl8192/BUILD-RESULT.json32768 byte ceilings",
+  "one_entry_only": true,
+  "requires": "Whole stable independent source A and fresh root current pin/resource/admission gate. No target/source check/import/evaluation/helper or browser/native/GPU before admission."
+}

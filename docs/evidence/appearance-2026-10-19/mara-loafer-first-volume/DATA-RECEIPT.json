@@ -1,0 +1,593 @@
+{
+  "schema": "independent-mara-original-cage-actual-data-review-v1",
+  "verdict": "A_FINITE_ARTIST_GEOMETRY_DATA_ONLY",
+  "collected_utc": "2026-10-19T18:48:15.281360+00:00",
+  "pid": 65387,
+  "reviewer": "/root/quality_critic",
+  "pending_edits": false,
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/CPU-ADMISSION.json",
+      "bytes": 15335,
+      "sha256": "ff8100f7774e237a362e465e317497e7fdd7fc337124a5bd6eaed6c25d87fd23"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/CPU-ENTRY-INTENT.json",
+      "bytes": 1103,
+      "sha256": "4e8c1a1a2e24e4e98dca93df1af6d78ec329447ba6d00a4622f9a6d4bb0c93bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/TOOL-CPU.json",
+      "bytes": 3274,
+      "sha256": "8bde58d6565c3816089f39e495dcea4977c03323f19067c2fee510ef1e7d4077"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/CPU-STDOUT.txt",
+      "bytes": 2522,
+      "sha256": "6f7602d9d89b2d810d2b8ca013598355e70f83769ceff61745ec3f7d445e8430"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/OUTPUT-INVENTORY.json",
+      "bytes": 1649,
+      "sha256": "60c0c103a64688a55a25b6b823e0f375b0d2852a52e73a45e71522c883a36e72"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/ROOT-OUTPUT-PROTOCOL.json",
+      "bytes": 2762,
+      "sha256": "d427bddb094dc61eb0701ed860c99900c4d6c9bc94ebdc8b21906e0b6a71f878"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/out/model.json",
+      "bytes": 417170,
+      "sha256": "81390a94ccfb1052ac84808a6142548e30e7e2ab7767bd43b12899997a5137a6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/out/loafer.obj",
+      "bytes": 284326,
+      "sha256": "4254f08ff407d814a81f4f5db448170c2e09d67ed244b77efe791ca0d9ada0f1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/out/materials.mtl",
+      "bytes": 305,
+      "sha256": "6d818b2c781edd899f170810e02269ff360de50f103fa55bb0060712541f57c0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/out/BUILD-RESULT.json",
+      "bytes": 2522,
+      "sha256": "6f7602d9d89b2d810d2b8ca013598355e70f83769ceff61745ec3f7d445e8430"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/design.json",
+      "bytes": 7022,
+      "sha256": "2d33bdfe6af6cc555b48f0588f8d99f66addf7f73485381f48290623a1b32680"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/BRIEF.md",
+      "bytes": 4323,
+      "sha256": "c454a0fd5fd4afe45f9ce5399313b4313749c1ac4943d8428c9d3dac264f0bde"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/SOURCE.md",
+      "bytes": 11372,
+      "sha256": "6de35b073440fc35f8ae98ad16d4d5f743df1290af2a0e931a913824b62a3a22"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/build.mjs",
+      "bytes": 16611,
+      "sha256": "0bed9cf241a417d03ddab37b575a7b1a0f63338beb29ff8216f5cc6bcf3cf0c9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/viewer.mjs",
+      "bytes": 12985,
+      "sha256": "51936d8848598b21bcaa0a3112f572e5d87025cc50926361abd87855398a0156"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/PREFLIGHT.json",
+      "bytes": 17240,
+      "sha256": "4fadf3e032bcb3a6e62ff3a2917535ac399ef4c84816fac1bb15bc075c30f8d0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/SOURCE-REVIEW.md",
+      "bytes": 3491,
+      "sha256": "2cbdfb9b7b36029cfff0ed46076dcaeef584dff04c152e82c740ee26d084cd09"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/SOURCE-RECEIPT.json",
+      "bytes": 31202,
+      "sha256": "0ae88548a41c0e4c6767da6b8bf97b251ae998034aef8222d674a74525e2c587"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/SOURCE-BOUNDS.json",
+      "bytes": 3593,
+      "sha256": "6962c44d5ebc09ee02d01bfc2094720eb26e534482c876236db5908dd695465c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/GPU-REQUEST.json",
+      "bytes": 899,
+      "sha256": "35a5334184f91e2cacb38439f73208b9b156541c67c6fcd9abe103b2f4efbbe1"
+    }
+  ],
+  "admission_input_rows_verified": 58,
+  "nested_verification": "All CPU-ADMISSION inputs and mandatory protocol verified; source/PREFLIGHT remain exact. Immutable manifest rows referenced rather than recursively duplicated.",
+  "read_scopes": [
+    {
+      "files": [
+        "OUTPUT-INVENTORY.json",
+        "CPU-ADMISSION.json",
+        "CPU-ENTRY-INTENT.json",
+        "TOOL-CPU.json",
+        "CPU-STDOUT.txt",
+        "out/BUILD-RESULT.json"
+      ],
+      "scope": "Whole literal records/command/decoded actual tool result, inventory and current input bindings."
+    },
+    {
+      "files": [
+        "out/model.json",
+        "out/loafer.obj",
+        "out/materials.mtl"
+      ],
+      "scope": "Complete saved bytes parsed/traversed: all positions/faces/materials/topology, retained source/refined cage records and every export face/colour. Independent saved-data predicates, no target/helper import or execution."
+    },
+    {
+      "files": [
+        "design.json",
+        "SOURCE-BOUNDS.json"
+      ],
+      "scope": "Complete immutable JSON parsed for literal source association and interface/frame predicates."
+    },
+    {
+      "scope": "Prior whole source/BRIEF/viewer/utility/API/art opinions reused at exact current pins. No builder/check/replay, Catmull-Clark coordinate regeneration, new model, HTTP request, target browser/GPU/native/capture or reference action."
+    },
+    {
+      "scope": "Root actual audit routine/first opinion not read or used. Root-reported rounding observer correction is distinct; this independent audit already uses exact discrete fields and bounded Float64 reduction comparison."
+    }
+  ],
+  "actual_execution": {
+    "job": "e478f0",
+    "exit_code": 0,
+    "live_session": false,
+    "reported_pid": 43420,
+    "reported_utc": "2026-10-19T18:42:32.078Z",
+    "Node": "26.9.0",
+    "actual_command_reference": "TOOL-CPU.json complete command/result",
+    "single_recorded_CPU_entry_consumed": true,
+    "critic_target_entries": 0,
+    "post_import_ms": 109.37245899999999,
+    "RSS_sample_bytes": 164986880,
+    "tool_reported_wall_seconds": 0.066782291,
+    "clock_scope": "Distinct reported tool and in-process samples; no startup, peak RSS, hard wall or performance claim.",
+    "returned_text_bytes": 2522,
+    "separate_stdout_stderr_channels_exposed": false
+  },
+  "mandatory_inventory": {
+    "protocol_pin": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/ROOT-OUTPUT-PROTOCOL.json",
+      "bytes": 2762,
+      "sha256": "d427bddb094dc61eb0701ed860c99900c4d6c9bc94ebdc8b21906e0b6a71f878"
+    },
+    "inventory_pin": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/OUTPUT-INVENTORY.json",
+      "bytes": 1649,
+      "sha256": "60c0c103a64688a55a25b6b823e0f375b0d2852a52e73a45e71522c883a36e72"
+    },
+    "observed_entries": 4,
+    "regular_expected_files": 4,
+    "symlinks_or_extra_entries": 0,
+    "aggregate_bytes": 704323,
+    "success_branch_fulfilled": true,
+    "failure_branches_exercised": false,
+    "producer_output_list_assumed_exhaustive": false
+  },
+  "independent_topology_export_audit": {
+    "admission_rows": 58,
+    "inventory": [
+      {
+        "name": "BUILD-RESULT.json",
+        "kind": "regular",
+        "bytes": 2522,
+        "sha256": "6f7602d9d89b2d810d2b8ca013598355e70f83769ceff61745ec3f7d445e8430"
+      },
+      {
+        "name": "loafer.obj",
+        "kind": "regular",
+        "bytes": 284326,
+        "sha256": "4254f08ff407d814a81f4f5db448170c2e09d67ed244b77efe791ca0d9ada0f1"
+      },
+      {
+        "name": "materials.mtl",
+        "kind": "regular",
+        "bytes": 305,
+        "sha256": "6d818b2c781edd899f170810e02269ff360de50f103fa55bb0060712541f57c0"
+      },
+      {
+        "name": "model.json",
+        "kind": "regular",
+        "bytes": 417170,
+        "sha256": "81390a94ccfb1052ac84808a6142548e30e7e2ab7767bd43b12899997a5137a6"
+      }
+    ],
+    "aggregate_bytes": 704323,
+    "parts": [
+      {
+        "id": "upper-with-inward-lining",
+        "vertices": 2256,
+        "triangles": 4512,
+        "edges": 6768,
+        "euler": 0,
+        "connected_faces": true,
+        "cyclic_vertex_links": true,
+        "positive_volume": 0.2827757356530783,
+        "producer_volume_delta": 7.93809462606987e-15,
+        "material_counts": {
+          "0": 2048,
+          "2": 2464
+        }
+      },
+      {
+        "id": "perforated-saddle",
+        "vertices": 640,
+        "triangles": 1280,
+        "edges": 1920,
+        "euler": 0,
+        "connected_faces": true,
+        "cyclic_vertex_links": true,
+        "positive_volume": 0.024002454646840993,
+        "producer_volume_delta": 1.8388068845354155e-16,
+        "material_counts": {
+          "1": 1280
+        }
+      },
+      {
+        "id": "brown-midsole",
+        "vertices": 290,
+        "triangles": 576,
+        "edges": 864,
+        "euler": 2,
+        "connected_faces": true,
+        "cyclic_vertex_links": true,
+        "positive_volume": 0.9128885517578137,
+        "producer_volume_delta": 8.881784197001252e-16,
+        "material_counts": {
+          "3": 576
+        }
+      },
+      {
+        "id": "dark-forepart",
+        "vertices": 148,
+        "triangles": 292,
+        "edges": 438,
+        "euler": 2,
+        "connected_faces": true,
+        "cyclic_vertex_links": true,
+        "positive_volume": 0.340857628428507,
+        "producer_volume_delta": 5.551115123125783e-17,
+        "material_counts": {
+          "4": 292
+        }
+      },
+      {
+        "id": "low-stacked-heel",
+        "vertices": 128,
+        "triangles": 252,
+        "edges": 378,
+        "euler": 2,
+        "connected_faces": true,
+        "cyclic_vertex_links": true,
+        "positive_volume": 0.20456337727697216,
+        "producer_volume_delta": 0,
+        "material_counts": {
+          "3": 252
+        }
+      },
+      {
+        "id": "dark-heel-patch",
+        "vertices": 128,
+        "triangles": 252,
+        "edges": 378,
+        "euler": 2,
+        "connected_faces": true,
+        "cyclic_vertex_links": true,
+        "positive_volume": 0.04362984141839756,
+        "producer_volume_delta": 2.0816681711721685e-17,
+        "material_counts": {
+          "4": 252
+        }
+      },
+      {
+        "id": "cream-footbed",
+        "vertices": 290,
+        "triangles": 576,
+        "edges": 864,
+        "euler": 2,
+        "connected_faces": true,
+        "cyclic_vertex_links": true,
+        "positive_volume": 0.08531996849121176,
+        "producer_volume_delta": 2.7755575615628914e-17,
+        "material_counts": {
+          "2": 576
+        }
+      },
+      {
+        "id": "rounded-apron-pipe",
+        "vertices": 248,
+        "triangles": 492,
+        "edges": 738,
+        "euler": 2,
+        "connected_faces": true,
+        "cyclic_vertex_links": true,
+        "positive_volume": 0.0038253372349443746,
+        "producer_volume_delta": 5.204170427930421e-18,
+        "material_counts": {
+          "5": 492
+        }
+      },
+      {
+        "id": "counter-seam",
+        "vertices": 32,
+        "triangles": 60,
+        "edges": 90,
+        "euler": 2,
+        "connected_faces": true,
+        "cyclic_vertex_links": true,
+        "positive_volume": 0.00016421573818711324,
+        "producer_volume_delta": 5.421010862427522e-19,
+        "material_counts": {
+          "1": 60
+        }
+      }
+    ],
+    "total_vertices": 4160,
+    "total_triangles": 8292,
+    "Float32_max_coordinate_delta": 1.1916546682755325e-07,
+    "min_Float64_triangle_cross": 7.014805770653677e-05,
+    "min_Float32_triangle_cross": 7.014767233041163e-05,
+    "OBJ_max_coordinate_rounding_delta": 5.000000025123796e-09,
+    "OBJ_exact_faces_and_materials": 8292,
+    "MTL_roles": 6,
+    "actual_bounds": [
+      [
+        -1.02140625,
+        0.9465624999999999
+      ],
+      [
+        -0.08000000000000004,
+        0.9966210978294346
+      ],
+      [
+        -2.0137023895655193,
+        2.48
+      ]
+    ],
+    "all_within_hypothetical_box": true,
+    "reported_post_import_ms": 109.37245899999999,
+    "reported_RSS_sample": 164986880,
+    "combined_tool_text_bytes": 2522,
+    "tool_exit": 0
+  },
+  "independent_interface_frame_audit": {
+    "source_original_records": 99,
+    "used_original_ids": 90,
+    "retained_refined_vertices": 1128,
+    "retained_quads": 1024,
+    "upper_boundary_loops": [
+      144,
+      64
+    ],
+    "saddle_boundary_loops": [
+      64,
+      64
+    ],
+    "outer_inner_offset_max_delta": 2.220446049250313e-16,
+    "exact_outer_midsole_contacts": 144,
+    "saddle_embedding_points": 320,
+    "saddle_embedding_max_delta": 2.220446049250313e-16,
+    "plate_policies_verified": [
+      144,
+      73,
+      63,
+      63,
+      144
+    ],
+    "path_lengths": [
+      41,
+      5
+    ],
+    "tube_ring_max_radius_error": 2.8622937353617317e-16,
+    "all_fixed_views": [
+      {
+        "role": "high-front",
+        "projected_ranges": [
+          [
+            -1.6363955779919785,
+            1.706855604597084
+          ],
+          [
+            -1.1220420749673385,
+            1.2145876676467129
+          ],
+          [
+            5.491301444258974,
+            9.499993800206088
+          ]
+        ],
+        "whole_saved_model_inside_fixed_frustum": true
+      },
+      {
+        "role": "lateral",
+        "projected_ranges": [
+          [
+            -2.263633483835629,
+            2.2330233929869574
+          ],
+          [
+            -0.5844761209920116,
+            0.6135263211025904
+          ],
+          [
+            6.1318782000718155,
+            8.106885351900857
+          ]
+        ],
+        "whole_saved_model_inside_fixed_frustum": true
+      },
+      {
+        "role": "rear",
+        "projected_ranges": [
+          [
+            -0.9849058572286258,
+            0.9865262777855839
+          ],
+          [
+            -1.0211037830197236,
+            0.6214673208562919
+          ],
+          [
+            4.269802498781605,
+            8.720264378938511
+          ]
+        ],
+        "whole_saved_model_inside_fixed_frustum": true
+      },
+      {
+        "role": "top",
+        "projected_ranges": [
+          [
+            -1.02140625,
+            0.9465624999999999
+          ],
+          [
+            -2.23,
+            2.2637023895655193
+          ],
+          [
+            6.0033789021705655,
+            7.08
+          ]
+        ],
+        "whole_saved_model_inside_fixed_frustum": true
+      },
+      {
+        "role": "underside",
+        "projected_ranges": [
+          [
+            -1.02140625,
+            0.9465624999999999
+          ],
+          [
+            -2.2637023895655193,
+            2.23
+          ],
+          [
+            6.92,
+            7.9966210978294345
+          ]
+        ],
+        "whole_saved_model_inside_fixed_frustum": true
+      },
+      {
+        "role": "inside-selection",
+        "projected_ranges": [
+          [
+            -1.7027927578243378,
+            1.7581487856223876
+          ],
+          [
+            -1.8749194051234022,
+            1.8102676435844738
+          ],
+          [
+            5.148428667252013,
+            7.955767310049236
+          ]
+        ],
+        "whole_saved_model_inside_fixed_frustum": true
+      }
+    ]
+  },
+  "numerical_comparison_limits": {
+    "topology_and_indices": "Exact discrete equality; positions copied between recorded interfaces require exact array equality.",
+    "volume": "Independently compensated Float64 sums compared within1e-12; max actual delta7.93809462606987e-15. Not source/model tuning or a changed positive-volume gate.",
+    "normal_offsets_embedding_and_rings": "Saved coordinate predicates within1e-12; actual max residuals recorded in interface audit.",
+    "OBJ": "Eight-decimal source export; allowed rounding bound5.000001e-9, actual5.000000025123796e-9.",
+    "MTL": "Six-decimal source colour export; absolute comparison5.00001e-7.",
+    "Float32": "Independent struct packing of all saved positions, not actual Three/GPU buffer readback."
+  },
+  "decision_witnesses": [
+    {
+      "source": "out/model.json parts/audits/contacts/cage; out/loafer.obj/materials.mtl",
+      "explanation": "Complete saved traversal and export identities establish the finite editable artist data, not appearance or physical fit."
+    },
+    {
+      "source": "parts0/1 offset witnesses and retained surface indices; all144 contacts; all320 saddle coordinates; detail path witnesses",
+      "explanation": "Declared source interfaces agree with the saved positions/materials/topology, including genuine annular surfaces and exact own-source contacts."
+    },
+    {
+      "source": "SOURCE-BOUNDS/viewer fixed source frames and all4160 saved coordinates",
+      "explanation": "All vertices are inside six fixed frustums. Rendered visibility and artist role communication still need actual images."
+    }
+  ],
+  "actionable_findings": [],
+  "next_fixed_GPU_worth": {
+    "decision": "A_CONDITIONAL",
+    "admitted_now": false,
+    "requires": "Root whole-pair/current data verification; fresh served source/model/library identities; separate exact GPU admission before the one unchanged fixed packet.",
+    "alternatives": [
+      {
+        "choice": "A: sole fixed six-view packet",
+        "tradeoff": "Can answer unobserved curved form/entry/saddle/lining/sole communication; any failure/unknown closes with no retuning or second packet."
+      },
+      {
+        "choice": "B: retain numerical editable source only",
+        "tradeoff": "Avoids GPU work, but leaves visual quality and artist usability unqualified."
+      }
+    ]
+  },
+  "limits": [
+    "Nine connected closed artist parts are not a watertight aggregate, collision-free assembly, sewn union or anatomical cavity.",
+    "No last/body/foot/pair/manufacturing/material/lining physics/fit/rig/morph/motion/runtime/performance/AAA/default/board/checklist credit.",
+    "Recorded CPU time/RSS and successful file inventory do not qualify failure-path behavior, peak resources, actual GPU/client cleanup or physical driver retirement.",
+    "No original/refused source, view, light, material, parameter, geometry, transport or capture rescue. First data/image failure/unknown closes without retry/repair/successor.",
+    "Absolute slice stop19:37:55.992117UTC; future actual image judgment remains independently owed."
+  ],
+  "jobs": [
+    {
+      "name": "records",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['OUTPUT-INVENTORY.json','CPU-ADMISSION.json','CPU-ENTRY-INTENT.json','TOOL-CPU.json','CPU-STDOUT.txt','out/BUILD-RESULT.json']:\n b=(p/n).read_bytes();print('FILE',str(p/n),len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(str(i)+': '+line)\nraw=json.loads((p/'out/model.json').read_text());print('MODEL_KEYS',list(raw));print('PART_METADATA',[{k:v for k,v in x.items() if k not in ['positions','triangles','materials']} for x in raw['parts']]);print('CAGE_KEYS',list(raw['cage']))\nPY",
+      "chunk_id": "089a91",
+      "wall_time_seconds": 7.666e-06,
+      "exit_code": 0,
+      "original_token_count": 7834,
+      "process_line": "PID 53686 UTC 2026-10-19T18:43:24.102687+00:00"
+    },
+    {
+      "name": "topology",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nfrom collections import defaultdict,Counter\nimport os,datetime,json,hashlib,math,struct,stat,shlex\nroot=Path('/Users/robault/GitHub/sugata-avatar');leaf=root/'docs/evidence/appearance-2026-10-19/mara-loafer-first-volume'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\ndef strict(data):\n def pairs(rows):\n  out={}\n  for k,v in rows:assert k not in out;out[k]=v\n  return out\n return json.loads(data,object_pairs_hook=pairs,parse_constant=lambda v:(_ for _ in ()).throw(ValueError(v)))\ndef load(name):return strict((leaf/name).read_bytes().decode())\ndef pin(p):\n p=Path(p);b=p.read_bytes();return {'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\ndef sub(a,b):return tuple(x-y for x,y in zip(a,b))\ndef cross(a,b):return (a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0])\ndef dot(a,b):return math.fsum(x*y for x,y in zip(a,b))\ndef norm(v):return math.sqrt(dot(v,v))\nadmin=load('CPU-ADMISSION.json');intent=load('CPU-ENTRY-INTENT.json');tool=load('TOOL-CPU.json');req=load('CPU-REQUEST.json');inv=load('OUTPUT-INVENTORY.json');protocol=load('ROOT-OUTPUT-PROTOCOL.json')\nfor row in admin['inputs']+[admin['mandatory_output_inventory'],intent['admission'],intent['mandatory_output_inventory'],inv['protocol']]:assert pin(row['path'])==row,row['path']\nassert admin['status']=='ADMITTED_ONE_CPU_BUILD' and admin['argv']==intent['argv']==req['argv']\nassert intent['environment']['SUGATA_ADMISSION_SHA256']==pin(leaf/'CPU-ADMISSION.json')['sha256']\nassert shlex.split(tool['command'])==[k+'='+v for k,v in intent['environment'].items()]+intent['argv']\ntr=tool['result'];assert tr['exit_code']==0 and tr['chunk_id']=='e478f0' and 'session_id' not in tr\nraw=(leaf/'CPU-STDOUT.txt').read_bytes();assert raw==tr['output'].encode()==(leaf/'out/BUILD-RESULT.json').read_bytes();result=strict(raw.decode())\nassert result['status']=='PASS' and result['pid']==43420 and result['node']=='26.9.0'\nts=lambda t:datetime.datetime.fromisoformat(t.replace('Z','+00:00'))\nassert ts(admin['utc'])<=ts(intent['utc'])<ts(result['utc'])<ts(admin['expires_utc'])<ts(admin['absolute_stop_utc'])\nassert 0<=result['postImportMs']<10000 and result['sampledRss']<536870912 and len(raw)<=32768\nout=leaf/'out';assert stat.S_ISDIR(out.lstat().st_mode);names=sorted(x.name for x in out.iterdir());assert names==sorted(protocol['inventory']['expected_files']) and len(names)==inv['immediate_count']==4\nactual=[]\nfor name in names:\n p=out/name;assert stat.S_ISREG(p.lstat().st_mode) and not p.is_symlink();row=pin(p);assert row['bytes']<=protocol['inventory']['expected_files'][name]\n actual.append({'name':name,'kind':'regular','bytes':row['bytes'],'sha256':row['sha256']})\nassert actual==inv['entries'];assert sum(x['bytes'] for x in actual)==inv['aggregate_bytes']==704323<6291456 and inv['issues']==[]\nfor row in result['outputs']:\n p=out/row['name'];pr=pin(p);assert pr['bytes']==row['bytes'] and pr['sha256']==row['sha256']\nm=load('out/model.json');d=load('design.json');assert m['schema']=='mara-loafer-original-cage-volume-v1' and [p['id'] for p in m['parts']]==d['parts'] and m['materials']==d['materials'] and m['frame']==d['frame'] and m['limits']==d['limits'] and m['qualification']==d['qualification']\nchecks=[];maxf32=0;mincross=math.inf;minf32=math.inf;allpos=[]\nfor part,reported in zip(m['parts'],m['audits']):\n p=part['positions'];t=part['triangles'];mat=part['materials'];allpos+=p;assert len(mat)==len(t)\n assert all(len(v)==3 and all(type(c) in [int,float] and math.isfinite(c) for c in v) for v in p)\n f32=[tuple(struct.unpack('<f',struct.pack('<f',x))[0] for x in v) for v in p];maxf32=max(maxf32,max(abs(x-y) for a,b in zip(p,f32) for x,y in zip(a,b)))\n edges=defaultdict(list);links=[[] for _ in p];vol=[]\n for fi,(tri,mi) in enumerate(zip(t,mat)):\n  assert len(tri)==3 and len(set(tri))==3 and all(type(i) is int and 0<=i<len(p) for i in tri) and type(mi) is int and 0<=mi<len(d['materials'])\n  a,b,c=tri;v=cross(sub(p[b],p[a]),sub(p[c],p[a]));vf=cross(sub(f32[b],f32[a]),sub(f32[c],f32[a]));mincross=min(mincross,norm(v));minf32=min(minf32,norm(vf));assert norm(v)>1e-10 and norm(vf)>1e-10\n  vol.append(dot(p[a],cross(p[b],p[c]))/6)\n  for i,j,k in [(a,b,c),(b,c,a),(c,a,b)]:edges[tuple(sorted((i,j)))].append((i,j,fi));links[i].append((j,k))\n facegraph=[set() for _ in t]\n for rows in edges.values():\n  assert len(rows)==2 and rows[0][:2]==rows[1][:2][::-1];facegraph[rows[0][2]].add(rows[1][2]);facegraph[rows[1][2]].add(rows[0][2])\n def connected(graph,start):\n  found=set();pending=[start]\n  while pending:\n   a=pending.pop()\n   if a not in found:found.add(a);pending.extend(x for x in graph[a] if x not in found)\n  return found\n assert len(connected(facegraph,0))==len(t)\n for fan in links:\n  graph=defaultdict(list)\n  for a,b in fan:graph[a].append(b);graph[b].append(a)\n  assert len(graph)>=3 and all(len(v)==2 for v in graph.values()) and len(connected(graph,next(iter(graph))))==len(graph)\n volume=math.fsum(vol);assert volume>1e-10\n discrete={'id':part['id'],'vertices':len(p),'triangles':len(t),'edges':len(edges),'euler':len(p)-len(edges)+len(t)}\n assert all(reported[k]==v for k,v in discrete.items()) and discrete['euler']==(0 if part['id'] in ['upper-with-inward-lining','perforated-saddle'] else 2)\n assert abs(volume-reported['signedVolume'])<=1e-12\n checks.append({**discrete,'connected_faces':True,'cyclic_vertex_links':True,'positive_volume':volume,'producer_volume_delta':abs(volume-reported['signedVolume']),'material_counts':dict(Counter(mat))})\nassert m['audits']==result['audits'];assert sum(x['vertices'] for x in checks)==result['vertices']==4160 and sum(x['triangles'] for x in checks)==result['triangles']==8292 and len(checks)==result['parts']==9\nobj=(out/'loafer.obj').read_text().splitlines();objvertices=[];objects=[];cur=None;material=None\nfor line in obj:\n if not line or line.startswith('#'):continue\n fields=line.split();tag=fields[0]\n if tag=='mtllib':assert fields[1:]==['materials.mtl']\n elif tag=='o':cur={'id':fields[1],'faces':[]};objects.append(cur)\n elif tag=='v':assert len(fields)==4;objvertices.append(tuple(map(float,fields[1:])))\n elif tag=='s':assert fields[1:]==['1']\n elif tag=='usemtl':assert fields[1] in [v['id'] for v in d['materials']];material=fields[1]\n elif tag=='f':assert cur is not None and len(fields)==4;cur['faces'].append(([int(v) for v in fields[1:]],material))\n else:raise AssertionError(tag)\nassert [v['id'] for v in objects]==d['parts'];assert len(objvertices)==4160\nmaxobj=max(abs(x-y) for a,b in zip(allpos,objvertices) for x,y in zip(a,b));assert maxobj<=5.000001e-9\nbase=1;facecount=0\nfor part,objpart in zip(m['parts'],objects):\n assert len(part['triangles'])==len(objpart['faces'])\n for tri,mi,(exported,material) in zip(part['triangles'],part['materials'],objpart['faces']):assert [v+base for v in tri]==exported and material==d['materials'][mi]['id'];facecount+=1\n base+=len(part['positions'])\nassert facecount==8292\nmtls={};cur=None\nfor line in (out/'materials.mtl').read_text().splitlines():\n f=line.split()\n if not f:continue\n if f[0]=='newmtl':cur={};mtls[f[1]]=cur\n elif f[0]=='Kd':cur['Kd']=list(map(float,f[1:]));assert len(cur['Kd'])==3\n elif f[0]=='Ns':cur['Ns']=float(f[1])\n else:raise AssertionError(f)\nassert list(mtls)==[x['id'] for x in d['materials']]\nfor mat in d['materials']:\n expected=[int(mat['colour'][i:i+2],16)/255 for i in (1,3,5)];assert all(abs(a-b)<=5.00001e-7 for a,b in zip(expected,mtls[mat['id']]['Kd'])) and mtls[mat['id']]['Ns']==12\nbounds=[[min(v[i] for v in allpos),max(v[i] for v in allpos)] for i in range(3)];box=load('SOURCE-BOUNDS.json')['box'];assert all(box[i][0]<=a<=b<=box[i][1] for i,(a,b) in enumerate(bounds))\nprint('AUDIT',json.dumps({'admission_rows':len(admin['inputs']),'inventory':actual,'aggregate_bytes':704323,'parts':checks,'total_vertices':4160,'total_triangles':8292,'Float32_max_coordinate_delta':maxf32,'min_Float64_triangle_cross':mincross,'min_Float32_triangle_cross':minf32,'OBJ_max_coordinate_rounding_delta':maxobj,'OBJ_exact_faces_and_materials':facecount,'MTL_roles':len(mtls),'actual_bounds':bounds,'all_within_hypothetical_box':True,'reported_post_import_ms':result['postImportMs'],'reported_RSS_sample':result['sampledRss'],'combined_tool_text_bytes':len(raw),'tool_exit':tr['exit_code']},ensure_ascii=False))\nprint('PASS','Independent saved-array/topology/export/identity/Float32 audit only; no target import or geometry generation.')\nPY",
+      "chunk_id": "9e0e0e",
+      "wall_time_seconds": 5.833e-06,
+      "exit_code": 0,
+      "original_token_count": 945,
+      "process_line": "PID 54471 UTC 2026-10-19T18:45:19.401824+00:00"
+    },
+    {
+      "name": "interfaces",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nfrom collections import defaultdict\nimport os,datetime,json,math\nroot=Path('/Users/robault/GitHub/sugata-avatar');leaf=root/'docs/evidence/appearance-2026-10-19/mara-loafer-first-volume'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nm=json.loads((leaf/'out/model.json').read_text());d=json.loads((leaf/'design.json').read_text());bounds=json.loads((leaf/'SOURCE-BOUNDS.json').read_text())\ndef sub(a,b):return [x-y for x,y in zip(a,b)]\ndef dot(a,b):return math.fsum(x*y for x,y in zip(a,b))\ndef cross(a,b):return [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]\ndef unit(v):\n n=math.sqrt(dot(v,v));assert n>0;return [x/n for x in v]\ndef near(a,b,tol=1e-12):assert len(a)==len(b) and max(abs(x-y) for x,y in zip(a,b))<=tol,(a,b)\ndef surface_data(p,t):\n edge=defaultdict(list);acc=[[[] for _ in range(3)] for _ in p]\n for a,b,c in t:\n  n=cross(sub(p[b],p[a]),sub(p[c],p[a]))\n  for i in [a,b,c]:\n   for j in range(3):acc[i][j].append(n[j])\n  for i,j in [(a,b),(b,c),(c,a)]:edge[tuple(sorted((i,j)))].append((i,j))\n normal=[unit([math.fsum(c) for c in row]) for row in acc]\n nexts={rows[0][0]:rows[0][1] for rows in edge.values() if len(rows)==1};assert len(nexts)==sum(len(v)==1 for v in edge.values())\n loops=[]\n while nexts:\n  start=next(iter(nexts));walk=[];q=start\n  while True:\n   walk.append(q);q=nexts.pop(q)\n   if q==start:break\n  loops.append(walk)\n return normal,sorted(loops,key=len,reverse=True),set(edge)\nparts=m['parts'];upper=m['cage']['refinedUpper'];up=upper['positions'];uq=upper['faces'];ut=[t for a,b,c,e in uq for t in [[a,b,c],[a,c,e]]]\nassert len(up)==1128 and len(uq)==1024 and parts[0]['positions'][:1128]==up and parts[0]['triangles'][:2048]==ut\norig=[[x,y,row['z']] for row in d['upper']['rows'] for x,y in row['xy']];used=sorted(set(i for q in d['upper']['quads'] for i in q))\nassert m['cage']['upperOriginal']==orig and m['cage']['usedOriginalIds']==used and m['cage']['quads']==d['upper']['quads'] and m['cage']['subdivisionSteps']==2 and m['cage']['boundaryPolicy']==d['boundary_policy']\nns,loops,edges=surface_data(up,ut);assert [len(v) for v in loops]==[144,64]\nmaxoffset=0\nfor pi,n,outert,thick,materials in [(0,1128,2048,.032,[0,2]),(1,320,512,.028,[1,1])]:\n part=parts[pi];p=part['positions'];t=part['triangles'];normals,boundaries,_=surface_data(p[:n],t[:outert])\n assert [len(x) for x in boundaries]==([144,64] if pi==0 else [64,64]) and part['offsetWitness']=={'thickness':thick,'outerVertices':n,'loops':[len(x) for x in boundaries]}\n for i,(q,v) in enumerate(zip(p[:n],p[n:])):\n  expected=[q[j]-thick*normals[i][j] for j in range(3)];near(v,expected);maxoffset=max(maxoffset,max(abs(a-b) for a,b in zip(v,expected)))\n assert t[outert:2*outert]==[[c+n,b+n,a+n] for a,b,c in t[:outert]]\n bridges=[]\n for loop in boundaries:\n  for a,b in zip(loop,loop[1:]+loop[:1]):bridges += [[b,a,a+n],[b,a+n,b+n]]\n assert sorted(t[2*outert:])==sorted(bridges)\n expectedm=[materials[0]]*outert+[materials[1]]*(outert+len(bridges));assert part['materials']==expectedm\nouter=loops[0];contacts=m['contacts'];assert len(contacts)==144 and {x['upper'] for x in contacts}==set(outer) and {x['sole'] for x in contacts}==set(range(144))\nfor row in contacts:assert up[row['upper']]==parts[0]['positions'][row['upper']]==parts[2]['positions'][row['sole']]\nfootprint=parts[2]['positions'][:144];assert all(abs(v[1]-.23)<1e-12 for v in footprint)\n\ndef highest(x,z):\n hits=[]\n for a,b,c in ut:\n  A,B,C=up[a],up[b],up[c];area=(B[0]-A[0])*(C[2]-A[2])-(B[2]-A[2])*(C[0]-A[0])\n  if abs(area)<1e-12:continue\n  wb=((x-A[0])*(C[2]-A[2])-(z-A[2])*(C[0]-A[0]))/area\n  wc=((B[0]-A[0])*(z-A[2])-(B[2]-A[2])*(x-A[0]))/area;wa=1-wb-wc\n  if min(wa,wb,wc)>=-1e-9:hits.append(wa*A[1]+wb*B[1]+wc*C[1])\n assert hits;return max(hits)\nmaxembed=0\nfor x,y,z in parts[1]['positions'][:320]:\n err=abs(y-(highest(x,z)+.022));assert err<=1e-12;maxembed=max(maxembed,err)\n# Verify declared plate data relations without regenerating clipped polygons.\nfor pi,n,lo,hi,material in [(2,144,.10,.23,3),(3,73,.025,.10,4),(4,63,-.045,.10,3),(5,63,-.08,-.045,4),(6,144,.235,.25,2)]:\n part=parts[pi];p=part['positions'];assert len(p)==2*n+2 and len(part['triangles'])==4*n and set(part['materials'])=={material}\n for a,b in zip(p[:n],p[n:2*n]):near([a[0],a[2]],[b[0],b[2]]);assert abs(a[1]-hi)<1e-12 and abs(b[1]-lo)<1e-12\n for centre,slice_ in [(p[2*n],p[:n]),(p[2*n+1],p[n:2*n])]:near(centre,[math.fsum(v[j] for v in slice_)/n for j in range(3)])\nfor pi,z,side in [(3,-.10,1),(4,-.85,-1)]:\n q=parts[pi]['positions'][:(len(parts[pi]['positions'])-2)//2];assert all(side*(v[2]-z)>=-1e-12 for v in q)\n for source in footprint:\n  if side*(source[2]-z)>=0:assert any(abs(v[0]-source[0])<1e-12 and abs(v[2]-source[2])<1e-12 for v in q)\n for v in q:\n  if any(abs(v[0]-s[0])<1e-12 and abs(v[2]-s[2])<1e-12 for s in footprint):continue\n  assert abs(v[2]-z)<1e-12\n  assert any(min(a[2],b[2])-1e-12<=z<=max(a[2],b[2])+1e-12 and abs(b[2]-a[2])>0 and abs(v[0]-(a[0]+(z-a[2])/(b[2]-a[2])*(b[0]-a[0])))<1e-12 for a,b in zip(footprint,footprint[1:]+footprint[:1]))\nfor target,source,scale in [(parts[5]['positions'][:63],parts[4]['positions'][:63],.94),(parts[6]['positions'][:144],footprint,.90)]:\n centre=[math.fsum(v[j] for v in source)/len(source) for j in range(3)]\n for a,b in zip(target,source):near([a[0],a[2]],[centre[0]+scale*(b[0]-centre[0]),centre[2]+scale*(b[2]-centre[2])])\n# Ring witnesses are checked against retained path positions/normals, not rebuilt.\nmaxring=0\nfor pi,policy,sourcepath in [(7,'apron',d['upper']['apron_path_original_ids']),(8,'counter',d['upper']['counter_path_original_ids'])]:\n part=parts[pi];w=part['pathWitness'];path=w['indices'];assert path==m['cage']['refinedPaths'][pi-7] and path[::4]==[used.index(x) for x in sourcepath]\n assert len(path)==(41 if pi==7 else 5) and all(tuple(sorted((a,b))) in edges for a,b in zip(path,path[1:]))\n assert w['radius']==d['detail_policy'][policy+'_radius'] and w['offset']==d['detail_policy'][policy+'_normal_offset']\n p=part['positions'];assert len(p)==6*len(path)+2\n for k,idx in enumerate(path):\n  ring=p[k*6:(k+1)*6];centre=[math.fsum(v[j] for v in ring)/6 for j in range(3)];expected=[up[idx][j]+w['offset']*ns[idx][j] for j in range(3)];near(centre,expected)\n  for v in ring:\n   err=abs(math.sqrt(dot(sub(v,centre),sub(v,centre)))-w['radius']);assert err<1e-12;maxring=max(maxring,err)\n near(p[-2],[up[path[0]][j]+w['offset']*ns[path[0]][j] for j in range(3)]);near(p[-1],[up[path[-1]][j]+w['offset']*ns[path[-1]][j] for j in range(3)])\n# All saved vertices projected through the six declared fixed orthographic frames.\nviews=[('high-front',[-3.8,3.1,6],[0,1,0],1.82),('lateral',[-7,1.6,.2],[0,1,0],1.82),('rear',[.2,2,-6],[0,1,0],1.82),('top',[0,7,.25],[0,0,-1],2.6),('underside',[0,-7,.25],[0,0,1],2.6),('inside-selection',[-2.3,5.4,3.4],[0,1,0],2.6)]\nprojections=[];allpos=[v for part in parts for v in part['positions']]\nfor name,eye,upv,hh in views:\n f=unit(sub([0,.40,.25],eye));right=unit(cross(f,upv));screenup=cross(right,f);hw=hh*570/340\n xyz=[[dot(sub(v,[0,.40,.25]),right),dot(sub(v,[0,.40,.25]),screenup),dot(sub(v,eye),f)] for v in allpos];ranges=[[min(v[j] for v in xyz),max(v[j] for v in xyz)] for j in range(3)]\n assert -hw<ranges[0][0]<=ranges[0][1]<hw and -hh<ranges[1][0]<=ranges[1][1]<hh and .1<ranges[2][0]<=ranges[2][1]<40\n projections.append({'role':name,'projected_ranges':ranges,'whole_saved_model_inside_fixed_frustum':True})\nprint('AUDIT',json.dumps({'source_original_records':99,'used_original_ids':90,'retained_refined_vertices':1128,'retained_quads':1024,'upper_boundary_loops':[144,64],'saddle_boundary_loops':[64,64],'outer_inner_offset_max_delta':maxoffset,'exact_outer_midsole_contacts':144,'saddle_embedding_points':320,'saddle_embedding_max_delta':maxembed,'plate_policies_verified':[144,73,63,63,144],'path_lengths':[41,5],'tube_ring_max_radius_error':maxring,'all_fixed_views':projections},ensure_ascii=False))\nprint('PASS','Saved-data interface/certificate/coordinate predicates only. No Catmull-Clark replay, model reconstruction, target import or render.')\nPY",
+      "chunk_id": "7813dc",
+      "wall_time_seconds": 0.120423333,
+      "exit_code": 0,
+      "original_token_count": 487,
+      "process_line": "PID 64971 UTC 2026-10-19T18:46:44.342444+00:00"
+    }
+  ],
+  "observer_errors": [],
+  "output_review": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/DATA-REVIEW.md",
+    "bytes": 3134,
+    "sha256": "a08570defbbd1603054ae6c9262c6b8fb0f1f3cf8a8ca2fe7c0723ea203b3e4e"
+  },
+  "writes": [
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/DATA-REVIEW.md",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/DATA-RECEIPT.json"
+  ],
+  "collection_method": "Exclusive pair writes after fresh58 admission/protocol pin verification; full own stable readback/hashes follow externally."
+}

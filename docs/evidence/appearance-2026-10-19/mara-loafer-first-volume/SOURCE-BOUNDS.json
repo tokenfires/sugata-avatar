@@ -1,0 +1,161 @@
+{
+  "schema": "source-only-expected-bounds-camera-arithmetic-v1",
+  "utc": "2026-10-19T18:30:44.689448+00:00",
+  "pid": 18721,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/design.json",
+      "bytes": 7022,
+      "sha256": "2d33bdfe6af6cc555b48f0588f8d99f66addf7f73485381f48290623a1b32680"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/viewer.mjs",
+      "bytes": 12985,
+      "sha256": "51936d8848598b21bcaa0a3112f572e5d87025cc50926361abd87855398a0156"
+    }
+  ],
+  "box": [
+    [
+      -1.12,
+      1.12
+    ],
+    [
+      -0.1,
+      1.1
+    ],
+    [
+      -2.1,
+      2.6
+    ]
+  ],
+  "reason": "Expected enclosure from literal cage extrema/positive subdivision masks and bounded normal/detail offsets, own-forepart embedding/plan cuts/convex mean scaling. Not an actual model or appearance claim.",
+  "operations": "Six views x eight hypothetical box corners only; no builder/subdivision/model import/evaluation, no library/browser/GPU/capture. Actual data must later verify all saved vertices lie within this bound.",
+  "projections": [
+    {
+      "role": "high-front",
+      "source_box_projection_ranges": [
+        [
+          -2.230055307944337,
+          2.230055307944337
+        ],
+        [
+          -1.4059148926900589,
+          1.5921354709167306
+        ],
+        [
+          4.746429546394116,
+          9.985010366127838
+        ]
+      ],
+      "halfWidth": 3.0511764705882354,
+      "halfHeight": 1.82,
+      "near": 0.1,
+      "far": 40
+    },
+    {
+      "role": "lateral",
+      "source_box_projection_ranges": [
+        [
+          -2.357939849240453,
+          2.357939849240453
+        ],
+        [
+          -0.6848774781384018,
+          0.8820020726566626
+        ],
+        [
+          5.863603090705647,
+          8.30718171092888
+        ]
+      ],
+      "halfWidth": 3.0511764705882354,
+      "halfHeight": 1.82,
+      "near": 0.1,
+      "far": 40
+    },
+    {
+      "role": "rear",
+      "source_box_projection_ranges": [
+        [
+          -1.1945885271710799,
+          1.1945885271710799
+        ],
+        [
+          -1.0755023373812251,
+          1.269260315837395
+        ],
+        [
+          3.970935997629492,
+          8.888786310639244
+        ]
+      ],
+      "halfWidth": 3.0511764705882354,
+      "halfHeight": 1.82,
+      "near": 0.1,
+      "far": 40
+    },
+    {
+      "role": "top",
+      "source_box_projection_ranges": [
+        [
+          -1.12,
+          1.12
+        ],
+        [
+          -2.35,
+          2.35
+        ],
+        [
+          5.9,
+          7.1
+        ]
+      ],
+      "halfWidth": 4.358823529411764,
+      "halfHeight": 2.6,
+      "near": 0.1,
+      "far": 40
+    },
+    {
+      "role": "underside",
+      "source_box_projection_ranges": [
+        [
+          -1.12,
+          1.12
+        ],
+        [
+          -2.35,
+          2.35
+        ],
+        [
+          6.9,
+          8.1
+        ]
+      ],
+      "halfWidth": 4.358823529411764,
+      "halfHeight": 2.6,
+      "near": 0.1,
+      "far": 40
+    },
+    {
+      "role": "inside-selection",
+      "source_box_projection_ranges": [
+        [
+          -2.290324603016261,
+          2.290324603016261
+        ],
+        [
+          -2.324757036147834,
+          2.447769680465837
+        ],
+        [
+          4.215833075117195,
+          8.309136700867812
+        ]
+      ],
+      "halfWidth": 4.358823529411764,
+      "halfHeight": 2.6,
+      "near": 0.1,
+      "far": 40
+    }
+  ]
+}

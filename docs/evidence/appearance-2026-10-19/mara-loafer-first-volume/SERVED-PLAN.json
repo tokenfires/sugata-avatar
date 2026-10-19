@@ -1,0 +1,29 @@
+{
+  "schema": "root-bounded-loopback-served-identity-plan-v1",
+  "utc": "2026-10-19T18:49:27.402433+00:00",
+  "pid": 65642,
+  "root_data": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/ROOT-DATA.json",
+    "bytes": 19287,
+    "sha256": "ae134237763fb46310210a4d45fe401f4f510c82092051017602065d4b090f30"
+  },
+  "operation": "Existing accepted browser3/tab3 readonly GETs of known loopback source files as bytes/text; archive exact returned bodies, no target module evaluated or renderer/tab created.",
+  "primary_URLs": [
+    "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/review.html",
+    "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/viewer.mjs",
+    "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/lib/three.module.js",
+    "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/lib/three.core.js",
+    "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/tools/artist-preview-lifetime.mjs",
+    "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/out/model.json"
+  ],
+  "known_additional_toolchain": "Only exact Vite client/env static script dependencies if actually present in returned source; max2 additional GETs, no URL variants or fallback route.",
+  "caps": {
+    "requests": 8,
+    "per_body_bytes": 4194304,
+    "aggregate_bytes": 12582912,
+    "cooperative_elapsed_ms": 30000
+  },
+  "output": "Isolated served/ bodies +HTTP-IDENTITY.json metadata; actual returned byte/hash/status/URL and root normal-form comparison. Bounds are observed/cooperative, not hard transport preallocation/OS guarantees.",
+  "decision": "Need exact source association (including import rewrite/sourceMap/HMR injection) before any separateGPUadmission. Unexpected transform/dependency/status/cap/unknown closes this exact method without repair, alternate transport/source route or target entry.",
+  "absolute_stop_utc": "2026-10-19T19:37:55.992117+00:00"
+}

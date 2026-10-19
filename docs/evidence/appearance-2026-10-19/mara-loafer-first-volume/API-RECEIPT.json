@@ -1,0 +1,112 @@
+{
+  "schema": "mara-current-installed-selected-api-v1",
+  "utc": "2026-10-19T18:30:44.689448+00:00",
+  "pid": 18721,
+  "package": {
+    "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+    "bytes": 3826,
+    "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+  },
+  "installed_version": "0.185.1",
+  "selected": [
+    {
+      "input": {
+        "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferGeometry.js",
+        "bytes": 34470,
+        "sha256": "be1b8ad6ce3e502904fd989f5b6690d8fedcbadb74508aec99fc87dfd567e8c7"
+      },
+      "ranges": [
+        [
+          230,
+          244
+        ],
+        [
+          335,
+          345
+        ],
+        [
+          1005,
+          1095
+        ],
+        [
+          1472,
+          1476
+        ]
+      ],
+      "scope": "Exact selected literal API only, not whole library/private allocator certification"
+    },
+    {
+      "input": {
+        "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js",
+        "bytes": 108498,
+        "sha256": "867948b57a6abb84d4cfd7619b38ea14fbb2c100c1b6f78d59de2383662ab7a0"
+      },
+      "ranges": [
+        [
+          63,
+          103
+        ],
+        [
+          595,
+          600
+        ],
+        [
+          628,
+          636
+        ],
+        [
+          659,
+          680
+        ],
+        [
+          1074,
+          1097
+        ],
+        [
+          1609,
+          1627
+        ]
+      ],
+      "scope": "Exact selected literal API only, not whole library/private allocator certification"
+    },
+    {
+      "input": {
+        "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/Material.js",
+        "bytes": 42885,
+        "sha256": "3af196049d118e5c8a81e07cb9d90c44524ac5a319263e64f18f3ee08178ca68"
+      },
+      "ranges": [
+        [
+          1184,
+          1196
+        ]
+      ],
+      "scope": "Exact selected literal API only, not whole library/private allocator certification"
+    }
+  ],
+  "excerpt": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/PRIMARY-API-EXCERPTS.txt",
+    "bytes": 9174,
+    "sha256": "58e61e4138ecacb07b84c4fbec6d28e78ff467cd65b950631a62d6d138522953"
+  },
+  "archives": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/lib/three.module.js",
+      "bytes": 650153,
+      "sha256": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/lib/three.core.js",
+      "bytes": 1443056,
+      "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/lib/LICENSE",
+      "bytes": 1081,
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+    }
+  ],
+  "copy_qualification": "Exact byte copies of installed current module/core/LICENSE; module only relativecore import, core no external imports. No imports/evaluation performed.",
+  "prior_reads": "a83383 bounded excerpts/import graph;08cb8b clipped long import/export print does not qualify whole-library semantics. Whole selected new excerpts are read separately before root source opinion.",
+  "limits": "Selected publicAPI only; no private constructor/driver/physical disposal certificate. No extra network/primary page."
+}

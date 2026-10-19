@@ -1,0 +1,43 @@
+{
+  "schema": "root-served-identity-observation-v1",
+  "saved_utc": "2026-10-19T18:51:31.255165+00:00",
+  "saved_pid": 66073,
+  "source_observer_PID": null,
+  "browser": "3",
+  "existing_tab": "3",
+  "operation": "maraLoaferSourceObserverTab.playwright.evaluate bounded readonly loopback GET text/hash function; target browser/module/GPU entry was not authorized.",
+  "actual_returned_result": {
+    "utc": "2026-10-19T18:49:44.830Z",
+    "rows": [],
+    "total": 0,
+    "issues": [
+      "TypeError: fetch is not a function"
+    ],
+    "elapsedMs": 4
+  },
+  "decision": "SOURCE_IDENTITY_UNKNOWN_GPU_WITHHELD_NO_RETRY_OR_ALTERNATE_TRANSPORT",
+  "scope": "The read-only browser scope had no fetch function; zero response rows/bodies/statuses were obtained. No server/HTTP failure or target appearance defect is inferred. No new target tab/module, GPU, capture, alternate URL/browser/transport or source change followed.",
+  "observer_save_corrections": [
+    {
+      "attempt": 1,
+      "returned_error": "process is not defined",
+      "scope": "CUA record object expression failed before file write; observer PID not available through that direct runtime binding."
+    },
+    {
+      "attempt": 2,
+      "returned_error": "maraLoaferHTTPBytes is not defined",
+      "scope": "Failed-cell binding unavailable; no file written. No target or identity attempt repeated."
+    }
+  ],
+  "record_save": "Checkpoint-only filesystem receipt from the already returned tool result; not an alternate source-identity transport. Actual file absence checked before exclusive write.",
+  "alternatives": [
+    {
+      "choice": "Selected: withhold GPU and preserve data A/appearance UNRUN",
+      "tradeoff": "Honors the explicit identityunknown stop; leaves visual usability unqualified."
+    },
+    {
+      "choice": "Use another HTTP transport or observer route now",
+      "tradeoff": "Might obtain identities, but conflicts with this exact frozen served-plan no-alternate-route stop; rejected, not performed."
+    }
+  ]
+}

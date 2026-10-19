@@ -1,0 +1,52 @@
+{
+  "schema": "root-complete-bounded-output-inventory-v1",
+  "utc": "2026-10-19T18:42:53.708317+00:00",
+  "pid": 51740,
+  "actual_tool": {
+    "chunk_id": "e478f0",
+    "exit_code": 0,
+    "owned_session": null,
+    "target_pid_from_structured_report": 43420
+  },
+  "protocol": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/ROOT-OUTPUT-PROTOCOL.json",
+    "bytes": 2762,
+    "sha256": "d427bddb094dc61eb0701ed860c99900c4d6c9bc94ebdc8b21906e0b6a71f878"
+  },
+  "out": {
+    "exists": true,
+    "kind": "directory"
+  },
+  "immediate_count": 4,
+  "complete_inventory": true,
+  "entries": [
+    {
+      "name": "BUILD-RESULT.json",
+      "kind": "regular",
+      "bytes": 2522,
+      "sha256": "6f7602d9d89b2d810d2b8ca013598355e70f83769ceff61745ec3f7d445e8430"
+    },
+    {
+      "name": "loafer.obj",
+      "kind": "regular",
+      "bytes": 284326,
+      "sha256": "4254f08ff407d814a81f4f5db448170c2e09d67ed244b77efe791ca0d9ada0f1"
+    },
+    {
+      "name": "materials.mtl",
+      "kind": "regular",
+      "bytes": 305,
+      "sha256": "6d818b2c781edd899f170810e02269ff360de50f103fa55bb0060712541f57c0"
+    },
+    {
+      "name": "model.json",
+      "kind": "regular",
+      "bytes": 417170,
+      "sha256": "81390a94ccfb1052ac84808a6142548e30e7e2ab7767bd43b12899997a5137a6"
+    }
+  ],
+  "aggregate_bytes": 704323,
+  "issues": [],
+  "decision": "COMPLETE_WITHIN_CAPS_AND_ACTUAL_PASS",
+  "limits": "Readonly flat lstat/no symlink following/no recursion. No model parsed, builder/helper replayed or browser entered. Post-import/RSS observed metrics do not qualify performance or peak."
+}

@@ -1,0 +1,15 @@
+# Mara loafer saved data — A, artist geometry only
+
+The sole recorded CPU entry and its complete saved data pass independent review. One unchanged fixed six-view GPU packet is worth doing only after root verifies this stable pair, fresh served source/model/library identities and a separate GPU admission. No GPU or appearance acceptance follows this result.
+
+The mandatory external inventory is fulfilled for this actual success: exactly four regular expected files, no extra entries or symlinks, 704,323 bytes total, all caps and hashes matching. Admission, intent, exact command, source pins, actual exit 0 and the retained stdout/result agree. The source write-failure branches were not exercised; their inventory duty remains an explicit protocol rather than an experimentally proved failure path.
+
+I independently traversed all 4,160 positions and 8,292 triangles across nine parts. Every part has one connected face component, opposite paired edges, cyclic vertex links, nondegenerate faces and positive signed volume. The upper and saddle solids have Euler 0; the seven remaining parts have Euler 2. Material assignments match all six declared roles. OBJ preserves every face and material, with maximum coordinate rounding about 5.0e-9; MTL colours agree at its declared precision.
+
+Saved interface witnesses also agree: upper skin equals retained refined cage data; upper boundaries are 144/64 and saddle boundaries 64/64. All inner offsets, reversed faces and bridges match the saved skins. All 144 indexed outer contacts exactly equal the midsole positions. All 320 saddle points satisfy the declared own-upper embedding within 2.23e-16; footbed/heel/forepart plate relations and 41/5-point apron/counter paths are consistent. These checks use retained coordinates; no subdivision or builder was replayed and no new model was reconstructed.
+
+Float32 packing preserves nondegenerate triangles, with minimum cross magnitude 7.014767e-5 and maximum coordinate delta 1.192e-7. Actual model bounds fit the declared source box and all six fixed orthographic frustums. This predicts coordinate/frame containment, not actual GPU upload, legibility, projection quality or rendered appearance. Independently compensated volume sums differ from producer sums by at most 7.94e-15; discrete audit fields agree exactly and all volumes remain positive.
+
+No actionable data defect was found. Alternative A is the one fixed visual packet: it can decide the still-unobserved curved form, apron/saddle/slit, entry, lining and sole communication. Alternative B is to retain only the editable numeric source: it avoids GPU work but cannot answer those artist questions or support a visual delivery. A has bounded value, without any retuning or second packet.
+
+The recorded 109.372459 ms and 164,986,880-byte RSS value are post-import/sample observations, not startup, peak-memory or performance qualification. Closed-component topology does not establish nonintersection, physical cavity, last/body fit, sewing, motion, runtime or AAA quality. First actual failure/unknown closes without repair. Only this pair was written; no pending edits.

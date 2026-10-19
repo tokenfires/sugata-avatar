@@ -1,0 +1,40 @@
+{
+  "schema": "mara-root-external-output-inventory-v1",
+  "utc": "2026-10-19T18:39:57.710166+00:00",
+  "pid": 42420,
+  "condition": "Before sole CPU entry, root must bind this exact protocol in CPU admission and perform complete bounded readonly output inventory on either actual exit or owned termination.",
+  "before_entry": "out absent; all eight PREFLIGHT absences fresh before admission.",
+  "actual_job": "Exactly one root exec_command. Collect the actual returned owned handle to actual exit or owned termination; never infer exit from elapsed time or guess PIDs; no rerun.",
+  "inventory": {
+    "observer": "Root owned independent readonly collector after actual job result, even if import/parser failure or no structured result",
+    "directory": "leaf/out; lstat directory first; do not follow symlinks; max8 immediate entries; no recursion",
+    "expected_files": {
+      "model.json": 2097152,
+      "loafer.obj": 2097152,
+      "materials.mtl": 8192,
+      "BUILD-RESULT.json": 32768
+    },
+    "aggregate_byte_ceiling": 6291456,
+    "record": "Record out presence/type plus all immediate names/types/byte sizes up to max8; if more, record exact entry count and first8 names and close as capacity mismatch, never claim complete enumeration. Hash all complete regular expected in-cap files; no content read for unknown, symlink, nonregular or over-cap files. Record limitations explicitly.",
+    "receipt": "leaf/OUTPUT-INVENTORY.json outside out, with actual tool result association, observer PID/UTC, names/types/bytes/hashes and limits. Preserve partial and unknown files untouched."
+  },
+  "close_exact_method_if": [
+    "actual job nonzero or unknown status",
+    "missing out or any required file",
+    "unexpected file, symlink, nonregular, per-file or aggregate cap mismatch",
+    "malformed or missing structured result",
+    "any other first complete data B or unknown"
+  ],
+  "close_behavior": "Preserve all files and actual status; no retry, source repair, model parse/adoption, GPU entry, retake or successor. Static source A does not qualify actual files or appearance.",
+  "witness": "Frozen build.mjs220-229 exclusive output writes and final BUILD-RESULT wrapper may leave a prefix or fail final result write; no actual failure or lost file is asserted.",
+  "alternatives": [
+    {
+      "choice": "Selected external bounded inventory",
+      "tradeoff": "No frozen source changes; root owns complete independent file/status evidence and preserves partials."
+    },
+    {
+      "choice": "Withhold this CPU admission pending future producer-owned partial ledger",
+      "tradeoff": "Stronger producer-side report but requires source change; unavailable in this first-refusal window, so current exact method would close."
+    }
+  ]
+}

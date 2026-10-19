@@ -1,0 +1,278 @@
+FILE /Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferGeometry.js LINES 230-244 SHA256 be1b8ad6ce3e502904fd989f5b6690d8fedcbadb74508aec99fc87dfd567e8c7
+230: 	setIndex( index ) {
+231: 
+232: 		if ( Array.isArray( index ) ) {
+233: 
+234: 			this.index = new ( arrayNeedsUint32( index ) ? Uint32BufferAttribute : Uint16BufferAttribute )( index, 1 );
+235: 
+236: 		} else {
+237: 
+238: 			this.index = index;
+239: 
+240: 		}
+241: 
+242: 		return this;
+243: 
+244: 	}
+
+FILE /Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferGeometry.js LINES 335-345 SHA256 be1b8ad6ce3e502904fd989f5b6690d8fedcbadb74508aec99fc87dfd567e8c7
+335: 	addGroup( start, count, materialIndex = 0 ) {
+336: 
+337: 		this.groups.push( {
+338: 
+339: 			start: start,
+340: 			count: count,
+341: 			materialIndex: materialIndex
+342: 
+343: 		} );
+344: 
+345: 	}
+
+FILE /Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferGeometry.js LINES 1005-1095 SHA256 be1b8ad6ce3e502904fd989f5b6690d8fedcbadb74508aec99fc87dfd567e8c7
+1005: 	computeVertexNormals() {
+1006: 
+1007: 		const index = this.index;
+1008: 		const positionAttribute = this.getAttribute( 'position' );
+1009: 
+1010: 		if ( positionAttribute !== undefined ) {
+1011: 
+1012: 			let normalAttribute = this.getAttribute( 'normal' );
+1013: 
+1014: 			if ( normalAttribute === undefined || normalAttribute.count !== positionAttribute.count ) {
+1015: 
+1016: 				normalAttribute = new BufferAttribute( new Float32Array( positionAttribute.count * 3 ), 3 );
+1017: 				this.setAttribute( 'normal', normalAttribute );
+1018: 
+1019: 			} else {
+1020: 
+1021: 				// reset existing normals to zero
+1022: 
+1023: 				for ( let i = 0, il = normalAttribute.count; i < il; i ++ ) {
+1024: 
+1025: 					normalAttribute.setXYZ( i, 0, 0, 0 );
+1026: 
+1027: 				}
+1028: 
+1029: 			}
+1030: 
+1031: 			const pA = new Vector3(), pB = new Vector3(), pC = new Vector3();
+1032: 			const nA = new Vector3(), nB = new Vector3(), nC = new Vector3();
+1033: 			const cb = new Vector3(), ab = new Vector3();
+1034: 
+1035: 			// indexed elements
+1036: 
+1037: 			if ( index ) {
+1038: 
+1039: 				for ( let i = 0, il = index.count; i < il; i += 3 ) {
+1040: 
+1041: 					const vA = index.getX( i + 0 );
+1042: 					const vB = index.getX( i + 1 );
+1043: 					const vC = index.getX( i + 2 );
+1044: 
+1045: 					pA.fromBufferAttribute( positionAttribute, vA );
+1046: 					pB.fromBufferAttribute( positionAttribute, vB );
+1047: 					pC.fromBufferAttribute( positionAttribute, vC );
+1048: 
+1049: 					cb.subVectors( pC, pB );
+1050: 					ab.subVectors( pA, pB );
+1051: 					cb.cross( ab );
+1052: 
+1053: 					nA.fromBufferAttribute( normalAttribute, vA );
+1054: 					nB.fromBufferAttribute( normalAttribute, vB );
+1055: 					nC.fromBufferAttribute( normalAttribute, vC );
+1056: 
+1057: 					nA.add( cb );
+1058: 					nB.add( cb );
+1059: 					nC.add( cb );
+1060: 
+1061: 					normalAttribute.setXYZ( vA, nA.x, nA.y, nA.z );
+1062: 					normalAttribute.setXYZ( vB, nB.x, nB.y, nB.z );
+1063: 					normalAttribute.setXYZ( vC, nC.x, nC.y, nC.z );
+1064: 
+1065: 				}
+1066: 
+1067: 			} else {
+1068: 
+1069: 				// non-indexed elements (unconnected triangle soup)
+1070: 
+1071: 				for ( let i = 0, il = positionAttribute.count; i < il; i += 3 ) {
+1072: 
+1073: 					pA.fromBufferAttribute( positionAttribute, i + 0 );
+1074: 					pB.fromBufferAttribute( positionAttribute, i + 1 );
+1075: 					pC.fromBufferAttribute( positionAttribute, i + 2 );
+1076: 
+1077: 					cb.subVectors( pC, pB );
+1078: 					ab.subVectors( pA, pB );
+1079: 					cb.cross( ab );
+1080: 
+1081: 					normalAttribute.setXYZ( i + 0, cb.x, cb.y, cb.z );
+1082: 					normalAttribute.setXYZ( i + 1, cb.x, cb.y, cb.z );
+1083: 					normalAttribute.setXYZ( i + 2, cb.x, cb.y, cb.z );
+1084: 
+1085: 				}
+1086: 
+1087: 			}
+1088: 
+1089: 			this.normalizeNormals();
+1090: 
+1091: 			normalAttribute.needsUpdate = true;
+1092: 
+1093: 		}
+1094: 
+1095: 	}
+
+FILE /Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferGeometry.js LINES 1472-1476 SHA256 be1b8ad6ce3e502904fd989f5b6690d8fedcbadb74508aec99fc87dfd567e8c7
+1472: 	dispose() {
+1473: 
+1474: 		this.dispatchEvent( { type: 'dispose' } );
+1475: 
+1476: 	}
+
+FILE /Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js LINES 63-103 SHA256 867948b57a6abb84d4cfd7619b38ea14fbb2c100c1b6f78d59de2383662ab7a0
+63: class WebGLRenderer {
+64: 
+65: 	/**
+66: 	 * Constructs a new WebGL renderer.
+67: 	 *
+68: 	 * @param {WebGLRenderer~Options} [parameters] - The configuration parameter.
+69: 	 */
+70: 	constructor( parameters = {} ) {
+71: 
+72: 		const {
+73: 			canvas = createCanvasElement(),
+74: 			context = null,
+75: 			depth = true,
+76: 			stencil = false,
+77: 			alpha = false,
+78: 			antialias = false,
+79: 			premultipliedAlpha = true,
+80: 			preserveDrawingBuffer = false,
+81: 			powerPreference = 'default',
+82: 			failIfMajorPerformanceCaveat = false,
+83: 			reversedDepthBuffer = false,
+84: 			outputBufferType = UnsignedByteType,
+85: 		} = parameters;
+86: 
+87: 		/**
+88: 		 * This flag can be used for type testing.
+89: 		 *
+90: 		 * @type {boolean}
+91: 		 * @readonly
+92: 		 * @default true
+93: 		 */
+94: 		this.isWebGLRenderer = true;
+95: 
+96: 		let _alpha;
+97: 
+98: 		if ( context !== null ) {
+99: 
+100: 			if ( typeof WebGLRenderingContext !== 'undefined' && context instanceof WebGLRenderingContext ) {
+101: 
+102: 				throw new Error( 'THREE.WebGLRenderer: WebGL 1 is not supported since r163.' );
+103: 
+
+FILE /Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js LINES 595-600 SHA256 867948b57a6abb84d4cfd7619b38ea14fbb2c100c1b6f78d59de2383662ab7a0
+595: 		this.forceContextLoss = function () {
+596: 
+597: 			const extension = extensions.get( 'WEBGL_lose_context' );
+598: 			if ( extension ) extension.loseContext();
+599: 
+600: 		};
+
+FILE /Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js LINES 628-636 SHA256 867948b57a6abb84d4cfd7619b38ea14fbb2c100c1b6f78d59de2383662ab7a0
+628: 		this.setPixelRatio = function ( value ) {
+629: 
+630: 			if ( value === undefined ) return;
+631: 
+632: 			_pixelRatio = value;
+633: 
+634: 			this.setSize( _width, _height, false );
+635: 
+636: 		};
+
+FILE /Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js LINES 659-680 SHA256 867948b57a6abb84d4cfd7619b38ea14fbb2c100c1b6f78d59de2383662ab7a0
+659: 		this.setSize = function ( width, height, updateStyle = true ) {
+660: 
+661: 			if ( xr.isPresenting ) {
+662: 
+663: 				warn( 'WebGLRenderer: Can\'t change size while VR device is presenting.' );
+664: 				return;
+665: 
+666: 			}
+667: 
+668: 			_width = width;
+669: 			_height = height;
+670: 
+671: 			canvas.width = Math.floor( width * _pixelRatio );
+672: 			canvas.height = Math.floor( height * _pixelRatio );
+673: 
+674: 			if ( updateStyle === true ) {
+675: 
+676: 				canvas.style.width = width + 'px';
+677: 				canvas.style.height = height + 'px';
+678: 
+679: 			}
+680: 
+
+FILE /Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js LINES 1074-1097 SHA256 867948b57a6abb84d4cfd7619b38ea14fbb2c100c1b6f78d59de2383662ab7a0
+1074: 		this.dispose = function () {
+1075: 
+1076: 			canvas.removeEventListener( 'webglcontextlost', onContextLost, false );
+1077: 			canvas.removeEventListener( 'webglcontextrestored', onContextRestore, false );
+1078: 			canvas.removeEventListener( 'webglcontextcreationerror', onContextCreationError, false );
+1079: 
+1080: 			background.dispose();
+1081: 			renderLists.dispose();
+1082: 			renderStates.dispose();
+1083: 			properties.dispose();
+1084: 			environments.dispose();
+1085: 			objects.dispose();
+1086: 			bindingStates.dispose();
+1087: 			uniformsGroups.dispose();
+1088: 			programCache.dispose();
+1089: 
+1090: 			xr.dispose();
+1091: 
+1092: 			xr.removeEventListener( 'sessionstart', onXRSessionStart );
+1093: 			xr.removeEventListener( 'sessionend', onXRSessionEnd );
+1094: 
+1095: 			animation.stop();
+1096: 
+1097: 		};
+
+FILE /Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js LINES 1609-1627 SHA256 867948b57a6abb84d4cfd7619b38ea14fbb2c100c1b6f78d59de2383662ab7a0
+1609: 		this.render = function ( scene, camera ) {
+1610: 
+1611: 			if ( camera !== undefined && camera.isCamera !== true ) {
+1612: 
+1613: 				error( 'WebGLRenderer.render: camera is not an instance of THREE.Camera.' );
+1614: 				return;
+1615: 
+1616: 			}
+1617: 
+1618: 			if ( _isContextLost === true ) return;
+1619: 
+1620: 			// update node builder if available
+1621: 			if ( _nodesHandler !== null ) {
+1622: 
+1623: 				_nodesHandler.renderStart( scene, camera );
+1624: 
+1625: 			}
+1626: 
+1627: 			// use internal render target for HalfFloatType color buffer (only when tone mapping is enabled)
+
+FILE /Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/Material.js LINES 1184-1196 SHA256 3af196049d118e5c8a81e07cb9d90c44524ac5a319263e64f18f3ee08178ca68
+1184: 	dispose() {
+1185: 
+1186: 		/**
+1187: 		 * Fires when the material has been disposed of.
+1188: 		 *
+1189: 		 * @event Material#dispose
+1190: 		 * @type {Object}
+1191: 		 */
+1192: 		this.dispatchEvent( { type: 'dispose' } );
+1193: 
+1194: 	}
+1195: 
+1196: 	/**
+

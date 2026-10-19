@@ -1,0 +1,27 @@
+# Mara loafer — first-volume worth question
+
+## One usable improvement
+
+Nominate a first standalone, editable 3D artist blockout of Mara's retained oxblood penny loafer. The checklist currently supplies an accepted original six-view technical drawing of one left shoe; it does not supply a qualified 3D Mara loafer. A useful result would give the artist inspectable entry depth, toe/apron/strap relationships, separate sole/heel intent and inward faces, with JSON/OBJ/MTL and actual fixed views. It would remain unitless artist intent, not a fitted or manufactured shoe.
+
+This is worth investigation only: inspect the complete accepted drawing, its actual saved image, handoff/source limits, current checkpoint and relevant closed footwear boundaries. No builder, new geometry source, model, client, API experiment, capture or external retrieval is admitted. Do not infer an existing image's clarity from metadata or source alone.
+
+## One bounded research question and decision
+
+Does the accepted six-view Mara drawing provide a sufficiently distinct and explicit artist target for a first 3D loafer, despite the closed Ari sneaker experiment and prior Mara foot/native rescue boundaries? Choose a genuinely new Mara artist contract or defer footwear. A different character name alone is insufficient: the complete visible shoe design, ownership, surface strategy, qualified limits and deliverable must be compared before worth A.
+
+Root and the existing independent critic must inspect the actual original image and literal handoff independently. Every actionable finding needs its actual source/image witness, explanation and two alternatives/tradeoffs. No new code or construction before a stable whole worth A and fresh root verification. Any uncertainty about master availability or a closed-method overlap closes this nomination without a model or renderer.
+
+Alternative A: a new artist-authored Mara loafer source with an explicit connected polygon control cage, bounded Catmull–Clark subdivision, preserved entry boundary and inward-face relationships, plus separate sole/heel and saddle intent, if the actual art supports that scope. This would replace the refused analytic closed-loft/component construction with a different surface authority; it must not import or tweak that builder. A smoother name or more segments alone would not be a distinct method. This could deliver missing artist volume but requires new geometry and a separately qualified real preview client. Alternative B: defer this shoe and choose another roadmap goal. It avoids repeating refused footwear geometry but leaves the accepted loafer drawing without a usable volume.
+
+## Stops and possible later allowance
+
+Worth stops October 19 at **18:14 UTC**, no extension. It reads existing bytes and images only. Existing utility d8282660 is frozen; its one 24-case proof is consumed. Closed Ari sneaker source/render, Mara foot/body/native/sweater rescue, portable-kit blocked gallery, native-observer/retirement recipes and all other recorded closures remain closed. No rejected builder/model/renderer or source/camera/material workaround may be adopted under this nomination. The material-volume constructor remains HOLD.
+
+If worthwhile, root may later admit only complete inert original source/geometry/API/workload/ownership preparation within a separately fixed maximum 90-minute window. The cage, face adjacency, boundary/crease policy, exact subdivision count and resulting surface/entry ownership must be complete before any entry. Any future real viewer must explicitly adopt the tested shared terminal owner and qualify its own data/resource/publication/removal/error paths; the fake-resource proof grants no client/GPU clearance. New original geometry must be authored from the Mara artist target rather than editing/relabeling the closed Ari shoe. No worn body/last, automatic mirroring, textures or native pipeline.
+
+Prospective later ceilings: at most one CPU build, 8,192 vertices / 16,000 triangles / 20 named parts, JSON and OBJ each 2 MiB, MTL 8 KiB, a separately declared runtime/RSS/output/failure contract; then only independently qualified actual saved data could support one fixed six-view GPU packet and one natural whole capture. No execution allowance exists now. First complete source/data/image B or unknown closes the exact method without repair, retry, retake or successor in that window.
+
+A later reference allowance, only if it changes a decision: one query and one current primary subdivision-method page, at most two reported credits, no new product images or image generation. The accepted actual drawing and its preserved maker-study limits govern identity; another photograph would not establish hidden dimensions, sewing, foot fit or physical construction. Worth performs zero online retrievals. Current selected installed APIs need their own complete literal-source preflight, not a repeated proof entry.
+
+The prior utility checkpoint is d82826603fca0be8a3e75f5e245711d90fc0bef5. Root post-commit1860c8/PID38080/18:01:30UTC verifies59closurepins(56working/Git,3installed/external),46exactcommitpaths and CLEAN. Full AAA character/representation/expression/wardrobe/coupled-fit/morph/pose/motion/performance/VTuber/Mii scope and all10broadopen goals remain. Board/checklist/default/accepted/original/frozen assets and unrelated worktrees stay intact. Vite/ACTIVEten-minute recovery retained; human check-in/pause wins. No push/publication/install/purchase/model/subscription/reset-credit/other-project work.

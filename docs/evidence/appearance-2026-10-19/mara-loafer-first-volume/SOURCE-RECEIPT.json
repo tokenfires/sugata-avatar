@@ -1,0 +1,441 @@
+{
+  "schema": "independent-mara-original-cage-complete-source-review-v1",
+  "verdict": "A_ONE_SEPARATELY_ROOT_ADMITTED_CPU_WITH_MANDATORY_EXTERNAL_INVENTORY",
+  "collected_utc": "2026-10-19T18:41:25.122689+00:00",
+  "pid": 42865,
+  "reviewer": "/root/quality_critic",
+  "pending_edits": false,
+  "scope": "Complete static builder/client/design/contract/workload/API/source-art review, not target or geometry evaluation.",
+  "input_manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/PREFLIGHT.json",
+    "bytes": 17240,
+    "sha256": "4fadf3e032bcb3a6e62ff3a2917535ac399ef4c84816fac1bb15bc075c30f8d0"
+  },
+  "verified_input_count": 50,
+  "verified_repeated_source_rows": 6,
+  "manifest_verification": "Every exact path/byte/SHA row in this immutable manifest was checked independently; rows are referenced rather than recursively duplicated.",
+  "inspected_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/build.mjs",
+      "bytes": 16611,
+      "sha256": "0bed9cf241a417d03ddab37b575a7b1a0f63338beb29ff8216f5cc6bcf3cf0c9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/viewer.mjs",
+      "bytes": 12985,
+      "sha256": "51936d8848598b21bcaa0a3112f572e5d87025cc50926361abd87855398a0156"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/review.html",
+      "bytes": 2817,
+      "sha256": "39e5bf32ddcb55c6e609a6ff3cb24fbec7032e9f662d07f92e889cf6b2266a2a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/BRIEF.md",
+      "bytes": 4323,
+      "sha256": "c454a0fd5fd4afe45f9ce5399313b4313749c1ac4943d8428c9d3dac264f0bde"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/SOURCE.md",
+      "bytes": 11372,
+      "sha256": "6de35b073440fc35f8ae98ad16d4d5f743df1290af2a0e931a913824b62a3a22"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/design.json",
+      "bytes": 7022,
+      "sha256": "2d33bdfe6af6cc555b48f0588f8d99f66addf7f73485381f48290623a1b32680"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/CPU-REQUEST.json",
+      "bytes": 884,
+      "sha256": "7909052d0376e3e340f86db56b2d17442346b56941be9958b86be8361cf6d7d1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/GPU-REQUEST.json",
+      "bytes": 899,
+      "sha256": "35a5334184f91e2cacb38439f73208b9b156541c67c6fcd9abe103b2f4efbbe1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/PREFLIGHT.json",
+      "bytes": 17240,
+      "sha256": "4fadf3e032bcb3a6e62ff3a2917535ac399ef4c84816fac1bb15bc075c30f8d0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/PRIMARY-SUBDIVISION-CODE.md",
+      "bytes": 16852,
+      "sha256": "2570665e3066ca54905b20206b8e9465ed0c1106c867ac49b75a0c4d94e7c4ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/API-RECEIPT.json",
+      "bytes": 3614,
+      "sha256": "857f68f142d22c214276011211153725ae52849b8ad001fc877c62d5947c7b35"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/PRIMARY-API-EXCERPTS.txt",
+      "bytes": 9174,
+      "sha256": "58e61e4138ecacb07b84c4fbec6d28e78ff467cd65b950631a62d6d138522953"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/SOURCE-BOUNDS.json",
+      "bytes": 3593,
+      "sha256": "6962c44d5ebc09ee02d01bfc2094720eb26e534482c876236db5908dd695465c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/ROOT-OUTPUT-PROTOCOL.json",
+      "bytes": 2762,
+      "sha256": "d427bddb094dc61eb0701ed860c99900c4d6c9bc94ebdc8b21906e0b6a71f878"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/PRIMARY-SUBDIVISION.json",
+      "bytes": 18296,
+      "sha256": "73ee3ca91a1da9ac5f283b0c3aba6be71e612157f2c8ecf96e79d0bf4f775a21"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/REFERENCE-RECEIPT.json",
+      "bytes": 24075,
+      "sha256": "b047d9c25beef42ac3cd53ec5077a9fe34f061005147677602756ae469e9758b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/artist-preview-lifetime.mjs",
+      "bytes": 6006,
+      "sha256": "2f5063af4b94a82f5bfe7da38de74cae568fd9712f08629fafe84b937853ea41"
+    }
+  ],
+  "read_scopes": [
+    {
+      "files": [
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/build.mjs",
+          "bytes": 16611,
+          "sha256": "0bed9cf241a417d03ddab37b575a7b1a0f63338beb29ff8216f5cc6bcf3cf0c9",
+          "lines": 230
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/viewer.mjs",
+          "bytes": 12985,
+          "sha256": "51936d8848598b21bcaa0a3112f572e5d87025cc50926361abd87855398a0156",
+          "lines": 145
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/review.html",
+          "bytes": 2817,
+          "sha256": "39e5bf32ddcb55c6e609a6ff3cb24fbec7032e9f662d07f92e889cf6b2266a2a",
+          "lines": 27
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/BRIEF.md",
+          "bytes": 4323,
+          "sha256": "c454a0fd5fd4afe45f9ce5399313b4313749c1ac4943d8428c9d3dac264f0bde",
+          "lines": 17
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/SOURCE.md",
+          "bytes": 11372,
+          "sha256": "6de35b073440fc35f8ae98ad16d4d5f743df1290af2a0e931a913824b62a3a22",
+          "lines": 43
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/design.json",
+          "bytes": 7022,
+          "sha256": "2d33bdfe6af6cc555b48f0588f8d99f66addf7f73485381f48290623a1b32680",
+          "lines": 64
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/CPU-REQUEST.json",
+          "bytes": 884,
+          "sha256": "7909052d0376e3e340f86db56b2d17442346b56941be9958b86be8361cf6d7d1",
+          "lines": 13
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/GPU-REQUEST.json",
+          "bytes": 899,
+          "sha256": "35a5334184f91e2cacb38439f73208b9b156541c67c6fcd9abe103b2f4efbbe1",
+          "lines": 17
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/PREFLIGHT.json",
+          "bytes": 17240,
+          "sha256": "4fadf3e032bcb3a6e62ff3a2917535ac399ef4c84816fac1bb15bc075c30f8d0",
+          "lines": 368
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/PRIMARY-SUBDIVISION-CODE.md",
+          "bytes": 16852,
+          "sha256": "2570665e3066ca54905b20206b8e9465ed0c1106c867ac49b75a0c4d94e7c4ba",
+          "lines": 519
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/API-RECEIPT.json",
+          "bytes": 3614,
+          "sha256": "857f68f142d22c214276011211153725ae52849b8ad001fc877c62d5947c7b35",
+          "lines": 112
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/PRIMARY-API-EXCERPTS.txt",
+          "bytes": 9174,
+          "sha256": "58e61e4138ecacb07b84c4fbec6d28e78ff467cd65b950631a62d6d138522953",
+          "lines": 278
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/SOURCE-BOUNDS.json",
+          "bytes": 3593,
+          "sha256": "6962c44d5ebc09ee02d01bfc2094720eb26e534482c876236db5908dd695465c",
+          "lines": 161
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/ROOT-OUTPUT-PROTOCOL.json",
+          "bytes": 2762,
+          "sha256": "d427bddb094dc61eb0701ed860c99900c4d6c9bc94ebdc8b21906e0b6a71f878",
+          "lines": 40
+        }
+      ],
+      "scope": "Whole literal authored files and displayed primary/API/bounds/protocol text. No target import, syntax check, helper, subdivision, model or rendering invocation."
+    },
+    {
+      "files": [
+        "PRIMARY-SUBDIVISION.json",
+        "REFERENCE-RECEIPT.json"
+      ],
+      "scope": "Whole byte hashes/JSON parse; complete returned header read via CODE; metadata, request, selected_rules/limits/usage/output/feedback fields read. Save argv parsed as text/JSON to verify exact raw association, never executed. Duplicate embedded header in receipt save-command print was clipped; no additional semantic claim based on that clipped duplicate."
+    },
+    {
+      "file": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js",
+      "scope": "Exact pinned source selected excerpt ranges plus additional1894–1934 group-material visibility logic; not whole-library, private constructor or driver qualification."
+    },
+    {
+      "scope": "All remaining preflight inputs hashed. Exact library/core/LICENSE copies and API excerpt reconstructed from installed source selections. Node/libnode metadata only, no invocation. No recursive full semantic reread of all historical artifacts."
+    },
+    {
+      "scope": "Complete accepted art/handoffs/closed footwear boundaries and actual whole1280x1109 drawing reuse from WORTH at unchanged exact image/source pins. No new candidate image exists or was viewed. Exact tested lifetime source/proof/usage qualifications reused at unchanged pin; no replay or integration proof."
+    }
+  ],
+  "static_reasoning": {
+    "new_surface_authority": "design7–39 literal99 layout points/64 quads with9 unused IDs compacted to90; build185–195 explicitly owns upper adjacency and two boundary loops. No old analytic loft builder/model/renderer import.",
+    "refinement": "build56–78: face means, boundary midpoint/two-neighbor .75/.125 masks, interior quarter-edge mask and interior vertex P*(n-2)/n+(neighbor+facecenter sums)/n^2. Matches selected primary CODE90–102/131–183; two fixed steps, no limit/triangle/adaptive/library conformance claim.",
+    "topology_forecast": "Literal source count reasoning only: upper V90/E154/F64; quad split gives V308/E564/F256 then V1128/E2152/F1024;52 boundary edges double to104/208. Duplicated inner sheet plus bridges forecasts V2256/T4512. No actual refined coordinates computed.",
+    "interfaces": "build98–151/196–214: reversed inward faces and boundary bridges, real annular saddle hole and own-upper embedding, separate fixed footprint plates/heel/footbed, exact own-upper outer-loop/midsole IDs and refined detail paths. Artist overlap and nonintersection/physical limits explicit.",
+    "bounded_workload": "Nine parts; conservative5490V/10952T from capped clip polygons and fixed tube paths. Actual8192/16000/20 caps and per-file limits remain runtime/data checks, not observed output.",
+    "validation_exports": "build154–170 checks finite/index/area, opposite closed halfedges, cyclic vertex links and positive volume; model retains cages/materials/interfaces; OBJ same triangles at8decimals, MTL6colours. Not a global intersection, sewn union, physical cavity or fit proof.",
+    "client_adoption": "viewer25–60/81–143 uses exact shared owner; data await guards; synchronous registered resource phase; retained host snapshots; pagehide terminal state; registered image removal; child closes before Ready; dispose and forceContextLoss both attempted.31 known child and7 eventual host identities, no physical/private constructor promise.",
+    "inside_surface_selection": "viewer123–124 hides whole saddle/details and outer material groups, keeps unchanged cream inward surfaces/footbed/sole. Installed renderer1894–1934 honors visible grouped material selection; actual frame is unobserved.",
+    "framing": "viewer65–72/125–127 fixed six camera/lighting roles. SOURCE-BOUNDS hypothetical box only; actual saved vertex enclosure and all whole images remain independently owed."
+  },
+  "finding": {
+    "id": "F1",
+    "classification": "Partial output evidence requires an external root owner",
+    "witness": [
+      "build.mjs:220 exclusive sequential data writes",
+      "build.mjs:224–229 caught failure and independent final-result write",
+      "SOURCE.md:21 actual exit is authoritative"
+    ],
+    "explanation": "An interrupted or failed write may retain a prefix and a final result write can also fail. A producer output list or PASS-looking stdout cannot certify the complete isolated directory. No actual write failure, lost data or execution is asserted.",
+    "alternatives": [
+      {
+        "choice": "A selected: external bounded root inventory on either actual exit",
+        "tradeoff": "Independent actual file/status evidence without a source patch; root owns the finite readback and must preserve partials/unknowns."
+      },
+      {
+        "choice": "B withhold entry until a future producer-owned partial ledger",
+        "tradeoff": "Avoids relying on an external inventory, but requires source changes not available in this first-refusal contract and would close this proposal unrun."
+      }
+    ],
+    "selected_protocol": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/ROOT-OUTPUT-PROTOCOL.json",
+      "bytes": 2762,
+      "sha256": "d427bddb094dc61eb0701ed860c99900c4d6c9bc94ebdc8b21906e0b6a71f878"
+    },
+    "mandatory_before_CPU": "Bind exact ROOT-OUTPUT-PROTOCOL in fresh CPU admission; collect the actual owned handle before readback; no guessed PID.",
+    "mandatory_after_either_exit": "Flat no-symlink/no-recursion inventory of out, at most8 immediate entries/6MiB aggregate and4 expected per-file caps; retain names/types/byte evidence and permitted hashes; preserve partial/unknown files. Missing/extra/type/cap/status/structured-result mismatch closes before model parsing/adoption or GPU, no repair/retry."
+  },
+  "source_association_checks": {
+    "preflight_rows": 50,
+    "repeated_source_rows": 6,
+    "exact_absent_paths": [
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/CPU-ADMISSION.json",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/CPU-ENTRY-INTENT.json",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/TOOL-CPU.json",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/out",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/GPU-ADMISSION.json",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/BROWSER-RESULT.json",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/first.jpg",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/rendered"
+    ],
+    "API_excerpt_reconstructed_bytes": 9174,
+    "library_copy_identities": 3,
+    "module_external_specifier": "./three.core.js only; two static from occurrences refer to same dependency",
+    "core_external_from_imports": 0,
+    "primary_raw_markdown_equals_code": true,
+    "primary_save_argv_JSON_equals_raw": true,
+    "primary_status": 200,
+    "primary_reported_credits": 1,
+    "critic_external_retrievals": 0,
+    "installed_three_version": "0.185.1"
+  },
+  "next_operation": {
+    "advised": "One exact CPU-REQUEST only after root whole-pair/fresh pins/expiry/resource/mandatory-inventory admission. This review is not execution admission.",
+    "CPU_request": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/CPU-REQUEST.json",
+      "bytes": 884,
+      "sha256": "7909052d0376e3e340f86db56b2d17442346b56941be9958b86be8361cf6d7d1"
+    },
+    "GPU_admitted": false,
+    "requires_after_CPU": "Root inventory, independent complete saved-data A/root plus fresh served-source/library/model identity and separate GPU admission.",
+    "absolute_stop_utc": "2026-10-19T19:37:55.992117+00:00",
+    "retry_or_repair": false
+  },
+  "resource_limits": {
+    "CPU_cooperative_post_import_ms": 10000,
+    "CPU_sampled_RSS_bytes": 536870912,
+    "Node_old_space_MiB": 128,
+    "stdout_bytes": 32768,
+    "model_JSON_bytes": 2097152,
+    "OBJ_bytes": 2097152,
+    "MTL_bytes": 8192,
+    "BUILD_RESULT_bytes": 32768,
+    "hard_startup_wall_peak_or_total_RSS": false,
+    "GPU_request_future_only": true,
+    "GPU_cooperative_packet_ms": 60000,
+    "native_frames": 6,
+    "frame_dimensions": [
+      570,
+      340
+    ],
+    "renderer_DPR": 1,
+    "PNG_each_bytes": 2097152,
+    "PNG_total_bytes": 16777216,
+    "JPEG_bytes": 2097152,
+    "total_actual_images_bytes": 18874368
+  },
+  "limits": [
+    "Source/forecast checks do not qualify actual model topology, Float32 geometry, framing, pixel clarity or all artist roles.",
+    "Private partial constructor allocations, hostile callbacks, generic promise cancellation, browser/driver/GC retirement and peak memory are explicitly unqualified.",
+    "No anatomical foot/last/body, pairing, manufacturing, physical cavity/material/lining, fit, rig/morph/motion/runtime/performance/AAA or roadmap/default/board/checklist credit.",
+    "All old closed methods and held constructor remain closed; no source repair, target entry, client runtime proof, new image, reference retrieval or subagent occurred."
+  ],
+  "jobs": [
+    {
+      "name": "builder",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['build.mjs']:\n b=(p/n).read_bytes();print('FILE',str(p/n),len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(str(i)+': '+line)\nPY",
+      "chunk_id": "12769a",
+      "wall_time_seconds": 8.25e-06,
+      "exit_code": 0,
+      "original_token_count": 4471,
+      "process_line": "PID 39160 UTC 2026-10-19T18:32:23.150572+00:00"
+    },
+    {
+      "name": "viewer",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['viewer.mjs','review.html']:\n b=(p/n).read_bytes();print('FILE',str(p/n),len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(str(i)+': '+line)\nPY",
+      "chunk_id": "7294d6",
+      "wall_time_seconds": 6.583e-06,
+      "exit_code": 0,
+      "original_token_count": 4234,
+      "process_line": "PID 39373 UTC 2026-10-19T18:32:41.789796+00:00"
+    },
+    {
+      "name": "contract",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['BRIEF.md','SOURCE.md','design.json','CPU-REQUEST.json']:\n b=(p/n).read_bytes();print('FILE',str(p/n),len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(str(i)+': '+line)\nPY",
+      "chunk_id": "222788",
+      "wall_time_seconds": 8.042e-06,
+      "exit_code": 0,
+      "original_token_count": 6224,
+      "process_line": "PID 39552 UTC 2026-10-19T18:33:12.719738+00:00"
+    },
+    {
+      "name": "preflight",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PREFLIGHT.json']:\n b=(p/n).read_bytes();print('FILE',str(p/n),len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(str(i)+': '+line)\nprint('BOUNDED_LEAF_FILES',json.dumps([x.name for x in p.iterdir() if x.is_file()]))\nPY",
+      "chunk_id": "90ea51",
+      "wall_time_seconds": 6.916e-06,
+      "exit_code": 0,
+      "original_token_count": 4915,
+      "process_line": "PID 39667 UTC 2026-10-19T18:33:23.256884+00:00"
+    },
+    {
+      "name": "primary_api",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PRIMARY-SUBDIVISION-CODE.md','API-RECEIPT.json','PRIMARY-API-EXCERPTS.txt','SOURCE-BOUNDS.json','GPU-REQUEST.json']:\n b=(p/n).read_bytes();print('FILE',str(p/n),len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(str(i)+': '+line)\nPY",
+      "chunk_id": "d42134",
+      "wall_time_seconds": 7.292e-06,
+      "exit_code": 0,
+      "original_token_count": 10031,
+      "process_line": "PID 39885 UTC 2026-10-19T18:33:51.129936+00:00"
+    },
+    {
+      "name": "reference_shape",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['API-RECEIPT.json','REFERENCE-RECEIPT.json']:\n b=(p/n).read_bytes();print('FILE',str(p/n),len(b),hashlib.sha256(b).hexdigest())\n if n=='API-RECEIPT.json':\n  for i,line in enumerate(b.decode().splitlines(),1):print(str(i)+': '+line)\n else:\n  d=json.loads(b);print('REFERENCE_TOPLEVEL',json.dumps({k:v for k,v in d.items() if k not in ['jobs','tool_result','result','commands','outputs']},ensure_ascii=False));print('REFERENCE_KEYS',list(d))\nraw=json.loads((p/'PRIMARY-SUBDIVISION.json').read_text());print('PRIMARY_KEYS',list(raw));print('PRIMARY_STRUCTURES',[(k,type(v).__name__,list(v) if isinstance(v,dict) else len(v) if isinstance(v,(str,list)) else None) for k,v in raw.items()])\nPY",
+      "chunk_id": "838ade",
+      "wall_time_seconds": 7.833e-06,
+      "exit_code": 0,
+      "original_token_count": 7047,
+      "process_line": "PID 40104 UTC 2026-10-19T18:34:05.938543+00:00"
+    },
+    {
+      "name": "pin_api_audit",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib,re,shlex\nroot=Path('/Users/robault/GitHub/sugata-avatar');p=root/'docs/evidence/appearance-2026-10-19/mara-loafer-first-volume'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\npf=json.loads((p/'PREFLIGHT.json').read_text());sha=lambda b:hashlib.sha256(b).hexdigest()\nfor row in pf['inputs']+pf['source_files']:\n b=Path(row['path']).read_bytes();assert len(b)==row['bytes'] and sha(b)==row['sha256'],row['path']\nassert len(pf['inputs'])==50\nfor name in pf['absent']:\n q=p/name;assert not q.exists() and not q.is_symlink(),str(q)\napi=json.loads((p/'API-RECEIPT.json').read_text());chunks=[]\nfor selection in api['selected']:\n row=selection['input'];src=Path(row['path']).read_bytes();assert len(src)==row['bytes'] and sha(src)==row['sha256'];lines=src.decode().splitlines()\n for a,b in selection['ranges']:\n  chunks.append('FILE '+row['path']+' LINES '+str(a)+'-'+str(b)+' SHA256 '+row['sha256']+chr(10))\n  chunks.extend(str(i)+': '+lines[i-1]+chr(10) for i in range(a,b+1));chunks.append(chr(10))\nassert ''.join(chunks)==(p/'PRIMARY-API-EXCERPTS.txt').read_text()\nfor local,installed in [('lib/three.module.js','build/three.module.js'),('lib/three.core.js','build/three.core.js'),('lib/LICENSE','LICENSE')]:assert (p/local).read_bytes()==(root/'node_modules/three'/installed).read_bytes()\nmodule=(p/'lib/three.module.js').read_text();core=(p/'lib/three.core.js').read_text()\nimports=lambda s:re.findall(r'(?:from\\\\s*|import\\\\s*)[\\'\\\"]([^\\'\\\"]+)[\\'\\\"]',s)\nprint('MODULE_IMPORT_TEXTS',re.findall(r\"from\\s*['\\\"]([^'\\\"]+)['\\\"]\",module));print('CORE_FROM_IMPORTS',re.findall(r\"from\\s*['\\\"]([^'\\\"]+)['\\\"]\",core))\nref=json.loads((p/'REFERENCE-RECEIPT.json').read_text());raw=json.loads((p/'PRIMARY-SUBDIVISION.json').read_text());code=(p/'PRIMARY-SUBDIVISION-CODE.md').read_bytes()\nassert raw['markdown'].encode()==code and raw['metadata']==ref['metadata'] and raw['metadata']['statusCode']==200 and raw['metadata']['creditsUsed']==1\nsave_tokens=shlex.split(ref['save']['command']);assert json.loads(save_tokens[-1])==raw\nprint('REFERENCE_SELECTED_METADATA',json.dumps({k:ref[k] for k in ['request','metadata','read_scope','selected_rules','decision','limits','usage','utc','pid','outputs']},ensure_ascii=False))\nprint('REFERENCE_SAVE_RESULT',json.dumps(ref['save']['result'],ensure_ascii=False));print('REFERENCE_FEEDBACK',json.dumps(ref['feedback'],ensure_ascii=False))\nprint('PREFLIGHT_ASSOCIATION_PASS','50 inputs +6 source rows; 8 exact leaf absences; API excerpt reconstructed byte-for-byte;3installed copies exact; raw primary/code/save-argv association exact. No target evaluation.')\nprint('API_RECONSTRUCTED_BYTES',len(''.join(chunks).encode()));print('ABSENT_EXACT',[str(p/n) for n in pf['absent']])\nPY",
+      "chunk_id": "157015",
+      "wall_time_seconds": 9.708e-06,
+      "exit_code": 0,
+      "original_token_count": 1321,
+      "process_line": "PID 40676 UTC 2026-10-19T18:34:46.813139+00:00"
+    },
+    {
+      "name": "visibility",
+      "command": "rg -n -C 7 'groupMaterial.*visible|material\\.visible' node_modules/three/src/renderers/WebGLRenderer.js",
+      "chunk_id": "65940c",
+      "wall_time_seconds": 6.292e-06,
+      "exit_code": 0,
+      "original_token_count": 252,
+      "process_line": null
+    },
+    {
+      "name": "visibility_context",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime\nroot=Path('/Users/robault/GitHub/sugata-avatar')\np=root/'node_modules/three/src/renderers/WebGLRenderer.js'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat());print('FILE',str(p),'SELECTED_LINES1894–1934')\nfor i,line in enumerate(p.read_text().splitlines(),1):\n if 1894<=i<=1934:print(str(i)+': '+line)\nPY",
+      "chunk_id": "15748b",
+      "wall_time_seconds": 7.875e-06,
+      "exit_code": 0,
+      "original_token_count": 349,
+      "process_line": "PID 41188 UTC 2026-10-19T18:36:07.100626+00:00"
+    },
+    {
+      "name": "output_protocol",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/ROOT-OUTPUT-PROTOCOL.json')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nif p.exists():\n b=p.read_bytes();print('FILE',str(p),len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(str(i)+': '+line)\nelse: print('NOT_YET_AVAILABLE','No dependent entry admitted by critic')\nPY",
+      "chunk_id": "26acff",
+      "wall_time_seconds": 7.834e-06,
+      "exit_code": 0,
+      "original_token_count": 26,
+      "process_line": "PID 41595 UTC 2026-10-19T18:37:07.015779+00:00"
+    },
+    {
+      "name": "output_protocol_read",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/ROOT-OUTPUT-PROTOCOL.json')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nif p.exists():\n b=p.read_bytes();print('FILE',str(p),len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(str(i)+': '+line)\nelse: print('NOT_YET_AVAILABLE','A remains conditional on root admission inventory duty; no dependent operation')\nPY",
+      "chunk_id": "61410e",
+      "wall_time_seconds": 6.167e-06,
+      "exit_code": 0,
+      "original_token_count": 790,
+      "process_line": "PID 42445 UTC 2026-10-19T18:40:04.426311+00:00"
+    }
+  ],
+  "observer_corrections": [
+    {
+      "jobs": [
+        "d42134",
+        "838ade"
+      ],
+      "issue": "Combined reference/API prints clipped small API-header content or repeated primary header embedded in save command.",
+      "resolution": "API receipt fully recovered in838ade; complete primary CODE and API excerpt visible separately.157015 independently reconstructs all API selections and verifies raw primary/code/save-argv identities plus bounded reference fields. No whole semantic claim for clipped duplicate command text."
+    },
+    {
+      "job": "26acff",
+      "issue": "Root output protocol not yet available at18:37:07; no dependent operation occurred.",
+      "resolution": "Complete stable40-line record read in61410e at18:40:04, exact selected condition now bound."
+    }
+  ],
+  "output_review": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/SOURCE-REVIEW.md",
+    "bytes": 3491,
+    "sha256": "2cbdfb9b7b36029cfff0ed46076dcaeef584dff04c152e82c740ee26d084cd09"
+  },
+  "writes": [
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/SOURCE-REVIEW.md",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/SOURCE-RECEIPT.json"
+  ],
+  "collection_method": "Exclusive pair writes after fresh50+6/protocol pin verification and8 exact path absences; full stable readback follows externally."
+}

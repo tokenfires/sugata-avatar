@@ -1,0 +1,180 @@
+{
+  "schema": "root-mara-complete-saved-data-first-v1",
+  "utc": "2026-10-19T18:44:08.615305+00:00",
+  "pid": 53982,
+  "decision": "A_DATA_ONLY_PENDING_WHOLE_STABLE_INDEPENDENT_DATA",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/design.json",
+      "bytes": 7022,
+      "sha256": "2d33bdfe6af6cc555b48f0588f8d99f66addf7f73485381f48290623a1b32680"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/SOURCE-BOUNDS.json",
+      "bytes": 3593,
+      "sha256": "6962c44d5ebc09ee02d01bfc2094720eb26e534482c876236db5908dd695465c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/OUTPUT-INVENTORY.json",
+      "bytes": 1649,
+      "sha256": "60c0c103a64688a55a25b6b823e0f375b0d2852a52e73a45e71522c883a36e72"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/TOOL-CPU.json",
+      "bytes": 3274,
+      "sha256": "8bde58d6565c3816089f39e495dcea4977c03323f19067c2fee510ef1e7d4077"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/CPU-ADMISSION.json",
+      "bytes": 15335,
+      "sha256": "ff8100f7774e237a362e465e317497e7fdd7fc337124a5bd6eaed6c25d87fd23"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/CPU-ENTRY-INTENT.json",
+      "bytes": 1103,
+      "sha256": "4e8c1a1a2e24e4e98dca93df1af6d78ec329447ba6d00a4622f9a6d4bb0c93bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/ROOT-SOURCE.json",
+      "bytes": 14808,
+      "sha256": "8aafd51f25694d1fb7de316cb06c3eed5f07cd56923cdbbaf4d6bb5dfd7b73d5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/out/model.json",
+      "bytes": 417170,
+      "sha256": "81390a94ccfb1052ac84808a6142548e30e7e2ab7767bd43b12899997a5137a6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/out/loafer.obj",
+      "bytes": 284326,
+      "sha256": "4254f08ff407d814a81f4f5db448170c2e09d67ed244b77efe791ca0d9ada0f1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/out/materials.mtl",
+      "bytes": 305,
+      "sha256": "6d818b2c781edd899f170810e02269ff360de50f103fa55bb0060712541f57c0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/out/BUILD-RESULT.json",
+      "bytes": 2522,
+      "sha256": "6f7602d9d89b2d810d2b8ca013598355e70f83769ceff61745ec3f7d445e8430"
+    }
+  ],
+  "actual_job": "e478f0 exit0 PID43420 18:42:32.078UTC; entry allowance consumed, no live handle",
+  "complete_inventory": "797399 exit0, exact4 regular files704323B, no missing/extra/type/cap/status/structured-result issue",
+  "actual_totals": {
+    "vertices": 4160,
+    "triangles": 8292,
+    "parts": 9,
+    "contacts": 144
+  },
+  "independent_audits": [
+    {
+      "id": "upper-with-inward-lining",
+      "vertices": 2256,
+      "triangles": 4512,
+      "edges": 6768,
+      "euler": 0,
+      "signedVolume": 0.28277573565307124
+    },
+    {
+      "id": "perforated-saddle",
+      "vertices": 640,
+      "triangles": 1280,
+      "edges": 1920,
+      "euler": 0,
+      "signedVolume": 0.024002454646841136
+    },
+    {
+      "id": "brown-midsole",
+      "vertices": 290,
+      "triangles": 576,
+      "edges": 864,
+      "euler": 2,
+      "signedVolume": 0.9128885517578126
+    },
+    {
+      "id": "dark-forepart",
+      "vertices": 148,
+      "triangles": 292,
+      "edges": 438,
+      "euler": 2,
+      "signedVolume": 0.3408576284285069
+    },
+    {
+      "id": "low-stacked-heel",
+      "vertices": 128,
+      "triangles": 252,
+      "edges": 378,
+      "euler": 2,
+      "signedVolume": 0.2045633772769722
+    },
+    {
+      "id": "dark-heel-patch",
+      "vertices": 128,
+      "triangles": 252,
+      "edges": 378,
+      "euler": 2,
+      "signedVolume": 0.043629841418397576
+    },
+    {
+      "id": "cream-footbed",
+      "vertices": 290,
+      "triangles": 576,
+      "edges": 864,
+      "euler": 2,
+      "signedVolume": 0.08531996849121178
+    },
+    {
+      "id": "rounded-apron-pipe",
+      "vertices": 248,
+      "triangles": 492,
+      "edges": 738,
+      "euler": 2,
+      "signedVolume": 0.0038253372349443737
+    },
+    {
+      "id": "counter-seam",
+      "vertices": 32,
+      "triangles": 60,
+      "edges": 90,
+      "euler": 2,
+      "signedVolume": 0.00016421573818711338
+    }
+  ],
+  "minimum_triangle_cross_norm": 7.014805770653677e-05,
+  "minimum_Float32_triangle_cross_norm": 7.014767233041163e-05,
+  "actual_xyz_ranges": [
+    [
+      -1.02140625,
+      0.9465624999999999
+    ],
+    [
+      -0.08000000000000004,
+      0.9966210978294346
+    ],
+    [
+      -2.0137023895655193,
+      2.48
+    ]
+  ],
+  "all_vertices_within_declared_box": true,
+  "OBJ": {
+    "all_vertices": 4160,
+    "all_faces": 8292,
+    "all_material_assignments": 8292,
+    "max_position_rounding_error": 5.000000025123796e-09,
+    "same_objects_indices_material_roles": true
+  },
+  "MTL": "All6 material IDs and rounded RGB agree with complete JSON data",
+  "scope": "All saved model positions/indices/material assignments/part edge pairs/cyclic vertex links/volume and OBJ vertices/faces read and audited; no target builder/helper imported or rerun. No global intersection or physical cavity claim.",
+  "no_GPU_or_images": true,
+  "observer_correction": {
+    "first_job": "c8e0b8 exit1 exact audit dictionary equality",
+    "diagnostic_job": "282a88 exit0 shows exact discrete fields/model-report equality and volume differences up to8.9e-16",
+    "selected": "Keep independent Python arithmetic and compare signed-volume delta<=1e-12; require exact discrete audit fields and positive volume. No source/data change.",
+    "alternative": "Reproduce JavaScript dot reduction addition order for bitwise equality; more coupled to producer arithmetic, no added topology evidence.",
+    "max_observed_volume_delta": 8.881784197001252e-16
+  },
+  "next": "Only stable independent saved-dataA/root plus fresh servedidentity and GPUadmission could allow one fixedsixview packet; firstB/unknown closes without retry/repair."
+}

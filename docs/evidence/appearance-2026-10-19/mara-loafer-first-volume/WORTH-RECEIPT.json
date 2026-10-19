@@ -1,0 +1,273 @@
+{
+  "schema": "independent-mara-loafer-first-volume-worth-v1",
+  "verdict": "A_INERT_ORIGINAL_CAGE_SOURCE_PREPARATION_ONLY",
+  "collected_utc": "2026-10-19T18:06:58.121982+00:00",
+  "pid": 48740,
+  "reviewer": "/root/quality_critic",
+  "pending_edits": false,
+  "input_manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/WORTH-INPUTS.json",
+    "bytes": 5435,
+    "sha256": "9c9befe8adf46d2f8c6867bbf24a8ac7b0644fb0790c89bba719bd24af6a6061"
+  },
+  "verified_input_count": 18,
+  "verified_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/PLAN.md",
+      "bytes": 5529,
+      "sha256": "aa8407821a515592fa3859f354f3f842827e37da374f25c27078afdb57c3a075"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 88240,
+      "sha256": "142245bdacabf5da565dd39b5a9e011b2a6cbf08b6d2a1ec46e952090e4e2525"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 113304,
+      "sha256": "2095cbcb8521aeec105b6bbf5d699bf206ec292fb40998eacbe80566605ca3b1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md",
+      "bytes": 2164,
+      "sha256": "be3d7e95da79ad6dd177b71d1afeb76999f4456d651bd1676b6473ae7d2ddecd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/README.md",
+      "bytes": 1215,
+      "sha256": "34ff68f220e57d70ba01177804dfa27a767ce8933e6ebfab66374d0026d8ec58"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/original-first.jpg",
+      "bytes": 115247,
+      "sha256": "1072ca75f96e2d2f784fce195997c9a5c6e82c236cdacb2853f4996137f458dc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/BRIEF.md",
+      "bytes": 2657,
+      "sha256": "51fb9da6e76b85d7b2c855e3c49a73bc787e631d8a3b6c018845a3e90315822c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/loafer.svg",
+      "bytes": 13149,
+      "sha256": "71b8aff21e19a71fc0703ce564bf3936274c1c8a6739d4d260a2c216474059c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/design.json",
+      "bytes": 76118,
+      "sha256": "234c47f0bf1245e6d675eb42ad258b7110c6e67261241fbb2e3ca6b2586633d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-primary-study/README.md",
+      "bytes": 927,
+      "sha256": "35e720f711a9513b3d667df2dd760112a5a9836906bcde7a84c0bbfdee2d02d7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/README.md",
+      "bytes": 1848,
+      "sha256": "5e35210f86490d4902ac1370639d571c67f8c98976fe7d4a4d2791271807b699"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/README.md",
+      "bytes": 5285,
+      "sha256": "e7d8f1f877527359a0ed182b9e1970633ee2405bd92d0deae0eb0a2c31538404"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/IMAGE-REVIEW.md",
+      "bytes": 4595,
+      "sha256": "70fa04297af91648f7b8bb2f286c45228c58bc95725ff65d690612c01c4a6625"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/artist-preview-lifetime.mjs",
+      "bytes": 6006,
+      "sha256": "2f5063af4b94a82f5bfe7da38de74cae568fd9712f08629fafe84b937853ea41"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/ROOT-CLOSE.json",
+      "bytes": 16945,
+      "sha256": "8686cee030eb5cc6fbe5b4100c8dafa3f43ee54d2a2727c8724485b85d7a816b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/USAGE.md",
+      "bytes": 5424,
+      "sha256": "ddb557e01ceb8d8e38113980cee7a710395603d4740f746f84d38178cdd1c2b6"
+    }
+  ],
+  "read_scopes": [
+    {
+      "files": [
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/PLAN.md",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/WORTH-INPUTS.json"
+      ],
+      "scope": "Whole plan and manifest."
+    },
+    {
+      "files": [
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/README.md",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/BRIEF.md",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-primary-study/README.md",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/README.md",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/README.md",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/IMAGE-REVIEW.md"
+      ],
+      "scope": "Whole seven literal handoff/brief/reference/closure documents. First six complete visible texts precede clipped combined output; complete Ari image review recovered separately in2e9b21."
+    },
+    {
+      "file": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "scope": "Selected current recovery lines1–12; whole byte identity, not whole historical narrative semantic review."
+    },
+    {
+      "file": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "scope": "Selected lines1–34 and123–138; phase order and immediate character/wardrobe work duties. No whole-roadmap read claim from clipped output."
+    },
+    {
+      "file": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "scope": "Selected Mara/footwear/Outstanding rows and literal22checked/10open count; complete byte identity. No whole-text read claim from clipped output."
+    },
+    {
+      "scope": "Remaining SVG/JSON/module/utility closure/usage/work-window inputs hashed only for this nomination. Prior reviewed source qualifications are historical; no new registry, geometry, runtime or utility test."
+    }
+  ],
+  "actual_image_view": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/original-first.jpg",
+    "detail": "original",
+    "viewed": true,
+    "image_pin": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-loafer-first-native/original-first.jpg",
+      "bytes": 115247,
+      "sha256": "1072ca75f96e2d2f784fce195997c9a5c6e82c236cdacb2853f4996137f458dc"
+    },
+    "dimensions": [
+      1280,
+      1109
+    ],
+    "tool": "functions.exec -> tools.view_image(detail=original), whole unchanged accepted image",
+    "separate_PID_or_UTC_exposed": false,
+    "tool_order_interval_utc": [
+      "2026-10-19T18:04:37.865625+00:00",
+      "2026-10-19T18:05:04.563283+00:00"
+    ],
+    "no_crop_edit_new_capture": true
+  },
+  "decision_findings": [
+    {
+      "id": "W1",
+      "classification": "Usable artistic source, not registered reconstruction authority",
+      "witness": [
+        "Actual original-first.jpg top approximatelyx135–258/y330–594, profilex474–791/y438–540, rear/inside lower row",
+        "Mara ARTIST-HANDOFF.md:9–13; technical BRIEF.md:5–13"
+      ],
+      "explanation": "Rounded apron, simple saddle, cream entry/interior, counter and low heel are explicit design roles. Independent unitless drawings leave depth/cavity consistency to new authorship, not measurements or an anatomical last.",
+      "alternatives": [
+        {
+          "choice": "A: new standalone original cage/depth owner",
+          "tradeoff": "Useful inspectable design source and inward surfaces; adds artistic and visual risk and grants no fit."
+        },
+        {
+          "choice": "B: retain drawing and defer coupled foot/body owner",
+          "tradeoff": "Avoids another isolated volume and prioritizes stronger eventual fit authority, but leaves no standalone 3D artist source."
+        }
+      ]
+    },
+    {
+      "id": "W2",
+      "classification": "New surface authority is a mandatory source-gate condition",
+      "witness": [
+        "PLAN.md:15,19–25",
+        "Ari lowtop IMAGE-REVIEW.md:F1–F3,17; README.md:9,28",
+        "footwear-coverage-first-view README.md:7–9"
+      ],
+      "explanation": "The old analytic loft/component form and its render/source rescue are closed. A genuinely authored connected cage with complete boundary/crease/subdivision/interface duties is a different proposal to prepare; subdivision alone is not a new artist master or successful shape.",
+      "alternatives": [
+        {
+          "choice": "A: complete new cage/topology/entry policy before any entry",
+          "tradeoff": "A distinct surface authority can be judged, but all actual data and whole-image gates still may refuse it."
+        },
+        {
+          "choice": "B: defer footwear and retain the accepted drawing",
+          "tradeoff": "Avoids repeated isolated geometry work; leaves Mara volume unowned."
+        }
+      ]
+    }
+  ],
+  "next_scope": {
+    "worthwhile": "Only complete inert original source/geometry/API/workload preparation after root whole-pair/current-pin verification.",
+    "execution_admitted": false,
+    "fresh_max_window_minutes": 90,
+    "prospective_caps": {
+      "vertices": 8192,
+      "triangles": 16000,
+      "named_parts": 20,
+      "JSON_bytes": 2097152,
+      "OBJ_bytes": 2097152,
+      "MTL_bytes": 8192
+    },
+    "requires": "Exact authored cage/adjacency/boundary/crease/subdivision/entry/lining/interface owners; resource and failure contracts; explicit separately qualified lifetime-client adoption; source A/root gate before sole CPU, independent actual data before separate fixed GPU gate.",
+    "first_B_or_unknown": "Close without repair, retry, retake or successor in that window."
+  },
+  "limits": [
+    "Original accepted 2D image/source are unchanged; unregistered design views are not fitted dimensions or reconstructed 3D projections.",
+    "No old rejected builder/model/renderer import or edit, no old foot-source/native/capture route or held constructor reopened.",
+    "No new reference, code, cage, builder, client, API experiment, target import/check/evaluation, CPU/GPU/browser/native/capture/imagegen or subagent.",
+    "No anatomical pair/body foot/last/fit/manufacturing/physical cavity/lining/material/rig/motion/runtime/AAA/roadmap checkbox credit.",
+    "All22scoped/10broad goals, main/frozen/default/original/accepted assets and human pause boundary remain preserved."
+  ],
+  "jobs": [
+    {
+      "name": "plan",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PLAN.md','WORTH-INPUTS.json']:\n b=(p/n).read_bytes();print('FILE',str(p/n),len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(str(i)+': '+line)\nPY",
+      "chunk_id": "c6944b",
+      "wall_time_seconds": 8.291e-06,
+      "exit_code": 0,
+      "original_token_count": 2978,
+      "process_line": "PID 44270 UTC 2026-10-19T18:04:37.865625+00:00"
+    },
+    {
+      "name": "sources",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib\nroot=Path('/Users/robault/GitHub/sugata-avatar');leaf=root/'docs/evidence/appearance-2026-10-19/mara-loafer-first-volume'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nm=json.loads((leaf/'WORTH-INPUTS.json').read_text())\nfor row in m['inputs']:\n p=Path(row['path']);b=p.read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256'],str(p)\nprint('ALL18_INPUT_PINS_EXACT')\nfiles=[\n'docs/evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md',\n'docs/evidence/appearance-2026-10-06/mara-loafer-first-native/README.md',\n'docs/evidence/appearance-2026-10-06/mara-loafer-technical-design/BRIEF.md',\n'docs/evidence/appearance-2026-10-06/mara-loafer-primary-study/README.md',\n'docs/evidence/appearance-2026-10-05/footwear-coverage-first-view/README.md',\n'docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/README.md',\n'docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/IMAGE-REVIEW.md']\nfor name in files:\n p=root/name;b=p.read_bytes();print('FILE',str(p),len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(str(i)+': '+line)\nfor name,ranges in [('docs/RESUME-2026-10-18.md',[(1,55)]),('docs/PROJECT-CHECKLIST.md',[(1,999)]),('docs/PRODUCT-ROADMAP.md',[(1,160)])]:\n p=root/name;print('SELECTED',str(p),ranges)\n for i,line in enumerate(p.read_text().splitlines(),1):\n  if any(a<=i<=b for a,b in ranges):print(str(i)+': '+line)\nPY",
+      "chunk_id": "0537e9",
+      "wall_time_seconds": 6.75e-06,
+      "exit_code": 0,
+      "original_token_count": 18523,
+      "process_line": "Warning: truncated output (original token count: 18523)"
+    },
+    {
+      "name": "recovery",
+      "command": "python3 -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime\nr=Path('/Users/robault/GitHub/sugata-avatar')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\np=r/'docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/IMAGE-REVIEW.md'\nprint('RECOVER_COMPLETE',str(p));print(p.read_text())\nfor name,ranges in [('docs/RESUME-2026-10-18.md',[(1,12)]),('docs/PRODUCT-ROADMAP.md',[(1,34),(123,138)])]:\n print('SELECTED',str(r/name),ranges)\n for i,line in enumerate((r/name).read_text().splitlines(),1):\n  if any(a<=i<=b for a,b in ranges):print(str(i)+': '+line)\np=r/'docs/PROJECT-CHECKLIST.md';lines=p.read_text().splitlines();print('CHECKLIST_SELECTED',str(p))\nfor i,line in enumerate(lines,1):\n if any(x in line.lower() for x in ['mara','outstanding','footwear','loafer']):print(str(i)+': '+line)\nprint('CHECKBOX_COUNTS',sum(line.lstrip().startswith('- [x]') for line in lines),sum(line.lstrip().startswith('- [ ]') for line in lines))\nprint('CORRECTION','0537e9 output was clipped, so no whole read claim for its full checkpoint/checklist/roadmap selections. The required Ari image review is fully recovered here; prior six complete handoff/brief/README texts appeared before clipping. Current broader-doc scope is only the printed selected ranges/rows, with full byte identities already verified.')\nPY",
+      "chunk_id": "2e9b21",
+      "wall_time_seconds": 8.209e-06,
+      "exit_code": 0,
+      "original_token_count": 4949,
+      "process_line": "PID 46306 UTC 2026-10-19T18:05:40.718631+00:00"
+    }
+  ],
+  "observer_corrections": [
+    {
+      "job": "0537e9",
+      "issue": "Combined output clipped midway through required Ari image review and larger checkpoint/checklist/roadmap selections.",
+      "correction": "2e9b21 fully recovers Ari image review and prints bounded relevant current broader-doc ranges/rows. Do not infer full broader-doc reads from clipped output.",
+      "effect": "Read-scope correction only; all18 exact pin checks passed, no input or target change."
+    }
+  ],
+  "output_review": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/WORTH.md",
+    "bytes": 3003,
+    "sha256": "19ccfb8e74b2fb76a289bfaa3353bbeb3eec3243c0f636e8d657b8e3abe29bdf"
+  },
+  "writes": [
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/WORTH.md",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/WORTH-RECEIPT.json"
+  ],
+  "collection_method": "Exclusive pair writes after all18 input pins reverified; full stable readback/hashes follow externally."
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "root-one-entry-intent-v1",
+  "utc": "2026-10-19T18:42:28.066886+00:00",
+  "pid": 43372,
+  "admission": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/CPU-ADMISSION.json",
+    "bytes": 15335,
+    "sha256": "ff8100f7774e237a362e465e317497e7fdd7fc337124a5bd6eaed6c25d87fd23"
+  },
+  "argv": [
+    "/opt/homebrew/bin/node",
+    "--max-old-space-size=128",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/build.mjs"
+  ],
+  "environment": {
+    "NODE_OPTIONS": "",
+    "NODE_PATH": "",
+    "SUGATA_ADMISSION_SHA256": "ff8100f7774e237a362e465e317497e7fdd7fc337124a5bd6eaed6c25d87fd23"
+  },
+  "entry_ordinal": 1,
+  "spent_on": "Next exact root exec_command; never repeat even on failure or unknown",
+  "mandatory_output_inventory": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/ROOT-OUTPUT-PROTOCOL.json",
+    "bytes": 2762,
+    "sha256": "d427bddb094dc61eb0701ed860c99900c4d6c9bc94ebdc8b21906e0b6a71f878"
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "schema": "mara-loafer-single-build-result-v1",
+  "status": "PASS",
+  "vertices": 4160,
+  "triangles": 8292,
+  "parts": 9,
+  "audits": [
+    {
+      "id": "upper-with-inward-lining",
+      "vertices": 2256,
+      "triangles": 4512,
+      "edges": 6768,
+      "euler": 0,
+      "signedVolume": 0.28277573565307035
+    },
+    {
+      "id": "perforated-saddle",
+      "vertices": 640,
+      "triangles": 1280,
+      "edges": 1920,
+      "euler": 0,
+      "signedVolume": 0.024002454646841177
+    },
+    {
+      "id": "brown-midsole",
+      "vertices": 290,
+      "triangles": 576,
+      "edges": 864,
+      "euler": 2,
+      "signedVolume": 0.9128885517578128
+    },
+    {
+      "id": "dark-forepart",
+      "vertices": 148,
+      "triangles": 292,
+      "edges": 438,
+      "euler": 2,
+      "signedVolume": 0.3408576284285069
+    },
+    {
+      "id": "low-stacked-heel",
+      "vertices": 128,
+      "triangles": 252,
+      "edges": 378,
+      "euler": 2,
+      "signedVolume": 0.20456337727697216
+    },
+    {
+      "id": "dark-heel-patch",
+      "vertices": 128,
+      "triangles": 252,
+      "edges": 378,
+      "euler": 2,
+      "signedVolume": 0.04362984141839758
+    },
+    {
+      "id": "cream-footbed",
+      "vertices": 290,
+      "triangles": 576,
+      "edges": 864,
+      "euler": 2,
+      "signedVolume": 0.08531996849121179
+    },
+    {
+      "id": "rounded-apron-pipe",
+      "vertices": 248,
+      "triangles": 492,
+      "edges": 738,
+      "euler": 2,
+      "signedVolume": 0.0038253372349443693
+    },
+    {
+      "id": "counter-seam",
+      "vertices": 32,
+      "triangles": 60,
+      "edges": 90,
+      "euler": 2,
+      "signedVolume": 0.0001642157381871127
+    }
+  ],
+  "sharedOuterContacts": 144,
+  "outputs": [
+    {
+      "name": "model.json",
+      "bytes": 417170,
+      "sha256": "81390a94ccfb1052ac84808a6142548e30e7e2ab7767bd43b12899997a5137a6"
+    },
+    {
+      "name": "loafer.obj",
+      "bytes": 284326,
+      "sha256": "4254f08ff407d814a81f4f5db448170c2e09d67ed244b77efe791ca0d9ada0f1"
+    },
+    {
+      "name": "materials.mtl",
+      "bytes": 305,
+      "sha256": "6d818b2c781edd899f170810e02269ff360de50f103fa55bb0060712541f57c0"
+    }
+  ],
+  "pid": 43420,
+  "utc": "2026-10-19T18:42:32.078Z",
+  "node": "26.9.0",
+  "postImportMs": 109.37245899999999,
+  "sampledRss": 164986880,
+  "guardSamples": 2694,
+  "loopSteps": 673140,
+  "limits": "One new unitless artist cage/model; data only, no appearance/physical cavity/fit/client/GPU/physical release/performance qualification."
+}
