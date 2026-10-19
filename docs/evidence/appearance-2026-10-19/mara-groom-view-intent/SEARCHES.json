@@ -1,0 +1,104 @@
+[
+  {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://www.facebook.com/SamVillaPros/posts/we-love-a-bob-moment-especially-the-versatility-of-the-soft-shell-bob-this-innov/1043170627178014/\",\"title\":\"We love a bob moment - especially the versatility of the Soft Shell Bob ...\",\"description\":\"This innovative cut combines a solid bob shape with a detached floating top section, offering endless styling options. Whether you want a sleek ...\",\"position\":1},{\"url\":\"https://www.youtube.com/watch?v=ktmVwEpJLFg\",\"title\":\"How to Add Movement to a Bob Haircut - YouTube\",\"description\":\"Sam Villa Ambassador Molly Getz shares how to add movement and #texture to a #bobhaircut while keeping it full and soft. Learn how to layer ...\",\"position\":2},{\"url\":\"https://www.instagram.com/reel/DRMOhKVD_wz/?hl=en\",\"title\":\"Sam Villa on Instagram: \\\"Creating Volume in ⁠a Bob ...\",\"description\":\"Sam Villa is lifting the shape with intentional elevation and adding soft, frothy texture through the interior to give the bob movement without ...\",\"position\":3}],\"tools\":[{\"provider\":\"youtube\",\"capability\":\"read\",\"description\":\"Read video metadata, description and any available transcript. Transcript availability is not guaranteed. Not channel listings, comments or timestamped captions. Scrape pricing per successful attempt: 1 credit base, plus 4 for audio and 4 for video (5 for either, 9 for both), before other Scrape surcharges. The wrapper adds no charge; underlying Scrape requests are billed separately at their current rate. Invalid YouTube Markdown may trigger one fresh Scrape call.\"}]},\"creditsUsed\":2,\"id\":\"01a15425-78da-725f-afd0-4d484374a869\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://www.facebook.com/SamVillaPros/posts/we-love-a-bob-moment-especially-the-versatility-of-the-soft-shell-bob-this-innov/1043170627178014/\\\", #2 \\\"https://www.youtube.com/watch?v=ktmVwEpJLFg\\\", #3 \\\"https://www.instagram.com/reel/DRMOhKVD_wz/?hl=en\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://www.facebook.com/SamVillaPros/posts/we-love-a-bob-moment-especially-the-versatility-of-the-soft-shell-bob-this-innov/1043170627178014/",
+            "title": "We love a bob moment - especially the versatility of the Soft Shell Bob ...",
+            "description": "This innovative cut combines a solid bob shape with a detached floating top section, offering endless styling options. Whether you want a sleek ...",
+            "position": 1
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=ktmVwEpJLFg",
+            "title": "How to Add Movement to a Bob Haircut - YouTube",
+            "description": "Sam Villa Ambassador Molly Getz shares how to add movement and #texture to a #bobhaircut while keeping it full and soft. Learn how to layer ...",
+            "position": 2
+          },
+          {
+            "url": "https://www.instagram.com/reel/DRMOhKVD_wz/?hl=en",
+            "title": "Sam Villa on Instagram: \"Creating Volume in ⁠a Bob ...",
+            "description": "Sam Villa is lifting the shape with intentional elevation and adding soft, frothy texture through the interior to give the bob movement without ...",
+            "position": 3
+          }
+        ],
+        "tools": [
+          {
+            "provider": "youtube",
+            "capability": "read",
+            "description": "Read video metadata, description and any available transcript. Transcript availability is not guaranteed. Not channel listings, comments or timestamped captions. Scrape pricing per successful attempt: 1 credit base, plus 4 for audio and 4 for video (5 for either, 9 for both), before other Scrape surcharges. The wrapper adds no charge; underlying Scrape requests are billed separately at their current rate. Invalid YouTube Markdown may trigger one fresh Scrape call."
+          }
+        ]
+      },
+      "id": "01a15425-78da-725f-afd0-4d484374a869",
+      "creditsUsed": 2,
+      "agent_hints": [
+        "All 3 web results are excerpts only (#1 \"https://www.facebook.com/SamVillaPros/posts/we-love-a-bob-moment-especially-the-versatility-of-the-soft-shell-bob-this-innov/1043170627178014/\", #2 \"https://www.youtube.com/watch?v=ktmVwEpJLFg\", #3 \"https://www.instagram.com/reel/DRMOhKVD_wz/?hl=en\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+      ]
+    },
+    "isError": false
+  },
+  {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://www.artstation.com/artwork/b05Wxr\",\"title\":\"Bob hairstyle and simulation - ArtStation\",\"description\":\"In this project, I created a bob hairstyle using traditional hair-layering techniques. The goal of simulation was to produce subtle, natural ...\",\"position\":1},{\"url\":\"https://www.artstation.com/marketplace/b/qNrY/real-time-female-bob-hairstyles-collection-5-variants-discounted-bundle-extended-license-game-ready-hair-asset\",\"title\":\"Real-Time Female Bob Hairstyles Collection (5 Variants, Discounted ...\",\"description\":\"This pack includes five unique variations of the classic Bob hairstyle, optimized for use in games, cinematics, and real-time applications.\",\"position\":2},{\"url\":\"https://www.pinterest.com/ideas/silver-hair-bob-haircut/943427181376/\",\"title\":\"Silver Hair Bob Haircut - Pinterest\",\"description\":\"Find and save ideas about silver hair bob haircut. Discover Pinterest's best ideas and inspiration for Silver hair bob haircut. From Bangs to Pixie and Curly ...\",\"position\":3}],\"tools\":[{\"provider\":\"rover-com\",\"capability\":\"pet-care-services/search_sitters\",\"description\":\"Find sitters for a service near a place, optionally for dates, dog size and budget; then chain `slug`/`opk` into the detail functions.\"},{\"provider\":\"rover-com\",\"capability\":\"pet-care-services/get_sitter\",\"description\":\"After `search_sitters`, to read a sitter's full profile and every listed rate.\"},{\"provider\":\"fresha-com\",\"capability\":\"professionals/professional_detail\",\"description\":\"Detail read after search_professionals or autocomplete, or for a pasted fresha.com/p/ link.\"}]},\"creditsUsed\":2,\"id\":\"01a15425-81f1-7249-9aef-93504711f5a8\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://www.artstation.com/artwork/b05Wxr\\\", #2 \\\"https://www.artstation.com/marketplace/b/qNrY/real-time-female-bob-hairstyles-collection-5-variants-discounted-bundle-extended-license-game-ready-hair-asset\\\", #3 \\\"https://www.pinterest.com/ideas/silver-hair-bob-haircut/943427181376/\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://www.artstation.com/artwork/b05Wxr",
+            "title": "Bob hairstyle and simulation - ArtStation",
+            "description": "In this project, I created a bob hairstyle using traditional hair-layering techniques. The goal of simulation was to produce subtle, natural ...",
+            "position": 1
+          },
+          {
+            "url": "https://www.artstation.com/marketplace/b/qNrY/real-time-female-bob-hairstyles-collection-5-variants-discounted-bundle-extended-license-game-ready-hair-asset",
+            "title": "Real-Time Female Bob Hairstyles Collection (5 Variants, Discounted ...",
+            "description": "This pack includes five unique variations of the classic Bob hairstyle, optimized for use in games, cinematics, and real-time applications.",
+            "position": 2
+          },
+          {
+            "url": "https://www.pinterest.com/ideas/silver-hair-bob-haircut/943427181376/",
+            "title": "Silver Hair Bob Haircut - Pinterest",
+            "description": "Find and save ideas about silver hair bob haircut. Discover Pinterest's best ideas and inspiration for Silver hair bob haircut. From Bangs to Pixie and Curly ...",
+            "position": 3
+          }
+        ],
+        "tools": [
+          {
+            "provider": "rover-com",
+            "capability": "pet-care-services/search_sitters",
+            "description": "Find sitters for a service near a place, optionally for dates, dog size and budget; then chain `slug`/`opk` into the detail functions."
+          },
+          {
+            "provider": "rover-com",
+            "capability": "pet-care-services/get_sitter",
+            "description": "After `search_sitters`, to read a sitter's full profile and every listed rate."
+          },
+          {
+            "provider": "fresha-com",
+            "capability": "professionals/professional_detail",
+            "description": "Detail read after search_professionals or autocomplete, or for a pasted fresha.com/p/ link."
+          }
+        ]
+      },
+      "id": "01a15425-81f1-7249-9aef-93504711f5a8",
+      "creditsUsed": 2,
+      "agent_hints": [
+        "All 3 web results are excerpts only (#1 \"https://www.artstation.com/artwork/b05Wxr\", #2 \"https://www.artstation.com/marketplace/b/qNrY/real-time-female-bob-hairstyles-collection-5-variants-discounted-bundle-extended-license-game-ready-hair-asset\", #3 \"https://www.pinterest.com/ideas/silver-hair-bob-haircut/943427181376/\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+      ]
+    },
+    "isError": false
+  }
+]

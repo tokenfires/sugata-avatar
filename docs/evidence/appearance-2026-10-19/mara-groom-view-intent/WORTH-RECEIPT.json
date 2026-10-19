@@ -1,0 +1,177 @@
+{
+  "schema": "independent-mara-hidden-groom-worth-v1",
+  "verdict": "A bounded reference/BRIEF/PROMPT preparation only; future source/root gate mandatory",
+  "pending_edits": false,
+  "read_scopes": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/PLAN.md",
+      "scope": "Whole5579-byte nomination"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "scope": "Whole15lines; source witness7/13"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-RESULT.md",
+      "scope": "Whole17lines, especially17closedvariation versus openhidden source"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-source/ARTIST-HANDOFF.md",
+      "scope": "Whole16lines, direct path locator extra; kept atlas/native limits distinct"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/ROOT-CLOSE.json",
+      "scope": "Whole267lines metadata; no new nested49pin audit or material inquiry"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "scope": "1–47 and112–138 only; Phase1 and phased workorder"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "scope": "Whole65line attempted scope; actual61lines,22scoped/10broad retained"
+    }
+  ],
+  "visual_read": {
+    "tool": "view_image",
+    "detail": "original",
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+    "bytes": 2383355,
+    "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311",
+    "scope": "Whole unchanged1536×1024; both shallow/front panels viewed; no rear/crown geometry inference",
+    "pixel_witnesses": [
+      [
+        306,
+        11,
+        460,
+        152
+      ],
+      [
+        823,
+        20,
+        1410,
+        530
+      ]
+    ],
+    "tool_result": "Original image returned; no capture or image edit; no executable PID exposed by image viewer"
+  },
+  "commands": [
+    {
+      "chunk_id": "ece719",
+      "pid": 3875,
+      "utc": "2026-10-19T12:27:41.825732+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\np=Path('docs/evidence/appearance-2026-10-19/mara-groom-view-intent/PLAN.md');b=p.read_bytes();print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat());print('FILE',p.resolve(),'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "scope": "Whole PLAN raw bytes/hash/text"
+    },
+    {
+      "chunk_id": "a2ffc8",
+      "pid": 4262,
+      "utc": "2026-10-19T12:27:54.364247+00:00",
+      "exit_code": 1,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nbase=Path('docs/evidence/appearance-2026-10-05/mature-feminine-character-target')\nfor p in [base/'ARTIST-HANDOFF.md',base/'IMAGE-RESULT.md',Path('docs/evidence/appearance-2026-10-19/knit-cancellation-contract/ROOT-CLOSE.json')]:\n b=p.read_bytes();print('\\nFILE',p.resolve(),'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest())\n for n,line in enumerate(b.decode().splitlines(),1):print(f'{n}: {line}')\np=base/'concept-v1.png';b=p.read_bytes();print('\\nORIGINAL',p.resolve(),'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest())\nPY",
+      "scope": "Read-only guessed handoff path absent; stopped before source reads or writes"
+    },
+    {
+      "chunk_id": "101d7a",
+      "pid": null,
+      "exit_code": 0,
+      "cmd": "rg --files docs | rg '(MARA|mara|mature).*(ARTIST-HANDOFF|IMAGE-RESULT)|ARTIST.*MARA'",
+      "scope": "Bounded filename inventory locating literal Mara/mature ARTIST-HANDOFF/IMAGE-RESULT paths; no corpus semantic search"
+    },
+    {
+      "chunk_id": "b80d6d",
+      "pid": 4944,
+      "utc": "2026-10-19T12:28:15.415143+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\npaths=['docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md','docs/evidence/appearance-2026-10-19/mara-material-source/ARTIST-HANDOFF.md','docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-RESULT.md','docs/evidence/appearance-2026-10-19/knit-cancellation-contract/ROOT-CLOSE.json']\nfor name in paths:\n p=Path(name);b=p.read_bytes();print('\\nFILE',p.resolve(),'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(f'{i}: {line}')\np=Path('docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png');b=p.read_bytes();print('ORIGINAL',p.resolve(),len(b),hashlib.sha256(b).hexdigest())\nPY",
+      "scope": "Whole actual handoffs/old image result/current closed knit metadata; original raw SHA"
+    },
+    {
+      "chunk_id": "b40962",
+      "pid": 5851,
+      "utc": "2026-10-19T12:28:43.841161+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name,ranges in [('docs/PRODUCT-ROADMAP.md',[(1,47),(112,138)]),('docs/PROJECT-CHECKLIST.md',[(1,65)])]:\n p=Path(name);b=p.read_bytes();lines=b.decode().splitlines();print('\\nFILE',p.resolve(),'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest())\n for lo,hi in ranges:\n  for n in range(lo,min(hi,len(lines))+1):print(f'{n}: {lines[n-1]}')\nPY",
+      "scope": "Selected roadmap and whole checklist actual scopes"
+    }
+  ],
+  "findings": [],
+  "decision_witness": {
+    "source": "Character ARTIST-HANDOFF7/13; IMAGE-RESULT17; currentPLAN hidden-view decision",
+    "effect": "A new rear/crown/ear/nape choice is unowned by two accepted front anchors, independently of accepted front quality. Preparation is potentially useful without reopening front variation.",
+    "alternatives": [
+      {
+        "choice": "Prepare literal hidden-view companion contract",
+        "tradeoff": "Concrete creative target for later groom authoring, but consistency may fail and no editable/native groom is supplied"
+      },
+      {
+        "choice": "Defer until complete native head/groom owner",
+        "tradeoff": "Stronger attachment/form context and no image churn, but no immediate hidden-view intent"
+      }
+    ]
+  },
+  "future_gate_conditions": [
+    "Complete literal anatomical view conventions/newchoices/frontinvariants; no new age/face/material/palette/front quality rescue.",
+    "At most2queries/2primarypages/2actualreferenceviews only after root verification; end research when choice made.",
+    "Separate full prompt/source/workload/critic/root gate before one built-in generation, opaque/default allowance, original unchanged.",
+    "40minutes from future rootworth acceptance through first actual decision/checkpoint; no retry/edit/regeneration/fallback.",
+    "No native model/API, source construction, six MaraPNG viewing, constructor release, board/checklist or broadqualification admitted."
+  ],
+  "retained_error": "The guessed target-leaf ARTIST-HANDOFF path did not exist. Actual handoff located by bounded rg filenames at mature-wardrobe-board, then fully read and exact parent-supplied3053-byte/SHA witness matched. This is reader-path recovery, not target failure.",
+  "limits": [
+    "Read-only local text/hash/image worth review only; no reference/network/browser/GPU/native/capture/imagegen/code/import/evaluation.",
+    "No global source absence, current hair defect, hidden anatomy or exact registered geometry inferred.",
+    "Prior fixed-image variation/native rescue/knit closures remain intact;22scoped10broad/fullroadmap/constructorHOLD unchanged.",
+    "No next experiment automatically admitted; root independently verifies stable pair before preparation."
+  ],
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/PLAN.md",
+      "bytes": 5579,
+      "sha256": "b93ebe675433a3b27e0ce9ec19c4a8b85d9f7b9f76c62bdb450419e65292c77c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "bytes": 3053,
+      "sha256": "f0f6118b1916220de67cb8748ec7232e1ab1b32e745415eb9c1d7629f429ca1d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-RESULT.md",
+      "bytes": 5825,
+      "sha256": "cb77b501d5b99d655f4153422998f7617a9185f5fe2760779c43eb4d157bc9e3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-source/ARTIST-HANDOFF.md",
+      "bytes": 1661,
+      "sha256": "defb4d4e393eabf788b68478c4f84f91fe1e6b964486ea0a6fa87434ca75fa48"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/ROOT-CLOSE.json",
+      "bytes": 13970,
+      "sha256": "296570abcf847d6b87c872f93e585be5bdcf7a6c88ccf40c92716b33ce59044a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    }
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/WORTH.md",
+    "bytes": 3296,
+    "sha256": "7a1c0c7b8a65398b8bc2eb428f3a805c27c37d2a775607a9c8a144f1de98fcd9"
+  },
+  "collected_utc": "2026-10-19T12:30:12.669483+00:00",
+  "collection_pid": 8521
+}
