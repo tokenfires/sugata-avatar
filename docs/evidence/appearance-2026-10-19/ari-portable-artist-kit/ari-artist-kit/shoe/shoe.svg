@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="ari-shoe-sheet" width="1440" height="1180" viewBox="0 0 1440 1180" data-view="sheet" data-feature="layout">
+  <title id="sheet-title">Ari — quiet ivory low-top, left shoe</title>
+  <desc id="sheet-description">Original unitless artist design. Six independent left-shoe schematics and an entry/lacing detail. These are not registered projections, a physical pattern or foot-fit evidence.</desc>
+  <style id="sheet-style">text{font-family:Arial,Helvetica,sans-serif;fill:#514c43}path,ellipse,circle,rect,line{stroke-linejoin:round;stroke-linecap:round}.upper{fill:#f4f0e6;stroke:#655f53;stroke-width:2.2}.panel{fill:#e8e3d8;stroke:#655f53;stroke-width:2}.sole{fill:#dfd9c9;stroke:#655f53;stroke-width:2.2}.edge{fill:#bdb7a8;stroke:#655f53;stroke-width:1.5}.lining{fill:#c6c6bd;stroke:#77796f;stroke-width:1.8}.bed{fill:#e0ddd2;stroke:#929184;stroke-width:1.5}.line{fill:none;stroke:#7b7568;stroke-width:1.6}.eye{fill:#d8d2c4;stroke:#817b6d;stroke-width:1.8}.lace-dark{fill:none;stroke:#999486;stroke-width:7}.lace-light{fill:none;stroke:#faf7ee;stroke-width:4}.heading{font-size:18px;font-weight:700;letter-spacing:1px}.label{font-size:15px}.small{font-size:14px;fill:#766e60}.number{fill:#a05e45}.rule{stroke:#d6cdbd;stroke-width:1.2}.leader{fill:none;stroke:#a05e45;stroke-width:1.3}</style>
+  <rect id="paper" x="0" y="0" width="1440" height="1180" fill="#f8f5ee" stroke="none"/>
+  <text id="main-heading" x="54" y="53" font-size="31" font-weight="700" data-feature="heading">ARI / QUIET IVORY LOW-TOP</text>
+  <text id="main-subheading" x="54" y="83" class="label" data-feature="scope">Original left-shoe artist design · plain toe, unstriped sidewall, five lace pairs</text>
+  <text id="header-scope" x="1386" y="57" text-anchor="end" class="small" data-feature="scope">UNITLESS · NOT A SEWING PATTERN</text>
+  <line id="header-rule" x1="54" y1="101" x2="1386" y2="101" class="rule"/>
+
+  <g id="top-view" data-view="left-top" data-feature="top-shell">
+    <text id="top-title" x="65" y="131" class="heading"><tspan id="top-number" class="number">01</tspan>  LEFT / TOP</text>
+    <g id="top-shoe" transform="translate(70 155)">
+      <path id="top-shell" class="upper" d="M150 0 C85 0 40 35 39 85 C36 134 62 180 75 230 L80 325 C82 370 110 390 146 390 C185 390 210 365 211 327 L209 240 C214 180 246 140 253 89 C261 35 219 0 150 0 Z"/>
+      <g id="top-quarter-panels" data-feature="quarters">
+        <path id="top-outer-quarter" class="panel" d="M44 119 Q72 136 109 148 L129 268 Q111 291 100 310 L83 337 L75 230 Q66 185 44 119 Z"/>
+        <path id="top-inner-quarter" class="panel" d="M249 119 Q221 137 183 148 L165 268 Q184 291 196 310 L211 337 L209 240 Q217 185 249 119 Z"/>
+      </g>
+      <g id="top-entry" data-feature="collar-lining">
+        <path id="top-collar-rim" class="upper" d="M118 267 Q146 258 174 267 Q199 298 194 336 Q186 372 146 379 Q105 372 97 336 Q92 298 118 267 Z"/>
+        <path id="top-entry-lining" class="lining" d="M123 278 Q146 270 169 278 Q188 302 183 334 Q177 358 146 366 Q114 358 108 334 Q103 302 123 278 Z"/>
+        <path id="top-footbed" class="bed" data-feature="footbed" d="M126 299 Q146 286 166 299 Q179 318 173 336 Q166 352 146 357 Q124 351 118 334 Q112 316 126 299 Z"/>
+      </g>
+      <path id="top-tongue" class="upper" data-feature="tongue" d="M108 145 Q145 127 184 145 L175 274 Q147 290 120 274 Z"/>
+      <g id="top-eyelet-stays" data-feature="eyelet-stays">
+        <path id="top-outer-stay" class="panel" d="M89 132 L112 144 L132 274 L114 285 L94 171 Z"/>
+        <path id="top-inner-stay" class="panel" d="M204 132 L181 144 L163 274 L180 285 L201 171 Z"/>
+      </g>
+      <g id="top-five-eyelet-pairs" data-feature="five-eyelet-pairs">
+        <circle id="top-eye-outer-1" class="eye" cx="105" cy="155" r="4.5"/><circle id="top-eye-inner-1" class="eye" cx="186" cy="155" r="4.5"/>
+        <circle id="top-eye-outer-2" class="eye" cx="109" cy="179" r="4.5"/><circle id="top-eye-inner-2" class="eye" cx="182" cy="179" r="4.5"/>
+        <circle id="top-eye-outer-3" class="eye" cx="113" cy="203" r="4.5"/><circle id="top-eye-inner-3" class="eye" cx="178" cy="203" r="4.5"/>
+        <circle id="top-eye-outer-4" class="eye" cx="117" cy="227" r="4.5"/><circle id="top-eye-inner-4" class="eye" cx="174" cy="227" r="4.5"/>
+        <circle id="top-eye-outer-5" class="eye" cx="121" cy="251" r="4.5"/><circle id="top-eye-inner-5" class="eye" cx="170" cy="251" r="4.5"/>
+      </g>
+      <g id="top-lace-under" data-feature="lace-under-layer">
+        <path id="top-lace-under-border" class="lace-dark" d="M105 155 L186 155 M105 155 L182 179 M109 179 L178 203 M113 203 L174 227 M117 227 L170 251"/>
+        <path id="top-lace-under-tape" class="lace-light" d="M105 155 L186 155 M105 155 L182 179 M109 179 L178 203 M113 203 L174 227 M117 227 L170 251"/>
+      </g>
+      <g id="top-lace-over" data-feature="lace-over-layer">
+        <path id="top-lace-over-border" class="lace-dark" d="M186 155 L109 179 M182 179 L113 203 M178 203 L117 227 M174 227 L121 251"/>
+        <path id="top-lace-over-tape" class="lace-light" d="M186 155 L109 179 M182 179 L113 203 M178 203 L117 227 M174 227 L121 251"/>
+      </g>
+      <path id="top-lace-finish-border" class="lace-dark" data-feature="lace-finish" d="M121 251 Q144 264 170 251 M143 258 Q123 251 125 273 Q142 283 147 261 Q170 255 169 276 Q150 281 147 261"/>
+      <path id="top-lace-finish-tape" class="lace-light" data-feature="lace-finish" d="M121 251 Q144 264 170 251 M143 258 Q123 251 125 273 Q142 283 147 261 Q170 255 169 276 Q150 281 147 261"/>
+      <text id="top-toe-label" x="146" y="-8" text-anchor="middle" class="small" data-feature="orientation">TOE ↑</text>
+      <text id="top-medial-label" x="245" y="300" class="small" data-feature="orientation">Medial</text>
+      <path id="top-medial-leader" class="leader" data-feature="orientation" d="M238 295 L218 295 L209 311"/>
+    </g>
+    <text id="top-caption-1" x="65" y="580" class="label" data-feature="caption">Plain vamp · two quarter panels</text>
+    <text id="top-caption-2" x="65" y="603" class="label" data-feature="caption">Five pairs; crossing layers over tongue</text>
+    <text id="top-caption-3" x="65" y="626" class="small" data-feature="caption">Left shoe: medial edge at viewer-right.</text>
+  </g>
+
+  <g id="lateral-view" data-view="left-lateral" data-feature="lateral-shell">
+    <text id="lateral-title" x="450" y="131" class="heading"><tspan id="lateral-number" class="number">02</tspan>  LATERAL / OUTER</text>
+    <g id="lateral-shoe" transform="translate(440 180)">
+      <path id="lateral-upper" class="upper" data-feature="vamp" d="M10 131 C25 103 59 87 112 89 L178 67 Q208 34 234 33 L253 45 Q257 68 278 65 Q300 43 325 43 L413 60 Q441 67 451 93 L460 128 Z"/>
+      <path id="lateral-quarter" class="panel" data-feature="outer-quarter" d="M167 72 L244 44 Q253 67 278 65 Q300 43 325 43 L413 60 Q441 67 451 93 L460 128 L190 130 Z"/>
+      <path id="lateral-entry" class="lining" data-feature="collar-lining" d="M253 45 Q260 68 278 65 Q300 43 325 43 L367 49 Q345 70 321 75 L285 78 Q266 73 253 45 Z"/>
+      <path id="lateral-counter" class="upper" data-feature="heel-counter" d="M387 57 L413 60 Q441 67 451 93 L460 128 L384 129 Z"/>
+      <path id="lateral-tongue" class="upper" data-feature="tongue" d="M181 68 Q204 29 229 22 L244 34 L233 48 L208 78 Z"/>
+      <path id="lateral-stay" class="upper" data-feature="eyelet-stays" d="M161 76 Q193 41 233 33 L253 45 L225 75 L179 93 Z"/>
+      <g id="lateral-eyelet-row" data-feature="five-eyelet-pairs">
+        <circle id="lateral-eye-1" class="eye" cx="178" cy="78" r="3.8"/><circle id="lateral-eye-2" class="eye" cx="192" cy="66" r="3.8"/><circle id="lateral-eye-3" class="eye" cx="207" cy="54" r="3.8"/><circle id="lateral-eye-4" class="eye" cx="222" cy="44" r="3.8"/><circle id="lateral-eye-5" class="eye" cx="237" cy="40" r="3.8"/>
+      </g>
+      <path id="lateral-lace-abbreviation" class="line" data-feature="lace-profile-abbreviation" d="M178 78 L192 81 M192 66 L208 70 M207 54 L223 60 M222 44 L238 50 M237 40 L248 44"/>
+      <path id="lateral-sidewall" class="sole" data-feature="sidewall" d="M10 131 L460 128 Q469 134 468 147 L467 163 L8 163 Q3 147 10 131 Z"/>
+      <path id="lateral-contact-band" class="edge" data-feature="contact-edge" d="M7 157 L467 157 L467 163 L8 163 Z"/>
+      <path id="lateral-attachment-line" class="line" data-feature="upper-sidewall-junction" d="M12 134 L459 131"/>
+      <text id="lateral-toe-direction" x="11" y="190" class="small" data-feature="orientation">← TOE</text>
+      <text id="lateral-heel-direction" x="467" y="190" text-anchor="end" class="small" data-feature="orientation">HEEL →</text>
+    </g>
+    <text id="lateral-caption" x="450" y="401" class="small" data-feature="caption">Five near-side eyelets shown; far row concealed. Low unstriped sidewall.</text>
+  </g>
+
+  <g id="medial-view" data-view="left-medial" data-feature="medial-shell">
+    <text id="medial-title" x="450" y="443" class="heading"><tspan id="medial-number" class="number">03</tspan>  MEDIAL / INNER</text>
+    <g id="medial-shoe" transform="translate(440 465)">
+      <path id="medial-upper" class="upper" data-feature="vamp" d="M12 128 L22 91 Q28 63 61 57 L147 42 Q174 42 194 65 Q215 68 224 45 L243 33 Q267 33 298 67 L364 89 C418 87 451 103 465 131 Z"/>
+      <path id="medial-quarter" class="panel" data-feature="inner-quarter" d="M12 128 L22 91 Q28 63 61 57 L147 42 Q174 42 194 65 Q215 68 224 45 L243 33 L309 76 L286 130 Z"/>
+      <path id="medial-entry" class="lining" data-feature="collar-lining" d="M105 49 L147 42 Q174 42 194 65 Q215 68 224 45 Q211 74 193 78 L154 75 Q130 70 105 49 Z"/>
+      <path id="medial-counter" class="upper" data-feature="heel-counter" d="M61 57 L86 57 L88 129 L12 128 L22 91 Q28 63 61 57 Z"/>
+      <path id="medial-tongue" class="upper" data-feature="tongue" d="M233 48 L224 34 L239 22 Q264 28 287 68 L261 78 Z"/>
+      <path id="medial-stay" class="upper" data-feature="eyelet-stays" d="M223 45 L243 33 Q270 40 299 76 L281 93 L231 75 Z"/>
+      <g id="medial-eyelet-row" data-feature="five-eyelet-pairs">
+        <circle id="medial-eye-5" class="eye" cx="239" cy="40" r="3.8"/><circle id="medial-eye-4" class="eye" cx="254" cy="44" r="3.8"/><circle id="medial-eye-3" class="eye" cx="269" cy="54" r="3.8"/><circle id="medial-eye-2" class="eye" cx="284" cy="66" r="3.8"/><circle id="medial-eye-1" class="eye" cx="298" cy="78" r="3.8"/>
+      </g>
+      <path id="medial-lace-abbreviation" class="line" data-feature="lace-profile-abbreviation" d="M239 40 L228 44 M254 44 L238 50 M269 54 L253 60 M284 66 L268 70 M298 78 L284 81"/>
+      <path id="medial-sidewall" class="sole" data-feature="sidewall" d="M12 128 L465 131 Q472 147 467 163 L8 163 L7 147 Q6 134 12 128 Z"/>
+      <path id="medial-contact-band" class="edge" data-feature="contact-edge" d="M8 157 L467 157 L467 163 L8 163 Z"/>
+      <path id="medial-attachment-line" class="line" data-feature="upper-sidewall-junction" d="M14 131 L463 134"/>
+      <text id="medial-heel-direction" x="11" y="190" class="small" data-feature="orientation">← HEEL</text>
+      <text id="medial-toe-direction" x="467" y="190" text-anchor="end" class="small" data-feature="orientation">TOE →</text>
+    </g>
+    <text id="medial-caption" x="450" y="683" class="small" data-feature="caption">Independent inner view; near row shown, far row concealed. No vent holes.</text>
+  </g>
+
+  <g id="front-view" data-view="left-front" data-feature="toe-shell">
+    <text id="front-title" x="1040" y="131" class="heading"><tspan id="front-number" class="number">04</tspan>  FRONT / TOE</text>
+    <g id="front-shoe" transform="translate(1060 195)">
+      <path id="front-tongue" class="upper" data-feature="tongue" d="M86 82 L86 23 Q120 6 154 23 L154 82 Z"/>
+      <path id="front-lace-hints-border" class="lace-dark" data-feature="lace-profile-abbreviation" d="M90 34 Q120 43 150 34 M88 49 Q120 60 152 49 M87 64 Q120 75 153 64"/>
+      <path id="front-lace-hints-tape" class="lace-light" data-feature="lace-profile-abbreviation" d="M90 34 Q120 43 150 34 M88 49 Q120 60 152 49 M87 64 Q120 75 153 64"/>
+      <path id="front-vamp" class="upper" data-feature="vamp" d="M8 140 C16 104 36 77 70 59 Q120 40 170 59 C209 77 230 104 237 140 Q120 154 8 140 Z"/>
+      <path id="front-sidewall" class="sole" data-feature="sidewall" d="M8 140 Q120 154 237 140 L239 161 Q120 177 5 161 Z"/>
+      <path id="front-contact-band" class="edge" data-feature="contact-edge" d="M5 155 Q120 171 239 155 L239 161 Q120 177 5 161 Z"/>
+    </g>
+    <text id="front-caption-1" x="1040" y="398" class="label" data-feature="caption">Plain rounded forefoot; no toe cap.</text>
+    <text id="front-caption-2" x="1040" y="420" class="small" data-feature="caption">Rear lace rows partly occluded.</text>
+  </g>
+
+  <g id="rear-view" data-view="left-rear" data-feature="heel-shell">
+    <text id="rear-title" x="1040" y="453" class="heading"><tspan id="rear-number" class="number">05</tspan>  REAR / HEEL</text>
+    <g id="rear-shoe" transform="translate(1080 477)">
+      <path id="rear-upper" class="upper" data-feature="quarters" d="M15 36 Q100 3 185 36 L183 139 Q102 162 17 139 Z"/>
+      <ellipse id="rear-entry-lining" class="lining" data-feature="collar-lining" cx="100" cy="35" rx="69" ry="21"/>
+      <path id="rear-counter" class="panel" data-feature="heel-counter" d="M22 65 Q100 84 178 65 L181 139 Q102 158 19 139 Z"/>
+      <path id="rear-back-join" class="line" data-feature="back-join" d="M100 76 L100 148"/>
+      <path id="rear-sidewall" class="sole" data-feature="sidewall" d="M17 139 Q102 158 183 139 L185 163 Q102 181 15 163 Z"/>
+      <path id="rear-contact-band" class="edge" data-feature="contact-edge" d="M15 157 Q102 175 185 157 L185 163 Q102 181 15 163 Z"/>
+    </g>
+    <text id="rear-caption" x="1040" y="681" class="small" data-feature="caption">Collar entry · counter overlay · central back join</text>
+  </g>
+  <line id="bottom-separator" x1="54" y1="705" x2="1386" y2="705" class="rule"/>
+
+  <g id="outsole-view" data-view="left-outsole" data-feature="outsole-silhouette">
+    <text id="outsole-title" x="65" y="737" class="heading"><tspan id="outsole-number" class="number">06</tspan>  OUTSOLE / BELOW</text>
+    <g id="outsole-shoe" transform="translate(106 765)">
+      <path id="outsole-edge" class="edge" d="M118 0 C59 0 24 28 20 65 C16 105 49 139 61 171 L58 244 C56 276 82 299 116 300 C151 301 179 278 179 246 L177 174 C177 138 205 106 209 66 C214 29 177 0 118 0 Z"/>
+      <path id="outsole-field" class="sole" d="M118 9 C65 9 34 32 30 66 C27 101 58 135 71 170 L68 243 C66 270 87 289 116 290 C146 291 169 271 169 246 L167 174 C168 136 195 102 199 65 C203 32 172 9 118 9 Z"/>
+      <g id="outsole-forefoot-marks" data-feature="outsole-mark-intent">
+        <path id="outsole-forefoot-mark-1" class="line" d="M53 51 Q116 29 178 51"/>
+        <path id="outsole-forefoot-mark-2" class="line" d="M45 72 Q117 51 185 72"/>
+        <path id="outsole-forefoot-mark-3" class="line" d="M49 94 Q117 77 181 94"/>
+        <path id="outsole-forefoot-mark-4" class="line" d="M59 116 Q118 103 171 116"/>
+        <path id="outsole-forefoot-mark-5" class="line" d="M74 139 Q118 129 157 139"/>
+      </g>
+      <g id="outsole-heel-marks" data-feature="outsole-mark-intent">
+        <path id="outsole-heel-mark-1" class="line" d="M84 230 Q116 221 153 230"/>
+        <path id="outsole-heel-mark-2" class="line" d="M82 250 Q116 241 154 250"/>
+        <path id="outsole-heel-mark-3" class="line" d="M94 270 Q116 265 143 270"/>
+      </g>
+      <text id="outsole-medial-label" x="-38" y="180" class="small" data-feature="orientation">Medial</text>
+      <path id="outsole-medial-leader" class="leader" data-feature="orientation" d="M8 176 L48 176 L61 186"/>
+      <text id="outsole-arch-label" x="122" y="190" text-anchor="middle" class="small" data-feature="caption">Arch break</text>
+    </g>
+    <text id="outsole-caption-1" x="65" y="1090" class="small" data-feature="caption">Toe up; medial at viewer-left.</text>
+    <text id="outsole-caption-2" x="65" y="1111" class="small" data-feature="caption">Original surface marks; no grip claim.</text>
+  </g>
+
+  <g id="inside-detail" data-view="entry-and-lacing-detail" data-feature="inside-ownership">
+    <text id="inside-title" x="450" y="737" class="heading"><tspan id="inside-number" class="number">07</tspan>  ENTRY + LACE ORDER / ENLARGED INTENT</text>
+    <g id="entry-section" transform="translate(470 785)" data-feature="lining-return">
+      <path id="entry-outer-wall" class="upper" d="M24 55 Q82 20 137 50 Q187 21 240 55 L237 165 Q182 186 135 166 Q80 186 27 165 Z"/>
+      <path id="entry-lining-return" class="lining" d="M24 55 Q82 20 137 50 Q187 21 240 55 L226 66 Q184 42 137 65 Q82 42 38 66 L39 154 Q85 169 135 152 Q182 169 225 154 L226 66 L240 55 L237 165 Q182 186 135 166 Q80 186 27 165 Z"/>
+      <path id="entry-footbed-surface" class="bed" data-feature="footbed" d="M48 139 Q89 123 135 136 Q182 122 217 139 L212 153 Q177 166 135 153 Q89 166 51 153 Z"/>
+      <path id="entry-cut-edge-left" class="leader" data-feature="section-convention" d="M16 48 L33 62 M19 60 L35 74"/>
+      <path id="entry-cut-edge-right" class="leader" data-feature="section-convention" d="M233 49 L248 62 M232 61 L247 74"/>
+      <text id="entry-section-caption" x="132" y="206" text-anchor="middle" class="small" data-feature="caption">Opened section, not a measured foot cavity.</text>
+    </g>
+    <g id="entry-labels" data-feature="inside-labels">
+      <text id="lining-label" x="752" y="837" class="label">Lining returns over collar</text>
+      <path id="lining-leader" class="leader" d="M743 832 L719 832 L706 842"/>
+      <text id="footbed-label" x="752" y="922" class="label">Footbed surface intent</text>
+      <path id="footbed-leader" class="leader" d="M742 917 L713 917 L686 931"/>
+    </g>
+    <g id="lace-detail" transform="translate(1060 785)" data-feature="tongue-under-laces">
+      <path id="detail-tongue" class="upper" data-feature="tongue" d="M46 8 Q121 -4 194 8 L185 198 Q121 214 56 198 Z"/>
+      <path id="detail-outer-quarter" class="panel" data-feature="outer-quarter" d="M8 20 L55 9 L74 200 L25 212 Z"/>
+      <path id="detail-inner-quarter" class="panel" data-feature="inner-quarter" d="M232 20 L186 9 L168 200 L215 212 Z"/>
+      <g id="detail-three-central-pairs" data-feature="lace-detail-abbreviation">
+        <circle id="detail-eye-outer-1" class="eye" cx="48" cy="55" r="6"/><circle id="detail-eye-inner-1" class="eye" cx="193" cy="55" r="6"/>
+        <circle id="detail-eye-outer-2" class="eye" cx="54" cy="108" r="6"/><circle id="detail-eye-inner-2" class="eye" cx="187" cy="108" r="6"/>
+        <circle id="detail-eye-outer-3" class="eye" cx="60" cy="161" r="6"/><circle id="detail-eye-inner-3" class="eye" cx="181" cy="161" r="6"/>
+        <path id="detail-under-border" class="lace-dark" data-feature="lace-under-layer" d="M48 55 L187 108 M54 108 L181 161"/>
+        <path id="detail-under-tape" class="lace-light" data-feature="lace-under-layer" d="M48 55 L187 108 M54 108 L181 161"/>
+        <path id="detail-over-border" class="lace-dark" data-feature="lace-over-layer" d="M193 55 L54 108 M187 108 L60 161"/>
+        <path id="detail-over-tape" class="lace-light" data-feature="lace-over-layer" d="M193 55 L54 108 M187 108 L60 161"/>
+      </g>
+    </g>
+    <text id="inside-caption-1" x="450" y="1040" class="label" data-feature="caption">Tongue below laces; quarter edges bound the opening. Right inset shows central pairs only.</text>
+    <text id="inside-caption-2" x="450" y="1064" class="small" data-feature="caption">Full top view owns all five pairs. Solid marks show visible design lines; section breaks are labelled.</text>
+    <text id="right-counterpart-note" x="450" y="1100" class="small" data-feature="right-counterpart-intent">Right counterpart: mirrored stylistic roles intended; no right shoe or anatomical pair is drawn.</text>
+  </g>
+
+  <line id="footer-rule" x1="54" y1="1131" x2="1386" y2="1131" class="rule"/>
+  <text id="footer-scope" x="54" y="1155" class="small" data-feature="scope">Artist schematics, independently authored views. Physical pattern, lining continuity, manufacturing, materials and foot/body fit remain open.</text>
+  <text id="footer-motion-scope" x="1386" y="1155" text-anchor="end" class="small" data-feature="scope">Motion / runtime unqualified</text>
+</svg>

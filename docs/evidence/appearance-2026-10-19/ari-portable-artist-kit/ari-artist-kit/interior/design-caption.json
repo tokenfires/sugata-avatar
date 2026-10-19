@@ -1,0 +1,2002 @@
+{
+  "schema": "sugata.original-interior-art.v1",
+  "authoritative_file": "interior-caption.svg",
+  "svg_bytes": 13143,
+  "svg_sha256": "9ee8e1ede810689eca0ff558a952dba6915fcf827f223dbbc5ff9c0131ce33f2",
+  "viewBox": "0 0 1280 1260",
+  "units": "Original drawing units, no physical scale",
+  "side_convention": "All NEW inside studies wearerR=imageleft. Retained exteriorrear conventions unchanged.",
+  "views": {
+    "front-interior": "Bothfrontlinings/facings, separateziphalfintent, hiddenbags behindlining, noaccessibleinsidepocket.",
+    "back-interior": "Complete declared backandbothsleevelining, neckfacing/collar/fold/underarm/hem/cuffs. Independent insidefacegraphic, notexteriorrearprojection.",
+    "facing-detail": "Lefthalf enlargedlining/facing/guard/zipintent; rightcounterpart remainsfront.",
+    "pocket-detail": "Explodedartist shellmouth/bagenvelope/liningcover roles; L counterpart mirroredintent.",
+    "neck-detail": "Backneckfacing/collar/foldsymbol andfrontfacingendparents."
+  },
+  "roles": {
+    "LF-R": {
+      "elements": [
+        "lining-front-R",
+        "LF-R-label"
+      ],
+      "boundaries": {
+        "shoulder": "LB.S-R",
+        "side": "LB.T-R",
+        "armhole": "LS-R.cap",
+        "inner_front": "F-R.inner",
+        "neck_end": "N.right_junction",
+        "lower": "H.front_R"
+      }
+    },
+    "LF-L": {
+      "elements": [
+        "lining-front-L",
+        "LF-L-label",
+        "detail-lining-L"
+      ],
+      "boundaries": {
+        "shoulder": "LB.S-L",
+        "side": "LB.T-L",
+        "armhole": "LS-L.cap",
+        "inner_front": "F-L.inner",
+        "neck_end": "N.left_junction",
+        "lower": "H.front_L"
+      }
+    },
+    "LB": {
+      "elements": [
+        "lining-back",
+        "LB-label",
+        "detail-back-lining"
+      ],
+      "boundaries": {
+        "shoulder_R": "LF-R.shoulder",
+        "shoulder_L": "LF-L.shoulder",
+        "side_R": "LF-R.side",
+        "side_L": "LF-L.side",
+        "armhole_R": "LS-R.cap",
+        "armhole_L": "LS-L.cap",
+        "neck": "N.lower",
+        "lower": "H.back"
+      }
+    },
+    "LS-R": {
+      "elements": [
+        "lining-sleeve-R",
+        "LS-R-label",
+        "sleeve-underarm-R"
+      ],
+      "boundaries": {
+        "cap": "LF-R.armhole+LB.armhole_R",
+        "underarm": "LS-R.self_seam",
+        "wrist": "C-R.lining_join",
+        "silhouette_sides": "LS-R.view_contour"
+      }
+    },
+    "LS-L": {
+      "elements": [
+        "lining-sleeve-L",
+        "LS-L-label",
+        "sleeve-underarm-L"
+      ],
+      "boundaries": {
+        "cap": "LF-L.armhole+LB.armhole_L",
+        "underarm": "LS-L.self_seam",
+        "wrist": "C-L.lining_join",
+        "silhouette_sides": "LS-L.view_contour"
+      }
+    },
+    "N": {
+      "elements": [
+        "neck-facing",
+        "N-label",
+        "neck-lining-join",
+        "detail-neck-facing",
+        "detail-N-label"
+      ],
+      "boundaries": {
+        "lower": "LB.neck",
+        "right_junction": "F-R.neck_end",
+        "left_junction": "F-L.neck_end",
+        "outer_neck": "Collar.inner"
+      }
+    },
+    "F-R": {
+      "elements": [
+        "facing-front-R",
+        "F-R-label",
+        "facing-lining-join-R",
+        "detail-F-R-end"
+      ],
+      "boundaries": {
+        "inner": "LF-R.inner_front",
+        "zip_support": "Z-R.edge",
+        "neck_end": "N.right_junction",
+        "lower": "H.front_R"
+      }
+    },
+    "F-L": {
+      "elements": [
+        "facing-front-L",
+        "F-L-label",
+        "facing-lining-join-L",
+        "detail-facing-L",
+        "detail-F-label",
+        "detail-facing-lining-join",
+        "detail-F-L-end"
+      ],
+      "boundaries": {
+        "inner": "LF-L.inner_front",
+        "zip_support": "Z-L.edge",
+        "neck_end": "N.left_junction",
+        "lower": "H.front_L",
+        "guard_attachment": "G-L.attached_edge"
+      }
+    },
+    "Z-R": {
+      "elements": [
+        "zip-half-R"
+      ],
+      "boundaries": {
+        "support": "F-R.zip_support",
+        "center_front": "OPEN.front"
+      }
+    },
+    "Z-L": {
+      "elements": [
+        "zip-half-L",
+        "detail-zip-L",
+        "detail-zip-teeth-L",
+        "detail-Z-label"
+      ],
+      "boundaries": {
+        "support": "F-L.zip_support",
+        "center_front": "OPEN.front"
+      }
+    },
+    "G-L": {
+      "elements": [
+        "guard-left",
+        "detail-guard-L",
+        "detail-G-label"
+      ],
+      "boundaries": {
+        "attached_edge": "F-L.guard_attachment",
+        "free_edge": "G-L.view_free_edge"
+      },
+      "layer_order": "Behind retained left zipper Z-L; not a third zip edge."
+    },
+    "P-R": {
+      "elements": [
+        "hidden-mouth-R",
+        "detail-outer-mouth-R",
+        "detail-outer-pocket-zip-R",
+        "detail-shell-patch-R",
+        "detail-P-label"
+      ],
+      "boundaries": {
+        "mouth": "B-R.mouth",
+        "support": "Shell.front_R"
+      },
+      "access": "Outer shell only, not lining."
+    },
+    "P-L": {
+      "elements": [
+        "hidden-mouth-L"
+      ],
+      "boundaries": {
+        "mouth": "B-L.mouth",
+        "support": "Shell.front_L"
+      },
+      "access": "Outer shell only, not lining; counterpart of right enlarged detail."
+    },
+    "B-R": {
+      "elements": [
+        "hidden-bag-R",
+        "B-R-label",
+        "detail-bag-R",
+        "detail-bag-mouth-R",
+        "detail-B-label",
+        "bag-mouth-parent-links"
+      ],
+      "boundaries": {
+        "mouth": "P-R.mouth",
+        "perimeter": "B-R.self_envelope"
+      },
+      "layer_order": "Behind LF-R; LF-R has no accessible mouth."
+    },
+    "B-L": {
+      "elements": [
+        "hidden-bag-L",
+        "B-L-label"
+      ],
+      "boundaries": {
+        "mouth": "P-L.mouth",
+        "perimeter": "B-L.self_envelope"
+      },
+      "layer_order": "Behind LF-L; LF-L has no accessible mouth."
+    },
+    "H": {
+      "elements": [
+        "hem-front-R",
+        "hem-front-L",
+        "hem-back",
+        "front-lining-hem-join",
+        "back-lining-hem-join",
+        "front-lower-open-edges",
+        "back-lower-open-edge"
+      ],
+      "boundaries": {
+        "front_R": "LF-R.lower+F-R.lower",
+        "front_L": "LF-L.lower+F-L.lower",
+        "back": "LB.lower",
+        "shell": "Shell.hem",
+        "lower_edge": "OPEN.hem"
+      }
+    },
+    "C-R": {
+      "elements": [
+        "cuff-R",
+        "cuff-R-label",
+        "sleeve-cuff-joins",
+        "wrist-open-edges"
+      ],
+      "boundaries": {
+        "lining_join": "LS-R.wrist",
+        "shell": "Shell.sleeve_R",
+        "wrist_edge": "OPEN.wrist_R"
+      }
+    },
+    "C-L": {
+      "elements": [
+        "cuff-L",
+        "cuff-L-label",
+        "sleeve-cuff-joins",
+        "wrist-open-edges"
+      ],
+      "boundaries": {
+        "lining_join": "LS-L.wrist",
+        "shell": "Shell.sleeve_L",
+        "wrist_edge": "OPEN.wrist_L"
+      }
+    },
+    "Collar": {
+      "elements": [
+        "retained-collar",
+        "detail-collar"
+      ],
+      "boundaries": {
+        "inner": "N.outer_neck",
+        "outer": "Shell.collar",
+        "neck_front": "OPEN.neck_front"
+      }
+    },
+    "Back fold": {
+      "elements": [
+        "back-fold",
+        "fold-note",
+        "detail-back-fold"
+      ],
+      "boundaries": {
+        "contained_within": "LB.interior"
+      },
+      "scope": "New fold symbol below N, no measured allowance or physical fold."
+    },
+    "Shell": {
+      "elements": [
+        "detail-shell-patch-R"
+      ],
+      "external_source": "../../appearance-2026-10-07/ari-bomber-drawing/bomber.svg",
+      "scope": "Retained outer design, not reconstructed as a new surface."
+    },
+    "OPEN": {
+      "elements": [
+        "front-lower-open-edges",
+        "back-lower-open-edge",
+        "wrist-open-edges",
+        "zip-half-R",
+        "zip-half-L"
+      ],
+      "scope": "Graphic neck/front/hem/wrist openings only, no physical topology proof."
+    }
+  },
+  "join_markers": {
+    "S-R": [
+      "back-S-R",
+      "front-S-R"
+    ],
+    "S-L": [
+      "front-S-L",
+      "back-S-L"
+    ],
+    "A-R": [
+      "front-A-R-leader",
+      "back-A-R",
+      "front-A-R"
+    ],
+    "A-L": [
+      "front-A-L-leader",
+      "back-A-L",
+      "front-A-L"
+    ],
+    "T-R": [
+      "back-T-R",
+      "front-T-R-leader",
+      "front-T-R"
+    ],
+    "T-L": [
+      "front-T-L",
+      "back-T-L",
+      "front-T-L-leader"
+    ]
+  },
+  "pocket_mouth_graphic_association": {
+    "retained_source": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-bomber-drawing/bomber.svg",
+      "bytes": 13197,
+      "sha256": "ff9a259c8fe5a6d576cceda0df230ff56ef0b756c4d58a6e40b3cb695fa77d7f"
+    },
+    "source_operand_R": [
+      [
+        84,
+        198
+      ],
+      [
+        106,
+        244
+      ]
+    ],
+    "source_operand_L": [
+      [
+        236,
+        198
+      ],
+      [
+        214,
+        244
+      ]
+    ],
+    "main_hidden_operands": "Same literal originalcoordinates; lightdashed roleonly.",
+    "detail_shell_R": {
+      "scale": 2,
+      "offset": [
+        -142,
+        -361
+      ],
+      "points": [
+        [
+          26,
+          35
+        ],
+        [
+          70,
+          127
+        ]
+      ]
+    },
+    "detail_bag_R": {
+      "scale": 2,
+      "offset": [
+        -22,
+        -361
+      ],
+      "points": [
+        [
+          146,
+          35
+        ],
+        [
+          190,
+          127
+        ]
+      ]
+    },
+    "detail_layer_separation": [
+      120,
+      0
+    ],
+    "scope": "Exact graphicmouth correspondence within originalauthoredsource andtheRdetail; notphysicalposition/cutseamregistration."
+  },
+  "complete_svg_tree": {
+    "tag": "svg",
+    "attributes": {
+      "id": "interior-sheet",
+      "width": "1280",
+      "height": "1260",
+      "viewBox": "0 0 1280 1260",
+      "role": "img",
+      "aria-labelledby": "title description"
+    },
+    "text": null,
+    "children": [
+      {
+        "tag": "title",
+        "attributes": {
+          "id": "title"
+        },
+        "text": "Ari: inside the short bomber",
+        "children": []
+      },
+      {
+        "tag": "desc",
+        "attributes": {
+          "id": "description"
+        },
+        "text": "Original unitless front and back interior studies with full sleeve lining, neck and front facings, hidden outer-pocket bags, separate zipper halves and retained open neck, hem and wrists. Details explain facing, pocket layers and back fold intent. These independent artist views are not sewing patterns or fitted surfaces.",
+        "children": []
+      },
+      {
+        "tag": "defs",
+        "attributes": {
+          "id": "resources"
+        },
+        "text": null,
+        "children": [
+          {
+            "tag": "style",
+            "attributes": {
+              "id": "styles"
+            },
+            "text": "\ntext{font-family:Arial,Helvetica,sans-serif;fill:#352f2b}.title{font-size:34px;font-weight:700}.label{font-size:21px;font-weight:700}.note{font-size:17px;fill:#5b6259}.small{font-size:15px;fill:#5b6259}.code{font-size:14px;font-weight:700}.paper{fill:#faf6ee}.lining{fill:#e8cdb8;stroke:#48342b;stroke-width:1.8;stroke-linejoin:round}.facing{fill:#c59170;stroke:#48342b;stroke-width:1.8;stroke-linejoin:round}.shell{fill:#b86c49;stroke:#48342b;stroke-width:1.8;stroke-linejoin:round}.trim{fill:#9c573b;stroke:#48342b;stroke-width:1.8;stroke-linejoin:round}.bag{fill:#f4e7d8;stroke:#765947;stroke-width:1.5;stroke-dasharray:5 4}.hidden{fill:none;stroke:#9c8a7c;stroke-width:1.5;stroke-dasharray:3 5}.seam{fill:none;stroke:#75503e;stroke-width:1.5;stroke-dasharray:6 4}.edge{fill:none;stroke:#48342b;stroke-width:2}.zip{fill:none;stroke:#e5d4b9;stroke-width:3;stroke-dasharray:2 2}.leader{fill:none;stroke:#8e7e6e;stroke-width:1.2}.fold{fill:none;stroke:#9b6e54;stroke-width:1.6}.join{fill:#faf6ee;stroke:#75503e;stroke-width:1.4}\n",
+            "children": []
+          },
+          {
+            "tag": "pattern",
+            "attributes": {
+              "id": "gather",
+              "width": "12",
+              "height": "10",
+              "patternUnits": "userSpaceOnUse"
+            },
+            "text": null,
+            "children": [
+              {
+                "tag": "path",
+                "attributes": {
+                  "id": "gather-mark",
+                  "d": "M3 0Q7 5 3 10M9 0Q5 5 9 10",
+                  "fill": "none",
+                  "stroke": "#d6a182",
+                  "stroke-width": "1"
+                },
+                "text": null,
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "rect",
+        "attributes": {
+          "id": "paper",
+          "width": "1280",
+          "height": "1260",
+          "class": "paper"
+        },
+        "text": null,
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "eyebrow",
+          "x": "48",
+          "y": "42",
+          "class": "small"
+        },
+        "text": "SUGATA / ARI / ORIGINAL EDITABLE WARDROBE",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "heading",
+          "x": "48",
+          "y": "90",
+          "class": "title"
+        },
+        "text": "Inside the short bomber.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "subheading",
+          "x": "48",
+          "y": "122",
+          "class": "note"
+        },
+        "text": "Warm lining, distinct facings, hidden bags. Inside face: wearer R at image-left throughout.",
+        "children": []
+      },
+      {
+        "tag": "path",
+        "attributes": {
+          "id": "header-rule",
+          "d": "M48 148H1232",
+          "stroke": "#d4c8b9"
+        },
+        "text": null,
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "front-heading",
+          "x": "64",
+          "y": "186",
+          "class": "label"
+        },
+        "text": "01 / Front interiors",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "back-heading",
+          "x": "688",
+          "y": "186",
+          "class": "label"
+        },
+        "text": "02 / Back and sleeve interiors",
+        "children": []
+      },
+      {
+        "tag": "path",
+        "attributes": {
+          "id": "main-divider",
+          "d": "M620 172V676",
+          "stroke": "#e2d9ca"
+        },
+        "text": null,
+        "children": []
+      },
+      {
+        "tag": "g",
+        "attributes": {
+          "id": "front-interior",
+          "transform": "translate(100 218) scale(1.18)"
+        },
+        "text": null,
+        "children": [
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "lining-front-R",
+              "class": "lining",
+              "d": "M139 53L128 171L121 302H52Q82 215 73 130L80 39Q109 22 137 16Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "lining-front-L",
+              "class": "lining",
+              "d": "M181 53L192 171L199 302H268Q238 215 247 130L240 39Q211 22 183 16Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "facing-front-R",
+              "class": "facing",
+              "d": "M155 42L144 172L139 302H121L128 171L139 53Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "guard-left",
+              "d": "M166 65L173 172L181 302H167L161 176L154 72Z",
+              "fill": "#f1ddc8",
+              "stroke": "#765947",
+              "stroke-width": "1.5"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "facing-front-L",
+              "class": "facing",
+              "d": "M165 42L176 172L181 302H199L192 171L181 53Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "facing-lining-join-R",
+              "class": "seam",
+              "d": "M139 53L128 171L121 302"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "facing-lining-join-L",
+              "class": "seam",
+              "d": "M181 53L192 171L199 302"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "zip-half-R",
+              "class": "zip",
+              "d": "M151 52L140 172L135 301"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "zip-half-L",
+              "class": "zip",
+              "d": "M169 52L180 172L185 301"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "hidden-bag-R",
+              "class": "hidden",
+              "d": "M84 198L106 244Q115 262 118 285H79Q65 249 77 213Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "hidden-bag-L",
+              "class": "hidden",
+              "d": "M236 198L214 244Q205 262 202 285H241Q255 249 243 213Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "hidden-mouth-R",
+              "class": "hidden",
+              "d": "M84 198L106 244"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "hidden-mouth-L",
+              "class": "hidden",
+              "d": "M236 198L214 244"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "hem-front-R",
+              "class": "trim",
+              "d": "M52 302H139L137 330H57Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "hem-front-L",
+              "class": "trim",
+              "d": "M181 302H268L263 330H183Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "hem-front-gather",
+              "d": "M52 302H139L137 330H57ZM181 302H268L263 330H183Z",
+              "fill": "url(#gather)"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-lining-hem-join",
+              "class": "seam",
+              "d": "M56 298H121M199 298H264"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-lower-open-edges",
+              "class": "edge",
+              "d": "M57 330H137M183 330H263"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-side-joins",
+              "class": "seam",
+              "d": "M73 138Q78 222 57 286M247 138Q242 222 263 286"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-armhole-joins",
+              "class": "seam",
+              "d": "M80 39Q104 86 96 125M240 39Q216 86 224 125"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-right-label",
+              "x": "90",
+              "y": "0",
+              "class": "code"
+            },
+            "text": "R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-left-label",
+              "x": "224",
+              "y": "0",
+              "class": "code"
+            },
+            "text": "L",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "LF-R-label",
+              "x": "85",
+              "y": "166",
+              "class": "code"
+            },
+            "text": "LF-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "LF-L-label",
+              "x": "202",
+              "y": "166",
+              "class": "code"
+            },
+            "text": "LF-L",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "F-R-label",
+              "x": "107",
+              "y": "110",
+              "class": "code"
+            },
+            "text": "F-R",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "F-R-leader",
+              "class": "leader",
+              "d": "M132 106L145 108"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "F-L-label",
+              "x": "189",
+              "y": "110",
+              "class": "code"
+            },
+            "text": "F-L",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "F-L-leader",
+              "class": "leader",
+              "d": "M187 106L175 108"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "B-R-label",
+              "x": "79",
+              "y": "270",
+              "class": "code"
+            },
+            "text": "B-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "B-L-label",
+              "x": "211",
+              "y": "270",
+              "class": "code"
+            },
+            "text": "B-L",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-S-R",
+              "x": "97",
+              "y": "42",
+              "class": "code"
+            },
+            "text": "S-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-S-L",
+              "x": "201",
+              "y": "42",
+              "class": "code"
+            },
+            "text": "S-L",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-A-R",
+              "x": "40",
+              "y": "100",
+              "class": "code"
+            },
+            "text": "A-R",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-A-R-leader",
+              "class": "leader",
+              "d": "M68 96L94 96"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-A-L",
+              "x": "253",
+              "y": "100",
+              "class": "code"
+            },
+            "text": "A-L",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-A-L-leader",
+              "class": "leader",
+              "d": "M251 96L226 96"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-T-R",
+              "x": "22",
+              "y": "230",
+              "class": "code"
+            },
+            "text": "T-R",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-T-R-leader",
+              "class": "leader",
+              "d": "M49 226L69 226"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-T-L",
+              "x": "271",
+              "y": "230",
+              "class": "code"
+            },
+            "text": "T-L",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-T-L-leader",
+              "class": "leader",
+              "d": "M268 226L251 226"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-H-label",
+              "x": "155",
+              "y": "326",
+              "class": "code"
+            },
+            "text": "H",
+            "children": []
+          }
+        ]
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "front-caption-1",
+          "x": "64",
+          "y": "642",
+          "class": "note"
+        },
+        "text": "B-R / B-L are hidden behind the lining.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "front-caption-2",
+          "x": "64",
+          "y": "668",
+          "class": "note"
+        },
+        "text": "Pocket access stays on the outer shell; see 04.",
+        "children": []
+      },
+      {
+        "tag": "g",
+        "attributes": {
+          "id": "back-interior",
+          "transform": "translate(738 218) scale(1.18)"
+        },
+        "text": null,
+        "children": [
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "lining-back",
+              "class": "lining",
+              "d": "M132 16Q160 30 188 16Q215 22 240 39L248 132Q239 218 268 302H52Q81 215 72 132L80 39Q108 22 132 16Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "lining-sleeve-R",
+              "class": "lining",
+              "d": "M80 39L52 155L20 304L45 315L81 186L96 125Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "lining-sleeve-L",
+              "class": "lining",
+              "d": "M240 39L268 155L300 304L275 315L239 186L224 125Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "neck-facing",
+              "class": "facing",
+              "d": "M132 16Q160 30 188 16L199 52Q160 70 121 52Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "neck-lining-join",
+              "class": "seam",
+              "d": "M123 53Q160 70 197 53"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "retained-collar",
+              "class": "trim",
+              "d": "M132 16Q160 30 188 16L186 37Q160 48 134 37Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "back-fold",
+              "class": "fold",
+              "d": "M158 65V279M167 67V279M158 74L167 82"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "back-shoulder-joins",
+              "class": "seam",
+              "d": "M86 40L122 23M198 23L234 40"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "back-armhole-joins",
+              "class": "seam",
+              "d": "M80 39Q104 86 96 125M240 39Q216 86 224 125"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "back-side-joins",
+              "class": "seam",
+              "d": "M73 140Q77 224 58 285M247 140Q243 224 262 285"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "sleeve-underarm-R",
+              "class": "seam",
+              "d": "M90 132L73 191L42 300"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "sleeve-underarm-L",
+              "class": "seam",
+              "d": "M230 132L247 191L278 300"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "cuff-R",
+              "class": "trim",
+              "d": "M20 304L45 315L38 344L16 333Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "cuff-L",
+              "class": "trim",
+              "d": "M300 304L275 315L282 344L304 333Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "cuff-gathers",
+              "d": "M20 304L45 315L38 344L16 333ZM300 304L275 315L282 344L304 333Z",
+              "fill": "url(#gather)"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "sleeve-cuff-joins",
+              "class": "seam",
+              "d": "M21 301L45 312M299 301L275 312"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "wrist-open-edges",
+              "class": "edge",
+              "d": "M16 333L38 344M282 344L304 333"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "hem-back",
+              "class": "trim",
+              "d": "M52 302H268L263 330H57Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "hem-back-gather",
+              "d": "M52 302H268L263 330H57Z",
+              "fill": "url(#gather)"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "back-lining-hem-join",
+              "class": "seam",
+              "d": "M57 298H263"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "back-lower-open-edge",
+              "class": "edge",
+              "d": "M57 330H263"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "LB-label",
+              "x": "116",
+              "y": "180",
+              "class": "code"
+            },
+            "text": "LB",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "N-label",
+              "x": "153",
+              "y": "55",
+              "class": "code"
+            },
+            "text": "N",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "LS-R-label",
+              "x": "-31",
+              "y": "186",
+              "class": "code"
+            },
+            "text": "LS-R",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "LS-R-leader",
+              "class": "leader",
+              "d": "M8 181L52 188"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "LS-L-label",
+              "x": "306",
+              "y": "186",
+              "class": "code"
+            },
+            "text": "LS-L",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "LS-L-leader",
+              "class": "leader",
+              "d": "M302 181L268 188"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "back-S-R",
+              "x": "89",
+              "y": "28",
+              "class": "code"
+            },
+            "text": "S-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "back-S-L",
+              "x": "206",
+              "y": "28",
+              "class": "code"
+            },
+            "text": "S-L",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "back-A-R",
+              "x": "92",
+              "y": "99",
+              "class": "code"
+            },
+            "text": "A-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "back-A-L",
+              "x": "200",
+              "y": "99",
+              "class": "code"
+            },
+            "text": "A-L",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "back-T-R",
+              "x": "82",
+              "y": "230",
+              "class": "code"
+            },
+            "text": "T-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "back-T-L",
+              "x": "211",
+              "y": "230",
+              "class": "code"
+            },
+            "text": "T-L",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "cuff-R-label",
+              "x": "10",
+              "y": "363",
+              "class": "code"
+            },
+            "text": "C-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "cuff-L-label",
+              "x": "282",
+              "y": "363",
+              "class": "code"
+            },
+            "text": "C-L",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "back-H-label",
+              "x": "154",
+              "y": "324",
+              "class": "code"
+            },
+            "text": "H",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "fold-leader",
+              "class": "leader",
+              "d": "M175 113L282 84"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "fold-note",
+              "x": "252",
+              "y": "76",
+              "class": "code"
+            },
+            "text": "Fold",
+            "children": []
+          }
+        ]
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "back-caption-1",
+          "x": "688",
+          "y": "668",
+          "class": "note"
+        },
+        "text": "Inside-face study; not an exterior rear projection.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "join-key",
+          "x": "64",
+          "y": "707",
+          "class": "small"
+        },
+        "text": "S = shoulder, A = sleeve cap, T = side. Paired labels name intended joins; curves are not matched cut pieces.",
+        "children": []
+      },
+      {
+        "tag": "path",
+        "attributes": {
+          "id": "detail-rule",
+          "d": "M48 731H1232",
+          "stroke": "#d4c8b9"
+        },
+        "text": null,
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "facing-detail-heading",
+          "x": "48",
+          "y": "774",
+          "class": "label"
+        },
+        "text": "03 / Lining to front edge",
+        "children": []
+      },
+      {
+        "tag": "g",
+        "attributes": {
+          "id": "facing-detail",
+          "transform": "translate(58 819)"
+        },
+        "text": null,
+        "children": [
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-guard-L",
+              "d": "M70 0H94V208H70Z",
+              "fill": "#f1ddc8",
+              "stroke": "#765947",
+              "stroke-width": "1.5"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "rect",
+            "attributes": {
+              "id": "detail-facing-L",
+              "x": "94",
+              "y": "0",
+              "width": "54",
+              "height": "208",
+              "class": "facing"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "rect",
+            "attributes": {
+              "id": "detail-lining-L",
+              "x": "148",
+              "y": "0",
+              "width": "160",
+              "height": "208",
+              "class": "lining"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-facing-lining-join",
+              "class": "seam",
+              "d": "M148 7V201"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-zip-L",
+              "class": "edge",
+              "d": "M94 0V208"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-zip-teeth-L",
+              "class": "zip",
+              "d": "M94 8V199"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-LF-label",
+              "x": "204",
+              "y": "105",
+              "class": "code"
+            },
+            "text": "LF-L",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-F-label",
+              "x": "106",
+              "y": "105",
+              "class": "code"
+            },
+            "text": "F-L",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-G-label",
+              "x": "12",
+              "y": "145",
+              "class": "code"
+            },
+            "text": "G-L",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-G-leader",
+              "class": "leader",
+              "d": "M43 140L78 140"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-Z-label",
+              "x": "77",
+              "y": "-13",
+              "class": "code"
+            },
+            "text": "Z-L",
+            "children": []
+          }
+        ]
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "facing-caption-1",
+          "x": "48",
+          "y": "1070",
+          "class": "small"
+        },
+        "text": "LF-L meets F-L at their shared edge.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "facing-caption-2",
+          "x": "48",
+          "y": "1095",
+          "class": "small"
+        },
+        "text": "G-L remains behind the separate zip half.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "facing-caption-3",
+          "x": "48",
+          "y": "1120",
+          "class": "small"
+        },
+        "text": "The other front retains its own F-R / Z-R.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "pocket-detail-heading",
+          "x": "433",
+          "y": "774",
+          "class": "label"
+        },
+        "text": "04 / Bags behind the lining",
+        "children": []
+      },
+      {
+        "tag": "g",
+        "attributes": {
+          "id": "pocket-detail",
+          "transform": "translate(437 830) scale(.96)"
+        },
+        "text": null,
+        "children": [
+          {
+            "tag": "rect",
+            "attributes": {
+              "id": "detail-shell-patch-R",
+              "x": "0",
+              "y": "0",
+              "width": "101",
+              "height": "220",
+              "rx": "3",
+              "class": "shell"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-outer-mouth-R",
+              "class": "edge",
+              "d": "M26 35L70 127"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-outer-pocket-zip-R",
+              "class": "zip",
+              "d": "M26 35L70 127"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-bag-R",
+              "class": "bag",
+              "d": "M146 35L190 127Q208 163 214 209H136Q108 137 132 65Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-bag-mouth-R",
+              "class": "edge",
+              "d": "M146 35L190 127"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "bag-mouth-parent-links",
+              "class": "leader",
+              "d": "M26 35H146M70 127H190",
+              "stroke-dasharray": "3 4"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "rect",
+            "attributes": {
+              "id": "detail-lining-cover-R",
+              "x": "261",
+              "y": "0",
+              "width": "94",
+              "height": "220",
+              "rx": "3",
+              "class": "lining"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-P-label",
+              "x": "17",
+              "y": "-15",
+              "class": "code"
+            },
+            "text": "P-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-B-label",
+              "x": "151",
+              "y": "-15",
+              "class": "code"
+            },
+            "text": "B-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-cover-label",
+              "x": "284",
+              "y": "-15",
+              "class": "code"
+            },
+            "text": "LF-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-shell-word",
+              "x": "14",
+              "y": "240",
+              "class": "small"
+            },
+            "text": "Shell",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-bag-word",
+              "x": "143",
+              "y": "240",
+              "class": "small"
+            },
+            "text": "Bag",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-cover-word",
+              "x": "272",
+              "y": "240",
+              "class": "small"
+            },
+            "text": "Cover",
+            "children": []
+          }
+        ]
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "pocket-caption-1",
+          "x": "433",
+          "y": "1095",
+          "class": "small"
+        },
+        "text": "Bag mouth belongs to the outer P-R.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "pocket-caption-2",
+          "x": "433",
+          "y": "1120",
+          "class": "small"
+        },
+        "text": "LF-R has no entry. L mirrors this intent.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "neck-detail-heading",
+          "x": "846",
+          "y": "774",
+          "class": "label"
+        },
+        "text": "05 / Neck and back fold",
+        "children": []
+      },
+      {
+        "tag": "g",
+        "attributes": {
+          "id": "neck-detail",
+          "transform": "translate(879 829)"
+        },
+        "text": null,
+        "children": [
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-back-lining",
+              "class": "lining",
+              "d": "M0 48Q125 98 250 48V222H0Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-neck-facing",
+              "class": "facing",
+              "d": "M0 15Q125 65 250 15V58Q125 108 0 58Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-collar",
+              "class": "trim",
+              "d": "M0 0Q125 50 250 0V18Q125 68 0 18Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-neck-lining-join",
+              "class": "seam",
+              "d": "M4 60Q125 108 246 60"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-back-fold",
+              "class": "fold",
+              "d": "M115 87V210M135 91V210M115 100L135 114"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-N-label",
+              "x": "119",
+              "y": "65",
+              "class": "code"
+            },
+            "text": "N",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-LB-label",
+              "x": "53",
+              "y": "161",
+              "class": "code"
+            },
+            "text": "LB",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-F-R-end",
+              "x": "-15",
+              "y": "-15",
+              "class": "code"
+            },
+            "text": "F-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-F-L-end",
+              "x": "228",
+              "y": "-15",
+              "class": "code"
+            },
+            "text": "F-L",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "neck-facing-end-links",
+              "class": "leader",
+              "d": "M0 0V40M250 0V40"
+            },
+            "text": null,
+            "children": []
+          }
+        ]
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "neck-caption-1",
+          "x": "846",
+          "y": "1095",
+          "class": "small"
+        },
+        "text": "N continues the two front facings at the neck.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "neck-caption-2",
+          "x": "846",
+          "y": "1120",
+          "class": "small"
+        },
+        "text": "Fold intent below N; allowance unmeasured.",
+        "children": []
+      },
+      {
+        "tag": "path",
+        "attributes": {
+          "id": "footer-rule",
+          "d": "M48 1162H1232",
+          "stroke": "#d4c8b9"
+        },
+        "text": null,
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "mark-key",
+          "x": "48",
+          "y": "1196",
+          "class": "note"
+        },
+        "text": "Solid: visible edge \u00b7 brown dash: join intent \u00b7 light dash: hidden bag \u00b7 pale dots: zipper",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "scope-footer",
+          "x": "48",
+          "y": "1230",
+          "class": "small"
+        },
+        "text": "Original unitless artist views \u00b7 neck, front, hem and wrists remain open \u00b7 sewing, physical fit, 3D and motion remain open.",
+        "children": []
+      }
+    ]
+  },
+  "element_count": 151,
+  "limits": [
+    "Declaredartistcomponent/connectionintent, notphysicalinterior/surface/cut/sewingtopology.",
+    "Independentlyauthoredviews, notregisteredprojections ormatchedseamlengths.",
+    "No measuredfold/ease/elastic/material/zipmechanism/pocketcapacity/bodyfit/rigmotion/runtime/AAA pass.",
+    "SVGauthoritative; refreshJSONassociationafteredits."
+  ]
+}

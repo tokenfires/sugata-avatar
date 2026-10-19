@@ -1,0 +1,201 @@
+{
+  "schema": "independent-portable-Ari-complete-source-v1",
+  "verdict": "A exact sole packaging entry after fresh root gate; no browser admission",
+  "pending_edits": false,
+  "deadline_utc": "2026-10-19T14:23:28.679067+00:00",
+  "commands": [
+    {
+      "scope": "contract",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nprint('NAMES',[q.name for q in p.iterdir() if q.is_file()])\nfor n in ['PREFLIGHT.json','SOURCE.md','FILES.json']:\n q=p/n\n if not q.exists(): print('ABSENT',n);continue\n b=q.read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(str(i)+':'+line)\nPY",
+      "chunk_id": "e3db5c",
+      "exit_code": 0,
+      "identity_line": "PID 65273 UTC 2026-10-19T13:54:03.920693+00:00",
+      "tool_wall_seconds": 6.375e-06
+    },
+    {
+      "scope": "code",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['build.py','gallery.html','KIT-README.md','PYTHON-API.json','ROOT-WORTH.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(str(i)+':'+line)\nPY",
+      "chunk_id": "87ebca",
+      "exit_code": 0,
+      "identity_line": "PID 65458 UTC 2026-10-19T13:54:09.069331+00:00",
+      "tool_wall_seconds": 6.125e-06
+    },
+    {
+      "scope": "static",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path,PurePosixPath\nfrom html.parser import HTMLParser\nimport json,hashlib,os,datetime,re,xml.etree.ElementTree as ET\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\npf=json.loads((p/'PREFLIGHT.json').read_text());assert len(pf['pins'])==36 and len({r['path']for r in pf['pins']})==36\nfor r in pf['pins']:\n b=Path(r['path']).read_bytes();assert len(b)==r['bytes']and hashlib.sha256(b).hexdigest()==r['sha256'],r['path']\nf=json.loads((p/'FILES.json').read_text());w=json.loads((p/'WORTH-INPUTS.json').read_text());wp={r['path']:r for r in w['pins']};names=[]\nfor r in f['art_files']:\n n=r['package_path'];q=PurePosixPath(n);assert n and not q.is_absolute()and '..'not in q.parts and '\\\\'not in n and str(q)==n and n not in names;names.append(n)\n assert r['source_path']in wp and (r['bytes'],r['sha256'])==(wp[r['source_path']]['bytes'],wp[r['source_path']]['sha256'])\n source=Path(r['source_path']);assert not any(q.is_symlink()for q in [source,*source.parents]);assert source.is_file()\nassert len(names)==13 and sum(r['bytes']for r in f['art_files'])==3342469\nexpected={*names,'index.html','README.md','MANIFEST.json'};assert len(expected)==16\nclass Parse(HTMLParser):\n def __init__(self):super().__init__();self.refs=[];self.ids=[];self.tags=[]\n def handle_starttag(self,tag,attrs):\n  self.tags.append(tag)\n  for k,v in attrs:\n   assert not k.startswith('on')\n   if k=='id':self.ids.append(v)\n   if k in ['src','href']:self.refs.append((tag,k,v))\ng=Parse();g.feed((p/'gallery.html').read_text());g.close();assert len(g.ids)==len(set(g.ids)) and not(set(g.tags)&{'script','base','iframe','object','embed','link'})\nfor tag,k,v in g.refs:\n assert (v[1:]in g.ids)if v.startswith('#')else(v in expected),(tag,k,v)\nassert sum(tag=='img'for tag,k,v in g.refs)==5\nsvg_deps=[]\nfor r in f['art_files']:\n if r['package_path'].endswith('.svg'):\n  b=Path(r['source_path']).read_bytes();root=ET.fromstring(b);ids={e.attrib['id']for e in root.iter()if 'id'in e.attrib};links=[]\n  for e in root.iter():\n   assert e.tag.rsplit('}',1)[-1]not in ['script','foreignObject','image']\n   for k,v in e.attrib.items():\n    assert not k.startswith('on')\n    if k.rsplit('}',1)[-1]in ['href','src']:links.append(v)\n  for v in re.findall(r'url\\(([^)]*)\\)',b.decode()):links.append(v.strip('\\\"\\''))\n  assert all(v.startswith('#')and v[1:]in ids for v in links)\n  svg_deps.append({'path':r['package_path'],'nodes':len(list(root.iter())),'local_fragment_refs':len(links),'all_resolve':True})\nm=f['historical_path_mappings'][0];obj=json.loads(Path(next(r['source_path']for r in f['art_files']if r['package_path']==m['metadata_file'])).read_text());value=obj\nfor key in m['json_pointer'].lstrip('/').split('/'):value=value[key]\nassert value==m['historical_path'];row=next(r for r in f['art_files']if r['package_path']==m['package_relative_path']);assert row['source_path']==value and(row['bytes'],row['sha256'])==(m['bytes'],m['sha256'])\nprint(json.dumps({'all36_pins':True,'all13_exact_accepted_choices':True,'expected16_names':sorted(expected),'active_gallery_refs':len(g.refs),'gallery_refs':g.refs,'gallery_ids':g.ids,'SVG_dependencies':svg_deps,'historical_mapping_exact':True,'no_output_actions':True},indent=2))\napi=json.loads((p/'PYTHON-API.json').read_text());q=Path(api['zipfile']['path']);lines=q.read_text().splitlines();print('ZIPFILE_SELECTED_SOURCE',str(q))\nfor lo,hi in [(1423,1478),(1635,1654),(1687,1698),(2008,2055)]:\n for i in range(lo,hi+1):print(str(i)+':'+lines[i-1])\nprint('EXACT_OUTPUT_ABSENCES',{n:not(p/n).exists()for n in ['PACKAGE-ADMISSION.json','ari-artist-kit','ari-artist-kit.zip','PACKAGE-RESULT.json','SOURCE-REVIEW.md','SOURCE-RECEIPT.json']})\nPY",
+      "chunk_id": "35c497",
+      "exit_code": 0,
+      "identity_line": "PID 67459 UTC 2026-10-19T13:55:15.759965+00:00",
+      "tool_wall_seconds": 5.375e-06
+    }
+  ],
+  "read_scopes": {
+    "whole": "build.py172lines/gallery.html68/FILES.json95/KIT-README18/SOURCE31/PREFLIGHT207/PYTHON-API16/ROOT-WORTH33; currentPLAN and fullfiveacceptedhandoffs reused from worth with fresh pin equality.",
+    "original_art": "Independent static XML/JSON dependency metadata only, not artwork requalification or source operand edits. All13 selected identities match exact accepted worth rows; no 3D refused payload.",
+    "API": "Pinned installedzipfile selectedlines1423\u20131478,1635\u20131654,1687\u20131698,2008\u20132055; binarymetadata from PYTHON-API plus fresh hash only, no target invocation/wholelibrary claim.",
+    "independent_static": "New separate standard-library HTML/XML parser read only; no import/evaluation/AST/syntax/check of authored builder, no packaging/ZIP construction. 26 refs/fiveIDs/fiveimages; every target among16 plannednames orIDs; SVGlocalfragment associations and historicalJSONpointer/map exact.",
+    "pins": "All36 unique preflight rows freshly hashed exact; source/payload selection and output absence snapshot checked."
+  },
+  "checks": {
+    "preflight_rows": 36,
+    "accepted_art_files": 13,
+    "art_raw_bytes": 3342469,
+    "planned_members": 16,
+    "gallery_active_ref_occurrences": 26,
+    "gallery_unique_ids": 5,
+    "gallery_images": 5,
+    "all_gallery_targets_static_resolve": true,
+    "SVG_nodes": [
+      145,
+      151,
+      165,
+      177
+    ],
+    "SVG_local_fragment_ref_counts": [
+      11,
+      3,
+      0,
+      0
+    ],
+    "all_SVG_refs_local_resolve": true,
+    "immutable_historical_mapping_exact": true
+  },
+  "actionable_findings": [],
+  "required_external_evidence_condition": {
+    "witness": "build129\u2013135 appends created after successful write/ZipFile constructor;167\u2013170 final evidence write may itself fail. SOURCE15\u201317 retains partials and acknowledges final-write unknown.",
+    "explanation": "created cannot be interpreted as an exhaustive inventory of partial I/O artifacts. Finite known isolated output roots remain retained; no subprocess/OS cleanup ownership issue alleged.",
+    "requirement": "At fresh admission root owns complete bounded actual inventory of ari-artist-kit directory, ari-artist-kit.zip and PACKAGE-RESULT on success OR failure before any package/browser result decision; any uncertainty closes no replay.",
+    "alternatives": [
+      {
+        "choice": "Root independent actual output inventory on eitherexit",
+        "tradeoff": "Selected; truthful partial-evidence handling without source changes."
+      },
+      {
+        "choice": "Withhold packaging entry",
+        "tradeoff": "Avoids unsupported evidence completeness if external inventory duty cannot be owned."
+      }
+    ]
+  },
+  "prospective_entry": {
+    "argv_prefix": [
+      "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "-I",
+      "-B",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/build.py"
+    ],
+    "final_argument": "SHA256 of exact fresh PACKAGE-ADMISSION bytes",
+    "calls": 1,
+    "caps": {
+      "member_files": 32,
+      "raw_bytes": 16777216,
+      "ZIP_bytes": 8388608,
+      "cooperative_postimport_seconds": 10
+    },
+    "collection": "Actual complete tool status/exit/session/decoded output + exclusive result/partial inventory; no automatic retry.",
+    "source_failure_policy": "First refusal/unknown/cap/failure closes exact packet unchanged."
+  },
+  "prospective_browser": {
+    "admission": "Not admitted by this source result. Stable actualpackage critic/root A first, then fresh root-owned explicit file:// gate.",
+    "surface": "Exact file://<leaf>/ari-artist-kit/index.html; existing IAB only, first launch, no fallback; naturalviewport one unchanged fullpage capture<=2MiB.",
+    "required_actuals": "Actual file protocol/currentURL,five loaded image dimensions/destinations,artifact source/README/manifest identity,fullpresentation/claims critic/root.",
+    "no_claim": "Static closure/CRC/package evidence alone does not prove browser support, editor behavior or appearance."
+  },
+  "absence_snapshot": {
+    "job": "35c497",
+    "utc": "2026-10-19T13:55:15.759965+00:00",
+    "absent": [
+      "PACKAGE-ADMISSION.json",
+      "ari-artist-kit",
+      "ari-artist-kit.zip",
+      "PACKAGE-RESULT.json"
+    ],
+    "scope": "Selected literal leaf paths only, no process census."
+  },
+  "limitations": [
+    "Not a general hostileHTML/SVG validator or concurrent-adversarial-filesystem/OS crash atomicity proof.",
+    "No hardwall/startup/blockedIO/totalRSS/peakmemory guarantee; source checks are cooperative after staticimports.",
+    "No exhaustive child/thread or compiler/environment guarantee; no targetsubprocess operation is authored.",
+    "In-process final evidence can fail and stdout may be absent; unknowns remain failures with no replay.",
+    "No rawsource rewrite/rejected3D/commercialphotos/newart/default/runtime/board/checklist/AAA credit."
+  ],
+  "worth_alternatives": [
+    {
+      "choice": "One exact portable packager",
+      "tradeoff": "Concrete checkout-independent source handoff; separate data/offlinebrowser gates still owed."
+    },
+    {
+      "choice": "Keep repository-only links",
+      "tradeoff": "No extra delivery operation, portability remains unqualified."
+    }
+  ],
+  "protected": "All accepted originals, priorclosedBpackets/HOLD,22scoped10broad/fullroadmap preserved.",
+  "owned_files": [
+    "SOURCE-REVIEW.md",
+    "SOURCE-RECEIPT.json"
+  ],
+  "manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/PREFLIGHT.json",
+    "bytes": 9907,
+    "sha256": "3c0ab77477cecf727a5d320ab81dbcbd1520acd623c38f4627489f7709c59770"
+  },
+  "verified_rows": 36,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/PLAN.md",
+      "bytes": 3930,
+      "sha256": "265781115c9e59da166dd8998acb1105f9e80cad3a1080c9376ed85acab01b19"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/build.py",
+      "bytes": 7887,
+      "sha256": "2674ebf97f521e03ff1ef1428dfa44aabf5416c25fea65cb9a636154e0def4a4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/gallery.html",
+      "bytes": 7092,
+      "sha256": "57df9b0ac2813387f4724f169e5d4b5886d2063ef8fb3ad8aac7ab3614552685"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/FILES.json",
+      "bytes": 4655,
+      "sha256": "1d938c31db36b362085f06ac9877cf7da7d9438ed49a5bddc101d156bc5c0cbf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/KIT-README.md",
+      "bytes": 3529,
+      "sha256": "f4bd6abcd1e9f83f35a52e37660c2038edff10125eb5450cd7d0c2947fdfc269"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/SOURCE.md",
+      "bytes": 8238,
+      "sha256": "c5468b7681d05d4ab1ba3002e20d485c1c4fd2e0e03ccc4dd5733f78de1fc309"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/PYTHON-API.json",
+      "bytes": 802,
+      "sha256": "d90bd50212aa7dd831b1711cdb74f3c7b33729025d33b0eaed79025a779427fc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ROOT-WORTH.json",
+      "bytes": 2646,
+      "sha256": "844f797832e42af8f68655c6408661d74a6c513428c5e8c22e580da8daf8aa9e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/WORTH.md",
+      "bytes": 3379,
+      "sha256": "b7978d620388b7dcd3cb95cfbfcc080085af13122c19a607db60f05bc2f686a3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/WORTH-RECEIPT.json",
+      "bytes": 17818,
+      "sha256": "c2e3302cab3029554e1f826f36aeea1f496a55410fe8ff16785a633a5575c70b"
+    }
+  ],
+  "collected_utc": "2026-10-19T13:56:48.710469+00:00",
+  "collection_pid": 70256,
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/SOURCE-REVIEW.md",
+    "bytes": 3785,
+    "sha256": "b699b5cb7d90e3f96c9c5652565535e2c2b9a5bc719b03b37a1976fa323e976f"
+  }
+}

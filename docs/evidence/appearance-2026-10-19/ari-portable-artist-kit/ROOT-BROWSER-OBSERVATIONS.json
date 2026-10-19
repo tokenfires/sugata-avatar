@@ -1,0 +1,31 @@
+{
+  "schema": "root-portableAri-first-file-surface-stop-v1",
+  "utc": "2026-10-19T14:05:12.256126+00:00",
+  "pid": 85955,
+  "decision": "Stop filebrowser/gallerydeliveryqualification at first automaticpolicyblock. Archive/dataA retained; actualgallery/loading/readability unqualified, no artistboard/checklistdeliverypromotion.",
+  "actual_result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/BROWSER-RESULT.json",
+    "bytes": 1045,
+    "sha256": "dc154cfa7f02c9fc988fb5c6f9a9a5607e4544301d40eaedf5f72bad12379a17"
+  },
+  "admission": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/BROWSER-ADMISSION.json",
+    "bytes": 17349,
+    "sha256": "0f066bd62028ff2aa5c3b48f84f98b7f39a3c147b9e66360605194a108ee662e"
+  },
+  "pins_exact": 65,
+  "witness": "CUAonecreateBrowserTab(existingIAB3,exactfileURL,hidden) rejectedprotocol byautomaticbrowserURLpolicy; rawresultstatesonlyhttp/httpsallowed andforbidsworkaround/alternatebrowser/CDP. No galleryloaded or screenshot. Source/PLANfirstunsupportedclosurerulealsoapplies.",
+  "two_alternatives": [
+    {
+      "choice": "Retain verifiedarchive/files privatelywithunqualifiedgallery,selected",
+      "tradeoff": "Keeps exacteditablesourcehandoff; no testedofflinegalleryorfinisheddeliveryclaim."
+    },
+    {
+      "choice": "Keep repository-only access and withholdportablekitdelivery",
+      "tradeoff": "Avoids unsupportedviewingpromise, losesconvenientarchivehandoff; existingacceptedartunchanged."
+    }
+  ],
+  "cleanup": "Rejectedcreationleftownedabout:blanktab9,discoveredbyfreshIABinventory. Rootboundexact9forcleanuponlyandclosed;laterinventoryonlyaccepted1\u20133. No localfilepolicyworkaround/alternateURL/browser/rawCDP, no newart/copy/archive/render/capture.",
+  "limits": "Policyblockisnotartifactsyntax/appearance/filegraph/fitfailureandnotcapacityissue. Knownarchive/datachecksremainA; no actualofflinebrowser/editor/extraction/AAAqualification.",
+  "next": "Independentcriticrecord/claimcloseoutonly,no targetexperiment. Preserveallart/ZIP/partial-evidence,ownedtargetjobscollected. No successorwithinthisfiledeliverymethod."
+}

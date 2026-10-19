@@ -1,0 +1,150 @@
+{
+  "schema": "independent-ari-portablekit-first-browser-closeout-v1",
+  "verdict": "B blocked firstbrowser surface, no offlinegallery/delivery qualification; exact package/data A retained",
+  "pending_edits": false,
+  "deadline_utc": "2026-10-19T14:23:28.679067+00:00",
+  "commands": [
+    {
+      "scope": "records",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['BROWSER-RESULT.json','ROOT-BROWSER-OBSERVATIONS.json','BROWSER-ADMISSION.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest())\n o=json.loads(b)\n if n=='BROWSER-ADMISSION.json':\n  print('COMPLETE_NONPIN_FIELDS',json.dumps({k:v for k,v in o.items() if k!='pins'},indent=2));print('ALL_PIN_PATHS',json.dumps([r['path'] for r in o['pins']],indent=2))\n else:print(b.decode())\nprint('LEAF_FILES',[q.name for q in p.iterdir()if q.is_file()])\nPY",
+      "chunk_id": "b6a047",
+      "exit_code": 0,
+      "identity_line": "PID 87032 UTC 2026-10-19T14:05:45.362965+00:00",
+      "tool_wall_seconds": 8e-06
+    },
+    {
+      "scope": "boundary",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\na=json.loads((p/'BROWSER-ADMISSION.json').read_text());r=json.loads((p/'BROWSER-RESULT.json').read_text());assert len(a['pins'])==65 and len({x['path'] for x in a['pins']})==65\nfor row in a['pins']:\n b=Path(row['path']).read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256'],row['path']\nassert r['url']==a['url'] and r['browser']=='3' and r['status']=='unsupported-or-unknown-first-launch'\nassert datetime.datetime.fromisoformat(a['admitted_utc'])<datetime.datetime.fromisoformat(r['started_utc'])<datetime.datetime.fromisoformat(r['completed_utc'])<datetime.datetime.fromisoformat(a['expires_utc'])\nassert 'browser security policy'in r['error'] and 'requested URL protocol is not allowed'in r['error'] and 'workaround'in r['error']\nprint('ALL65PINS_EXACT',True,'EXACT_ADMITTED_URL_AND_WINDOW',True)\nfor name,ranges in [('SOURCE.md',[(25,31)]),('PLAN.md',[(1,15)]),('ari-artist-kit/README.md',[(1,18)]),('ROOT-PACKAGE-GATE.json',[(1,99)])]:\n q=p/name;lines=q.read_text().splitlines();print('\\nFILE',name,'BYTES',len(q.read_bytes()),'SHA',hashlib.sha256(q.read_bytes()).hexdigest())\n for lo,hi in ranges:\n  for i in range(lo,min(hi,len(lines))+1):print(str(i)+':'+lines[i-1])\nprint('EXACT_GALLERY_CAPTURE_ABSENCE',{n:not(p/n).exists() for n in ['first.jpg','first.png']})\nPY",
+      "chunk_id": "a691c9",
+      "exit_code": 0,
+      "identity_line": "PID 87748 UTC 2026-10-19T14:06:08.787104+00:00",
+      "tool_wall_seconds": 1.2292e-05
+    }
+  ],
+  "read_scopes": {
+    "actual": "Complete BROWSER-RESULT rawsavederror/times/URL, complete ROOT-BROWSER-OBSERVATIONS, entire parsed BROWSER-ADMISSION with65pinidentities/completeentry+collection+scope; all65paths freshly hashed exact.",
+    "boundaries": "Complete frozen PLAN reread as historical nomination epoch; SOURCE25\u201331, complete packagedREADME1\u201318 and ROOT-PACKAGE-GATE read. Earlier full source/actualpackage qualification reused at exact hashes; no data/ZIP rerun needed.",
+    "cleanup": "Saved root observation reports ownedblanktab9 closed and later onlyaccepted1\u20133. No new browser API call or independentrawcleanuptrace was available/read; do not describe it as fresh/global census.",
+    "visuals": "No new gallery image is present or viewed; no appearance judgment. Bundled accepted artwork still exists unchanged.",
+    "pins": "All65 current admission rows exact, including sourceoriginals/actualmembers/ZIP; no broad corpus investigation."
+  },
+  "finding": {
+    "id": "F1",
+    "classification": "automatic browser-policy refusal before gallery qualification",
+    "witness": "BROWSER-RESULT.status unsupported-or-unknown-first-launch; exactfileURL equalsadmission; rawerror requested protocol notallowed/onlyhttpHTTPS/no workaround. SOURCE29/31 and BROWSER-ADMISSION firstunsupported closure.",
+    "explanation": "Required actualoffline loading/readability cannot be qualified; no artifactsyntax/capacity/appearance cause inferred.",
+    "alternatives": [
+      {
+        "choice": "Retain exact verifieddata privately, galleryunqualified",
+        "tradeoff": "Preserves editable packet with no testedviewing claim."
+      },
+      {
+        "choice": "Withhold portablekitdelivery and use existing repositoryreferences",
+        "tradeoff": "Less convenient handoff, no unsupported portablebrowser promise."
+      }
+    ]
+  },
+  "actual": {
+    "browser": "3",
+    "started_utc": "2026-10-19T14:03:19.753Z",
+    "completed_utc": "2026-10-19T14:03:19.973Z",
+    "exactURL": "file:///Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/index.html",
+    "matched_admission_and_expiry": true,
+    "pins_exact": 65,
+    "newgalleryloaded": false,
+    "newgallerycapture": false,
+    "root_cleanup_report": "Creationfailedbeforehandleassignment; firstlaterinventoryfoundownedaboutblank9;rootbound9onlyclosed;laterinventoryonlyaccepted1\u20133. Reportscope only, no OS/global identity claim.",
+    "capture_absence_snapshot": {
+      "job": "a691c9",
+      "utc": "2026-10-19T14:06:08.787104+00:00",
+      "exactleaf_absent": [
+        "first.jpg",
+        "first.png"
+      ],
+      "not_global_absence": true
+    },
+    "retained_data": "Sixteenmember package/raw3359289B +ZIP2809569B/c1c474ad7388634ae5e22e3b533bdf4b9954113803f42a8c91c891aca57c6d4b remainexact; prior complete source/data checksA, no editor/appearance/browser claim."
+  },
+  "policy_handling": {
+    "blocked_action": "Opening the exact localfile gallery in existing IAB.",
+    "reason": "Automatic browser URLsecurity policy denied requested file protocol; allowedprotocolsHTTP/HTTPS; rawerror also prohibits alternatebrowser/CDP/indirectworkaround.",
+    "selected_safer_action": "Retain alreadyverifiedprivatearchive and existingrepository references, recordrefusal andstop. No attempt toachieveblockedviewingoutcome.",
+    "no_permission_flow": "No humaninputrequired for evidence retention/closure; no request tooverridepolicy."
+  },
+  "limits": [
+    "No appearance failure or new artqualification inferred from noimage.",
+    "No artifactsyntax/ZIP integrity/capacity defect inferred from policy rejection.",
+    "No universalbrowser/localfile capability or globaltab/process/driver retirement claim.",
+    "No source/art/geometry/physicalfit/runtime/AAA promotion; baseline22scoped10broad/HOLD unchanged."
+  ],
+  "next": "No successor experiment in this deliverymethod; no retry/HTTP/Vite/alternateURL/browser/UI/CDP/extraction/rebuild/capture/sourceedit/probe. Freeze exact refusal/data afterrootverification.",
+  "owned_files": [
+    "BROWSER-REVIEW.md",
+    "BROWSER-RECEIPT.json"
+  ],
+  "manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/BROWSER-ADMISSION.json",
+    "bytes": 17349,
+    "sha256": "0f066bd62028ff2aa5c3b48f84f98b7f39a3c147b9e66360605194a108ee662e"
+  },
+  "verified_rows": 65,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/BROWSER-RESULT.json",
+      "bytes": 1045,
+      "sha256": "dc154cfa7f02c9fc988fb5c6f9a9a5607e4544301d40eaedf5f72bad12379a17"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ROOT-BROWSER-OBSERVATIONS.json",
+      "bytes": 2216,
+      "sha256": "643afc60c6feea39c5be79d59ddf9a0c0c94abf7824db5c15d8bec7caded457f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/SOURCE.md",
+      "bytes": 8238,
+      "sha256": "c5468b7681d05d4ab1ba3002e20d485c1c4fd2e0e03ccc4dd5733f78de1fc309"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/PLAN.md",
+      "bytes": 3930,
+      "sha256": "265781115c9e59da166dd8998acb1105f9e80cad3a1080c9376ed85acab01b19"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ROOT-PACKAGE-GATE.json",
+      "bytes": 1432,
+      "sha256": "4bf2dd22534ba766b11eb121c1e2b78891e75db18114f008ccd94a22519118a4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/PACKAGE-REVIEW.md",
+      "bytes": 3252,
+      "sha256": "87862ed8deebad514854b0a79e2babce576ca9ae43ee848ff80382e8f5fca0c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/PACKAGE-RECEIPT.json",
+      "bytes": 21616,
+      "sha256": "c5a65f02cd4842b03ad2cd434699bd3167e5b65c3141705a8348bc2535d2e095"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/PACKAGE-RESULT.json",
+      "bytes": 9019,
+      "sha256": "1baa778033ad8cb3d62517f31703ebd2464c7abfef015e9fa06362b6ee1c42ed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit.zip",
+      "bytes": 2809569,
+      "sha256": "c1c474ad7388634ae5e22e3b533bdf4b9954113803f42a8c91c891aca57c6d4b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/README.md",
+      "bytes": 3529,
+      "sha256": "f4bd6abcd1e9f83f35a52e37660c2038edff10125eb5450cd7d0c2947fdfc269"
+    }
+  ],
+  "collected_utc": "2026-10-19T14:07:07.229049+00:00",
+  "collection_pid": 89511,
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/BROWSER-REVIEW.md",
+    "bytes": 2674,
+    "sha256": "fa5e34955e5738ebdf7fde2ae38b01928a30f64155cd5d5319c3c8bb2ff3818c"
+  }
+}

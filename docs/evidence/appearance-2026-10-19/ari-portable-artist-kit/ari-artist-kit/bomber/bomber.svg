@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="sheet" width="1280" height="1120" viewBox="0 0 1280 1120" role="img" aria-labelledby="title description">
+<title id="title">Ari: original short bomber technical drawing</title>
+<desc id="description">Original unitless front, right profile, rear and inside schematic with separate zipper edges, inward facings, pocket bags and gathered cuffs and hem. Technical art, not a sewing pattern or fitted garment.</desc>
+<defs id="resources">
+<style id="styles">
+text{font-family:Arial,Helvetica,sans-serif;fill:#352f2b}.heading{font-size:32px;font-weight:700}.label{font-size:20px;font-weight:700}.note{font-size:16px;fill:#5b6259}.small{font-size:14px;fill:#5b6259}.body{fill:#b86c49;stroke:#48342b;stroke-width:2;stroke-linejoin:round}.collar{fill:#9e5537;stroke:#48342b;stroke-width:2;stroke-linejoin:round}.trim{fill:#9c573b;stroke:#48342b;stroke-width:1.7;stroke-linejoin:round}.lining{fill:#e8cdb8;stroke:#48342b;stroke-width:2;stroke-linejoin:round}.facing{fill:#c59170;stroke:#48342b;stroke-width:1.5}.bag{fill:#f4e7d8;stroke:#765947;stroke-width:1.5;stroke-dasharray:5 4}.seam{fill:none;stroke:#75503e;stroke-width:1.4;stroke-dasharray:5 4}.zip{fill:none;stroke:#e5d4b9;stroke-width:3;stroke-dasharray:2 2}.edge{fill:none;stroke:#48342b;stroke-width:2}.guide{fill:none;stroke:#a59c8d;stroke-width:1.2}.feature{font-size:13px;font-weight:700;fill:#48342b}
+</style>
+<pattern id="gather" width="12" height="10" patternUnits="userSpaceOnUse"><path id="gather-mark" d="M3 0Q7 5 3 10M9 0Q5 5 9 10" fill="none" stroke="#d6a182" stroke-width="1"/></pattern>
+</defs>
+<rect id="paper" width="1280" height="1120" fill="#faf6ee"/>
+<text id="eyebrow" x="48" y="44" class="small">SUGATA / ARI / ORIGINAL EDITABLE WARDROBE</text>
+<text id="heading" x="48" y="94" class="heading">Short bomber, clear opening roles.</text>
+<text id="subheading" x="48" y="126" class="note">Unitless technical art · zipper / facing / pocket bag / gathered trim</text>
+<path id="header-rule" d="M48 151H1232" stroke="#d4c8b9"/>
+<text id="front-label" x="68" y="195" class="label">01 / Front, open</text>
+<text id="profile-label" x="480" y="195" class="label">02 / Right profile</text>
+<text id="rear-label" x="861" y="195" class="label">03 / Rear</text>
+<path id="columns" d="M434 183V655M820 183V655" stroke="#e2d9ca"/>
+
+<g id="front" transform="translate(56 220)">
+ <g id="front-R">
+  <path id="front-panel-R" class="body" d="M155 42L137 16Q109 22 80 39L73 130Q82 215 52 302H139L144 172Z"/>
+  <path id="front-sleeve-R" class="body" d="M80 39L52 155L20 304L45 315L81 186L96 125Z"/>
+  <path id="front-cuff-R" class="trim" d="M20 304L45 315L38 344L16 333Z"/>
+  <path id="front-cuff-gather-R" d="M20 304L45 315L38 344L16 333Z" fill="url(#gather)"/>
+  <path id="front-wrist-opening-R" class="edge" d="M16 333L38 344"/>
+  <path id="front-hem-R" class="trim" d="M52 302H139L137 330H57Z"/>
+  <path id="front-hem-gather-R" d="M52 302H139L137 330H57Z" fill="url(#gather)"/>
+  <path id="front-zip-edge-R" class="edge" d="M155 42L144 172L139 302L137 330"/>
+  <path id="front-zip-teeth-R" class="zip" d="M151 52L140 172L135 301L133 326"/>
+  <path id="front-pocket-mouth-R" d="M84 198L106 244" fill="none" stroke="#48342b" stroke-width="7"/>
+  <path id="front-pocket-zip-R" class="zip" d="M84 198L106 244"/>
+  <rect id="front-pocket-pull-R" x="80" y="197" width="7" height="11" rx="2" fill="#dac3a1" stroke="#48342b"/>
+  <path id="front-shoulder-join-R" class="seam" d="M80 39Q104 86 96 125"/>
+  <path id="front-collar-R" class="collar" d="M137 16L155 42L149 77L124 54L104 32Z"/>
+ </g>
+ <g id="front-L" transform="translate(320 0) scale(-1 1)">
+  <path id="front-panel-L" class="body" d="M155 42L137 16Q109 22 80 39L73 130Q82 215 52 302H139L144 172Z"/>
+  <path id="front-sleeve-L" class="body" d="M80 39L52 155L20 304L45 315L81 186L96 125Z"/>
+  <path id="front-cuff-L" class="trim" d="M20 304L45 315L38 344L16 333Z"/>
+  <path id="front-cuff-gather-L" d="M20 304L45 315L38 344L16 333Z" fill="url(#gather)"/>
+  <path id="front-wrist-opening-L" class="edge" d="M16 333L38 344"/>
+  <path id="front-hem-L" class="trim" d="M52 302H139L137 330H57Z"/>
+  <path id="front-hem-gather-L" d="M52 302H139L137 330H57Z" fill="url(#gather)"/>
+  <path id="front-zip-edge-L" class="edge" d="M155 42L144 172L139 302L137 330"/>
+  <path id="front-zip-teeth-L" class="zip" d="M151 52L140 172L135 301L133 326"/>
+  <path id="front-pocket-mouth-L" d="M84 198L106 244" fill="none" stroke="#48342b" stroke-width="7"/>
+  <path id="front-pocket-zip-L" class="zip" d="M84 198L106 244"/>
+  <rect id="front-pocket-pull-L" x="80" y="197" width="7" height="11" rx="2" fill="#dac3a1" stroke="#48342b"/>
+  <path id="front-shoulder-join-L" class="seam" d="M80 39Q104 86 96 125"/>
+  <path id="front-collar-L" class="collar" d="M137 16L155 42L149 77L124 54L104 32Z"/>
+ </g>
+ <path id="front-nape" class="collar" d="M137 16Q160 28 183 16L176 31Q160 41 144 31Z"/>
+ <text id="front-zip-label-R" x="120" y="166" class="feature">Z-R</text><text id="front-zip-label-L" x="175" y="166" class="feature">Z-L</text>
+ <text id="front-pocket-label-R" x="58" y="233" class="feature">P-R</text><text id="front-pocket-label-L" x="240" y="233" class="feature">P-L</text>
+ <text id="front-hem-label" x="156" y="325" class="feature">H</text>
+</g>
+
+<g id="profile" transform="translate(462 220)">
+ <path id="profile-body" class="body" d="M104 22L128 16Q179 19 191 51L215 136Q225 211 215 302H78Q94 232 71 202Q58 149 89 115L84 47Z"/>
+ <path id="profile-facing-edge" class="trim" d="M84 47L95 51L99 126Q79 169 84 210Q99 256 90 302H78Q94 232 71 202Q58 149 89 115Z"/>
+ <path id="profile-zip-R" class="zip" d="M87 57L92 126Q73 173 79 211Q92 254 84 304"/>
+ <path id="profile-pocket-mouth-R" d="M96 198L112 241" fill="none" stroke="#48342b" stroke-width="6"/>
+ <path id="profile-pocket-zip-R" class="zip" d="M96 198L112 241"/>
+ <path id="profile-near-sleeve-R" class="body" d="M133 49Q176 53 181 95L196 301L170 314L145 200Q136 171 117 118Z"/>
+ <path id="profile-cuff-R" class="trim" d="M170 314L196 301L201 330L175 343Z"/>
+ <path id="profile-cuff-gather-R" d="M170 314L196 301L201 330L175 343Z" fill="url(#gather)"/>
+ <path id="profile-wrist-opening-R" class="edge" d="M175 343L201 330"/>
+ <path id="profile-hem" class="trim" d="M78 302H215L211 330H80Z"/>
+ <path id="profile-hem-gather" d="M78 302H215L211 330H80Z" fill="url(#gather)"/>
+ <path id="profile-collar" class="collar" d="M104 22L128 16L159 35L136 52L111 77L84 47Z"/>
+ <path id="profile-sleeve-join" class="seam" d="M133 49Q113 85 117 118"/>
+ <text id="profile-pocket-label" x="58" y="244" class="feature">P-R</text>
+</g>
+
+<g id="rear" transform="translate(842 220)">
+ <path id="rear-body" class="body" d="M132 16Q160 30 188 16Q215 22 240 39L248 132Q239 218 268 302H52Q81 215 72 132L80 39Q108 22 132 16Z"/>
+ <path id="rear-sleeve-L" class="body" d="M80 39L52 155L20 304L45 315L81 186L96 125Z"/>
+ <path id="rear-sleeve-R" class="body" d="M240 39L268 155L300 304L275 315L239 186L224 125Z"/>
+ <path id="rear-cuff-L" class="trim" d="M20 304L45 315L38 344L16 333Z"/>
+ <path id="rear-cuff-R" class="trim" d="M300 304L275 315L282 344L304 333Z"/>
+ <path id="rear-cuff-gather-L" d="M20 304L45 315L38 344L16 333Z" fill="url(#gather)"/>
+ <path id="rear-cuff-gather-R" d="M300 304L275 315L282 344L304 333Z" fill="url(#gather)"/>
+ <path id="rear-wrist-openings" class="edge" d="M16 333L38 344M282 344L304 333"/>
+ <path id="rear-hem" class="trim" d="M52 302H268L263 330H57Z"/>
+ <path id="rear-hem-gather" d="M52 302H268L263 330H57Z" fill="url(#gather)"/>
+ <path id="rear-collar" class="collar" d="M132 16Q160 30 188 16L186 37Q160 48 134 37Z"/>
+ <path id="rear-back-panel-join" class="seam" d="M86 92H234"/>
+ <path id="rear-sleeve-joins" class="seam" d="M80 39Q104 86 96 125M240 39Q216 86 224 125"/>
+ <text id="rear-hem-label" x="155" y="323" class="feature">H</text>
+</g>
+<text id="front-caption" x="68" y="602" class="note">Two separate zip halves; two pocket mouths.</text>
+<text id="profile-caption" x="480" y="602" class="note">Front at left; near P-R / C-R shown.</text>
+<text id="rear-caption" x="861" y="602" class="note">Back panel; no rear pockets.</text>
+<text id="front-side-key" x="68" y="628" class="small">Wearer's right is image-left in front/inside.</text>
+<text id="profile-side-key" x="480" y="628" class="small">Far zip, cuff and pocket are hidden.</text>
+<text id="rear-side-key" x="861" y="628" class="small">Gather symbols express trim intent.</text>
+<path id="lower-rule" d="M48 657H1232" stroke="#d4c8b9"/>
+
+<text id="inside-label" x="64" y="696" class="label">04 / Inside schematic</text>
+<g id="inside" transform="translate(45 715) scale(.75)">
+ <path id="inside-panel-R" class="lining" d="M155 42L137 16Q109 22 80 39L73 130Q82 215 52 302H139L144 172Z"/>
+ <path id="inside-panel-L" class="lining" d="M165 42L183 16Q211 22 240 39L247 130Q238 215 268 302H181L176 172Z"/>
+ <path id="inside-facing-R" class="facing" d="M155 42L144 172L139 302H121L128 171L139 53Z"/>
+ <path id="inside-facing-L" class="facing" d="M165 42L176 172L181 302H199L192 171L181 53Z"/>
+ <path id="inside-guard-L" d="M166 65L173 172L181 302H167L161 176L154 72Z" fill="#f1ddc8" stroke="#765947" stroke-width="1.5"/>
+ <path id="inside-bag-R" class="bag" d="M84 198L106 244Q115 262 118 285H79Q65 249 77 213Z"/>
+ <path id="inside-bag-L" class="bag" d="M236 198L214 244Q205 262 202 285H241Q255 249 243 213Z"/>
+ <path id="inside-pocket-connection-R" class="edge" d="M84 198L106 244"/>
+ <path id="inside-pocket-connection-L" class="edge" d="M236 198L214 244"/>
+ <path id="inside-zip-R" class="zip" d="M151 52L140 172L135 301"/>
+ <path id="inside-zip-L" class="zip" d="M169 52L180 172L185 301"/>
+ <path id="inside-facing-joins" class="seam" d="M139 53L128 171L121 302M181 53L192 171L199 302"/>
+ <path id="inside-hem-R" class="trim" d="M52 302H139L137 330H57Z"/>
+ <path id="inside-hem-L" class="trim" d="M181 302H268L263 330H183Z"/>
+ <path id="inside-hem-gather" d="M52 302H139L137 330H57ZM181 302H268L263 330H183Z" fill="url(#gather)"/>
+ <text id="inside-bag-label-R" x="80" y="271" class="feature">B-R</text><text id="inside-bag-label-L" x="210" y="271" class="feature">B-L</text>
+ <text id="inside-facing-label-R" x="124" y="139" class="feature">F-R</text><text id="inside-facing-label-L" x="186" y="139" class="feature">F-L</text>
+</g>
+<text id="inside-caption" x="64" y="989" class="small">New facings F-R/F-L, guard G-L, bags B-R/B-L.</text>
+<text id="inside-limit" x="64" y="1012" class="small">Front panels only; sleeves / rear lining omitted.</text>
+
+<text id="opening-label" x="434" y="696" class="label">05 / Front edge + facing</text>
+<g id="opening-detail" transform="translate(442 723)">
+ <rect id="detail-shell-R" x="0" y="0" width="52" height="188" rx="3" class="body"/>
+ <rect id="detail-facing-R" x="52" y="0" width="24" height="188" class="facing"/>
+ <path id="detail-facing-join-R" class="seam" d="M55 8V178"/>
+ <path id="detail-zip-R" class="zip" d="M76 8V177"/>
+ <rect id="detail-shell-L" x="160" y="0" width="52" height="188" rx="3" class="body"/>
+ <rect id="detail-facing-L" x="136" y="0" width="24" height="188" class="facing"/>
+ <path id="detail-guard-L" d="M136 8H117V188H136" fill="#f1ddc8" stroke="#765947" stroke-width="1.5"/>
+ <path id="detail-facing-join-L" class="seam" d="M157 8V178"/>
+ <path id="detail-zip-L" class="zip" d="M136 8V177"/>
+ <rect id="detail-bottom-end-R" x="68" y="178" width="11" height="10" fill="#dac3a1" stroke="#48342b"/>
+ <rect id="detail-bottom-end-L" x="131" y="178" width="11" height="10" fill="#dac3a1" stroke="#48342b"/>
+ <text id="detail-zip-label-R" x="65" y="-10" class="feature">Z-R</text><text id="detail-zip-label-L" x="129" y="-10" class="feature">Z-L</text>
+ <text id="detail-guard-label" x="106" y="89" class="feature">G-L</text>
+</g>
+<text id="opening-caption" x="434" y="949" class="small">Two unjoined halves; guard behind Z-L.</text>
+<text id="opening-limit" x="434" y="974" class="small">Bottom ends marked; engagement unproved.</text>
+
+<text id="trim-label" x="822" y="696" class="label">06 / Gathered hem role</text>
+<g id="trim-detail" transform="translate(830 735)">
+ <path id="detail-upper-shell" class="body" d="M0 0Q62 16 120 0Q185 16 264 0V63H0Z"/>
+ <path id="detail-hem-attachment" class="seam" d="M7 58H257"/>
+ <rect id="detail-hem-band" x="0" y="63" width="264" height="51" rx="3" class="trim"/>
+ <rect id="detail-hem-gather" x="0" y="63" width="264" height="51" fill="url(#gather)"/>
+ <path id="detail-lower-open-edge" class="edge" d="M0 114H264"/>
+ <text id="detail-H-label" x="121" y="99" class="feature">H</text>
+</g>
+<text id="trim-caption" x="822" y="886" class="small">Gather marks; dashed shell/trim join.</text>
+<text id="trim-limit" x="822" y="911" class="small">No elastic ratio, gauge or sewing dimensions.</text>
+<text id="mark-key" x="822" y="957" class="small">Pale dotted line = zip intent.</text>
+<text id="join-key" x="822" y="982" class="small">Brown dashed line = proposed attachment.</text>
+<path id="footer-rule" d="M48 1040H1232" stroke="#d4c8b9"/>
+<text id="footer" x="48" y="1074" class="note">Original named vector roles · all coordinates are drawing choices · sewing, 3D, body fit and motion remain open.</text>
+</svg>

@@ -1,0 +1,284 @@
+{
+  "schema": "independent-ari-portablekit-actual-package-v1",
+  "verdict": "A finite exact archive/disk/source/filegraph; conditional A worth one separate exact file:// gallery gate",
+  "pending_edits": false,
+  "deadline_utc": "2026-10-19T14:23:28.679067+00:00",
+  "commands": [
+    {
+      "scope": "records",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PACKAGE-ADMISSION.json','PACKAGE-RESULT.json','TOOL-PACKAGE.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "8a6028",
+      "exit_code": 0,
+      "identity_line": "PID 76224 UTC 2026-10-19T13:59:57.825110+00:00",
+      "tool_wall_seconds": 7.209e-06
+    },
+    {
+      "scope": "inventory",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['OUTPUT-INVENTORY.json','ROOT-PACKAGE.json','ari-artist-kit/MANIFEST.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "23154c",
+      "exit_code": 0,
+      "identity_line": "PID 76497 UTC 2026-10-19T14:00:05.661435+00:00",
+      "tool_wall_seconds": 5.833e-06
+    },
+    {
+      "scope": "audit",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path,PurePosixPath\nfrom html.parser import HTMLParser\nimport json,hashlib,os,stat,datetime,zipfile,zlib,re,xml.etree.ElementTree as ET\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit');out=p/'ari-artist-kit';print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nsha=lambda b:hashlib.sha256(b).hexdigest()\ndef j(q):return json.loads(q.read_text(),parse_constant=lambda s:(_ for _ in ()).throw(ValueError(s)))\na=j(p/'PACKAGE-ADMISSION.json');r=j(p/'PACKAGE-RESULT.json');t=j(p/'TOOL-PACKAGE.json');f=j(p/'FILES.json');inv=j(p/'OUTPUT-INVENTORY.json');m=j(out/'MANIFEST.json')\nassert len(a['pins'])==40 and len({x['path']for x in a['pins']})==40\nfor x in a['pins']:\n b=Path(x['path']).read_bytes();assert len(b)==x['bytes']and sha(b)==x['sha256'],x['path']\nah=sha((p/'PACKAGE-ADMISSION.json').read_bytes());assert t['argv']==a['argv_prefix']+[ah] and t['result']['exit_code']==0 and 'session_id'not in t['result'];assert json.loads(t['result']['output'])==r and r['admission_sha256']==ah and r['status']=='complete'\nimport shlex\nassert shlex.split(t['cmd'])==t['argv']\nassert datetime.datetime.fromisoformat(a['admitted_utc'])<datetime.datetime.fromisoformat(r['started_utc'])<datetime.datetime.fromisoformat(r['completed_utc'])<datetime.datetime.fromisoformat(a['expires_utc'])\nassert r['checked_elapsed_ms']<10000 and r['browser_qualified'] is False\nrows={}\ndef walk(q):\n st=q.lstat();assert not stat.S_ISLNK(st.st_mode)\n if stat.S_ISDIR(st.st_mode):\n  rows[str(q)]={'path':str(q),'kind':'directory'}\n  for sub in sorted(q.iterdir()):walk(sub)\n else:\n  assert stat.S_ISREG(st.st_mode)and st.st_size<=16777216\n  b=q.read_bytes();rows[str(q)]={'path':str(q),'kind':'regular','bytes':len(b),'sha256':sha(b)}\nfor q in [out,p/'ari-artist-kit.zip',p/'PACKAGE-RESULT.json']:walk(q)\nassert rows=={x['path']:x for x in inv['rows']}\nassert len(rows)==24 and sum(x['kind']=='regular'for x in rows.values())==18\nmember_names=[x['package_path']for x in r['members']];assert len(member_names)==len(set(member_names))==16\nactual_members={str(q.relative_to(out)) for q in out.rglob('*')if q.is_file()};assert actual_members==set(member_names)\npayload={name:(out/name).read_bytes()for name in member_names}\nassert sum(map(len,payload.values()))==r['raw_bytes']==3359289<16777216\nfor row in r['members']:assert row['path']==str(out/row['package_path'])and len(payload[row['package_path']])==row['bytes']and sha(payload[row['package_path']])==row['sha256']\nfor row in f['art_files']:\n b=Path(row['source_path']).read_bytes();assert b==payload[row['package_path']] and len(b)==row['bytes']and sha(b)==row['sha256']\nassert len(f['art_files'])==r['art_files']==13 and sum(x['bytes']for x in f['art_files'])==3342469\nassert payload['index.html']==(p/'gallery.html').read_bytes()and payload['README.md']==(p/'KIT-README.md').read_bytes()\nassert m['manifest_self_excluded'] is True and len(m['members_excluding_this_manifest'])==15\nassert m['members_excluding_this_manifest']==[{**row,'kind':'unchanged accepted art/data'}for row in f['art_files']]+[{'package_path':n,'source_path':str(p/s),'bytes':len(payload[n]),'sha256':sha(payload[n]),'kind':'new static delivery text'}for s,n in [('gallery.html','index.html'),('KIT-README.md','README.md')]]\nassert m['historical_path_mappings']==f['historical_path_mappings']==r['historical_path_mappings']and m['reference_asset_Git_commit']==f['reference_asset_Git_commit']\nfor row in m['historical_path_mappings']:\n value=json.loads(payload[row['metadata_file']])\n for k in row['json_pointer'].lstrip('/').split('/'):value=value[k]\n assert value==row['historical_path'] and len(payload[row['package_relative_path']])==row['bytes']and sha(payload[row['package_relative_path']])==row['sha256']\nzpath=p/'ari-artist-kit.zip';zb=zpath.read_bytes();assert len(zb)==r['archive']['bytes']==2809569<8388608 and sha(zb)==r['archive']['sha256']\nzrows=[]\nwith zipfile.ZipFile(zpath,'r')as z:\n infos=z.infolist();assert len(infos)==16 and z.namelist()==['ari-artist-kit/'+n for n in member_names]\n for info,name in zip(infos,member_names,strict=True):\n  q=PurePosixPath(info.filename);assert not q.is_absolute()and '..'not in q.parts and '\\\\'not in info.filename and str(q)==info.filename\n  assert stat.S_ISREG(info.external_attr>>16)and not info.is_dir()and not info.flag_bits&1 and info.compress_type==8 and info.date_time==(2026,10,19,0,0,0)\n  assert info.file_size==len(payload[name])and info.CRC==zlib.crc32(payload[name])&0xffffffff\n  b=z.read(info);assert b==payload[name]\n  zrows.append({'name':info.filename,'raw':info.file_size,'compressed':info.compress_size,'CRC':info.CRC,'sha256':sha(b)})\nclass Parse(HTMLParser):\n def __init__(self):super().__init__();self.refs=[];self.ids=[];self.tags=[]\n def handle_starttag(self,tag,attrs):\n  self.tags.append(tag)\n  for k,v in attrs:\n   assert not k.startswith('on')\n   if k=='id':self.ids.append(v)\n   if k in ['href','src']:self.refs.append((tag,k,v))\ng=Parse();g.feed(payload['index.html'].decode());g.close();assert len(g.refs)==r['active_gallery_links']==26 and len(set(g.ids))==len(g.ids)==5 and sum(tag=='img'for tag,k,v in g.refs)==5\nassert not(set(g.tags)&{'script','base','iframe','object','embed','link'})\nfor tag,k,v in g.refs:assert v[1:]in g.ids if v.startswith('#') else v in payload\nsvg=[]\nfor n,b in payload.items():\n if n.endswith('.svg'):\n  root=ET.fromstring(b);ids={e.attrib['id']for e in root.iter()if'id'in e.attrib};deps=[]\n  for e in root.iter():\n   assert e.tag.rsplit('}',1)[-1]not in ['script','foreignObject','image']\n   for k,v in e.attrib.items():\n    assert not k.startswith('on')\n    if k.rsplit('}',1)[-1]in ['href','src']:deps.append(v)\n  deps+= [v.strip('\\\"\\'')for v in re.findall(r'url\\(([^)]*)\\)',b.decode())]\n  assert all(v.startswith('#')and v[1:]in ids for v in deps)\n  svg.append({'file':n,'nodes':len(list(root.iter())),'local_fragments':len(deps)})\nassert set(r['created'])=={str(out),str(zpath),*[str(out/n)for n in member_names]}\nprint(json.dumps({'all40pins':True,'tool_argv_JSON_time_exit_exact':True,'inventory_entries':24,'regular_files':18,'directories':6,'symlinks':0,'all16_disk_ZIP_bytes_match':True,'all13_originals_match':True,'raw_bytes':3359289,'ZIP_bytes':2809569,'ZIP_SHA256':sha(zb),'manifest15identities_and_mapping_exact':True,'gallery26refs5IDs5images':True,'SVG_scopes':svg,'ZIP_members':zrows,'no_target_replay_extraction_copy_write_browser':True},indent=2))\nPY",
+      "chunk_id": "586eaf",
+      "exit_code": 0,
+      "identity_line": "PID 77941 UTC 2026-10-19T14:00:52.789941+00:00",
+      "tool_wall_seconds": 6.417e-06
+    }
+  ],
+  "read_scopes": {
+    "whole_records": "Complete PACKAGE-ADMISSION,PACKAGE-RESULT,TOOL-PACKAGE,OUTPUT-INVENTORY,ROOT-PACKAGE and actual MANIFEST. Root observation is supplemental, not oracle.",
+    "full_actual_bytes": "Every16 disk file and corresponding ZIPmember fully read/compared in memory; no disk extraction/copy/rebuild. All13 accepted originals freshly byte-compared, plus gallery/README equality.",
+    "current_sources": "Prior complete source/claim/API review reused at unchanged exact admission hashes. Current gallery/index and editingnotes/README byteequal; no new source evaluation.",
+    "graph": "Independent parsed actualHTMLall26src/href targets,fiveIDs/fiveimages; actualfourSVG dependencies and localfragments; historicalJSONpointer independently followed/mapped.",
+    "pins": "All40 unique admission rows rehashed exact; no recursive corpus audit or broad source revision.",
+    "visual": "No gallery/browser/capture or new image view; no artwork requalification. Package includes unchanged accepted images, no newart."
+  },
+  "actual_checks": {
+    "admission_pins": 40,
+    "tool_exit": 0,
+    "continuing_session": false,
+    "tool_chunk": "1f8865",
+    "actual_pid": 73015,
+    "actual_started_utc": "2026-10-19T13:58:16.267813+00:00",
+    "actual_completed_utc": "2026-10-19T13:58:16.346867+00:00",
+    "checked_postimport_elapsed_ms": 79.06341599300504,
+    "argv_admission_SHA_exact": true,
+    "tool_combined_JSON_equal": true,
+    "in_admission_expiry": true,
+    "inventory_entries": 24,
+    "inventory_directories": 6,
+    "inventory_regular_files": 18,
+    "inventory_symlinks": 0,
+    "inventory_matches_actual": true,
+    "art_files": 13,
+    "art_raw_bytes": 3342469,
+    "member_files": 16,
+    "raw_bytes": 3359289,
+    "ZIP_bytes": 2809569,
+    "ZIP_SHA256": "c1c474ad7388634ae5e22e3b533bdf4b9954113803f42a8c91c891aca57c6d4b",
+    "all_disk_ZIP_original_bytes": true,
+    "all_regular_unencrypted_DEFLATE_CRCS": true,
+    "exact_order_names_and_prefix": true,
+    "manifest_nonself_rows": 15,
+    "self_hash_intentionally_excluded": true,
+    "historical_pointer_mapping_exact": true,
+    "actual_gallery_refs": 26,
+    "IDs": 5,
+    "images": 5,
+    "all_targets_resolve_statically": true,
+    "SVG_nodes": [
+      145,
+      151,
+      165,
+      177
+    ],
+    "SVG_local_fragments": [
+      11,
+      3,
+      0,
+      0
+    ],
+    "all_fragment_targets_resolve": true
+  },
+  "actionable_findings": [],
+  "condition_fulfillment": {
+    "prior_witness": "SOURCE-REVIEW build129\u2013135 registration after successful writes;167\u2013170 possible finalwrite failure.",
+    "actual": "PACKAGE-ADMISSION explicitly owns external inventory on eitherexit. This actual success inventory fullymatches24 currententries independently, includingZIP/result. No failure branch was induced or qualified.",
+    "limits": "Completed-registration created list is not exhaustive partial-I/O evidence; independent inventory duty continues on any future factual error report. No retry is admitted."
+  },
+  "honest_limits": [
+    "Tool exposes combined decoded output only, not separate stdout/stderr byte channels; exact compactJSON semantic equality is checked.",
+    "Recorded UTC/postimport checked elapsed and tool wall are separate narrowclocks; no startup/blockedIO/peakmemory/OS/performance guarantee.",
+    "Archive reads were in memory only; no extraction on another machine/archiveutility or editor import was tested.",
+    "Static closedgraph and memberidentity are not actual file:// browser loading/readability evidence.",
+    "No new art/style/physicalpattern/material/fit/anatomicalpair/3D/motion/runtime/AAA qualification or extra checkboxes.",
+    "Original13payloads and allpriorclosedB/HOLD/defaults/22scoped10broad remain unchanged."
+  ],
+  "next": {
+    "worth": "A one exactfile:// staticgallery firstlaunch worth doing after root fullstablepair/pin verification/fresh surfacegate; B verifiedarchiveonly avoidsbrowser but leavespresentation unqualified.",
+    "browser": "No direct admission here. Exact file://<leaf>/ari-artist-kit/index.html, existingIAB, onefirstlaunch, fiveactualimageloads/actualprotocol+URL/claims, oneunchangednaturalwholepagecapture<=2MiB.",
+    "stop": "No fallback/HTTP/Vite/alternatebrowser/retry/recapture/artwork/ZIP/source repair after refusal/unknown; absolute14:23:28.679067UTC."
+  },
+  "forbidden_actions_not_taken": [
+    "build/helper/target import/evaluation/rerun",
+    "ZIP creation/extraction/copy/reconstruction",
+    "browser/network/capture/render/reference action",
+    "edits to existing package/source/art/product or prior reviews"
+  ],
+  "owned_files": [
+    "PACKAGE-REVIEW.md",
+    "PACKAGE-RECEIPT.json"
+  ],
+  "manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/PACKAGE-ADMISSION.json",
+    "bytes": 11079,
+    "sha256": "cd8401a9bbe6ef6d5ee8d525a8617f07311dd434a2536c4c6be222144251aae8"
+  },
+  "verified_rows": 40,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/PACKAGE-RESULT.json",
+      "bytes": 9019,
+      "sha256": "1baa778033ad8cb3d62517f31703ebd2464c7abfef015e9fa06362b6ee1c42ed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/TOOL-PACKAGE.json",
+      "bytes": 9406,
+      "sha256": "a0182fe23ab59abd4af2d1da3e6285e8b57daef573851ac3e7b2649b4a35b5d1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/OUTPUT-INVENTORY.json",
+      "bytes": 6596,
+      "sha256": "39114ec819b1a74d034ae8e9ce2c1a00badc06c7735e4d4620e32ed9e2db00f8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ROOT-PACKAGE.json",
+      "bytes": 4649,
+      "sha256": "6b15bc498b3db14e5a2b43538e2ad21669e6070265378066eb2a3768b243fe91"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/FILES.json",
+      "bytes": 4655,
+      "sha256": "1d938c31db36b362085f06ac9877cf7da7d9438ed49a5bddc101d156bc5c0cbf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/SOURCE-REVIEW.md",
+      "bytes": 3785,
+      "sha256": "b699b5cb7d90e3f96c9c5652565535e2c2b9a5bc719b03b37a1976fa323e976f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/SOURCE-RECEIPT.json",
+      "bytes": 14538,
+      "sha256": "4ec2deebc8beaff549231ed5ff4c0cb2d85cf236244bdb9d3444970a60d90775"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit.zip",
+      "bytes": 2809569,
+      "sha256": "c1c474ad7388634ae5e22e3b533bdf4b9954113803f42a8c91c891aca57c6d4b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/MANIFEST.json",
+      "bytes": 6199,
+      "sha256": "4a43a7a29a3034ed16e458290815db36475be59b691e4b875a61a7d57c625fe3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/index.html",
+      "bytes": 7092,
+      "sha256": "57df9b0ac2813387f4724f169e5d4b5886d2063ef8fb3ad8aac7ab3614552685"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/README.md",
+      "bytes": 3529,
+      "sha256": "f4bd6abcd1e9f83f35a52e37660c2038edff10125eb5450cd7d0c2947fdfc269"
+    }
+  ],
+  "actual_member_bindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/character/concept-v1.png",
+      "package_path": "character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/bomber/bomber.svg",
+      "package_path": "bomber/bomber.svg",
+      "bytes": 13197,
+      "sha256": "ff9a259c8fe5a6d576cceda0df230ff56ef0b756c4d58a6e40b3cb695fa77d7f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/bomber/design.json",
+      "package_path": "bomber/design.json",
+      "bytes": 46386,
+      "sha256": "5d37f4263b2a172286619d7fbcc43d5e017e2f69e8867b23e8bc93b55dfe4dd7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/bomber/original-first.jpg",
+      "package_path": "bomber/original-first.jpg",
+      "bytes": 133854,
+      "sha256": "6b177483ed331b187d66146ae3f17296eaa2604a176a84de4e0abb40772ca93d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/interior/interior-caption.svg",
+      "package_path": "interior/interior-caption.svg",
+      "bytes": 13143,
+      "sha256": "9ee8e1ede810689eca0ff558a952dba6915fcf827f223dbbc5ff9c0131ce33f2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/interior/design-caption.json",
+      "package_path": "interior/design-caption.json",
+      "bytes": 51687,
+      "sha256": "2dc007e18b153d339374a340d24638d5767eab41eae9c6cb3930aa6844d09058"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/interior/second.jpg",
+      "package_path": "interior/second.jpg",
+      "bytes": 175382,
+      "sha256": "89299e3be5e45c4ffb8b449bcfcac75f59b84d388c08f1a2bf1855cf0bfd6ee4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/trousers/trousers-clarity.svg",
+      "package_path": "trousers/trousers-clarity.svg",
+      "bytes": 15096,
+      "sha256": "f89d8777233c34c00428d2c142fe96c473c94ecab730e778be32152b48c1695c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/trousers/design-clarity.json",
+      "package_path": "trousers/design-clarity.json",
+      "bytes": 55596,
+      "sha256": "0ecf4b83cfd83850956426374da6613e6609ec01c5780c5f3b99e9fb07d7d1d5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/trousers/second.jpg",
+      "package_path": "trousers/second.jpg",
+      "bytes": 201390,
+      "sha256": "4e10f3f1d84aa1d3b109dabf96df1beeb902244922daf88a407022b0137ad347"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/shoe/shoe.svg",
+      "package_path": "shoe/shoe.svg",
+      "bytes": 20445,
+      "sha256": "3931b4f1875257888ca6003ff106a36d7dd81db83adbccaed0299be64fc0e377"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/shoe/design.json",
+      "package_path": "shoe/design.json",
+      "bytes": 187765,
+      "sha256": "fd242916ecfb995d9b721bf257da3064589ed36289353beac038353472e332d6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/shoe/first.jpg",
+      "package_path": "shoe/first.jpg",
+      "bytes": 235475,
+      "sha256": "60c9a3337eaa51ced70496718dc7d88c65a378aae13dbb848173cf0b09be27ce"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/index.html",
+      "package_path": "index.html",
+      "bytes": 7092,
+      "sha256": "57df9b0ac2813387f4724f169e5d4b5886d2063ef8fb3ad8aac7ab3614552685"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/README.md",
+      "package_path": "README.md",
+      "bytes": 3529,
+      "sha256": "f4bd6abcd1e9f83f35a52e37660c2038edff10125eb5450cd7d0c2947fdfc269"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit/MANIFEST.json",
+      "package_path": "MANIFEST.json",
+      "bytes": 6199,
+      "sha256": "4a43a7a29a3034ed16e458290815db36475be59b691e4b875a61a7d57c625fe3"
+    }
+  ],
+  "collected_utc": "2026-10-19T14:02:13.758105+00:00",
+  "collection_pid": 80520,
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/PACKAGE-REVIEW.md",
+    "bytes": 3252,
+    "sha256": "87862ed8deebad514854b0a79e2babce576ca9ae43ee848ff80382e8f5fca0c6"
+  }
+}

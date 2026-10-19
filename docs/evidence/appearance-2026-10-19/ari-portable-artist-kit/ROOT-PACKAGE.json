@@ -1,0 +1,196 @@
+{
+  "schema": "root-portableAri-actual-package-audit-v1",
+  "utc": "2026-10-19T13:59:23.553137+00:00",
+  "pid": 75051,
+  "decision": "A finite package/disk/archive/source/relativegraph, browserunqualifiedpendingindependentactualpackagecritic",
+  "tool": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/TOOL-PACKAGE.json",
+    "bytes": 9406,
+    "sha256": "a0182fe23ab59abd4af2d1da3e6285e8b57daef573851ac3e7b2649b4a35b5d1"
+  },
+  "admission": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/PACKAGE-ADMISSION.json",
+    "bytes": 11079,
+    "sha256": "cd8401a9bbe6ef6d5ee8d525a8617f07311dd434a2536c4c6be222144251aae8"
+  },
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/PACKAGE-RESULT.json",
+    "bytes": 9019,
+    "sha256": "1baa778033ad8cb3d62517f31703ebd2464c7abfef015e9fa06362b6ee1c42ed"
+  },
+  "inventory": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/OUTPUT-INVENTORY.json",
+    "bytes": 6596,
+    "sha256": "39114ec819b1a74d034ae8e9ce2c1a00badc06c7735e4d4620e32ed9e2db00f8"
+  },
+  "archive": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ari-artist-kit.zip",
+    "bytes": 2809569,
+    "sha256": "c1c474ad7388634ae5e22e3b533bdf4b9954113803f42a8c91c891aca57c6d4b"
+  },
+  "checks": "All40pins/currentactualexit0nosession/exactstdoutJSON/argvSHA/expiry;actual24entryinventory18regularnosymlinks;all16diskfilesandZIPnamesregular/encryptionoff/DEFLATE/CRC+EVERYmemberbyte;all13originalpayloadbyteequal;all15manifestmemberidentities/newwrapperidentities/historicalpointermap;26actualrelativegalleryrefs/fiveIDs/fiveimages+SVGlocalfragments;truthlimits/readabilitynotyetqualified. No targetreplay/archiveextraction/reconstruction.",
+  "files": 16,
+  "art_files": 13,
+  "art_raw_bytes": 3342469,
+  "raw_bytes": 3359289,
+  "ZIP_bytes": 2809569,
+  "active_refs": [
+    [
+      "a",
+      "href",
+      "#character"
+    ],
+    [
+      "a",
+      "href",
+      "#bomber"
+    ],
+    [
+      "a",
+      "href",
+      "#interior"
+    ],
+    [
+      "a",
+      "href",
+      "#trousers"
+    ],
+    [
+      "a",
+      "href",
+      "#shoe"
+    ],
+    [
+      "a",
+      "href",
+      "README.md"
+    ],
+    [
+      "img",
+      "src",
+      "character/concept-v1.png"
+    ],
+    [
+      "a",
+      "href",
+      "character/concept-v1.png"
+    ],
+    [
+      "img",
+      "src",
+      "bomber/bomber.svg"
+    ],
+    [
+      "a",
+      "href",
+      "bomber/bomber.svg"
+    ],
+    [
+      "a",
+      "href",
+      "bomber/design.json"
+    ],
+    [
+      "a",
+      "href",
+      "bomber/original-first.jpg"
+    ],
+    [
+      "img",
+      "src",
+      "interior/interior-caption.svg"
+    ],
+    [
+      "a",
+      "href",
+      "interior/interior-caption.svg"
+    ],
+    [
+      "a",
+      "href",
+      "interior/design-caption.json"
+    ],
+    [
+      "a",
+      "href",
+      "interior/second.jpg"
+    ],
+    [
+      "img",
+      "src",
+      "trousers/trousers-clarity.svg"
+    ],
+    [
+      "a",
+      "href",
+      "trousers/trousers-clarity.svg"
+    ],
+    [
+      "a",
+      "href",
+      "trousers/design-clarity.json"
+    ],
+    [
+      "a",
+      "href",
+      "trousers/second.jpg"
+    ],
+    [
+      "img",
+      "src",
+      "shoe/shoe.svg"
+    ],
+    [
+      "a",
+      "href",
+      "shoe/shoe.svg"
+    ],
+    [
+      "a",
+      "href",
+      "shoe/design.json"
+    ],
+    [
+      "a",
+      "href",
+      "shoe/first.jpg"
+    ],
+    [
+      "a",
+      "href",
+      "README.md"
+    ],
+    [
+      "a",
+      "href",
+      "MANIFEST.json"
+    ]
+  ],
+  "SVG_scopes": [
+    {
+      "name": "bomber/bomber.svg",
+      "nodes": 145,
+      "local_fragments": 11
+    },
+    {
+      "name": "interior/interior-caption.svg",
+      "nodes": 151,
+      "local_fragments": 3
+    },
+    {
+      "name": "trousers/trousers-clarity.svg",
+      "nodes": 165,
+      "local_fragments": 0
+    },
+    {
+      "name": "shoe/shoe.svg",
+      "nodes": 177,
+      "local_fragments": 0
+    }
+  ],
+  "source_started_utc": "2026-10-19T13:58:16.267813+00:00",
+  "source_completed_utc": "2026-10-19T13:58:16.346867+00:00",
+  "checked_elapsed_ms": 79.06341599300504,
+  "limits": "Postimportcheckedtiming notOSstartup/peak/performance;actualfiles/ZIPnotfilebrowser/editor/fit/AAA. Createdregistrationisnotpartialinventory;independentactualinventoryfulfillsrootcondition. No ownerjobpending.",
+  "deadline": "2026-10-19T14:23:28.679067+00:00"
+}

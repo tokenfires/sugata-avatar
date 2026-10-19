@@ -1,0 +1,13 @@
+# Ari kit — blocked first browser surface
+
+**B — close offline-gallery/delivery qualification.** Keep the exact private archive and its independently verified data A. No gallery image exists, so this is not an appearance refusal. No board link, checklist promotion or tested offline-browser/editor claim follows.
+
+**F1: the required first surface was rejected by automatic browser security policy.** BROWSER-RESULT records the one admitted existing-IAB3 `file://…/ari-artist-kit/index.html` attempt at 14:03:19.753–.973 UTC. Its raw error states that the requested protocol is not allowed, only HTTP/HTTPS are allowed, and forbids workaround, indirect execution, raw CDP or alternate browser surfaces. This establishes that actual gallery loading/readability was not reached. It does not establish a malformed artifact, capacity problem, rendering failure or universal local-file limitation.
+
+SOURCE:29 explicitly closes on an unsupported/unknown first launch without HTTP/Vite/alternate-browser fallback; :31 withholds delivery until actual full gallery A. BROWSER-ADMISSION repeats that boundary. The first refusal consumes this method. Alternatives: **A retain the verified archive/files privately with gallery use explicitly unqualified** (selected; preserves exact editable sources without a viewing promise); **B withhold kit delivery entirely and retain existing repository-only references** (less convenient, avoids any suggestion of tested portable presentation). Neither requires the blocked action or an attempted workaround.
+
+All 65 admission pins remain exact, including originals, sixteen package files and ZIP. The earlier package A remains scoped to complete member identities, CRCs, relative static graph and provenance, with no new art/fit/runtime/AAA credit. PACKAGE-RESULT and the packaged README already withhold browser qualification.
+
+Cleanup is reported in the saved root observation: failed creation left owned about:blank tab9 before handle assignment; root identified and closed only that tab, then observed accepted tabs1–3. I read that saved report, not a fresh browser census or separate raw cleanup trace. This does not prove global tab/process/driver retirement. Exact leaf first.jpg/first.png are absent; existing bundled art is unchanged.
+
+**No next experiment within this delivery method is worthwhile or admitted.** Freeze the refused surface and retained data; no retry, alternate URL/browser, extraction/rebuild, source change, capture or policy circumvention. No user permission is needed to retain evidence and stop. Only this review pair was written; pending edits: false. Closure deadline remains **14:23:28.679067 UTC**.
