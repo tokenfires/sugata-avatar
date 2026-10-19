@@ -1,0 +1,13 @@
+# The olive-overshirt character: the whole outfit from three sides
+
+[Open the complete new sheet](first.png). This supplemental artist illustration shows the retained fictional masculine character from the front, a page-left profile and the rear. The [original full-body and portrait](../../appearance-2026-10-04/masculine-character-target/concept-v1.png) remains unchanged. Root and the independent quality critic each inspected both whole images and retain the new first output for clothed character and outfit discussion.
+
+The front continues the original warm brown skin, short dark swept hair, quiet presence, open olive overshirt, ivory tee, sandstone straight trousers and brown lace-up ankle boots. The new views offer qualitative continuity rather than exact geometric, colour or identity correspondence. Head and hair are continuity references, not a finished head/groom source or a new grooming experiment.
+
+Use the profile to discuss the space occupied by the layered middle, the shirt hem over the clothed seat, and the trouser-to-boot balance. The complete near boot is visible from toe to heel; natural far-shoe overlap is part of the picture. Use the rear to discuss the quiet shirt back, modest shoulder yoke and curved hem, newly authored rear trouser patch pockets, straight leg fall and both boot heels. Front and rear show both complete shoes inside the frame.
+
+These hidden relationships are original artist choices. The current [official overshirt reference](https://www.jcrew.com/p/mens/categories/clothing/shirts/heritage-twill/garment-dyed-twill-overshirt/CI472) supplied broad twill, pointed-collar and layering text only; no rear product image was observed. It does not supply these new back, pocket or hem choices. [Exact reference scope](REFERENCES.md).
+
+The three figures are not registered projections or a reconstruction of the body under the clothes. Folds, stance, head tilt and shoe angles can differ illustratively. This supplies no editable body/foundation/head/groom master, garment pattern, native/3D source, measured materials, physical fit/coverage, rig/morph/pose/motion, runtime, performance, AAA quality or perceived identity/demographic certification. The full roadmap stays open.
+
+Made with one built-in image-generation call using the original character illustration as the sole raster reference. The unchanged first output is retained; no edit, crop, regeneration or retake. [Exact prompt](PROMPT.txt) · [Complete brief and limits](BRIEF.md) · [Independent actual-image review](IMAGE-REVIEW.md) · [Root image decision](ROOT-IMAGE.json) · [Complete recovery receipt](README.md).

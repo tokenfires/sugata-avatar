@@ -1,0 +1,260 @@
+{
+  "kind": "independent-exact-documentary-delivery-review",
+  "verdict": "A_EXACT_DOCUMENTARY_ROW_AND_NOTE_APPLICATION_WORTHWHILE",
+  "collectedUTC": "2026-10-19T23:31:23.606974+00:00",
+  "collectionPID": 21832,
+  "checkpointAimUTC": "2026-10-20T00:00:00Z",
+  "pending_edits": false,
+  "inputBindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2631,
+      "sha256": "9d967edd7bdce0f9ff543540473f34c5859d500619beb9051014e3a37581ebc1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/README.md",
+      "bytes": 5315,
+      "sha256": "dbb5715c1686df60bc561454300a8650852602fb26a7120e1dbae9c4f166a186"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/PROJECT-CHECKLIST.proposed.md",
+      "bytes": 8469,
+      "sha256": "51eff8f457e413fe78449f1273d53a2ae996b0f0f4482d0f6283c016ef533ae3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/CHECKPOINT-NOTE.txt",
+      "bytes": 2262,
+      "sha256": "b3d2d2e4e3a3f686857613e45b57c28319c2f8d4ed5c5ea485c9448df6bdbb6b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/ROOT-IMAGE.json",
+      "bytes": 9757,
+      "sha256": "274b3b222c1cc8b653198bf1357cd8c7178bc2405c67296289ccf916d86b0c9e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/IMAGE-REVIEW.md",
+      "bytes": 3986,
+      "sha256": "d51a778cd51c927d2f7e46c7907f0b6bde8f0fe9afa2a4a0463784a2e411c597"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/IMAGE-CRITIC-RECEIPT.json",
+      "bytes": 25316,
+      "sha256": "95a25e5a611e8caaf1208d68d872c91650f1cb5dbd69569d4bfd5ebdc7a7bf63"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/first.png",
+      "bytes": 1969289,
+      "sha256": "a7019a47790a0a27155e2425c02f7d3d1c7b3157d24a541caa5509e75d72c82d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/BASELINE-PROJECT-CHECKLIST.md",
+      "bytes": 8120,
+      "sha256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8120,
+      "sha256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/DELIVERY-INPUTS.json",
+      "bytes": 3395,
+      "sha256": "e93edb526000a913d7e85a95265b24a34748fc9e51aa5d861d5523550fbf296b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/ROOT-DELIVERY-FIRST.json",
+      "bytes": 2531,
+      "sha256": "0bbb83ac9628e62777fb0357c38b3706da49351ef8ad753d3882428a23654dc1"
+    }
+  ],
+  "manifestBindingsVerified": 11,
+  "reviewBinding": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/DELIVERY-REVIEW.md",
+    "bytes": 3351,
+    "sha256": "b22a6973cf8c6e2e2f782220a9c126a8f297ac5577ea25984dc93decb00e2f8c"
+  },
+  "scope": {
+    "wholeRead": [
+      "ARTIST-HANDOFF.md",
+      "README.md",
+      "PROJECT-CHECKLIST.proposed.md",
+      "CHECKPOINT-NOTE.txt",
+      "DELIVERY-INPUTS.json",
+      "ROOT-DELIVERY-FIRST.json after own seal"
+    ],
+    "baselineCanonicalRead": "byte comparison and exact decoded one-line diff; same baseline whole text previously read",
+    "actualImageEvidence": "Reused own unchanged IMAGE-REVIEWd51a778c and IMAGE-CRITIC-RECEIPT95a25e5a, current hashes exact; no new image view or old source/target requalification",
+    "ROOT-IMAGE.json": "hash-bound as root acceptance record; own prior actual image qualification remains basis, not root-opinion oracle",
+    "linkTargets": "stat/existence only, no target-content semantic expansion or external retrieval",
+    "newImageViews": 0,
+    "canonicalEdits": 0,
+    "newTargetEntries": 0,
+    "newReferenceBrowserNativeGPUGenerationCapture": 0
+  },
+  "independence": {
+    "sealChunk": "8e782b",
+    "sealUTC": "2026-10-19T23:30:11.557292+00:00",
+    "sealPID": 19530,
+    "order": "Own complete documentary A emitted before ROOT-DELIVERY-FIRST text read in same command; prior collaboration also states A.",
+    "rootFirstUTC": "2026-10-19T23:27:53.203456+00:00",
+    "comparison": "Independent agreement on exact documentary row/note application, no graphic action."
+  },
+  "literalScopeVerified": {
+    "baselineBytes": 8120,
+    "baselineSHA256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6",
+    "canonicalStillBaseline": true,
+    "proposedBytes": 8469,
+    "proposedSHA256": "51eff8f457e413fe78449f1273d53a2ae996b0f0f4482d0f6283c016ef533ae3",
+    "changedChecklistLines": [
+      28
+    ],
+    "allOtherLinesExact": true,
+    "checkedBeforeAfter": [
+      23,
+      23
+    ],
+    "uncheckedBeforeAfter": [
+      10,
+      10
+    ],
+    "OutstandingSuffixVerbatim": true,
+    "checkpointNoteBytes": 2262,
+    "checkpointNoteSHA256": "b3d2d2e4e3a3f686857613e45b57c28319c2f8d4ed5c5ea485c9448df6bdbb6b",
+    "proposedCheckpointOperation": "Root exact insertion of reviewed note after first line in both docs/ canonical checkpoints, preserve remaining bytes; not performed by critic.",
+    "historicalEpochResolution": "Old8120/32f5098f canonical pins resolve through preserved BASELINE-PROJECT-CHECKLIST.md or21dc7583 after intentional update, no silent rebinding."
+  },
+  "linkAudit": {
+    "totalOccurrences": 57,
+    "localOccurrences": 56,
+    "externalPointersUnvisited": 1,
+    "allLocalTargetsExist": true,
+    "fragments": 0,
+    "leafBase": [
+      "ARTIST-HANDOFF.md",
+      "README.md"
+    ],
+    "canonicalDocsBase": [
+      "PROJECT-CHECKLIST.proposed.md",
+      "CHECKPOINT-NOTE.txt"
+    ],
+    "fullCompactWitnessJob": "7fe050/exit0/PID18379/2026-10-19T23:29:41.084069+00:00",
+    "noOfflineOrNewBrowserClaim": true
+  },
+  "claimConsistency": [
+    {
+      "witness": "ARTIST-HANDOFF.md:3-13",
+      "assessment": "Matches full three-view image A: original unchanged, new hidden clothes invented, natural profile overlap and complete relevant shoes, all technical/physical/head/groom/identity/runtime limits explicit."
+    },
+    {
+      "witness": "README.md:11-17",
+      "assessment": "Exact image/source/admission/call/collection counts/hashes/clocks consistent with prior actual audit; managed limits and uninspected merchant pixels explicit."
+    },
+    {
+      "witness": "PROJECT-CHECKLIST.proposed.md:28 and Outstanding suffix",
+      "assessment": "One discoverability extension only, no extra checked feature or broad-goal qualification."
+    },
+    {
+      "witness": "CHECKPOINT-NOTE.txt:4-10;README.md:23-27",
+      "assessment": "Accurate limited artist A/terminal/no moregraphics and historical source-epoch handling. Service evidence is attributed root observation at23:16:40, not independently re-probed or future-delivery proof."
+    }
+  ],
+  "actionableDocumentaryFindings": [],
+  "alternatives": [
+    {
+      "choice": "apply exact reviewed row/note after root fresh verification",
+      "tradeoff": "Improves discovery/recovery with explicit artist limitations, no new feature or broad quality credit."
+    },
+    {
+      "choice": "keep isolated handoff/sheet and unchanged canonical docs",
+      "tradeoff": "Avoids canonical text change, but discovery/recovery remains behind the accepted outcome; no new graphical action implied."
+    }
+  ],
+  "exactApplicationWorthwhile": true,
+  "nextBoundary": "Root whole-read/fresh all bindings, exact proposal copy and note insertions only, preserve historical epochs and all remaining bytes; byte/diff/readback/local checkpoint, no push or graphic target.",
+  "errorsAndCorrections": [
+    {
+      "who": "root observer, attributed from task/ROOT-DELIVERY-FIRST",
+      "jobs": "def814 then09ae4c",
+      "scope": "Wrong-base link assertion after complete text read; corrected only canonical insertion context. No artifact/source failure or mutation."
+    },
+    {
+      "who": "critic display",
+      "jobs": "1cc82b then7fe050",
+      "scope": "Verbose existing-link table display clipped; compact same frozen four texts recovered all57occurrences, no input/target change."
+    }
+  ],
+  "limits": [
+    "Documentary decision only; reused exact actual-image A, no new appearance/technical proof.",
+    "No canonical checklist/checkpoint adoption by critic; postapplication exactness remains root duty.",
+    "No asset/default/head/groom/native3D/fit/material/rig/motion/runtime/performance/AAA/demographic promotion.",
+    "Prior closures, ignored/held/original assets, constructor HOLD and all full roadmap goals remain.",
+    "Only the two exclusive delivery review files written; no new network/browser/native/GPU/capture/generation/target/source inquiry."
+  ],
+  "toolJobs": [
+    {
+      "name": "initial",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,datetime,os\nbase=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround')\nprint(json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid()}))\nfor n in ['ARTIST-HANDOFF.md','README.md','PROJECT-CHECKLIST.proposed.md','CHECKPOINT-NOTE.txt','DELIVERY-INPUTS.json']:\n p=base/n;b=p.read_bytes();print('\\nFILE',str(p),len(b),hashlib.sha256(b).hexdigest())\n for i,l in enumerate(b.decode().splitlines(),1):print(f'{i}: {l}')\nPY",
+      "result": {
+        "chunk_id": "d839be",
+        "wall_time_seconds": 7.917e-06,
+        "exit_code": 0,
+        "original_token_count": 5950,
+        "returnedOutputBytes": 23797,
+        "returnedOutputSHA256": "138ae1562645eff0de1e64cc2b1dd6ddcf5ff429cbda445ba837d605b53a070e",
+        "firstLine": "{\"utc\": \"2026-10-19T23:28:33.843623+00:00\", \"pid\": 16328}",
+        "scope": "read-only document/pin/link/diff inspection; no target execution"
+      }
+    },
+    {
+      "name": "binding",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,datetime,os,re,urllib.parse,difflib\nr=Path('/Users/robault/GitHub/sugata-avatar');base=r/'docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround';m=json.loads((base/'DELIVERY-INPUTS.json').read_text())\nfor row in m['bindings']:\n b=Path(row['path']).read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256']\nb=(base/'BASELINE-PROJECT-CHECKLIST.md').read_bytes();c=(r/'docs/PROJECT-CHECKLIST.md').read_bytes();p=(base/'PROJECT-CHECKLIST.proposed.md').read_bytes();assert c==b\nbl=b.splitlines(keepends=True);pl=p.splitlines(keepends=True);assert len(bl)==len(pl);changes=[i+1 for i,(x,y) in enumerate(zip(bl,pl)) if x!=y];assert changes==[28];assert b.split(b'## Outstanding',1)[1]==p.split(b'## Outstanding',1)[1]\nassert p.count(b'- [x]')==23 and p.count(b'- [ ]')==10\nprint(json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'all11BindingsVerified':len(m['bindings']),'baselineEqualsCanonical':True,'changedChecklistLines':changes,'checked':23,'unchecked':10,'OutstandingSuffixExact':True}))\nprint('EXACT_PROPOSED_CHECKLIST_DIFF')\nprint(''.join(difflib.unified_diff(b.decode().splitlines(keepends=True),p.decode().splitlines(keepends=True),fromfile='docs/PROJECT-CHECKLIST.md (baseline)',tofile='docs/PROJECT-CHECKLIST.md (proposed)')))\nlinks=[]\nfor name,context in [('ARTIST-HANDOFF.md',base),('README.md',base),('PROJECT-CHECKLIST.proposed.md',r/'docs'),('CHECKPOINT-NOTE.txt',r/'docs')]:\n text=(base/name).read_text()\n for match in re.finditer(r'\\[[^\\]]*\\]\\(([^)]+)\\)',text):\n  url=match.group(1);u=urllib.parse.urlsplit(url);line=text[:match.start()].count('\\n')+1\n  if u.scheme in ('http','https'):links.append({'file':name,'line':line,'target':url,'scope':'external pointer only; no retrieval'});continue\n  assert not u.scheme and not u.netloc\n  target=(context/urllib.parse.unquote(u.path)).resolve();assert target.is_file(),(name,line,url,str(target));links.append({'file':name,'line':line,'target':url,'resolutionBase':str(context),'resolved':str(target),'fragment':u.fragment,'exists':True})\nprint('LITERAL_LINKS',json.dumps(links));print('LINK_COUNTS',json.dumps({'allOccurrences':len(links),'localOccurrences':sum('resolved' in x for x in links),'externalPointers':sum('resolved' not in x for x in links),'noFragments':all(not x.get('fragment') for x in links)}))\nPY",
+      "result": {
+        "chunk_id": "1cc82b",
+        "wall_time_seconds": 6.958e-06,
+        "exit_code": 0,
+        "original_token_count": 5302,
+        "returnedOutputBytes": 20105,
+        "returnedOutputSHA256": "3a5f9645b8518f874a8edb3e75471d4895c13153510ea478889ace4fb931c3b1",
+        "firstLine": "Warning: truncated output (original token count: 5302)",
+        "scope": "read-only document/pin/link/diff inspection; no target execution"
+      }
+    },
+    {
+      "name": "linkrecovery",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport re,json,datetime,os,urllib.parse\nr=Path('/Users/robault/GitHub/sugata-avatar');base=r/'docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround';rows=[]\nprint(json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'purpose':'compact complete recovery of same frozen57link occurrences after diagnostic display clipping'}))\nfor name,ctx in [('ARTIST-HANDOFF.md',base),('README.md',base),('PROJECT-CHECKLIST.proposed.md',r/'docs'),('CHECKPOINT-NOTE.txt',r/'docs')]:\n text=(base/name).read_text()\n for m in re.finditer(r'\\[[^\\]]*\\]\\(([^)]+)\\)',text):\n  u=urllib.parse.urlsplit(m.group(1));line=text[:m.start()].count('\\n')+1\n  if u.scheme in ('http','https'):rows.append([name,line,m.group(1),'external pointer only']);continue\n  p=(ctx/urllib.parse.unquote(u.path)).resolve();assert p.is_file();rows.append([name,line,m.group(1),'leaf base' if ctx==base else 'canonical docs base'])\nfor row in rows:print(json.dumps(row))\nprint(json.dumps({'occurrences':len(rows),'local':sum(x[3]!='external pointer only' for x in rows),'external':sum(x[3]=='external pointer only' for x in rows)}))\nPY",
+      "result": {
+        "chunk_id": "7fe050",
+        "wall_time_seconds": 8.166e-06,
+        "exit_code": 0,
+        "original_token_count": 1401,
+        "returnedOutputBytes": 5603,
+        "returnedOutputSHA256": "d79e06ecdda9e216f89d4f7c98428f456e7635fdefd822676d99f59973e92e2b",
+        "firstLine": "{\"utc\": \"2026-10-19T23:29:41.084069+00:00\", \"pid\": 18379, \"purpose\": \"compact complete recovery of same frozen57link occurrences after diagnostic display clipping\"}",
+        "scope": "read-only document/pin/link/diff inspection; no target execution"
+      }
+    },
+    {
+      "name": "compare",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,datetime,os\nbase=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround')\nprint(json.dumps({'independentDocumentaryDecisionSealedUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'verdict':'A_EXACT_DOCUMENTARY_ROW_AND_NOTE_APPLICATION_WORTHWHILE','witnesses':['ARTIST-HANDOFF.md:3-13 accurately limits artistA and invented hidden choices','README.md:5-27 preserves one-call/source/image/resource/historicalepoch limits','PROJECT-CHECKLIST.proposed.md only baseline line28 changed,23checked10open,Outstanding suffixexact','CHECKPOINT-NOTE.txt exact limitedA/terminal/no moregraphic summary,canonicaldocs insertionbase links'],'links':{'all':57,'local':56,'externalUnvisited':1},'actionableDocumentaryFindings':[],'canonicalEditsByCritic':0,'newImageActions':0}))\np=base/'ROOT-DELIVERY-FIRST.json';b=p.read_bytes();print('\\nROOT_DELIVERY_OPINION_AFTER_INDEPENDENT_SEAL',len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "result": {
+        "chunk_id": "8e782b",
+        "wall_time_seconds": 5.833e-06,
+        "exit_code": 0,
+        "original_token_count": 836,
+        "returnedOutputBytes": 3342,
+        "returnedOutputSHA256": "2461b6347e6045938b0fc43e1476c0c28d86be4399f1485d24b7324865d9126c",
+        "firstLine": "{\"independentDocumentaryDecisionSealedUTC\": \"2026-10-19T23:30:11.557292+00:00\", \"pid\": 19530, \"verdict\": \"A_EXACT_DOCUMENTARY_ROW_AND_NOTE_APPLICATION_WORTHWHILE\", \"witnesses\": [\"ARTIST-HANDOFF.md:3-13 accurately limits artistA and invented hidden choices\", \"README.md:5-27 preserves one-call/source/image/resource/historicalepoch limits\", \"PROJECT-CHECKLIST.proposed.md only baseline line28 changed,23checked10open,Outstanding suffixexact\", \"CHECKPOINT-NOTE.txt exact limitedA/terminal/no moregraphic summary,canonicaldocs insertionbase links\"], \"links\": {\"all\": 57, \"local\": 56, \"externalUnvisited\": 1}, \"actionableDocumentaryFindings\": [], \"canonicalEditsByCritic\": 0, \"newImageActions\": 0}",
+        "scope": "read-only document/pin/link/diff inspection; no target execution"
+      }
+    }
+  ],
+  "outputWrites": [
+    "DELIVERY-REVIEW.md",
+    "DELIVERY-CRITIC-RECEIPT.json"
+  ]
+}

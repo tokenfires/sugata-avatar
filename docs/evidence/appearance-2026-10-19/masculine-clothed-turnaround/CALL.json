@@ -1,0 +1,23 @@
+{
+  "dispatchUTC": "2026-10-19T23:18:35.860096+00:00",
+  "metadataWriterPID": 96924,
+  "state": "TERMINAL_ONE_OUTPUT_COLLECTED; no second call allowed",
+  "tool": "image_gen.imagegen",
+  "arguments": {
+    "prompt": "Use case: photorealistic-natural\nAsset type: supplemental fictional character and clothed outfit reference sheet for Sugata artist discussion.\nInput image 1 is the sole character reference, not an edit target. Create a new landscape sheet; leave the original untouched.\n\nShow the same fictional adult character in three complete, equally scaled, separate standing views, left to right: directly FRONT, a true 90-degree PROFILE facing page-left, and directly REAR. Each figure must fit from the top of the hair to the bottom of the boot soles, with clear margins and a shared ground level. Plain light neutral-gray studio background, soft even light, realistic skin and woven cloth, restrained catalog presentation. No text, inset portraits, decorative props, borders or extra figures.\n\nPreserve the reference's qualitative character: warm medium-brown skin, the same face and short dark swept hair, quiet relaxed presence, and subtle beard shadow. Hair and head are reference continuity only; do not invent a new haircut or make a head/groom study.\nKeep the complete outfit and palette: an open olive woven overshirt with a pointed collar, full wrist-length sleeves and cuffs, button plackets and one simple chest patch pocket as in the reference; an ivory crew-neck tee visible beneath it, sandstone straight-leg trousers, and brown lace-up ankle boots with distinct uppers and soles. No jacket replacement, extra jewelry, new bag or branding.\n\nAuthor believable new CLOTHED side and rear relationships rather than pretending to reconstruct hidden anatomy. Choose a quiet plain overshirt back with a modest shoulder yoke, a gently curved shirt hem, and natural woven-cloth folds. Let the open outer layer sit over the tee and the trousers without a tight waist cinch. Show an ordinary clothed middle and trouser seat, straight leg fall, and a clear hem-to-boot balance. The rear must unmistakably show the back of the clothes and both boot heels; no turned-back face. These rear details are original design choices.\n\nUse a neutral upright relaxed stance and natural hands resting slightly clear of the clothes, so the layered silhouette is readable. Front and rear show both uncropped shoes. In the true profile, natural far-shoe occlusion is fine: show the near boot's complete toe-to-heel extent, with plausible legs and no forced foot splay. Keep ordinary human proportions and coherent clothing across the three views. Do not crop limbs, heads, shoes or soles.\nThis is an unregistered artist illustration of new clothed choices, not a technical orthographic reconstruction, anatomy claim, sewing pattern, 3D master or fitted runtime avatar.\n",
+    "referenced_image_paths": [
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png"
+    ],
+    "transparent_background": false
+  },
+  "admission": {
+    "path": "docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/ADMISSION.json",
+    "bytes": 8234,
+    "sha256": "143adb95c2e4dbebdccc9db109e16d87d6ce66f081b74c24ae353d0fe2956672"
+  },
+  "sourceCommit": "21dc758336f0ba10ea56e02e977b9903bf456fc9",
+  "freshAgeSeconds": 14.990104,
+  "servicePIDModelMemoryCancellation": "not exposed/unmeasured",
+  "terminalCollectedUTC": "2026-10-19T23:19:44.513471+00:00",
+  "returnMetadata": "docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/GENERATION-RESULT.json"
+}

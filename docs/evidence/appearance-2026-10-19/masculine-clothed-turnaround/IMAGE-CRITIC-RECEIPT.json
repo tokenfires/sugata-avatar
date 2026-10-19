@@ -1,0 +1,356 @@
+{
+  "kind": "independent-whole-original-new-actual-image-review",
+  "verdict": "A_LIMITED_SUPPLEMENTAL_CLOTHED_ARTIST_REFERENCE",
+  "collectedUTC": "2026-10-19T23:24:13.720784+00:00",
+  "collectionPID": 7920,
+  "checkpointAimUTC": "2026-10-20T00:00:00Z",
+  "pending_edits": false,
+  "inputBindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/PLAN.md",
+      "bytes": 7020,
+      "sha256": "317d3c34d3cedda0947663f6eeabd5e44648fc816a32d5eb8d0dda6969a6eee6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/BRIEF.md",
+      "bytes": 6014,
+      "sha256": "fccce73ff912c7887e1812496bd1421620005cb86bdd3b5cf31e55383884032a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/PROMPT.txt",
+      "bytes": 2646,
+      "sha256": "69a47e1c5a836e8443e8bf2466f3909b87651731d0189d358a9a0df893ec8a3f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/REFERENCES.md",
+      "bytes": 1808,
+      "sha256": "5b0406208d1927562aaaf0edfdb1d3e0cfbc5374b5485b0403e0468ad81cd98e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/REFERENCE-RAW.json",
+      "bytes": 21894,
+      "sha256": "858b8f30e756486950806e5d57492fa7b375e64b5245b5f4f85006d603a4794d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/BASELINE-PROJECT-CHECKLIST.md",
+      "bytes": 8120,
+      "sha256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8120,
+      "sha256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/PLAN.md",
+      "bytes": 4087,
+      "sha256": "83d468d1ac4e1f3dba3e4fd706b0655d93505f18bcd3faa035fa9de56b176706"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/WORTH.md",
+      "bytes": 3555,
+      "sha256": "1bfa0c6704b745e09315c5b67360cde5da2c55624e5456ee07c331db059df05e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/CRITIC-RECEIPT.json",
+      "bytes": 12566,
+      "sha256": "ae59f4a5c054f20fff6600901dfbde220c5d0aed173cf7f00600ee71d64b06f5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/ROOT-WORTH.json",
+      "bytes": 3627,
+      "sha256": "96eb093135b25f56d0a4308e4559f5d9b1986d18a0f68fd9dc567ddeda90f4a3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/ROOT-CLOSE.json",
+      "bytes": 3025,
+      "sha256": "87e0926bd2c9707cbf989df411ccc043bdbeb177c0eeabb345dcb2031f2ea089"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/INPUTS.json",
+      "bytes": 4456,
+      "sha256": "6c4c3600816c4b38b0126e1a52d5edb88523f7b12dece332f7ec8113b44fec46"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/ROOT-SOURCE-FIRST.json",
+      "bytes": 3111,
+      "sha256": "0c9766ad7657b8d5aaee3cdeca7f6efbf2c544765031daf0a38dca14c18929c2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/SOURCE-REVIEW.md",
+      "bytes": 3917,
+      "sha256": "d5c81f0b7595a40e8984fa6bbcd472deada616621e8d77778e3a4df23a6efb89"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/SOURCE-CRITIC-RECEIPT.json",
+      "bytes": 17015,
+      "sha256": "373ff3c23b8b95355f2191f295c3d3bf587b959d28d51dcbb200e3a50f82bf49"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/ROOT-SOURCE.json",
+      "bytes": 6923,
+      "sha256": "02551015276076412e604569b489dc4bee00c16a8c539aad653b040162c1a131"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/ADMISSION.json",
+      "bytes": 8234,
+      "sha256": "143adb95c2e4dbebdccc9db109e16d87d6ce66f081b74c24ae353d0fe2956672"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/CALL.json",
+      "bytes": 3631,
+      "sha256": "174b25367e599ee115a3adc60fd1bd603bfdafbec0134849e7211b6b1698899c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/GENERATION-RESULT.json",
+      "bytes": 1767,
+      "sha256": "64928926144f083fad25382548a9b6c9419f58747549f577c59d7115e188e7a0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/ROOT-IMAGE-FIRST.json",
+      "bytes": 3783,
+      "sha256": "e76ef4fc11772d9c7b6f83bcbb1cbbb82c364acf357b4394908eea44e4458696"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/first.png",
+      "bytes": 1969289,
+      "sha256": "a7019a47790a0a27155e2425c02f7d3d1c7b3157d24a541caa5509e75d72c82d"
+    },
+    {
+      "path": "/Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-8340e180-9f17-42eb-8b22-be672b6fc87a.png",
+      "bytes": 1969289,
+      "sha256": "a7019a47790a0a27155e2425c02f7d3d1c7b3157d24a541caa5509e75d72c82d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/IMAGE-INPUTS.json",
+      "bytes": 7306,
+      "sha256": "03f6796eb5a21afb3ec4ce9591a2399277212afea098045ba20fdf3aee27a060"
+    }
+  ],
+  "imageManifestBindingsVerified": 25,
+  "imageManifestSelfPinVerified": true,
+  "reviewBinding": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/IMAGE-REVIEW.md",
+    "bytes": 3986,
+    "sha256": "d51a778cd51c927d2f7e46c7907f0b6bde8f0fe9afa2a4a0463784a2e411c597"
+  },
+  "nestedAdmission": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/ADMISSION.json",
+    "sha256": "143adb95c2e4dbebdccc9db109e16d87d6ce66f081b74c24ae353d0fe2956672",
+    "bindingsIndependentlyVerified": 19,
+    "allCurrent": true,
+    "recordReadWhole": true
+  },
+  "actualViews": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "requestedDetail": "original",
+      "returnedDetail": "original",
+      "afterBindingChunk": "65bcf0",
+      "tool": "tools.view_image",
+      "scope": "whole unedited original detail; no crop/scale transformation/new capture",
+      "backendPID": "not exposed; metadata reader PID is not the viewer PID",
+      "viewInterval": "after65bcf0 at23:21:18.488944UTC and before42e644 at23:22:20.228477UTC"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/first.png",
+      "requestedDetail": "original",
+      "returnedDetail": "original",
+      "afterBindingChunk": "65bcf0",
+      "tool": "tools.view_image",
+      "scope": "whole unedited original detail; no crop/scale transformation/new capture",
+      "backendPID": "not exposed; metadata reader PID is not the viewer PID",
+      "viewInterval": "after65bcf0 at23:21:18.488944UTC and before42e644 at23:22:20.228477UTC"
+    }
+  ],
+  "independence": {
+    "sealChunk": "42e644",
+    "sealUTC": "2026-10-19T23:22:20.228477+00:00",
+    "sealPID": 4368,
+    "order": "Both exact whole images viewed and own pixel A emitted before ROOT-IMAGE-FIRST text read in same command.",
+    "rootFirstUTC": "2026-10-19T23:20:24.891450+00:00",
+    "rootFirstSHA256": "e76ef4fc11772d9c7b6f83bcbb1cbbb82c364acf357b4394908eea44e4458696",
+    "comparison": "Independent agreement on full required three-view purpose at limited artist scope; illustrative hidden choices unregistered."
+  },
+  "actualImageObservations": [
+    {
+      "role": "front",
+      "region": "approx x165-478,y20-951 on1536x1024",
+      "pixelWitness": "Complete frontal figure, olive open overshirt and one chest patch/point collar/cuffs, ivory tee, sandstone trousers, both brown boots/soles and relaxed hands. Qualitative original face/skin/short swept hair/subtle beard continuity.",
+      "sourceWitness": "PROMPT.txt:5-8,12;BRIEF.md:13-15",
+      "decision": "A artist scope"
+    },
+    {
+      "role": "true-profile-facing-page-left",
+      "region": "approx x657-861,y17-939;near boot x658-826,y880-936",
+      "pixelWitness": "Recognizable side face/body orientation, readable outer-layer edge and clothed middle/seat/leg silhouette, near boot complete toe-to-heel; far boot naturally partially occluded.",
+      "sourceWitness": "PROMPT.txt:5,10,12;BRIEF.md:13",
+      "decision": "A; no missing footwear inference or technical orthographic claim"
+    },
+    {
+      "role": "rear",
+      "region": "approx x1069-1373,y16-940;back/yoke/hem above rear seat",
+      "pixelWitness": "Unmistakable back/no turned-back face; plain olive yoke/back/curved hem, cuffs/hands, rear trouser pocket/seat forms, full legs and both heel/sole silhouettes.",
+      "sourceWitness": "PROMPT.txt:10,12;BRIEF.md:7,13",
+      "decision": "A as newly authored clothed choices; not merchant or anatomy reconstruction"
+    },
+    {
+      "role": "complete sheet and continuity",
+      "region": "whole1536x1024",
+      "pixelWitness": "Exactly three full-height similarly scaled figures, all within margins, quiet gray background, no text/inset/extra character. Palette/outfit coherent; stance/folds/head tilt/boot angles vary illustratively.",
+      "sourceWitness": "PROMPT.txt:3-13;PLAN.md:17;BRIEF.md:13-15",
+      "decision": "A complete artist consumer; no partial source/metadata promotion"
+    }
+  ],
+  "actionableVisualFindings": [],
+  "alternatives": [
+    {
+      "choice": "retain exact first sheet beside original",
+      "tradeoff": "Useful immediate clothed profile/rear discussion intent; hidden forms remain invented/unregistered and require separate editable/fit/moving qualification."
+    },
+    {
+      "choice": "retain original/brief only and defer to editable coupled authorship",
+      "tradeoff": "Avoids relying on speculative hidden views but loses useful current whole-outfit guidance; no retry or replacement allowed."
+    }
+  ],
+  "actualRecordAudit": {
+    "callState": "TERMINAL_ONE_OUTPUT_COLLECTED; no second call allowed",
+    "dispatchUTC": "2026-10-19T23:18:35.860096+00:00",
+    "admissionUTC": "2026-10-19T23:18:20.869992+00:00",
+    "ageSeconds": 14.990104,
+    "freshWindowSeconds": 120,
+    "exactArgumentsMatchPromptAndAdmission": true,
+    "soleReferencedPath": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+    "transparent_background": false,
+    "reportedToolElapsedSeconds": 32.6,
+    "returnedEnd": "2026-10-19 23:19:16 UTC",
+    "collectionUTC": "2026-10-19T23:19:44.513471+00:00",
+    "defaultFile": {
+      "path": "/Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-8340e180-9f17-42eb-8b22-be672b6fc87a.png",
+      "bytes": 1969289,
+      "sha256": "a7019a47790a0a27155e2425c02f7d3d1c7b3157d24a541caa5509e75d72c82d",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    "projectFile": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/first.png",
+      "bytes": 1969289,
+      "sha256": "a7019a47790a0a27155e2425c02f7d3d1c7b3157d24a541caa5509e75d72c82d",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    "defaultProjectBytesEqual": true,
+    "defaultProjectOrdinaryFiles": true,
+    "outputWithin20MiB": true,
+    "bothOriginalAndNewPNGDimensions": [
+      1536,
+      1024
+    ],
+    "bothOriginalAndNewPNGChunkCRCs": 4,
+    "clockLimit": "Tool elapsed32.6s is separate from dispatch-to-rounded-return interval; no performance/peak/cancellation guarantee."
+  },
+  "scope": {
+    "wholeNewRecords": [
+      "IMAGE-INPUTS.json",
+      "CALL.json",
+      "GENERATION-RESULT.json",
+      "ADMISSION.json",
+      "ROOT-IMAGE-FIRST.json only after independent seal"
+    ],
+    "sourceAndBrief": "Complete exact source gate reused at current verified bytes: whole PLAN/BRIEF/PROMPT/REFERENCES/INPUTS/REFERENCE-RAW from jobs590eb9/ce1281 and source-reviewd5c81f0b/receipt373ff3c2; no new retrieval.",
+    "actualImageViews": 2,
+    "otherImageViews": 0,
+    "newTargetCalls": 0,
+    "newNetworkBrowserCaptureNativeGPU": 0,
+    "noImageArtSourceEdits": true
+  },
+  "nextDocumentaryHandoffWorthwhile": true,
+  "nextGraphicalExperimentWorthwhile": false,
+  "nextBoundary": "Root whole-read/fresh binding and independent pixel verification; only a separately reviewed truthful documentary handoff/link may follow. No canonical edits here; no new graphic/retake/crop/relabel or renamed-view/head/groom/capture successor.",
+  "limitations": [
+    "Actual A is unregistered supplemental CLOTHED artist reference only; not technical/anatomical/identity/demographic certification.",
+    "No editable body/head/groom/3D/native, fit/coverage/sewing/materialUV/rig/morph/pose/motion/runtime/performance/AAA qualification.",
+    "New back/yoke/rear pockets/seat/hem are invented; merchant screenshot remained unviewed URL.",
+    "Managed model/version/PID/peakmemory/hardcancellation remain unexposed; terminal output collection is not physical worker retirement proof.",
+    "Metadata/header/CRC/source A do not themselves qualify appearance; both whole actual images independently inspected.",
+    "Canonical checklist still8120/32f5098f and exact baseline during this review; delivery scope must preserve23checks/10broad and historical input epochs.",
+    "All original/accepted/default/frozen/ignored assets, old closures and constructor HOLD preserved."
+  ],
+  "errorsAndCorrections": [],
+  "toolJobs": [
+    {
+      "name": "initial",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\nbase=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround')\nprint(json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid()}))\nfor n in ['IMAGE-INPUTS.json','GENERATION-RESULT.json','CALL.json']:\n p=base/n;b=p.read_bytes();print('\\nFILE',str(p),len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "result": {
+        "chunk_id": "f93d9a",
+        "wall_time_seconds": 5.792e-06,
+        "exit_code": 0,
+        "original_token_count": 3337,
+        "returnedOutputBytes": 13346,
+        "returnedOutputSHA256": "c9892d91e33cd517c68a5aef8ba8b671ebc3800fd09a99170dd19f72c1da4c00",
+        "firstLine": "{\"utc\": \"2026-10-19T23:20:54.433326+00:00\", \"pid\": 1740}",
+        "scope": "complete untruncated read-only record/pin/PNG-header-CRC operation; no target evaluation"
+      }
+    },
+    {
+      "name": "binding",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,datetime,os,stat,struct,zlib\nbase=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround');m=json.loads((base/'IMAGE-INPUTS.json').read_text())\nfor row in m['sourceBindingsAndImageRecords']:\n p=Path(row['path']);b=p.read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256']\nchecks=[]\nfor p in [Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png'),base/'first.png']:\n b=p.read_bytes();assert stat.S_ISREG(p.lstat().st_mode) and b[:8]==b'\\x89PNG\\r\\n\\x1a\\n';i=8;chunks=0\n while i<len(b):\n  n=struct.unpack('>I',b[i:i+4])[0];t=b[i+4:i+8];d=b[i+8:i+8+n];crc=struct.unpack('>I',b[i+8+n:i+12+n])[0];assert zlib.crc32(t+d)&0xffffffff==crc;i+=12+n;chunks+=1\n  if t==b'IEND':break\n assert i==len(b);dims=struct.unpack('>II',b[16:24]);assert dims==(1536,1024);checks.append({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'dimensions':dims,'allChunkCRCs':chunks,'ordinaryFile':True})\ng=json.loads((base/'GENERATION-RESULT.json').read_text());assert Path(g['defaultOutput']['path']).read_bytes()==(base/'first.png').read_bytes();call=json.loads((base/'CALL.json').read_text());assert call['arguments']['prompt']==(base/'PROMPT.txt').read_text();assert call['arguments']['transparent_background'] is False;assert call['arguments']['referenced_image_paths']==[checks[0]['path']]\nprint(json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'allBindingsVerified':len(m['sourceBindingsAndImageRecords']),'images':checks,'defaultProjectByteEquality':True,'exactCallPromptArguments':True,'rootImageOpinion':'hash only before own pixels/opinion'}))\nPY",
+      "result": {
+        "chunk_id": "65bcf0",
+        "wall_time_seconds": 5.792e-06,
+        "exit_code": 0,
+        "original_token_count": 202,
+        "returnedOutputBytes": 806,
+        "returnedOutputSHA256": "0f8d20bfd576f866a110320a0d124a554a8d9c7d49114a6825d0148b4d71c9ce",
+        "firstLine": "{\"utc\": \"2026-10-19T23:21:18.488944+00:00\", \"pid\": 2499, \"allBindingsVerified\": 25, \"images\": [{\"path\": \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png\", \"bytes\": 2262882, \"sha256\": \"4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44\", \"dimensions\": [1536, 1024], \"allChunkCRCs\": 4, \"ordinaryFile\": true}, {\"path\": \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/first.png\", \"bytes\": 1969289, \"sha256\": \"a7019a47790a0a27155e2425c02f7d3d1c7b3157d24a541caa5509e75d72c82d\", \"dimensions\": [1536, 1024], \"allChunkCRCs\": 4, \"ordinaryFile\": true}], \"defaultProjectByteEquality\": true, \"exactCallPromptArguments\": true, \"rootImageOpinion\": \"hash only before own pixels/opinion\"}",
+        "scope": "complete untruncated read-only record/pin/PNG-header-CRC operation; no target evaluation"
+      }
+    },
+    {
+      "name": "compare",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,datetime,os\nbase=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround')\nprint(json.dumps({'independentPixelDecisionSealedUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'verdict':'A_LIMITED_SUPPLEMENTAL_CLOTHED_ARTIST_REFERENCE','actualWholeViews':['original4f2dcb32','newa7019a'],'observations':['Three complete front/profile/rear clothed figures, no added portrait/extra figure','Profile nose page-left; near boot whole toe-to-heel, natural far-boot overlap','Rear face turned away, quiet yoke/back/curved hem above clothed seat and both boot heels','Olive/ivory/sandstone/brown palette, face/short dark hair continuity, plausible limbs and hands','All figures inside frame, ordinary cloth variations do not defeat intended consumer'],'actionableVisualFindings':[],'nextWorth':'Truthful documentary-only handoff may be worth separate review; no new graphic work.'}))\nfor n in ['ROOT-IMAGE-FIRST.json','ADMISSION.json']:\n p=base/n;b=p.read_bytes();print('\\nAFTER_INDEPENDENT_SEAL',str(p),len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "result": {
+        "chunk_id": "42e644",
+        "wall_time_seconds": 9.25e-06,
+        "exit_code": 0,
+        "original_token_count": 3312,
+        "returnedOutputBytes": 13245,
+        "returnedOutputSHA256": "3fb583306c6f9224df16e042a5e0a19cedf153be920c8d4e3bdb1aa230473784",
+        "firstLine": "{\"independentPixelDecisionSealedUTC\": \"2026-10-19T23:22:20.228477+00:00\", \"pid\": 4368, \"verdict\": \"A_LIMITED_SUPPLEMENTAL_CLOTHED_ARTIST_REFERENCE\", \"actualWholeViews\": [\"original4f2dcb32\", \"newa7019a\"], \"observations\": [\"Three complete front/profile/rear clothed figures, no added portrait/extra figure\", \"Profile nose page-left; near boot whole toe-to-heel, natural far-boot overlap\", \"Rear face turned away, quiet yoke/back/curved hem above clothed seat and both boot heels\", \"Olive/ivory/sandstone/brown palette, face/short dark hair continuity, plausible limbs and hands\", \"All figures inside frame, ordinary cloth variations do not defeat intended consumer\"], \"actionableVisualFindings\": [], \"nextWorth\": \"Truthful documentary-only handoff may be worth separate review; no new graphic work.\"}",
+        "scope": "complete untruncated read-only record/pin/PNG-header-CRC operation; no target evaluation"
+      }
+    },
+    {
+      "name": "admission",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,datetime,os,stat\nbase=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround');a=json.loads((base/'ADMISSION.json').read_text());c=json.loads((base/'CALL.json').read_text());g=json.loads((base/'GENERATION-RESULT.json').read_text())\nfor row in a['verifiedBindings']:\n b=Path(row['path']).read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256']\nassert a['arguments']==c['arguments'];assert c['arguments']['prompt']==(base/'PROMPT.txt').read_text();assert set(c['arguments'])=={'prompt','referenced_image_paths','transparent_background'}\ndt=datetime.datetime.fromisoformat(c['dispatchUTC'])-datetime.datetime.fromisoformat(a['utc']);age=dt.total_seconds();assert age==c['freshAgeSeconds'] and 0<=age<=a['freshStartWindowSeconds'];assert datetime.datetime.fromisoformat(c['dispatchUTC'])<=datetime.datetime.fromisoformat(a['absoluteLatestStartUTC'].replace('Z','+00:00'))\nassert c['state']=='TERMINAL_ONE_OUTPUT_COLLECTED; no second call allowed';assert c['terminalCollectedUTC']==g['collectedUTC'];assert g['byteIdentical'] is True\nfor label in ['defaultOutput','projectOutput']:\n p=Path(g[label]['path']);b=p.read_bytes();assert stat.S_ISREG(p.lstat().st_mode) and len(b)==g[label]['bytes'] and hashlib.sha256(b).hexdigest()==g[label]['sha256'];assert len(b)<=20*1024*1024\nprint(json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'admissionBindingsVerified':len(a['verifiedBindings']),'argumentsExactlyEqual':True,'admissionAgeSeconds':age,'freshWindowSeconds':a['freshStartWindowSeconds'],'dispatchUTC':c['dispatchUTC'],'returnedEnd':g['end']['current_time'],'toolReportedElapsedSeconds':g['elapsedSeconds'],'collectionUTC':g['collectedUTC'],'state':c['state'],'defaultAndProjectOrdinaryFiles':True,'outputBytes':g['projectOutput']['bytes'],'imageDimension':[1536,1024],'elapsedLimit':'Tool-reported32.6s is not dispatch-to-rounded-terminal wall interval or service performance/peak guarantee.','noObservedTargetFailure':True}))\nPY",
+      "result": {
+        "chunk_id": "f3e4c8",
+        "wall_time_seconds": 6.291e-06,
+        "exit_code": 0,
+        "original_token_count": 172,
+        "returnedOutputBytes": 686,
+        "returnedOutputSHA256": "27cce1ed33dc40a99738c826ea001aa515f52823d5a1ab213a9d245f8f0898ef",
+        "firstLine": "{\"utc\": \"2026-10-19T23:23:09.679127+00:00\", \"pid\": 5916, \"admissionBindingsVerified\": 19, \"argumentsExactlyEqual\": true, \"admissionAgeSeconds\": 14.990104, \"freshWindowSeconds\": 120, \"dispatchUTC\": \"2026-10-19T23:18:35.860096+00:00\", \"returnedEnd\": \"2026-10-19 23:19:16 UTC\", \"toolReportedElapsedSeconds\": 32.6, \"collectionUTC\": \"2026-10-19T23:19:44.513471+00:00\", \"state\": \"TERMINAL_ONE_OUTPUT_COLLECTED; no second call allowed\", \"defaultAndProjectOrdinaryFiles\": true, \"outputBytes\": 1969289, \"imageDimension\": [1536, 1024], \"elapsedLimit\": \"Tool-reported32.6s is not dispatch-to-rounded-terminal wall interval or service performance/peak guarantee.\", \"noObservedTargetFailure\": true}",
+        "scope": "complete untruncated read-only record/pin/PNG-header-CRC operation; no target evaluation"
+      }
+    }
+  ],
+  "outputWrites": [
+    "IMAGE-REVIEW.md",
+    "IMAGE-CRITIC-RECEIPT.json"
+  ]
+}

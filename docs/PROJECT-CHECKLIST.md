@@ -25,7 +25,7 @@ Updated October 19, 2026. **Customization is usable; complete character quality 
 
 - [x] Editable unitless paired ankle-boot blockout with inner surfaces and a fictional reference volume, crossing laces, rear counters and an actual front/profile/rear image; body fit and finished footwear remain open. [Source, OBJ and reviewed image](evidence/appearance-2026-10-05/boot-artist-first-view/README.md)
 
-- [x] Original short-groom, layered masculine artist target, with full-body and portrait discussion views. [Character design](research/MASCULINE-CHARACTER-TARGET-2026-10-04.md)
+- [x] Original short-groom, layered masculine artist target with full-body and portrait discussion views, plus a supplementary front/profile/rear clothed outfit sheet; olive overshirt, ivory tee, sandstone trousers and brown boots. Both are unregistered artist references; editable character, 3D, fit, motion and runtime remain open. [Original character design](research/MASCULINE-CHARACTER-TARGET-2026-10-04.md), [supplementary views and limits](evidence/appearance-2026-10-19/masculine-clothed-turnaround/ARTIST-HANDOFF.md)
 
 - [x] Original Mara artist discussion sheet with full-body and portrait views, plus a supplementary front/profile/rear outfit sheet; silver bob and open cardigan/plum midi direction. Both are artist references; editable character, 3D, fit, motion and runtime remain open. [Original character design](evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md), [supplementary views and limits](evidence/appearance-2026-10-19/mara-body-turnaround/ARTIST-HANDOFF.md)
 

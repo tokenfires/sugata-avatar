@@ -1,0 +1,37 @@
+{
+  "end": {
+    "current_time": "2026-10-19 23:19:16 UTC"
+  },
+  "resultKeys": [
+    "image_url",
+    "output_hint"
+  ],
+  "output_hint": "Generated images are saved to /Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c as /Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-8340e180-9f17-42eb-8b22-be672b6fc87a.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "image_url_type": "string",
+  "image_url_characters": 2625742,
+  "tool": "image_gen.imagegen",
+  "elapsedSeconds": 32.6,
+  "toolResultScope": "Native image displayed via generatedImage; image_url payload not repeated in text/log. Explicit output_hint names exactly one default local PNG.",
+  "collectedUTC": "2026-10-19T23:19:44.513471+00:00",
+  "collectorPID": 99124,
+  "defaultOutput": {
+    "path": "/Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-8340e180-9f17-42eb-8b22-be672b6fc87a.png",
+    "bytes": 1969289,
+    "sha256": "a7019a47790a0a27155e2425c02f7d3d1c7b3157d24a541caa5509e75d72c82d",
+    "dimensions": [
+      1536,
+      1024
+    ]
+  },
+  "projectOutput": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/first.png",
+    "bytes": 1969289,
+    "sha256": "a7019a47790a0a27155e2425c02f7d3d1c7b3157d24a541caa5509e75d72c82d",
+    "dimensions": [
+      1536,
+      1024
+    ]
+  },
+  "byteIdentical": true,
+  "appearance": "UNQUALIFIED until independent actual whole-image decisions"
+}
