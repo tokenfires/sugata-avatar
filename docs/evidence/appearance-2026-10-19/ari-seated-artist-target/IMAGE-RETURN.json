@@ -1,0 +1,29 @@
+{
+  "schema": "seated-one-image-return-v1",
+  "utc": "2026-10-19T14:32:53.862758+00:00",
+  "pid": 37365,
+  "call_count": 1,
+  "status": "complete single returned image; no pendingexec cell",
+  "png_dimensions": [
+    1536,
+    1024
+  ],
+  "png_all_chunk_crcs_valid": true,
+  "chunk_count": 4,
+  "default_original_preserved": true,
+  "copy_identical": true,
+  "reverified_admission_pins": 30,
+  "outputs": [
+    {
+      "path": "/Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-d0b76d7f-e7da-4c6a-9663-6ca97708fdcb.png",
+      "bytes": 1892325,
+      "sha256": "2c4367f6bc73ee717da39ad8129803176d0ed261d3ad8718b6eeb7ccadf52aa8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/first.png",
+      "bytes": 1892325,
+      "sha256": "2c4367f6bc73ee717da39ad8129803176d0ed261d3ad8718b6eeb7ccadf52aa8"
+    }
+  ],
+  "limits": "Hashes/PNG/copy support data only; no actualappearancequalification or backendPID/RAM/physicalretirement proof. No secondcall/edit/capture."
+}

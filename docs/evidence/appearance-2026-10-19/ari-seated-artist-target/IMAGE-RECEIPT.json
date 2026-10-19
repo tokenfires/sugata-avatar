@@ -1,0 +1,233 @@
+{
+  "schema": "critic-seated-Ari-actual-image-v1",
+  "decision": "B full literal image contract; completed single-call data retained",
+  "absolute_deadline_utc": "2026-10-19T15:02:33.390168+00:00",
+  "pending_edits": false,
+  "read_scopes": {
+    "full_current": [
+      "ADMISSION.json (all30 bindings)",
+      "IMAGE-JOB.json (complete arguments)",
+      "TOOL-RETURN.json",
+      "IMAGE-RETURN.json",
+      "BRIEF.md (all15 lines)",
+      "PROMPT.txt (all13 lines)",
+      "SOURCE.md (all13 lines)",
+      "IMAGE-REQUEST.json",
+      "PREFLIGHT.json (same exact26-row source epoch)",
+      "ROOT-VISUAL-OBSERVATIONS.json and ROOT-VISUAL-REINSPECTION.json only after independent blind notes and parent message"
+    ],
+    "admission_other_files": "All30 current exact raw byte/size/SHA bindings independently reverified; not a new full content or visual re-audit of every historical file.",
+    "historical_source_review": "Prior full source gate retained unchanged; source historical absence snapshot is not a current absence claim.",
+    "image_views": [
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/first.png",
+        "detail": "original",
+        "tool": "view_image",
+        "job_pid": "not exposed by imageview API",
+        "scope": "Whole1536x1024 actual first"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+        "detail": "original",
+        "tool": "view_image",
+        "job_PID": "not exposed by imageview API"
+      },
+      {
+        "tool": "tools.view_image",
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/first.png",
+        "detail": "original",
+        "scope": "Whole original1536x1024,after blindinitialnotesandrootreinspection; no crop/scale/edit. Tooljob/PIDnot exposed."
+      }
+    ],
+    "image_view_limits": "Whole original-detail view_image API only; no crop, image editing, reconstruction, rescale operation, new capture or target rendering. View API does not expose process PID/job IDs; sequence recorded, no invented wall time."
+  },
+  "blind_record": {
+    "before_root_visual_opinion": true,
+    "initial_impression": "Strong useful seated composition, identity/wardrobe/support/hands and both front/profile roles broadly coherent.",
+    "full_brief_decision": "B against complete literal source: profile far shoe is not wholly ahead of near toe with visible floor gap; shoe projections overlap and far heel/counter region is occluded/merged near the near trouser/shoe region. Do not promote strong general composition to fullA.",
+    "pixel_witness": "1536x1024 actual image right-panel feet approx far x754–937/y805–866 and near x861–1062/y853–926; horizontal overlapx861–937, no stipulated farheel-before-neartoe floor gap. Jointregion aroundx925–942/y845–869 does not show independently complete farheel boundary.",
+    "positives": [
+      "Same recognizable Ari broadly retained, short tight curls/fullcheeks/broadtorso/hips/limbs and matte rust/slate/ink/ivory palette.",
+      "Actual front is seated with kneesapart/twoseparate restinghands/rightfootforward; rightpanelnosefacespageleft,trueprofile head, visible seatbelowhips/back/chairbase/floor.",
+      "Sideasymmetricrestinghands visible, clothingwaistcovered, generousbenttrouserfall; no compelling extra limb/bodyhole visible."
+    ],
+    "scope": "No physicalrig/contact/anatomicalmeasurement claim; specificvisibility/requestfail only, not genericposefailure. Rootvisualproseunread."
+  },
+  "retained_correction": {
+    "before": "Blind initial notes inferred obscured/merged far heel from overlap/junction.",
+    "after": "Whole-image reinspection after both root records confirms substantially readable far heel and diagonal visible floor; withdraw obscured/merged inference. Horizontal bounding overlap alone was insufficient. B rests solely on explicit arrangement: far heel x~930 remains page-right/behind near toe x~864 instead of page-left/ahead with specified gap.",
+    "scope": "No missing-foot, anatomy, collision, physical pose diagnosis. Original blind note retained in receipt."
+  },
+  "final_finding": {
+    "id": "F1",
+    "source_witnesses": [
+      "BRIEF.md:10 (far heel ahead of near toe with small floor gap)",
+      "BRIEF.md:11–13 (chosen stagger, full gate, first B closes)",
+      "PROMPT.txt:11"
+    ],
+    "pixel_witness": "Original1536x1024 right-panel feet: far approximatelyx754–937/y805–866, nearx861–1062/y853–926; farheel~x930 is page-right/behind neartoe~x864. Diagonal floor separation and readable heel preserved; no occlusion inference.",
+    "effect": "Literal chosen profile placement unfulfilled despite broadly clear and useful seated character. Full B, no partial acceptance or relabel.",
+    "alternatives": [
+      {
+        "choice": "Freeze exact failed-contract image as isolated evidence; retain accepted standing asset.",
+        "tradeoff": "Keeps useful observations and honors no-retry boundary, but no new accepted seated delivery."
+      },
+      {
+        "choice": "Defer to separately justified editable body/rig/garment ownership.",
+        "tradeoff": "Larger work and later delivery, with actual placement/occlusion ownership; not a current successor admission."
+      }
+    ]
+  },
+  "actual_checks": {
+    "admission_rows": 30,
+    "request_arguments_exact": true,
+    "prompt_text_equal": true,
+    "only_reference": "unchanged original Ari concept PNG",
+    "recorded_call_count": 1,
+    "status": "complete in initial exec; no running cell returned",
+    "requested_utc": "2026-10-19T14:31:54.699Z",
+    "returned_utc": "2026-10-19T14:32:29.500Z",
+    "recorded_interval_seconds": 34.801,
+    "timing_limit": "UTC request/return interval, not CPU/performance/backend wall guarantee; parent-reported initial-exec wall not independently exposed in saved TOOL-RETURN fields.",
+    "png_dimensions": [
+      1536,
+      1024
+    ],
+    "png_bit_depth": 8,
+    "png_colour_type": 2,
+    "png_chunk_count": 4,
+    "png_all_chunk_crcs_valid": true,
+    "opaque_rgb": true,
+    "source_copy_bytes": 1892325,
+    "copy_ceiling": 10485760,
+    "default_preserved_and_byte_identical": true,
+    "backend_pid_ram_physical_retirement": "unexposed, not inferred"
+  },
+  "jobs": [
+    {
+      "purpose": "Complete actual record/root notes read after blind note",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target')\nprint(json.dumps({'pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'files':sorted(x.name for x in p.iterdir())},indent=2))\nfor n in ['ADMISSION.json','TOOL-RETURN.json','IMAGE-RETURN.json','IMAGE-JOB.json','ROOT-VISUAL-OBSERVATIONS.json','ROOT-VISUAL-REINSPECTION.json']:\n q=p/n\n if q.exists():\n  b=q.read_bytes(); print('\\nFILE',n,len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "e904bd",
+      "exit_code": 0,
+      "pid": 43657,
+      "utc": "2026-10-19T14:36:19.005362+00:00",
+      "tool_wall_time_seconds": 8.75e-06
+    },
+    {
+      "purpose": "Independent actual pin/arguments/PNG/default/timing audit and whole source reread",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,zlib,struct,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target')\ndef pin(q):\n b=q.read_bytes();return {'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\na=json.loads((p/'ADMISSION.json').read_text()); req=json.loads((p/'IMAGE-REQUEST.json').read_text()); job=json.loads((p/'IMAGE-JOB.json').read_text()); tr=json.loads((p/'TOOL-RETURN.json').read_text()); ret=json.loads((p/'IMAGE-RETURN.json').read_text())\nrows=a['inputs']; assert len(rows)==30\nfor r in rows: assert pin(Path(r['path']))==r,r\nassert job['arguments']==req\nassert req['prompt']==(p/'PROMPT.txt').read_text()\nassert set(req)=={'prompt','referenced_image_paths','transparent_background'}\nassert req['transparent_background'] is False\nassert len(req['referenced_image_paths'])==1\nassert job['admission_sha256']==pin(p/'ADMISSION.json')['sha256']==tr['launch']['admission']['sha256']\nassert pin(p/'IMAGE-REQUEST.json')==a['request']\nassert tr['call_count']==ret['call_count']==a['calls']==a['output_images']==1\nassert tr['exec_status']=='complete in initial exec, no running cell returned'\nfor r in ret['outputs']: assert pin(Path(r['path']))==r\nfirst=p/'first.png'; b=first.read_bytes(); default=Path(ret['outputs'][0]['path']);assert default.read_bytes()==b\nassert len(b)<=a['max_unchanged_copy_bytes']==10485760\nassert b[:8]==b'\\x89PNG\\r\\n\\x1a\\n'; off=8;chunks=[]\nwhile off<len(b):\n n=struct.unpack('>I',b[off:off+4])[0];typ=b[off+4:off+8];data=b[off+8:off+8+n];crc=struct.unpack('>I',b[off+8+n:off+12+n])[0];assert zlib.crc32(typ+data)&0xffffffff==crc\n chunks.append({'type':typ.decode(),'bytes':n});off+=12+n\n if typ==b'IHDR': ihdr=list(struct.unpack('>IIBBBBB',data))\n if typ==b'IEND': break\nassert off==len(b);assert ihdr[:2]==[1536,1024];assert len(chunks)==ret['chunk_count']==4\nparse=lambda s:datetime.datetime.fromisoformat(s.replace('Z','+00:00'))\nassert parse(a['utc'])<parse(tr['launch']['requested_utc'])<parse(tr['returned_utc'])<parse(a['expires_utc'])<parse(a['absolute_deadline_utc'])\nprint(json.dumps({'pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'admission_rows_verified':len(rows),'request_exact':True,'one_reference':req['referenced_image_paths'],'call_count_recorded':tr['call_count'],'exec_status':tr['exec_status'],'requested_utc':tr['launch']['requested_utc'],'returned_utc':tr['returned_utc'],'requested_returned_interval_seconds':(parse(tr['returned_utc'])-parse(tr['launch']['requested_utc'])).total_seconds(),'png_ihdr':ihdr,'chunks':chunks,'all_chunk_crcs':True,'default_copy_identical':True,'image_pins':ret['outputs'],'actual_inputs':[pin(p/n) for n in ['ADMISSION.json','IMAGE-JOB.json','TOOL-RETURN.json','IMAGE-RETURN.json','BRIEF.md','PROMPT.txt','SOURCE.md','IMAGE-REQUEST.json','PREFLIGHT.json','ROOT-VISUAL-OBSERVATIONS.json','ROOT-VISUAL-REINSPECTION.json']],'backend_pid_ram_retirement':'unexposed; not inferred'},indent=2))\nfor n in ['BRIEF.md','PROMPT.txt','SOURCE.md']:\n print('\\nFILE',n)\n for i,l in enumerate((p/n).read_text().splitlines(),1):print(f'{i}: {l}')\nPY",
+      "chunk_id": "281400",
+      "exit_code": 0,
+      "pid": 44880,
+      "utc": "2026-10-19T14:36:57.758381+00:00",
+      "tool_wall_time_seconds": 6.875e-06
+    }
+  ],
+  "errors_and_rejections": {
+    "current_read_audit_errors": [],
+    "retained_visual_reader_error": "Blind obscured/merged-heel inference withdrawn after whole-image reinspection; the original note is preserved verbatim above.",
+    "rejected_claims": [
+      "No missing-foot/anatomy/collision proof from overlap",
+      "No partial image A or changed source waiver",
+      "No pose/prompt/source/image correction, second call, crop, capture, retake or numerical successor",
+      "No fit/contact/rig/motion/runtime/AAA/native qualification",
+      "No new service/automation/browser-state audit or global process census"
+    ]
+  },
+  "next_decision": "No next experiment within this consumed method. Root may close/freeze this unchanged full-image B after independent complete handoff verification; no artist delivery/checklist promotion.",
+  "writes_only": [
+    "IMAGE-REVIEW.md",
+    "IMAGE-RECEIPT.json"
+  ],
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/ADMISSION.json",
+      "bytes": 8247,
+      "sha256": "ac94b5d659a158f1f5f1a6eaf0df9695db888fb59fb8771a8c814865e5d01efd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/IMAGE-JOB.json",
+      "bytes": 4601,
+      "sha256": "cdf6197e026e322550cee55ac9d2eb3cc95bf9bf0c212e3f575a4c58dba1e5b4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/TOOL-RETURN.json",
+      "bytes": 1416,
+      "sha256": "b4984c82bb5c792576cb889ad05013bf199407ffced2a7158108efe5a10bbb30"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/IMAGE-RETURN.json",
+      "bytes": 1070,
+      "sha256": "a8d552bf9ac00e5f48836fc7f02eadac06d4a32094715888be71e210d15914e3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/BRIEF.md",
+      "bytes": 6337,
+      "sha256": "9983835bc0aba504f84540c652aaa1068068b68af0d95997dee1e5a636ecc7ef"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/PROMPT.txt",
+      "bytes": 3986,
+      "sha256": "3c04fb3f2f07aaf0b465b9bfb613766d859463e71da2f59659eb5282caf97101"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/SOURCE.md",
+      "bytes": 3773,
+      "sha256": "fcf7b26b4bf88c0ba67cedc0c54d50d9f0a8adb5f2035bd42f297bd432a54f6f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/IMAGE-REQUEST.json",
+      "bytes": 4204,
+      "sha256": "8458b3dfe0c6a2f32e81ce8968d25f0551f0aed51ad82aa4a68e60abd5d582bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/PREFLIGHT.json",
+      "bytes": 7205,
+      "sha256": "0ac636a5d9d37ba573b304081438afd0df0fe0d0287c674fd3f7f7bfbc0190f0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/ROOT-VISUAL-OBSERVATIONS.json",
+      "bytes": 2565,
+      "sha256": "80f970ccc905d9f5a0c78264b39796b258df54c1400dfb17eff3ba4323768762"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/ROOT-VISUAL-REINSPECTION.json",
+      "bytes": 1693,
+      "sha256": "87b1da9bb478cfe9457be78f14062e8b69238a7a16e789229f1746230175f830"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/first.png",
+      "bytes": 1892325,
+      "sha256": "2c4367f6bc73ee717da39ad8129803176d0ed261d3ad8718b6eeb7ccadf52aa8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+    },
+    {
+      "path": "/Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-d0b76d7f-e7da-4c6a-9663-6ca97708fdcb.png",
+      "bytes": 1892325,
+      "sha256": "2c4367f6bc73ee717da39ad8129803176d0ed261d3ad8718b6eeb7ccadf52aa8"
+    }
+  ],
+  "admission_binding": {
+    "manifest": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/ADMISSION.json",
+      "bytes": 8247,
+      "sha256": "ac94b5d659a158f1f5f1a6eaf0df9695db888fb59fb8771a8c814865e5d01efd"
+    },
+    "verified_rows": 30,
+    "scope": "All exact current raw bytes; full interpretation scoped above."
+  },
+  "collection": {
+    "pid": 47443,
+    "utc": "2026-10-19T14:38:18.717747+00:00",
+    "method": "exclusive pair writes; source/image unchanged"
+  },
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/IMAGE-REVIEW.md",
+    "bytes": 3232,
+    "sha256": "cdd07b25d65049ccb38855966e259724f9991594b3652967de49c01fc02eec4b"
+  }
+}

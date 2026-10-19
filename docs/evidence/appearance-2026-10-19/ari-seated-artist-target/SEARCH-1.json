@@ -1,0 +1,34 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://www.universalstandard.com/blogs/us-journal?srsltid=AU7gw4WF-7QUaDKW1SZQoiFoZG-cAxu_zdMZKn8CljpqJT0Cybs82Gv2\",\"title\":\"US Journal - Universal Standard\",\"description\":\"from 00–40, seated work, and everything in between. Universal Standard jeans are built to hold their shape wash after wash.\",\"position\":1},{\"url\":\"https://www.universalstandard.com/blogs/us-journal/universal-standard-sizing-guide-finding-your-perfect-plus-size-workwear-fit?srsltid=AU7gw4WXYOAVKHr8VTW8L6tVluyRSN5Z1ACXXbrpl4u_ubmXRSpUE9UZ\",\"title\":\"Finding Your Perfect Plus Size Workwear Fit - Universal Standard\",\"description\":\"Measure over a fitted underlayer, not bare skin. A thin camisole or fitted tee gives you a more realistic picture of how clothing will sit on your body.\",\"position\":2}],\"tools\":[]},\"creditsUsed\":2,\"id\":\"01a15489-19cd-70cb-8e4c-4fb47fd951fb\",\"agent_hints\":[\"All 2 web results are excerpts only (#1 \\\"https://www.universalstandard.com/blogs/us-journal?srsltid=AU7gw4WF-7QUaDKW1SZQoiFoZG-cAxu_zdMZKn8CljpqJT0Cybs82Gv2\\\", #2 \\\"https://www.universalstandard.com/blogs/us-journal/universal-standard-sizing-guide-finding-your-perfect-plus-size-workwear-fit?srsltid=AU7gw4WXYOAVKHr8VTW8L6tVluyRSN5Z1ACXXbrpl4u_ubmXRSpUE9UZ\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+    }
+  ],
+  "structuredContent": {
+    "success": true,
+    "data": {
+      "web": [
+        {
+          "url": "https://www.universalstandard.com/blogs/us-journal?srsltid=AU7gw4WF-7QUaDKW1SZQoiFoZG-cAxu_zdMZKn8CljpqJT0Cybs82Gv2",
+          "title": "US Journal - Universal Standard",
+          "description": "from 00–40, seated work, and everything in between. Universal Standard jeans are built to hold their shape wash after wash.",
+          "position": 1
+        },
+        {
+          "url": "https://www.universalstandard.com/blogs/us-journal/universal-standard-sizing-guide-finding-your-perfect-plus-size-workwear-fit?srsltid=AU7gw4WXYOAVKHr8VTW8L6tVluyRSN5Z1ACXXbrpl4u_ubmXRSpUE9UZ",
+          "title": "Finding Your Perfect Plus Size Workwear Fit - Universal Standard",
+          "description": "Measure over a fitted underlayer, not bare skin. A thin camisole or fitted tee gives you a more realistic picture of how clothing will sit on your body.",
+          "position": 2
+        }
+      ],
+      "tools": []
+    },
+    "id": "01a15489-19cd-70cb-8e4c-4fb47fd951fb",
+    "creditsUsed": 2,
+    "agent_hints": [
+      "All 2 web results are excerpts only (#1 \"https://www.universalstandard.com/blogs/us-journal?srsltid=AU7gw4WF-7QUaDKW1SZQoiFoZG-cAxu_zdMZKn8CljpqJT0Cybs82Gv2\", #2 \"https://www.universalstandard.com/blogs/us-journal/universal-standard-sizing-guide-finding-your-perfect-plus-size-workwear-fit?srsltid=AU7gw4WXYOAVKHr8VTW8L6tVluyRSN5Z1ACXXbrpl4u_ubmXRSpUE9UZ\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+    ]
+  },
+  "isError": false
+}

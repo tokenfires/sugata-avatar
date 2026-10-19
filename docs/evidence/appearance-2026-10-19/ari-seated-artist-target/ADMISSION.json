@@ -1,0 +1,171 @@
+{
+  "schema": "root-seated-one-image-admission-v1",
+  "utc": "2026-10-19T14:31:42.307900+00:00",
+  "expires_utc": "2026-10-19T14:34:42.307900+00:00",
+  "absolute_deadline_utc": "2026-10-19T15:02:33.390168+00:00",
+  "pid": 35236,
+  "calls": 1,
+  "output_images": 1,
+  "tool": "image_gen.imagegen",
+  "request": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/IMAGE-REQUEST.json",
+    "bytes": 4204,
+    "sha256": "8458b3dfe0c6a2f32e81ce8968d25f0551f0aed51ad82aa4a68e60abd5d582bc"
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/BRIEF.md",
+      "bytes": 6337,
+      "sha256": "9983835bc0aba504f84540c652aaa1068068b68af0d95997dee1e5a636ecc7ef"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/IMAGE-REQUEST.json",
+      "bytes": 4204,
+      "sha256": "8458b3dfe0c6a2f32e81ce8968d25f0551f0aed51ad82aa4a68e60abd5d582bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/ORIGINAL-ONLY-INPUTS.json",
+      "bytes": 2863,
+      "sha256": "9c43da14804a3f7cc448764211fd6badff301a966879b2e30717fce8c93de65c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/ORIGINAL-ONLY-RECEIPT.json",
+      "bytes": 13571,
+      "sha256": "763c8ca14339e319f0064e60fdc58dc8b64bb0a07b73d6074cf6435d6354b7fe"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/ORIGINAL-ONLY-WORTH.md",
+      "bytes": 3111,
+      "sha256": "2c8ba200e10ed9e6684ddc3600f0919596ae531e4c1e353c3a7637058f6e0e5a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/PLAN.md",
+      "bytes": 5490,
+      "sha256": "7a6e73c913028435d239fa79b8900cf66f089c542625c58bdb65b57e89ced3c1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/PRIMARY-SCRAPE.json",
+      "bytes": 50096,
+      "sha256": "35d1caf62fd3a6fcf5b8aa64e491073201165939f38a7ee8fa680561d2671cdb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/PROMPT.txt",
+      "bytes": 3986,
+      "sha256": "3c04fb3f2f07aaf0b465b9bfb613766d859463e71da2f59659eb5282caf97101"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/REFERENCE-TOOL-RECEIPT.json",
+      "bytes": 2724,
+      "sha256": "5c34da566ccfdf9fbca90cccdd9255a6b997012e56cc7ed5a8ad872a740d50fb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/REFERENCES.md",
+      "bytes": 3218,
+      "sha256": "ba956c29fc1ef75a34ef2d70165e3d8f68ab9a97904e717a9efe839d8b22b9a6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/ROOT-ORIGINAL-ONLY.json",
+      "bytes": 948,
+      "sha256": "717985a0a0356721aeeff55d350eda81b676064a09d6371dfa31b17b78408222"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/ROOT-WORTH.json",
+      "bytes": 3007,
+      "sha256": "93eebbdf377c2994bd9fe970c58bf3eea6e92b174020d67b203dd6fe81bcfc60"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/SEARCH-1.json",
+      "bytes": 3362,
+      "sha256": "4cec7b1ec8d695cf677019570f97ec5f038f61a16f375ab4b99d138c745abd77"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/SEARCH-2.json",
+      "bytes": 5949,
+      "sha256": "c8c09596f136bd55e0d97f79f6fbee170a4b1d86e2834fd1b1bae1ce61ec9778"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/SOURCE.md",
+      "bytes": 3773,
+      "sha256": "fcf7b26b4bf88c0ba67cedc0c54d50d9f0a8adb5f2035bd42f297bd432a54f6f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/WORTH-INPUTS.json",
+      "bytes": 3133,
+      "sha256": "c957fa09a1a8b2117fdb46f3d576e13b360f6569609ca44aa4697d5257cdc44d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/WORTH-RECEIPT.json",
+      "bytes": 10760,
+      "sha256": "3384ce9e8f1e86a570b76b31bc5cbb1bdc8cbc7a6ea7e81b09749a3f44af6e47"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/WORTH.md",
+      "bytes": 3253,
+      "sha256": "8b9dc951906ba80ef9ae867ac28d34ae36c910cade8cdad774d3e5cb7805b9b6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/reference-1.jpg",
+      "bytes": 111425,
+      "sha256": "70d3332550e505c0d704012f295276debe838b62cad8520a571f481ac3a856f3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/reference-2.jpg",
+      "bytes": 37932,
+      "sha256": "e73a2c6bd5347f54baa7a45f13af504c226d2fc3e5b4539cdfe0fc623fab5380"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md",
+      "bytes": 2270,
+      "sha256": "3a5b0493387b14d164455996e2ab3840d02e10341220f0282968d3720878899c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/PROMPT.txt",
+      "bytes": 3099,
+      "sha256": "648c8ffa2426d1f69be922b5052a8700eba66ec6987d7ab73d8ac58f81ea0dca"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/PREFLIGHT.json",
+      "bytes": 7205,
+      "sha256": "0ac636a5d9d37ba573b304081438afd0df0fe0d0287c674fd3f7f7bfbc0190f0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/SOURCE-REVIEW.md",
+      "bytes": 3510,
+      "sha256": "c005087fb2062c67f55548c75c86722407e90a9330ada126fe6662780d61b41b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/SOURCE-RECEIPT.json",
+      "bytes": 10161,
+      "sha256": "4afdfc8dafeab26483ecdd71c08629a439fdd56f9a2a1c41190cb1c922c7b3ae"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/ROOT-SOURCE.json",
+      "bytes": 7932,
+      "sha256": "c516f9dc8f2ff2243b3836c139e176bde9cb5e576f80bb1858a0d13d143ae6c3"
+    }
+  ],
+  "max_unchanged_copy_bytes": 10485760,
+  "only_workspace_copy": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/first.png",
+  "stop": "firstB/unknown/capacity/deadline,no duplicate/retry/edit/retake/relabel/successor",
+  "backend_limits": "PID/RAM/lifetime/physicalretirement unexposed; preserveactualstatus/defaultoutput,notclaimhardbackendcap"
+}

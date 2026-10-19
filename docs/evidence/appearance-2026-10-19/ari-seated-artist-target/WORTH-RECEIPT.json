@@ -1,0 +1,190 @@
+{
+  "schema": "independent-Ari-seated-artist-worth-v1",
+  "verdict": "A bounded primaryreference and literal originalposebrief preparation only; no imagegen or runtime admission",
+  "pending_edits": false,
+  "deadline": {
+    "current": "Worth-only; PLAN starts no sliceclock.",
+    "future": "45minutes from future root worth acceptance through firstimage/fullcritic/rootclosure, no extension."
+  },
+  "image_witness": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+    "detail": "original",
+    "scope": "Whole unchanged standing concept1536x1024, no newpose image",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "bytes": 2193053,
+    "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d",
+    "view_tool": "view_image(original)",
+    "view_job_PID": "not exposed by imageview API",
+    "view_completed_before_utc": "2026-10-19T14:13:11Z",
+    "observed_regions": {
+      "front": "approx x15\u2013382/y30\u2013918",
+      "standing_profile": "approx x416\u2013640/y32\u2013918",
+      "scope": "Allbodies upright; hangingarms/straighttrouserfall, no chair-supported seated role. No global artabsence or demographic/health/bodyphysical inference."
+    }
+  },
+  "source_witnesses": [
+    {
+      "path": "docs/evidence/appearance-2026-10-07/larger-frame-character/PROMPT.txt",
+      "lines": "5,7\u201311",
+      "scope": "Standing upright views and authored body/wardrobe/face vocabulary."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md",
+      "lines": "7\u201313",
+      "scope": "Retained depth/jacket-trouser balance; material/waist differences and editable body/rig/garment/fit still open."
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "lines": "121,131\u2013138",
+      "scope": "Human-readable intent and Phase1quality priority; no laterstylized-phase promotion."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ROOT-BROWSER.json",
+      "lines": "29\u201332",
+      "scope": "Blockedfilebrowser method closed; no workaround/reproductionofgallery in this newart nomination."
+    }
+  ],
+  "worth_condition": {
+    "witness": "Actualstandingimage and originalPROMPT5/handoff7\u201313 leave seatedcomposition unspecified.",
+    "explanation": "Newposture target adds useful artistchoice only if literal chair/hips/knees/feet/hands and garmenttransitions chosen; generic posevariant is insufficient.",
+    "alternatives": [
+      {
+        "choice": "One exactseatedfront+pageleftprofile artisttarget",
+        "tradeoff": "Immediatevisualcompositionreference, riskofanotheruneditableillustration/identitydrift; no fit/rigproof."
+      },
+      {
+        "choice": "Defer until editablebody/rig/garmentowner",
+        "tradeoff": "Higher functional authority at much larger scope, desiredseatedtargetstillunspecified."
+      }
+    ]
+  },
+  "read_scopes": {
+    "whole": "Current PLAN/WORTH-INPUTS; complete originalPROMPT and characterhandoff; complete newlyclosedkitROOT-BROWSER/README.",
+    "selected": "Currentboard29\u201333,checklist34\u201361,roadmap38\u201342 and121\u2013138.",
+    "carried_forward": "Prior whole independently read refused3DROOT-IMAGE/README and acceptedstandingcontext reused with freshcurrentpinverification, not rerun/reopened.",
+    "image": "One existing whole original standingconcept view only; no newimage/capture/reference/render/generation.",
+    "pins": "All11unique worth inputpaths freshly hashed exact, no broader corpus search."
+  },
+  "commands": [
+    {
+      "scope": "plan",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PLAN.md','WORTH-INPUTS.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "57533f",
+      "exit_code": 0,
+      "identity_line": "PID 1122 UTC 2026-10-19T14:13:07.007758+00:00",
+      "tool_wall_seconds": 7.709e-06
+    },
+    {
+      "scope": "sources",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\nroot=Path('/Users/robault/GitHub/sugata-avatar');p=root/'docs/evidence/appearance-2026-10-19/ari-seated-artist-target';print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nm=json.loads((p/'WORTH-INPUTS.json').read_text());assert len(m['pins'])==11 and len({r['path']for r in m['pins']})==11\nfor r in m['pins']:\n b=Path(r['path']).read_bytes();assert len(b)==r['bytes']and hashlib.sha256(b).hexdigest()==r['sha256'],r['path']\nprint('ALL11PINS_EXACT',True)\nfor n in ['docs/evidence/appearance-2026-10-07/larger-frame-character/PROMPT.txt','docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md','docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ROOT-BROWSER.json','docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/README.md']:\n q=root/n;print('\\nFILE',n,'BYTES',len(q.read_bytes()),'SHA',hashlib.sha256(q.read_bytes()).hexdigest())\n for i,line in enumerate(q.read_text().splitlines(),1):print(str(i)+':'+line)\nfor n,ranges in [('docs/ARTIST-WARDROBE.html',[(29,33)]),('docs/PROJECT-CHECKLIST.md',[(34,61)]),('docs/PRODUCT-ROADMAP.md',[(38,42),(121,138)])]:\n q=root/n;print('\\nSELECTED',n);lines=q.read_text().splitlines()\n for lo,hi in ranges:\n  for i in range(lo,min(hi,len(lines))+1):print(str(i)+':'+lines[i-1])\nPY",
+      "chunk_id": "2149c5",
+      "exit_code": 0,
+      "identity_line": "PID 2610 UTC 2026-10-19T14:13:53.688375+00:00",
+      "tool_wall_seconds": 7.125e-06
+    }
+  ],
+  "next": {
+    "admitted_by_A": "Inert bounded reference/brief preparation after parent independent fullpair/pinverification only.",
+    "research_caps": {
+      "queries": 2,
+      "primary_pages": 1,
+      "whole_image_observations": 2,
+      "reported_credits_max": 8
+    },
+    "reference_failure": "Close research at firstinsufficient budgetoutcome; originalonlycontinuation requires explicit freshcritic/rootworth before sourceadmission.",
+    "source_requirements": "Concrete posture/viewroles/identitywardrobeinvariants/garmentbalance/actualtoolreferencepath+jobownership+outputcopycaps/firstfailure rules. Fullsource/rootgate before solebuiltinimagegen.",
+    "generation_proposal_only": {
+      "calls": 1,
+      "outputs": 1,
+      "reference": "unchanged originalAri only",
+      "copied_image_max_bytes": 10485760,
+      "unknown_backend": "PID/RAM may be unavailable; exactobservablelimits mustbe recorded."
+    },
+    "actual_gate": "Both whole seatedroles/samequalitativeAri/proportions/wardrobe/visiblehandsfeetfloorchairbase/no consequentialdisconnection/clearwearingbalance; no partialA or postimagecorrection.",
+    "not_admitted": "No research, prompt/source creation, imagegen, model/rig/native/browser/capture/job now."
+  },
+  "limitations": [
+    "This is intendedillustration, not pose/contact/physics/rig/morph/fit/sourcegeometry evidence.",
+    "No closedgroom/expression/nativeMara/shoe3D/kitbrowser/constructor/sourcefieldroute reopens.",
+    "No new source/perceiveddemographic/health/bodyphysical assertion from image.",
+    "22scoped10broad/fullAAA/acceptedassets/defaults/HOLD preserved; no checklistcredit."
+  ],
+  "errors": [],
+  "owned_files": [
+    "WORTH.md",
+    "WORTH-RECEIPT.json"
+  ],
+  "manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/WORTH-INPUTS.json",
+    "bytes": 3133,
+    "sha256": "c957fa09a1a8b2117fdb46f3d576e13b360f6569609ca44aa4697d5257cdc44d"
+  },
+  "verified_rows": 11,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md",
+      "bytes": 2270,
+      "sha256": "3a5b0493387b14d164455996e2ab3840d02e10341220f0282968d3720878899c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/PROMPT.txt",
+      "bytes": 3099,
+      "sha256": "648c8ffa2426d1f69be922b5052a8700eba66ec6987d7ab73d8ac58f81ea0dca"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/ROOT-IMAGE.json",
+      "bytes": 2670,
+      "sha256": "996ab36f52e82d33125387ef24cc5d817516644c2779f39d03bed7c908e45d93"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/README.md",
+      "bytes": 5285,
+      "sha256": "e7d8f1f877527359a0ed182b9e1970633ee2405bd92d0deae0eb0a2c31538404"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/ROOT-BROWSER.json",
+      "bytes": 2393,
+      "sha256": "957fa0a07965f33e672ce48131af58dff9b3634970b752f1e922c9e729c76c33"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/README.md",
+      "bytes": 5641,
+      "sha256": "3736979f4312810d12b7315b5d822e131e1ef29a6f54632d9fe6549413b67178"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/PLAN.md",
+      "bytes": 5490,
+      "sha256": "7a6e73c913028435d239fa79b8900cf66f089c542625c58bdb65b57e89ced3c1"
+    }
+  ],
+  "collected_utc": "2026-10-19T14:15:28.864780+00:00",
+  "collection_pid": 5563,
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/WORTH.md",
+    "bytes": 3253,
+    "sha256": "8b9dc951906ba80ef9ae867ac28d34ae36c910cade8cdad774d3e5cb7805b9b6"
+  }
+}

@@ -1,0 +1,16 @@
+# Seated Ari research — closed at budget
+
+Two focused queries, one live primary UNIQLO page, two whole image observations, five reported credits. No further research is admitted. Raw wrappers are SEARCH-1.json, SEARCH-2.json and PRIMARY-SCRAPE.json. Search 2 accidentally included "site.uniqlo.com" as its first token (not a valid site operator); returned official uniqlo.com results were still explicit. No third query or invented coverage.
+
+Primary page: https://www.uniqlo.com/eu-ro/en/special-feature/uniqlo-at-work-women
+Retrieved live with maxAge0, status200, title Workwear and office outfits | UNIQLO. Scrape metadata reports one credit; both searches report two each. Its product price/availability/fit language is outside this task.
+
+Actual whole reference 1: official page ogImage https://image.uniqlo.com/UQ/ST3/jp/imagesother/feature/gl/25FW/WORK/Hero_KV_pc_women.jpg (source2000x1125). CUA IAB3 tab10 whole unchanged screenshot reference-1.jpg,1280x720,111425B,SHA70d3332550e505c0d704012f295276debe838b62cad8520a571f481ac3a856f3. Three-photo collage. Center seated green-top model has a visible chair back and relaxed torso/upper lap, with a desk across lower right. Knees/feet/seat/complete hands are obscured or cropped. Side images standing. Useful upper-body casual-workwear context, but NOT a qualifying whole seated support/clothing/knee-foot-hand witness under this question.
+
+Actual whole reference 2: the page markdown's Merino-Cardigan image https://image.uniqlo.com/UQ/ST3/jp/imagesother/feature/gl/25FW/WORK/LineupBanner-Merino-Cardigan-women-sp.jpg (source750x1000). Same owned tab10 navigated once, whole unchanged screenshot reference-2.jpg,1280x720,37932B,SHAe73a2c6bd5347f54baa7a45f13af504c226d2fc3e5b4539cdfe0fc623fab5380. Standing/walking model, cardigan tucked into belted pleated trousers, holding a folder. This is NOT seated support evidence. Filename/alt text was not a pose guarantee. No inference of anatomy, measurements, cloth mechanics, health or identity. Source images not downloaded or supplied as generation inputs.
+
+Root inspected both actual images. Neither answers the complete bounded seated-landmark question. Research decision: B for qualifying external reference; stop search, retire remaining credit allowance. Reference screenshots preserve the observation, not licensed reusable art assets. No reference-driven pose facts will be asserted.
+
+Two alternatives: (1) close this entire nomination unrun, preserving time and avoiding weak reference claims, leaving a useful seated visual unowned; (2) independently decide whether original-only authorship is worthwhile, making chair/hip/knee/foot/hand/occlusion decisions explicitly as artist choices, with no external-validity/fit/rig credit. Root favors asking for the explicit worth-only decision required by PLAN/ROOT-WORTH, not treating this research B as automatic generation admission. No prompt/BRIEF/source/imagegen yet.
+
+Browser tab10 closed after two observations. No reference or candidate browser tab remains owned. Existing accepted tabs1-3 and review server retained. Original Ari concept is still the only possible future image input. Absolute stop15:02:33.390168UTC unchanged; human steering wins.

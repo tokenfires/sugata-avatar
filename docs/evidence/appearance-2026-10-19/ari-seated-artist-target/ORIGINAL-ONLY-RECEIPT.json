@@ -1,0 +1,219 @@
+{
+  "schema": "independent-seated-Ari-original-only-worth-v1",
+  "verdict": "A complete inert originalposebrief/sourcepreparation only; externalreferencequalification B retained, no imagecall admission",
+  "pending_edits": false,
+  "deadline_utc": "2026-10-19T15:02:33.390168+00:00",
+  "actual_views": {
+    "tool": "view_image",
+    "detail": "original",
+    "paths": [
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/reference-1.jpg",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/reference-2.jpg",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png"
+    ],
+    "job_pid": "not exposed by imageview API",
+    "completed_before_utc": "2026-10-19T14:22:25Z",
+    "dimensions": [
+      [
+        1280,
+        720
+      ],
+      [
+        1280,
+        720
+      ],
+      [
+        1536,
+        1024
+      ]
+    ],
+    "scope": "Existing whole saved referencescreenshots and unchanged originalAri; no newreference/capture/artwork."
+  },
+  "finding": {
+    "id": "R1",
+    "classification": "No qualifying whole seated-landmark external witness",
+    "witnesses": [
+      "reference1centreapprox x426\u2013853/y145\u2013720 showsseatedtorso/chairback/upperlap butnotcompleteseat/knees/feet/hands; sidefiguresstanding.",
+      "reference2centre x370\u2013910 standingportrait/uppertrouser view, notseatedsupport.",
+      "REFERENCES complete record and primaryselectedimageURLs/metadata; actual imageviews settle relevance."
+    ],
+    "explanation": "Cannot turn cropped upperbody context or marketingtext into external anatomy/contact/fit/pose validity.",
+    "alternatives": [
+      {
+        "choice": "Preserve researchB; prepare explicitly authored originalposecontract",
+        "tradeoff": "Selected; immediate intentionalseatedcompositiontarget with invention/plausibility/identitydrift risk."
+      },
+      {
+        "choice": "Close nomination unrun/defer until editablebody-rig-garmentowner",
+        "tradeoff": "Avoidsillustrationchurn, leaves desiredseated target unspecified andneeds larger responsibility."
+      }
+    ]
+  },
+  "independent_value": "Standing originalAri is qualitative identity/wardrobe source; deliberate chair/hip/bentleg/foot/asymmetrichand/waist-and-hem composition is newartisticchoice, notderivation or proof of nativeposedcapability.",
+  "research": {
+    "queries": 2,
+    "primary_pages": 1,
+    "whole_image_observations": 2,
+    "reported_credits": 5,
+    "remaining_allowance_retired": true,
+    "primary_HTTP": 200,
+    "query2_first_token_typo": "site.uniqlo.com",
+    "text_structured_wrapper_equality": true,
+    "primary_title": "Workwear and office outfits | UNIQLO",
+    "primary_URL": "https://www.uniqlo.com/eu-ro/en/special-feature/uniqlo-at-work-women",
+    "source_images_not_tool_inputs": true
+  },
+  "read_scopes": {
+    "whole": "Complete REFERENCES,ORIGINAL-ONLY-INPUTS,ROOT-WORTH,SEARCH1/2 wrappers and REFERENCE-TOOL-RECEIPT. Prior complete PLAN/WORTH pair/originalPROMPT+handoff reused currentpins.",
+    "primary": "Entire saved PRIMARY-SCRAPE wrapper parsed and rawtextJSON==structuredContent checked; selected metadata/title and decisive markdownlines7,148,177 used. Combined print of commercialdetail clipped; no whole660-line prose-reading or poseclaim from productdetail.",
+    "visual": "Both whole1280x720 saved referenceJPEGs and whole1536x1024original viewedoriginaldetail. No globalabsence/copyrightlicense/physical/demographic inference.",
+    "pins": "All11 unique ORIGINAL-ONLY inputidentities exact; supplementaltoolreceipt separatelybound."
+  },
+  "commands": [
+    {
+      "scope": "records",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['REFERENCES.md','ORIGINAL-ONLY-INPUTS.json','ROOT-WORTH.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest());print(b.decode())\nprint('LEAF_FILES',[q.name for q in p.iterdir()if q.is_file()])\nPY",
+      "chunk_id": "f2aaf9",
+      "exit_code": 0,
+      "identity_line": "PID 18603 UTC 2026-10-19T14:22:36.903318+00:00",
+      "tool_wall_seconds": 8.208e-06
+    },
+    {
+      "scope": "source",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nm=json.loads((p/'ORIGINAL-ONLY-INPUTS.json').read_text());assert len(m['inputs'])==11 and len({r['path']for r in m['inputs']})==11\nfor r in m['inputs']:\n b=Path(r['path']).read_bytes();assert len(b)==r['bytes']and hashlib.sha256(b).hexdigest()==r['sha256'],r['path']\nprint('ALL11_EXACT',True)\nfor n in ['SEARCH-1.json','SEARCH-2.json','REFERENCE-TOOL-RECEIPT.json']:\n q=p/n;b=q.read_bytes();print('\\nFILE',n,len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nq=p/'PRIMARY-SCRAPE.json';o=json.loads(q.read_text());print('PRIMARY_FULL_WRAPPER_PARSED_TOP_KEYS',list(o))\n# Pick the stored structured result, avoiding duplicate serialized text wrappers.\ndef find(o,path=''):\n if isinstance(o,dict):\n  for k,v in o.items():\n   if k in ['markdown','metadata','isError','success','url','creditsUsed','credits_used','id']:yield(path+'/'+k,v)\n   elif k!='content':yield from find(v,path+'/'+k)\n elif isinstance(o,list):\n  for i,v in enumerate(o):yield from find(v,path+'/'+str(i))\nfor path,value in find(o):\n print('PRIMARY_SCOPE',path)\n print(value if isinstance(value,str)else json.dumps(value,ensure_ascii=False))\nPY",
+      "chunk_id": "ade241",
+      "exit_code": 0,
+      "identity_line": "Warning: truncated output (original token count: 8846)",
+      "tool_wall_seconds": 7.667e-06
+    },
+    {
+      "scope": "metadata",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\na=json.loads((p/'SEARCH-1.json').read_text());b=json.loads((p/'SEARCH-2.json').read_text());v=json.loads((p/'PRIMARY-SCRAPE.json').read_text());r=json.loads((p/'REFERENCE-TOOL-RECEIPT.json').read_text())\nfor o in [a,b,v]:\n assert o['isError'] is False\n texts=[x['text']for x in o['content']if x.get('type')=='text'];assert len(texts)==1 and json.loads(texts[0])==o['structuredContent']\nmd=v['structuredContent']['metadata'];text=v['structuredContent']['markdown'];credits=a['structuredContent']['creditsUsed']+b['structuredContent']['creditsUsed']+md['creditsUsed'];assert credits==5 and md['statusCode']==200\nassert r['calls'][1]['arguments']['query'].startswith('site.uniqlo.com OR site:uniqlo.com')\nprint('RAW_TEXT_STRUCTURED_EQUAL',True,'REPORTED_CREDITS',credits,'PRIMARY_HTTP',md['statusCode'],'PRIMARY_URL',md['sourceURL'],'PRIMARY_OG_IMAGE',md['ogImage'])\nprint('DECISIVE_PRIMARY_LINES')\nfor i,line in enumerate(text.splitlines(),1):\n if 'LineupBanner-Merino-Cardigan-women-sp.jpg'in line or line.startswith('# Workwear')or line.startswith('### Smart Casual'):print(i,line)\nprint('PRIMARY_MARKDOWN_LINES',len(text.splitlines()),'scope','Parsedcompletewrapper; selectedtitle/section/imageURL/metadata used. Commercialproductdetail not poseevidence.')\nprint('NO_AUTHORED_SOURCE_ABSENCES',{n:not(p/n).exists()for n in ['BRIEF.md','PROMPT.txt','ADMISSION.json','first.png']})\nPY",
+      "chunk_id": "a24be5",
+      "exit_code": 0,
+      "identity_line": "PID 21640 UTC 2026-10-19T14:24:17.342688+00:00",
+      "tool_wall_seconds": 7.667e-06
+    }
+  ],
+  "error_scope": [
+    {
+      "witness": "Savedquery2 firsttoken site.uniqlo.com",
+      "effect": "Invalidsiteoperator wording retained; actualofficialresults/pageassociation recorded, no thirdquery/providerdiagnosis."
+    },
+    {
+      "witness": "ade241 outputclipped commercialprimarydetail",
+      "effect": "Not source/targetfailure. Decisive selectedmetadata/title/section/imageURL andwrapper equality independentlyread a24be5; no completeprose-reading claim."
+    }
+  ],
+  "next": {
+    "permitted_if_root_verifies": "One complete inert explicitoriginalposebrief/prompt/tool-resource/sourcecontract preparation; no generation automatically.",
+    "must_own": [
+      "Simplechair/support/base andinventedhip/thigh/knee/footarrangement",
+      "Bothhands through deliberateasymmetric placement plus honest near/farocclusion",
+      "Truefront+pageleftprofile, not covertthreequarter or role relabel",
+      "Coveredwaist/jacket/tee/trouserhem balance andqualitativeidentity/proportion/wardrobeinvariants",
+      "OnlyunchangedoriginalAri asgenerationreference",
+      "Freshfullsource/rootgate,actualjob/cell/outputownership/copycaps andfirstfailureclosure"
+    ],
+    "not_admitted": [
+      "newreferences/query/browser/capture",
+      "imagegen/native/rig/body/foot/last",
+      "prompt/style/pose/imagecorrection/retry",
+      "blockedgallery/3Dshoe/groom/expression/constructor/fit rescue"
+    ],
+    "no_claim": "No externalposevalidity, registeredviews, physicalcontact/anatomy/fit, cloth/rig/motion/runtime/AAA qualification.",
+    "unchanged_deadline": "15:02:33.390168UTC"
+  },
+  "absence_snapshot": {
+    "job": "a24be5",
+    "utc": "2026-10-19T14:24:17.342688+00:00",
+    "exactleaf_absent": [
+      "BRIEF.md",
+      "PROMPT.txt",
+      "ADMISSION.json",
+      "first.png"
+    ],
+    "not_global_absence": true
+  },
+  "owned_files": [
+    "ORIGINAL-ONLY-WORTH.md",
+    "ORIGINAL-ONLY-RECEIPT.json"
+  ],
+  "manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/ORIGINAL-ONLY-INPUTS.json",
+    "bytes": 2863,
+    "sha256": "9c43da14804a3f7cc448764211fd6badff301a966879b2e30717fce8c93de65c"
+  },
+  "verified_rows": 11,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/SEARCH-1.json",
+      "bytes": 3362,
+      "sha256": "4cec7b1ec8d695cf677019570f97ec5f038f61a16f375ab4b99d138c745abd77"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/SEARCH-2.json",
+      "bytes": 5949,
+      "sha256": "c8c09596f136bd55e0d97f79f6fbee170a4b1d86e2834fd1b1bae1ce61ec9778"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/PRIMARY-SCRAPE.json",
+      "bytes": 50096,
+      "sha256": "35d1caf62fd3a6fcf5b8aa64e491073201165939f38a7ee8fa680561d2671cdb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/reference-1.jpg",
+      "bytes": 111425,
+      "sha256": "70d3332550e505c0d704012f295276debe838b62cad8520a571f481ac3a856f3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/reference-2.jpg",
+      "bytes": 37932,
+      "sha256": "e73a2c6bd5347f54baa7a45f13af504c226d2fc3e5b4539cdfe0fc623fab5380"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/REFERENCES.md",
+      "bytes": 3218,
+      "sha256": "ba956c29fc1ef75a34ef2d70165e3d8f68ab9a97904e717a9efe839d8b22b9a6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/PLAN.md",
+      "bytes": 5490,
+      "sha256": "7a6e73c913028435d239fa79b8900cf66f089c542625c58bdb65b57e89ced3c1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/ROOT-WORTH.json",
+      "bytes": 3007,
+      "sha256": "93eebbdf377c2994bd9fe970c58bf3eea6e92b174020d67b203dd6fe81bcfc60"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/WORTH.md",
+      "bytes": 3253,
+      "sha256": "8b9dc951906ba80ef9ae867ac28d34ae36c910cade8cdad774d3e5cb7805b9b6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/WORTH-RECEIPT.json",
+      "bytes": 10760,
+      "sha256": "3384ce9e8f1e86a570b76b31bc5cbb1bdc8cbc7a6ea7e81b09749a3f44af6e47"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+    }
+  ],
+  "supplemental_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/REFERENCE-TOOL-RECEIPT.json",
+      "bytes": 2724,
+      "sha256": "5c34da566ccfdf9fbca90cccdd9255a6b997012e56cc7ed5a8ad872a740d50fb"
+    }
+  ],
+  "collected_utc": "2026-10-19T14:25:27.073926+00:00",
+  "collection_pid": 23797,
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/ORIGINAL-ONLY-WORTH.md",
+    "bytes": 3111,
+    "sha256": "2c8ba200e10ed9e6684ddc3600f0919596ae531e4c1e353c3a7637058f6e0e5a"
+  }
+}

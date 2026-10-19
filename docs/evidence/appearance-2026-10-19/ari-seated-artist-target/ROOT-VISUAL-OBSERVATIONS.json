@@ -1,0 +1,32 @@
+{
+  "schema": "root-seated-first-whole-image-observations-v1",
+  "utc": "2026-10-19T14:33:21.602542+00:00",
+  "pid": 38190,
+  "scope": "Wholeactual1536x1024generatedimage seen native returned image; whole1536x1024original viewed original detail5dbf55 beforecritic pixel opinion",
+  "image_sha256": "2c4367f6bc73ee717da39ad8129803176d0ed261d3ad8718b6eeb7ccadf52aa8",
+  "provisional_decision": "B against explicit full-footwear/stagger composition contract, despite useful recognizable overallseatedart; independent fullimage critic still owed",
+  "positive_witnesses": [
+    "Both full-body roles present with uncropped head/chairbase/shoes; left front, right page-leftprofile with nose/head/torso sideon.",
+    "Broadsoftbody/fullcheeks/shorttightcurls/matterustopenjacket/slatetee/inkroomytrousers/ivorylowtops agreequalitatively with wholeoriginal.",
+    "Frontwaist approx x315-525/y400-500 remainscovered; seatbetweenbentlegs, profilehips x1190-1300/y570-630 sitoverwoodseat; floor/chairfeet plausibleasart.",
+    "Fronttwohands approx x220-305/y480-570 and475-565/y480-565; profilefarhand approx850-945/y475-565 andnearhand935-1050/y505-568 are distinct restinghands, no visible extra limb."
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "witness": "Rightpanel floor/feet approx x755-1060/y800-930: farshoe extends x755-936, nearshoe x862-1058; far heel is behind near toe horizontally, with overlappingoutline/near trouserleg rather than specified small floor gap. BRIEF6/PROMPTside explicitly chose farheel ahead ofnear toe so bothcomplete silhouettes read.",
+      "explanation": "Generated farshoe is substantially readable but does not fulfill the explicit pre-image whole-silhouette stagger; covered farheel cannot be recovered from anotherpanel or treated as a newocclusionwaiver. No geometric/collision diagnosis frompixels.",
+      "alternatives": [
+        {
+          "choice": "FreezeexactB and retain originalstandingasset; keep thisnewimage only isolatedresearch",
+          "tradeoff": "Honors fullsourcecontract andavoids retrychurn; useful overallseatedintent is not promoted."
+        },
+        {
+          "choice": "Defer seatedauthority to future completeeditablebody/rig/garment owner",
+          "tradeoff": "Larger functional ownership andtime, but provides intendedocclusion fromreal source rather than reprompting thisclosedmethod."
+        }
+      ]
+    }
+  ],
+  "not_done": "No crop, retake, edit, newgeneration, relabel, board/checklist/default/runtime promotion. Backendretirementnotproved. No contact/fit/rig/AAA claim."
+}

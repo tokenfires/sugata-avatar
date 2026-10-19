@@ -1,0 +1,172 @@
+{
+  "schema": "independent-Ari-seated-complete-source-v1",
+  "verdict": "A exact one builtin imagegen request worth doing after parent fullverification/freshadmission; actualimage unqualified",
+  "pending_edits": false,
+  "deadline_utc": "2026-10-19T15:02:33.390168+00:00",
+  "commands": [
+    {
+      "scope": "full",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['BRIEF.md','PROMPT.txt','SOURCE.md','IMAGE-REQUEST.json','PREFLIGHT.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(str(i)+':'+line)\nPY",
+      "chunk_id": "537960",
+      "exit_code": 0,
+      "identity_line": "PID 29368 UTC 2026-10-19T14:28:28.960546+00:00",
+      "tool_wall_seconds": 9e-06
+    },
+    {
+      "scope": "static",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nm=json.loads((p/'PREFLIGHT.json').read_text());assert len(m['inputs'])==26 and len({r['path'] for r in m['inputs']})==26\nfor row in m['inputs']:\n b=Path(row['path']).read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256'],row['path']\nr=json.loads((p/'IMAGE-REQUEST.json').read_text());assert set(r)=={'prompt','referenced_image_paths','transparent_background'} and r['prompt']==(p/'PROMPT.txt').read_text() and r['transparent_background'] is False\nassert r['referenced_image_paths']==['/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png']\nb=Path(r['referenced_image_paths'][0]).read_bytes();assert len(b)==2193053 and hashlib.sha256(b).hexdigest()=='6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d'\nprint('ALL26EXACT',True,'PROMPT_TEXT_EXACT',True,'ONLY_ORIGINAL_Ari_REFERENCE',True,'OPAQUE',True,'DEADLINE',m['deadline_utc'])\nq=p/'ROOT-ORIGINAL-ONLY.json';print('ROOT_ORIGINAL_ONLY_FULL',q.read_text())\nprint('PROPOSED_OUTPUT_ABSENCES',{n:not(p/n).exists() for n in ['ADMISSION.json','IMAGE-JOB.json','TOOL-RETURN.json','IMAGE-RETURN.json','first.png','SOURCE-REVIEW.md','SOURCE-RECEIPT.json']})\nPY",
+      "chunk_id": "af223d",
+      "exit_code": 0,
+      "identity_line": "PID 31323 UTC 2026-10-19T14:29:34.461419+00:00",
+      "tool_wall_seconds": 5.542e-06
+    }
+  ],
+  "read_scopes": {
+    "whole": "BRIEF15lines/PROMPT13/SOURCE13/IMAGE-REQUEST7/PREFLIGHT144 plus ROOT-ORIGINAL-ONLY complete. Currentinput pins fresh; no source/program import/evaluation.",
+    "original": "Previously independently whole-viewed actual1536x1024 Ari at originaldetail14:22:25-or-earlier, original-only gate. Same exactbytes freshverified here; no current3D/body/rig payload investigated.",
+    "references": "Complete preceding references/search/toolreceipt and selectedprimary metadata/imageURL scopes retained from ORIGINAL-ONLY-RECEIPT at exactpins; bothwhole actualreferenceJPEGs viewed in priorgate. Externalqualifyingreference B persists.",
+    "tool_schema": "Current providedbuiltin imagegen supports prompt/referenced_image_paths/transparent_background; exactrequest hasthose3fields only, no model/quality/size override,num_last_images_to_include or extraimageinput. No imagegentool called by critic.",
+    "limits": "Static authoredinstruction suitability only, not projected jointmath/physicalcontact/anatomy/fit/rig/expression/render/native or image qualification."
+  },
+  "actual_static_checks": {
+    "input_rows": 26,
+    "all_exact": true,
+    "prompt_exact_text_equality": true,
+    "request_fields": [
+      "prompt",
+      "referenced_image_paths",
+      "transparent_background"
+    ],
+    "reference_count": 1,
+    "originalbytes": 2193053,
+    "originalsha": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d",
+    "transparent_background": false,
+    "no_extra_reference_or_backend_model_override": true
+  },
+  "source_witnesses": [
+    {
+      "file": "BRIEF.md",
+      "lines": "3,5\u201312",
+      "duty": "Original-onlyinventedposture,identitywardrobe,support/asymmetriclimbplacement/pageleftprofile/honestocclusion/fullimage."
+    },
+    {
+      "file": "PROMPT.txt",
+      "lines": "1,3\u201313",
+      "duty": "Literaloneimage/tworoles/originalidentity/correctpageleftdirection/bothhandsandfootwear,nohiddenintentorrole-substitution."
+    },
+    {
+      "file": "SOURCE.md",
+      "lines": "5\u201313",
+      "duty": "Exactrequestoriginalreference/copyformatcap/defaultpreservation/cellcollection/unknownbackendlimits/deadline/firstfailure."
+    }
+  ],
+  "actionable_findings": [],
+  "risks_not_proved_defects": [
+    {
+      "witness": "BRIEF9\u201311/PROMPT9\u201313 requirevisiblehands/shoes andstrongstagger intrueprofile.",
+      "scope": "May fail actualcoherence/identity/occlusion; no claim source arrangement is mathematicallyimpossible or already valid.",
+      "alternatives": [
+        {
+          "choice": "One exactfixed image experiment",
+          "tradeoff": "Immediateuseful target ifcoherent, consumesonecall/riskofB."
+        },
+        {
+          "choice": "Defer until editablebody-rig-garmentowner",
+          "tradeoff": "Strongerfunctionalposeauthority, larger scope/noimmediateseatedintent."
+        }
+      ]
+    }
+  ],
+  "prospective_call": {
+    "tool": "image_gen.imagegen",
+    "arguments": "Exact current IMAGE-REQUEST.json, no edits",
+    "calls": 1,
+    "output_images": 1,
+    "only_workspace_copy": "first.png",
+    "max_copy_bytes": 10485760,
+    "default_output_preserved": true,
+    "owned_observations": "Intent/admission/rawargs,actualUTC/cell/status/defaultpath/format/dimensions/CRCs/hash/copyequal; no base64dump.",
+    "unexposed": "BackendPID/RAMceiling/CPU-GPUlifetime/cancel/physicalretirement; no hardclaim.",
+    "lifetime": "120s recommendedyield/waits onlyonreturnedrunningcell; collectsameownedcall,no duplicatepending/unknown;humanpausecollectifpossible/checkpointandpause.",
+    "outcome": "Fullactualimage rootopinion beforecritic, criticwholeimage+original+allroles, rootfullverification. AnyfirstB/unknown/capacity/deadline closesunchanged."
+  },
+  "no_admission_by_receipt": "Parentmust independently whole-read+reverify stablepair/currentpins andcreatefreshrootadmission beforecall. No actualcall by critic.",
+  "prepared_absence_snapshot": {
+    "job": "af223d",
+    "utc": "2026-10-19T14:29:34.461419+00:00",
+    "literal_absent": [
+      "ADMISSION.json",
+      "IMAGE-JOB.json",
+      "TOOL-RETURN.json",
+      "IMAGE-RETURN.json",
+      "first.png"
+    ],
+    "scope": "Literal paths only, no process/global census."
+  },
+  "corrections_or_limits": [
+    {
+      "scope": "retained rootmetadata locator only",
+      "witness": "PREFLIGHT143 records missing originalPROMPT.md correctedbyrg toactualPROMPT.txt3099/SHA648c8f\u2026; current26pins bindcorrectfile. No targetsource or artifact failure."
+    }
+  ],
+  "protected": "No blockedkit/gallery, refusedshoe3D, groom/expression/nativeMara/sourcefield/constructor/fit rescue. Originals/defaults/22scoped10broad/fullAAA/HOLD unchanged.",
+  "owned_files": [
+    "SOURCE-REVIEW.md",
+    "SOURCE-RECEIPT.json"
+  ],
+  "manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/PREFLIGHT.json",
+    "bytes": 7205,
+    "sha256": "0ac636a5d9d37ba573b304081438afd0df0fe0d0287c674fd3f7f7bfbc0190f0"
+  },
+  "verified_rows": 26,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/BRIEF.md",
+      "bytes": 6337,
+      "sha256": "9983835bc0aba504f84540c652aaa1068068b68af0d95997dee1e5a636ecc7ef"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/PROMPT.txt",
+      "bytes": 3986,
+      "sha256": "3c04fb3f2f07aaf0b465b9bfb613766d859463e71da2f59659eb5282caf97101"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/SOURCE.md",
+      "bytes": 3773,
+      "sha256": "fcf7b26b4bf88c0ba67cedc0c54d50d9f0a8adb5f2035bd42f297bd432a54f6f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/IMAGE-REQUEST.json",
+      "bytes": 4204,
+      "sha256": "8458b3dfe0c6a2f32e81ce8968d25f0551f0aed51ad82aa4a68e60abd5d582bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/ROOT-ORIGINAL-ONLY.json",
+      "bytes": 948,
+      "sha256": "717985a0a0356721aeeff55d350eda81b676064a09d6371dfa31b17b78408222"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/ORIGINAL-ONLY-WORTH.md",
+      "bytes": 3111,
+      "sha256": "2c8ba200e10ed9e6684ddc3600f0919596ae531e4c1e353c3a7637058f6e0e5a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/ORIGINAL-ONLY-RECEIPT.json",
+      "bytes": 13571,
+      "sha256": "763c8ca14339e319f0064e60fdc58dc8b64bb0a07b73d6074cf6435d6354b7fe"
+    }
+  ],
+  "reference_input": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+    "bytes": 2193053,
+    "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+  },
+  "collected_utc": "2026-10-19T14:30:57.393121+00:00",
+  "collection_pid": 33844,
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-seated-artist-target/SOURCE-REVIEW.md",
+    "bytes": 3510,
+    "sha256": "c005087fb2062c67f55548c75c86722407e90a9330ada126fe6662780d61b41b"
+  }
+}

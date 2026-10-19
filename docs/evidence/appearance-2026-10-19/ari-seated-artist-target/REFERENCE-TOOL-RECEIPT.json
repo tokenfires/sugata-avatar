@@ -1,0 +1,90 @@
+{
+  "schema": "seated-reference-tool-receipt-v1",
+  "recorded_utc": "2026-10-19T14:23:01.579Z",
+  "calls": [
+    {
+      "tool": "mcp__codex_apps__firecrawl_firecrawl_search",
+      "arguments": {
+        "query": "site:universalstandard.com seated jeans model",
+        "sources": [
+          "web"
+        ],
+        "limit": 3,
+        "highlights": true
+      },
+      "result": "SEARCH-1.json",
+      "reported_credits": 2
+    },
+    {
+      "tool": "mcp__codex_apps__firecrawl_firecrawl_search",
+      "arguments": {
+        "query": "site.uniqlo.com OR site:uniqlo.com seated chair trousers lookbook",
+        "sources": [
+          "web"
+        ],
+        "limit": 3,
+        "highlights": true
+      },
+      "result": "SEARCH-2.json",
+      "reported_credits": 2
+    },
+    {
+      "tool": "mcp__codex_apps__firecrawl_firecrawl_scrape",
+      "arguments": {
+        "url": "https://www.uniqlo.com/eu-ro/en/special-feature/uniqlo-at-work-women",
+        "formats": [
+          "markdown"
+        ],
+        "maxAge": 0,
+        "onlyMainContent": true,
+        "timeout": 30000
+      },
+      "result": "PRIMARY-SCRAPE.json",
+      "reported_credits": 1
+    },
+    {
+      "tool": "cua.createBrowserTab",
+      "arguments": [
+        "3",
+        "https://image.uniqlo.com/UQ/ST3/jp/imagesother/feature/gl/25FW/WORK/Hero_KV_pc_women.jpg",
+        {
+          "visible": false
+        }
+      ],
+      "returned_tab": "10",
+      "title": "Hero_KV_pc_women.jpg (2000×1125)"
+    },
+    {
+      "tool": "tab.screenshot",
+      "arguments": {
+        "fullPage": true
+      },
+      "output": "reference-1.jpg",
+      "write": "unchanged returned bytes, exclusive creation; emitted whole once"
+    },
+    {
+      "tool": "tab.goto",
+      "arguments": [
+        "https://image.uniqlo.com/UQ/ST3/jp/imagesother/feature/gl/25FW/WORK/LineupBanner-Merino-Cardigan-women-sp.jpg"
+      ],
+      "post_action": "getAXState",
+      "title": "LineupBanner-Merino-Cardigan-women-sp.jpg (750×1000)"
+    },
+    {
+      "tool": "tab.screenshot",
+      "arguments": {
+        "fullPage": true
+      },
+      "output": "reference-2.jpg",
+      "write": "unchanged returned bytes, exclusive creation; emitted whole once"
+    },
+    {
+      "tool": "tab.close",
+      "arguments": [],
+      "owned_tab": "10",
+      "status": "returned without error"
+    }
+  ],
+  "root_verification": "f36e70/exit0/PID18169/2026-10-19T14:22:22.776702UTC:11inputpins,JPEGmagic/dimensions1280x720each,rawreportedcredits2+2+1/primaryHTTP200",
+  "limits": "CUA exact start/end timestamps not exposed in saved return; no invented per-action UTC. Search2 first token typo retained. No new image/ref retrieval. No target imagegen/source/native/GPU run."
+}

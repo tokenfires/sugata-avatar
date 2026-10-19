@@ -1,0 +1,56 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"success\":true,\"data\":{\"web\":[{\"url\":\"https://www.uniqlo.com/us/en/special-feature/lifewear-collection?srsltid=AU7gw4UJtCatcDoW5ZFIG48BxNw3YrEqxXQF9mHF90DhRmkToHojTHPg\",\"title\":\"LifeWear Collection 2026 Winter | UNIQLO US\",\"description\":\"The UNIQLO 2026 Winter catalog showcases a new collection, emphasizing functionality, quality materials, colors, and silhouettes perfect for the season.\",\"position\":1},{\"url\":\"https://www.uniqlo.com/us/en/products/E463857-000/01/stylehint/styles?srsltid=AU7gw4UOSnraR8rb2_J8dW5k2VlF_yp1qxpALZrm0Cvr54kvFvAH9O1b\",\"title\":\"Linen Blend Relaxed Pants(Men's) outfit ideas| UNIQLO US\",\"description\":\"4.899 · $7.99 delivery · 30-day returnsSee 3 outfit ideas for Linen Blend Relaxed Pants(Men's) using UNIQLO fashion items. Check out new arrivals & trend items at the online store.\",\"position\":2},{\"url\":\"https://www.uniqlo.com/eu-ro/en/special-feature/uniqlo-at-work-women\",\"title\":\"Workwear and office outfits | UNIQLO\",\"description\":\"From office days to business trips, UNIQLO workwear helps you feel sharp, comfortable, and effortlessly stylish wherever your work takes you.\",\"position\":3}],\"tools\":[{\"provider\":\"steelcitycollectibles-com\",\"capability\":\"products/search_products\",\"description\":\"Start here for a product or set name ('2025 topps chrome baseball', 'pokemon prismatic evolutions'). Follow with get_product using a result's `slug`.\"},{\"provider\":\"myworkdayjobs-com\",\"capability\":\"jobs/search_jobs\",\"description\":\"Start here with any Workday career-site URL. Read `facets` to filter by location, job category, time type or remote type (parameters differ per employer), page with next_offset, then call get_job with a result's external_path or url for the full description.\"},{\"provider\":\"hertzcarsales-com\",\"capability\":\"vehicles/get_vehicle\",\"description\":\"After search_inventory or suggest_inventory, or when the user pastes a hertzcarsales.com/used/... or /rent2buy/... URL or a VIN.\"}]},\"creditsUsed\":2,\"id\":\"01a15489-527a-74fa-87cc-aa9aa530f644\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://www.uniqlo.com/us/en/special-feature/lifewear-collection?srsltid=AU7gw4UJtCatcDoW5ZFIG48BxNw3YrEqxXQF9mHF90DhRmkToHojTHPg\\\", #2 \\\"https://www.uniqlo.com/us/en/products/E463857-000/01/stylehint/styles?srsltid=AU7gw4UOSnraR8rb2_J8dW5k2VlF_yp1qxpALZrm0Cvr54kvFvAH9O1b\\\", #3 \\\"https://www.uniqlo.com/eu-ro/en/special-feature/uniqlo-at-work-women\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+    }
+  ],
+  "structuredContent": {
+    "success": true,
+    "data": {
+      "web": [
+        {
+          "url": "https://www.uniqlo.com/us/en/special-feature/lifewear-collection?srsltid=AU7gw4UJtCatcDoW5ZFIG48BxNw3YrEqxXQF9mHF90DhRmkToHojTHPg",
+          "title": "LifeWear Collection 2026 Winter | UNIQLO US",
+          "description": "The UNIQLO 2026 Winter catalog showcases a new collection, emphasizing functionality, quality materials, colors, and silhouettes perfect for the season.",
+          "position": 1
+        },
+        {
+          "url": "https://www.uniqlo.com/us/en/products/E463857-000/01/stylehint/styles?srsltid=AU7gw4UOSnraR8rb2_J8dW5k2VlF_yp1qxpALZrm0Cvr54kvFvAH9O1b",
+          "title": "Linen Blend Relaxed Pants(Men's) outfit ideas| UNIQLO US",
+          "description": "4.899 · $7.99 delivery · 30-day returnsSee 3 outfit ideas for Linen Blend Relaxed Pants(Men's) using UNIQLO fashion items. Check out new arrivals & trend items at the online store.",
+          "position": 2
+        },
+        {
+          "url": "https://www.uniqlo.com/eu-ro/en/special-feature/uniqlo-at-work-women",
+          "title": "Workwear and office outfits | UNIQLO",
+          "description": "From office days to business trips, UNIQLO workwear helps you feel sharp, comfortable, and effortlessly stylish wherever your work takes you.",
+          "position": 3
+        }
+      ],
+      "tools": [
+        {
+          "provider": "steelcitycollectibles-com",
+          "capability": "products/search_products",
+          "description": "Start here for a product or set name ('2025 topps chrome baseball', 'pokemon prismatic evolutions'). Follow with get_product using a result's `slug`."
+        },
+        {
+          "provider": "myworkdayjobs-com",
+          "capability": "jobs/search_jobs",
+          "description": "Start here with any Workday career-site URL. Read `facets` to filter by location, job category, time type or remote type (parameters differ per employer), page with next_offset, then call get_job with a result's external_path or url for the full description."
+        },
+        {
+          "provider": "hertzcarsales-com",
+          "capability": "vehicles/get_vehicle",
+          "description": "After search_inventory or suggest_inventory, or when the user pastes a hertzcarsales.com/used/... or /rent2buy/... URL or a VIN."
+        }
+      ]
+    },
+    "id": "01a15489-527a-74fa-87cc-aa9aa530f644",
+    "creditsUsed": 2,
+    "agent_hints": [
+      "All 3 web results are excerpts only (#1 \"https://www.uniqlo.com/us/en/special-feature/lifewear-collection?srsltid=AU7gw4UJtCatcDoW5ZFIG48BxNw3YrEqxXQF9mHF90DhRmkToHojTHPg\", #2 \"https://www.uniqlo.com/us/en/products/E463857-000/01/stylehint/styles?srsltid=AU7gw4UOSnraR8rb2_J8dW5k2VlF_yp1qxpALZrm0Cvr54kvFvAH9O1b\", #3 \"https://www.uniqlo.com/eu-ro/en/special-feature/uniqlo-at-work-women\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+    ]
+  },
+  "isError": false
+}
