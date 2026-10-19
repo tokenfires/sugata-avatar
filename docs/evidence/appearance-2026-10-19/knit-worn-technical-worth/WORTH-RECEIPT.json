@@ -1,0 +1,213 @@
+{
+  "schema": "knit-worn-technical-worth-review-v1",
+  "verdict": "B_DEFER_INSUFFICIENT_INCREMENTAL_DESIGN_VALUE",
+  "pending_edits": false,
+  "worth_stop_utc": "2026-10-19T21:15:00Z",
+  "full_reads": [
+    "PLAN.md",
+    "INPUTS.json",
+    "IMAGE-INPUTS.json",
+    "knit-character-turnaround/ARTIST-HANDOFF.md",
+    "knit-character-turnaround/README.md",
+    "piece-publisher/README.md",
+    "whole-knit-serving/README.md"
+  ],
+  "selected_reads": [
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "ranges": [
+        [
+          1,
+          26
+        ]
+      ]
+    }
+  ],
+  "metadata_only": [
+    "WORK-WINDOW-2026-10-18.md freshly hashed; current instructions already present in immediately preceding read epoch, not wholly reread",
+    "PROJECT-CHECKLIST/PRODUCT-ROADMAP freshly hashed at unchanged prior reviewed bytes; no new checkbox/roadmap qualification"
+  ],
+  "actual_views": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+      "tool": "view_image",
+      "detail": "original",
+      "utc": "2026-10-19 20:59:15 UTC",
+      "scope": "Whole exact preselected shared historical image at original detail; one of exactly2 global unique files."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/piece-publisher/original-frame.jpg",
+      "tool": "view_image",
+      "detail": "original",
+      "utc": "2026-10-19 20:59:15 UTC",
+      "scope": "Whole exact preselected shared historical image at original detail; one of exactly2 global unique files."
+    }
+  ],
+  "view_scope": {
+    "preselected_global_unique_files": 2,
+    "critic_actual_unique_files": 2,
+    "exact_selected_paths_used": true,
+    "other_images_viewed": false,
+    "no_new_capture": true
+  },
+  "findings": [
+    {
+      "id": "V1",
+      "classification": "Worth/value refusal; no visual/source failure",
+      "witnesses": [
+        "Whole turnaround: front sweater approximatelyx192–469,y148–467; profilex696–841,y150–461; rearx1065–1339,y150–466 already expose dropped shoulders/sleeves/cuffs/untuckedribhem/quietback and trouser overlap",
+        "Turnaround ARTIST-HANDOFF.md:5 assigns the same whole-look design consumer;7–9 retain unregistered/source limits",
+        "Whole flat piece image: named F/B/L/R/N, pairings and rib/opening roles; piece-publisher/README.md:3–7 explicitly names SVG/JSON/operands and existing design limits",
+        "PLAN.md:1–5 proposes editability for the same visible roles without a specific unresolved contour or downstream decision requiring another representation"
+      ],
+      "explanation": "A worn vector sheet would add real direct editing handles. That alone does not demonstrate sufficient incremental utility here: complementary editable role data and readable worn intent already exist, and another unregistered association risks inconsistency without settling a named new design decision.",
+      "alternatives": [
+        {
+          "choice": "Retain current editable flat graph plus complete worn artist target",
+          "benefit": "Avoids another representation/source/renderer/qualification slice",
+          "tradeoff": "Worn contours remain noneditable and physical correspondence unresolved"
+        },
+        {
+          "choice": "New named-role worn SVG/JSON",
+          "benefit": "Directly editable worn contour and region handles",
+          "tradeoff": "New original design associations, possible graph inconsistency and fresh visual qualification for marginal current decision value"
+        }
+      ]
+    }
+  ],
+  "non_findings": [
+    "No demand that a2Dtechnicaldrawing prove physical fit, registration or coupled3D",
+    "No claimed existing editable worn SVG/JSON; those specific contours are genuinely not editable",
+    "No missing runtime feature, artifact defect or appearance failure demonstrated",
+    "T-rest limits remain real, but do not automatically make this vector sheet worthwhile"
+  ],
+  "next": "Close this worth nomination unrun; no preparation or renamed retry.",
+  "limits": [
+    "No otherimage/search/reference/browser/native/GPU/capture/online/generation/geometry/constructor/sourceauthoring/check/import/eval/test/publisher action",
+    "No alteration of accepted/original/default/frozen/main assets or methods",
+    "No checklist/catalogue promotion or fit/native/3D/rig/motion/runtime/AAA claim",
+    "Only own pair written; no new consumer or replacement experiment admitted"
+  ],
+  "jobs": [
+    {
+      "name": "initial",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-worn-technical-worth')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PLAN.md','INPUTS.json','IMAGE-INPUTS.json']:\n q=p/n;b=q.read_bytes();print('\\nFILE',n,len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "result": {
+        "chunk_id": "9e45d3",
+        "wall_time_seconds": 6.416e-06,
+        "exit_code": 0,
+        "original_token_count": 1493,
+        "output_bytes": 5972,
+        "output_sha256": "4ab0834dd1a99acde018dfa179fa3fddbdb29963258d29854e2def4cd9d23b25",
+        "first_line": "PID 21851 UTC 2026-10-19T20:59:01.217945+00:00"
+      }
+    },
+    {
+      "name": "receipts",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\nroot=Path('/Users/robault/GitHub/sugata-avatar')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md','docs/evidence/appearance-2026-10-19/knit-character-turnaround/README.md','docs/evidence/appearance-2026-10-04/piece-publisher/README.md','docs/evidence/appearance-2026-10-04/whole-knit-serving/README.md']:\n q=root/n;b=q.read_bytes();print('\\nFILE',q,len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(f'{i}: {line}')\nq=root/'docs/RESUME-2026-10-18.md';b=q.read_bytes();lines=b.decode().splitlines();print('\\nSELECTED',q,len(b),hashlib.sha256(b).hexdigest(),'1–26')\nfor i in range(1,min(26,len(lines))+1):print(f'{i}: {lines[i-1]}')\nPY",
+      "result": {
+        "chunk_id": "7fb7f7",
+        "wall_time_seconds": 6.167e-06,
+        "exit_code": 0,
+        "original_token_count": 4020,
+        "output_bytes": 16080,
+        "output_sha256": "37566b56c83b88207f28857727ae0e0959b45f0fba5d155d51f17ce112d6bf10",
+        "first_line": "PID 22179 UTC 2026-10-19T20:59:11.043980+00:00"
+      }
+    },
+    {
+      "name": "verify",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-worn-technical-worth');rows=[]\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['INPUTS.json','IMAGE-INPUTS.json']:\n for row in json.loads((p/n).read_text())['pins']:\n  b=Path(row['path']).read_bytes();a={'path':row['path'],'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()};assert a==row;rows.append(a)\nfor n in ['PLAN.md','INPUTS.json','IMAGE-INPUTS.json']:\n q=p/n;b=q.read_bytes();rows.append({'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})\nprint(json.dumps({'verified_unique_paths':len({r['path'] for r in rows}),'pins':rows,'view_contract':'exact2 preselected files, no other image views','absence_snapshot':{n:not (p/n).exists() for n in ['BRIEF.md','SOURCE.md','WORTH.md','WORTH-RECEIPT.json']}},indent=2))\nPY",
+      "result": {
+        "chunk_id": "0fc576",
+        "wall_time_seconds": 7.583e-06,
+        "exit_code": 0,
+        "original_token_count": 816,
+        "output_bytes": 3264,
+        "output_sha256": "9572354bb0de0e6ad6433453be8da423c61218fb096d2e0bdd0943ec559290ae",
+        "first_line": "PID 23203 UTC 2026-10-19T20:59:44.885488+00:00"
+      }
+    }
+  ],
+  "input_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 135972,
+      "sha256": "cc639435bcaa41d86f32070092935af27ef6a2ca3950ce918c64122645d64cf6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 110908,
+      "sha256": "8216e18c9897f43dc566682c49089229e4a431f94c70f119cd4b097723aee9bf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2175,
+      "sha256": "f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/README.md",
+      "bytes": 3953,
+      "sha256": "d38d0bfae68496877cc0f4d1a4ecd88f0073c1bb2cb79a66cc081fa8b625b5aa"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/piece-publisher/README.md",
+      "bytes": 1562,
+      "sha256": "652aa7491ea4df559f1a4eddf498ef928a4a61f655f90b28de2a974f6d965a93"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/README.md",
+      "bytes": 1459,
+      "sha256": "29c047836ee3f21954d50e701041b9548a487d0a18f1e93620e2eef610a27c52"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+      "bytes": 2023441,
+      "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/piece-publisher/original-frame.jpg",
+      "bytes": 98488,
+      "sha256": "caa25095b801c0d1c7b2c6761fdef703225dfabcf9e9282e45f675486a01ce55"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-worn-technical-worth/PLAN.md",
+      "bytes": 3005,
+      "sha256": "7682ba021772ae2ac6cdd850eb298a371d79f0f19d3a0173966a915199bef28b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-worn-technical-worth/INPUTS.json",
+      "bytes": 1982,
+      "sha256": "7d09e72b68ad0b1048fedff9e87747eb65b9f1f08ea2d553a2cb1c0d47408c0e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-worn-technical-worth/IMAGE-INPUTS.json",
+      "bytes": 670,
+      "sha256": "bbae4775dd117f7d8f67c067dfd9166ce7326e663b53111ee9fd9dfe451e3429"
+    }
+  ],
+  "verified_unique_paths": 13,
+  "collection": {
+    "pid": 24430,
+    "utc": "2026-10-19T21:00:24.792961+00:00",
+    "exclusive_pair_only": true
+  },
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-worn-technical-worth/WORTH.md",
+    "bytes": 2896,
+    "sha256": "2a68392e6bcd276b2601615f385060890851c6347150e2eb4e041e4e1677d94f"
+  }
+}
