@@ -1,0 +1,138 @@
+{
+  "schema": "mara-corrected-orientation-source-preflight-v1",
+  "utc": "2026-10-19T12:39:13.954891+00:00",
+  "pid": 25337,
+  "parent_commit": "ba3569f15269952f6b3a2ac9f047ba6867e7313a",
+  "deadline_utc": "2026-10-19T13:11:38.685690+00:00",
+  "literal_change": "one page direction word LEFT\u2192RIGHT in each exact BRIEF/PROMPT copy; reverse-replacement equality asserted",
+  "parent_calls": 0,
+  "total_call_limit": 1,
+  "operation": "one built-in imagegen only after complete source/critic/root gate; sole original image, opaque/defaults,32MiB workspace copy ceiling; backend resource/PID unavailable",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/PLAN.md",
+      "bytes": 5579,
+      "sha256": "b93ebe675433a3b27e0ce9ec19c4a8b85d9f7b9f76c62bdb450419e65292c77c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/WORTH.md",
+      "bytes": 3296,
+      "sha256": "7a1c0c7b8a65398b8bc2eb428f3a805c27c37d2a775607a9c8a144f1de98fcd9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/WORTH-RECEIPT.json",
+      "bytes": 10476,
+      "sha256": "8981f62424c8be8f1965abf4b9608b683e62e4fc3c07b1d29c41c6214c8e6090"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/ROOT-WORTH.json",
+      "bytes": 955,
+      "sha256": "c81026fba6e91cc515f6849b99cd904a726b7117c7fda2add40b3196deb25440"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/SEARCHES.json",
+      "bytes": 10293,
+      "sha256": "97c1eb18a45c9e4dd2a651a50f1f807f043123def66be2b2ca231e1770f6b2b8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/REFERENCE-PAGE.json",
+      "bytes": 19967,
+      "sha256": "85d9c55fab8cb9525b52de7a6cec70eae724b14b92154dcf6c8724e040a3dd10"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/reference-view-1.jpg",
+      "bytes": 39448,
+      "sha256": "f58e58d7116c31b7dbe6013b9c19382fd71255a61dc66f8aa0f1da830a322371"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/reference-view-2.jpg",
+      "bytes": 31851,
+      "sha256": "85184f5f7af3482253bfee5779ddfda2183695fdc3aed8fb7e9621c3f5dc6af4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/REFERENCES.md",
+      "bytes": 3793,
+      "sha256": "9294e9bb06f377bc5f8ec3f685d17dcc78eb167c79d295b90c9fe504c012835a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/BRIEF.md",
+      "bytes": 6457,
+      "sha256": "03b09a967fdc6763530d24806d89d8c782868f08fc00f4340b6bd20086f78d06"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/PROMPT.txt",
+      "bytes": 3424,
+      "sha256": "592efecaeca877b63832472e5e7be58e3ab7079a318cf47ccffd9c9bb6a8bff3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "bytes": 3053,
+      "sha256": "f0f6118b1916220de67cb8748ec7232e1ab1b32e745415eb9c1d7629f429ca1d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-RESULT.md",
+      "bytes": 5825,
+      "sha256": "cb77b501d5b99d655f4153422998f7617a9185f5fe2760779c43eb4d157bc9e3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/PREFLIGHT.json",
+      "bytes": 4718,
+      "sha256": "15799e98661b047b62bb74761fdd5bdbe4a954115b58dbf3aeeee089a2ab694b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/SOURCE-REVIEW.md",
+      "bytes": 3196,
+      "sha256": "3f6e78565affa8088ad0428bebf3e5464f99a2169badddd9f8ccac42c2d1be6f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/SOURCE-RECEIPT.json",
+      "bytes": 12405,
+      "sha256": "fbd21f5c68c57146cb0a2dafce1adfb67ab14a2ceed716660083d5d2edbfa12d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/ROOT-SOURCE.json",
+      "bytes": 2135,
+      "sha256": "112ac3838b0516161945af431d64c6af1e506adb855c4d059dd93249928938c5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/ROOT-CLOSE.json",
+      "bytes": 6037,
+      "sha256": "d0776b9b39b77e1583ea60f73cea0252b2bc5f4d796162c5ea45b936f7472acd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/PLAN.md",
+      "bytes": 4636,
+      "sha256": "86c1b8343d5cc2b544975830e1da8031f769701cc694a2ad0e2c26afa432e00d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/BRIEF.md",
+      "bytes": 6458,
+      "sha256": "b0af1e6fa8defcf7462332a6782c080a9ac1d09376b911359a69410eb5d9418d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/PROMPT.txt",
+      "bytes": 3425,
+      "sha256": "56bac0535e1ecd20bc23ebaf43cc6a7c11ec9cba713fae8f57568478012bec54"
+    }
+  ]
+}

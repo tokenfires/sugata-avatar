@@ -1,0 +1,309 @@
+{
+  "schema": "independent-corrected-mara-groom-source-review-v1",
+  "verdict": "A complete source/workload only; one exact built-in call worth doing after independent root admission",
+  "pending_edits": false,
+  "deadline_utc": "2026-10-19T13:11:38.685690+00:00",
+  "commands": [
+    {
+      "chunk_id": "13eaaf",
+      "pid": 26436,
+      "utc": "2026-10-19T12:39:37.176692+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\nleaf=Path('docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['PLAN.md','BRIEF.md','PROMPT.txt','PREFLIGHT.json']:\n p=leaf/name;b=p.read_bytes();print('\\nFILE',p.resolve(),'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest())\n for n,line in enumerate(b.decode().splitlines(),1):print(f'{n}: {line}')\nPY",
+      "scope": "Whole corrected PLAN/BRIEF/PROMPT/PREFLIGHT"
+    },
+    {
+      "chunk_id": "be610f",
+      "pid": 27492,
+      "utc": "2026-10-19T12:40:09.217197+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\nleaf=Path('docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract');parent=leaf.parent/'mara-groom-view-intent';print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nd=json.loads((leaf/'PREFLIGHT.json').read_text());assert len(d['pins'])==25 and len({r['path'] for r in d['pins']})==25\nfor row in d['pins']:\n b=Path(row['path']).read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256'],row['path']\nfor name,before,after in [('BRIEF.md','nose points toward page LEFT','nose points toward page RIGHT'),('PROMPT.txt','looking toward page LEFT so her right ear','looking toward page RIGHT so her right ear')]:\n old=(parent/name).read_bytes();new=(leaf/name).read_bytes();b=before.encode();a=after.encode();assert old.count(b)==new.count(a)==1 and old.replace(b,a)==new and new.replace(a,b)==old;print('EXACT_SINGLE_WORD_DELTA',name,len(old),len(new))\nprint('ALL25PINS_EXACT')\nfor name in ['REFERENCE-PAGE.json','SEARCHES.json','ROOT-WORTH.json']:\n p=parent/name;v=json.loads(p.read_text());print('\\nFILE',p.resolve(),'KEYS',list(v) if isinstance(v,dict) else 'list')\n if name=='ROOT-WORTH.json':print(json.dumps(v,indent=2));continue\n def summarize(x,path='$'):\n  if isinstance(x,dict):\n   if 'markdown' in x:\n    print('MARKDOWN_PATH',path+'.markdown');print(x['markdown'])\n   for k,val in x.items():\n    if k=='markdown':continue\n    if k in ['metadata','success','isError','creditsUsed','error','query','args','arguments','requestedUtc','returnedUtc','statusCode','url','title','images','web','results']:\n     print(path+'.'+k,json.dumps(val,ensure_ascii=False))\n    elif isinstance(val,(dict,list)):summarize(val,path+'.'+k)\n  elif isinstance(x,list):\n   for i,z in enumerate(x):summarize(z,path+'['+str(i)+']')\n summarize(v)\nPY",
+      "scope": "All25pins, both exact reversible word changes, whole selected saved primary markdown+metadata, search result/credit metadata and rootworth"
+    },
+    {
+      "chunk_id": "ebaecf",
+      "pid": 29852,
+      "utc": "2026-10-19T12:41:10.710392+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,struct,json,os,datetime\nleaf=Path('docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract');parent=leaf.parent/'mara-groom-view-intent';print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\npage=json.loads((parent/'REFERENCE-PAGE.json').read_text())['structuredContent'];md=page['markdown'];meta=page['metadata']\nassert meta['statusCode']==200 and meta['sourceURL']=='https://www.artstation.com/artwork/b05Wxr' and meta['creditsUsed']==1\nfor u in ['https://cdnb.artstation.com/p/assets/images/images/101/894/833/large/jeordanis-figuereo-6.webp?1787700124','https://cdna.artstation.com/p/assets/images/images/101/894/732/large/jeordanis-figuereo-4.webp?1787699616']:assert u in md\nfor name in ['reference-view-1.jpg','reference-view-2.jpg']:\n p=parent/name;b=p.read_bytes();assert b[:2]==b'\\xff\\xd8';off=2;size=None\n while off<len(b):\n  assert b[off]==255;off+=1\n  while b[off]==255:off+=1\n  m=b[off];off+=1\n  if m in [0xd8,0xd9]:continue\n  n=struct.unpack('>H',b[off:off+2])[0]\n  if m in [0xc0,0xc1,0xc2]:h,w=struct.unpack('>HH',b[off+3:off+7]);size=[w,h];break\n  off+=n\n assert size==[1280,720];print(name,len(b),hashlib.sha256(b).hexdigest(),size)\np=Path('docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png');b=p.read_bytes();assert b[:8]==b'\\x89PNG\\r\\n\\x1a\\n' and struct.unpack('>II',b[16:24])==(1536,1024);print('ORIGINAL_PNG',len(b),hashlib.sha256(b).hexdigest(),[1536,1024])\nprint('Saved primary projectURL+2literalimageURL associations/header sizes verified; no new page/media/network read')\nPY",
+      "scope": "Exact saved primaryproject/imageURL associations; both JPEG SOF and original PNG IHDR, raw hashes"
+    }
+  ],
+  "read_scopes": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/PLAN.md",
+      "scope": "Whole15lines"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/BRIEF.md",
+      "scope": "Whole17lines"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/PROMPT.txt",
+      "scope": "Whole9lines"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/PREFLIGHT.json",
+      "scope": "Whole138lines, all25rawpins independently verified"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/BRIEF.md",
+      "scope": "Prior whole17lines read; fresh complete reverse-replacement byte equality"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/PROMPT.txt",
+      "scope": "Prior whole9lines read; fresh complete reverse-replacement byte equality"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/REFERENCES.md",
+      "scope": "Whole14lines read in initial source gate, current exactpin reused; actual screenshots and primary scope completed here"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/REFERENCE-PAGE.json",
+      "scope": "Complete structuredContent.markdown and complete metadata printed/read, isError false. Duplicate content text wrapper hash-only. No source refetch."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/SEARCHES.json",
+      "scope": "Both structured web result lists/success/isError/reportedcredits read; query submission arguments are not claimed recovered from response wrappers"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/ROOT-WORTH.json",
+      "scope": "Whole955-byte metadata and fixed deadline"
+    },
+    {
+      "path": "Remaining25manifest paths",
+      "scope": "Raw size/SHA verification; own prior scope records remain historical and exact, no new recursive audit"
+    }
+  ],
+  "actual_visual_reads": [
+    {
+      "tool": "view_image",
+      "detail": "original",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/reference-view-1.jpg",
+      "bytes": 39448,
+      "sha256": "f58e58d7116c31b7dbe6013b9c19382fd71255a61dc66f8aa0f1da830a322371",
+      "size": [
+        1280,
+        720
+      ],
+      "scope": "Whole unchanged browser screenshot; rounded overhead/back volume, visible part and curved perimeter. Not raw remote pixels, measured geometry or Mara side authority."
+    },
+    {
+      "tool": "view_image",
+      "detail": "original",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/reference-view-2.jpg",
+      "bytes": 31851,
+      "sha256": "85184f5f7af3482253bfee5779ddfda2183695fdc3aed8fb7e9621c3f5dc6af4",
+      "size": [
+        1280,
+        720
+      ],
+      "scope": "Whole unchanged oblique mannequin screenshot; layered soft ends and neck clearance, not true profile/ear construction."
+    },
+    {
+      "tool": "view_image",
+      "detail": "original",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311",
+      "size": [
+        1536,
+        1024
+      ],
+      "scope": "Whole unchanged original viewed again this corrected gate; governs visible identity/hair language, not hidden anatomy"
+    }
+  ],
+  "corrected_F1": {
+    "old_source_verdict": "B remains exact/unrun",
+    "new_direction": "Right-side upright unmirrored profile, nose pageRIGHT",
+    "proof": "Only one matched LEFT→RIGHT direction word per BRIEF/PROMPT; forward and reverse replacement reproduce whole bytes.",
+    "new_finding": false
+  },
+  "actionable_findings": [],
+  "source_witnesses": {
+    "original": "Mara original whole head/front and portrait; character ARTIST-HANDOFF7/13 and IMAGE-RESULT17 previously whole read with current exact pins",
+    "source": "Corrected BRIEF7/9/13/15 and PROMPT3/5/7/9; PLAN5/9/11/13",
+    "primary": "Saved primary sourceURL https://www.artstation.com/artwork/b05Wxr; statusCode200/isErrorfalse/creditsUsed1; metadata artist/layering statements. Both image URLs literal in saved markdown.",
+    "limits": "Artist's simulation/natural movement claim not locally exercised; no new3D/groom/source master acceptance"
+  },
+  "proposed_call": {
+    "tool": "built-in image_gen.imagegen owned by root",
+    "prompt_file": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/PROMPT.txt",
+    "prompt_bytes": 3425,
+    "prompt_sha256": "56bac0535e1ecd20bc23ebaf43cc6a7c11ec9cba713fae8f57568478012bec54",
+    "referenced_image_paths": [
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png"
+    ],
+    "transparent_background": false,
+    "total_calls_across_parent_and_sibling": 1,
+    "omit": [
+      "num_last_images_to_include",
+      "size/model/quality overrides"
+    ],
+    "defaults": "Existing built-in tool/account defaults; no external API/CLI/install/purchase",
+    "output": "One unchanged complete returned original, default output preserved, byte-identical isolated copy",
+    "administrative_copy_ceiling_bytes": 33554432,
+    "backend_PID_memory_hard_timing": "Unavailable/unqualified, not governed by copy ceiling",
+    "pending_call": "Collect once, no duplicate or aggressive backend stop",
+    "firstfailure": "Close without correction/retry/edit/regen/crop/fallback; no new clock"
+  },
+  "alternatives": [
+    {
+      "choice": "One exact first companion image after root gate",
+      "tradeoff": "Concrete hidden intent now, risk of inconsistent generated views and no editable/fit proof"
+    },
+    {
+      "choice": "Defer to native head/groom owner",
+      "tradeoff": "Stronger construction context and no illustration churn, creative gap remains"
+    }
+  ],
+  "limits": [
+    "Critic did not call imagegen, browser/native/GPU/capture/network, import or execute target/source code.",
+    "Full source A is not actual pixel consistency/registered anatomy/physical scalp coverage/attachment/fit/rig/motion/demographic/runtime/AAA acceptance.",
+    "Reference screenshots only human-viewed broad flow examples; neither passed to generator or copied as Mara-specific identity/measurements.",
+    "No further source correction, new references, alternate prompt, retries, image edits or deadline extension.",
+    "Old B closures remain, six nativeMaraPNGs remain unviewed, defaults/constructorHOLD and22/10 unchanged."
+  ],
+  "next": "Root independently whole-reads and verifies this exact pair/inputpins before sole call. Then independent whole original/new first-image gate against all4roles, no front-only partialA promotion. No delivery/checklist change admitted.",
+  "manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/PREFLIGHT.json",
+    "bytes": 6625,
+    "sha256": "59c681120d570a6bf98b98adb76f8870025976d26d2620a60c8452cd1df71841",
+    "verified_rows": 25,
+    "unique_paths": 25
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/PLAN.md",
+      "bytes": 5579,
+      "sha256": "b93ebe675433a3b27e0ce9ec19c4a8b85d9f7b9f76c62bdb450419e65292c77c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/WORTH.md",
+      "bytes": 3296,
+      "sha256": "7a1c0c7b8a65398b8bc2eb428f3a805c27c37d2a775607a9c8a144f1de98fcd9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/WORTH-RECEIPT.json",
+      "bytes": 10476,
+      "sha256": "8981f62424c8be8f1965abf4b9608b683e62e4fc3c07b1d29c41c6214c8e6090"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/ROOT-WORTH.json",
+      "bytes": 955,
+      "sha256": "c81026fba6e91cc515f6849b99cd904a726b7117c7fda2add40b3196deb25440"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/SEARCHES.json",
+      "bytes": 10293,
+      "sha256": "97c1eb18a45c9e4dd2a651a50f1f807f043123def66be2b2ca231e1770f6b2b8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/REFERENCE-PAGE.json",
+      "bytes": 19967,
+      "sha256": "85d9c55fab8cb9525b52de7a6cec70eae724b14b92154dcf6c8724e040a3dd10"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/reference-view-1.jpg",
+      "bytes": 39448,
+      "sha256": "f58e58d7116c31b7dbe6013b9c19382fd71255a61dc66f8aa0f1da830a322371"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/reference-view-2.jpg",
+      "bytes": 31851,
+      "sha256": "85184f5f7af3482253bfee5779ddfda2183695fdc3aed8fb7e9621c3f5dc6af4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/REFERENCES.md",
+      "bytes": 3793,
+      "sha256": "9294e9bb06f377bc5f8ec3f685d17dcc78eb167c79d295b90c9fe504c012835a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/BRIEF.md",
+      "bytes": 6457,
+      "sha256": "03b09a967fdc6763530d24806d89d8c782868f08fc00f4340b6bd20086f78d06"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/PROMPT.txt",
+      "bytes": 3424,
+      "sha256": "592efecaeca877b63832472e5e7be58e3ab7079a318cf47ccffd9c9bb6a8bff3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "bytes": 3053,
+      "sha256": "f0f6118b1916220de67cb8748ec7232e1ab1b32e745415eb9c1d7629f429ca1d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/IMAGE-RESULT.md",
+      "bytes": 5825,
+      "sha256": "cb77b501d5b99d655f4153422998f7617a9185f5fe2760779c43eb4d157bc9e3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/PREFLIGHT.json",
+      "bytes": 4718,
+      "sha256": "15799e98661b047b62bb74761fdd5bdbe4a954115b58dbf3aeeee089a2ab694b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/SOURCE-REVIEW.md",
+      "bytes": 3196,
+      "sha256": "3f6e78565affa8088ad0428bebf3e5464f99a2169badddd9f8ccac42c2d1be6f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/SOURCE-RECEIPT.json",
+      "bytes": 12405,
+      "sha256": "fbd21f5c68c57146cb0a2dafce1adfb67ab14a2ceed716660083d5d2edbfa12d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/ROOT-SOURCE.json",
+      "bytes": 2135,
+      "sha256": "112ac3838b0516161945af431d64c6af1e506adb855c4d059dd93249928938c5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-view-intent/ROOT-CLOSE.json",
+      "bytes": 6037,
+      "sha256": "d0776b9b39b77e1583ea60f73cea0252b2bc5f4d796162c5ea45b936f7472acd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/PLAN.md",
+      "bytes": 4636,
+      "sha256": "86c1b8343d5cc2b544975830e1da8031f769701cc694a2ad0e2c26afa432e00d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/BRIEF.md",
+      "bytes": 6458,
+      "sha256": "b0af1e6fa8defcf7462332a6782c080a9ac1d09376b911359a69410eb5d9418d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/PROMPT.txt",
+      "bytes": 3425,
+      "sha256": "56bac0535e1ecd20bc23ebaf43cc6a7c11ec9cba713fae8f57568478012bec54"
+    }
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/SOURCE-REVIEW.md",
+    "bytes": 4120,
+    "sha256": "7bd6fbfae771715afb4b56b2009c251d7965eceb70457ccdc5dbf45d4e38c6c4"
+  },
+  "collected_utc": "2026-10-19T12:42:16.033504+00:00",
+  "collection_pid": 32166
+}

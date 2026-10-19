@@ -1,0 +1,18 @@
+{
+  "schema": "sugata-live-services-readback-v1",
+  "utc": "2026-10-19T12:50:37.002540+00:00",
+  "chunk_id": "867dc8",
+  "exit_code": 0,
+  "pid": 47282,
+  "automation_api": {"operation": "automation_update mode view", "id": "advance-sugata-avatar-visual-quality", "result": "Rendered automation card in the app.", "isError": false},
+  "config_path": "/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml",
+  "config_bytes": 3344,
+  "config_sha256": "9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a",
+  "saved_status": "ACTIVE",
+  "saved_kind": "heartbeat",
+  "saved_interval_minutes": 10,
+  "saved_target_thread": "01a0ff57-d720-7db2-923f-9e3e0521216c",
+  "vite_ps": "870 /opt/homebrew/bin/node",
+  "http_root_status": 200,
+  "limits": "Read-only API/config/process/HTTP snapshot; no automation change or duplicate. Saved recurrence is not a future-wake or mobile-delivery test. Toolcell637 is collected; no owned local native/GPU/candidate render loop. Tool-owned image backend process retirement is not exposed."
+}

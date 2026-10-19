@@ -1,0 +1,280 @@
+{
+  "schema": "independent-actual-mara-groom-four-view-image-review-v1",
+  "verdict": "B full four-view hidden-groom artist target; crown role ambiguous",
+  "pending_edits": false,
+  "deadline_utc": "2026-10-19T13:11:38.685690+00:00",
+  "blind_sequence": "Whole first.png then whole original at original detail; initial independent B sent to root before actual-record audit. No ROOT-IMAGE-OBSERVATIONS content read at any time in this gate.",
+  "visual_reads": [
+    {
+      "tool": "view_image",
+      "detail": "original",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/first.png",
+      "bytes": 2465494,
+      "sha256": "50804801b3ac4662d134180f68320b973a9f4ebb4495e954b871bca5350f5b62",
+      "size": [
+        1536,
+        1024
+      ],
+      "scope": "Whole unchanged first output, no crop/zoom/edit/capture/re-render"
+    },
+    {
+      "tool": "view_image",
+      "detail": "original",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311",
+      "size": [
+        1536,
+        1024
+      ],
+      "scope": "Whole unchanged original, direct qualitative identity/hair comparison"
+    }
+  ],
+  "commands": [
+    {
+      "chunk_id": "a71fee",
+      "pid": 40852,
+      "utc": "2026-10-19T12:47:03.443718+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\nleaf=Path('docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor p in sorted(leaf.iterdir()):\n if p.is_file():print(p.name,p.stat().st_size)\nfor name in ['ADMISSION.json','IMAGE-REQUEST.json','IMAGE-JOB.json','IMAGE-RETURN.json','TOOL-RETURN.json']:\n p=leaf/name;b=p.read_bytes();print('\\nFILE',p.resolve(),'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest())\n if len(b)<65536:print(b.decode())\n else:print('LARGE_RECORD_NOT_PRINTED')\nPY",
+      "scope": "Whole actual admission/request/job/return/tool metadata; leaf file names/sizes only, not root pixel observations"
+    },
+    {
+      "chunk_id": "39f6ab",
+      "pid": 41967,
+      "utc": "2026-10-19T12:47:39.733668+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,struct,zlib,datetime,os\nleaf=Path('docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat());sha=lambda b:hashlib.sha256(b).hexdigest()\na=json.loads((leaf/'ADMISSION.json').read_text());assert len(a['pins'])==30 and len({r['path'] for r in a['pins']})==30\nfor row in a['pins']:\n b=Path(row['path']).read_bytes();assert len(b)==row['bytes'] and sha(b)==row['sha256'],row['path']\nreq=json.loads((leaf/'IMAGE-REQUEST.json').read_text());assert set(req)=={'prompt','referenced_image_paths','transparent_background'} and req['prompt']==(leaf/'PROMPT.txt').read_text() and req['transparent_background'] is False\nassert req['referenced_image_paths']==['/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png']\nt=json.loads((leaf/'TOOL-RETURN.json').read_text());ret=json.loads((leaf/'IMAGE-RETURN.json').read_text());job=json.loads((leaf/'IMAGE-JOB.json').read_text())\nassert t['launch']['admission_sha256']==job['admission_sha256']==sha((leaf/'ADMISSION.json').read_bytes())\nassert datetime.datetime.fromisoformat(a['admitted_utc'])<datetime.datetime.fromisoformat(t['launch']['requested_utc'])<datetime.datetime.fromisoformat(t['returned_utc'])<datetime.datetime.fromisoformat(a['expires_utc'])\nassert ret['tool_call_count']==a['total_call_limit']==1 and a['calls_before']==0 and t['exec_cell']=='637'\nrows=ret['output_rows'];assert len(rows)==2\nbs=[]\nfor row in rows:\n b=Path(row['path']).read_bytes();assert len(b)==row['bytes']==2465494 and sha(b)==row['sha256']=='50804801b3ac4662d134180f68320b973a9f4ebb4495e954b871bca5350f5b62';bs.append(b)\nassert bs[0]==bs[1] and len(bs[1])<a['output_copy_ceiling_bytes']\nb=bs[1];assert b[:8]==b'\\x89PNG\\r\\n\\x1a\\n';off=8;tags=[]\nwhile off<len(b):\n n=struct.unpack('>I',b[off:off+4])[0];tag=b[off+4:off+8];data=b[off+8:off+8+n];crc=struct.unpack('>I',b[off+8+n:off+12+n])[0];assert zlib.crc32(tag+data)&0xffffffff==crc\n if tag==b'IHDR':assert struct.unpack('>II',data[:8])==(1536,1024)\n off+=12+n;tags.append(tag.decode())\nassert off==len(b) and tags[-1]=='IEND'\nprint(json.dumps({'all30admissionpins_exact':True,'request_exactprompt_and_only_original':True,'time_window':True,'call_count_reported':1,'cell':'637','default_and_copy_exact':True,'PNG_size':[1536,1024],'PNG_bytes':len(b),'PNG_all_chunk_CRCs':True,'output_copy_ceiling':a['output_copy_ceiling_bytes'],'tool_return_scope':'Saved metadata only, full dataURL not in992byte TOOL-RETURN; actualdefaultPNG/copy bytes independently identical'}))\nfor name,ranges in [('BRIEF.md',[(7,15)]),('PROMPT.txt',[(3,9)])]:\n lines=(leaf/name).read_text().splitlines();print('SOURCE',name)\n for lo,hi in ranges:\n  for i in range(lo,hi+1):print(str(i)+': '+lines[i-1])\nPY",
+      "scope": "All30pins, exact request keys/prompt/reference/flag, timing, default-copyidentity, PNG CRC/dims/cap; current brief7–15/prompt3–9"
+    }
+  ],
+  "read_scopes": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/ADMISSION.json",
+      "scope": "Whole7940-byte source/execution metadata and all30input pins independently rehashed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/IMAGE-REQUEST.json",
+      "scope": "Whole3649bytes; parsed exactprompt equality, only3authorized keys"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/IMAGE-JOB.json",
+      "scope": "Whole543byte historical launch-intent/pending record, superseded byactualreturn"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/IMAGE-RETURN.json",
+      "scope": "Whole1249byte actual collection record"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/TOOL-RETURN.json",
+      "scope": "Whole992byte metadata summary, not full original dataURL or provider log"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/BRIEF.md",
+      "scope": "Prior whole17line source read reused afterfreshpin,7–15 reread this actualgate"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/PROMPT.txt",
+      "scope": "Prior whole9line source read reused afterfreshpin,3–9 reread and whole exact request comparison"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/PLAN.md",
+      "scope": "Prior whole15line source read reused afterfreshpin"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/SOURCE-REVIEW.md",
+      "scope": "Prior complete own source opinion reused aftercurrentexactpin, no actualappearance credit inferred"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/SOURCE-RECEIPT.json",
+      "scope": "Prior complete own source/API/reference scope reused aftercurrentexactpin"
+    },
+    {
+      "path": "Remaining30admissionrows",
+      "scope": "Fresh raw size/SHA verification only unless explicitly stated in prior/current review scope"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/ROOT-IMAGE-OBSERVATIONS.json",
+      "scope": "Not read; filename and size appeared in leaf inventory only"
+    }
+  ],
+  "finding": {
+    "id": "F1",
+    "classification": "Required actual view role ambiguous, not diagnosed provider/camera failure",
+    "image": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/first.png",
+    "regions": [
+      {
+        "rect": [
+          768,
+          504,
+          1535,
+          1023
+        ],
+        "observation": "Lower-right complete panel reads as elevated front/bowed head rather than unmistakable overhead crown"
+      },
+      {
+        "rect": [
+          1035,
+          765,
+          1265,
+          978
+        ],
+        "observation": "Substantial eyes/nose/mouth/forehead visible"
+      },
+      {
+        "rect": [
+          980,
+          520,
+          1375,
+          765
+        ],
+        "observation": "Some crown/part information exists, insufficient to settle full genuine-top-down role"
+      }
+    ],
+    "source_witnesses": [
+      "BRIEF.md:7 genuine top-down crown with complete perimeter",
+      "PROMPT.txt:3 genuine TOP-DOWN crown/front toward pageBOTTOM",
+      "BRIEF.md:13 anymissing/ambiguous requiredview stopsB; strongfrontalone cannotpass",
+      "PROMPT.txt:9 three newlychosen views mainpurpose"
+    ],
+    "explanation": "The panel supplies partial crown information but does not clearly fulfill the fourth role required for useful cross-view hidden-groom intent. No exact projection, camera angle, anatomy or hard side inconsistency is reconstructed.",
+    "alternatives": [
+      {
+        "choice": "Retain immutable partial/rejected discussion evidence only",
+        "tradeoff": "Keeps right-ear/rear/nape cues without claiming full target, crown remains unresolved; no board/checklistpromotion"
+      },
+      {
+        "choice": "Exclude companion from artist-facing delivery, defer to separately owned complete groom source if later nominated",
+        "tradeoff": "Avoids ambiguous view map, sacrifices partial cues; no current successor/repair admission"
+      }
+    ]
+  },
+  "positive_partial_cues": [
+    "Recognizable front identity/palette/skin-line cues andsilver softbob",
+    "Page-right profile andnear-ear/rearhair/neck relationship",
+    "Rounded layeredrear withfacehidden/inwardends/nape-neck gap"
+  ],
+  "actual_checks": {
+    "admission_rows_verified": 30,
+    "request_keys": [
+      "prompt",
+      "referenced_image_paths",
+      "transparent_background"
+    ],
+    "prompt_exact": true,
+    "sole_original_reference": true,
+    "transparent_background": false,
+    "recorded_call_count": 1,
+    "exec_cell": "637",
+    "requested_utc": "2026-10-19T12:43:44.258Z",
+    "returned_utc": "2026-10-19T12:44:11.583Z",
+    "within_admission_window": true,
+    "default_original_and_copy_identical": true,
+    "PNG_bytes": 2465494,
+    "PNG_dimensions": [
+      1536,
+      1024
+    ],
+    "PNG_all_chunk_CRCs": true,
+    "copy_cap_bytes": 33554432,
+    "tool_metadata_scope": "Saved return metadata contains imageURLprefix/length and outputhint, not the complete dataURL. ActualtwoPNGbytes independentlychecked; no provider-side execution-log proof claimed.",
+    "clock_limits": "Request/return observation and savedcell wall are distinct limited tool clocks, not backendCPU/performance or OSretirement"
+  },
+  "actionable_findings_count": 1,
+  "errors_or_corrections": [],
+  "limits": [
+    "No root image opinion read before or after independent judgment; no providererror or sourcefail inferred from pixelB.",
+    "No new generation/import/model/native/browser/capture/network/imageedit/crop/retry/sourcechange by critic.",
+    "No exact camera/anatomical geometry reconstruction, perceivedage/gender/biometric identity or materialmaster claim.",
+    "No editable/nativegroom/scalpcoverage/attachment/fit/rig/motion/runtime/AAA/checklist qualification.",
+    "Previous sourceA/B epochs preserved; six nativeMaraPNGs remain unviewed,22scoped10broad/defaults/constructorHOLD unchanged."
+  ],
+  "next_worth": "B for artist handoff/board delivery because actualfullA prerequisite fails. Freeze failedfirstimage with no automatic successor or repair; root independently verifies stable pair and closes by unchangeddeadline.",
+  "admission_manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/ADMISSION.json",
+    "bytes": 7940,
+    "sha256": "46f48024628010d80ae033131f1fbba528ef37f6b77b8a92f2d1825ed350ddd9",
+    "all30pins_verified": true
+  },
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/ADMISSION.json",
+      "bytes": 7940,
+      "sha256": "46f48024628010d80ae033131f1fbba528ef37f6b77b8a92f2d1825ed350ddd9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/IMAGE-REQUEST.json",
+      "bytes": 3649,
+      "sha256": "ed229d1fce598f2dd3bad6619380ca1ee136960937c975a2e2a53efa40af86cd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/IMAGE-JOB.json",
+      "bytes": 543,
+      "sha256": "abb5d3f4776dbede61cda2aa909494fed81435f095d0b66140fc7bdce097967a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/IMAGE-RETURN.json",
+      "bytes": 1249,
+      "sha256": "3568d6d68e17a162edf1ba4b433522d983b25cddd0f50e4df291495a9eea55f9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/TOOL-RETURN.json",
+      "bytes": 992,
+      "sha256": "ee72b6baffa7839acb211d2288336bf63e2be08d743da04b480107b954c03f26"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/first.png",
+      "bytes": 2465494,
+      "sha256": "50804801b3ac4662d134180f68320b973a9f4ebb4495e954b871bca5350f5b62"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/BRIEF.md",
+      "bytes": 6458,
+      "sha256": "b0af1e6fa8defcf7462332a6782c080a9ac1d09376b911359a69410eb5d9418d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/PROMPT.txt",
+      "bytes": 3425,
+      "sha256": "56bac0535e1ecd20bc23ebaf43cc6a7c11ec9cba713fae8f57568478012bec54"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/PLAN.md",
+      "bytes": 4636,
+      "sha256": "86c1b8343d5cc2b544975830e1da8031f769701cc694a2ad0e2c26afa432e00d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/PREFLIGHT.json",
+      "bytes": 6625,
+      "sha256": "59c681120d570a6bf98b98adb76f8870025976d26d2620a60c8452cd1df71841"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/SOURCE-REVIEW.md",
+      "bytes": 4120,
+      "sha256": "7bd6fbfae771715afb4b56b2009c251d7965eceb70457ccdc5dbf45d4e38c6c4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/SOURCE-RECEIPT.json",
+      "bytes": 19260,
+      "sha256": "e183a091542d7e4a81aff84e1a4e55043124354fc73a73787e460977f313a7a0"
+    }
+  ],
+  "output_byte_pins": [
+    {
+      "path": "/Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-67245e53-6987-4fbd-9e8f-e08263106c2d.png",
+      "bytes": 2465494,
+      "sha256": "50804801b3ac4662d134180f68320b973a9f4ebb4495e954b871bca5350f5b62"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/first.png",
+      "bytes": 2465494,
+      "sha256": "50804801b3ac4662d134180f68320b973a9f4ebb4495e954b871bca5350f5b62"
+    }
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/IMAGE-REVIEW.md",
+    "bytes": 4132,
+    "sha256": "9c7270ed8f8c31355a855ec3bb91c0330d59d582e0e790506c12921ba2aa54a8"
+  },
+  "collected_utc": "2026-10-19T12:49:14.871479+00:00",
+  "collection_pid": 44791
+}

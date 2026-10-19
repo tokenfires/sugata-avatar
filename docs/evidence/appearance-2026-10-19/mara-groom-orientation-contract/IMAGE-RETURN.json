@@ -1,0 +1,30 @@
+{
+  "schema": "mara-single-image-return-v1",
+  "utc": "2026-10-19T12:44:52.361120+00:00",
+  "pid": 36862,
+  "tool_call_count": 1,
+  "exec_cell": "637 complete; wait returned after23.6seconds wall, not backend CPU/performance measure",
+  "default_original_preserved": true,
+  "workspace_copy_identical": true,
+  "png_dimensions": [
+    1536,
+    1024
+  ],
+  "png_all_chunk_crcs_valid": true,
+  "file_bytes": 2465494,
+  "admission_pins_reverified": 30,
+  "output_rows": [
+    {
+      "path": "/Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-67245e53-6987-4fbd-9e8f-e08263106c2d.png",
+      "bytes": 2465494,
+      "sha256": "50804801b3ac4662d134180f68320b973a9f4ebb4495e954b871bca5350f5b62"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/first.png",
+      "bytes": 2465494,
+      "sha256": "50804801b3ac4662d134180f68320b973a9f4ebb4495e954b871bca5350f5b62"
+    }
+  ],
+  "status": "Complete first image collected; full actual-image gate still pending; no second request or edit admitted",
+  "limits": "Tool-owned backendPID/memory/retirement not exposed; outputcopy cap not backend cap; no registered3D/scalp/fit/motion acceptance"
+}
