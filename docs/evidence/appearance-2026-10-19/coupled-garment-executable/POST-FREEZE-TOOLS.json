@@ -1,0 +1,71 @@
+{
+  "kind": "additional-actual-preparation-receipts",
+  "inputSeal": {
+    "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\nroot=Path.cwd();p=root/'docs/evidence/appearance-2026-10-19/coupled-garment-executable';m=p.parent/'coupled-garment-surface-method'\nf=p/'ROOT-FIRST.json';j=json.loads(f.read_bytes());j['atUTC']=datetime.datetime.now(datetime.timezone.utc).isoformat();j['sealingPID']=os.getpid();f.write_text(json.dumps(j,indent=2)+'\\n')\npaths=list(p.iterdir())+[m/n for n in ('METHOD.md','ARTIST.json','INPUTS.json','METHOD-REVIEW.md','CRITIC-RECEIPT.json','ROOT-CLOSE.json','WORKLOAD-COUNTS.json','CRITIC-SUPPLEMENT.md')]+[root/n for n in ('docs/WORK-WINDOW-2026-10-18.md','docs/RESUME-2026-10-18.md','docs/PROJECT-CHECKLIST.md','docs/evidence/appearance-2026-10-04/original-surface-ledger/LEDGER.json','docs/evidence/appearance-2026-10-04/sweater-coverage-owned/PARTITION.json','docs/evidence/appearance-2026-10-04/source-rest-addressed/composite.jpg','docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png')]\nruntime=json.loads((p/'RUNTIME.json').read_bytes());caches=json.loads((p/'RUNTIME-CACHES.json').read_bytes())\npaths += [Path(r['path']) for r in [runtime['executable']]+runtime['modules']+runtime['nonSystemImages']+caches['cacheFiles']]\nrows=[]\nfor path in sorted(set(paths)):\n assert path.is_file() and not path.is_symlink(),str(path)\n b=path.read_bytes();rows.append({'path':str(path),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})\nassert sum(r['bytes'] for r in rows)<256*1024**2\nassert not (p/'ADMISSION.json').exists() and not (p.parent/'coupled-garment-first-trial').exists()\nmanifest={'kind':'complete-inert-source-review-inputs','atUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'allowExecution':False,'pins':rows,'sourceFreeze':'598054 + PRE-FREEZE.diff.txt, bookkeeping only before complete review','preservedProbeEpoch':'Old PROBE critic runtime_probe.py pin resolves runtime_probe.initial.py.txt; new current probe hash is separately admitted. Never rewrite historical receipt.','scope':'Source/runtime/cache byte bindings only; no target import/eval/construction/solver/native/GPU/browser/appearance result.'}\n(p/'INPUTS.json').open('x').write(json.dumps(manifest,indent=2)+'\\n')\nprint(json.dumps({'utc':manifest['atUTC'],'pid':os.getpid(),'pins':len(rows),'bytes':sum(r['bytes'] for r in rows),'manifestBytes':(p/'INPUTS.json').stat().st_size,'manifestSHA256':hashlib.sha256((p/'INPUTS.json').read_bytes()).hexdigest(),'rootFirstSHA256':hashlib.sha256(f.read_bytes()).hexdigest(),'targetAbsent':True}))\nPY",
+    "result": {
+      "chunk_id": "378db0",
+      "wall_time_seconds": 0.000007167,
+      "exit_code": 0,
+      "original_token_count": 77,
+      "output": "{\"utc\": \"2026-10-19T22:28:52.471527+00:00\", \"pid\": 2727, \"pins\": 188, \"bytes\": 47248617, \"manifestBytes\": 48569, \"manifestSHA256\": \"7afe8a392a7ca9f153f091503b9413c804cf3b2d5f3e3898f709d22532bb4609\", \"rootFirstSHA256\": \"0fead435862f9dda3cd6e4361c0dd1c6b0a33005d18f4b0ba501b2f13ad7c073\", \"targetAbsent\": true}\n"
+    }
+  },
+  "rootFreshPins": {
+    "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os,ast\np=Path('docs/evidence/appearance-2026-10-19/coupled-garment-executable')\nj=json.loads((p/'INPUTS.json').read_bytes()); verified=[]\nfor row in j['pins']:\n b=Path(row['path']).read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256'],row['path'];verified.append(row['path'])\nprint((p/'PRE-FREEZE.diff.txt').read_text())\nr=json.loads((p/'RUNTIME.json').read_bytes());c=json.loads((p/'RUNTIME-CACHES.json').read_bytes())\nmodulepaths={Path(x['path']).name for x in r['modules']}\nimports={}\nfor n in ('worker.py','collector.py','exact_geometry.py'):\n t=ast.parse((p/n).read_bytes());imports[n]=[ast.unparse(x) for x in ast.walk(t) if isinstance(x,(ast.Import,ast.ImportFrom))]\nprint(json.dumps({'atUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'verifiedPins':len(verified),'sourceImportsInertASTOnly':imports,'runtime':{'version':r['version'],'uname':r['uname'],'pid':r['pid'],'utc':r['utc'],'rssRawBytes':r['observedSelfMaxRSSRaw'],'moduleFiles':len(r['modules']),'nonOS':len(r['nonSystemImages']),'trustedOS':len(r['trustedSystemImages'])},'cacheFiles':len(c['cacheFiles']),'combined':c['combinedModuleAndCacheFiles'],'readBytes':c['totalRuntimeAndCacheReadBytes'],'ADMISSIONabsent':not (p/'ADMISSION.json').exists(),'targetAbsent':not(p.parent/'coupled-garment-first-trial').exists()},indent=2))\nPY",
+    "result": {
+      "chunk_id": "33db88",
+      "wall_time_seconds": 0.000006458,
+      "exit_code": 0,
+      "original_token_count": 1044,
+      "output": "--- worker.py.pre-freeze.txt\n+++ worker.py\n@@ -419,7 +419,7 @@\n             allowed=(bool(shared) and all(h==positions[shared[0]] for h in hits) if len(shared)==1 else\n                      all(G.on_segment3(h,positions[shared[0]],positions[shared[1]]) for h in hits) if len(shared)==2 else False)\n             require(allowed,'self-embedding',faces=[i,j],shared=shared,intersection=hits)\n-    return tree,tested\n+    return tree,{'evaluatedPairs':tested,'prunedByExactAABBDisjointness':len(triangles)*(len(triangles)-1)//2-tested}\n \n \n def capped_surface(p,faces,loops,artist,budget):\n@@ -478,7 +478,8 @@\n             d2=G.triangle_distance2(tri,surface['physical'][fi])\n             if d2<limit:raise FitFailure('continuous-gap',source=identity,face=fi,squaredDistance=d2,\n                                         sourceTriangle=tri,garmentTriangle=surface['physical'][fi],completedSourceCertificates=len(certificates))\n-        return {'identity':identity,'thresholdSquared':limit,'evaluatedPairs':pairs,'fullDomainAboveThreshold':True,\n+        return {'identity':identity,'thresholdSquared':limit,'evaluatedPairs':pairs,\n+                'prunedByExactAABBThreshold':len(surface['physical'])-pairs,'fullDomainAboveThreshold':True,\n                 'limit':'threshold certificate, not observed global minimum'}\n     for uuid,tid,tri in original:\n         budget.tick();certificates.append(gap(tri,{'uuid':uuid,'originalTriangle':tid}))\n--- collector.py.pre-freeze.txt\n+++ collector.py\n@@ -164,11 +164,17 @@\n             record['retirement']='unknown-cleanup-exception'\n             record['cleanupException']=repr(cleanup)\n     finally:\n-        if selector is not None:selector.close()\n+        def close_owned(owner,name):\n+            nonlocal failure\n+            try:owner.close()\n+            except BaseException as exc:\n+                failure=failure or 'owned-close-unavailable'\n+                record.setdefault('closeErrors',[]).append({'owner':name,'error':repr(exc)[:1000]})\n+        if selector is not None:close_owned(selector,'selector')\n         if proc is not None:\n-            for pipe in (proc.stdout,proc.stderr):\n-                if pipe is not None:pipe.close()\n-        for stream in streams.values():stream.close()\n+            for name,pipe in (('child-stdout',proc.stdout),('child-stderr',proc.stderr)):\n+                if pipe is not None:close_owned(pipe,name)\n+        for name,stream in streams.items():close_owned(stream,'stored-'+name)\n     record.update(status='REFUSED_OR_UNKNOWN' if failure else 'COLLECTED',failure=failure,\n         childReturnCode=code,elapsedSeconds=time.monotonic()-launch_start,\n         streamBytesStored=sizes,streamBytesObserved=seen,streamEOF=complete,\n\n{\n  \"atUTC\": \"2026-10-19T22:29:33.660257+00:00\",\n  \"pid\": 4109,\n  \"verifiedPins\": 188,\n  \"sourceImportsInertASTOnly\": {\n    \"worker.py\": [\n      \"import collections\",\n      \"import ctypes\",\n      \"from fractions import Fraction as Q\",\n      \"import hashlib\",\n      \"import json\",\n      \"import math\",\n      \"import os\",\n      \"from pathlib import Path\",\n      \"import resource\",\n      \"import sys\",\n      \"import time\",\n      \"import traceback\",\n      \"import types\"\n    ],\n    \"collector.py\": [\n      \"import hashlib\",\n      \"import json\",\n      \"import os\",\n      \"from pathlib import Path\",\n      \"import selectors\",\n      \"import subprocess\",\n      \"import sys\",\n      \"import time\",\n      \"import traceback\",\n      \"import types\"\n    ],\n    \"exact_geometry.py\": [\n      \"from fractions import Fraction as Q\",\n      \"import heapq\",\n      \"import math\"\n    ]\n  },\n  \"runtime\": {\n    \"version\": \"3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]\",\n    \"uname\": [\n      \"Darwin\",\n      \"Roberts-MacBook-Pro.local\",\n      \"27.0.0\",\n      \"Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:40 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6050\",\n      \"arm64\"\n    ],\n    \"pid\": 63271,\n    \"utc\": \"2026-10-19T22:07:58Z\",\n    \"rssRawBytes\": 29507584,\n    \"moduleFiles\": 86,\n    \"nonOS\": 15,\n    \"trustedOS\": 390\n  },\n  \"cacheFiles\": 60,\n  \"combined\": 146,\n  \"readBytes\": 15583927,\n  \"ADMISSIONabsent\": true,\n  \"targetAbsent\": true\n}\n"
+    }
+  },
+  "services": {
+    "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,tomllib,datetime,os\np=Path('/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml');b=p.read_bytes();j=tomllib.loads(b.decode())\nprint(json.dumps({'atUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'status':j.get('status'),'rrule':j.get('rrule'),'threadId':j.get('thread_id',j.get('targetThreadId')),'keys':list(j)}))\nPY",
+    "results": [
+      {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "48fd1d",
+          "wall_time_seconds": 0.000005833,
+          "exit_code": 0,
+          "original_token_count": 112,
+          "output": "{\"atUTC\": \"2026-10-19T22:29:42.752549+00:00\", \"pid\": 4363, \"path\": \"/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml\", \"bytes\": 3344, \"sha256\": \"9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a\", \"status\": \"ACTIVE\", \"rrule\": \"FREQ=MINUTELY;INTERVAL=10\", \"threadId\": null, \"keys\": [\"version\", \"id\", \"kind\", \"name\", \"prompt\", \"status\", \"rrule\", \"target_thread_id\", \"created_at\", \"updated_at\"]}\n"
+        }
+      },
+      {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "e4decf",
+          "wall_time_seconds": 0.000006458,
+          "exit_code": 0,
+          "original_token_count": 40,
+          "output": "COMMAND PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    870 robault   23u  IPv4 0x8e2e4daf1ddacb28      0t0  TCP 127.0.0.1:5173 (LISTEN)\n"
+        }
+      },
+      {
+        "status": "fulfilled",
+        "value": {
+          "content": [
+            {
+              "type": "text",
+              "text": "Rendered automation card in the app."
+            }
+          ],
+          "isError": false
+        }
+      }
+    ],
+    "targetKeyCorrection": {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,tomllib,datetime,os\nj=tomllib.loads(Path('/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml').read_text());print(json.dumps({'atUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'target_thread_id':j['target_thread_id'],'status':j['status'],'rrule':j['rrule'],'note':'48fd1d looked up wrong aliases and printed null; this reads the actual saved key, without modifying timer.'}))\nPY",
+      "result": {
+        "chunk_id": "846bf7",
+        "wall_time_seconds": 0.00000775,
+        "exit_code": 0,
+        "original_token_count": 74,
+        "output": "{\"atUTC\": \"2026-10-19T22:29:48.016546+00:00\", \"pid\": 4542, \"target_thread_id\": \"01a0ff57-d720-7db2-923f-9e3e0521216c\", \"status\": \"ACTIVE\", \"rrule\": \"FREQ=MINUTELY;INTERVAL=10\", \"note\": \"48fd1d looked up wrong aliases and printed null; this reads the actual saved key, without modifying timer.\"}\n"
+      }
+    }
+  },
+  "scope": "Read-only exact source/runtime pins; no imported/evaluated target. Source freeze unchanged."
+}

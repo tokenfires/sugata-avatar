@@ -14,6 +14,20 @@ Work within existing allowance and granted credits. Do not purchase capacity, ch
 
 
 
+## October 19, 22:46 UTC — first coupled sweater trial closed at initial intersection
+
+The [new coupled sweater implementation](evidence/appearance-2026-10-19/coupled-garment-executable/README.md) received independent source A and root verification before its sole CPU entry. The actual initial surface then failed mandatory self-embedding: torso face66 and cuff_r:2 face2352, with disjoint vertex IDs, share an exact positive-length segment. Root separately verified both saved endpoints in both triangles; the critic independently derived the same segment before reading root’s opinion. This is an initial garment self-intersection, not body-clearance, solver-convergence or appearance evidence. The method is consumed and closed without initializer/frame/topology/contact/gain/threshold/resource/source/observer repair or a renamed retry.
+
+Actual6334b1/session19887 finished e2bde6/exit1. Collector19636 positively collected child19637/code1, with both stream EOFs. Root c06a6d inventories every actual output, including RUN self-record:8files/24,620,419B. Initial positions1262/faces2432 and complete saved source-domain records remain frozen. No baseline, solver sweep, final geometry/fit/runtime validation, export, native/GPU/browser or image followed. The354,107,392B high-water observation and4.3484s child interval describe only this refusal path, not full-method resource/performance qualification.
+
+Root whole source handoff recovered the clipped duplicate binding/job display with complete d72b5a semantics and9d6b78 all188rows; source/ref/metadata remain separate from execution. Corrected metadata inventory used the single independently reviewed extra-image guard correction, not a target rescue. Original refusal/probe/draft copies and exact deltas remain. Two official Python pages/two local Apple files exhaust references;3.14.8 documentation is distinguished from installed3.14.7. No additional image or reference retrieval.
+
+Stable result pair3903B/b54955e3… and27271B/266b53d6… is wholly read cb8a4d/7794tokens without clipping. Fresh root22e5a2/PID35072/22:46:17UTC verifies25direct+192nested bindings, manifest/review, all8actualfiles and the critic’s exact squared length/midpoint barycentrics against root’s own proof. [Root result](evidence/appearance-2026-10-19/coupled-garment-executable/ROOT-RESULT.json) is2577B/SHA3438e92607c5f81fa2c79433b3fc09cb26e6e2b47b9ab57f002a435dd1ebdfdc. Actual commands, jobs, errors/corrections, inputs and limits are retained in the leaf.
+
+No live owned target or pending critic edit. Accepted/default/original/frozen assets, held buffers/worktrees, prior closures and material-volume HOLD remain. Checklist stays23scoped/tenbroad, with every AAA character/expression/wardrobe/representation/fit/morph/pose/motion/performance/VTuber/Mii goal open at its proper scope. Vite870 and same3344B/9b859344… ACTIVE ten-minute same-chat recovery were rechecked at22:29UTC; future/mobile delivery untested. Human steering wins; no push/publication/install/purchase/model/subscription/reset-credit/other-project work.
+
+Next: local recoverable checkpoint, then a genuinely distinct consequential responsibility with fresh independent worth; no next experiment is selected/admitted by this result. This closes before23:00UTC without extension. Historical main-document input pins resolve through parent8a0bca80145514a4db18b5b4940a9fa733c56c05 after these two explicit additive recovery-note edits; frozen source/runtime/output/review pins remain current.
+
 ## October 19, 22:01 UTC — concrete joint sweater method reviewed
 
 The [joint source-pose sweater contract](evidence/appearance-2026-10-19/coupled-garment-surface-method/README.md) now specifies new shared four-opening topology, source-pose artist targets,24 finite Jacobi projection sweeps and separate complete continuous acceptance. Independent critic and root give A for **one executable preparation only**. No mesh, solver, builder, native image or fit result was produced.

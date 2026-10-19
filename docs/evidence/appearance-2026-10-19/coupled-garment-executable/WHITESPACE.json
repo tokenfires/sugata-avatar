@@ -1,0 +1,17 @@
+{
+  "kind": "narrow-frozen-documentary-whitespace-exception",
+  "file": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/PRE-FREEZE.diff.txt",
+  "fileSHA256": "03418ea53b263f7853549f0705e6f95259ebb66554c861b9d5226d6a74dd96b6",
+  "exactAllowedLines": [
+    9,
+    10
+  ],
+  "exactStoredLine": "single ASCII space followed by LF",
+  "meaning": "Unified-diff empty context records, preserved exact frozen evidence. No executable-code whitespace exception.",
+  "actualFullCheck": {
+    "chunk_id": "11c0da",
+    "exit_code": 2,
+    "output": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/PRE-FREEZE.diff.txt:9: trailing whitespace.\n+ \ndocs/evidence/appearance-2026-10-19/coupled-garment-executable/PRE-FREEZE.diff.txt:10: trailing whitespace.\n+ \n"
+  },
+  "requiredFinalGate": "Full staged check may report exactly these2records only. Every other staged path must pass; no global whitespace-clean claim."
+}

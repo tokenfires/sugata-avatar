@@ -1,0 +1,951 @@
+{
+  "kind": "complete-inert-source-review-inputs",
+  "atUTC": "2026-10-19T22:28:52.471527+00:00",
+  "pid": 2727,
+  "allowExecution": false,
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8120,
+      "sha256": "32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 122162,
+      "sha256": "b8389a38a61b7dd3d90c748e37fc7711b09cc8fb7a3617894918b2783b9458e1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 147226,
+      "sha256": "6eea20327cc506c0625c23aa95ea50a585a8773f1ef705baf07cf750c960e9e2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/original-surface-ledger/LEDGER.json",
+      "bytes": 28552628,
+      "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-rest-addressed/composite.jpg",
+      "bytes": 49827,
+      "sha256": "4bd1fd659f10450875e83a0310d3a93a0d72a90f186e5649d6ad9a51da525c37"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/PARTITION.json",
+      "bytes": 635671,
+      "sha256": "08850757c4d630581c2dc11a8c80e8559f6d324d297eaa1bff4d21141dfdb4df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/CPU-REQUEST.json",
+      "bytes": 2137,
+      "sha256": "fd2e1e3aabf6245fa829278987ac16f84f4a481487a5a8a1034ddc688b26f73b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/JOBS.json",
+      "bytes": 369949,
+      "sha256": "6ccad277f5b3e8d1538e057e0564cf830980d4d8fb48dbe319ca460e9189da61"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/PLAN.md",
+      "bytes": 5061,
+      "sha256": "39920d60b845ac5161cc77073a90c5591c96b6cb0295dd5891e4fd54470d10dd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/PRE-FREEZE.diff.txt",
+      "bytes": 2724,
+      "sha256": "03418ea53b263f7853549f0705e6f95259ebb66554c861b9d5226d6a74dd96b6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/PRE-FREEZE.json",
+      "bytes": 1489,
+      "sha256": "a7b6a608c49bc2cef2512efcff7ffac3ec65b70096922d777578efda42222b10"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/PROBE-ADMISSION.json",
+      "bytes": 2288,
+      "sha256": "d50755fe6c10de67196f00352f3cd53d2ada0ca6d02d2e63670873815c68e6ea"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/PROBE-CRITIC-RECEIPT.json",
+      "bytes": 4615,
+      "sha256": "875310b12e25c3a70cdfabecdcead5ad22a7c68e065dc5d3efe23ad6e01fa459"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/PROBE-RESULT.json",
+      "bytes": 1475,
+      "sha256": "ce372c7342d901b32801db70637fe731454fcf8285b28352c4a30244c0a7d3fe"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/PROBE-RETURN.json",
+      "bytes": 2007,
+      "sha256": "ad9bd2beb0b3a31aa96721398e6515043720bae90280a256ba560f5e69e72834"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/PROBE-WORTH.md",
+      "bytes": 2914,
+      "sha256": "0c71c863f76130bc1d446186387f3204c9c40bda4633cb02d102b1f3ba51b400"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/PROBE.diff.txt",
+      "bytes": 298,
+      "sha256": "619892fc44614ce1cb938ad645f6fd7a2df957d7894deba44dc18753ddfd591e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/REFERENCES.json",
+      "bytes": 266022,
+      "sha256": "35318aac8b52dc1ef4526a631cfb679e11821ad5b91a5d91458ae4592a209de5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/ROOT-FIRST.json",
+      "bytes": 4539,
+      "sha256": "0fead435862f9dda3cd6e4361c0dd1c6b0a33005d18f4b0ba501b2f13ad7c073"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/RUNTIME-CACHES.json",
+      "bytes": 48922,
+      "sha256": "7194ca2715201659dc9d9bd3c5155e305f0474eb120bb5370d5231ae3ed5df77"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/RUNTIME.json",
+      "bytes": 96022,
+      "sha256": "80779b10079761a9c4f2a380b817b2eb1671046755cab694fc4945d2cd770f6d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/collector.py",
+      "bytes": 11740,
+      "sha256": "d3a3c0cdad3727aceff567b0473d8484342f6f06041445f0e53954cbc3f861fd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/collector.py.pre-freeze.txt",
+      "bytes": 11353,
+      "sha256": "3f5f473cc0984e24a2157397e5e0b143d9738cd004d5cd352e17d575d4b193ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/exact_geometry.py",
+      "bytes": 11512,
+      "sha256": "6ad6f32a875457c7c0f54d09dac702bcd0c2ad0989fb91b2e807053a188b9f33"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/exact_geometry.py.pre-freeze.txt",
+      "bytes": 11512,
+      "sha256": "6ad6f32a875457c7c0f54d09dac702bcd0c2ad0989fb91b2e807053a188b9f33"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/runtime_probe.initial.py.txt",
+      "bytes": 3897,
+      "sha256": "8f57c92e00ce383ec1dcfa343e6f191d5c62800e51ccda2cc5b0edcc50d61c43"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/runtime_probe.py",
+      "bytes": 3898,
+      "sha256": "2b731c96213d8575c40b9e376fc453e5ffbaecc11cc68de2d87c4b508316b958"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/worker.py",
+      "bytes": 38497,
+      "sha256": "ddefbe1fac1434e70a52002ae5c2624d79864727a15e47d1a114dd2fd366aff9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/worker.py.pre-freeze.txt",
+      "bytes": 38325,
+      "sha256": "9f710b99e535f35aeac22a61b40767b9872942a27b1c0b8b92d68bd1c6d5d63c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/ARTIST.json",
+      "bytes": 7421,
+      "sha256": "e5796b5d2ccee166a37413433dd475c41f00f8c9695f633ae1ddda8e00e61325"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/CRITIC-RECEIPT.json",
+      "bytes": 20337,
+      "sha256": "ecdfd01b6848262ad8410f3b1e7de47390697ee2ab141487e0c0ac998129ae6f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/CRITIC-SUPPLEMENT.md",
+      "bytes": 891,
+      "sha256": "771b67767fc6f7e3e4bd76f447d784142106b9c7715622b995602e19974cbf36"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/INPUTS.json",
+      "bytes": 5798,
+      "sha256": "c64357ad7be5058a5af6cc2924586d47fd0a011b9b2e67a03a5cb98575d7e5c3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/METHOD-REVIEW.md",
+      "bytes": 4351,
+      "sha256": "e232f928a08ec6809a4048ea78b1b7be39be9fa6063a7b5d273ff88bb8875b06"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/METHOD.md",
+      "bytes": 25653,
+      "sha256": "966e24a57c1249983ed0da4f3b48489ef3e207b2e94912bbabd9a856ef5d4b24"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/ROOT-CLOSE.json",
+      "bytes": 18129,
+      "sha256": "628af68e6c8dcca51e3d6698e3d32492c8db8ac2802c29d885c18649098be8ca"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/WORKLOAD-COUNTS.json",
+      "bytes": 2895,
+      "sha256": "e3b70d7cd6b08376f61c01730cd43218686036077163b4a07cc40d3885fdef2d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+      "bytes": 2023441,
+      "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/openssl@3/3.6.4/lib/libcrypto.3.dylib",
+      "bytes": 4872736,
+      "sha256": "bae675614cd791d37ec35416ea9f87edcc85407d020810504cf458119b63522c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Python",
+      "bytes": 5452528,
+      "sha256": "b112695af23f5e46d84a7c4ef6057603b70b94aacc32e9d548808c2875759d47"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python",
+      "bytes": 33568,
+      "sha256": "e89d60f8ccee9db684801330198797723db2ac378cd53e5cfe523128feb76599"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "bytes": 34640,
+      "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__future__.py",
+      "bytes": 5218,
+      "sha256": "981d4c398849f9ebcab72300d9c1fe288fd6d7f28957b3b3fa3a493a5836d95c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/__future__.cpython-314.pyc",
+      "bytes": 4855,
+      "sha256": "a9ee8045a279d3a63b4b9f866b5d20a4658f76918af5d44d7b21216b81454b1d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/_colorize.cpython-314.pyc",
+      "bytes": 18594,
+      "sha256": "eb1fdb7f1c7ef37abbf71e8d87bfb880b87129292b0b0d10335216eeba4e8a26"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/_opcode_metadata.cpython-314.pyc",
+      "bytes": 10479,
+      "sha256": "4fad3107819b6f2f4d76974330f2b6d87166e8906cb85c289e619e452b4d085d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/_py_warnings.cpython-314.pyc",
+      "bytes": 37057,
+      "sha256": "c43d60668aa1cbedc455f2f81ff74b51c43e866d08acedf85c0c1b939b592955"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/_weakrefset.cpython-314.pyc",
+      "bytes": 9478,
+      "sha256": "c9102d9d2e3c8dbef718555dc3b60e007e6e48d6e14aa9211065b5f54e7922e4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/annotationlib.cpython-314.pyc",
+      "bytes": 49733,
+      "sha256": "80aab3f51a3be6675feb77e761622a6f72f1155a5a474db5f5010340b204e536"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/ast.cpython-314.pyc",
+      "bytes": 31671,
+      "sha256": "291ca60fa347003e2288d38dafb6fd020f834c63f7a11e2852657c5d22977d8c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/codeop.cpython-314.pyc",
+      "bytes": 7035,
+      "sha256": "c755b1fb2039b976c70e87ea1749aba5e44992ff998954dbeddaf1e4119eb370"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/contextlib.cpython-314.pyc",
+      "bytes": 31213,
+      "sha256": "33dab406a4a59bd49a0f520ea58201938b5449b191c1fc1ac00b0adfe3da38a6"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/copy.cpython-314.pyc",
+      "bytes": 10189,
+      "sha256": "cee1f1cdb1f91a7e64190daf98cf2fc6c5a2749ed08a45e1c5517c99a3575fdd"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/copyreg.cpython-314.pyc",
+      "bytes": 7993,
+      "sha256": "0f49ee751321d156e4d40a947e1b00c1f7300e9b6ecac30674c717a05f25acdf"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/dataclasses.cpython-314.pyc",
+      "bytes": 54969,
+      "sha256": "7219c8e0d1f817903f750109bc1d0ed7c921b15cbddb046000d9e74acc9aab15"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/dis.cpython-314.pyc",
+      "bytes": 54301,
+      "sha256": "386ae08f74f6797a136713c23531ab66c8d169440c5f7bbdca9daddc9e1b52e0"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/enum.cpython-314.pyc",
+      "bytes": 88103,
+      "sha256": "0d910315dbc8982c833594fe367bccc9a7bf11da2070c1731bc40f10d769952d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/fnmatch.cpython-314.pyc",
+      "bytes": 7939,
+      "sha256": "846448ce4ebab2e5f0cf6fbab209f4715c41bf5c06a4aabb9d1dbed3436ca90f"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/fractions.cpython-314.pyc",
+      "bytes": 41946,
+      "sha256": "4d3e3a70de771b50d1e1e4812c2637d0b44d7f72534616336a72fbb751a5be65"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/functools.cpython-314.pyc",
+      "bytes": 48069,
+      "sha256": "709ea9a27ecbbfa28986fac579a49c5a3927903c8a6ea0960752beb039441b07"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/glob.cpython-314.pyc",
+      "bytes": 26190,
+      "sha256": "c4dc4dae1d458f8a3099440b001a60c260e30069f04ad400bb98f1df47298c7d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/hashlib.cpython-314.pyc",
+      "bytes": 8424,
+      "sha256": "ba09c4b12ad5aa63f7c074c076dd86a7a7d690ce9cf84ff17fe8efa5ba70d591"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/heapq.cpython-314.pyc",
+      "bytes": 18674,
+      "sha256": "841b2830b6616e3e2543c8c2ed2b86e13f233e7694ac1e6dfe1f219f8059e415"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/inspect.cpython-314.pyc",
+      "bytes": 139846,
+      "sha256": "89786178aa89cee537c0d4c57ba88521a62ce8dcaf418cc1a1a58afc322b37cf"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/keyword.cpython-314.pyc",
+      "bytes": 1608,
+      "sha256": "4e460a885b1d024c25beaf016184476769625dd52eb8987768331a7d884fe673"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/linecache.cpython-314.pyc",
+      "bytes": 9575,
+      "sha256": "0e4c80950361440443ea980aff946a309d952b94b5426249e5b12fe99bd7fbec"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/locale.cpython-314.pyc",
+      "bytes": 65640,
+      "sha256": "46246e6c7b26ab62ee4a9170b07dd99c0341055d1ccf1e7e792eb1cc33cd5f59"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/numbers.cpython-314.pyc",
+      "bytes": 14266,
+      "sha256": "3ac3dfcd8ff9c2dade3abf978190f592e8d8323ced396ec1cef1cb565f06a9be"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/opcode.cpython-314.pyc",
+      "bytes": 4565,
+      "sha256": "5a8f12e299a9812027794aa50691fbeb6308ad00490bc234fa549652d5db5d77"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/operator.cpython-314.pyc",
+      "bytes": 19073,
+      "sha256": "8d5808f7b30d24a0a45d1f5c41954e92f83c1a13889775761c4ff74037f965b5"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/reprlib.cpython-314.pyc",
+      "bytes": 11757,
+      "sha256": "53e8c392c8aca72942d5bef4d7d32a8fce0a9771d38a712a3b639836bb028607"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/selectors.cpython-314.pyc",
+      "bytes": 27136,
+      "sha256": "4d980de1ef6cd505fd23e999cac61b5405d673dc680ff6f2a5e609fd18061fd3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/signal.cpython-314.pyc",
+      "bytes": 4660,
+      "sha256": "51ae7228d156c2b576c09653a28a026ba7dccc822168a5ad4b1075ddd6452d3d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/struct.cpython-314.pyc",
+      "bytes": 404,
+      "sha256": "284938726f8d3954483136bbb4325f1056f348a8b441a760f57c41a4330f9245"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/subprocess.cpython-314.pyc",
+      "bytes": 85030,
+      "sha256": "49e0bdf82ec60f06995936a802eec22f3ff834c36785efc3903fff3ab6764437"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/textwrap.cpython-314.pyc",
+      "bytes": 18511,
+      "sha256": "47d591acef068d6b234160752c2481c05f84d741c0bc22ff5197ddf4aadcdef8"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/threading.cpython-314.pyc",
+      "bytes": 66565,
+      "sha256": "bdb402c3bd9654204434bc096f7faa44f38e91c1220b178f9d40c5e866a206aa"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/token.cpython-314.pyc",
+      "bytes": 3951,
+      "sha256": "cd0fcb1412ee366a9096a41f71dbdd5e21bfe45c51fbeec1a8140f1889541356"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/tokenize.cpython-314.pyc",
+      "bytes": 27021,
+      "sha256": "3c954a3d1d1f5ace8fc85fb94aeacb8bf173890a0835ce70544556e93be9b7ea"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/traceback.cpython-314.pyc",
+      "bytes": 78683,
+      "sha256": "86f5dab9d038dc45d682a1e9be81ae4985cda72764587fe4a802069ccdea9b51"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/types.cpython-314.pyc",
+      "bytes": 15918,
+      "sha256": "170b4282ca4bbf5b85a2c1802b17c8f9fd1b0d4663b86a72f9b02537aebbb8ad"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/warnings.cpython-314.pyc",
+      "bytes": 2573,
+      "sha256": "0430493efe06c1d8ef3861e9afefa453d20f70f60acac12f527c2b5b9795d7c4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/weakref.cpython-314.pyc",
+      "bytes": 27696,
+      "sha256": "4e37f9004c2996ac5999c84aa72fbb6374bf10a73b6f1c6d6c5d8c0408ea0988"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/_collections_abc.py",
+      "bytes": 32147,
+      "sha256": "50b68b76687edc29824e5d735914b9c9ebb5145b663ba4ab7fce273283356a1c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/_colorize.py",
+      "bytes": 11031,
+      "sha256": "15db41bec8e25fd1ba81cf234df2cc7446d0fbc10285fda73186176365efd730"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/_opcode_metadata.py",
+      "bytes": 10115,
+      "sha256": "d9badc5ab19a66415e230bf8f4299491b2207d584981a92b6e7c447cfa1aeac3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/_py_warnings.py",
+      "bytes": 30631,
+      "sha256": "7728580177727fa3b295478cef4777a9d2a364c5cbd809efcea352db31144f85"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/_weakrefset.py",
+      "bytes": 3962,
+      "sha256": "2dd7cb459d654fe78b00c5c47ee8e786c037ee77763304603f5e976dd62cbf81"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/abc.py",
+      "bytes": 6538,
+      "sha256": "e558702a95cdce3febd289da021715d2b92bc43995b8a1bc58dfa1c3d8010287"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/annotationlib.py",
+      "bytes": 44420,
+      "sha256": "1cce29393714b91e3f71571ffbedacc7f73f11ad26be10701debeb86ec059a32"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ast.py",
+      "bytes": 25479,
+      "sha256": "5ea9a796353544bea0d706153516f04ef3d92be305d15a73238403837d77e34c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/codecs.py",
+      "bytes": 36840,
+      "sha256": "718f39b3ea68fe934214d789c5bce3005fa828040b03a72d2f715fc5e2647b7e"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/codeop.py",
+      "bytes": 5902,
+      "sha256": "6777d19fa0f88c415d615c78e214ede057dd7507db8494744ca2c53fe9911a3a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/collections/__init__.py",
+      "bytes": 53021,
+      "sha256": "cb8367b8edd188662143ea2e3942d360c2deae51c72fd779ec898f5076d2c2b9"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/collections/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 74946,
+      "sha256": "30abf342ea5ee234403dad0441b6ce94827353ea00c3d713731ff11430c8289d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py",
+      "bytes": 27801,
+      "sha256": "c1e0d67b2007de11ae93cd36cf6faf38d9ab32656a832d592a49325eec579f96"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copy.py",
+      "bytes": 8582,
+      "sha256": "15154fde290d6e65b5007905689a47a9a5a724822c5e06eec35d9ffbb2a3aa69"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copyreg.py",
+      "bytes": 7716,
+      "sha256": "6376eb5722806396f5842997ac18add369ea9ac3ff4fcfe1460c41a088cac425"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ctypes/__init__.py",
+      "bytes": 22131,
+      "sha256": "72f2df568380c275a5596944810953124ff2ee8d678c5f8ddcf50f0f77577eb3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ctypes/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 29753,
+      "sha256": "7b13dfde0c891fa6d3f0a513a62c5b8b9a9c779c5c01889f7dbcf20cf3c3c6d4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ctypes/__pycache__/_endian.cpython-314.pyc",
+      "bytes": 3759,
+      "sha256": "fa87248338b3fcc4ae02a814f83fc4c5a5e36e8bc12a0b44240e3e1d6b268db3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ctypes/_endian.py",
+      "bytes": 2557,
+      "sha256": "499773a028a41ee18153fedfe0a00a26efb2a650f568b9bc17e2f3a914a23468"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/dataclasses.py",
+      "bytes": 71537,
+      "sha256": "e8439c8b111856645a8b31e0dbbba532b494426399bad456079c0e5730ad322e"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/dis.py",
+      "bytes": 45533,
+      "sha256": "17d4d9a9195c9ee5aa27a96f3e0871f9363fd501e3a64ef20cb1cc876d7ad553"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/__init__.py",
+      "bytes": 5945,
+      "sha256": "2b708410495acf12a6fad9d2de928dd89e567537c253eaa2b51aaae578e96c59"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 6815,
+      "sha256": "85d4014f7708232357024271946787226d14720945bf0d7a9f8564976b766619"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/__pycache__/aliases.cpython-314.pyc",
+      "bytes": 13044,
+      "sha256": "44688b637069b835629a3fb96205324534bd62f62357c75cab5adcb5c6372206"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/__pycache__/utf_8.cpython-314.pyc",
+      "bytes": 2407,
+      "sha256": "86a7b63adf30d53615a76674370b03c8140a32e121175ca209d4ba684211c1e4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/aliases.py",
+      "bytes": 16255,
+      "sha256": "1ee993f8eb4986999b6501381e53947be9a04443626cb48b4190bcff2e87d3b4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/utf_8.py",
+      "bytes": 1005,
+      "sha256": "ba0cac060269583523ca9506473a755203037c57d466a11aa89a30a5f6756f3d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/enum.py",
+      "bytes": 85450,
+      "sha256": "fd23a7598fa1104ef892abcd4154d3627283e6361eb7a91cd11dc4a7b6fb3a93"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/fnmatch.py",
+      "bytes": 6791,
+      "sha256": "ce582bc266922e4c682e2a85d72095124430a6bf58716c6f2537103480eae742"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/fractions.py",
+      "bytes": 41453,
+      "sha256": "7a95f1c506c9ac4b2277df5f2bdd9d61cc67b520c45021a5a961939770221ef6"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/functools.py",
+      "bytes": 43564,
+      "sha256": "9db56d38172c4c9e689b21cc58c8538008b09d86b682faf4dd193b529cdd79d5"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/genericpath.py",
+      "bytes": 6247,
+      "sha256": "cdac5a68dd738051e0d66fc81d5947d6a1776248fc6fe862253477608d870ec4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/glob.py",
+      "bytes": 20775,
+      "sha256": "21d290be171e3d0643a444e4b58a2c4ee9bfe2c1474bb36ead043794bb769365"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/hashlib.py",
+      "bytes": 9459,
+      "sha256": "88fa624821fbdee7eb2ef87c2437b207afe328cf117c7463367e2db5eb1af492"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/heapq.py",
+      "bytes": 23440,
+      "sha256": "f2d644de141a488db66fc13608a794ef5f2d33162299f6751ea92c3cb0b4c9ea"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__init__.py",
+      "bytes": 4767,
+      "sha256": "72b07de4133a7e39b2f6a7920465669aa04626f217e800779587bc0713fe002e"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 4692,
+      "sha256": "4c2c0d9f4ff71c17181b9b1bb72b05fd10c90936e965f53a9530e119af24d359"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__pycache__/_abc.cpython-314.pyc",
+      "bytes": 1744,
+      "sha256": "0236068abbd16f6d1da628b6df204f37d4fcca7d94cc8b63d0fd6a67ab1982d1"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/_abc.py",
+      "bytes": 1354,
+      "sha256": "80aab7931dc999dee581c8b8b56fcd973fe156335a96ceeaf6acfc03cebf10e8"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/_bootstrap.py",
+      "bytes": 57937,
+      "sha256": "e50d35b1191ecbc5f7faecc73f54efd242bcf24c510e4ea5eb64bfba9458c0e3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/_bootstrap_external.py",
+      "bytes": 57685,
+      "sha256": "b9af1fb7b625030cf5ee06b39aeb7838c2a30c97ddee09410286b7afbd8b7098"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/machinery.py",
+      "bytes": 2166,
+      "sha256": "34b7583fd83ebb2629b7645c0dd293839ce16b19cf8742801e21a21fe08f5811"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/util.py",
+      "bytes": 11414,
+      "sha256": "7bdfadad42664ba169ffac8160765673cd79937f74324f4664de8d820c35b863"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/inspect.py",
+      "bytes": 127725,
+      "sha256": "7a2878507255eb568a6ecfa04e051009f197513aa052eebc9e7e60d667d78cb4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/io.py",
+      "bytes": 4736,
+      "sha256": "1b75584d4efcc612dc0db2ae98619408276585a106f0544879edb5e25b55430a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py",
+      "bytes": 14132,
+      "sha256": "2dd10f1bf4c9ea5478e589216805e7f279d0e4bce134a19efa297404fb87407d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 14292,
+      "sha256": "0c48bc31db8055cf25f5f94890349107f7f42a3fad0c7bc8b2d3b5cea805ce58"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__pycache__/decoder.cpython-314.pyc",
+      "bytes": 14548,
+      "sha256": "77773b36011ca3bcc93dbb9c641be5b0f5824bbe5805c536f970fe49a7fc79d9"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__pycache__/encoder.cpython-314.pyc",
+      "bytes": 17104,
+      "sha256": "dbd51b921fb5dcb14327befcd7f7ac82a03e96837ca8eb0d421cce6e12a10658"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__pycache__/scanner.cpython-314.pyc",
+      "bytes": 3619,
+      "sha256": "d1101ce2606ac4615c83dba72e65a3870c7fd676c493638989f7a3a3418cb483"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py",
+      "bytes": 12877,
+      "sha256": "dc98d3e677612ea7311303f06a144cec6b91ebadc7ec037d1777501647578a07"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/encoder.py",
+      "bytes": 16990,
+      "sha256": "d68a4d04d2cfd95897498307f29349058b42c3f48ea6aa6739714a09200a7d01"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/scanner.py",
+      "bytes": 2434,
+      "sha256": "572958017eae8842eeddd0e3d18d3c56cc0a197348224915e1d87ce937841764"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/keyword.py",
+      "bytes": 1073,
+      "sha256": "18c2be738c04ad20ad375f6a71db34b3823c7f40b0340f5294d0e89f3c9b093b"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_blake2.cpython-314-darwin.so",
+      "bytes": 72048,
+      "sha256": "1b3f3b2382457e9e97b0a7073c3b8ab4e01ec441b8f7ed5f69d5ee320f7c58ae"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_ctypes.cpython-314-darwin.so",
+      "bytes": 162624,
+      "sha256": "81a01f368a195bd723b1437eacf72a0f0ea53ce8c966cf413334ff52a25fadf8"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_hashlib.cpython-314-darwin.so",
+      "bytes": 80448,
+      "sha256": "9ba56f3cc87814c60b43be78cd551c4c253dc6695ac13a10d651439e952a119d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_heapq.cpython-314-darwin.so",
+      "bytes": 52224,
+      "sha256": "5a78675310efa537051896eac04fc6575d181a5444796c7280049821b52eb33b"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_json.cpython-314-darwin.so",
+      "bytes": 72912,
+      "sha256": "e8c918a8ff00e81da1143f1f2d0b20f980d99aa7fbb14e18b4b16f743662616c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_posixsubprocess.cpython-314-darwin.so",
+      "bytes": 54784,
+      "sha256": "08d921c33ad5e007549dbe3d3e4ab94a108377fb8defa30ab4e945186844e6b3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_struct.cpython-314-darwin.so",
+      "bytes": 77888,
+      "sha256": "f1fc558b748eb2752643853b9d7428e84f1fb248276859675912e6287583cb88"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/fcntl.cpython-314-darwin.so",
+      "bytes": 53120,
+      "sha256": "c070d2c291d780fe3cb486852ec1a61305d8faeb13132e989cd1e269f51e5f7c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/grp.cpython-314-darwin.so",
+      "bytes": 53216,
+      "sha256": "b686bdc0a117f83b73a2ca8073a1d98c12d586214850f6bb579ccb9cea6700b7"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/math.cpython-314-darwin.so",
+      "bytes": 93488,
+      "sha256": "9e9d2234227db176be37042bc1c2506902c4c2edfeac05424b803928755ae33a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/resource.cpython-314-darwin.so",
+      "bytes": 53312,
+      "sha256": "e58977e653c80b8759141ad7d283e2221e2953bff8ba3c9b5c1a8a1c885da467"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/select.cpython-314-darwin.so",
+      "bytes": 74992,
+      "sha256": "3a36b9beb6d83f33918169a63fcf920349fc8b476e9c4d7a6c47e548018eef2b"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/linecache.py",
+      "bytes": 8044,
+      "sha256": "692daec68e2a419adf46bafc0eb2f8a2fb36c482183fa1ac47e00fec440f7d7e"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/locale.py",
+      "bytes": 87190,
+      "sha256": "f2e390ebde2bb52eabcf6d444a6a2e758749f3aa82c61427cbb053332fac56b2"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ntpath.py",
+      "bytes": 30905,
+      "sha256": "bf16566322f41f7052b7516fb684b2d64a437b39f5bbd21731b1bda1697d1a2e"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/numbers.py",
+      "bytes": 11769,
+      "sha256": "e5e73beba4a7674bd5e9a881a202d403a0c3e2b59af4181699155ea4827a7561"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/opcode.py",
+      "bytes": 3152,
+      "sha256": "1036d90c917bb27c540ac3205d22896ee747214df1f2682458ab915758e4fdf2"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/operator.py",
+      "bytes": 11158,
+      "sha256": "a9f9910965c31f841caad0447ee47299ac539a371422aefe200c86c60f3b4697"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/os.py",
+      "bytes": 41958,
+      "sha256": "976bdb3e24925f2fb3ce43a4d788de6dcbb88a7cc8604c60ae690fbdd6507546"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py",
+      "bytes": 46807,
+      "sha256": "042a4d0a5e1ef66778daa86dc269af205bd42d06e793e53d8b99dff4c45928ca"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 61724,
+      "sha256": "4950edb446a8ae21bd3f70499b1712cd14d860c0474d3094c5600abdbbc3c122"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__pycache__/_os.cpython-314.pyc",
+      "bytes": 22516,
+      "sha256": "5df4651bf25ba75ebfce0d6c41a6ef2eb3b03221f10dedf5fbea5a1495ce5e1a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/_os.py",
+      "bytes": 18161,
+      "sha256": "61e844988e54bdf47c0b11ad2b3fd961f058bb370793428f4c6868bd40cab6f2"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/posixpath.py",
+      "bytes": 18813,
+      "sha256": "8a5bc2b6674e76efe0f507b873a41d746beba466a191153ed18a7580ef6e08e1"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__init__.py",
+      "bytes": 17876,
+      "sha256": "741a9de729ed8207bfa19db990f8826f1bf3661f33d0970a80c08cd1338ebc35"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 20042,
+      "sha256": "7d87571caa927a7b9e23caa44d174576f8f5a10c11e5ab8f80a1294465787c94"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/_casefix.cpython-314.pyc",
+      "bytes": 1885,
+      "sha256": "5104c5c08332215b14de2f11afc9a4f475ea43c268446dfd07bd0750ba7c1c11"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/_compiler.cpython-314.pyc",
+      "bytes": 29740,
+      "sha256": "2d5c3c025171ea1039731fab639f2b85b41a6c38ecc5655044a4fe5be92b8d84"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/_constants.cpython-314.pyc",
+      "bytes": 5700,
+      "sha256": "b57b241752205493dfa0b1d1ff315382ef8e07f814b4566cc9fea8957d0d695b"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/_parser.cpython-314.pyc",
+      "bytes": 45330,
+      "sha256": "bbc62c95ead206e44352ab2f299493c1048d10c99a48aaf5dcdc700f1e2a9329"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/_casefix.py",
+      "bytes": 5444,
+      "sha256": "1b12d9136f23db6c3f6f26053fefc15ca964b886838c7b9c1fabf8d2efc1e5c8"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/_compiler.py",
+      "bytes": 26855,
+      "sha256": "d49f30cf9a1dbae33b200ed8befd9d0ce3ac612783a10ac35196536f98923e91"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/_constants.py",
+      "bytes": 6036,
+      "sha256": "42253b3181b81aad6c46392f44a0ab26dcfa31feea411296f43ba16616a1ab0b"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/_parser.py",
+      "bytes": 40353,
+      "sha256": "e57bd194a2d42398355ae7c1ccc2ddfb78421dd431eb81e3809dbe8ca9057dc4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/reprlib.py",
+      "bytes": 8064,
+      "sha256": "b04872e10d76252e44eae50cc785eb0fe478491afc4d7f0825a93f82b2eaba5f"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/selectors.py",
+      "bytes": 19457,
+      "sha256": "4b8a60cfbb619d080f87dffe1578372e56e8c0ac826f043224a154cf7b77606d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/signal.py",
+      "bytes": 2495,
+      "sha256": "0363c964c90ac0b3e515de5749205e6e6454051a1211058375d84d91eab6071a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/stat.py",
+      "bytes": 6308,
+      "sha256": "07217986d9b2172b509dab3578d18ac05ba768b418e1f1e8c90e38a8f7c2b3c6"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/struct.py",
+      "bytes": 285,
+      "sha256": "50c14e55f94957804c1e45e975fedbe8e86f7e1dbb745b150370ff681155370a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py",
+      "bytes": 90732,
+      "sha256": "6628ffdd65c093a6c08cae01ffe82877d3ced515aac9e7be0cff16512c30a7d9"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/sysconfig/__init__.py",
+      "bytes": 29764,
+      "sha256": "d5ec49f0273b662e73a54d6c9b768e998266198b34f3625ee7211859d0fbea06"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/sysconfig/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 29363,
+      "sha256": "bf7e1894d4bfa15a9d6a25d0a4c181e2e1095ddf6665c12fa52b162d5aa0671b"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/textwrap.py",
+      "bytes": 19382,
+      "sha256": "7f05d89c983f5aa8cefcff707a9cc561ed60c51fc8a68e2e3ab61cc6dfa84544"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/threading.py",
+      "bytes": 56923,
+      "sha256": "5323909624ec2165e70b6d31333e4191b63d383d2dc5a7d7d516a3475ea2b7e3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/token.py",
+      "bytes": 2584,
+      "sha256": "61d4270311099c8a0c0b2e45fb363fd1c4e347a720bcc25f682b63dc28c34234"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/tokenize.py",
+      "bytes": 21849,
+      "sha256": "65ba1bacdc42e768382208ff27f3001ee77d9d61aafba686c67652d22b84b330"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/traceback.py",
+      "bytes": 70064,
+      "sha256": "a8fbeea470aa4e29691560de889de136570bead76d9c8a2b6a891849c047a3b3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/types.py",
+      "bytes": 11464,
+      "sha256": "8c54d3d5ffc1d1204237e6c69b25c27c7b05b483128f185eeed9ba7ef2229ac2"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/warnings.py",
+      "bytes": 1966,
+      "sha256": "142225786de63c593f1c9abdacf5b4fc0b05dd847f6bed0ebb4b4aa2d4d93b02"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/weakref.py",
+      "bytes": 17771,
+      "sha256": "5e5f727a19a858cb4c56dbaf3e0a138ded02fb954a9a58a840a0764216ae9522"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/zipimport.py",
+      "bytes": 33466,
+      "sha256": "4de64633a484e16c39fdb46a3f939ce7c577b14a6e9ee49b79871ec1880b4597"
+    }
+  ],
+  "sourceFreeze": "598054 + PRE-FREEZE.diff.txt, bookkeeping only before complete review",
+  "preservedProbeEpoch": "Old PROBE critic runtime_probe.py pin resolves runtime_probe.initial.py.txt; new current probe hash is separately admitted. Never rewrite historical receipt.",
+  "scope": "Source/runtime/cache byte bindings only; no target import/eval/construction/solver/native/GPU/browser/appearance result."
+}

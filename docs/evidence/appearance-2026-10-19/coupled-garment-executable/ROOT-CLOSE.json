@@ -1,0 +1,285 @@
+{
+  "kind": "root-closed-coupled-sweater-local-checkpoint",
+  "atUTC": "2026-10-19T22:47:41.508196+00:00",
+  "pid": 37605,
+  "status": "CLOSED_B_INITIAL_SELF_INTERSECTION",
+  "ownedTargetSessions": "19887/e2bde6 exit1,child19637 positivewaitcode1/bothEOF; no ownedtargetpending",
+  "completeCriticHandoff": "cb8a4d untruncated7794tokens",
+  "freshResultVerification": "22e5a2 all25direct/192nested+manifest/review,all8outputs and independent proof correspondence",
+  "verifiedFamilies": {
+    "preparation": 188,
+    "result": 25,
+    "admission": 192,
+    "resultManifestAndReview": 2
+  },
+  "intentionalHistoricalMainEpoch": {
+    "parentHEAD": "8a0bca80145514a4db18b5b4940a9fa733c56c05",
+    "validation": "Remove exactly the one new additive note from each current mainfile, then old byte/hash matches all prior input rows. No other current source/runtime/output input changed."
+  },
+  "sourceHashes": {
+    "worker.py": "ddefbe1fac1434e70a52002ae5c2624d79864727a15e47d1a114dd2fd366aff9",
+    "collector.py": "d3a3c0cdad3727aceff567b0473d8484342f6f06041445f0e53954cbc3f861fd",
+    "exact_geometry.py": "6ad6f32a875457c7c0f54d09dac702bcd0c2ad0989fb91b2e807053a188b9f33"
+  },
+  "precloseOwnedFiles": [
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 125679,
+      "sha256": "a252387e78c447797074ad3ad3d767b5693ce0a6f4377617342dd8910f920d96"
+    },
+    {
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 150743,
+      "sha256": "f4b6f93361e565eae18b2344be35d7f806983bd29c43ebfefa4a9edbe1a8cd05"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/ADMISSION.json",
+      "bytes": 49672,
+      "sha256": "10e5afbb02553be58efb7c0d076482f1f98609bb61285012e6a005be9b8f1b5f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/CPU-REQUEST.json",
+      "bytes": 2137,
+      "sha256": "fd2e1e3aabf6245fa829278987ac16f84f4a481487a5a8a1034ddc688b26f73b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/INPUTS.json",
+      "bytes": 48569,
+      "sha256": "7afe8a392a7ca9f153f091503b9413c804cf3b2d5f3e3898f709d22532bb4609"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/JOBS.json",
+      "bytes": 369949,
+      "sha256": "6ccad277f5b3e8d1538e057e0564cf830980d4d8fb48dbe319ca460e9189da61"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/PLAN.md",
+      "bytes": 5061,
+      "sha256": "39920d60b845ac5161cc77073a90c5591c96b6cb0295dd5891e4fd54470d10dd"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/POST-FREEZE-TOOLS.json",
+      "bytes": 12358,
+      "sha256": "83eec1f0206a9e538c43d7f86aa74e5245972f5f15ef414b4f2b79f1028d8973"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/PRE-FREEZE.diff.txt",
+      "bytes": 2724,
+      "sha256": "03418ea53b263f7853549f0705e6f95259ebb66554c861b9d5226d6a74dd96b6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/PRE-FREEZE.json",
+      "bytes": 1489,
+      "sha256": "a7b6a608c49bc2cef2512efcff7ffac3ec65b70096922d777578efda42222b10"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/PROBE-ADMISSION.json",
+      "bytes": 2288,
+      "sha256": "d50755fe6c10de67196f00352f3cd53d2ada0ca6d02d2e63670873815c68e6ea"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/PROBE-CRITIC-RECEIPT.json",
+      "bytes": 4615,
+      "sha256": "875310b12e25c3a70cdfabecdcead5ad22a7c68e065dc5d3efe23ad6e01fa459"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/PROBE-RESULT.json",
+      "bytes": 1475,
+      "sha256": "ce372c7342d901b32801db70637fe731454fcf8285b28352c4a30244c0a7d3fe"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/PROBE-RETURN.json",
+      "bytes": 2007,
+      "sha256": "ad9bd2beb0b3a31aa96721398e6515043720bae90280a256ba560f5e69e72834"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/PROBE-WORTH.md",
+      "bytes": 2914,
+      "sha256": "0c71c863f76130bc1d446186387f3204c9c40bda4633cb02d102b1f3ba51b400"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/PROBE.diff.txt",
+      "bytes": 298,
+      "sha256": "619892fc44614ce1cb938ad645f6fd7a2df957d7894deba44dc18753ddfd591e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/README.md",
+      "bytes": 5618,
+      "sha256": "fd8d5e409c3bc29c86db6a54b65a6ff83e6827f8a7d2a1e90620d600ef7b23e9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/README.pre-trial.md.txt",
+      "bytes": 3786,
+      "sha256": "bd0a2ef09c99be2510a552b060d4f2b24da67ca5237d834620440f94b1c8858a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/REFERENCES.json",
+      "bytes": 266022,
+      "sha256": "35318aac8b52dc1ef4526a631cfb679e11821ad5b91a5d91458ae4592a209de5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/RESULT-CRITIC-RECEIPT.json",
+      "bytes": 27271,
+      "sha256": "266b53d61d5ef9cb8ce60b3712c8421c0afd42177c0f5abec9495dff704c6e69"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/RESULT-INPUTS.json",
+      "bytes": 6972,
+      "sha256": "c148d5f9e187690e0cc52600aca8b8234578e771ef0f4bd27daf7dc67d527618"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/RESULT-REVIEW.md",
+      "bytes": 3903,
+      "sha256": "b54955e3f1e85c30c885b82f50ba3da57777d89d858e29b3859fcbc2f5da093e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/ROOT-ACTUAL.json",
+      "bytes": 4462,
+      "sha256": "8a7a3e3abce27080ab31a69a4cc7cf9308c1a2e7c54244814661c3afd7c30744"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/ROOT-FIRST.json",
+      "bytes": 4539,
+      "sha256": "0fead435862f9dda3cd6e4361c0dd1c6b0a33005d18f4b0ba501b2f13ad7c073"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/ROOT-RESULT-FIRST.initial.json.txt",
+      "bytes": 7870,
+      "sha256": "f9eac83fb4340f00ac6cb301af7cce9d2f70b2601edf88993235ed37b70e7e16"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/ROOT-RESULT-FIRST.json",
+      "bytes": 8265,
+      "sha256": "fa2a25dcd8ef9c952346bf48f58f596ba8d415da2d18ccec2a942ca14e0db2c3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/ROOT-RESULT.json",
+      "bytes": 2577,
+      "sha256": "3438e92607c5f81fa2c79433b3fc09cb26e6e2b47b9ab57f002a435dd1ebdfdc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/ROOT-SOURCE.json",
+      "bytes": 3410,
+      "sha256": "dc39a97baa2d1ce766a3f952fc388ffd58e6ba8fb9fdbf31b6936eec4c180661"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/RUNTIME-CACHES.json",
+      "bytes": 48922,
+      "sha256": "7194ca2715201659dc9d9bd3c5155e305f0474eb120bb5370d5231ae3ed5df77"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/RUNTIME.json",
+      "bytes": 96022,
+      "sha256": "80779b10079761a9c4f2a380b817b2eb1671046755cab694fc4945d2cd770f6d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/SOURCE-CRITIC-RECEIPT.json",
+      "bytes": 71786,
+      "sha256": "8fd7e87446051b2fe59e0c90cc07271a08d58a841abd1905209558f150dc4f35"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/SOURCE-REVIEW.md",
+      "bytes": 4478,
+      "sha256": "c357df01f760516d805b82c6ccf6cc5f93a4b8225db647fa16367f393b1bcd7b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/TOOL-CLOSURE.json",
+      "bytes": 50387,
+      "sha256": "83bbe06bf681f7a84aaee2a88001b3b64ad0c42bfbd2930293bda09a4ffba719"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/TOOL-CPU.json",
+      "bytes": 84142,
+      "sha256": "a2f2d20718361185847f6fdbb16a8fec9ec13b2e50ade9d25e6ee287e04ec025"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/TOOL-POST-CPU.json",
+      "bytes": 3979,
+      "sha256": "4a5f084fa5f98dcb91fd51d0eaf0edf7facebc6144c2d40d3730a005fb53ed47"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/collector.py",
+      "bytes": 11740,
+      "sha256": "d3a3c0cdad3727aceff567b0473d8484342f6f06041445f0e53954cbc3f861fd"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/collector.py.pre-freeze.txt",
+      "bytes": 11353,
+      "sha256": "3f5f473cc0984e24a2157397e5e0b143d9738cd004d5cd352e17d575d4b193ba"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/exact_geometry.py",
+      "bytes": 11512,
+      "sha256": "6ad6f32a875457c7c0f54d09dac702bcd0c2ad0989fb91b2e807053a188b9f33"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/exact_geometry.py.pre-freeze.txt",
+      "bytes": 11512,
+      "sha256": "6ad6f32a875457c7c0f54d09dac702bcd0c2ad0989fb91b2e807053a188b9f33"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/runtime_probe.initial.py.txt",
+      "bytes": 3897,
+      "sha256": "8f57c92e00ce383ec1dcfa343e6f191d5c62800e51ccda2cc5b0edcc50d61c43"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/runtime_probe.py",
+      "bytes": 3898,
+      "sha256": "2b731c96213d8575c40b9e376fc453e5ffbaecc11cc68de2d87c4b508316b958"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/worker.py",
+      "bytes": 38497,
+      "sha256": "ddefbe1fac1434e70a52002ae5c2624d79864727a15e47d1a114dd2fd366aff9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/worker.py.pre-freeze.txt",
+      "bytes": 38325,
+      "sha256": "9f710b99e535f35aeac22a61b40767b9872942a27b1c0b8b92d68bd1c6d5d63c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/RUN.json",
+      "bytes": 5181,
+      "sha256": "b50833652ae71e4ae47b9ffe20788627f3036869ce76ee78e306822b6d86607c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/admission.json",
+      "bytes": 49672,
+      "sha256": "10e5afbb02553be58efb7c0d076482f1f98609bb61285012e6a005be9b8f1b5f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/initial.json",
+      "bytes": 174766,
+      "sha256": "ddcd421665b68fd115559b2754a21949704fba518dd88c5281b49a63490ce86e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/refusal.json",
+      "bytes": 1965,
+      "sha256": "345f6d67a509e71f99b2d46ad1579ff05867866b904bbbd43430a144246055c3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/runtime-start.json",
+      "bytes": 2095,
+      "sha256": "0dc43b671a9697b44cd1299b76305a2084290afbe0796143a364b98ed4a22c03"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/source-domain.json",
+      "bytes": 24386642,
+      "sha256": "0d14857e2dfe73142dc79fdbb2920e10bbb282939acce366840fe428a3529f7e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/stderr.bin",
+      "bytes": 98,
+      "sha256": "4c375e782cd13b34a29a7b237c2193bfd3f2c2f925ed20760ce8a4099002b08c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/stdout.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "precloseFileCount": 51,
+  "note": "This self-record and later commit receipt cannot list themselves recursively. Postcommit exact staged/commit paths and bytes must be verified; no push.",
+  "closure": "No initializer/frame/topology/contact/gain/threshold/budget/source/observer/capture/render/retake/renamed successor. No baseline/solver/finalfit/export/native/GPU/browser/appearance qualification.",
+  "next": "Localcheckpointthen genuinely distinct freshworth, none admitted by current packet. Preserve all fullroadmap/oldclosures/HOLD/assets/checklist23/10/worktrees. Deadline23:00 unchanged, closing early."
+}

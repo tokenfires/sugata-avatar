@@ -1,0 +1,136 @@
+{
+  "kind": "root-complete-actual-output-inventory-after-child-retirement",
+  "atUTC": "2026-10-19T22:38:26.349285+00:00",
+  "pid": 20393,
+  "allActualDirectEntries": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/RUN.json",
+      "bytes": 5181,
+      "sha256": "b50833652ae71e4ae47b9ffe20788627f3036869ce76ee78e306822b6d86607c",
+      "mode": "0o644",
+      "JSON": "complete parsed",
+      "topLevelKeys": [
+        "status",
+        "collectorPID",
+        "command",
+        "startUTC",
+        "admissionSHA256",
+        "childPID",
+        "limits",
+        "retirement",
+        "events",
+        "runtimeParent",
+        "inventoryExcludes",
+        "failure",
+        "childReturnCode",
+        "elapsedSeconds",
+        "streamBytesStored",
+        "streamBytesObserved",
+        "streamEOF",
+        "scope",
+        "actualOutputInventory"
+      ]
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/admission.json",
+      "bytes": 49672,
+      "sha256": "10e5afbb02553be58efb7c0d076482f1f98609bb61285012e6a005be9b8f1b5f",
+      "mode": "0o644",
+      "JSON": "complete parsed",
+      "topLevelKeys": [
+        "kind",
+        "allowExecution",
+        "atUTC",
+        "rootPID",
+        "expiresEpoch",
+        "fixedStopUTC",
+        "pins",
+        "rootSourceDecision",
+        "onlyOneUnchangedInvocation",
+        "failureClosesWithoutRepair",
+        "rootActualInventoryOnEitherOutcomeMandatory",
+        "noGPUOrNativeOrExport"
+      ]
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/initial.json",
+      "bytes": 174766,
+      "sha256": "ddcd421665b68fd115559b2754a21949704fba518dd88c5281b49a63490ce86e",
+      "mode": "0o644",
+      "JSON": "complete parsed",
+      "topLevelKeys": [
+        "positions",
+        "targets",
+        "faces",
+        "roles",
+        "namedBoundaryLoops",
+        "status"
+      ]
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/refusal.json",
+      "bytes": 1965,
+      "sha256": "345f6d67a509e71f99b2d46ad1579ff05867866b904bbbd43430a144246055c3",
+      "mode": "0o644",
+      "JSON": "complete parsed",
+      "topLevelKeys": [
+        "status",
+        "stage",
+        "exception",
+        "code",
+        "witness",
+        "counts",
+        "maxRSSRawBytes",
+        "elapsedChildSeconds",
+        "traceback"
+      ]
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/runtime-start.json",
+      "bytes": 2095,
+      "sha256": "0dc43b671a9697b44cd1299b76305a2084290afbe0796143a364b98ed4a22c03",
+      "mode": "0o644",
+      "JSON": "complete parsed",
+      "topLevelKeys": [
+        "identity",
+        "maxRSSRawBytes",
+        "flags",
+        "version"
+      ]
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/source-domain.json",
+      "bytes": 24386642,
+      "sha256": "0d14857e2dfe73142dc79fdbb2920e10bbb282939acce366840fe428a3529f7e",
+      "mode": "0o644",
+      "JSON": "complete parsed",
+      "topLevelKeys": [
+        "inventory",
+        "domains",
+        "cornerOccurrenceProvenance",
+        "originalPointOrder",
+        "originalTriangleCount",
+        "originalPointCount",
+        "requiredCornerOccurrences",
+        "immutableInputs"
+      ]
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/stderr.bin",
+      "bytes": 98,
+      "sha256": "4c375e782cd13b34a29a7b237c2193bfd3f2c2f925ed20760ce8a4099002b08c",
+      "mode": "0o644"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/stdout.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "0o644"
+    }
+  ],
+  "actualTotalBytes": 24620419,
+  "actualEntryCount": 8,
+  "all192InputBindingsExact": true,
+  "admissionCopyExact": true,
+  "scope": "Every actual direct entry including RUN self/transient,partial/unregistered files and streams; no producer inventory used as exhaustiveness proof. JSON grammar is not geometry acceptance."
+}

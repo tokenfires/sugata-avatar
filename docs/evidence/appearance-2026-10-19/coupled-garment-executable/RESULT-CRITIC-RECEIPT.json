@@ -1,0 +1,402 @@
+{
+  "schema": "coupled-garment-first-trial-result-critic-v1",
+  "verdict": "B_INITIAL_PHYSICAL_SELF_INTERSECTION_INDEPENDENTLY_CONFIRMED",
+  "pending_edits": false,
+  "deadline_utc": "2026-10-19T23:00:00Z",
+  "independent_decision": {
+    "fixed_utc": "2026-10-19T22:41:07.517385+00:00",
+    "job": "66b302",
+    "pid": 25497,
+    "root_result_opinion_read_after": "2026-10-19T22:41:40.252085+00:00 /4a70a5"
+  },
+  "actual_phase": {
+    "stage": "initial-structural-embedding",
+    "code": "self-embedding",
+    "trace_lines": [
+      580,
+      464,
+      421
+    ],
+    "not_reached": [
+      "Initial structure success output",
+      "Baseline fit observer",
+      "Any solver sweep",
+      "Final mesh/fit",
+      "Final runtime validation",
+      "Export/image/appearance"
+    ]
+  },
+  "independent_witness": {
+    "faces": [
+      66,
+      2352
+    ],
+    "roles": [
+      "torso",
+      "cuff_r:2"
+    ],
+    "indexSetsDisjoint": true,
+    "sectionDerivedIndependentlyBy": "Intersect saved triangleB edges with saved triangleA constant-X plane, clip resulting segment by three exact oriented YZ halfplanes; no producer/helper call",
+    "bothReportedEndpointsMatchDerivedExactSet": true,
+    "positiveSegmentLengthSquared": "248832497260505274413432154306857735770537895474748131312476131730497704839815746214119803880162610914979649815263172017/1733999723757798770549989864810363859313234958754268437841318502168614374017902063117479323896455623162742274795000316297216",
+    "segmentLengthMetresObserver": 0.011979233687334499,
+    "endpointObservers": [
+      [
+        -0.27,
+        1.0813989447574346,
+        0.04
+      ],
+      [
+        -0.27,
+        1.0777828697290144,
+        0.028579577892012733
+      ]
+    ],
+    "midpointBarycentricsA": [
+      "53116350596721362992152577148648469415884843149466702091539/130129132219969421030050288757694442756504321038742584823775",
+      "143812059484536331937881441746739054320895496796885503563584915438147835606/294699182863309879926502113727752477695946320123934139912247390335221099275",
+      "227710462119308039427753600406/2193277148276822091634903221539"
+    ],
+    "midpointBarycentricsB": [
+      "201879516246133129698172580164021131895312171/577889435060404934372983006503987937918078811",
+      "683131386357924118283260801218/4176896164483077263685088251403",
+      "281496099128915004492062558594777023403020174/577889435060404934372983006503987937918078811"
+    ],
+    "midpointStrictlyInsideBoth": true,
+    "allArithmetic": "Fraction(float) exact saved binary64 rationals; result-only2triangle audit",
+    "verdict": "CONCRETE_NONADJACENT_PHYSICAL_SURFACE_INTERSECTION_INITIAL_B"
+  },
+  "finding": {
+    "witness": "Saved initial.json faces66/2352, refusal rational endpoints; METHOD51,79;worker410–421,580",
+    "effect": "Positive-length intersection between disjoint-index physical torso/cuff_r:2 triangles, with segment midpoint strictly inside both. Mandatory initial embedding B; not body clearance or solver result.",
+    "alternatives": [
+      {
+        "choice": "Close exact consumed method and retain all evidence",
+        "tradeoff": "Honest concrete refusal; no wearable delivery"
+      },
+      {
+        "choice": "After checkpoint assess genuinely distinct character/wardrobe consumer via fresh worth",
+        "tradeoff": "May deliver elsewhere; coupled fit stays open and receives no shortcut"
+      }
+    ]
+  },
+  "next_worth": {
+    "same_method": "NO",
+    "immediate_new_experiment": "NONE_ADMITTED_OR_SELECTED",
+    "next_after_checkpoint": "A genuinely different responsibility requires a fresh witnessed worth decision; no initializer/frame/topology/contact/gain/resource/source/camera/observer or capture successor."
+  },
+  "scope": {
+    "whole_status_records": [
+      "RESULT-INPUTS.json",
+      "RUN.json",
+      "refusal.json",
+      "runtime-start.json",
+      "stderr.bin",
+      "stdout.bin",
+      "ROOT-ACTUAL.json",
+      "ADMISSION non-pin semantics",
+      "ROOT-SOURCE.json",
+      "ROOT-RESULT-FIRST.json after own B",
+      "complete root initial→current prose diff"
+    ],
+    "saved_data": "Initial/source-domain JSON parsed; array sizes/provenance metadata read. Only two witness triangles geometrically audited with independent rational plane/halfplane clipping. No full surface/domain recomposition or construction.",
+    "source_reuse": "Exact current worker/collector/exact_geometry/METHOD/ARTIST verified via25direct+192nested pins; complete source review reused at unchanged bytes, relevant traceback/control-flow/embedding obligations inspected.",
+    "tool_packet": "All10 TOOL-CPU item identities/statuses inspected; complete actual target command, initial return, session poll/final exit/output read. Root source-read commands/observer routines not rerun or used to derive independent witness.",
+    "directory_inventory": "All eight actual direct entries independently stat/hash checked without symlink following, exactly matches root inventory and parent's declared self-record exclusion.",
+    "no_target_replay": true,
+    "no_helper_import": true,
+    "no_source_edits": true,
+    "new_images": 0,
+    "network_calls": 0
+  },
+  "actual_collection": {
+    "collector_pid": 19636,
+    "child_pid": 19637,
+    "child_code": 1,
+    "tool_first": "6334b1",
+    "session": 19887,
+    "tool_final": "e2bde6",
+    "tool_exit": 1,
+    "positive_Popen_wait_return": true,
+    "stdout_EOF": true,
+    "stderr_EOF": true,
+    "stdout_bytes": 0,
+    "stderr_bytes": 98,
+    "files": 8,
+    "total_bytes": 24620419
+  },
+  "actual_unqualified_observations": {
+    "recorded_high_water_bytes": 354107392,
+    "recorded_child_elapsed_seconds": 4.348412916995585,
+    "limitation": "Refusal-path checkpoint observations only; no whole-method peak/performance/fit, kernel/physical-release or final runtime validation."
+  },
+  "errors": [
+    {
+      "job": "2f8aa9",
+      "exit": 1,
+      "kind": "Critic saved-data decoder TypeError",
+      "cause": "Fraction called with two numeric strings from saved numerator/denominator objects",
+      "correction": "66b302 converts those strings to integers, same saved inputs and independent arithmetic only; no target/source/data change."
+    }
+  ],
+  "root_prose_correction": "Retained initial ROOT-RESULT-FIRST.finding used cuff_r:3; current uses actual cuff_r:2 and adds explicit correction record. Original proof roles/data/verdict always unchanged; reviewed after own opinion.",
+  "jobs": [
+    {
+      "name": "initial",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nq=p/'RESULT-INPUTS.json';b=q.read_bytes();m=json.loads(b);print('RESULT_INPUTS',len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "returned": {
+        "chunk_id": "647f68",
+        "wall_time_seconds": 4.917e-06,
+        "exit_code": 0,
+        "original_token_count": 1776,
+        "output_bytes": 7104,
+        "output_sha256": "7c7c63de1ef5c8b6fa3e5aa7ea8b9685a14411830b1532a319f6037d63aa92b6",
+        "first_line": "PID 23620 UTC 2026-10-19T22:40:07.824652+00:00"
+      }
+    },
+    {
+      "name": "records",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable');o=p.parent/'coupled-garment-first-trial'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['RUN.json','refusal.json','runtime-start.json','stderr.bin','stdout.bin']:\n b=(o/n).read_bytes();print('WHOLE_ACTUAL',n,len(b),hashlib.sha256(b).hexdigest());print(b.decode())\na=json.loads((o/'initial.json').read_text());r=json.loads((o/'refusal.json').read_text());print('INITIAL_SCHEMA',{k:len(v) if isinstance(v,list) else v for k,v in a.items()})\nfor fi in r['witness']['faces']:\n ids=a['faces'][fi];print('REPORTED_FACE',fi,'role',a['roles'][fi],'ids',ids,'positions',[a['positions'][i] for i in ids])\nfor name in ['TOOL-CPU.json','ROOT-ACTUAL.json','ADMISSION.json']:\n r=json.loads((p/name).read_text());print('RECORD_KEYS',name,list(r))\n if name=='ROOT-ACTUAL.json':print(json.dumps(r,indent=2))\n elif name=='TOOL-CPU.json':\n  for k,v in r.items():print('TOOL_FIELD',k,type(v).__name__,list(v) if isinstance(v,dict) else len(v) if isinstance(v,list) else str(v)[:300])\n else:print('ADMISSION_NONPINS',json.dumps({k:v for k,v in r.items() if k!='pins'},indent=2))\nPY",
+      "returned": {
+        "chunk_id": "30b07d",
+        "wall_time_seconds": 8.125e-06,
+        "exit_code": 0,
+        "original_token_count": 4170,
+        "output_bytes": 16679,
+        "output_sha256": "47efd8e8a7e31407851291324180ff6d639b61aaf3b285c541f20c3a62df1cb3",
+        "first_line": "PID 24111 UTC 2026-10-19T22:40:23.975723+00:00"
+      }
+    },
+    {
+      "name": "witness",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nfrom fractions import Fraction as F\nimport json,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial');m=json.loads((p/'initial.json').read_text());r=json.loads((p/'refusal.json').read_text());ids=r['witness']['faces'];a,b=[[[F(x) for x in m['positions'][i]] for i in m['faces'][fi]] for fi in ids]\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nassert len(set(m['faces'][ids[0]])&set(m['faces'][ids[1]]))==0\nassert all(q[0]==a[0][0] for q in a)\nx=a[0][0];section=[]\nfor i,j in [(0,1),(1,2),(2,0)]:\n u,v=b[i],b[j]\n if (u[0]-x)*(v[0]-x)<0:\n  t=(x-u[0])/(v[0]-u[0]);section.append(tuple(u[k]+t*(v[k]-u[k]) for k in range(3)))\nassert len(section)==2\nu,v=section\ndef orient(s,t,q):return (t[1]-s[1])*(q[2]-s[2])-(t[2]-s[2])*(q[1]-s[1])\nsign=1 if orient(a[0],a[1],a[2])>0 else -1\nlo,hi=F(0),F(1)\nfor i,j in [(0,1),(1,2),(2,0)]:\n f0=sign*orient(a[i],a[j],u);f1=sign*orient(a[i],a[j],v);d=f1-f0\n if d>0:lo=max(lo,-f0/d)\n elif d<0:hi=min(hi,-f0/d)\n else:assert f0>=0\nassert 0<=lo<hi<=1\nends=[tuple(u[k]+t*(v[k]-u[k]) for k in range(3)) for t in [lo,hi]]\nreported=[tuple(F(q['numerator'],q['denominator']) for q in row) for row in r['witness']['intersection']]\nassert set(ends)==set(reported)\ndef dot(x,y):return sum(i*j for i,j in zip(x,y))\ndef sub(x,y):return [i-j for i,j in zip(x,y)]\ndef bary(q,t):\n e,f,h=sub(t[1],t[0]),sub(t[2],t[0]),sub(q,t[0]);ee,ef,ff=dot(e,e),dot(e,f),dot(f,f);det=ee*ff-ef*ef;assert det>0\n s=(ff*dot(e,h)-ef*dot(f,h))/det;t0=(ee*dot(f,h)-ef*dot(e,h))/det;return [1-s-t0,s,t0]\nmid=tuple((s+t)/2 for s,t in zip(*ends));ba,bb=bary(mid,a),bary(mid,b);assert min(ba)>0 and min(bb)>0\nlength2=sum((u-v)**2 for u,v in zip(*ends));assert length2>0\nresult={'faces':ids,'roles':[m['roles'][i] for i in ids],'indexSetsDisjoint':True,'sectionDerivedIndependentlyBy':'Intersect saved triangleB edges with saved triangleA constant-X plane, clip resulting segment by three exact oriented YZ halfplanes; no producer/helper call','bothReportedEndpointsMatchDerivedExactSet':True,'positiveSegmentLengthSquared':str(length2),'segmentLengthMetresObserver':float(length2)**.5,'endpointObservers':[[float(q) for q in e] for e in ends],'midpointBarycentricsA':[str(q) for q in ba],'midpointBarycentricsB':[str(q) for q in bb],'midpointStrictlyInsideBoth':True,'allArithmetic':'Fraction(float) exact saved binary64 rationals; result-only2triangle audit','verdict':'CONCRETE_NONADJACENT_PHYSICAL_SURFACE_INTERSECTION_INITIAL_B'}\nprint(json.dumps(result,indent=2))\ntool=json.loads((p.parent/'coupled-garment-executable/TOOL-CPU.json').read_text())\nfor i,row in enumerate(tool['items']):print('TOOL_ITEM',i,list(row),{k:v for k,v in row.items() if k in ('name','kind','label')})\nPY",
+      "returned": {
+        "chunk_id": "2f8aa9",
+        "wall_time_seconds": 6.709e-06,
+        "exit_code": 1,
+        "original_token_count": 112,
+        "output_bytes": 447,
+        "output_sha256": "5b0be144150d971ef634f274d79cede5fa891837efc8e8c7f62fa204101dc603",
+        "first_line": "PID 25180 UTC 2026-10-19T22:40:57.704732+00:00"
+      }
+    },
+    {
+      "name": "witness_corrected",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nfrom fractions import Fraction as F\nimport json,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial');m=json.loads((p/'initial.json').read_text());r=json.loads((p/'refusal.json').read_text());ids=r['witness']['faces'];a,b=[[[F(x) for x in m['positions'][i]] for i in m['faces'][fi]] for fi in ids]\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nassert len(set(m['faces'][ids[0]])&set(m['faces'][ids[1]]))==0\nassert all(q[0]==a[0][0] for q in a)\nx=a[0][0];section=[]\nfor i,j in [(0,1),(1,2),(2,0)]:\n u,v=b[i],b[j]\n if (u[0]-x)*(v[0]-x)<0:\n  t=(x-u[0])/(v[0]-u[0]);section.append(tuple(u[k]+t*(v[k]-u[k]) for k in range(3)))\nassert len(section)==2\nu,v=section\ndef orient(s,t,q):return (t[1]-s[1])*(q[2]-s[2])-(t[2]-s[2])*(q[1]-s[1])\nsign=1 if orient(a[0],a[1],a[2])>0 else -1\nlo,hi=F(0),F(1)\nfor i,j in [(0,1),(1,2),(2,0)]:\n f0=sign*orient(a[i],a[j],u);f1=sign*orient(a[i],a[j],v);d=f1-f0\n if d>0:lo=max(lo,-f0/d)\n elif d<0:hi=min(hi,-f0/d)\n else:assert f0>=0\nassert 0<=lo<hi<=1\nends=[tuple(u[k]+t*(v[k]-u[k]) for k in range(3)) for t in [lo,hi]]\nreported=[tuple(F(int(q['numerator']),int(q['denominator'])) for q in row) for row in r['witness']['intersection']]\nassert set(ends)==set(reported)\ndef dot(x,y):return sum(i*j for i,j in zip(x,y))\ndef sub(x,y):return [i-j for i,j in zip(x,y)]\ndef bary(q,t):\n e,f,h=sub(t[1],t[0]),sub(t[2],t[0]),sub(q,t[0]);ee,ef,ff=dot(e,e),dot(e,f),dot(f,f);det=ee*ff-ef*ef;assert det>0\n s=(ff*dot(e,h)-ef*dot(f,h))/det;t0=(ee*dot(f,h)-ef*dot(e,h))/det;return [1-s-t0,s,t0]\nmid=tuple((s+t)/2 for s,t in zip(*ends));ba,bb=bary(mid,a),bary(mid,b);assert min(ba)>0 and min(bb)>0\nlength2=sum((u-v)**2 for u,v in zip(*ends));assert length2>0\nresult={'faces':ids,'roles':[m['roles'][i] for i in ids],'indexSetsDisjoint':True,'sectionDerivedIndependentlyBy':'Intersect saved triangleB edges with saved triangleA constant-X plane, clip resulting segment by three exact oriented YZ halfplanes; no producer/helper call','bothReportedEndpointsMatchDerivedExactSet':True,'positiveSegmentLengthSquared':str(length2),'segmentLengthMetresObserver':float(length2)**.5,'endpointObservers':[[float(q) for q in e] for e in ends],'midpointBarycentricsA':[str(q) for q in ba],'midpointBarycentricsB':[str(q) for q in bb],'midpointStrictlyInsideBoth':True,'allArithmetic':'Fraction(float) exact saved binary64 rationals; result-only2triangle audit','verdict':'CONCRETE_NONADJACENT_PHYSICAL_SURFACE_INTERSECTION_INITIAL_B'}\nprint(json.dumps(result,indent=2))\ntool=json.loads((p.parent/'coupled-garment-executable/TOOL-CPU.json').read_text())\nfor i,row in enumerate(tool['items']):print('TOOL_ITEM',i,list(row),{k:v for k,v in row.items() if k in ('name','kind','label')})\nPY",
+      "returned": {
+        "chunk_id": "66b302",
+        "wall_time_seconds": 6.458e-06,
+        "exit_code": 0,
+        "original_token_count": 620,
+        "output_bytes": 2477,
+        "output_sha256": "f9f4172b0f4e77d2e934523875e9d3d1bb5e0d6d3779163b11cd7f66c8b4a7e1",
+        "first_line": "PID 25497 UTC 2026-10-19T22:41:07.517385+00:00"
+      }
+    },
+    {
+      "name": "binding_root",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime,difflib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable');o=p.parent/'coupled-garment-first-trial';m=json.loads((p/'RESULT-INPUTS.json').read_text());a=json.loads((p/'ADMISSION.json').read_text())\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor family,rows in [('direct25',m['pins']),('nested192',a['pins'])]:\n for row in rows:\n  b=Path(row['path']).read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256'],row['path']\n print('ALL_BINDINGS_EXACT',family,len(rows))\nactual=[]\nfor e in sorted(os.scandir(o),key=lambda e:e.name):\n assert e.is_file(follow_symlinks=False) and not e.is_symlink();q=Path(e.path);b=q.read_bytes();actual.append({'name':e.name,'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})\nassert len(actual)==8 and sum(r['bytes'] for r in actual)==24620419\nroot=json.loads((p/'ROOT-ACTUAL.json').read_text());assert {Path(x['path']).name:(x['bytes'],x['sha256']) for x in root['allActualDirectEntries']}=={x['name']:(x['bytes'],x['sha256']) for x in actual}\nrun=json.loads((o/'RUN.json').read_text());assert {x['name']:(x['bytes'],x['sha256']) for x in run['actualOutputInventory']}=={x['name']:(x['bytes'],x['sha256']) for x in actual if x['name']!='RUN.json'}\nassert (p/'ADMISSION.json').read_bytes()==(o/'admission.json').read_bytes()\nprint('INDEPENDENT_COMPLETE_ACTUAL_INVENTORY',json.dumps(actual));print('TOTAL',sum(x['bytes'] for x in actual))\ns=json.loads((o/'source-domain.json').read_text());print('SOURCE_DOMAIN_STORED_METADATA',{k:s[k] for k in ['originalTriangleCount','originalPointCount','requiredCornerOccurrences','immutableInputs']});print('SOURCE_DOMAIN_SCHEMA_LIST_LENGTHS',{k:len(v) for k,v in s.items() if isinstance(v,list)})\nprint('ROOT_RESULT_FIRST_AFTER_OWN_FIXED_B');print((p/'ROOT-RESULT-FIRST.json').read_text());print('ROOT_PROSE_DELTA',''.join(difflib.unified_diff((p/'ROOT-RESULT-FIRST.initial.json.txt').read_text().splitlines(True),(p/'ROOT-RESULT-FIRST.json').read_text().splitlines(True))))\nprint('ROOT_SOURCE_GATE');print((p/'ROOT-SOURCE.json').read_text())\nt=json.loads((p/'TOOL-CPU.json').read_text())\nfor i,row in enumerate(t['items']):\n ret=row['returned'];print('TOOL_ITEM',i,row['commandKey'],row['resultKey'],{k:v for k,v in ret.items() if k!='output'})\n print('TOOL_COMMAND_OR_POLL',row.get('command',row.get('poll')) if i in (5,6) else str(row.get('command',row.get('poll')))[:180])\n print('TOOL_OUTPUT',ret.get('output','') if i in (5,6) else ret.get('output','')[:180])\nPY",
+      "returned": {
+        "chunk_id": "4a70a5",
+        "wall_time_seconds": 0.129610375,
+        "exit_code": 0,
+        "original_token_count": 5009,
+        "output_bytes": 20034,
+        "output_sha256": "b93e1d837cf318e3bb6d2987687dd0b14eecabafc0f3cc235d14258d5a6bcd74",
+        "first_line": "PID 26495 UTC 2026-10-19T22:41:40.252085+00:00"
+      }
+    }
+  ],
+  "collection": {
+    "exclusive_pair_only": true,
+    "pid": 29424,
+    "utc": "2026-10-19T22:43:16.178665+00:00"
+  },
+  "direct_input_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/ADMISSION.json",
+      "bytes": 49672,
+      "sha256": "10e5afbb02553be58efb7c0d076482f1f98609bb61285012e6a005be9b8f1b5f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/CPU-REQUEST.json",
+      "bytes": 2137,
+      "sha256": "fd2e1e3aabf6245fa829278987ac16f84f4a481487a5a8a1034ddc688b26f73b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/INPUTS.json",
+      "bytes": 48569,
+      "sha256": "7afe8a392a7ca9f153f091503b9413c804cf3b2d5f3e3898f709d22532bb4609"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/PLAN.md",
+      "bytes": 5061,
+      "sha256": "39920d60b845ac5161cc77073a90c5591c96b6cb0295dd5891e4fd54470d10dd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/ROOT-ACTUAL.json",
+      "bytes": 4462,
+      "sha256": "8a7a3e3abce27080ab31a69a4cc7cf9308c1a2e7c54244814661c3afd7c30744"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/ROOT-FIRST.json",
+      "bytes": 4539,
+      "sha256": "0fead435862f9dda3cd6e4361c0dd1c6b0a33005d18f4b0ba501b2f13ad7c073"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/ROOT-RESULT-FIRST.initial.json.txt",
+      "bytes": 7870,
+      "sha256": "f9eac83fb4340f00ac6cb301af7cce9d2f70b2601edf88993235ed37b70e7e16"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/ROOT-RESULT-FIRST.json",
+      "bytes": 8265,
+      "sha256": "fa2a25dcd8ef9c952346bf48f58f596ba8d415da2d18ccec2a942ca14e0db2c3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/ROOT-SOURCE.json",
+      "bytes": 3410,
+      "sha256": "dc39a97baa2d1ce766a3f952fc388ffd58e6ba8fb9fdbf31b6936eec4c180661"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/SOURCE-CRITIC-RECEIPT.json",
+      "bytes": 71786,
+      "sha256": "8fd7e87446051b2fe59e0c90cc07271a08d58a841abd1905209558f150dc4f35"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/SOURCE-REVIEW.md",
+      "bytes": 4478,
+      "sha256": "c357df01f760516d805b82c6ccf6cc5f93a4b8225db647fa16367f393b1bcd7b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/TOOL-CPU.json",
+      "bytes": 84142,
+      "sha256": "a2f2d20718361185847f6fdbb16a8fec9ec13b2e50ade9d25e6ee287e04ec025"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/collector.py",
+      "bytes": 11740,
+      "sha256": "d3a3c0cdad3727aceff567b0473d8484342f6f06041445f0e53954cbc3f861fd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/exact_geometry.py",
+      "bytes": 11512,
+      "sha256": "6ad6f32a875457c7c0f54d09dac702bcd0c2ad0989fb91b2e807053a188b9f33"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/worker.py",
+      "bytes": 38497,
+      "sha256": "ddefbe1fac1434e70a52002ae5c2624d79864727a15e47d1a114dd2fd366aff9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/RUN.json",
+      "bytes": 5181,
+      "sha256": "b50833652ae71e4ae47b9ffe20788627f3036869ce76ee78e306822b6d86607c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/admission.json",
+      "bytes": 49672,
+      "sha256": "10e5afbb02553be58efb7c0d076482f1f98609bb61285012e6a005be9b8f1b5f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/initial.json",
+      "bytes": 174766,
+      "sha256": "ddcd421665b68fd115559b2754a21949704fba518dd88c5281b49a63490ce86e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/refusal.json",
+      "bytes": 1965,
+      "sha256": "345f6d67a509e71f99b2d46ad1579ff05867866b904bbbd43430a144246055c3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/runtime-start.json",
+      "bytes": 2095,
+      "sha256": "0dc43b671a9697b44cd1299b76305a2084290afbe0796143a364b98ed4a22c03"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/source-domain.json",
+      "bytes": 24386642,
+      "sha256": "0d14857e2dfe73142dc79fdbb2920e10bbb282939acce366840fe428a3529f7e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/stderr.bin",
+      "bytes": 98,
+      "sha256": "4c375e782cd13b34a29a7b237c2193bfd3f2c2f925ed20760ce8a4099002b08c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/stdout.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/ARTIST.json",
+      "bytes": 7421,
+      "sha256": "e5796b5d2ccee166a37413433dd475c41f00f8c9695f633ae1ddda8e00e61325"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/METHOD.md",
+      "bytes": 25653,
+      "sha256": "966e24a57c1249983ed0da4f3b48489ef3e207b2e94912bbabd9a856ef5d4b24"
+    }
+  ],
+  "result_manifest_selfpin": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/RESULT-INPUTS.json",
+    "bytes": 6972,
+    "sha256": "c148d5f9e187690e0cc52600aca8b8234578e771ef0f4bd27daf7dc67d527618"
+  },
+  "nested_admission_bindings": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/ADMISSION.json",
+    "bytes": 49672,
+    "sha256": "10e5afbb02553be58efb7c0d076482f1f98609bb61285012e6a005be9b8f1b5f",
+    "all192rows_freshly_verified": true,
+    "rows": 192,
+    "rows_reference": "Exact pins array in this byte-pinned ADMISSION.json; no duplicate old source-command/binding dump."
+  },
+  "actual_complete_inventory": [
+    {
+      "name": "RUN.json",
+      "bytes": 5181,
+      "sha256": "b50833652ae71e4ae47b9ffe20788627f3036869ce76ee78e306822b6d86607c"
+    },
+    {
+      "name": "admission.json",
+      "bytes": 49672,
+      "sha256": "10e5afbb02553be58efb7c0d076482f1f98609bb61285012e6a005be9b8f1b5f"
+    },
+    {
+      "name": "initial.json",
+      "bytes": 174766,
+      "sha256": "ddcd421665b68fd115559b2754a21949704fba518dd88c5281b49a63490ce86e"
+    },
+    {
+      "name": "refusal.json",
+      "bytes": 1965,
+      "sha256": "345f6d67a509e71f99b2d46ad1579ff05867866b904bbbd43430a144246055c3"
+    },
+    {
+      "name": "runtime-start.json",
+      "bytes": 2095,
+      "sha256": "0dc43b671a9697b44cd1299b76305a2084290afbe0796143a364b98ed4a22c03"
+    },
+    {
+      "name": "source-domain.json",
+      "bytes": 24386642,
+      "sha256": "0d14857e2dfe73142dc79fdbb2920e10bbb282939acce366840fe428a3529f7e"
+    },
+    {
+      "name": "stderr.bin",
+      "bytes": 98,
+      "sha256": "4c375e782cd13b34a29a7b237c2193bfd3f2c2f925ed20760ce8a4099002b08c"
+    },
+    {
+      "name": "stdout.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/RESULT-REVIEW.md",
+    "bytes": 3903,
+    "sha256": "b54955e3f1e85c30c885b82f50ba3da57777d89d858e29b3859fcbc2f5da093e"
+  }
+}

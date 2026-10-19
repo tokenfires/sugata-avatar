@@ -1,0 +1,115 @@
+{
+  "schema": "coupled-garment-runtime-probe-worth-critic-v1",
+  "verdict": "A_ONE_EXACT_PREPARATION_GUARD_CORRECTION_AND_METADATA_ATTEMPT_AFTER_ROOT_VERIFICATION",
+  "pending_edits": false,
+  "deadline_utc": "2026-10-19T23:00:00Z",
+  "scope": {
+    "whole_reads": [
+      "PLAN.md",
+      "runtime_probe.py",
+      "PROBE-RETURN.json"
+    ],
+    "additional_input_reads": 0,
+    "absence_only": "RUNTIME.json",
+    "target_execution_by_critic": false
+  },
+  "witness": {
+    "plan_lines": [
+      9
+    ],
+    "source_lines": [
+      [
+        32,
+        40
+      ],
+      [
+        47,
+        62
+      ],
+      [
+        74,
+        78
+      ]
+    ],
+    "saved_return": "f21dbf exit1, traceback runtime_probe.py49; no actual n/probe PID reported",
+    "effect": "Extra300-total guard refuses before intended150-non-system membership can be established."
+  },
+  "allowed_recommendation": {
+    "source_delta": "Only total loaded-image comparison n>300 → n>4096, not module count guard",
+    "originals": "Preserve exact original probe and actual return",
+    "retained_caps": {
+      "module_files": 300,
+      "non_system_images": 150,
+      "cumulative_read_MiB": 256,
+      "each_file_MiB": 64
+    },
+    "imports": "Identical fixed stdlib scope",
+    "entry": "One metadata-only root-owned inventory read after exact source/policy verification; not garment/native/solver"
+  },
+  "alternatives": [
+    {
+      "choice": "Exact one-literal preparation correction",
+      "benefit": "Allows original runtime provenance policy to be tested",
+      "tradeoff": "Second metadata entry; may still fail any retained/new finite guard, no pass prediction"
+    },
+    {
+      "choice": "Close executable nomination unchanged",
+      "benefit": "No repeat metadata entry; refusal/unknown retained",
+      "tradeoff": "Intended non-system inventory remains unqualified without a proved policy violation"
+    }
+  ],
+  "limits": [
+    "No actual n/probe PID inference",
+    "No guarantee150 non-system bound or byte caps pass",
+    "No target/geometry/solver/METHOD/ARTIST/budget or old native-observer repair",
+    "No all-lazy/system dependency, runtime peak/performance/retirement qualification",
+    "No environment/import/eval/check/metadata replay or source edit by critic"
+  ],
+  "jobs": [
+    {
+      "name": "whole_three_inputs_and_absence",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PLAN.md','runtime_probe.py','PROBE-RETURN.json']:\n q=p/n;b=q.read_bytes();print('FILE',n,len(b),hashlib.sha256(b).hexdigest())\n for i,l in enumerate(b.decode().splitlines(),1):print(f'{i}: {l}')\nprint('RUNTIME_ABSENT',not (p/'RUNTIME.json').exists())\nPY",
+      "returned": {
+        "chunk_id": "eb1188",
+        "wall_time_seconds": 5.5e-06,
+        "exit_code": 0,
+        "original_token_count": 2938,
+        "output_bytes": 11749,
+        "output_sha256": "0e43d922c816f492755e2f24e2a3d5825bf908caa4faef0f99d97714e7830293",
+        "first_line": "PID 59763 UTC 2026-10-19T22:06:02.047783+00:00"
+      }
+    }
+  ],
+  "collection": {
+    "exclusive_pair_only": true,
+    "pid": 61158,
+    "utc": "2026-10-19T22:06:48.822211+00:00"
+  },
+  "input_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/PLAN.md",
+      "bytes": 5061,
+      "sha256": "39920d60b845ac5161cc77073a90c5591c96b6cb0295dd5891e4fd54470d10dd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/runtime_probe.py",
+      "bytes": 3897,
+      "sha256": "8f57c92e00ce383ec1dcfa343e6f191d5c62800e51ccda2cc5b0edcc50d61c43"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/PROBE-RETURN.json",
+      "bytes": 2007,
+      "sha256": "ad9bd2beb0b3a31aa96721398e6515043720bae90280a256ba560f5e69e72834"
+    }
+  ],
+  "absence_snapshot": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/RUNTIME.json",
+    "absent": true
+  },
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/PROBE-WORTH.md",
+    "bytes": 2914,
+    "sha256": "0c71c863f76130bc1d446186387f3204c9c40bda4633cb02d102b1f3ba51b400"
+  }
+}

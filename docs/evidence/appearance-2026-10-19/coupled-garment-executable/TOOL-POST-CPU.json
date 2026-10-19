@@ -1,0 +1,24 @@
+{
+  "kind": "post-CPU-result-preparation-actual-receipts",
+  "labelCorrection": {
+    "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\np=Path('docs/evidence/appearance-2026-10-19/coupled-garment-executable');q=p/'ROOT-RESULT-FIRST.json';old=q.read_bytes();(p/'ROOT-RESULT-FIRST.initial.json.txt').open('xb').write(old);j=json.loads(old);assert 'cuff_r:3' in j['finding'];j['finding']=j['finding'].replace('cuff_r:3','cuff_r:2 (third zero-indexed strip)');j['draftLabelCorrection']={'atUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'priorSHA256':hashlib.sha256(old).hexdigest(),'reason':'Finding prose used3 while saved proof role was always cuff_r:2. Corrected only text before critic result handoff; coordinates/proof/verdict/source/target unchanged.'};q.write_text(json.dumps(j,indent=2)+'\\n');print(json.dumps({'path':str(q),'bytes':q.stat().st_size,'sha256':hashlib.sha256(q.read_bytes()).hexdigest(),'finding':j['finding']}))\nPY",
+    "returned": {
+      "chunk_id": "fef647",
+      "wall_time_seconds": 0.000007834,
+      "exit_code": 0,
+      "original_token_count": 96,
+      "output": "{\"path\": \"docs/evidence/appearance-2026-10-19/coupled-garment-executable/ROOT-RESULT-FIRST.json\", \"bytes\": 8265, \"sha256\": \"fa2a25dcd8ef9c952346bf48f58f596ba8d415da2d18ccec2a942ca14e0db2c3\", \"finding\": \"Nonadjacent physical torso and cuff_r:2 (third zero-indexed strip) triangles have a nonzero exact intersection segment; no common vertexIDs. Initial shape refuses before fitting.\"}\n"
+    }
+  },
+  "resultInputSeal": {
+    "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,datetime,os\np=Path('docs/evidence/appearance-2026-10-19/coupled-garment-executable').resolve();out=p.parent/'coupled-garment-first-trial';names=['PLAN.md','CPU-REQUEST.json','INPUTS.json','worker.py','collector.py','exact_geometry.py','SOURCE-REVIEW.md','SOURCE-CRITIC-RECEIPT.json','ROOT-FIRST.json','ROOT-SOURCE.json','ADMISSION.json','ROOT-ACTUAL.json','ROOT-RESULT-FIRST.json','ROOT-RESULT-FIRST.initial.json.txt','TOOL-CPU.json']\npaths=[p/n for n in names]+list(out.iterdir())+[p.parent/'coupled-garment-surface-method'/n for n in ('METHOD.md','ARTIST.json')]\nrows=[]\nfor q in sorted(paths):\n assert q.is_file() and not q.is_symlink();b=q.read_bytes();rows.append({'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})\nr={'kind':'sole-CPU-saved-result-review-inputs','atUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'pins':rows,'nestedImmutableAdmissionPins':192,'ownedSession':19887,'externalReturn':'e2bde6 exit1; positive childwait PID19637 code1; collectorPID19636','noLiveTarget':True,'oneAttemptConsumed':True,'scope':'Read frozen actual files, status and source witnesses. Independent result-only arithmetic permitted; no target/builder/helper import/eval/replay, full new reconstruction, fixture, renderer or successor.','rootOpinion':'ROOT-RESULT-FIRST hash only before critic own judgment; labelprose corrected prehandoff, initial copy preserved.','deadlineUTC':'2026-10-19T23:00:00Z'}\nq=p/'RESULT-INPUTS.json';q.open('x').write(json.dumps(r,indent=2)+'\\n');print(json.dumps({'utc':r['atUTC'],'pid':os.getpid(),'rows':len(rows),'bytes':q.stat().st_size,'sha256':hashlib.sha256(q.read_bytes()).hexdigest(),'allOutputFiles':len(list(out.iterdir()))}))\nPY",
+    "returned": {
+      "chunk_id": "ccaa30",
+      "wall_time_seconds": 0.000007167,
+      "exit_code": 0,
+      "original_token_count": 46,
+      "output": "{\"utc\": \"2026-10-19T22:39:42.011158+00:00\", \"pid\": 22799, \"rows\": 25, \"bytes\": 6972, \"sha256\": \"c148d5f9e187690e0cc52600aca8b8234578e771ef0f4bd27daf7dc67d527618\", \"allOutputFiles\": 8}\n"
+    }
+  },
+  "note": "Source/target unchanged; root result finding prose correction preserved separately before result critic handoff. Root source full semantic read and188 bindings are in TOOL-CPU."
+}

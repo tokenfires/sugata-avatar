@@ -1,0 +1,801 @@
+{
+  "scope": "Read-only source/cache branch closure, not another metadata interpreter entry or proof which bytecode branch executed. No cache changes.",
+  "runtime": "RUNTIME.json/80779b10",
+  "targetMustRequire": "sys.pycache_prefix is None; same isolated/no-site/no-bytecode-write/no-optimization flags; validate source/cache bytes and exact current glob memberships before geometry",
+  "cacheFiles": [
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/__future__.cpython-314.pyc",
+      "bytes": 4855,
+      "sha256": "a9ee8045a279d3a63b4b9f866b5d20a4658f76918af5d44d7b21216b81454b1d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/_colorize.cpython-314.pyc",
+      "bytes": 18594,
+      "sha256": "eb1fdb7f1c7ef37abbf71e8d87bfb880b87129292b0b0d10335216eeba4e8a26"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/_opcode_metadata.cpython-314.pyc",
+      "bytes": 10479,
+      "sha256": "4fad3107819b6f2f4d76974330f2b6d87166e8906cb85c289e619e452b4d085d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/_py_warnings.cpython-314.pyc",
+      "bytes": 37057,
+      "sha256": "c43d60668aa1cbedc455f2f81ff74b51c43e866d08acedf85c0c1b939b592955"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/_weakrefset.cpython-314.pyc",
+      "bytes": 9478,
+      "sha256": "c9102d9d2e3c8dbef718555dc3b60e007e6e48d6e14aa9211065b5f54e7922e4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/annotationlib.cpython-314.pyc",
+      "bytes": 49733,
+      "sha256": "80aab3f51a3be6675feb77e761622a6f72f1155a5a474db5f5010340b204e536"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/ast.cpython-314.pyc",
+      "bytes": 31671,
+      "sha256": "291ca60fa347003e2288d38dafb6fd020f834c63f7a11e2852657c5d22977d8c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/codeop.cpython-314.pyc",
+      "bytes": 7035,
+      "sha256": "c755b1fb2039b976c70e87ea1749aba5e44992ff998954dbeddaf1e4119eb370"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/collections/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 74946,
+      "sha256": "30abf342ea5ee234403dad0441b6ce94827353ea00c3d713731ff11430c8289d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/contextlib.cpython-314.pyc",
+      "bytes": 31213,
+      "sha256": "33dab406a4a59bd49a0f520ea58201938b5449b191c1fc1ac00b0adfe3da38a6"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/copy.cpython-314.pyc",
+      "bytes": 10189,
+      "sha256": "cee1f1cdb1f91a7e64190daf98cf2fc6c5a2749ed08a45e1c5517c99a3575fdd"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/copyreg.cpython-314.pyc",
+      "bytes": 7993,
+      "sha256": "0f49ee751321d156e4d40a947e1b00c1f7300e9b6ecac30674c717a05f25acdf"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ctypes/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 29753,
+      "sha256": "7b13dfde0c891fa6d3f0a513a62c5b8b9a9c779c5c01889f7dbcf20cf3c3c6d4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ctypes/__pycache__/_endian.cpython-314.pyc",
+      "bytes": 3759,
+      "sha256": "fa87248338b3fcc4ae02a814f83fc4c5a5e36e8bc12a0b44240e3e1d6b268db3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/dataclasses.cpython-314.pyc",
+      "bytes": 54969,
+      "sha256": "7219c8e0d1f817903f750109bc1d0ed7c921b15cbddb046000d9e74acc9aab15"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/dis.cpython-314.pyc",
+      "bytes": 54301,
+      "sha256": "386ae08f74f6797a136713c23531ab66c8d169440c5f7bbdca9daddc9e1b52e0"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 6815,
+      "sha256": "85d4014f7708232357024271946787226d14720945bf0d7a9f8564976b766619"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/__pycache__/aliases.cpython-314.pyc",
+      "bytes": 13044,
+      "sha256": "44688b637069b835629a3fb96205324534bd62f62357c75cab5adcb5c6372206"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/__pycache__/utf_8.cpython-314.pyc",
+      "bytes": 2407,
+      "sha256": "86a7b63adf30d53615a76674370b03c8140a32e121175ca209d4ba684211c1e4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/enum.cpython-314.pyc",
+      "bytes": 88103,
+      "sha256": "0d910315dbc8982c833594fe367bccc9a7bf11da2070c1731bc40f10d769952d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/fnmatch.cpython-314.pyc",
+      "bytes": 7939,
+      "sha256": "846448ce4ebab2e5f0cf6fbab209f4715c41bf5c06a4aabb9d1dbed3436ca90f"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/fractions.cpython-314.pyc",
+      "bytes": 41946,
+      "sha256": "4d3e3a70de771b50d1e1e4812c2637d0b44d7f72534616336a72fbb751a5be65"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/functools.cpython-314.pyc",
+      "bytes": 48069,
+      "sha256": "709ea9a27ecbbfa28986fac579a49c5a3927903c8a6ea0960752beb039441b07"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/glob.cpython-314.pyc",
+      "bytes": 26190,
+      "sha256": "c4dc4dae1d458f8a3099440b001a60c260e30069f04ad400bb98f1df47298c7d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/hashlib.cpython-314.pyc",
+      "bytes": 8424,
+      "sha256": "ba09c4b12ad5aa63f7c074c076dd86a7a7d690ce9cf84ff17fe8efa5ba70d591"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/heapq.cpython-314.pyc",
+      "bytes": 18674,
+      "sha256": "841b2830b6616e3e2543c8c2ed2b86e13f233e7694ac1e6dfe1f219f8059e415"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 4692,
+      "sha256": "4c2c0d9f4ff71c17181b9b1bb72b05fd10c90936e965f53a9530e119af24d359"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__pycache__/_abc.cpython-314.pyc",
+      "bytes": 1744,
+      "sha256": "0236068abbd16f6d1da628b6df204f37d4fcca7d94cc8b63d0fd6a67ab1982d1"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/inspect.cpython-314.pyc",
+      "bytes": 139846,
+      "sha256": "89786178aa89cee537c0d4c57ba88521a62ce8dcaf418cc1a1a58afc322b37cf"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 14292,
+      "sha256": "0c48bc31db8055cf25f5f94890349107f7f42a3fad0c7bc8b2d3b5cea805ce58"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__pycache__/decoder.cpython-314.pyc",
+      "bytes": 14548,
+      "sha256": "77773b36011ca3bcc93dbb9c641be5b0f5824bbe5805c536f970fe49a7fc79d9"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__pycache__/encoder.cpython-314.pyc",
+      "bytes": 17104,
+      "sha256": "dbd51b921fb5dcb14327befcd7f7ac82a03e96837ca8eb0d421cce6e12a10658"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__pycache__/scanner.cpython-314.pyc",
+      "bytes": 3619,
+      "sha256": "d1101ce2606ac4615c83dba72e65a3870c7fd676c493638989f7a3a3418cb483"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/keyword.cpython-314.pyc",
+      "bytes": 1608,
+      "sha256": "4e460a885b1d024c25beaf016184476769625dd52eb8987768331a7d884fe673"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/linecache.cpython-314.pyc",
+      "bytes": 9575,
+      "sha256": "0e4c80950361440443ea980aff946a309d952b94b5426249e5b12fe99bd7fbec"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/locale.cpython-314.pyc",
+      "bytes": 65640,
+      "sha256": "46246e6c7b26ab62ee4a9170b07dd99c0341055d1ccf1e7e792eb1cc33cd5f59"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/numbers.cpython-314.pyc",
+      "bytes": 14266,
+      "sha256": "3ac3dfcd8ff9c2dade3abf978190f592e8d8323ced396ec1cef1cb565f06a9be"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/opcode.cpython-314.pyc",
+      "bytes": 4565,
+      "sha256": "5a8f12e299a9812027794aa50691fbeb6308ad00490bc234fa549652d5db5d77"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/operator.cpython-314.pyc",
+      "bytes": 19073,
+      "sha256": "8d5808f7b30d24a0a45d1f5c41954e92f83c1a13889775761c4ff74037f965b5"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 61724,
+      "sha256": "4950edb446a8ae21bd3f70499b1712cd14d860c0474d3094c5600abdbbc3c122"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__pycache__/_os.cpython-314.pyc",
+      "bytes": 22516,
+      "sha256": "5df4651bf25ba75ebfce0d6c41a6ef2eb3b03221f10dedf5fbea5a1495ce5e1a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 20042,
+      "sha256": "7d87571caa927a7b9e23caa44d174576f8f5a10c11e5ab8f80a1294465787c94"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/_casefix.cpython-314.pyc",
+      "bytes": 1885,
+      "sha256": "5104c5c08332215b14de2f11afc9a4f475ea43c268446dfd07bd0750ba7c1c11"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/_compiler.cpython-314.pyc",
+      "bytes": 29740,
+      "sha256": "2d5c3c025171ea1039731fab639f2b85b41a6c38ecc5655044a4fe5be92b8d84"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/_constants.cpython-314.pyc",
+      "bytes": 5700,
+      "sha256": "b57b241752205493dfa0b1d1ff315382ef8e07f814b4566cc9fea8957d0d695b"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/_parser.cpython-314.pyc",
+      "bytes": 45330,
+      "sha256": "bbc62c95ead206e44352ab2f299493c1048d10c99a48aaf5dcdc700f1e2a9329"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/reprlib.cpython-314.pyc",
+      "bytes": 11757,
+      "sha256": "53e8c392c8aca72942d5bef4d7d32a8fce0a9771d38a712a3b639836bb028607"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/selectors.cpython-314.pyc",
+      "bytes": 27136,
+      "sha256": "4d980de1ef6cd505fd23e999cac61b5405d673dc680ff6f2a5e609fd18061fd3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/signal.cpython-314.pyc",
+      "bytes": 4660,
+      "sha256": "51ae7228d156c2b576c09653a28a026ba7dccc822168a5ad4b1075ddd6452d3d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/struct.cpython-314.pyc",
+      "bytes": 404,
+      "sha256": "284938726f8d3954483136bbb4325f1056f348a8b441a760f57c41a4330f9245"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/subprocess.cpython-314.pyc",
+      "bytes": 85030,
+      "sha256": "49e0bdf82ec60f06995936a802eec22f3ff834c36785efc3903fff3ab6764437"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/sysconfig/__pycache__/__init__.cpython-314.pyc",
+      "bytes": 29363,
+      "sha256": "bf7e1894d4bfa15a9d6a25d0a4c181e2e1095ddf6665c12fa52b162d5aa0671b"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/textwrap.cpython-314.pyc",
+      "bytes": 18511,
+      "sha256": "47d591acef068d6b234160752c2481c05f84d741c0bc22ff5197ddf4aadcdef8"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/threading.cpython-314.pyc",
+      "bytes": 66565,
+      "sha256": "bdb402c3bd9654204434bc096f7faa44f38e91c1220b178f9d40c5e866a206aa"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/token.cpython-314.pyc",
+      "bytes": 3951,
+      "sha256": "cd0fcb1412ee366a9096a41f71dbdd5e21bfe45c51fbeec1a8140f1889541356"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/tokenize.cpython-314.pyc",
+      "bytes": 27021,
+      "sha256": "3c954a3d1d1f5ace8fc85fb94aeacb8bf173890a0835ce70544556e93be9b7ea"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/traceback.cpython-314.pyc",
+      "bytes": 78683,
+      "sha256": "86f5dab9d038dc45d682a1e9be81ae4985cda72764587fe4a802069ccdea9b51"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/types.cpython-314.pyc",
+      "bytes": 15918,
+      "sha256": "170b4282ca4bbf5b85a2c1802b17c8f9fd1b0d4663b86a72f9b02537aebbb8ad"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/warnings.cpython-314.pyc",
+      "bytes": 2573,
+      "sha256": "0430493efe06c1d8ef3861e9afefa453d20f70f60acac12f527c2b5b9795d7c4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/weakref.cpython-314.pyc",
+      "bytes": 27696,
+      "sha256": "4e37f9004c2996ac5999c84aa72fbb6374bf10a73b6f1c6d6c5d8c0408ea0988"
+    }
+  ],
+  "branches": [
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__future__.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/__future__.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/__future__.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/_collections_abc.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/_collections_abc.*.pyc",
+      "present": []
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/_colorize.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/_colorize.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/_colorize.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/_bootstrap.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__pycache__/_bootstrap.*.pyc",
+      "present": []
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/_bootstrap_external.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__pycache__/_bootstrap_external.*.pyc",
+      "present": []
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/_opcode_metadata.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/_opcode_metadata.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/_opcode_metadata.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/_py_warnings.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/_py_warnings.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/_py_warnings.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/_weakrefset.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/_weakrefset.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/_weakrefset.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/abc.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/abc.*.pyc",
+      "present": []
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/annotationlib.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/annotationlib.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/annotationlib.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ast.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/ast.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/ast.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/codecs.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/codecs.*.pyc",
+      "present": []
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/codeop.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/codeop.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/codeop.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/collections/__init__.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/collections/__pycache__/__init__.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/collections/__pycache__/__init__.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/contextlib.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/contextlib.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copy.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/copy.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/copy.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copyreg.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/copyreg.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/copyreg.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ctypes/__init__.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ctypes/__pycache__/__init__.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ctypes/__pycache__/__init__.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ctypes/_endian.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ctypes/__pycache__/_endian.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ctypes/__pycache__/_endian.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/dataclasses.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/dataclasses.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/dataclasses.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/dis.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/dis.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/dis.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/__init__.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/__pycache__/__init__.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/__pycache__/__init__.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/aliases.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/__pycache__/aliases.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/__pycache__/aliases.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/utf_8.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/__pycache__/utf_8.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/__pycache__/utf_8.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/enum.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/enum.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/enum.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/fnmatch.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/fnmatch.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/fnmatch.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/fractions.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/fractions.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/fractions.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/functools.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/functools.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/functools.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/genericpath.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/genericpath.*.pyc",
+      "present": []
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/glob.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/glob.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/glob.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/hashlib.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/hashlib.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/hashlib.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/heapq.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/heapq.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/heapq.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__init__.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__pycache__/__init__.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__pycache__/__init__.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/_abc.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__pycache__/_abc.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__pycache__/_abc.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/machinery.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__pycache__/machinery.*.pyc",
+      "present": []
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/util.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__pycache__/util.*.pyc",
+      "present": []
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/inspect.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/inspect.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/inspect.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/io.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/io.*.pyc",
+      "present": []
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__pycache__/__init__.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__pycache__/__init__.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__pycache__/decoder.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__pycache__/decoder.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/encoder.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__pycache__/encoder.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__pycache__/encoder.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/scanner.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__pycache__/scanner.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__pycache__/scanner.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/keyword.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/keyword.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/keyword.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/linecache.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/linecache.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/linecache.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/locale.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/locale.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/locale.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ntpath.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/ntpath.*.pyc",
+      "present": []
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/numbers.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/numbers.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/numbers.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/opcode.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/opcode.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/opcode.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/operator.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/operator.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/operator.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/os.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/os.*.pyc",
+      "present": []
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/posixpath.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/posixpath.*.pyc",
+      "present": []
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__pycache__/__init__.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__pycache__/__init__.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/_os.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__pycache__/_os.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__pycache__/_os.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__init__.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/__init__.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/__init__.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/_casefix.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/_casefix.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/_casefix.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/_compiler.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/_compiler.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/_compiler.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/_constants.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/_constants.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/_constants.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/_parser.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/_parser.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__pycache__/_parser.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/reprlib.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/reprlib.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/reprlib.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/selectors.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/selectors.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/selectors.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/signal.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/signal.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/signal.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/stat.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/stat.*.pyc",
+      "present": []
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/struct.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/struct.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/struct.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/subprocess.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/subprocess.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/sysconfig/__init__.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/sysconfig/__pycache__/__init__.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/sysconfig/__pycache__/__init__.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/textwrap.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/textwrap.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/textwrap.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/threading.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/threading.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/threading.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/token.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/token.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/token.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/tokenize.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/tokenize.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/tokenize.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/traceback.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/traceback.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/traceback.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/types.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/types.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/types.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/warnings.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/warnings.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/warnings.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/weakref.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/weakref.*.pyc",
+      "present": [
+        "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/weakref.cpython-314.pyc"
+      ]
+    },
+    {
+      "source": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/zipimport.py",
+      "cacheGlob": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__pycache__/zipimport.*.pyc",
+      "present": []
+    }
+  ],
+  "combinedModuleAndCacheFiles": 146,
+  "totalRuntimeAndCacheReadBytes": 15583927
+}

@@ -1,0 +1,92 @@
+{
+  "kind": "root-independent-executable-source-first",
+  "atUTC": "2026-10-19T22:28:52.440034+00:00",
+  "status": "CONDITIONAL preparation worth; no CPU admission",
+  "sealedBeforeCompleteCriticSourceHandoff": true,
+  "actualWholeReads": [
+    {
+      "tool": "4ed06c",
+      "scope": "PLAN and whole collector 197 lines before bookkeeping final diff"
+    },
+    {
+      "tool": "b97a5b",
+      "scope": "whole 270-line exact_geometry.py"
+    },
+    {
+      "tool": "daa5bd",
+      "scope": "worker lines1-320"
+    },
+    {
+      "tool": "117652",
+      "scope": "worker321-627 including main and refusal; tail separately whole 4bd438"
+    },
+    {
+      "tool": "bea850",
+      "scope": "whole unchanged METHOD"
+    },
+    {
+      "tool": "805f5f",
+      "scope": "whole ARTIST"
+    }
+  ],
+  "sourceRows": [
+    {
+      "file": "worker.py",
+      "bytes": 38497,
+      "sha256": "ddefbe1fac1434e70a52002ae5c2624d79864727a15e47d1a114dd2fd366aff9"
+    },
+    {
+      "file": "collector.py",
+      "bytes": 11740,
+      "sha256": "d3a3c0cdad3727aceff567b0473d8484342f6f06041445f0e53954cbc3f861fd"
+    },
+    {
+      "file": "exact_geometry.py",
+      "bytes": 11512,
+      "sha256": "6ad6f32a875457c7c0f54d09dac702bcd0c2ad0989fb91b2e807053a188b9f33"
+    }
+  ],
+  "reasoning": [
+    "New topology and exact metric literals correspond to reviewed METHOD/ARTIST. Every source owner/triangle remains; all corner occurrences and original points guide a frozen-state Jacobi sweep, with independent rational complete triangle gap, embedding, cap and parity acceptance.",
+    "Finite process responsibility is one owned Popen child; nonblocking bounded streams, absolute600s, cooperative Darwin RSS2GiB, terminate2s/kill/finalwait2s. Unknown status/EOF/final output evidence never qualifies. No group/search/helper worker.",
+    "Before the first complete review, final inert bookkeeping adds evaluated/pruned acceptance counts and catches owner-close errors so they cannot bypass final inventory. Draft exact copies/diff retained; no method/gain/topology/threshold/budget change.",
+    "Metadata probe first stopped on an undeclared total-image300 guard. Narrow independent/root A reviewed literal4096 correction, with all declared300module/150nonOS/256MiB caps unchanged. Exactly one correctedmetadata run succeeded; all facts/pins retained, no runtime or target rescue.",
+    "Source syntax only is checked, not imported/evaluated. No self-authored fixture run or numerical claim. Complete review may uncover mistakes; this root opinion is not an independent proof or assurance of runtime/geometry success."
+  ],
+  "risksAndAlternatives": [
+    {
+      "witness": "METHOD sections3/6 and WORKLOAD-COUNTS, new worker capped_surface before solve",
+      "explanation": "Initializer may intersect before solving; source cost cap allows only5.741leaf tests/query average. Neither feasibility nor CPU runtime is established.",
+      "alternatives": [
+        {
+          "choice": "One unchanged separately admitted600s CPU trial if full source review A",
+          "tradeoff": "Answers actual initialization/fit/cost question at bounded resource cost; any failure closes method without rescue."
+        },
+        {
+          "choice": "Retain source/artist guides without execution",
+          "tradeoff": "Avoids target cost but leaves the proposed geometry question unanswered."
+        }
+      ]
+    },
+    {
+      "witness": "collector stop_owned_child/main and Apple getrusage/subprocess references",
+      "explanation": "RSS is self-observed high-water, process creation/kernel I/O is not hard realtime and durable failure records may be unavailable on filesystem/host failure.",
+      "alternatives": [
+        {
+          "choice": "Accept explicit cooperative/unknown evidence limits for one bounded CPUtrial",
+          "tradeoff": "Concrete positive status and rootactualinventory qualify only completed evidence, not crash-proof enforcement."
+        },
+        {
+          "choice": "Decline execution if strict OS resource/failure durability is required",
+          "tradeoff": "No false hard-bound claim; no alternateobserver/generalharness automatically admitted."
+        }
+      ]
+    }
+  ],
+  "noAdmissionPaths": [
+    "ADMISSION.json",
+    "../coupled-garment-first-trial"
+  ],
+  "next": "Independent whole-source/resource review and explicit worth decision; if B/unknown close exact packet, no repair. If A root independently verifies handoff before any separate CPU gate. Deadline23:00UTC unchanged.",
+  "sealingPID": 2727
+}

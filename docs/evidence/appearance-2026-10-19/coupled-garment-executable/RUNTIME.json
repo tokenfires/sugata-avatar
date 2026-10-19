@@ -1,0 +1,2098 @@
+{
+  "kind": "metadata_only_fixed_standard_library_import_inventory",
+  "utc": "2026-10-19T22:07:58Z",
+  "pid": 63271,
+  "executable": {
+    "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+    "bytes": 34640,
+    "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+  },
+  "version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "flags": "sys.flags(debug=0, inspect=0, interactive=0, optimize=0, dont_write_bytecode=1, no_user_site=1, no_site=1, ignore_environment=1, verbose=0, bytes_warning=0, quiet=0, hash_randomization=1, isolated=1, dev_mode=False, utf8_mode=0, warn_default_encoding=0, safe_path=True, int_max_str_digits=4300)",
+  "platform": "darwin",
+  "uname": [
+    "Darwin",
+    "Roberts-MacBook-Pro.local",
+    "27.0.0",
+    "Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:40 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6050",
+    "arm64"
+  ],
+  "modules": [
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/__future__.py",
+      "bytes": 5218,
+      "sha256": "981d4c398849f9ebcab72300d9c1fe288fd6d7f28957b3b3fa3a493a5836d95c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_blake2.cpython-314-darwin.so",
+      "bytes": 72048,
+      "sha256": "1b3f3b2382457e9e97b0a7073c3b8ab4e01ec441b8f7ed5f69d5ee320f7c58ae"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/_collections_abc.py",
+      "bytes": 32147,
+      "sha256": "50b68b76687edc29824e5d735914b9c9ebb5145b663ba4ab7fce273283356a1c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/_colorize.py",
+      "bytes": 11031,
+      "sha256": "15db41bec8e25fd1ba81cf234df2cc7446d0fbc10285fda73186176365efd730"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_ctypes.cpython-314-darwin.so",
+      "bytes": 162624,
+      "sha256": "81a01f368a195bd723b1437eacf72a0f0ea53ce8c966cf413334ff52a25fadf8"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/_bootstrap.py",
+      "bytes": 57937,
+      "sha256": "e50d35b1191ecbc5f7faecc73f54efd242bcf24c510e4ea5eb64bfba9458c0e3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/_bootstrap_external.py",
+      "bytes": 57685,
+      "sha256": "b9af1fb7b625030cf5ee06b39aeb7838c2a30c97ddee09410286b7afbd8b7098"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_hashlib.cpython-314-darwin.so",
+      "bytes": 80448,
+      "sha256": "9ba56f3cc87814c60b43be78cd551c4c253dc6695ac13a10d651439e952a119d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_heapq.cpython-314-darwin.so",
+      "bytes": 52224,
+      "sha256": "5a78675310efa537051896eac04fc6575d181a5444796c7280049821b52eb33b"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_json.cpython-314-darwin.so",
+      "bytes": 72912,
+      "sha256": "e8c918a8ff00e81da1143f1f2d0b20f980d99aa7fbb14e18b4b16f743662616c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/_opcode_metadata.py",
+      "bytes": 10115,
+      "sha256": "d9badc5ab19a66415e230bf8f4299491b2207d584981a92b6e7c447cfa1aeac3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_posixsubprocess.cpython-314-darwin.so",
+      "bytes": 54784,
+      "sha256": "08d921c33ad5e007549dbe3d3e4ab94a108377fb8defa30ab4e945186844e6b3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/_py_warnings.py",
+      "bytes": 30631,
+      "sha256": "7728580177727fa3b295478cef4777a9d2a364c5cbd809efcea352db31144f85"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_struct.cpython-314-darwin.so",
+      "bytes": 77888,
+      "sha256": "f1fc558b748eb2752643853b9d7428e84f1fb248276859675912e6287583cb88"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/_weakrefset.py",
+      "bytes": 3962,
+      "sha256": "2dd7cb459d654fe78b00c5c47ee8e786c037ee77763304603f5e976dd62cbf81"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/abc.py",
+      "bytes": 6538,
+      "sha256": "e558702a95cdce3febd289da021715d2b92bc43995b8a1bc58dfa1c3d8010287"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/annotationlib.py",
+      "bytes": 44420,
+      "sha256": "1cce29393714b91e3f71571ffbedacc7f73f11ad26be10701debeb86ec059a32"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ast.py",
+      "bytes": 25479,
+      "sha256": "5ea9a796353544bea0d706153516f04ef3d92be305d15a73238403837d77e34c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/codecs.py",
+      "bytes": 36840,
+      "sha256": "718f39b3ea68fe934214d789c5bce3005fa828040b03a72d2f715fc5e2647b7e"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/codeop.py",
+      "bytes": 5902,
+      "sha256": "6777d19fa0f88c415d615c78e214ede057dd7507db8494744ca2c53fe9911a3a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/collections/__init__.py",
+      "bytes": 53021,
+      "sha256": "cb8367b8edd188662143ea2e3942d360c2deae51c72fd779ec898f5076d2c2b9"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py",
+      "bytes": 27801,
+      "sha256": "c1e0d67b2007de11ae93cd36cf6faf38d9ab32656a832d592a49325eec579f96"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copy.py",
+      "bytes": 8582,
+      "sha256": "15154fde290d6e65b5007905689a47a9a5a724822c5e06eec35d9ffbb2a3aa69"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copyreg.py",
+      "bytes": 7716,
+      "sha256": "6376eb5722806396f5842997ac18add369ea9ac3ff4fcfe1460c41a088cac425"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ctypes/__init__.py",
+      "bytes": 22131,
+      "sha256": "72f2df568380c275a5596944810953124ff2ee8d678c5f8ddcf50f0f77577eb3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ctypes/_endian.py",
+      "bytes": 2557,
+      "sha256": "499773a028a41ee18153fedfe0a00a26efb2a650f568b9bc17e2f3a914a23468"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/dataclasses.py",
+      "bytes": 71537,
+      "sha256": "e8439c8b111856645a8b31e0dbbba532b494426399bad456079c0e5730ad322e"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/dis.py",
+      "bytes": 45533,
+      "sha256": "17d4d9a9195c9ee5aa27a96f3e0871f9363fd501e3a64ef20cb1cc876d7ad553"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/__init__.py",
+      "bytes": 5945,
+      "sha256": "2b708410495acf12a6fad9d2de928dd89e567537c253eaa2b51aaae578e96c59"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/aliases.py",
+      "bytes": 16255,
+      "sha256": "1ee993f8eb4986999b6501381e53947be9a04443626cb48b4190bcff2e87d3b4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/encodings/utf_8.py",
+      "bytes": 1005,
+      "sha256": "ba0cac060269583523ca9506473a755203037c57d466a11aa89a30a5f6756f3d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/enum.py",
+      "bytes": 85450,
+      "sha256": "fd23a7598fa1104ef892abcd4154d3627283e6361eb7a91cd11dc4a7b6fb3a93"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/fcntl.cpython-314-darwin.so",
+      "bytes": 53120,
+      "sha256": "c070d2c291d780fe3cb486852ec1a61305d8faeb13132e989cd1e269f51e5f7c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/fnmatch.py",
+      "bytes": 6791,
+      "sha256": "ce582bc266922e4c682e2a85d72095124430a6bf58716c6f2537103480eae742"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/fractions.py",
+      "bytes": 41453,
+      "sha256": "7a95f1c506c9ac4b2277df5f2bdd9d61cc67b520c45021a5a961939770221ef6"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/functools.py",
+      "bytes": 43564,
+      "sha256": "9db56d38172c4c9e689b21cc58c8538008b09d86b682faf4dd193b529cdd79d5"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/genericpath.py",
+      "bytes": 6247,
+      "sha256": "cdac5a68dd738051e0d66fc81d5947d6a1776248fc6fe862253477608d870ec4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/glob.py",
+      "bytes": 20775,
+      "sha256": "21d290be171e3d0643a444e4b58a2c4ee9bfe2c1474bb36ead043794bb769365"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/grp.cpython-314-darwin.so",
+      "bytes": 53216,
+      "sha256": "b686bdc0a117f83b73a2ca8073a1d98c12d586214850f6bb579ccb9cea6700b7"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/hashlib.py",
+      "bytes": 9459,
+      "sha256": "88fa624821fbdee7eb2ef87c2437b207afe328cf117c7463367e2db5eb1af492"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/heapq.py",
+      "bytes": 23440,
+      "sha256": "f2d644de141a488db66fc13608a794ef5f2d33162299f6751ea92c3cb0b4c9ea"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__init__.py",
+      "bytes": 4767,
+      "sha256": "72b07de4133a7e39b2f6a7920465669aa04626f217e800779587bc0713fe002e"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/_abc.py",
+      "bytes": 1354,
+      "sha256": "80aab7931dc999dee581c8b8b56fcd973fe156335a96ceeaf6acfc03cebf10e8"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/machinery.py",
+      "bytes": 2166,
+      "sha256": "34b7583fd83ebb2629b7645c0dd293839ce16b19cf8742801e21a21fe08f5811"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/util.py",
+      "bytes": 11414,
+      "sha256": "7bdfadad42664ba169ffac8160765673cd79937f74324f4664de8d820c35b863"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/inspect.py",
+      "bytes": 127725,
+      "sha256": "7a2878507255eb568a6ecfa04e051009f197513aa052eebc9e7e60d667d78cb4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/io.py",
+      "bytes": 4736,
+      "sha256": "1b75584d4efcc612dc0db2ae98619408276585a106f0544879edb5e25b55430a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py",
+      "bytes": 14132,
+      "sha256": "2dd10f1bf4c9ea5478e589216805e7f279d0e4bce134a19efa297404fb87407d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/decoder.py",
+      "bytes": 12877,
+      "sha256": "dc98d3e677612ea7311303f06a144cec6b91ebadc7ec037d1777501647578a07"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/encoder.py",
+      "bytes": 16990,
+      "sha256": "d68a4d04d2cfd95897498307f29349058b42c3f48ea6aa6739714a09200a7d01"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/scanner.py",
+      "bytes": 2434,
+      "sha256": "572958017eae8842eeddd0e3d18d3c56cc0a197348224915e1d87ce937841764"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/keyword.py",
+      "bytes": 1073,
+      "sha256": "18c2be738c04ad20ad375f6a71db34b3823c7f40b0340f5294d0e89f3c9b093b"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/linecache.py",
+      "bytes": 8044,
+      "sha256": "692daec68e2a419adf46bafc0eb2f8a2fb36c482183fa1ac47e00fec440f7d7e"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/locale.py",
+      "bytes": 87190,
+      "sha256": "f2e390ebde2bb52eabcf6d444a6a2e758749f3aa82c61427cbb053332fac56b2"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/math.cpython-314-darwin.so",
+      "bytes": 93488,
+      "sha256": "9e9d2234227db176be37042bc1c2506902c4c2edfeac05424b803928755ae33a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ntpath.py",
+      "bytes": 30905,
+      "sha256": "bf16566322f41f7052b7516fb684b2d64a437b39f5bbd21731b1bda1697d1a2e"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/numbers.py",
+      "bytes": 11769,
+      "sha256": "e5e73beba4a7674bd5e9a881a202d403a0c3e2b59af4181699155ea4827a7561"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/opcode.py",
+      "bytes": 3152,
+      "sha256": "1036d90c917bb27c540ac3205d22896ee747214df1f2682458ab915758e4fdf2"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/operator.py",
+      "bytes": 11158,
+      "sha256": "a9f9910965c31f841caad0447ee47299ac539a371422aefe200c86c60f3b4697"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/os.py",
+      "bytes": 41958,
+      "sha256": "976bdb3e24925f2fb3ce43a4d788de6dcbb88a7cc8604c60ae690fbdd6507546"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/posixpath.py",
+      "bytes": 18813,
+      "sha256": "8a5bc2b6674e76efe0f507b873a41d746beba466a191153ed18a7580ef6e08e1"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py",
+      "bytes": 46807,
+      "sha256": "042a4d0a5e1ef66778daa86dc269af205bd42d06e793e53d8b99dff4c45928ca"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/_os.py",
+      "bytes": 18161,
+      "sha256": "61e844988e54bdf47c0b11ad2b3fd961f058bb370793428f4c6868bd40cab6f2"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/__init__.py",
+      "bytes": 17876,
+      "sha256": "741a9de729ed8207bfa19db990f8826f1bf3661f33d0970a80c08cd1338ebc35"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/_casefix.py",
+      "bytes": 5444,
+      "sha256": "1b12d9136f23db6c3f6f26053fefc15ca964b886838c7b9c1fabf8d2efc1e5c8"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/_compiler.py",
+      "bytes": 26855,
+      "sha256": "d49f30cf9a1dbae33b200ed8befd9d0ce3ac612783a10ac35196536f98923e91"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/_constants.py",
+      "bytes": 6036,
+      "sha256": "42253b3181b81aad6c46392f44a0ab26dcfa31feea411296f43ba16616a1ab0b"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/re/_parser.py",
+      "bytes": 40353,
+      "sha256": "e57bd194a2d42398355ae7c1ccc2ddfb78421dd431eb81e3809dbe8ca9057dc4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/reprlib.py",
+      "bytes": 8064,
+      "sha256": "b04872e10d76252e44eae50cc785eb0fe478491afc4d7f0825a93f82b2eaba5f"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/resource.cpython-314-darwin.so",
+      "bytes": 53312,
+      "sha256": "e58977e653c80b8759141ad7d283e2221e2953bff8ba3c9b5c1a8a1c885da467"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/select.cpython-314-darwin.so",
+      "bytes": 74992,
+      "sha256": "3a36b9beb6d83f33918169a63fcf920349fc8b476e9c4d7a6c47e548018eef2b"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/selectors.py",
+      "bytes": 19457,
+      "sha256": "4b8a60cfbb619d080f87dffe1578372e56e8c0ac826f043224a154cf7b77606d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/signal.py",
+      "bytes": 2495,
+      "sha256": "0363c964c90ac0b3e515de5749205e6e6454051a1211058375d84d91eab6071a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/stat.py",
+      "bytes": 6308,
+      "sha256": "07217986d9b2172b509dab3578d18ac05ba768b418e1f1e8c90e38a8f7c2b3c6"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/struct.py",
+      "bytes": 285,
+      "sha256": "50c14e55f94957804c1e45e975fedbe8e86f7e1dbb745b150370ff681155370a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py",
+      "bytes": 90732,
+      "sha256": "6628ffdd65c093a6c08cae01ffe82877d3ced515aac9e7be0cff16512c30a7d9"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/sysconfig/__init__.py",
+      "bytes": 29764,
+      "sha256": "d5ec49f0273b662e73a54d6c9b768e998266198b34f3625ee7211859d0fbea06"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/textwrap.py",
+      "bytes": 19382,
+      "sha256": "7f05d89c983f5aa8cefcff707a9cc561ed60c51fc8a68e2e3ab61cc6dfa84544"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/threading.py",
+      "bytes": 56923,
+      "sha256": "5323909624ec2165e70b6d31333e4191b63d383d2dc5a7d7d516a3475ea2b7e3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/token.py",
+      "bytes": 2584,
+      "sha256": "61d4270311099c8a0c0b2e45fb363fd1c4e347a720bcc25f682b63dc28c34234"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/tokenize.py",
+      "bytes": 21849,
+      "sha256": "65ba1bacdc42e768382208ff27f3001ee77d9d61aafba686c67652d22b84b330"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/traceback.py",
+      "bytes": 70064,
+      "sha256": "a8fbeea470aa4e29691560de889de136570bead76d9c8a2b6a891849c047a3b3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/types.py",
+      "bytes": 11464,
+      "sha256": "8c54d3d5ffc1d1204237e6c69b25c27c7b05b483128f185eeed9ba7ef2229ac2"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/warnings.py",
+      "bytes": 1966,
+      "sha256": "142225786de63c593f1c9abdacf5b4fc0b05dd847f6bed0ebb4b4aa2d4d93b02"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/weakref.py",
+      "bytes": 17771,
+      "sha256": "5e5f727a19a858cb4c56dbaf3e0a138ded02fb954a9a58a840a0764216ae9522"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/zipimport.py",
+      "bytes": 33466,
+      "sha256": "4de64633a484e16c39fdb46a3f939ce7c577b14a6e9ee49b79871ec1880b4597"
+    }
+  ],
+  "nonSystemImages": [
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python",
+      "bytes": 33568,
+      "sha256": "e89d60f8ccee9db684801330198797723db2ac378cd53e5cfe523128feb76599"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Python",
+      "bytes": 5452528,
+      "sha256": "b112695af23f5e46d84a7c4ef6057603b70b94aacc32e9d548808c2875759d47"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_ctypes.cpython-314-darwin.so",
+      "bytes": 162624,
+      "sha256": "81a01f368a195bd723b1437eacf72a0f0ea53ce8c966cf413334ff52a25fadf8"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_struct.cpython-314-darwin.so",
+      "bytes": 77888,
+      "sha256": "f1fc558b748eb2752643853b9d7428e84f1fb248276859675912e6287583cb88"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/math.cpython-314-darwin.so",
+      "bytes": 93488,
+      "sha256": "9e9d2234227db176be37042bc1c2506902c4c2edfeac05424b803928755ae33a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_hashlib.cpython-314-darwin.so",
+      "bytes": 80448,
+      "sha256": "9ba56f3cc87814c60b43be78cd551c4c253dc6695ac13a10d651439e952a119d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/openssl@3/3.6.4/lib/libcrypto.3.dylib",
+      "bytes": 4872736,
+      "sha256": "bae675614cd791d37ec35416ea9f87edcc85407d020810504cf458119b63522c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_blake2.cpython-314-darwin.so",
+      "bytes": 72048,
+      "sha256": "1b3f3b2382457e9e97b0a7073c3b8ab4e01ec441b8f7ed5f69d5ee320f7c58ae"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_heapq.cpython-314-darwin.so",
+      "bytes": 52224,
+      "sha256": "5a78675310efa537051896eac04fc6575d181a5444796c7280049821b52eb33b"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_json.cpython-314-darwin.so",
+      "bytes": 72912,
+      "sha256": "e8c918a8ff00e81da1143f1f2d0b20f980d99aa7fbb14e18b4b16f743662616c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/grp.cpython-314-darwin.so",
+      "bytes": 53216,
+      "sha256": "b686bdc0a117f83b73a2ca8073a1d98c12d586214850f6bb579ccb9cea6700b7"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/fcntl.cpython-314-darwin.so",
+      "bytes": 53120,
+      "sha256": "c070d2c291d780fe3cb486852ec1a61305d8faeb13132e989cd1e269f51e5f7c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/resource.cpython-314-darwin.so",
+      "bytes": 53312,
+      "sha256": "e58977e653c80b8759141ad7d283e2221e2953bff8ba3c9b5c1a8a1c885da467"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/select.cpython-314-darwin.so",
+      "bytes": 74992,
+      "sha256": "3a36b9beb6d83f33918169a63fcf920349fc8b476e9c4d7a6c47e548018eef2b"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_posixsubprocess.cpython-314-darwin.so",
+      "bytes": 54784,
+      "sha256": "08d921c33ad5e007549dbe3d3e4ab94a108377fb8defa30ab4e945186844e6b3"
+    }
+  ],
+  "trustedSystemImages": [
+    {
+      "path": "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libobjc.A.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/CoreServicesInternal.framework/Versions/A/CoreServicesInternal",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/liboah.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libfakelink.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libicucore.A.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libSystem.B.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/SoftLinking.framework/Versions/A/SoftLinking",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libc++abi.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libRosetta.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libc++.1.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libcache.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libcommonCrypto.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libcompiler_rt.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libcopyfile.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libcorecrypto.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libdispatch.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libdyld.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libkeymgr.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libmacho.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libquarantine.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libremovefile.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_asl.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_blocks.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_c.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_collections.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_configuration.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_containermanager.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_coreservices.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_darwin.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_darwindirectory.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_dnssd.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_eligibility.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_featureflags.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_info.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_m.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_malloc.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_networkextension.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_notify.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_sandbox.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_sanitizers.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_secinit.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_kernel.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_platform.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_pthread.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_symptoms.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_trace.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libsystem_trial.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libunwind.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libxpc.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Security.framework/Versions/A/Security",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/DiskImages.framework/Versions/A/DiskImages",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/NetFS.framework/Versions/A/NetFS",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CFNetwork.framework/Versions/A/CFNetwork",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/FSEvents",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Metadata",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/OSServices.framework/Versions/A/OSServices",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SearchKit.framework/Versions/A/SearchKit",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/AE.framework/Versions/A/AE",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/DictionaryServices.framework/Versions/A/DictionaryServices",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SharedFileList.framework/Versions/A/SharedFileList",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libapple_nghttp2.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libcompression.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libsqlite3.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libz.1.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Network.framework/Versions/A/Network",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libDiagnosticMessagesClient.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libenergytrace.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libbsm.0.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/system/libkxld.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AppleKeyStore.framework/Versions/A/AppleKeyStore",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libCoreEntitlements.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libTLE.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/MessageSecurity.framework/Versions/A/MessageSecurity",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/ProtocolBuffer.framework/Versions/A/ProtocolBuffer",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/SymptomDiagnosticReporter.framework/Versions/A/SymptomDiagnosticReporter",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/CrashReporterSupport.framework/Versions/A/CrashReporterSupport",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/CoreAnalytics.framework/Versions/A/CoreAnalytics",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/CoreTime.framework/Versions/A/CoreTime",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libMobileGestalt.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AppleFSCompression.framework/Versions/A/AppleFSCompression",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libcoretls.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libcoretls_cfhelpers.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libpam.2.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libxar.1.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/NSPredicateSecurityPolicy.framework/Versions/A/NSPredicateSecurityPolicy",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/CoreAutoLayout.framework/Versions/A/CoreAutoLayout",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/DiskArbitration.framework/Versions/A/DiskArbitration",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libarchive.2.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libxml2.2.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/liblangid.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Combine.framework/Versions/A/Combine",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/CollectionsInternal.framework/Versions/A/CollectionsInternal",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/ReflectionInternal.framework/Versions/A/ReflectionInternal",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/RuntimeInternal.framework/Versions/A/RuntimeInternal",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftCore.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftCoreFoundation.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftDarwin.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftDispatch.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftIOKit.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftObjectiveC.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftObservation.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftSynchronization.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftSystem.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftXPC.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswift_Builtin_float.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswift_Concurrency.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswift_DarwinFoundation1.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswift_StringProcessing.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftos.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AppleSystemInfo.framework/Versions/A/AppleSystemInfo",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/ConnectedMode.framework/Versions/A/ConnectedMode",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/SwiftData.framework/Versions/A/SwiftData",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libboringssl.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libdns_services.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libquic.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libusrtcp.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AtomicsInternal.framework/Versions/A/AtomicsInternal",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/InternalSwiftProtobuf.framework/Versions/A/InternalSwiftProtobuf",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftDistributed.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libswiftPrespecialized.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreData.framework/Versions/A/CoreData",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/FeatureFlags.framework/Versions/A/FeatureFlags",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/liblzma.5.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/IOMobileFramebuffer.framework/Versions/A/IOMobileFramebuffer",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/IOSurface.framework/Versions/A/IOSurface",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswift_DarwinFoundation2.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswift_DarwinFoundation3.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswift_RegexParser.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libbz2.1.0.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libiconv.2.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libcharset.1.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/APFS.framework/Versions/A/APFS",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/SwiftASN1Internal.framework/Versions/A/SwiftASN1Internal",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libutil.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libheimdal-asn1.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AppleSauce.framework/Versions/A/AppleSauce",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/OSAnalytics.framework/Versions/A/OSAnalytics",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/DeviceRecovery.framework/Versions/A/DeviceRecovery",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/CoreSymbolication.framework/Versions/A/CoreSymbolication",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/Symbolication.framework/Versions/A/Symbolication",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/DebugSymbols.framework/Versions/A/DebugSymbols",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libAppleArchive.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/MallocStackLogging.framework/Versions/A/MallocStackLogging",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libCheckFix.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/TCC.framework/Versions/A/TCC",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/CoreNLP.framework/Versions/A/CoreNLP",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/MetadataUtilities.framework/Versions/A/MetadataUtilities",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libmecab.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libCRFSuite.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libgermantok.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libThaiTokenizer.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vImage.framework/Versions/A/vImage",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/vecLib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvMisc.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/ColorSync.framework/Versions/A/ColorSync",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreText.framework/Versions/A/CoreText",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/SkyLight.framework/Versions/A/SkyLight",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/FontServices.framework/libFontParser.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/BiomeLibrary.framework/Versions/A/BiomeLibrary",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/BaseBoard.framework/Versions/A/BaseBoard",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/BoardServices.framework/Versions/A/BoardServices",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/BackBoardServices.framework/Versions/A/BackBoardServices",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/BackBoardHIDEventFoundation.framework/Versions/A/BackBoardHIDEventFoundation",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreDisplay.framework/Versions/A/CoreDisplay",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/VideoToolbox.framework/Versions/A/VideoToolbox",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/MetalPerformanceShaders",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/ProDisplayLibrary.framework/Versions/A/ProDisplayLibrary",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/IOSurfaceAccelerator.framework/Versions/A/IOSurfaceAccelerator",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/RunningBoardServices.framework/Versions/A/RunningBoardServices",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Metal.framework/Versions/A/Metal",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/IOAccelerator.framework/Versions/A/IOAccelerator",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreMedia.framework/Versions/A/CoreMedia",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libSMC.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/WatchdogClient.framework/Versions/A/WatchdogClient",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/MultitouchSupport.framework/Versions/A/MultitouchSupport",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/BackBoardHIDTouchEventProcessor.framework/Versions/A/BackBoardHIDTouchEventProcessor",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/Gestures.framework/Versions/A/Gestures",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftAccelerate.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftCoreAudio.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftMetal.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftOSLog.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftQuartzCore.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftUniformTypeIdentifiers.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftsimd.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/BiomeStreams.framework/Versions/A/BiomeStreams",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/BiomeStorage.framework/Versions/A/BiomeStorage",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/BiomeFoundation.framework/Versions/A/BiomeFoundation",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/IntelligencePlatformLibrary.framework/Versions/A/IntelligencePlatformLibrary",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/PoirotSchematizer.framework/Versions/A/PoirotSchematizer",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/BiomeSync.framework/Versions/A/BiomeSync",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/BiomeDSL.framework/Versions/A/BiomeDSL",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/BiomePubSub.framework/Versions/A/BiomePubSub",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/LoggingSupport.framework/Versions/A/LoggingSupport",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/ProactiveSupport.framework/Versions/A/ProactiveSupport",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/PoirotUDFs.framework/Versions/A/PoirotUDFs",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/MobileAsset.framework/Versions/A/MobileAsset",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/MobileKeyBag.framework/Versions/A/MobileKeyBag",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/InternationalTextSearch.framework/Versions/A/InternationalTextSearch",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/SoftwareUpdateCoreSupport.framework/Versions/A/SoftwareUpdateCoreSupport",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/SoftwareUpdateCoreConnect.framework/Versions/A/SoftwareUpdateCoreConnect",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/StreamingZip.framework/Versions/A/StreamingZip",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/RemoteServiceDiscovery.framework/Versions/A/RemoteServiceDiscovery",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/MSUDataAccessor.framework/Versions/A/MSUDataAccessor",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libbootpolicy.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/UserManagement.framework/Versions/A/UserManagement",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libpartition2_dynamic.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/RemoteXPC.framework/Versions/A/RemoteXPC",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libFDR.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libamsupport.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libReverseProxyDevice.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AppleDeviceQuerySupport.framework/Versions/A/AppleDeviceQuerySupport",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AggregateDictionary.framework/Versions/A/AggregateDictionary",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/PoirotSQLite.framework/Versions/A/PoirotSQLite",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/CascadeSets.framework/Versions/A/CascadeSets",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AppSupport.framework/Versions/A/AppSupport",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/CorePhoneNumbers.framework/Versions/A/CorePhoneNumbers",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AppleJPEG.framework/Versions/A/AppleJPEG",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libexpat.1.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libPng.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libTIFF.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libGIF.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJP2.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libate.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJPEG.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libRadiance.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftRegexBuilder.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/libllvm-flatbuffers.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/FramePacing.framework/Versions/A/FramePacing",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreFSCache.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/libGPUCompilerUtils.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/UniformTypeIdentifiers.framework/Versions/A/UniformTypeIdentifiers",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/ExtensionFoundation",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AppServerSupport.framework/Versions/A/AppServerSupport",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/OSEligibility.framework/Versions/A/OSEligibility",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/LightweightCodeRequirements.framework/Versions/A/LightweightCodeRequirements",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/PlugInKit.framework/Versions/A/PlugInKit",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AssertionServices.framework/Versions/A/AssertionServices",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/OpenGL.framework/Versions/A/OpenGL",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLU.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGFXShared.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLImage.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCVMSPluginSupport.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreVMClient.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/OSLog.framework/Versions/A/OSLog",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreImage.framework/Versions/A/CoreImage",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/ASEProcessing.framework/Versions/A/ASEProcessing",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/PhotosensitivityProcessing.framework/Versions/A/PhotosensitivityProcessing",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/TimeSync.framework/Versions/A/TimeSync",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AppleMSG.framework/Versions/A/AppleMSG",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/SILManager.framework/Versions/A/SILManager",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/GraphVisualizer.framework/Versions/A/GraphVisualizer",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/FontServices.framework/Versions/A/FontServices",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/OTSVG.framework/Versions/A/OTSVG",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/Resources/libFontRegistry.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libhvf.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/ParsingInternal.framework/Versions/A/ParsingInternal",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/FontServices.framework/libXTFontStaticRegistryData.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSCore.framework/Versions/A/MPSCore",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSImage.framework/Versions/A/MPSImage",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSNeuralNetwork.framework/Versions/A/MPSNeuralNetwork",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSMatrix.framework/Versions/A/MPSMatrix",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSRayIntersector.framework/Versions/A/MPSRayIntersector",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSNDArray.framework/Versions/A/MPSNDArray",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSFunctions.framework/Versions/A/MPSFunctions",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSBenchmarkLoop.framework/Versions/A/MPSBenchmarkLoop",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSHost.framework/Versions/A/MPSHost",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/MetalTools.framework/Versions/A/MetalTools",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/MTL3On4.framework/Versions/A/MTL3On4",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/IOAccelMemoryInfo.framework/Versions/A/IOAccelMemoryInfo",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/kperf.framework/Versions/A/kperf",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/GPURawCounter.framework/Versions/A/GPURawCounter",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/IOKitten.framework/Versions/A/IOKitten",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/Tightbeam.framework/Versions/A/Tightbeam",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftCompression.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AFKUser.framework/Versions/A/AFKUser",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/GraphicsServices.framework/Versions/A/GraphicsServices",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/GPUWrangler.framework/Versions/A/GPUWrangler",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/IOPresentment.framework/Versions/A/IOPresentment",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/DSExternalDisplay.framework/Versions/A/DSExternalDisplay",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/VideoToolboxParavirtualizationSupport.framework/Versions/A/VideoToolboxParavirtualizationSupport",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AppleVA.framework/Versions/A/AppleVA",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/CMCaptureCore.framework/Versions/A/CMCaptureCore",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libspindump.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreAudio.framework/Versions/A/CoreAudio",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/PowerLog.framework/Versions/A/PowerLog",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/perfdata.framework/Versions/A/perfdata",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AudioToolboxCore.framework/Versions/A/AudioToolboxCore",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/caulk.framework/Versions/A/caulk",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libAudioStatistics.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/SystemPolicy.framework/Versions/A/SystemPolicy",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/swift/libswiftCoreMIDI.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/CoreMIDI.framework/Versions/A/CoreMIDI",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libperfcheck.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AudioAnalytics.framework/Versions/A/AudioAnalytics",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libmis.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/HIDDisplay.framework/Versions/A/HIDDisplay",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/HID.framework/Versions/A/HID",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/LinguisticData.framework/Versions/A/LinguisticData",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/Lexicon.framework/Versions/A/Lexicon",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/OpenDirectory.framework/Versions/A/OpenDirectory",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/MediaKit.framework/Versions/A/MediaKit",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/DiscRecording.framework/Versions/A/DiscRecording",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/SecurityFoundation.framework/Versions/A/SecurityFoundation",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/AudioToolbox.framework/Versions/A/AudioToolbox",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AudioSession.framework/Versions/A/AudioSession",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/MediaExperience.framework/Versions/A/MediaExperience",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AudioSession.framework/libSessionUtility.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/OpenDirectory.framework/Versions/A/Frameworks/CFOpenDirectory.framework/Versions/A/CFOpenDirectory",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/MIL.framework/Versions/A/MIL",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Kerberos.framework/Versions/A/Kerberos",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/GSS.framework/Versions/A/GSS",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libresolv.9.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/Heimdal.framework/Versions/A/Heimdal",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Kerberos.framework/Versions/A/Libraries/libHeimdalProxy.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/CommonAuth.framework/Versions/A/CommonAuth",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvDSP.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLAPACK.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLinearAlgebra.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparseBLAS.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libQuadrature.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBNNS.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparse.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libapp_launch_measurement.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/InstalledContentLibrary.framework/Versions/A/InstalledContentLibrary",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/CoreServicesStore.framework/Versions/A/CoreServicesStore",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/AppleMobileFileIntegrity.framework/Versions/A/AppleMobileFileIntegrity",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/MobileSystemServices.framework/Versions/A/MobileSystemServices",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/ConfigProfileHelper.framework/Versions/A/ConfigProfileHelper",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libxslt.1.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/BackgroundTaskManagement.framework/Versions/A/BackgroundTaskManagement",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libcurl.4.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libcrypto.46.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libssl.48.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/Frameworks/LDAP.framework/Versions/A/LDAP",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/TrustEvaluationAgent.framework/Versions/A/TrustEvaluationAgent",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libsasl2.2.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/NetAuth.framework/Versions/A/NetAuth",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/System/Library/PrivateFrameworks/login.framework/Versions/A/Frameworks/loginsupport.framework/Versions/A/loginsupport",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libsharedcache.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend1.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend2.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend3.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend4.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend5.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend6.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend7.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend8.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend9.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend10.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend11.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend12.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend13.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend14.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend15.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend16.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend17.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend18.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend19.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend20.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend21.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend22.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend23.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend24.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend25.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend26.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend27.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend28.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend29.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend30.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend31.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend32.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend33.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/objc/libobjcMsgSend34.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libffi.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    },
+    {
+      "path": "/usr/lib/libffi-trampolines.dylib",
+      "provenance": "trusted host OS/shared cache; bytes not independently pinned"
+    }
+  ],
+  "readBytes": 13989514,
+  "observedSelfMaxRSSRaw": 29507584,
+  "rssUnits": "Darwin bytes per pinned local getrusage(2)",
+  "constructorImported": false,
+  "geometryEvaluated": false,
+  "childProcessesStarted": 0,
+  "limits": "runtime import metadata only; this is not actual target peak, performance or retirement qualification"
+}

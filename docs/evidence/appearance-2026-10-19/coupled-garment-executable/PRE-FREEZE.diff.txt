@@ -1,0 +1,45 @@
+--- worker.py.pre-freeze.txt
++++ worker.py
+@@ -419,7 +419,7 @@
+             allowed=(bool(shared) and all(h==positions[shared[0]] for h in hits) if len(shared)==1 else
+                      all(G.on_segment3(h,positions[shared[0]],positions[shared[1]]) for h in hits) if len(shared)==2 else False)
+             require(allowed,'self-embedding',faces=[i,j],shared=shared,intersection=hits)
+-    return tree,tested
++    return tree,{'evaluatedPairs':tested,'prunedByExactAABBDisjointness':len(triangles)*(len(triangles)-1)//2-tested}
+ 
+ 
+ def capped_surface(p,faces,loops,artist,budget):
+@@ -478,7 +478,8 @@
+             d2=G.triangle_distance2(tri,surface['physical'][fi])
+             if d2<limit:raise FitFailure('continuous-gap',source=identity,face=fi,squaredDistance=d2,
+                                         sourceTriangle=tri,garmentTriangle=surface['physical'][fi],completedSourceCertificates=len(certificates))
+-        return {'identity':identity,'thresholdSquared':limit,'evaluatedPairs':pairs,'fullDomainAboveThreshold':True,
++        return {'identity':identity,'thresholdSquared':limit,'evaluatedPairs':pairs,
++                'prunedByExactAABBThreshold':len(surface['physical'])-pairs,'fullDomainAboveThreshold':True,
+                 'limit':'threshold certificate, not observed global minimum'}
+     for uuid,tid,tri in original:
+         budget.tick();certificates.append(gap(tri,{'uuid':uuid,'originalTriangle':tid}))
+--- collector.py.pre-freeze.txt
++++ collector.py
+@@ -164,11 +164,17 @@
+             record['retirement']='unknown-cleanup-exception'
+             record['cleanupException']=repr(cleanup)
+     finally:
+-        if selector is not None:selector.close()
++        def close_owned(owner,name):
++            nonlocal failure
++            try:owner.close()
++            except BaseException as exc:
++                failure=failure or 'owned-close-unavailable'
++                record.setdefault('closeErrors',[]).append({'owner':name,'error':repr(exc)[:1000]})
++        if selector is not None:close_owned(selector,'selector')
+         if proc is not None:
+-            for pipe in (proc.stdout,proc.stderr):
+-                if pipe is not None:pipe.close()
+-        for stream in streams.values():stream.close()
++            for name,pipe in (('child-stdout',proc.stdout),('child-stderr',proc.stderr)):
++                if pipe is not None:close_owned(pipe,name)
++        for name,stream in streams.items():close_owned(stream,'stored-'+name)
+     record.update(status='REFUSED_OR_UNKNOWN' if failure else 'COLLECTED',failure=failure,
+         childReturnCode=code,elapsedSeconds=time.monotonic()-launch_start,
+         streamBytesStored=sizes,streamBytesObserved=seen,streamEOF=complete,

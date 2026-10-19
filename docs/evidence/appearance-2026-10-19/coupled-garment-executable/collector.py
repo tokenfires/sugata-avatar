@@ -1,0 +1,203 @@
+"""Single owned child; requires a fresh external ADMISSION.json. Does not admit itself."""
+import hashlib
+import json
+import os
+from pathlib import Path
+import selectors
+import subprocess
+import sys
+import time
+import traceback
+import types
+
+HERE=Path(__file__).resolve().parent
+OUTPUT=HERE.parent/'coupled-garment-first-trial'
+PYTHON='/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14'
+
+
+def pin_check(row):
+    p=Path(row['path'])
+    if not p.is_file() or p.stat().st_size!=row['bytes'] or row['bytes']>64*1024**2:
+        raise RuntimeError('missing/oversize/changed pin: '+str(p))
+    if hashlib.sha256(p.read_bytes()).hexdigest()!=row['sha256']:
+        raise RuntimeError('changed pin: '+str(p))
+
+
+def main():
+    admission_path=HERE/'ADMISSION.json'
+    if not admission_path.is_file():raise RuntimeError('No external CPU admission; nothing launched')
+    if admission_path.stat().st_size>256*1024:raise RuntimeError('admission size cap')
+    raw=admission_path.read_bytes();admission=json.loads(raw)
+    if admission.get('kind')!='one-coupled-sweater-cpu-trial' or admission.get('allowExecution') is not True:
+        raise RuntimeError('not an actual root CPU admission')
+    if time.time()>=admission['expiresEpoch']:raise RuntimeError('expired CPU admission')
+    if not sys.flags.isolated or not sys.flags.no_site or not sys.flags.dont_write_bytecode:
+        raise RuntimeError('collector requires isolated/no-site/no-bytecode-write flags')
+    if str(Path(sys.executable).resolve())!=PYTHON:raise RuntimeError('wrong collector interpreter')
+    if sum(row['bytes'] for row in admission['pins'])>256*1024**2:raise RuntimeError('prelaunch pin-read cap')
+    paths={row['path'] for row in admission['pins']}
+    if not {str(HERE/'worker.py'),str(HERE/'collector.py'),str(HERE/'exact_geometry.py')}.issubset(paths):
+        raise RuntimeError('incomplete executable source ownership')
+    for row in admission['pins']:pin_check(row)
+    rows={row['path']:row for row in admission['pins']}
+    # Evaluate only the pinned worker definitions to share the exact runtime guard.
+    # No worker main/geometry function is called in the collector process.
+    worker_path=HERE/'worker.py';worker_bytes=worker_path.read_bytes();worker_pin=rows[str(worker_path)]
+    if len(worker_bytes)!=worker_pin['bytes'] or hashlib.sha256(worker_bytes).hexdigest()!=worker_pin['sha256']:
+        raise RuntimeError('compiled worker guard bytes changed')
+    guard=types.ModuleType('sugata_worker_runtime_guard');guard.__file__=str(worker_path)
+    exec(compile(worker_bytes,str(worker_path),'exec'),guard.__dict__)
+    if not {str(HERE/'RUNTIME.json'),str(HERE/'RUNTIME-CACHES.json')}.issubset(paths):
+        raise RuntimeError('unowned runtime records')
+    def read_record(path):
+        data=path.read_bytes();row=rows[str(path)]
+        if len(data)!=row['bytes'] or hashlib.sha256(data).hexdigest()!=row['sha256']:
+            raise RuntimeError('runtime record decoded bytes changed')
+        return json.loads(data)
+    runtime=read_record(HERE/'RUNTIME.json');caches=read_record(HERE/'RUNTIME-CACHES.json')
+    runtime_parent=guard.runtime_check(runtime,caches,[str(HERE/'collector.py'),str(worker_path),str(HERE/'exact_geometry.py')])
+    # Exclusive directory creation consumes the one trial; no overwrite/recovery retry.
+    OUTPUT.mkdir(exist_ok=False)
+    with (OUTPUT/'admission.json').open('xb') as f:f.write(raw)
+    events=[];streams={};selector=None;proc=None;failure=None;code=None
+    sizes={'stdout':0,'stderr':0};complete={'stdout':False,'stderr':False};seen={'stdout':0,'stderr':0}
+    command=[PYTHON,'-I','-S','-B',str(HERE/'worker.py'),str(OUTPUT),str(admission_path)]
+    launch_start=time.monotonic();deadline=launch_start+600.
+    command.extend([repr(deadline),hashlib.sha256(raw).hexdigest()])
+    record={'status':'STARTING','collectorPID':os.getpid(),'command':command,
+        'startUTC':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()),
+        'admissionSHA256':hashlib.sha256(raw).hexdigest(),'childPID':None,
+        'limits':'one600s child window including startup; Python process creation and kernel syscalls are not hard realtime bounds',
+        'retirement':'unobserved','events':events,'runtimeParent':runtime_parent,
+        'inventoryExcludes':['RUN.json (self record)','RUN.next.json (self-owned transient; may retain failure prefix)']}
+    def event(kind,**fields):
+        item={'event':kind,'elapsedSeconds':time.monotonic()-launch_start,**fields}
+        events.append(item)
+        if len(events)>64:raise RuntimeError('event count cap')
+        data=(json.dumps(record,indent=2,allow_nan=False)+'\n').encode()
+        if len(data)>128*1024:raise RuntimeError('parent record allocation')
+        temporary=OUTPUT/'RUN.next.json'
+        with temporary.open('wb') as f:f.write(data)
+        temporary.replace(OUTPUT/'RUN.json')
+    def safe_event(kind,**fields):
+        nonlocal failure
+        try:event(kind,**fields)
+        except BaseException as exc:
+            failure=failure or 'event-record-unavailable'
+            errors=record.setdefault('eventRecordingErrors',[])
+            if len(errors)<16:errors.append({'event':kind,'error':repr(exc)[:1000]})
+    def output_size():
+        total=0
+        for p in OUTPUT.iterdir():
+            if p.is_symlink() or not p.is_file():raise RuntimeError('unexpected output entry')
+            total+=p.stat().st_size
+        return total
+    def drain(timeout):
+        nonlocal failure
+        if selector is None:return
+        for key,mask in selector.select(timeout):
+            name=key.data
+            try:data=os.read(key.fd,65536)
+            except BlockingIOError:continue
+            if not data:
+                complete[name]=True;selector.unregister(key.fd);continue
+            seen[name]+=len(data);room=8*1024**2-sizes[name];keep=data[:max(0,room)]
+            if keep:streams[name].write(keep);streams[name].flush();sizes[name]+=len(keep)
+            if len(keep)!=len(data):failure=failure or 'stream-cap-prefix-only'
+    def stop_owned_child(reason):
+        nonlocal code,failure
+        if proc is None:return
+        # Popen owns the positive child handle. No process-group/name/PID search.
+        if proc.poll() is None:
+            try:proc.terminate();safe_event('terminate-requested',reason=reason)
+            except ProcessLookupError:safe_event('terminate-process-not-found',reason=reason)
+            except OSError as exc:safe_event('terminate-error',error=repr(exc))
+            grace=time.monotonic()+2.
+            while proc.poll() is None and time.monotonic()<grace:
+                timeout=min(.05,max(0.,grace-time.monotonic()))
+                try:drain(timeout)
+                except BaseException as exc:
+                    failure=failure or 'cleanup-pipe-drain-unavailable'
+                    safe_event('cleanup-drain-error',error=repr(exc))
+                    time.sleep(min(.02,timeout))
+        if proc.poll() is None:
+            try:proc.kill();safe_event('kill-requested')
+            except ProcessLookupError:safe_event('kill-process-not-found')
+            except OSError as exc:safe_event('kill-error',error=repr(exc))
+        try:
+            code=proc.wait(timeout=2.)
+            record['retirement']='positive-Popen-wait-return'
+            safe_event('collected',returnCode=code)
+        except subprocess.TimeoutExpired:
+            failure=failure or 'positive-retirement-unavailable'
+            record['retirement']='unknown-after-bounded-final-wait'
+            safe_event('final-wait-timeout',childPID=proc.pid)
+    try:
+        for name in sizes:streams[name]=(OUTPUT/(name+'.bin')).open('xb')
+        selector=selectors.DefaultSelector()
+        event('before-spawn')
+        proc=subprocess.Popen(command,stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.PIPE,
+                              close_fds=True,cwd=str(HERE),shell=False)
+        record['childPID']=proc.pid;record['status']='RUNNING';event('spawn-returned',childPID=proc.pid)
+        for name,pipe in (('stdout',proc.stdout),('stderr',proc.stderr)):
+            os.set_blocking(pipe.fileno(),False);selector.register(pipe.fileno(),selectors.EVENT_READ,name)
+        while proc.poll() is None:
+            now=time.monotonic()
+            if (OUTPUT/'CANCEL.json').exists():failure='owned-cancel-request';break
+            if now>=deadline:failure='absolute-child-wall-limit';break
+            drain(min(.1,max(0.,deadline-now)))
+            if failure:break
+            if output_size()>128*1024**2:failure='total-output-cap';break
+        stop_owned_child(failure or 'natural-exit')
+        # Positive child exit does not by itself prove stream EOF; drain separately.
+        pipe_deadline=time.monotonic()+2.
+        while selector.get_map() and time.monotonic()<pipe_deadline:drain(.05)
+        if not all(complete.values()):failure=failure or 'stream-eof-unavailable'
+        if code!=0:failure=failure or 'child-nonzero-or-unknown'
+        if output_size()>128*1024**2:failure=failure or 'total-output-cap'
+    except BaseException as exc:
+        failure=failure or type(exc).__name__+':'+str(exc)
+        record['exceptionTraceback']=traceback.format_exc(limit=10)
+        # Even an event/pipe/size failure after launch reaches the same owned cleanup.
+        try:stop_owned_child('collector-exception')
+        except BaseException as cleanup:
+            record['retirement']='unknown-cleanup-exception'
+            record['cleanupException']=repr(cleanup)
+    finally:
+        def close_owned(owner,name):
+            nonlocal failure
+            try:owner.close()
+            except BaseException as exc:
+                failure=failure or 'owned-close-unavailable'
+                record.setdefault('closeErrors',[]).append({'owner':name,'error':repr(exc)[:1000]})
+        if selector is not None:close_owned(selector,'selector')
+        if proc is not None:
+            for name,pipe in (('child-stdout',proc.stdout),('child-stderr',proc.stderr)):
+                if pipe is not None:close_owned(pipe,name)
+        for name,stream in streams.items():close_owned(stream,'stored-'+name)
+    record.update(status='REFUSED_OR_UNKNOWN' if failure else 'COLLECTED',failure=failure,
+        childReturnCode=code,elapsedSeconds=time.monotonic()-launch_start,
+        streamBytesStored=sizes,streamBytesObserved=seen,streamEOF=complete,
+        scope='No GPU/native modelling job. Positive child status is separate from geometry acceptance; missing retirement/EOF never passes.')
+    inventory=[]
+    try:
+        for p in sorted(OUTPUT.iterdir()):
+            if p.name in ('RUN.json','RUN.next.json'):continue
+            if p.is_symlink() or not p.is_file():failure=failure or 'unowned-final-entry';continue
+            size=p.stat().st_size
+            if size>128*1024**2:failure=failure or 'oversize-final-output';continue
+            inventory.append({'name':p.name,'bytes':size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()})
+    except BaseException as exc:
+        failure=failure or 'final-inventory-unavailable'
+        record['finalInventoryException']=repr(exc)
+    record['actualOutputInventory']=inventory
+    record['failure']=failure;record['status']='REFUSED_OR_UNKNOWN' if failure else 'COLLECTED'
+    safe_event('final-record',failure=failure)
+    record['failure']=failure;record['status']='REFUSED_OR_UNKNOWN' if failure else 'COLLECTED'
+    print(json.dumps({'status':record['status'],'childPID':record['childPID'],'childReturnCode':code,
+        'retirement':record['retirement'],'failure':failure,'outputFiles':len(inventory)}))
+    return 1 if failure else 0
+
+
+if __name__=='__main__':
+    sys.exit(main())

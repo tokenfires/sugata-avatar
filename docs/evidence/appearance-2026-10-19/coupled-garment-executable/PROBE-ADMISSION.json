@@ -1,0 +1,51 @@
+{
+  "kind": "ONE_METADATA_ONLY_READ_ADMISSION_NOT_CONSTRUCTOR",
+  "utc": "2026-10-19T22:07:51.844539+00:00",
+  "pid": 63082,
+  "wholeStablePairRead": "ed2d44/exit0/1883tokens",
+  "freshBindingsBeforeCorrection": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/PLAN.md",
+      "bytes": 5061,
+      "sha256": "39920d60b845ac5161cc77073a90c5591c96b6cb0295dd5891e4fd54470d10dd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/runtime_probe.py",
+      "bytes": 3897,
+      "sha256": "8f57c92e00ce383ec1dcfa343e6f191d5c62800e51ccda2cc5b0edcc50d61c43"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/PROBE-RETURN.json",
+      "bytes": 2007,
+      "sha256": "ad9bd2beb0b3a31aa96721398e6515043720bae90280a256ba560f5e69e72834"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/PROBE-WORTH.md",
+      "bytes": 2914,
+      "sha256": "0c71c863f76130bc1d446186387f3204c9c40bda4633cb02d102b1f3ba51b400"
+    }
+  ],
+  "criticReceiptSHA256": "875310b12e25c3a70cdfabecdcead5ad22a7c68e065dc5d3efe23ad6e01fa459",
+  "originalSourceSaved": "runtime_probe.initial.py.txt",
+  "originalReturnPreserved": "PROBE-RETURN.json/f21dbf/exit1",
+  "sourceEpoch": "Critic original runtime_probe.py pin resolves saved initial3897B/8f57c92e; original receipt is unchanged.",
+  "soleChange": [
+    [
+      [
+        48,
+        300
+      ],
+      [
+        48,
+        4096
+      ]
+    ]
+  ],
+  "correctedSource": {
+    "bytes": 3898,
+    "sha256": "2b731c96213d8575c40b9e376fc453e5ffbaecc11cc68de2d87c4b508316b958"
+  },
+  "retained": "300modulefiles/150nonSystemImages/64MiBeach/256MiBreads; same imports and metadata-only command",
+  "rootAssessment": "Exact extra-total-count policy correction is worth one finite metadata attempt; actual n and original non-system eligibility remain unknown until it returns. No method/geometry/runtime-peak/constructor admission.",
+  "stop": "Any refusal/unknown in this corrected metadata attempt closes without another guard/observer correction; deadline23:00UTC unchanged."
+}

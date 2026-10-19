@@ -1,0 +1,282 @@
+{
+  "kind": "root-independent-first-actual-data-decision",
+  "atUTC": "2026-10-19T22:39:01.200738+00:00",
+  "pid": 21545,
+  "verdict": "B_INITIAL_EMBEDDING",
+  "finding": "Nonadjacent physical torso and cuff_r:2 (third zero-indexed strip) triangles have a nonzero exact intersection segment; no common vertexIDs. Initial shape refuses before fitting.",
+  "checks": [
+    {
+      "faceID": 66,
+      "role": "torso",
+      "vertexIDs": [
+        356,
+        17,
+        368
+      ],
+      "actualTriangle": [
+        [
+          {
+            "numerator": "-607985949695017",
+            "denominator": "2251799813685248"
+          },
+          {
+            "numerator": "4728779608739021",
+            "denominator": "4503599627370496"
+          },
+          {
+            "numerator": "5764607523034235",
+            "denominator": "144115188075855872"
+          }
+        ],
+        [
+          {
+            "numerator": "-607985949695017",
+            "denominator": "2251799813685248"
+          },
+          {
+            "numerator": "2476979795053773",
+            "denominator": "2251799813685248"
+          },
+          {
+            "numerator": "5764607523034235",
+            "denominator": "144115188075855872"
+          }
+        ],
+        [
+          {
+            "numerator": "-607985949695017",
+            "denominator": "2251799813685248"
+          },
+          {
+            "numerator": "2476979795053773",
+            "denominator": "2251799813685248"
+          },
+          {
+            "numerator": "-4323455642275677",
+            "denominator": "288230376151711744"
+          }
+        ]
+      ],
+      "witnessEndpointsInBothFaces": [
+        {
+          "planeNumerator": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "barycentrics": [
+            {
+              "numerator": "349905715224385868735484003423667914849106831",
+              "denominator": "940553400496562872074266211033797911191290575"
+            },
+            {
+              "numerator": "590647685272177003338782207610129996342183744",
+              "denominator": "940553400496562872074266211033797911191290575"
+            },
+            {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          ],
+          "insideCompleteTriangle": true
+        },
+        {
+          "planeNumerator": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "barycentrics": [
+            {
+              "numerator": "13843273898762023726501337077",
+              "denominator": "31154504947113975713554492925"
+            },
+            {
+              "numerator": "171877569784474103996324494745538630098379356",
+              "denominator": "493882107384986442403443627682743520476659975"
+            },
+            {
+              "numerator": "455420924238616078855507200812",
+              "denominator": "2193277148276822091634903221539"
+            }
+          ],
+          "insideCompleteTriangle": true
+        }
+      ]
+    },
+    {
+      "faceID": 2352,
+      "role": "cuff_r:2",
+      "vertexIDs": [
+        309,
+        931,
+        1252
+      ],
+      "actualTriangle": [
+        [
+          {
+            "numerator": "-557470770455347",
+            "denominator": "2251799813685248"
+          },
+          {
+            "numerator": "4914593550363245",
+            "denominator": "4503599627370496"
+          },
+          {
+            "numerator": "-835280372524483",
+            "denominator": "144115188075855872"
+          }
+        ],
+        [
+          {
+            "numerator": "-2229148722751739",
+            "denominator": "9007199254740992"
+          },
+          {
+            "numerator": "310287575136633",
+            "denominator": "281474976710656"
+          },
+          {
+            "numerator": "8356751422681389",
+            "denominator": "288230376151711744"
+          }
+        ],
+        [
+          {
+            "numerator": "-2644944466378399",
+            "denominator": "9007199254740992"
+          },
+          {
+            "numerator": "2394962791825913",
+            "denominator": "2251799813685248"
+          },
+          {
+            "numerator": "4670501765431959",
+            "denominator": "72057594037927936"
+          }
+        ]
+      ],
+      "witnessEndpointsInBothFaces": [
+        {
+          "planeNumerator": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "barycentrics": [
+            {
+              "numerator": "774814130917597378665587617603",
+              "denominator": "4176896164483077263685088251403"
+            },
+            {
+              "numerator": "1366262772715848236566521602436",
+              "denominator": "4176896164483077263685088251403"
+            },
+            {
+              "numerator": "2035819260849631648452979031364",
+              "denominator": "4176896164483077263685088251403"
+            }
+          ],
+          "insideCompleteTriangle": true
+        },
+        {
+          "planeNumerator": {
+            "numerator": "0",
+            "denominator": "1"
+          },
+          "barycentrics": [
+            {
+              "numerator": "71000222532777",
+              "denominator": "138353794852337"
+            },
+            {
+              "numerator": "0",
+              "denominator": "1"
+            },
+            {
+              "numerator": "67353572319560",
+              "denominator": "138353794852337"
+            }
+          ],
+          "insideCompleteTriangle": true
+        }
+      ]
+    }
+  ],
+  "actualEndpoints": [
+    [
+      {
+        "numerator": "-607985949695017",
+        "denominator": "2251799813685248"
+      },
+      {
+        "numerator": "20342269095699980609313714707010831391006280207",
+        "denominator": "18811068009931240733900666288366903483472805888"
+      },
+      {
+        "numerator": "5764607523034235",
+        "denominator": "144115188075855872"
+      }
+    ],
+    [
+      {
+        "numerator": "-607985949695017",
+        "denominator": "2251799813685248"
+      },
+      {
+        "numerator": "671555834937744888556518097925",
+        "denominator": "623090098942278960855910449152"
+      },
+      {
+        "numerator": "569844864526809047070267156789",
+        "denominator": "19938883166152926747389134372864"
+      }
+    ]
+  ],
+  "actualEndpointApproximation": [
+    [
+      -0.27,
+      1.0813989447574346,
+      0.04
+    ],
+    [
+      -0.27,
+      1.0777828697290144,
+      0.028579577892012733
+    ]
+  ],
+  "sourceOnlyQualificationRetained": "Prior static source A is not reversed into a static code failure; this is actual geometry B.",
+  "actualInitialCounts": {
+    "positions": 1262,
+    "faces": 2432,
+    "namedLoopLengths": {
+      "neck": 16,
+      "hem": 48,
+      "cuff_l": 16,
+      "cuff_r": 16
+    }
+  },
+  "observedChildRSSHighWaterBytes": 354107392,
+  "elapsedChildSeconds": 4.348412916995585,
+  "elapsedParentSeconds": 4.4124482500046724,
+  "allActualInventory": "ROOT-ACTUAL.json,8entries/24620419bytes",
+  "limits": [
+    "Independent rational verification of two actual witness endpoints only, not a rerun of builder, full source audit or solver.",
+    "No solver/baseline/final-fit executed after initial mandatory refusal.",
+    "No rendered images/appearance/export/native/GPU or morphology/motion/performance/AAA qualification.",
+    "One attempt consumed; no initializer/topology/frame/gain/budget/source correction or rerun."
+  ],
+  "alternatives": [
+    {
+      "choice": "Close this exact method and retain witness/source/artist guides",
+      "tradeoff": "Honest bounded result without wearable delivery; no rescue cost."
+    },
+    {
+      "choice": "Move to a distinct consequential character/wardrobe responsibility after checkpoint",
+      "tradeoff": "Can improve another real consumer; coupled fit remains open and gets no shortcut."
+    }
+  ],
+  "draftLabelCorrection": {
+    "atUTC": "2026-10-19T22:39:21.962848+00:00",
+    "pid": 22187,
+    "priorSHA256": "f9eac83fb4340f00ac6cb301af7cce9d2f70b2601edf88993235ed37b70e7e16",
+    "reason": "Finding prose used3 while saved proof role was always cuff_r:2. Corrected only text before critic result handoff; coordinates/proof/verdict/source/target unchanged."
+  }
+}

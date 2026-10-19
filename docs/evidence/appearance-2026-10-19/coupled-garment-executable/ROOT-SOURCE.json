@@ -1,0 +1,60 @@
+{
+  "kind": "root-complete-source-and-one-CPU-worth-decision",
+  "verdict": "A_ONE_UNCHANGED_CPU_TRIAL",
+  "allowGPUOrNativeOrAppearance": false,
+  "stableSourcePair": {
+    "review": {
+      "bytes": 4478,
+      "sha256": "c357df01f760516d805b82c6ccf6cc5f93a4b8225db647fa16367f393b1bcd7b"
+    },
+    "receipt": {
+      "bytes": 71786,
+      "sha256": "8fd7e87446051b2fe59e0c90cc07271a08d58a841abd1905209558f150dc4f35"
+    },
+    "criticCollectedUTC": "2026-10-19T22:36:08.944557+00:00",
+    "criticPID": 16154
+  },
+  "rootHandoffRead": {
+    "first": "1d5104 had internally clipped duplicate binding/job rows; not sufficient alone",
+    "completeNonbindingReceipt": "d72b5a exit0 6247tokens all nonbinding fields without clipping",
+    "all188RowsAndStablePair": "9d6b78 exit0 5591tokens compact lossless prefix expansion; actual188pins and full receipt-row equality with INPUTS",
+    "completeReview": "1d5104 whole4478B review read without clipping"
+  },
+  "independentEvidence": [
+    "ROOT-FIRST sealed beforecritic",
+    "Rootwhole authoredsources/METHOD/ARTIST, exact finaldiff, rational feature/intersection/caps/full-domain and fixedJacobi correspondence",
+    "33db88 all188pins beforecriticreturn",
+    "9d6b78/PID18613/22:37:27.385553UTC all188currentpins,manifeststructuralequality and stablepairhashes aftercritic",
+    "53359d actualfilesystemcapacity>=128MiB, no target/admission",
+    "4e6e60 exactsavedpartitionledgerPin schema only"
+  ],
+  "reason": "Both independent static assessments support exactly one bounded unchanged trial. Actual source-pose feasibility and cost remain unknown; no initial embedding/convergence/clearance/performance/appearance claim.",
+  "chosenAlternative": {
+    "choice": "Run once unchanged",
+    "tradeoff": "Concrete first exact refusal or complete data packet at bounded cost; any failure closes without rescue."
+  },
+  "deferredAlternative": {
+    "choice": "Retain inertsourceonly",
+    "tradeoff": "Saves compute but does not answer the coupled sweater question."
+  },
+  "mandatoryRootDuties": [
+    "Use exact pinned interpreter/flags/collector once, retain external tool session/status.",
+    "No source/input/admission/threshold/method/resource changes during/after run; failure closes without retry.",
+    "Immediately inventory ALL actual output entries, including partialunregisteredfiles,RUN.json/RUN.next.json,admission,streams on either success or failure; check actual combinedsize and pin before interpretation.",
+    "Read actual finite result/refusal/status/streams; independently verify witness against saved actual inputs and programme. Independent critic actualdata review +whole stablehandoff/rootverification required.",
+    "No image/export/native/GPU execution admitted. Numerical result alone never qualifies appearance.",
+    "If humanpause, writeowned CANCEL.json iftrialrunning, collect positive status or honestlyrecordunknown, checkpoint,retainVite,pause sameautomationAPI/readback."
+  ],
+  "fixedStopUTC": "2026-10-19T23:00:00Z",
+  "futureExecutionLimits": {
+    "childSeconds": 600,
+    "graceSeconds": 2,
+    "finalWaitSeconds": 2,
+    "EOFSeconds": 2,
+    "rssSelfObservedMiB": 2048,
+    "outputMiB": 128
+  },
+  "preservation": "All old closures/fullroadmap23scoped10broad/accepted/default/original/frozen/heldfiles/worktrees/volumeconstructorHOLD retained.",
+  "atUTC": "2026-10-19T22:37:56.952469+00:00",
+  "pid": 19518
+}

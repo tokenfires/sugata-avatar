@@ -1,0 +1,49 @@
+{
+  "kind": "PROSPECTIVE_SOURCE_REVIEW_REQUEST_ONLY",
+  "allowExecution": false,
+  "deadlineUTC": "2026-10-19T23:00:00Z",
+  "sources": [
+    "collector.py",
+    "worker.py",
+    "exact_geometry.py"
+  ],
+  "runtime": "RUNTIME.json",
+  "caches": "RUNTIME-CACHES.json",
+  "futureAdmissionSchema": {
+    "kind": "one-coupled-sweater-cpu-trial",
+    "allowExecution": "must be literaltrue only in fresh externally authored ADMISSION.json after complete source/root A",
+    "expiresEpoch": "fresh absolute gate expiry",
+    "pins": "exact absolute path/byte/SHA rows including all immutable input/runtime/source/protocol rows"
+  },
+  "futureCommand": [
+    "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+    "-I",
+    "-S",
+    "-B",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/collector.py"
+  ],
+  "futureOutput": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-first-trial",
+  "oneTrialOnly": true,
+  "firstFailure": "B/unknown/resource/initialembedding failure consumes and closes; no correction/retry/rescue",
+  "budgets": {
+    "childWallSeconds": 600,
+    "terminationGraceSeconds": 2,
+    "positiveFinalWaitSeconds": 2,
+    "streamEOFSeconds": 2,
+    "eachStreamMiB": 8,
+    "totalOutputMiB": 128,
+    "childFilesMiB": 111,
+    "parentReserveMiB": 1,
+    "observedChildRSSMiB": 2048,
+    "solverLeafTests": 20000000,
+    "acceptanceLeafPairs": 20000000,
+    "rayLeafTests": 5000000
+  },
+  "limits": [
+    "No GPU/native/browser/capture/export admitted; actual images remain necessary for appearance.",
+    "No material-volume constructor entry or old source/helper/collector invocation.",
+    "Parent output RUN self/transient excluded from its nested inventory; root must inspect/hash ALL actual files independently, including partial/new failure files.",
+    "Target start/end runtime pin checks are fail-closed; source/runtime drift before any separate gate stops without retry.",
+    "Exact full-scoped retained original/frozen/accepted/default files are never modified."
+  ]
+}

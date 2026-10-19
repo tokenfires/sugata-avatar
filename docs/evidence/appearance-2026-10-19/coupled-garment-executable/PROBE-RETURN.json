@@ -1,0 +1,22 @@
+{
+  "kind": "metadata_preflight_refusal_before_any_garment_code",
+  "source": {
+    "path": "docs/evidence/appearance-2026-10-19/coupled-garment-executable/runtime_probe.py",
+    "bytes": 3897,
+    "sha256": "8f57c92e00ce383ec1dcfa343e6f191d5c62800e51ccda2cc5b0edcc50d61c43"
+  },
+  "command": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -I -S -B docs/evidence/appearance-2026-10-19/coupled-garment-executable/runtime_probe.py",
+  "returned": {
+    "chunk_id": "f21dbf",
+    "wall_time_seconds": 6.125e-06,
+    "exit_code": 1,
+    "original_token_count": 109,
+    "output": "Traceback (most recent call last):\n  File \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/runtime_probe.py\", line 80, in <module>\n    main()\n    ~~~~^^\n  File \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/runtime_probe.py\", line 49, in main\n    raise RuntimeError(\"loaded image count cap\")\nRuntimeError: loaded image count cap\n"
+  },
+  "witness": "Trace stops at runtime_probe.py:49 after dyld image count n>300. Actual n and process PID were not printed; do not infer them. RUNTIME.json is written only at end and absent after this exit1.",
+  "comparisonToScope": "PLAN bounds300module files and150non-system images, not300total OS+non-system images. The code introduced a stricter extra total-image guard; its refusal leaves the actual non-system set unknown. No inference that declared150 bound would pass.",
+  "target": "No garment builder/checker exists, is imported or evaluated; no candidate/source geometry, solver, rawdecode, native modelling/GPU/browser/render/image job.",
+  "next": "No rerun or source edit yet. Independent worth decision on exact preparation correction versus close; preserve original probe and actual exit1. Execution/constructor remain unadmitted.",
+  "recordedUTC": "2026-10-19T22:05:37.230132+00:00",
+  "recorderPID": 58937
+}

@@ -1,0 +1,24 @@
+{
+  "kind": "corrected_metadata_only_inventory_return",
+  "command": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14 -I -S -B docs/evidence/appearance-2026-10-19/coupled-garment-executable/runtime_probe.py",
+  "returned": {
+    "chunk_id": "b6e8d4",
+    "wall_time_seconds": 5.917e-06,
+    "exit_code": 0,
+    "original_token_count": 88,
+    "output": "{\"path\": \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-executable/RUNTIME.json\", \"bytes\": 96022, \"sha256\": \"80779b10079761a9c4f2a380b817b2eb1671046755cab694fc4945d2cd770f6d\", \"modules\": 86, \"nonSystemImages\": 15, \"trustedSystemImages\": 390, \"readBytes\": 13989514, \"rawRSS\": 29507584, \"targetInvoked\": false}\n"
+  },
+  "notes": "Second metadata entry after separately reviewed/root-verified one-literal total guard correction; original refusal/source retained. No target/geometry/native-modelling/GPU entry. Original attempt's actual image count/PID remain unreported; corrected snapshot does not retroactively supply them.",
+  "recordedUTC": "2026-10-19T22:09:02.700615+00:00",
+  "runtimeIdentity": {
+    "bytes": 96022,
+    "sha256": "80779b10079761a9c4f2a380b817b2eb1671046755cab694fc4945d2cd770f6d",
+    "observedUTC": "2026-10-19T22:07:58Z",
+    "probePID": 63271,
+    "moduleFiles": 86,
+    "nonSystemImages": 15,
+    "trustedSystemImages": 390,
+    "readBytes": 13989514,
+    "rawRSS": 29507584
+  }
+}

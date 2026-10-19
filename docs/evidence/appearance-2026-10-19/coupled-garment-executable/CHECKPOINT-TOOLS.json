@@ -1,0 +1,46 @@
+{
+  "kind": "final-documentary-closure-and-precheckpoint-tools",
+  "rootClose": {
+    "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\nroot=Path.cwd();p=root/'docs/evidence/appearance-2026-10-19/coupled-garment-executable';out=p.parent/'coupled-garment-first-trial';note=json.loads(\"\\\"## October 19, 22:46 UTC — first coupled sweater trial closed at initial intersection\\\\n\\\\nThe [new coupled sweater implementation](evidence/appearance-2026-10-19/coupled-garment-executable/README.md) received independent source A and root verification before its sole CPU entry. The actual initial surface then failed mandatory self-embedding: torso face66 and cuff_r:2 face2352, with disjoint vertex IDs, share an exact positive-length segment. Root separately verified both saved endpoints in both triangles; the critic independently derived the same segment before reading root’s opinion. This is an initial garment self-intersection, not body-clearance, solver-convergence or appearance evidence. The method is consumed and closed without initializer/frame/topology/contact/gain/threshold/resource/source/observer repair or a renamed retry.\\\\n\\\\nActual6334b1/session19887 finished e2bde6/exit1. Collector19636 positively collected child19637/code1, with both stream EOFs. Root c06a6d inventories every actual output, including RUN self-record:8files/24,620,419B. Initial positions1262/faces2432 and complete saved source-domain records remain frozen. No baseline, solver sweep, final geometry/fit/runtime validation, export, native/GPU/browser or image followed. The354,107,392B high-water observation and4.3484s child interval describe only this refusal path, not full-method resource/performance qualification.\\\\n\\\\nRoot whole source handoff recovered the clipped duplicate binding/job display with complete d72b5a semantics and9d6b78 all188rows; source/ref/metadata remain separate from execution. Corrected metadata inventory used the single independently reviewed extra-image guard correction, not a target rescue. Original refusal/probe/draft copies and exact deltas remain. Two official Python pages/two local Apple files exhaust references;3.14.8 documentation is distinguished from installed3.14.7. No additional image or reference retrieval.\\\\n\\\\nStable result pair3903B/b54955e3… and27271B/266b53d6… is wholly read cb8a4d/7794tokens without clipping. Fresh root22e5a2/PID35072/22:46:17UTC verifies25direct+192nested bindings, manifest/review, all8actualfiles and the critic’s exact squared length/midpoint barycentrics against root’s own proof. [Root result](evidence/appearance-2026-10-19/coupled-garment-executable/ROOT-RESULT.json) is2577B/SHA3438e92607c5f81fa2c79433b3fc09cb26e6e2b47b9ab57f002a435dd1ebdfdc. Actual commands, jobs, errors/corrections, inputs and limits are retained in the leaf.\\\\n\\\\nNo live owned target or pending critic edit. Accepted/default/original/frozen assets, held buffers/worktrees, prior closures and material-volume HOLD remain. Checklist stays23scoped/tenbroad, with every AAA character/expression/wardrobe/representation/fit/morph/pose/motion/performance/VTuber/Mii goal open at its proper scope. Vite870 and same3344B/9b859344… ACTIVE ten-minute same-chat recovery were rechecked at22:29UTC; future/mobile delivery untested. Human steering wins; no push/publication/install/purchase/model/subscription/reset-credit/other-project work.\\\\n\\\\nNext: local recoverable checkpoint, then a genuinely distinct consequential responsibility with fresh independent worth; no next experiment is selected/admitted by this result. This closes before23:00UTC without extension. Historical main-document input pins resolve through parent8a0bca80145514a4db18b5b4940a9fa733c56c05 after these two explicit additive recovery-note edits; frozen source/runtime/output/review pins remain current.\\\\n\\\\n\\\"\").encode()\nmain={str(root/n) for n in ('docs/WORK-WINDOW-2026-10-18.md','docs/RESUME-2026-10-18.md')}\ndef read_epoch(row):\n q=Path(row['path']);b=q.read_bytes()\n if str(q) in main:\n  assert b.count(note)==1; b=b.replace(note,b'',1)\n assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256'],str(q)\nfor filename,key in [('INPUTS.json','pins'),('RESULT-INPUTS.json','pins'),('ADMISSION.json','pins')]:\n j=json.loads((p/filename).read_bytes())\n for row in j[key]:read_epoch(row)\nresult=json.loads((p/'RESULT-CRITIC-RECEIPT.json').read_bytes());assert result['direct_input_pins']==json.loads((p/'RESULT-INPUTS.json').read_bytes())['pins']\nfor row in [result['review_output'],result['result_manifest_selfpin']]:read_epoch(row)\nassert hashlib.sha256((root/'docs/PROJECT-CHECKLIST.md').read_bytes()).hexdigest()=='32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6'\nrows=[]\nfor q in sorted(list(p.rglob('*'))+list(out.rglob('*'))+[Path(x) for x in main]):\n if q.is_dir():continue\n assert q.is_file() and not q.is_symlink();b=q.read_bytes();rows.append({'path':str(q.relative_to(root)),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})\nrecord={'kind':'root-closed-coupled-sweater-local-checkpoint','atUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'status':'CLOSED_B_INITIAL_SELF_INTERSECTION','ownedTargetSessions':'19887/e2bde6 exit1,child19637 positivewaitcode1/bothEOF; no ownedtargetpending','completeCriticHandoff':'cb8a4d untruncated7794tokens','freshResultVerification':'22e5a2 all25direct/192nested+manifest/review,all8outputs and independent proof correspondence','verifiedFamilies':{'preparation':188,'result':25,'admission':192,'resultManifestAndReview':2},'intentionalHistoricalMainEpoch':{'parentHEAD':'8a0bca80145514a4db18b5b4940a9fa733c56c05','validation':'Remove exactly the one new additive note from each current mainfile, then old byte/hash matches all prior input rows. No other current source/runtime/output input changed.'},'sourceHashes':{n:hashlib.sha256((p/n).read_bytes()).hexdigest() for n in ('worker.py','collector.py','exact_geometry.py')},'precloseOwnedFiles':rows,'precloseFileCount':len(rows),'note':'This self-record and later commit receipt cannot list themselves recursively. Postcommit exact staged/commit paths and bytes must be verified; no push.','closure':'No initializer/frame/topology/contact/gain/threshold/budget/source/observer/capture/render/retake/renamed successor. No baseline/solver/finalfit/export/native/GPU/browser/appearance qualification.','next':'Localcheckpointthen genuinely distinct freshworth, none admitted by current packet. Preserve all fullroadmap/oldclosures/HOLD/assets/checklist23/10/worktrees. Deadline23:00 unchanged, closing early.'}\nq=p/'ROOT-CLOSE.json';q.open('x').write(json.dumps(record,indent=2)+'\\n');assert json.loads(q.read_bytes())==record\nprint(json.dumps({'atUTC':record['atUTC'],'pid':os.getpid(),'status':record['status'],'verifiedFamilies':record['verifiedFamilies'],'precloseFileCount':len(rows),'rootCloseBytes':q.stat().st_size,'rootCloseSHA256':hashlib.sha256(q.read_bytes()).hexdigest()}))\nPY",
+    "returned": {
+      "chunk_id": "d72c93",
+      "wall_time_seconds": 0.000006375,
+      "exit_code": 0,
+      "original_token_count": 88,
+      "output": "{\"atUTC\": \"2026-10-19T22:47:41.508196+00:00\", \"pid\": 37605, \"status\": \"CLOSED_B_INITIAL_SELF_INTERSECTION\", \"verifiedFamilies\": {\"preparation\": 188, \"result\": 25, \"admission\": 192, \"resultManifestAndReview\": 2}, \"precloseFileCount\": 51, \"rootCloseBytes\": 12719, \"rootCloseSHA256\": \"e4fda672916363180abb3a7600ebf4f69b68cb74f9c3750973d9dbfa4c03b29f\"}\n"
+    }
+  },
+  "beforeCheckpoint": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "605f3a",
+        "wall_time_seconds": 0.000004875,
+        "exit_code": 0,
+        "original_token_count": 50,
+        "output": " M docs/RESUME-2026-10-18.md\n M docs/WORK-WINDOW-2026-10-18.md\n?? docs/evidence/appearance-2026-10-19/coupled-garment-executable/\n?? docs/evidence/appearance-2026-10-19/coupled-garment-first-trial/\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "dd14b8",
+        "wall_time_seconds": 0.000006083,
+        "exit_code": 1,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "d419d8",
+        "wall_time_seconds": 0.000004334,
+        "exit_code": 0,
+        "original_token_count": 17,
+        "output": "14\t0\tdocs/RESUME-2026-10-18.md\n14\t0\tdocs/WORK-WINDOW-2026-10-18.md\n"
+      }
+    }
+  ],
+  "scope": "No further target/source execution. Source/result pins are immutable; two main notes additive with explicit original epoch. Git staging/commit/readback are subsequent tools, not recursively self-recorded here."
+}
