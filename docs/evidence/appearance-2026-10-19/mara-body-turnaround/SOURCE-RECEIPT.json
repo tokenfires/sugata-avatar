@@ -1,0 +1,267 @@
+{
+  "schema": "mara-body-turnaround-source-review-v1",
+  "verdict": "A_EXACT_SINGLE_BUILTIN_CALL_AFTER_FRESH_ROOT_GATE",
+  "generation_admitted_by_critic": false,
+  "pending_edits": false,
+  "source_stop_utc": "2026-10-19T20:35:00Z",
+  "image_closure_stop_utc": "2026-10-19T21:00:00Z",
+  "full_reads": [
+    "PREPARATION.md",
+    "BRIEF.md",
+    "PROMPT.txt",
+    "IMAGE-REQUEST.json",
+    "SOURCE-INPUTS.json",
+    "../mara-body-turnaround-worth/ROOT-WORTH.json",
+    "/Users/robault/.codex/skills/.system/imagegen/SKILL.md",
+    "/Users/robault/.codex/skills/.system/imagegen/references/prompting.md"
+  ],
+  "reused_scope": {
+    "worth_pair": "Exact current pinned WORTH.md and WORTH-RECEIPT.json; earlier complete prior handoff/plan reads and independently whole-viewed unchanged existing originals, not new appearances.",
+    "views": [
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+        "detail": "original",
+        "tool": "view_image",
+        "scope": "whole original existing image, original detail",
+        "utc": "2026-10-19 20:10:12 UTC"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/original-first.jpg",
+        "detail": "original",
+        "tool": "view_image",
+        "scope": "whole existing accepted image, original detail",
+        "utc": "2026-10-19 20:10:31 UTC"
+      }
+    ],
+    "visual_witness": "Mara front+portrait lacks complete profile/rear; isolated cardigan sheet lacks wearer/skirt/leg/shoe combined balance. These are artist intent gaps, not physical reconstruction evidence."
+  },
+  "checks": {
+    "manifest_rows": 16,
+    "including_manifest": 17,
+    "request_prompt": "Equals PROMPT.txt after removing exactly one terminal LF",
+    "request_keys": [
+      "prompt",
+      "referenced_image_paths",
+      "transparent_background"
+    ],
+    "reference_count": 2,
+    "reference_bytes": 2499735,
+    "transparent_background": false,
+    "no_Ari_reference": true,
+    "orientation": "Profile head and torso page left; rear away; no anatomical-side conflict.",
+    "output_limits": {
+      "count": 1,
+      "bytes": 16777216,
+      "pixels": 8388608,
+      "max_edge": 4096
+    },
+    "source_workload": "No local native/browser/GPU/CLI/fallback; tool-owned cloud resources unknown, 120s yield not a wall-runtime guarantee; actual pending handle/status retained and adoption withheld at stop."
+  },
+  "findings": [],
+  "alternatives": [
+    {
+      "choice": "One exact reference generation after fresh gate",
+      "benefit": "Owns a complete clothed profile/rear discussion decision",
+      "tradeoff": "Unregistered illustration may fail identity or cross-view consistency; actual full image gate controls retention."
+    },
+    {
+      "choice": "Defer to coupled artist master",
+      "benefit": "Avoids another illustration and inconsistency risk",
+      "tradeoff": "Retained front and garment-only views leave whole-look depth absent."
+    }
+  ],
+  "reader_corrections": [
+    {
+      "chunk_id": "2f0499",
+      "error": "Critic guessed PREPARATION.json, which does not exist; the command stopped before later reads.",
+      "correction": "Finite rg inventory cb9648 located PREPARATION.md, then complete source read e81bef. No source/target failure or mutation."
+    },
+    {
+      "error": "Later tool-store recovery printed complete source+skill job objects together and its display was truncated.",
+      "correction": "Original individual complete reads e81bef and 441c36 were already collected; decisive current source and exact bindings are also recorded in verification394812. No new target action."
+    }
+  ],
+  "limits": [
+    "Source/workload and artist intent only, not appearance acceptance",
+    "Existing original/reference whole views reused at freshly verified identical bytes",
+    "No registration, anatomical master, body/foundation/native/3D/UV/fit/rig/morph/motion/performance/runtime/AAA credit",
+    "No new external retrieval or references",
+    "No permission for retry, edits, regeneration, retake, crop, relabeling or successor",
+    "No board/checklist/default/accepted-asset promotion",
+    "Critic wrote only this review pair"
+  ],
+  "jobs": [
+    {
+      "name": "read",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PREPARATION.json','BRIEF.md','PROMPT.txt','IMAGE-REQUEST.json','SOURCE-INPUTS.json']:\n q=p/n;b=q.read_bytes();print('\\nFILE',n,len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(f'{i}: {line}')\nPY",
+      "tool": "exec_command",
+      "result": {
+        "chunk_id": "2f0499",
+        "exit_code": 1,
+        "wall_time_seconds": 6.042e-06,
+        "output_bytes": 813,
+        "output_sha256": "3788b465ec8904d3f3c8b4ebc08031cb269e94cfa931207897c126b83191e014",
+        "first_line": "PID 8048 UTC 2026-10-19T20:16:14.944259+00:00"
+      }
+    },
+    {
+      "name": "inventory",
+      "command": "rg --files docs/evidence/appearance-2026-10-19/mara-body-turnaround",
+      "tool": "exec_command",
+      "result": {
+        "chunk_id": "cb9648",
+        "exit_code": 0,
+        "wall_time_seconds": 1.225e-05,
+        "output_bytes": 438,
+        "output_sha256": "ea6db0e54782727eb69ecbc015ecf2f9477d044d8074b565706cfc57802c5ae5",
+        "first_line": "docs/evidence/appearance-2026-10-19/mara-body-turnaround/SOURCE-INPUTS.json"
+      }
+    },
+    {
+      "name": "complete_read",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PREPARATION.md','BRIEF.md','PROMPT.txt','IMAGE-REQUEST.json','SOURCE-INPUTS.json']:\n q=p/n;b=q.read_bytes();print('\\nFILE',n,len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(f'{i}: {line}')\nPY",
+      "tool": "exec_command",
+      "result": {
+        "chunk_id": "e81bef",
+        "exit_code": 0,
+        "wall_time_seconds": 8.209e-06,
+        "output_bytes": 17408,
+        "output_sha256": "0dbbd7d8ae998677ff94c21519f2f29a5dbbc8f7ed904ebda6b317e8f817de04",
+        "first_line": "PID 8352 UTC 2026-10-19T20:16:24.518600+00:00"
+      }
+    },
+    {
+      "name": "skill_read",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime\nbase=Path('/Users/robault/.codex/skills/.system/imagegen')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['SKILL.md','references/prompting.md']:\n print('\\nFILE',base/n)\n for i,line in enumerate((base/n).read_text().splitlines(),1):print(f'{i}: {line}')\nPY",
+      "tool": "exec_command",
+      "result": {
+        "chunk_id": "441c36",
+        "exit_code": 0,
+        "wall_time_seconds": 7.25e-06,
+        "output_bytes": 29585,
+        "output_sha256": "5956b389d82e3fcccef2a5089439b29f08e32c4bf06dd622e1ddd237b81ba843",
+        "first_line": "PID 8880 UTC 2026-10-19T20:16:40.779386+00:00"
+      }
+    },
+    {
+      "name": "verify",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nm=json.loads((p/'SOURCE-INPUTS.json').read_text()); rows=[]\nfor r in m['pins']:\n b=Path(r['path']).read_bytes();a={'path':r['path'],'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()};assert a==r,(a,r);rows.append(a)\nb=(p/'SOURCE-INPUTS.json').read_bytes(); rows.append({'path':str(p/'SOURCE-INPUTS.json'),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})\nr=json.loads((p/'IMAGE-REQUEST.json').read_text());t=(p/'PROMPT.txt').read_text();assert r['prompt']==t.removesuffix('\\n');assert set(r)=={'prompt','referenced_image_paths','transparent_background'};assert r['transparent_background'] is False\nassert r['referenced_image_paths']==[m['pins'][10]['path'],m['pins'][11]['path']];assert sum(Path(x).stat().st_size for x in r['referenced_image_paths'])==2499735\nassert len(rows)==17\nprint(json.dumps({'verified_rows':rows,'prompt_equal_except_terminal_LF':True,'request_keys':list(r),'reference_bytes':2499735,'absence_snapshot':{n:not (p/n).exists() for n in ['ADMISSION.json','first.png','first.jpg','SOURCE-REVIEW.md','SOURCE-RECEIPT.json']}},indent=2))\nq=Path(m['pins'][0]['path']);print('WHOLE ROOT-WORTH',q)\nfor i,line in enumerate(q.read_text().splitlines(),1):print(f'{i}: {line}')\nPY",
+      "tool": "exec_command",
+      "result": {
+        "chunk_id": "394812",
+        "exit_code": 0,
+        "wall_time_seconds": 7.667e-06,
+        "output_bytes": 11734,
+        "output_sha256": "800eda8b955aac65904475a93fb6ebbe9a647c88b3db366263b81995923aadd8",
+        "first_line": "PID 12275 UTC 2026-10-19T20:18:30.824544+00:00"
+      }
+    }
+  ],
+  "input_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround-worth/ROOT-WORTH.json",
+      "bytes": 6607,
+      "sha256": "d81562580889e6d9227f11bd0bed9a80334f3cef3859c0d99d062165079329be"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround-worth/WORTH.md",
+      "bytes": 2571,
+      "sha256": "20e7968a509ff18eadac5ba2f37250b81134855cdfc1773dd71bcbbd456d6069"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround-worth/WORTH-RECEIPT.json",
+      "bytes": 14861,
+      "sha256": "21e531fa31ff87bd29b5c67204e41663a9e5121720f938c5e867499780e4f04f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround-worth/PLAN.md",
+      "bytes": 2678,
+      "sha256": "13c7a987463e87b81d920d1edc73f28b437f012617800e7ad8e46b7400b6e320"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround-worth/INPUTS.json",
+      "bytes": 3546,
+      "sha256": "969d880190955d831e2d7dc76af8c478415c2746fb8c5d920aaa387c602a211b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround-worth/IMAGE-INPUTS.json",
+      "bytes": 800,
+      "sha256": "3adaaa5119715a30c03701d1cc9b236f9f4c7abb0356cf8d32ed7f2fffd47bbb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "bytes": 3053,
+      "sha256": "f0f6118b1916220de67cb8748ec7232e1ab1b32e745415eb9c1d7629f429ca1d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md",
+      "bytes": 2119,
+      "sha256": "38c5bada9d90499073eb1e8cd3162d1a42f581d6c7a2b5aa70530176c3f9a4c3"
+    },
+    {
+      "path": "/Users/robault/.codex/skills/.system/imagegen/SKILL.md",
+      "bytes": 19201,
+      "sha256": "681ddb4ad6d06a2acc78a3535b583f8d0c1ea800ecda3d56370d3310fd2cd4ba"
+    },
+    {
+      "path": "/Users/robault/.codex/skills/.system/imagegen/references/prompting.md",
+      "bytes": 8282,
+      "sha256": "b210b051c775860267080941eba968212bf0ac7fce581d75c5dcc217d8293f8b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/original-first.jpg",
+      "bytes": 116380,
+      "sha256": "639a012ffda45999b721ac602a88ad6a3c109564fffb5b75c871ef6b6360e0a5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround/PREPARATION.md",
+      "bytes": 3498,
+      "sha256": "67be8fee9ae9864b4c34036503f3a3727b083e16637a27530aacac8fc4761053"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround/BRIEF.md",
+      "bytes": 2123,
+      "sha256": "8efc180ebfa5f3fd026dd7133926c31a7fed67924b0266ce4c8a8c23e8aa293c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround/PROMPT.txt",
+      "bytes": 3147,
+      "sha256": "20b1243d09537db5ed48dd227565534c70adca746167ace388f51c8fb09577c7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround/IMAGE-REQUEST.json",
+      "bytes": 3503,
+      "sha256": "b851ab3159e3136914029879d30cc2b4307ea1a7e15c9b6be2bbfeb67672cb62"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround/SOURCE-INPUTS.json",
+      "bytes": 4154,
+      "sha256": "576beef9f97debafb9958c542c6e38d0afdf6a6b5fa4db2f536b2d160f3c740f"
+    }
+  ],
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround/SOURCE-REVIEW.md",
+    "bytes": 3142,
+    "sha256": "dca9505956804de15347caa0f9357766ca1f25d31e249fcb207bcb8758e6e04d"
+  },
+  "collection": {
+    "pid": 13857,
+    "utc": "2026-10-19T20:19:22.411767+00:00",
+    "exclusive_pair_only": true
+  },
+  "prestable_receipt_compaction": {
+    "previous_bytes": 74406,
+    "previous_sha256": "f4b2298ca88fbb45a5f0ecba4ef648bf5ef4e74f69c6c4c4cea70740ef253156",
+    "reason": "Before stable full readback, removed duplicated raw read outputs; retained complete exact read commands plus tool identities, exit codes, output byte counts and SHA256. No source/review/input or verdict change."
+  },
+  "stable_collection": {
+    "pid": 14361,
+    "utc": "2026-10-19T20:19:39.680024+00:00",
+    "pending_edits": false
+  }
+}

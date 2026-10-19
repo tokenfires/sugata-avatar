@@ -1,0 +1,50 @@
+{
+  "tool": "image_gen.imagegen",
+  "args": {
+    "prompt": "Use case: stylized-concept\nAsset type: a single realistic character concept turnaround for artist discussion.\nPrimary request: create one NEW supplemental sheet showing the same fictional mature woman Mara in three COMPLETE clothed views: front, exact left-facing profile, and exact rear. This authors previously unseen clothed body/outfit depth; retain the supplied original as an independent reference, not a panel to paste or retouch.\nInput images: Image 1 is the sole character/face/body/wardrobe and natural-texture reference: Mara's existing full-body front plus portrait. Image 2 is supporting cardigan design intent only: its plain long back, open front, full sleeves, cuff/hem ribbing, front bands and two low front patch pockets. Do not reproduce its diagram layout or typography.\nScene/backdrop: one quiet warm-gray studio backdrop and continuous floor.\nSubject: preserve Mara's recognizable mature face, warm brown skin, natural smile lines/lower-lid creases, silver jaw-length side-parted bob, relaxed upright presence and softly fuller waist/hips without a cinched fashion waist. Use the same body proportions and apparent scale in all three views.\nWardrobe: the same open caramel long cardigan over a tucked ivory crew-neck tee and deep-plum midi skirt. Cardigan hem clearly above the longer, broadly folded skirt hem. Lower legs and complete oxblood loafers with modest raised heels visible. Rear cardigan has a quiet uninterrupted back and no rear patch pockets. These are original hidden-view artist choices consistent with the references, not measured reconstruction.\nComposition/framing: wide landscape sheet, approximately1536x1024. Three evenly spaced full-height figures on the same ground line and at the same scale, head-to-shoe framing with clear margins. Front faces the viewer squarely; profile head AND torso face exactly left, showing clothed middle/seat depth; rear head AND torso face exactly away, showing the cardigan/skirt/lower-leg/shoe relationships. Natural relaxed arms/hands; front and rear show both feet, with normal profile overlap permitted. Keep hands, hem edges and every visible shoe fully inside the image. No extra portrait, inset, crown closeup or fourth view.\nStyle/medium: polished realistic character illustration matching Image1's natural skin, knit, skirt drape and leather detail; restrained studio light, legible silhouettes, no dramatic perspective or glamour retouch.\nText (verbatim): small simple captions beneath the corresponding figures: \"Front\", \"Profile\", \"Rear\". No other writing.\nConstraints: one coherent woman and outfit across all three views. Keep mature facial character and body fullness, the visible front waistband, the two separate cardigan/skirt hem levels, natural hands and modest footwear. This is clothed artist intent, not a technical pattern or anatomical scan.\nAvoid: youthful replacement face, narrowed waist, exaggerated curves, new accessories/jewelry, changed palette, boots/high heels, back pockets, cropped head/hands/feet, three-quarter views substituted for profile/rear, exposed midriff, diagram marks, measurement grids, extra people/props, watermarks.",
+    "referenced_image_paths": [
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mara-cardigan-first-native/original-first.jpg"
+    ],
+    "transparent_background": false
+  },
+  "start": {
+    "current_time": "2026-10-19 20:21:10 UTC"
+  },
+  "finish": {
+    "current_time": "2026-10-19 20:21:45 UTC"
+  },
+  "output_hint": "Generated images are saved to /Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c as /Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-cb840343-fbdd-4a76-8024-d238571450b7.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "image_url": {
+    "present": true,
+    "kind": "data_url",
+    "characters": 2655806
+  },
+  "actual_returned_file": "/Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-cb840343-fbdd-4a76-8024-d238571450b7.png",
+  "reported_cost": null,
+  "remote_job_pid": null,
+  "tool_calls": 1,
+  "schema": "mara-body-turnaround-actual-generation-v1",
+  "collection_pid": 19451,
+  "collection_utc": "2026-10-19T20:22:25.617577+00:00",
+  "source_file": {
+    "path": "/Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-cb840343-fbdd-4a76-8024-d238571450b7.png",
+    "bytes": 1991838,
+    "sha256": "32d3a7b9037408fee44ff588c42d5225771a6885d6d911b1352fe76258fc6daa"
+  },
+  "project_image": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround/first.png",
+    "bytes": 1991838,
+    "sha256": "32d3a7b9037408fee44ff588c42d5225771a6885d6d911b1352fe76258fc6daa"
+  },
+  "png_header": {
+    "width": 1536,
+    "height": 1024,
+    "pixels": 1572864,
+    "bit_depth": 8,
+    "color_type": 2
+  },
+  "copied_unchanged": true,
+  "pre_view_caps": "PASS one returned image handle/selected file,actual PNG signature/header,16MiB/8MP/4096edges. Native tool may display its own image before root file inspection; no local preview/capture by root yet.",
+  "limits": "One actual built-in call; no reference/asset overwrite. Remote cost/runtime/peak/physicaltermination notreported. Start/finish are adjacent rootclock observations, no workerPID or separate outerexecchunk exposed. Image appearance remains unqualified."
+}
