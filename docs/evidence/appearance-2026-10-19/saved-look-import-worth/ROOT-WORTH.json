@@ -1,0 +1,132 @@
+{
+  "utc": "2026-10-19T23:48:41.532853+00:00",
+  "pid": 54722,
+  "decision": "A: one separate complete implementation/validation/UI method proposal only; no code or target",
+  "wholeStableHandoff": "6638bd/exit0/untruncated3727B worth+21258B receipt",
+  "verifiedBindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8469,
+      "sha256": "51eff8f457e413fe78449f1273d53a2ae996b0f0f4482d0f6283c016ef533ae3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-export/README.md",
+      "bytes": 6063,
+      "sha256": "203a7aef9e3932624281b5971a307b10218136b3ec2378f1fa4c9c4ba840bc16"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-backup-ui.mjs",
+      "bytes": 7671,
+      "sha256": "9bf828dcae53c9ad1db97c4d0b8c6dd5678834d04cba924dbb6f772257d7ac12"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-backup.mjs",
+      "bytes": 4998,
+      "sha256": "7a8549a4b1f0b7a052a6458e74037479e72e237be08468eeb7044efbdc033264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-worth/PLAN.md",
+      "bytes": 4330,
+      "sha256": "bf1f75babb0ca1c899b79093506857492366fe1b2ee9f7d7ba4c0a1d97f9acda"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-worth/SOURCE-SELECTION.json",
+      "bytes": 844,
+      "sha256": "a069c686929dced910b9741180dd813b12c6baa0f898ef5686c9b9a2f5d75f1b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-worth/INPUTS.json",
+      "bytes": 3426,
+      "sha256": "a708fa8ffd9a1b8e9128151ed7a38d00491805f056389343c8b24cc52d3ede7c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-worth/EXISTING-PURPOSE-LOCATORS.txt",
+      "bytes": 8270,
+      "sha256": "abef2264a137575105b77835275a59a4423a000c02bc9723ed22fae1e08aea18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-worth/ROOT-FIRST.json",
+      "bytes": 3466,
+      "sha256": "e9dfd911fc034c43e004acb0ca334adbd3223fbbad9a67e0a090ca57fe4ca2bb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-worth/WORTH.md",
+      "bytes": 3727,
+      "sha256": "922c341fa68cd7f7305242251430749c9536f56a916dc57ff6c6970552452357"
+    }
+  ],
+  "criticReceiptSHA256": "c09e533c556e2399f7a2ac562bf757dbe39cea73cad0782175f030003c8673d7",
+  "rootIndependentReason": "Root covered all3selected source files in3f2f8b plus exact3297e4 center recovery. Host file handler reads then deliberately navigates currentpreview; localform savescurrentconfiguration; singleentryexport provides real portablefileconsumer. Wholebackup expects different envelope and replacesrawcollection. Adding1named supported recipe without applying it or replacingothers is a distinct boundedproduct consumer, not defectclaim/globalabsence. Critic actualsourcewitnesses and scope match independentinspection.",
+  "existingPurposeVerification": {
+    "rows": [
+      5,
+      11,
+      36,
+      44,
+      45,
+      60,
+      62,
+      69,
+      76,
+      94,
+      146,
+      148
+    ],
+    "count": 12,
+    "scope": "Exact already supplied current lines only; no new locatorquery/whole roadmap semanticread. Stale per-file15 label remains explicitly superseded by12actual rows."
+  },
+  "sourceScope": {
+    "files": 3,
+    "wholeLines": 745,
+    "oldLocatorRows": 70,
+    "sameHostRecovery": 101,
+    "conservativeLines": 916,
+    "cap": 1400
+  },
+  "alternatives": [
+    {
+      "choice": "one complete single-recipe import-to-collection proposal",
+      "tradeoff": "Useful noninterrupting portability consumer, with additional validation/naming/async/persistence/UI responsibilities that must be owned before editing."
+    },
+    {
+      "choice": "retain OpenJSON then Save plus existing whole-backup restore",
+      "tradeoff": "No new ingress/UI risk, but one recipe interrupts preview or batch restore replaces the full collection."
+    }
+  ],
+  "unqualified": {
+    "actualInterfaceWitness": [
+      "showcase.js:5,7 imports readShowcaseSettings/showcaseSettingsUrl and SavedLooks",
+      "showcase.js:322 readShowcaseSettings returns restored selection for navigation",
+      "showcase.js:401 savedLooks.add(name,currentConfiguration())"
+    ],
+    "mustOwnBeforeImplementation": [
+      "Read real file/configuration normalization and collection/persistence owners; do not assume reader result directly equals add configuration schema.",
+      "Single supported look format, validation/unsupported/obsolete/malformed/oversize and file read failure boundaries.",
+      "Explicit imported-entry name/duplicate/collection-limit behavior.",
+      "Cancel/stale read/pagehide/disposal and overlapping operation ownership.",
+      "Storage access/write failures and concurrent collection changes without unrelated-entry replacement.",
+      "Active avatar/preview/URL/settings/attention remain unchanged during import; Open/Apply later explicit.",
+      "Complete bounded source/proof and actual UI method/workload/resource/output gates before any entry."
+    ],
+    "notQualifiedNow": [
+      "validator internals",
+      "storage atomicity/concurrency",
+      "actual filechooser/UI behavior",
+      "no-previewmutation runtime proof",
+      "appearance/accessibility/performance"
+    ]
+  },
+  "noEntries": "No fourth source/validator expansion, test/import/evaluation/fixture/browser/native/GPU/capture/image/network or code/canonical change.",
+  "next": "One separately bounded complete proposal may inspect actual validation/persistence/UI owners and current primary File API/capability/runtime metadata under declared bounds. Proposal/source/runtime/actualUI admission still required; no implementation or target from this A.",
+  "preserved": "All original/default/accepted/frozen/ignored assets, priorclosures, constructorHOLD,23scoped/10broad/fullAAAroadmap preserved."
+}

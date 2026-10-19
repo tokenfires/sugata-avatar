@@ -1,0 +1,99 @@
+{
+  "utc": "2026-10-19T23:52:00.506594+00:00",
+  "pid": 61222,
+  "decision": "A proposal only; no entries",
+  "parent": "cf4b6248518318e10b4e21f00235d09fad209b37",
+  "pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-worth/CHECKPOINT-NOTE.md",
+      "bytes": 1463,
+      "sha256": "bf96f45eef0f17c3747263dac7fb2a762abf003aa6df32d98f3b4d3d611d814b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-worth/CRITIC-RECEIPT.json",
+      "bytes": 21258,
+      "sha256": "c09e533c556e2399f7a2ac562bf757dbe39cea73cad0782175f030003c8673d7"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-worth/EXISTING-PURPOSE-LOCATORS.txt",
+      "bytes": 8270,
+      "sha256": "abef2264a137575105b77835275a59a4423a000c02bc9723ed22fae1e08aea18"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-worth/INPUTS.initial.json.txt",
+      "bytes": 3096,
+      "sha256": "47e469e3efccf789f4ab49e63d7cf4cf656767790f0ed9192214b5dc821daa6e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-worth/INPUTS.json",
+      "bytes": 3426,
+      "sha256": "a708fa8ffd9a1b8e9128151ed7a38d00491805f056389343c8b24cc52d3ede7c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-worth/JOBS.json",
+      "bytes": 124677,
+      "sha256": "995d02076503b30002a287f50099f6c9b954e3fcabd79e7ba00b9719244f7411"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-worth/PLAN.md",
+      "bytes": 4330,
+      "sha256": "bf1f75babb0ca1c899b79093506857492366fe1b2ee9f7d7ba4c0a1d97f9acda"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-worth/README.md",
+      "bytes": 3234,
+      "sha256": "508df14fa4c5a72dfb086128fcb64d76ff16989052a95212ad4a7ec50d8e4871"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-worth/ROOT-FIRST.initial.json.txt",
+      "bytes": 3096,
+      "sha256": "58e72e04740f3dff5a84577d8c17ba7c28d021a02852b53a46deb73365764de4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-worth/ROOT-FIRST.json",
+      "bytes": 3466,
+      "sha256": "e9dfd911fc034c43e004acb0ca334adbd3223fbbad9a67e0a090ca57fe4ca2bb"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-worth/ROOT-WORTH.json",
+      "bytes": 6638,
+      "sha256": "bba1f87a16b685263f197a60c1762f098a3184e2973aea4accd4c4c2caba6267"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-worth/SOURCE-SELECTION.json",
+      "bytes": 844,
+      "sha256": "a069c686929dced910b9741180dd813b12c6baa0f898ef5686c9b9a2f5d75f1b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-worth/WORTH.md",
+      "bytes": 3727,
+      "sha256": "922c341fa68cd7f7305242251430749c9536f56a916dc57ff6c6970552452357"
+    }
+  ],
+  "checkpointBaselines": {
+    "docs/WORK-WINDOW-2026-10-18.md": {
+      "bytes": 159698,
+      "sha256": "dadb240676a47a973b7586f882e29f74c06965545c34936bab72e020bd4a669b"
+    },
+    "docs/RESUME-2026-10-18.md": {
+      "bytes": 134634,
+      "sha256": "3204348868c3588cc291c50b213669e75c1fee643db3c8eb84416914ee9bc658"
+    }
+  },
+  "checkpointNew": [
+    {
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 161162,
+      "sha256": "44b97e54c28c124519697faee4ade14a4a80a502aa299fae7785513d4ce03e63"
+    },
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 136098,
+      "sha256": "9bd18045aa9e71509f0fd2583bd495e27139e54296e5577cf23f365dc763ad62"
+    }
+  ],
+  "pendingCriticEdits": false,
+  "liveOwnedTarget": false,
+  "next": "separate complete source/implementation/validation/UI method proposal; no code/target admission yet",
+  "frozenWhitespace": "Frozen PLAN retained byte-identical. New unfrozen note trailing blank removed after4ab303; require ordinary staged diff check."
+}

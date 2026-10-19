@@ -1,0 +1,339 @@
+{
+  "kind": "independent-bounded-saved-look-import-worth",
+  "verdict": "A_ONE_SEPARATE_COMPLETE_IMPLEMENTATION_VALIDATION_UI_PROPOSAL_ONLY",
+  "collectedUTC": "2026-10-19T23:46:55.233709+00:00",
+  "collectionPID": 51370,
+  "deadlineUTC": "2026-10-20T00:00:00Z",
+  "pending_edits": false,
+  "inputBindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8469,
+      "sha256": "51eff8f457e413fe78449f1273d53a2ae996b0f0f4482d0f6283c016ef533ae3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-02/saved-export/README.md",
+      "bytes": 6063,
+      "sha256": "203a7aef9e3932624281b5971a307b10218136b3ec2378f1fa4c9c4ba840bc16"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-backup-ui.mjs",
+      "bytes": 7671,
+      "sha256": "9bf828dcae53c9ad1db97c4d0b8c6dd5678834d04cba924dbb6f772257d7ac12"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection-backup.mjs",
+      "bytes": 4998,
+      "sha256": "7a8549a4b1f0b7a052a6458e74037479e72e237be08468eeb7044efbdc033264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-worth/PLAN.md",
+      "bytes": 4330,
+      "sha256": "bf1f75babb0ca1c899b79093506857492366fe1b2ee9f7d7ba4c0a1d97f9acda"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-worth/SOURCE-SELECTION.json",
+      "bytes": 844,
+      "sha256": "a069c686929dced910b9741180dd813b12c6baa0f898ef5686c9b9a2f5d75f1b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-worth/INPUTS.json",
+      "bytes": 3426,
+      "sha256": "a708fa8ffd9a1b8e9128151ed7a38d00491805f056389343c8b24cc52d3ede7c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-worth/EXISTING-PURPOSE-LOCATORS.txt",
+      "bytes": 8270,
+      "sha256": "abef2264a137575105b77835275a59a4423a000c02bc9723ed22fae1e08aea18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-worth/ROOT-FIRST.json",
+      "bytes": 3466,
+      "sha256": "e9dfd911fc034c43e004acb0ca334adbd3223fbbad9a67e0a090ca57fe4ca2bb"
+    }
+  ],
+  "fixedManifestBindingsVerified": 8,
+  "reviewBinding": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-worth/WORTH.md",
+    "bytes": 3727,
+    "sha256": "922c341fa68cd7f7305242251430749c9536f56a916dc57ff6c6970552452357"
+  },
+  "scope": {
+    "wholeSources": [
+      {
+        "path": "packages/testbed/src/showcase.js",
+        "bytes": 36058,
+        "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59",
+        "lines": 509,
+        "actualSemanticLines": 509
+      },
+      {
+        "path": "packages/testbed/src/showcase-collection-backup-ui.mjs",
+        "bytes": 7671,
+        "sha256": "9bf828dcae53c9ad1db97c4d0b8c6dd5678834d04cba924dbb6f772257d7ac12",
+        "lines": 136,
+        "actualSemanticLines": 136
+      },
+      {
+        "path": "packages/testbed/src/showcase-collection-backup.mjs",
+        "bytes": 4998,
+        "sha256": "7a8549a4b1f0b7a052a6458e74037479e72e237be08468eeb7044efbdc033264",
+        "lines": 100,
+        "actualSemanticLines": 100
+      }
+    ],
+    "ownWholeSourceLines": 745,
+    "codeSourceFiles": 3,
+    "codeSourceCap": 3,
+    "codeSemanticLineCap": 1400,
+    "rootConservativeCumulativeLedger": {
+      "priorSourceLocators": 70,
+      "wholeSources": 745,
+      "sameHostClippedRecovery": 101,
+      "total": 916,
+      "interpretation": "Root historical count including duplicate rows/recovery; critic independently read all745whole source lines, no extra locator or fourth source needed."
+    },
+    "wholeHistoricalReceipt": "docs/evidence/appearance-2026-10-02/saved-export/README.md",
+    "purposeRoadmapLines": [
+      5,
+      11,
+      36,
+      44,
+      45,
+      60,
+      62,
+      69,
+      76,
+      94,
+      146,
+      148
+    ],
+    "purposeRoadmapRows": 12,
+    "purposeRoadmapCap": 350,
+    "wholeRoadmapRead": false,
+    "currentChecklist": "Currentcf4b exact8469B/51eff8f4 reused from own fully read/reviewed proposal now canonical; hash verified.",
+    "wholeGateRecords": [
+      "PLAN.md",
+      "INPUTS.json",
+      "SOURCE-SELECTION.json",
+      "EXISTING-PURPOSE-LOCATORS.txt",
+      "ROOT-FIRST.json only after own seal"
+    ],
+    "newFilenameInventoriesByCritic": 0,
+    "newImageViews": 0,
+    "newReferences": 0,
+    "newTargetsImportsTestsFixturesBrowserNativeGPUCapture": 0,
+    "importedValidatorOwners": "Named interfaces witnessed in current selected sources only; no semantic read or safety qualification of settings/configuration/collection implementation."
+  },
+  "independence": {
+    "sealChunk": "47cb12",
+    "sealUTC": "2026-10-19T23:43:38.137855+00:00",
+    "sealPID": 45118,
+    "order": "Own complete worth A emitted before ROOT-FIRST text read in same command, after all3whole sources/wholeexportreceipt/exact12roadmaprows/currentpins.",
+    "rootFirstUTC": "2026-10-19T23:39:49.327351+00:00",
+    "rootMetadataRefinementUTC": "2026-10-19T23:40:14.909786+00:00",
+    "comparison": "Independent agreement on A for a complete proposal only; no code or target admitted."
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "classification": "missing distinct normal product consumer in selected current ingress routes",
+      "witnesses": [
+        "showcase.js:162-169 direct single saved configuration export",
+        "showcase.js:316-335,487-489 selected file reads then navigates active preview",
+        "showcase.js:397-403 local save adds currentConfiguration",
+        "showcase-collection-backup.mjs:24-34,71-88 envelope and fullraw restore",
+        "showcase-collection-backup-ui.mjs:78-102 explicit replace-all preview/restore",
+        "saved-export/README.md:3,31 historical exported configuration reopening",
+        "PRODUCT-ROADMAP.md retained rows5,44 portability/supported named looks"
+      ],
+      "explanation": "Exported lookJSON has a working Open consumer, but current Open then Save changes preview first; backup restore replaces an entire collection. Adding one imported supported entry without applying it or replacing unrelated entries has distinct practical value. No existing-path defect or global import absence claimed.",
+      "alternatives": [
+        {
+          "choice": "one complete single-recipe import-to-collection proposal",
+          "tradeoff": "Useful noninterrupting portability consumer, with additional validation/naming/async/persistence/UI responsibilities that must be owned before editing."
+        },
+        {
+          "choice": "retain OpenJSON then Save plus existing whole-backup restore",
+          "tradeoff": "No new ingress/UI risk, but one recipe interrupts preview or batch restore replaces the full collection."
+        }
+      ]
+    }
+  ],
+  "proposalPrerequisitesOnly": {
+    "actualInterfaceWitness": [
+      "showcase.js:5,7 imports readShowcaseSettings/showcaseSettingsUrl and SavedLooks",
+      "showcase.js:322 readShowcaseSettings returns restored selection for navigation",
+      "showcase.js:401 savedLooks.add(name,currentConfiguration())"
+    ],
+    "mustOwnBeforeImplementation": [
+      "Read real file/configuration normalization and collection/persistence owners; do not assume reader result directly equals add configuration schema.",
+      "Single supported look format, validation/unsupported/obsolete/malformed/oversize and file read failure boundaries.",
+      "Explicit imported-entry name/duplicate/collection-limit behavior.",
+      "Cancel/stale read/pagehide/disposal and overlapping operation ownership.",
+      "Storage access/write failures and concurrent collection changes without unrelated-entry replacement.",
+      "Active avatar/preview/URL/settings/attention remain unchanged during import; Open/Apply later explicit.",
+      "Complete bounded source/proof and actual UI method/workload/resource/output gates before any entry."
+    ],
+    "notQualifiedNow": [
+      "validator internals",
+      "storage atomicity/concurrency",
+      "actual filechooser/UI behavior",
+      "no-previewmutation runtime proof",
+      "appearance/accessibility/performance"
+    ]
+  },
+  "metadataAndReaderProvenance": [
+    {
+      "scope": "Root precritic inventory",
+      "detail": "One31path filename inventory already consumed; apps/examples nonexistent errors and no second inventory, attributed from currentmanifest. Critic ran none."
+    },
+    {
+      "scope": "Root precritic source reader",
+      "detail": "Initial V8 parse error happened before nestedtool;37ae2f actual70locator rows; root3f2f8b hostcenter display clipped and exactsame295-395 recovered3297e4. Critic bounded1-250/251-509 reads and wholebackup files were untruncated."
+    },
+    {
+      "scope": "Precritic counts",
+      "detail": "Current purposeRoadmapRows12 and existing literal12rows authoritative; stale per-file semanticScope15 label retained as known metadata wording. Root initial manifest/opinion retained .initial.json.txt, no source/target/value change."
+    }
+  ],
+  "nextImplementationWorthwhile": "Only one separate complete implementation/validation/UI proposal; no present implementation or execution permission.",
+  "nextBoundary": "Root whole stable handoff and fresh binding verification, then separately nominate complete source/workload. No automatic target, code edit, proof/adoption or closed-method successor.",
+  "limits": [
+    "Value/existence conclusion is bounded to selected current routes, not exhaustive repository feature absence.",
+    "Whole saved-export receipt establishes its historical scope; no old observer/fixture/native packet replay or image view.",
+    "No third-party/network/CLI/browser/GPU/native/fixture/import/evaluation/test/source/canonical/asset change by critic.",
+    "No rendered UI, arbitrary browser/filesystem portability, exact avatar image, performance or broad-roadmap qualification.",
+    "All previous art-kit/filetransport/capture/suggestionsTry/resourcecleanup/expression/geometry/native closures and constructor HOLD remain, currentchecklist23/10 unchanged."
+  ],
+  "errorsAndCorrectionsByCritic": [
+    {
+      "kind": "critic collection reader escaping",
+      "failedJob": {
+        "chunk_id": "412f10",
+        "wall_time_seconds": 9.708e-06,
+        "exit_code": 1,
+        "original_token_count": 23,
+        "output": "Traceback (most recent call last):\n  File \"<stdin>\", line 16, in <module>\nAssertionError\n"
+      },
+      "failedReaderPID": "not exposed; timestamp/PID print was after failed guard",
+      "faultyExpression": "re.match(r'^(\\\\d+):(.*)$',l)",
+      "correctedExpression": "re.match(r'^([0-9]+):(.*)$',l)",
+      "effect": "Matched zero numeric rows and failed exact12 guard before output writes. No input/source/target change or new query."
+    },
+    {
+      "kind": "critic metadata command-string correction",
+      "failedJob": {
+        "chunk_id": "23d8c9",
+        "wall_time_seconds": 6.458e-06,
+        "exit_code": 1,
+        "original_token_count": 38,
+        "output": "  File \"<stdin>\", line 13\n    match=re.match(r'^([0-9]+):(.*),l)\n                   ^\nSyntaxError: unterminated string literal (detected at line 13)\n"
+      },
+      "failedReaderPID": "not exposed; Python syntax failed before execution",
+      "cause": "JavaScript String.replace replacement text interpreted dollar/apostrophe sequence in literal regex and produced unterminated Python string",
+      "correction": "Use replacement callback returning literal corrected expression, starting from original untouched command",
+      "effect": "No Python body, source/target or output write ran."
+    }
+  ],
+  "toolJobs": [
+    {
+      "name": "initial",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\nbase=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-worth')\nprint(json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid()}))\nfor n in ['PLAN.md','INPUTS.json','SOURCE-SELECTION.json']:\n p=base/n;b=p.read_bytes();print('\\nFILE',str(p),len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "result": {
+        "chunk_id": "2ed515",
+        "wall_time_seconds": 6.375e-06,
+        "exit_code": 0,
+        "original_token_count": 2305,
+        "returnedOutputBytes": 9218,
+        "returnedOutputSHA256": "eed0fa57910729d6d7d1de12544f40997763c18cbbf92cc3d4c7d04049ad0603",
+        "firstLine": "{\"utc\": \"2026-10-19T23:40:55.627828+00:00\", \"pid\": 39899}",
+        "scope": "complete untruncated read-only selected source/record inspection; no target evaluation"
+      }
+    },
+    {
+      "name": "host1",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js');print(datetime.datetime.now(datetime.timezone.utc).isoformat(),os.getpid(),str(p),'1:250')\nfor i,l in enumerate(p.read_text().splitlines(),1):\n if i<=250:print(f'{i}: {l}')\nPY",
+      "result": {
+        "chunk_id": "e3f2c0",
+        "wall_time_seconds": 6.75e-06,
+        "exit_code": 0,
+        "original_token_count": 5044,
+        "returnedOutputBytes": 20176,
+        "returnedOutputSHA256": "c9f3ed02366fa6529cb399e6e3292c82564f8bdb11401bd6bb2083212f5b5e7a",
+        "firstLine": "2026-10-19T23:41:40.242381+00:00 41348 /Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js 1:250",
+        "scope": "complete untruncated read-only selected source/record inspection; no target evaluation"
+      }
+    },
+    {
+      "name": "backup_export",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport datetime,os\nr=Path('/Users/robault/GitHub/sugata-avatar');print(datetime.datetime.now(datetime.timezone.utc).isoformat(),os.getpid())\nfor name in ['packages/testbed/src/showcase-collection-backup-ui.mjs','packages/testbed/src/showcase-collection-backup.mjs','docs/evidence/appearance-2026-10-02/saved-export/README.md']:\n p=r/name;print('\\nFILE',str(p))\n for i,l in enumerate(p.read_text().splitlines(),1):print(f'{i}: {l}')\nPY",
+      "result": {
+        "chunk_id": "7d5a5c",
+        "wall_time_seconds": 5.916e-06,
+        "exit_code": 0,
+        "original_token_count": 5053,
+        "returnedOutputBytes": 20210,
+        "returnedOutputSHA256": "88eb55a654389b9d333e08c57fac42f564e53be86ca5e5e0d9e350f116e182ac",
+        "firstLine": "2026-10-19T23:41:40.242350+00:00 41347",
+        "scope": "complete untruncated read-only selected source/record inspection; no target evaluation"
+      }
+    },
+    {
+      "name": "host2",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js');print(datetime.datetime.now(datetime.timezone.utc).isoformat(),os.getpid(),str(p),'251:509')\nfor i,l in enumerate(p.read_text().splitlines(),1):\n if i>=251:print(f'{i}: {l}')\nPY",
+      "result": {
+        "chunk_id": "1cab3b",
+        "wall_time_seconds": 7.25e-06,
+        "exit_code": 0,
+        "original_token_count": 4638,
+        "returnedOutputBytes": 18549,
+        "returnedOutputSHA256": "651696e1c718a59d5f78d46eedc73cd502e9a185e043f072a0cc152b00fb6419",
+        "firstLine": "2026-10-19T23:41:53.225443+00:00 41788 /Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js 251:509",
+        "scope": "complete untruncated read-only selected source/record inspection; no target evaluation"
+      }
+    },
+    {
+      "name": "purpose",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,datetime,os\nbase=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-worth');p=base/'EXISTING-PURPOSE-LOCATORS.txt';b=p.read_bytes();print(json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}));print(b.decode())\nrows=json.loads((base/'INPUTS.json').read_text())['bindings']\nfor row in rows:\n b=Path(row['path']).read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256']\nprint('ALL_CURRENT_INPUTS_VERIFIED',len(rows));print('INPUTS_SELF',hashlib.sha256((base/'INPUTS.json').read_bytes()).hexdigest());print('SOURCE_TOTAL_LINES',sum(len(Path(x['path']).read_text().splitlines()) for x in rows if x['semanticScope']=='whole' and '/packages/' in x['path']))\nPY",
+      "result": {
+        "chunk_id": "bb18b4",
+        "wall_time_seconds": 7.333e-06,
+        "exit_code": 0,
+        "original_token_count": 2173,
+        "returnedOutputBytes": 8689,
+        "returnedOutputSHA256": "b6735009e5653a7f5c36b44f957208f10d3de829615bc8b26e3d6b716b4cedd6",
+        "firstLine": "{\"utc\": \"2026-10-19T23:42:45.360137+00:00\", \"pid\": 43391, \"path\": \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-worth/EXISTING-PURPOSE-LOCATORS.txt\", \"bytes\": 8270, \"sha256\": \"abef2264a137575105b77835275a59a4423a000c02bc9723ed22fae1e08aea18\"}",
+        "scope": "complete untruncated read-only selected source/record inspection; no target evaluation"
+      }
+    },
+    {
+      "name": "compare",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\nbase=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-worth')\nprint(json.dumps({'independentWorthDecisionSealedUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'verdict':'A_ONE_SEPARATE_COMPLETE_IMPLEMENTATION_VALIDATION_UI_PROPOSAL_ONLY','witnesses':['showcase.js:162-169 exports a single saved configuration','showcase.js:316-326 reads file then navigates preview;397-403 adds currentConfiguration only','showcase-collection-backup-ui.mjs:78-102 preview/replace all;showcase-collection-backup.mjs:24-34 envelope,78-88 fullraw restore','saved-export/README.md:3,31 exported look reopening changes to its settings;PRODUCT-ROADMAP saved rows5/44 portability context'],'scope':'All3selectedsources745lines;wholeexportreceipt;exact12existingroadmaprows;no4thsource/noUI/test/import','utility':'Import one supported exported configuration into collection without applying it or replacing unrelated entries is distinct from current Open/Save and whole-backup restore.','condition':'Real imported validator/configuration/add/storage owners not inspected or safetyqualified; later complete proposal/sourcegate must own malformed/unsupported/oversize/name/limit/cancel/concurrency/no-previewmutation behavior before any execution.'}))\np=base/'ROOT-FIRST.json';b=p.read_bytes();print('\\nROOT_OPINION_AFTER_INDEPENDENT_SEAL',len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "result": {
+        "chunk_id": "47cb12",
+        "wall_time_seconds": 9.542e-06,
+        "exit_code": 0,
+        "original_token_count": 1185,
+        "returnedOutputBytes": 4739,
+        "returnedOutputSHA256": "3c53c908e1c654a9fe3ea0c619cda5aa0d05d9c997f80d37c3299375798910c6",
+        "firstLine": "{\"independentWorthDecisionSealedUTC\": \"2026-10-19T23:43:38.137855+00:00\", \"pid\": 45118, \"verdict\": \"A_ONE_SEPARATE_COMPLETE_IMPLEMENTATION_VALIDATION_UI_PROPOSAL_ONLY\", \"witnesses\": [\"showcase.js:162-169 exports a single saved configuration\", \"showcase.js:316-326 reads file then navigates preview;397-403 adds currentConfiguration only\", \"showcase-collection-backup-ui.mjs:78-102 preview/replace all;showcase-collection-backup.mjs:24-34 envelope,78-88 fullraw restore\", \"saved-export/README.md:3,31 exported look reopening changes to its settings;PRODUCT-ROADMAP saved rows5/44 portability context\"], \"scope\": \"All3selectedsources745lines;wholeexportreceipt;exact12existingroadmaprows;no4thsource/noUI/test/import\", \"utility\": \"Import one supported exported configuration into collection without applying it or replacing unrelated entries is distinct from current Open/Save and whole-backup restore.\", \"condition\": \"Real imported validator/configuration/add/storage owners not inspected or safetyqualified; later complete proposal/sourcegate must own malformed/unsupported/oversize/name/limit/cancel/concurrency/no-previewmutation behavior before any execution.\"}",
+        "scope": "complete untruncated read-only selected source/record inspection; no target evaluation"
+      }
+    }
+  ],
+  "outputWrites": [
+    "WORTH.md",
+    "CRITIC-RECEIPT.json"
+  ]
+}

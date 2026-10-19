@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-19T23:39:49.327351+00:00",
+  "pid": 37595,
+  "decision": "A for one separately gated complete implementation/validation/UI method proposal only; no code or target admission",
+  "manifestSHA256": "47e469e3efccf789f4ab49e63d7cf4cf656767790f0ed9192214b5dc821daa6e",
+  "findings": [
+    {
+      "witnesses": [
+        "showcase.js:316-335,487-489: single file is read via readShowcaseSettings then location.assign opens its configuration; active preview replacement is deliberate success path.",
+        "showcase.js:397-403: Save local form adds currentConfiguration, not a selected external configuration.",
+        "showcase-collection-backup.mjs:24-34,71-88 and backup-ui:70-105: whole collection envelope preview/replace/Undo; no single recipe append."
+      ],
+      "explanation": "An exported single supported recipe already has a real reopening consumer; missing is the narrower nondisruptive collection-ingress option. Current selected source routes either navigate the preview before saving, or restore an entire collection. A bounded single-recipe import could add one named entry and leave the current preview and unrelated saved entries unchanged, with Apply/Open remaining explicit. This is a distinct local data/product owner, not an old Ari artwork transport/capture or existing suggestion-Try rescue.",
+      "alternatives": [
+        {
+          "choice": "Prepare one complete single-recipe-to-collection import contract using existing reader and collection owner, with separate source/workload and actual UI gates.",
+          "tradeoff": "Useful portable-recipe consumer without preview interruption or full replacement; adds UI/async file lifecycle/validation/persistence scope that must be fully owned before editing."
+        },
+        {
+          "choice": "Retain Open JSON then Save current, and use existing whole-collection backup/restore for batch portability.",
+          "tradeoff": "No new UI/code or ingress risk, but a person must interrupt the preview for one recipe or replace the whole collection for batch restore."
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Whole current3sources916conservative cumulative lines including oldlocators/recovery; no fourth owner or hidden validator semantics read.",
+    "Existing reader/collection interfaces are witnessed by actualimports/calls. Internal normalization, collection write guarantees, schema compatibility, async stale/dispose semantics and rendered UI quality are NOT qualified. A later full source preflight must inspect actual validation/persistence owners and own malformed/unsupported/oversize/cancel/concurrentchange/no-preview-mutation behavior before any implementation.",
+    "No test/import/evaluation/filechooser/browser/native/GPU/capture/fixture/sourcechange/newreference or appearance claim."
+  ],
+  "next": "Existing critic independently judges this exact missing consumer/value from same bounded witnesses before reading root first, then root whole stable handoff and fresh verify. A admits proposal only; no new code, target, proof, renderer or closed-method entry."
+}
