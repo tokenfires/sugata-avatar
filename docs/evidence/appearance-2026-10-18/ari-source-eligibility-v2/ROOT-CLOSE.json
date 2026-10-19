@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-19T04:57:54.063707+00:00",
+  "pid": 18814,
+  "decision": "CLOSED_UNRUN_SOURCE_B_NO_FURTHER_COLLECTOR_REPAIR_THIS_WINDOW",
+  "root_whole_handoff_read": "6abe91/exit0 full3482+35092bytes untruncated",
+  "root_finding_verification": [
+    "8faf84/exit0 wholecollector: installed raising signal handler, poll BaseException->aliveTrue->rawkillpg",
+    "b50c23/exit0 selected installed pinned subprocess _internal_poll/_handle_exitstatus/send_signal source"
+  ],
+  "finding": "F3: ambiguous poll interruption may follow waitpid reaping before returncode assignment; aliveTrue is not surviving group ownership. Source-only possibility; no actual PID reuse/signal/failure induced.",
+  "verified_rows": 76,
+  "CONFIG_rows": 70,
+  "exact_copy_pairs": 4,
+  "critic_pair": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/SOURCE-PREFLIGHT.md",
+      "bytes": 3482,
+      "sha256": "a39b85301ee1d31d73da0749c416eb85611d95ffb879d43ff52f21bea2cbf73a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/SOURCE-PREFLIGHT-RECEIPT.json",
+      "bytes": 35092,
+      "sha256": "64a8fed54973b56bb49dd49d79c981776d0b0662eb5e69ce65769355cd7a4258"
+    }
+  ],
+  "required_absent": {
+    "ADMISSION.json": true,
+    "JOB-start.json": true,
+    "RESULT.json": true,
+    "STDOUT.txt": true,
+    "STDERR.txt": true,
+    "JOB.json": true,
+    "ROOT-OBSERVATION.json": true,
+    "__pycache__": true
+  },
+  "source_members_decoded": 0,
+  "trial_invocations": 0,
+  "observer_invocations": 0,
+  "field_mesh_native_image_jobs": 0,
+  "retained_improvement": "Prior seventeen synthetic F1/F2 evidence/link cases remain valid at their narrow scope; no OS/process/main qualification transferred.",
+  "preservation": "All new copies/currentconfig/originalcontract/sourceB/repair receipts unchanged. No accepted/default/original/unused source or unrelated change.",
+  "next": "No further collector repair/source trial this work window. Keep constructor held. Nominate a separate artist-owned Ari interior/lining design question with fresh effort bound, primary visual references and independent worth/image review. Human steering wins."
+}

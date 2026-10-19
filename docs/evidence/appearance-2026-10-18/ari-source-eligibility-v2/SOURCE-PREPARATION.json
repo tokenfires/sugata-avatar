@@ -1,0 +1,108 @@
+{
+  "utc": "2026-10-19T04:54:40.312068+00:00",
+  "pid": 12863,
+  "decision": "Prepared exact-copy v2 only; no execution admission",
+  "plan": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/PLAN.json",
+    "bytes": 8012,
+    "sha256": "5daa5a78c96d2049b7b2c99b1586ec4cb35e5aaa072ef136759b8273fe0f23a2"
+  },
+  "config": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/CONFIG.json",
+    "bytes": 23627,
+    "sha256": "874f4da2dfcbcfc16add40d7eaf9bf19c98e9a055c057e84036fd41ebc085b58"
+  },
+  "copies": [
+    {
+      "source": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/kernel.py",
+        "bytes": 8722,
+        "sha256": "b916bfa9799d3af0f3415502461b95e77f676c42c26caaed9083b130d3b42523"
+      },
+      "copy": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/kernel.py",
+        "bytes": 8722,
+        "sha256": "b916bfa9799d3af0f3415502461b95e77f676c42c26caaed9083b130d3b42523"
+      },
+      "exact_bytes": true,
+      "AST_only": true
+    },
+    {
+      "source": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/worker.py",
+        "bytes": 12174,
+        "sha256": "413be90f2c3e63cf7ec7747ac379c09bb3f3e27eea3def49c51419f3af5eedd2"
+      },
+      "copy": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/worker.py",
+        "bytes": 12174,
+        "sha256": "413be90f2c3e63cf7ec7747ac379c09bb3f3e27eea3def49c51419f3af5eedd2"
+      },
+      "exact_bytes": true,
+      "AST_only": true
+    },
+    {
+      "source": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/run_once.py",
+        "bytes": 10105,
+        "sha256": "a27e76666d6d0687f7d26cb70ef478049e8f316aabfc6c62cdf4cb149f8eef78"
+      },
+      "copy": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/run_once.py",
+        "bytes": 10105,
+        "sha256": "a27e76666d6d0687f7d26cb70ef478049e8f316aabfc6c62cdf4cb149f8eef78"
+      },
+      "exact_bytes": true,
+      "AST_only": true
+    },
+    {
+      "source": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/inspect_saved.py",
+        "bytes": 16722,
+        "sha256": "f5375792b091a3276429787bf25573c94db512c465e470ba5ceb87b381dcd8f2"
+      },
+      "copy": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/inspect_saved.py",
+        "bytes": 16722,
+        "sha256": "f5375792b091a3276429787bf25573c94db512c465e470ba5ceb87b381dcd8f2"
+      },
+      "exact_bytes": true,
+      "AST_only": true
+    }
+  ],
+  "verified_config_rows": 70,
+  "all_rows_match": true,
+  "root_source_basis": "Whole old kernel/worker source9f3f79/6ebff4 and whole original collector/observerbb0150/2727c9 with independently reproduced repair diffs3e14ec; all four new copies exact to those reviewed origins. Full fresh critic integration read required.",
+  "protocol": [
+    "CONFIG points unchanged October10 contract and exact full-body archives. New source/config/admission/review paths belong solely to this leaf. Original held files remain literal hashed input context, never executed.",
+    "Root admission must bind fresh SOURCE-PREFLIGHT.md and SOURCE-PREFLIGHT-RECEIPT.json, currentCONFIGSHA, <=180s UTC, narrow jobs absent. Main reads same fresh sourcepair before spawning.",
+    "Root commands set PYTHONDONTWRITEBYTECODE=1 and -B; sole child inherits bytecode-off environment. Cache absence checked before/after. No extra generated-code outputs admitted.",
+    "Final evidence functions operate in copied main with exact original resource/time/stream/retirement behavior retained. Observer column-link helper executes before existing point/bits/gid/full-source bbox verification.",
+    "Exact NPY/predicate fixtures first run inside sole future worker; only repair synthetic interfaces previously evaluated. No Human member decoded in any prior trial or current preparation.",
+    "Worker DATA request/readback + finite-state caps is limited heap/state ownership, not hardtotalRSS or platform enforcement proof. One worker/one savedobserver, no retries or repair after anyactualfailure/cap/UNKNOWN/sourceB."
+  ],
+  "absent": {
+    "ADMISSION.json": true,
+    "SOURCE-PREFLIGHT.md": true,
+    "SOURCE-PREFLIGHT-RECEIPT.json": true,
+    "JOB-start.json": true,
+    "RESULT.json": true,
+    "STDOUT.txt": true,
+    "STDERR.txt": true,
+    "JOB.json": true,
+    "ROOT-OBSERVATION.json": true,
+    "__pycache__": true
+  },
+  "stops": {
+    "worth": "2026-10-19T05:00:00+00:00",
+    "source_preparation": "2026-10-19T05:05:00+00:00",
+    "source_review": "2026-10-19T05:15:00+00:00",
+    "source_collection": "2026-10-19T05:20:00+00:00",
+    "root_source": "2026-10-19T05:25:00+00:00",
+    "latest_trial_start": "2026-10-19T05:27:00+00:00",
+    "absolute_collector_finish": "2026-10-19T05:29:04+00:00",
+    "actual_review": "2026-10-19T05:45:00+00:00",
+    "root_close": "2026-10-19T05:55:00+00:00"
+  },
+  "qualification": "Necessary formal source-chain/column eligibility only; native metric, all-node degree/parity, field/tets/mesh, physical fit/coverage, images, motion, AAA remain held."
+}

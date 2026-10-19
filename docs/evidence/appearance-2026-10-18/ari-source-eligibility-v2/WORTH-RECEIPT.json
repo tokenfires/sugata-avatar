@@ -1,0 +1,175 @@
+{
+  "collected_utc": "2026-10-19T04:53:56.031889+00:00",
+  "writer_pid": 11370,
+  "verdict": "A fresh isolated inert integration worth only; no trial admission",
+  "pending_edits": false,
+  "plan": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/PLAN.json",
+    "bytes": 8012,
+    "sha256": "5daa5a78c96d2049b7b2c99b1586ec4cb35e5aaa072ef136759b8273fe0f23a2",
+    "read_scope": "complete98de5a"
+  },
+  "verified_input_rows": 12,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/CONTRACT.json",
+      "bytes": 17528,
+      "sha256": "974c1cbd3ad811717aec75069f8a2c696aaacf2a8c5631599d8244914d1a7fcf",
+      "read_scope": "fresh whole-file byte verification; unchanged prior full source/contract/own-handoff read reused"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PLAN.json",
+      "bytes": 7090,
+      "sha256": "4bfe32cbfdbabf2255264427689adfb33a0a62b751a47be6536f1b836a59031f",
+      "read_scope": "fresh whole-file byte verification; unchanged prior full source/contract/own-handoff read reused"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/CONFIG.json",
+      "bytes": 19491,
+      "sha256": "94a9876c08de21ed19ed716523e3ff7980283b8112628d0077d7de20f3560d6f",
+      "read_scope": "fresh whole-file byte verification; unchanged prior full source/contract/own-handoff read reused"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/kernel.py",
+      "bytes": 8722,
+      "sha256": "b916bfa9799d3af0f3415502461b95e77f676c42c26caaed9083b130d3b42523",
+      "read_scope": "fresh whole-file byte verification; unchanged prior full source/contract/own-handoff read reused"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/worker.py",
+      "bytes": 12174,
+      "sha256": "413be90f2c3e63cf7ec7747ac379c09bb3f3e27eea3def49c51419f3af5eedd2",
+      "read_scope": "fresh whole-file byte verification; unchanged prior full source/contract/own-handoff read reused"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/ROOT-CLOSE.json",
+      "bytes": 2747,
+      "sha256": "53f27434283b27b4b06719e95b642af21e509396fd8ae192a457effca2d152a2",
+      "read_scope": "fresh whole-file byte verification; unchanged prior full source/contract/own-handoff read reused"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/run_once.py",
+      "bytes": 10105,
+      "sha256": "a27e76666d6d0687f7d26cb70ef478049e8f316aabfc6c62cdf4cb149f8eef78",
+      "read_scope": "fresh whole-file byte verification; unchanged prior full source/contract/own-handoff read reused"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/inspect_saved.py",
+      "bytes": 16722,
+      "sha256": "f5375792b091a3276429787bf25573c94db512c465e470ba5ceb87b381dcd8f2",
+      "read_scope": "fresh whole-file byte verification; unchanged prior full source/contract/own-handoff read reused"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/SOURCE-REVIEW.md",
+      "bytes": 3139,
+      "sha256": "ccf4734d52c54b901c2e5d66723048c3ef3a0c3e530e746b84dbbcc7f48fe6a6",
+      "read_scope": "fresh whole-file byte verification; unchanged prior full source/contract/own-handoff read reused"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/ACTUAL-REVIEW.md",
+      "bytes": 3072,
+      "sha256": "2df2dbc432e8a8a78515273f937221776f075c1608f9a65ef149cac50dea125b",
+      "read_scope": "fresh whole-file byte verification; unchanged prior full source/contract/own-handoff read reused"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/ACTUAL-REVIEW-RECEIPT.json",
+      "bytes": 12872,
+      "sha256": "ddb3b1c7aa846f3478a19e906255373987ed9b2a1d64258417b33b68fbd56609",
+      "read_scope": "fresh whole-file byte verification; unchanged prior full source/contract/own-handoff read reused"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/ROOT-CLOSE.json",
+      "bytes": 1727,
+      "sha256": "c39848b35fd7bafe4dec38c5bda1b4ab52d8a5d667b3d13a194259940968f5d8",
+      "read_scope": "fresh whole-file byte verification; unchanged prior full source/contract/own-handoff read reused"
+    }
+  ],
+  "read_scopes": {
+    "fresh_complete": [
+      "PLAN.json8012bytes",
+      "repair ROOT-CLOSE.json1727bytes"
+    ],
+    "unchanged_reused_full": [
+      "old CONTRACT17528bytes complete e94f89/3aedd2",
+      "old kernel198lines c416d3",
+      "old worker251lines540d2c",
+      "retained repair collector199lines f7fea9",
+      "retained repair observer288lines ce298f",
+      "old PLAN/CONFIG full scope in SOURCE-PREFLIGHT receipt",
+      "own repair source/actual two-file handoffs"
+    ],
+    "no_additional_54_runtime_pin_table_reverification_claim": true
+  },
+  "witnesses": [
+    {
+      "source": "ari-volume-owner-revision/CONTRACT.json:174-178",
+      "meaning": "necessary formal source/column prerequisites and boundary exception precede field"
+    },
+    {
+      "source": "ari-volume-field-prerequisites/ROOT-CLOSE.json",
+      "meaning": "original sourceB unrun, no actual geometry refusal to retry"
+    },
+    {
+      "source": "ari-prerequisite-evidence-repair/ROOT-CLOSE.json",
+      "meaning": "17 synthetic interface/link cases only; no main/OS/geometry admission"
+    },
+    {
+      "source": "ari-prerequisite-evidence-repair/run_once.py:26-74,180-195;inspect_saved.py:156-172,262-270",
+      "meaning": "reviewed same-function evidence/column ownership exists for a distinct exact-copy integration"
+    }
+  ],
+  "alternatives": [
+    {
+      "choice": "A exact isolated integration with fresh full source gate",
+      "tradeoff": "obtains first actual necessary-eligibility result within fixed controls, but can closeUNKNOWN and creates no artwork"
+    },
+    {
+      "choice": "B defer field and separately nominate artist interior/lining",
+      "tradeoff": "visible design intent may progress, source/field/physical question remains held and no new art is admitted now"
+    }
+  ],
+  "jobs": [
+    {
+      "chunk": "98de5a",
+      "exit": 0,
+      "pid": 9960,
+      "utc": "2026-10-19T04:53:10.504413+00:00",
+      "command": "python3 stdin: complete newPLAN/rawhash and all12 input whole-byte hashes"
+    },
+    {
+      "chunk": "e4f223",
+      "exit": 0,
+      "pid": 10418,
+      "utc": "2026-10-19T04:53:25.269685+00:00",
+      "command": "python3 stdin: complete retained repairROOT-CLOSE/rawhash only"
+    }
+  ],
+  "findings": [],
+  "errors": [],
+  "stops": {
+    "worth": "2026-10-19T05:00:00+00:00",
+    "source_preparation": "2026-10-19T05:05:00+00:00",
+    "source_review": "2026-10-19T05:15:00+00:00",
+    "source_collection": "2026-10-19T05:20:00+00:00",
+    "root_source": "2026-10-19T05:25:00+00:00",
+    "latest_trial_start": "2026-10-19T05:27:00+00:00",
+    "absolute_collector_finish": "2026-10-19T05:29:04+00:00",
+    "actual_review": "2026-10-19T05:45:00+00:00",
+    "root_close": "2026-10-19T05:55:00+00:00"
+  },
+  "required_next": "Root independent handoff/pin review before exact-copy inert preparation; fresh complete integration source/workload review and separate root gate before any source-data invocation.",
+  "prohibited_operations_performed": false,
+  "limits": [
+    "No target/code/kernel/worker/observer import/evaluation/invocation, source-member/header/array decode, geometry, synthetic rerun, browser/native/GPU/network/generation or source/product edit.",
+    "Historical sourceB remains closed and synthetic PASS cannot transfer to actual main/OS/resource/real-certificate qualification.",
+    "Explicit DATA/readback+finite state is not hard instantaneous/totalRSS or sampledRSS.",
+    "No field/native metric/node degree-parity/mesh/fit/appearance/rig/motion/AAA admission.",
+    "Failure/UNKNOWN/cap closes without rescue; fixed absolute deadlines retained; human steering wins."
+  ],
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/WORTH.md",
+    "bytes": 2854,
+    "sha256": "527881a7b181c2e3c53175355d3aade5a6bbb8ebb35c5f842524c19051a6abd7",
+    "read_scope": "complete text byte readback"
+  }
+}

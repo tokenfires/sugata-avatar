@@ -1,0 +1,497 @@
+{
+  "utc": "2026-10-19T04:54:40.311676+00:00",
+  "pid": 12863,
+  "python": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+  "version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "platform": "darwin",
+  "contract": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/CONTRACT.json",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PLAN.json",
+      "bytes": 7090,
+      "sha256": "4bfe32cbfdbabf2255264427689adfb33a0a62b751a47be6536f1b836a59031f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/WORTH.md",
+      "bytes": 3341,
+      "sha256": "d4b2eb691eff9eedb98d28531b2115cefbb15131633a930b5cc3163ec1c80a59"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/WORTH-RECEIPT.json",
+      "bytes": 26986,
+      "sha256": "cf921513a0cfd1b6648f7deb86e5937b45f54ecfd689ef0efe58b2f532827ad6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/ROOT-WORTH.json",
+      "bytes": 3064,
+      "sha256": "37eca7f35fd25000ece30581f8ebd8e76a62455298bcce405050b6f73af63a5f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/DOCS-PLAN.json",
+      "bytes": 802,
+      "sha256": "770b2be89131f9057cea5c28b28b777867355cfb371f14e3b9c3cbb9978e6c11"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PRIMARY-RESOURCE.json",
+      "bytes": 50030,
+      "sha256": "bdca7057531229e00b53c7f96800ceeaae5e8c5e594b91ed6031622f46d96900"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PRIMARY-NPY.json",
+      "bytes": 29677,
+      "sha256": "59402c849810a468e26c9e3c4a46ae133c68639174454c0f3d0318f777888307"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PRIMARY-READS.json",
+      "bytes": 2564,
+      "sha256": "7e1f4a5032236e78796c6e0a0e69d47597eafec0c01690ebc3c60c729c3a7b9d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PRIMARY-READS.before-memory-selection.json",
+      "bytes": 1636,
+      "sha256": "11e1afddc0b2c00f64509dfb522c241d906ef5ffcfaa825f256214b78572213b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/ORIGINAL-JOURNAL-INPUTS.json",
+      "bytes": 963,
+      "sha256": "bc4ca7cbc247b0fd1c3be9b9a94b046a97fa06d64ae256cdaf20608ea528bb2d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/WORK-WINDOW.worth-reviewed.md",
+      "bytes": 4002,
+      "sha256": "89aad0dbac06c5aaf96547dabeed000e87ce6122fb7bf6573a08522b2b97cb26"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/RESUME.worth-reviewed.md",
+      "bytes": 2944,
+      "sha256": "b29d824115e4a699414c0312fb865d653cda8db61a7e05c82c4425b7ff264729"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/kernel.py",
+      "bytes": 8722,
+      "sha256": "b916bfa9799d3af0f3415502461b95e77f676c42c26caaed9083b130d3b42523"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/worker.py",
+      "bytes": 12174,
+      "sha256": "413be90f2c3e63cf7ec7747ac379c09bb3f3e27eea3def49c51419f3af5eedd2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/run_once.py",
+      "bytes": 7802,
+      "sha256": "e6240a41bbca4aa13f16c6dfe9d5d5eb559e2200a696d897429ec70e6d3b83cc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/inspect_saved.py",
+      "bytes": 15701,
+      "sha256": "5303abbda0e141eb6e8125afec171d5c4923a0adbcee404f7bdef0bcd0e318a7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/BINDINGS.json",
+      "bytes": 1781,
+      "sha256": "5bbd6f6e6aca3aed7acbb53e46e7247e76659c2474500abc56dd8994942d5961"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/CONTRACT.json",
+      "bytes": 17528,
+      "sha256": "974c1cbd3ad811717aec75069f8a2c696aaacf2a8c5631599d8244914d1a7fcf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/INPUTS.json",
+      "bytes": 1808,
+      "sha256": "caaa8a1d84e4e7cd15d09d5d6a081137ab53a63618fd4ef68c9ac38089c63c17"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/PLAN.md",
+      "bytes": 2839,
+      "sha256": "e4fa96128413c2eee19f898cd2cc6031008af3ed02450baff3707c3657e15a22"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/README.md",
+      "bytes": 2755,
+      "sha256": "9ddd68e901cd8a9359ed2af5ad293674d08cf0277af7d3f0cc90960034191feb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/REVIEW.md",
+      "bytes": 4983,
+      "sha256": "275e04a50a500eb1b617c42b47b573c644c83efa1bf6f961a105a6d33c4f66f6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/ROOT-SEMANTIC-DIFF.json",
+      "bytes": 873,
+      "sha256": "2237c62d77c039e00a203049ecf7fc5570ac21f6001657b6b747ef75dda1bc1b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/ROOT-WORTH.json",
+      "bytes": 304,
+      "sha256": "8ab0df368872b47265bb081d73ebe1d5691230f527081c97c6c878c4711637b6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/WORTH.md",
+      "bytes": 4659,
+      "sha256": "f47f879b9f3cc85fc2c25f95cd569a47d8e212968213f94a741a0fd7110ab8fd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-material-volume-contract/PLAN.md",
+      "bytes": 4387,
+      "sha256": "67a6bf5a8d477a187fcd4b729685133b47d7ec2bd2b429185df204b90bda4583"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-complete-jacket-nomination/ROOT-READBACK.json",
+      "bytes": 817,
+      "sha256": "006c4ab395329016f53421f08d4271c435d4c014840a762b3655ea0ac681dc81"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/after-geometry.npz",
+      "bytes": 840170,
+      "sha256": "10f646e42a868fe84ab14d6e3022918a70e6b0aeec30781f270037b79be2f024"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/fields.npz",
+      "bytes": 1058878,
+      "sha256": "88a158ceadf94ca23d3166bbca3ba40135eb60c5063dcb77dba1918050659d5f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-source-contract/SOURCE-MAP.json",
+      "bytes": 91085,
+      "sha256": "7cdcda00ad43629b558b829afbc76b226f121aabd98d7bb9b270c592b90bb129"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-wrist-registration-contract/WRIST-REFERENCE.json",
+      "bytes": 13132,
+      "sha256": "439acbcee0fb0a6a2ff5aeb6acde58a0de25b928494daea2dd1e985ce9535529"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/README.md",
+      "bytes": 7175,
+      "sha256": "f67477956482652b62c6cec47ef7de6f928d5335b801acc796c9d6f064383dad"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ast.py",
+      "bytes": 25479,
+      "sha256": "5ea9a796353544bea0d706153516f04ef3d92be305d15a73238403837d77e34c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/bisect.py",
+      "bytes": 3423,
+      "sha256": "f1cf7b85fc36b5da249813fc5ab97d9464f8cc1bc817f7146206fa2713e35999"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/collections/__init__.py",
+      "bytes": 53021,
+      "sha256": "cb8367b8edd188662143ea2e3942d360c2deae51c72fd779ec898f5076d2c2b9"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/datetime.py",
+      "bytes": 331,
+      "sha256": "742884b0c8e7dc69911858245db4f34d42e8ec0f769d580c570bd56032b0866c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/fractions.py",
+      "bytes": 41453,
+      "sha256": "7a95f1c506c9ac4b2277df5f2bdd9d61cc67b520c45021a5a961939770221ef6"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/hashlib.py",
+      "bytes": 9459,
+      "sha256": "88fa624821fbdee7eb2ef87c2437b207afe328cf117c7463367e2db5eb1af492"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py",
+      "bytes": 14132,
+      "sha256": "2dd10f1bf4c9ea5478e589216805e7f279d0e4bce134a19efa297404fb87407d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/math.cpython-314-darwin.so",
+      "bytes": 93488,
+      "sha256": "9e9d2234227db176be37042bc1c2506902c4c2edfeac05424b803928755ae33a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py",
+      "bytes": 46807,
+      "sha256": "042a4d0a5e1ef66778daa86dc269af205bd42d06e793e53d8b99dff4c45928ca"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/resource.cpython-314-darwin.so",
+      "bytes": 53312,
+      "sha256": "e58977e653c80b8759141ad7d283e2221e2953bff8ba3c9b5c1a8a1c885da467"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/selectors.py",
+      "bytes": 19457,
+      "sha256": "4b8a60cfbb619d080f87dffe1578372e56e8c0ac826f043224a154cf7b77606d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/signal.py",
+      "bytes": 2495,
+      "sha256": "0363c964c90ac0b3e515de5749205e6e6454051a1211058375d84d91eab6071a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/struct.py",
+      "bytes": 285,
+      "sha256": "50c14e55f94957804c1e45e975fedbe8e86f7e1dbb745b150370ff681155370a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py",
+      "bytes": 90732,
+      "sha256": "6628ffdd65c093a6c08cae01ffe82877d3ced515aac9e7be0cff16512c30a7d9"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/zipfile/__init__.py",
+      "bytes": 92940,
+      "sha256": "adb6f48ee990b42cabfc665d910992c5a30cee31d5d50d846e18e0e45c6a3f31"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/zlib.cpython-314-darwin.so",
+      "bytes": 76176,
+      "sha256": "d01fbb9cfa43d994fd4254580fa59448565f05a1ebf09bc6c3166b5020f1e375"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_struct.cpython-314-darwin.so",
+      "bytes": 77888,
+      "sha256": "f1fc558b748eb2752643853b9d7428e84f1fb248276859675912e6287583cb88"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_hashlib.cpython-314-darwin.so",
+      "bytes": 80448,
+      "sha256": "9ba56f3cc87814c60b43be78cd551c4c253dc6695ac13a10d651439e952a119d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_posixsubprocess.cpython-314-darwin.so",
+      "bytes": 54784,
+      "sha256": "08d921c33ad5e007549dbe3d3e4ab94a108377fb8defa30ab4e945186844e6b3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_bisect.cpython-314-darwin.so",
+      "bytes": 53040,
+      "sha256": "b01948b211758a0d33a50a4557a57b5228e7e7b3a2b87303e7e712dd449da1b0"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "bytes": 34640,
+      "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Python",
+      "bytes": 5452528,
+      "sha256": "b112695af23f5e46d84a7c4ef6057603b70b94aacc32e9d548808c2875759d47"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/CONFIG.json",
+      "bytes": 19491,
+      "sha256": "94a9876c08de21ed19ed716523e3ff7980283b8112628d0077d7de20f3560d6f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/ROOT-CLOSE.json",
+      "bytes": 2747,
+      "sha256": "53f27434283b27b4b06719e95b642af21e509396fd8ae192a457effca2d152a2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/run_once.py",
+      "bytes": 10105,
+      "sha256": "a27e76666d6d0687f7d26cb70ef478049e8f316aabfc6c62cdf4cb149f8eef78"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/inspect_saved.py",
+      "bytes": 16722,
+      "sha256": "f5375792b091a3276429787bf25573c94db512c465e470ba5ceb87b381dcd8f2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/SOURCE-REVIEW.md",
+      "bytes": 3139,
+      "sha256": "ccf4734d52c54b901c2e5d66723048c3ef3a0c3e530e746b84dbbcc7f48fe6a6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/ACTUAL-REVIEW.md",
+      "bytes": 3072,
+      "sha256": "2df2dbc432e8a8a78515273f937221776f075c1608f9a65ef149cac50dea125b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/ACTUAL-REVIEW-RECEIPT.json",
+      "bytes": 12872,
+      "sha256": "ddb3b1c7aa846f3478a19e906255373987ed9b2a1d64258417b33b68fbd56609"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/ROOT-CLOSE.json",
+      "bytes": 1727,
+      "sha256": "c39848b35fd7bafe4dec38c5bda1b4ab52d8a5d667b3d13a194259940968f5d8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/PLAN.json",
+      "bytes": 8012,
+      "sha256": "5daa5a78c96d2049b7b2c99b1586ec4cb35e5aaa072ef136759b8273fe0f23a2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/WORTH.md",
+      "bytes": 2854,
+      "sha256": "527881a7b181c2e3c53175355d3aade5a6bbb8ebb35c5f842524c19051a6abd7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/WORTH-RECEIPT.json",
+      "bytes": 8930,
+      "sha256": "413474380f34bd8667fceb24746d4e0d45914c81ab1d76ccacea59c4e88757eb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/ROOT-WORTH.json",
+      "bytes": 1022,
+      "sha256": "6310e20ad03b4923a896cde9ab6b92987b92cc582648f5537cf72767faf2cd91"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/kernel.py",
+      "bytes": 8722,
+      "sha256": "b916bfa9799d3af0f3415502461b95e77f676c42c26caaed9083b130d3b42523"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/worker.py",
+      "bytes": 12174,
+      "sha256": "413be90f2c3e63cf7ec7747ac379c09bb3f3e27eea3def49c51419f3af5eedd2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/run_once.py",
+      "bytes": 10105,
+      "sha256": "a27e76666d6d0687f7d26cb70ef478049e8f316aabfc6c62cdf4cb149f8eef78"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/inspect_saved.py",
+      "bytes": 16722,
+      "sha256": "f5375792b091a3276429787bf25573c94db512c465e470ba5ceb87b381dcd8f2"
+    }
+  ],
+  "runtime_modules": [
+    {
+      "module": "ast",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ast.py"
+    },
+    {
+      "module": "bisect",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/bisect.py"
+    },
+    {
+      "module": "collections",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/collections/__init__.py"
+    },
+    {
+      "module": "datetime",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/datetime.py"
+    },
+    {
+      "module": "fractions",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/fractions.py"
+    },
+    {
+      "module": "hashlib",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/hashlib.py"
+    },
+    {
+      "module": "json",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py"
+    },
+    {
+      "module": "math",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/math.cpython-314-darwin.so"
+    },
+    {
+      "module": "pathlib",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/pathlib/__init__.py"
+    },
+    {
+      "module": "resource",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/resource.cpython-314-darwin.so"
+    },
+    {
+      "module": "selectors",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/selectors.py"
+    },
+    {
+      "module": "signal",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/signal.py"
+    },
+    {
+      "module": "struct",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/struct.py"
+    },
+    {
+      "module": "subprocess",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py"
+    },
+    {
+      "module": "sys",
+      "origin": "built-in"
+    },
+    {
+      "module": "time",
+      "origin": "built-in"
+    },
+    {
+      "module": "zipfile",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/zipfile/__init__.py"
+    },
+    {
+      "module": "zlib",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/zlib.cpython-314-darwin.so"
+    },
+    {
+      "module": "_struct",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_struct.cpython-314-darwin.so"
+    },
+    {
+      "module": "_hashlib",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_hashlib.cpython-314-darwin.so"
+    },
+    {
+      "module": "_posixsubprocess",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_posixsubprocess.cpython-314-darwin.so"
+    },
+    {
+      "module": "_bisect",
+      "origin": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/lib-dynload/_bisect.cpython-314-darwin.so"
+    },
+    {
+      "module": "_datetime",
+      "origin": "built-in"
+    }
+  ],
+  "runtime_scope": "Retained exact selected direct-runtime/module/launcher/framework pins, no full transitive OS closure. Root commands set bytecode-off environment inherited by sole child; no kernel/worker import or source payload decode during preparation.",
+  "first_outputs": [
+    "JOB-start.json",
+    "RESULT.json",
+    "STDOUT.txt",
+    "STDERR.txt",
+    "JOB.json",
+    "ROOT-OBSERVATION.json"
+  ],
+  "launch_before": "2026-10-19T05:27:00+00:00",
+  "finish_before": "2026-10-19T05:29:04+00:00",
+  "command": [
+    "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+    "-B",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/run_once.py"
+  ],
+  "observer_command": [
+    "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+    "-B",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/inspect_saved.py"
+  ],
+  "operational_caps": {
+    "collector_supervision_seconds": 120,
+    "retirement_waits_seconds": [
+      2,
+      2
+    ],
+    "worker_internal_wall_seconds": 110,
+    "requested_CPU_seconds": 105,
+    "requested_DATA_bytes": 1073741824,
+    "requested_FSIZE_bytes": 8126464,
+    "header_bytes": 4096,
+    "source_members": 2,
+    "source_raw_bytes": 481632,
+    "per_axis_bin_references": 1000000,
+    "coordinate_integer_bits": 280,
+    "total_raw_output_bytes": 8388608,
+    "pipe_bytes_each": 65536
+  },
+  "memory_scope": "DATA requested/readback plus fixedownedstatecaps, not hardinstantaneousRSS/stack/mapped/globalmemory guarantee; maxrssrawunitsnotconverted. No silent budget promotion.",
+  "environment": {
+    "PYTHONDONTWRITEBYTECODE": "1"
+  }
+}
