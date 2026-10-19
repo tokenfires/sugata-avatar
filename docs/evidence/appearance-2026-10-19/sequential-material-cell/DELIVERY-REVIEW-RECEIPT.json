@@ -1,0 +1,136 @@
+{
+  "schema": "sequential-material-cell-documentary-critic-v1",
+  "verdict": "A_DOCUMENTARY_DELIVERY_ONLY",
+  "collected_utc": "2026-10-19T07:27:57.364961+00:00",
+  "writer_pid": 77476,
+  "pending_edits": false,
+  "deadline": "Closure08:10UTC,2026-10-19; unchanged.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 12359,
+      "sha256": "3c131d32572b053d9c826da2d2991a7a7cfb7183f874bdae13ce447467da6e6a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 24922,
+      "sha256": "94fc92a1c7fd25676e673438466fca311e6c74a909f6ec93ad0153eab303479f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7161,
+      "sha256": "7ce48fa51bff4087e469934635d048ef997d68d900a6ae449849c01e3bccd00f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 15923,
+      "sha256": "a11432b33af9df3f64d14ecec6e5af08faa06c0f3f7ea07887ca46a835fa5ea2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/README.md",
+      "bytes": 4464,
+      "sha256": "7101f3b77d369295d47ea90065c85561b1b6838710bc055678a8710e150dd8c4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/ROOT-ACCEPT.json",
+      "bytes": 1575,
+      "sha256": "f908f1befd86b3d961a8ee9a6efa957584691b271576fdc67e15b1feb4dc1770"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/DELIVERY.json",
+      "bytes": 9359,
+      "sha256": "c1f811322b9e85819143bf3ede36075a29cdef4b4c6df5fa074050e2cb846195"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/LIVE-SERVICES.json",
+      "bytes": 921,
+      "sha256": "331253aaa3cb8f88c36df5c3b196be67f1cd5878c51babea7631b4574d3b70f7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/RESULT-REVIEW.md",
+      "bytes": 3062,
+      "sha256": "365a04642bb5a99d58dc8850f99824ca14191a38958fa01d6e8b9c1833e8b895"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/RESULT-REVIEW-RECEIPT.json",
+      "bytes": 49166,
+      "sha256": "cbae9dc00eac936467a2a1c4d036b83e2515c48bd622a8e762765a62e97b72de"
+    }
+  ],
+  "read_scopes": {
+    "README.md": "Whole4464-byte document.",
+    "DELIVERY.json": "Whole9359-byte JSON and entire decoded diff.",
+    "two recovery docs": "Complete changed text in actual/saved Git diff; whole current bytes/pins checked. Old unchanged contents not re-audited.",
+    "ROOT-ACCEPT.json": "Whole1575-byte acceptance/scope/count record.",
+    "LIVE-SERVICES.json": "Whole921-byte saved observation; no fresh critic service/API/timer action.",
+    "RESULT-REVIEW pair": "Own prior complete actual judgment reused after fresh exact pins; no repeated numeric observer.",
+    "board/checklist": "Whole bytes compared to baseline; checkbox counts21/10; no new source audit.",
+    "historical inputs": "All19 rows from accepted actual receipt rehashed; two mutable docs resolved using Git epochda1aed48 rather than current paths."
+  },
+  "checks": {
+    "delivery_input_rows": 6,
+    "plus_reviewed_self_service_actualpair_pins": 4,
+    "decoded_diff_equals_actual": true,
+    "tracked_changed_paths": [
+      "docs/RESUME-2026-10-18.md",
+      "docs/WORK-WINDOW-2026-10-18.md"
+    ],
+    "baseline": "da1aed48fe41891a4269c7ba4b6f0a73dbbbdfae",
+    "board_checklist_byte_equal": true,
+    "checked": 21,
+    "open": 10,
+    "literal_local_links": 46,
+    "all_targets_exist": true,
+    "prior_actual_input_rows_verified": 19,
+    "historical_mutable_paths": [
+      "docs/RESUME-2026-10-18.md",
+      "docs/WORK-WINDOW-2026-10-18.md"
+    ]
+  },
+  "jobs": [
+    {
+      "chunk": "51ee25",
+      "exit": 0,
+      "pid": 77298,
+      "utc": "2026-10-19T07:26:23.842757+00:00",
+      "command": "python3 stdin read/hash plus git diff baseline for two documents",
+      "scope": "WholeREADME/DELIVERY and complete actual diff."
+    },
+    {
+      "chunk": "c147ac",
+      "exit": 0,
+      "pid": 77372,
+      "utc": "2026-10-19T07:27:06.520626+00:00",
+      "command": "python3 stdin stdlib JSON/hash/link checks; git diff/show metadata only",
+      "scope": "Sixdeliverypins/actualdiff/board+checklist/counts/historical19actualinputs/46links/wholeacceptance+service record."
+    }
+  ],
+  "git_commands": [
+    "git diff da1aed48fe41891a4269c7ba4b6f0a73dbbbdfae -- docs/RESUME-2026-10-18.md docs/WORK-WINDOW-2026-10-18.md",
+    "git diff --name-only da1aed48fe41891a4269c7ba4b6f0a73dbbbdfae",
+    "git show da1aed48fe41891a4269c7ba4b6f0a73dbbbdfae:<two recovery docs, board, checklist>"
+  ],
+  "findings": [],
+  "alternatives": [
+    {
+      "choice": "Retain exact checkpoint",
+      "tradeoff": "Preserves independently qualified local code/evidence and limits; selected."
+    },
+    {
+      "choice": "Withhold checkpoint",
+      "tradeoff": "Avoids reliance but discards accurate recoverable summary."
+    }
+  ],
+  "errors": [],
+  "limits": [
+    "No new source/numerical/candidate/helper/oracle/fixture import or call.",
+    "Link existence is not rendered navigation; saved timer/service snapshot is not future delivery or notification proof.",
+    "No product/board/checklist/source/graphic/accepted/default/frozen edits; only own pair.",
+    "Existing component/oldpacket/collector routes remain closed; real field/constructor/physical/appearance held. No next experiment admitted."
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/DELIVERY-REVIEW.md",
+    "bytes": 1924,
+    "sha256": "f8927d58fe9a2cfd971e849666b434ae739efebe7f7d76a60709ff1f7a8c573d"
+  }
+}

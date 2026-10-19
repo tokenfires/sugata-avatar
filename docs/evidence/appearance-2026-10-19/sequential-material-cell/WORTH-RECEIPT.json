@@ -1,0 +1,122 @@
+{
+  "schema": "sequential-material-cell-worth-critic-v1",
+  "verdict": "A_INERT_PREPARATION_WORTH_ONLY",
+  "collected_utc": "2026-10-19T07:10:07.272981+00:00",
+  "writer_pid": 75105,
+  "pending_edits": false,
+  "head_verified": "da1aed48fe41891a4269c7ba4b6f0a73dbbbdfae",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 10528,
+      "sha256": "809d20c88d9d3f3a3b602231e35692ad3546d744d28be6a810156b37b98ef021",
+      "read_scope": "Whole current bytes hashed; just-completed documentary review scopes reused, no fresh broad history read."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 21600,
+      "sha256": "f436b16f1db2b159b722bdeb50d53ada15a58b5da44a9afb9090764153955269",
+      "read_scope": "Whole current bytes hashed; just-completed documentary review scopes reused, no fresh broad history read."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/CONTRACT.json",
+      "bytes": 17528,
+      "sha256": "974c1cbd3ad811717aec75069f8a2c696aaacf2a8c5631599d8244914d1a7fcf",
+      "read_scope": "Whole17528-byte mathematical/API contract read; /material_polytope, /source_region_transport and held global/physical duties used."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/RESULT.json",
+      "bytes": 174924,
+      "sha256": "32c38b4e8b192a5b64864ce2ac665e7c1cd0d4f59741a0842735997089c7e21c",
+      "read_scope": "Prior complete independent exact-number audit reused only after fresh unchanged hash. Current data-only metadata parse counts17 valid records; no arithmetic replay/intersection or oracle call."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-ACCEPT.json",
+      "bytes": 2840,
+      "sha256": "537fddd764287e38f794328bc5258629a72400e908b710174f7d0176bc2ebcdb",
+      "read_scope": "Whole2840-byte local-only acceptance and consumed/no-retry conditions."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-CLOSE.json",
+      "bytes": 13903,
+      "sha256": "1ecb3d6d37e91b877d3891a4ae5535aceeba820179586d65b5863dc3e11a6d66",
+      "read_scope": "Whole13903-byte closure and named route/HOLD boundaries; no transitive corpus inquiry."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/PLAN.md",
+      "bytes": 6510,
+      "sha256": "fd39ec6cf08e56be2c66158ad394caae941b546b731214e2da68d24ae5f64226",
+      "read_scope": "Whole6510-byte plan, all34-call declarations/method/bounds/stops."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/INPUTS.json",
+      "bytes": 1277,
+      "sha256": "e0fabc152ab3cf9f2144c550f725b811ebdfe5603b5a84b24babc0d34e337307",
+      "read_scope": "Whole1277-byte manifest; all6 exact bytes/SHA independently verified."
+    }
+  ],
+  "verified_plan_pin_rows": 6,
+  "frozen_valid_observation_count": 17,
+  "frozen_status_counts": {
+    "OK": 10,
+    "EMPTY": 1,
+    "DEGENERATE": 3,
+    "REFUSED": 2,
+    "UNKNOWN": 1
+  },
+  "fresh_geometry_assessment": "Symbolic reasoning from literal planar/segment/point constraints and determinant6 affine transform, not target execution or construction.",
+  "read_jobs": [
+    {
+      "chunk": "441eae",
+      "exit": 0,
+      "pid": 74785,
+      "utc": "2026-10-19T07:08:02.354885+00:00",
+      "command_scope": "Read/hash completePLAN andINPUTS."
+    },
+    {
+      "chunk": "34aab6",
+      "exit": 0,
+      "pid": 74874,
+      "utc": "2026-10-19T07:08:38.347650+00:00",
+      "command_scope": "Verify6planpins; whole mathematicalCONTRACT,ROOT-ACCEPT,ROOT-CLOSE read."
+    }
+  ],
+  "writer_checks": [
+    "git rev-parse HEAD equals declared starting epoch",
+    "Rehash6inputrows and ownPLAN/INPUTS before exclusive output",
+    "Parse existingRESULT metadata for17validrecords/statuscounts only"
+  ],
+  "source_witnesses": [
+    "CONTRACT.json /material_polytope/arithmetic: selected sequential exact rational clipping.",
+    "CONTRACT.json /material_polytope/faces: cut cycle from clipped-face adjacency, owned/outward facets and global cancellation held.",
+    "CONTRACT.json /source_region_transport/volume_vertex and /facet: complete positive support and pre-fan union.",
+    "PLAN.md General method: Sutherland-Hodgman edges/reversed unmatched cap boundary; no triple/hull substitute.",
+    "PLAN.md New checks1-10: continued clipping after collapse, nonorthogonal transform and final-rank owner refusal.",
+    "FrozenRESULT observations paired_interval_no_inside_corner,thin_interval_no_inside_corner,all7_active_mixed_support,shared_face,positive_local_order; reused unchanged accepted data."
+  ],
+  "findings": [],
+  "alternatives": [
+    {
+      "choice": "Prepare substantive general local sequential implementation and separately review before onefixedpacket",
+      "tradeoff": "Advances chosen-method code with independent frozen reference; selected only atpreparation scope."
+    },
+    {
+      "choice": "Defer/changeworkstream",
+      "tradeoff": "Avoids isolatedcomponent churn but leaves selected local algorithm unimplemented."
+    }
+  ],
+  "deadlines": "Sourceauthor07:40/rootgate07:50/trial07:55/closure08:10UTC,2026-10-19; no refresh.",
+  "errors": [],
+  "limits": [
+    "No candidate/helper/oracle/fixture import or invocation, synthetic trial, real geometry/source decode, browser/native/GPU/network/capture.",
+    "No new source/API/library primary research; exact local contract and saved evidence suffice.",
+    "Worth is not source suitability or execution/field/constructor/physical/appearance acceptance.",
+    "Oldoracle/fixture/collector remain closed; only frozen expected data may be read.",
+    "Only exclusiveWORTH pair written; no pinnedinput/product/checklist/accepted/default/frozen changes."
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/WORTH.md",
+    "bytes": 3121,
+    "sha256": "ec42293c3c2ac05c5706e8350d7006826efa46cc52e1202b104350d37048a832"
+  }
+}

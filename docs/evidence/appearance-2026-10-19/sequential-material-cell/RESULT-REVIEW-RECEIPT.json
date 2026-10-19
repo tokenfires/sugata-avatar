@@ -1,0 +1,262 @@
+{
+  "schema": "sequential-material-cell-actual-critic-v1",
+  "verdict": "A_RETAIN_FINITE_LOCAL_COMPONENT_ONLY",
+  "collected_utc": "2026-10-19T07:23:33.453197+00:00",
+  "writer_pid": 76921,
+  "pending_edits": false,
+  "deadline": "Closure08:10UTC,2026-10-19; unchanged.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 10528,
+      "sha256": "809d20c88d9d3f3a3b602231e35692ad3546d744d28be6a810156b37b98ef021",
+      "read_scope": "Prior worth/source complete or selected scope reused exactly as declared in SOURCE-REVIEW-RECEIPT; fresh byte pin only in this actual review. No repeated broader inquiry."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 21600,
+      "sha256": "f436b16f1db2b159b722bdeb50d53ada15a58b5da44a9afb9090764153955269",
+      "read_scope": "Prior worth/source complete or selected scope reused exactly as declared in SOURCE-REVIEW-RECEIPT; fresh byte pin only in this actual review. No repeated broader inquiry."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/CONTRACT.json",
+      "bytes": 17528,
+      "sha256": "974c1cbd3ad811717aec75069f8a2c696aaacf2a8c5631599d8244914d1a7fcf",
+      "read_scope": "Prior worth/source complete or selected scope reused exactly as declared in SOURCE-REVIEW-RECEIPT; fresh byte pin only in this actual review. No repeated broader inquiry."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/RESULT.json",
+      "bytes": 174924,
+      "sha256": "32c38b4e8b192a5b64864ce2ac665e7c1cd0d4f59741a0842735997089c7e21c",
+      "read_scope": "Entire unchanged174924-byte frozen strict JSON parsed as expected data only;17 valid records compared. Old oracle/fixture not imported or called."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-ACCEPT.json",
+      "bytes": 2840,
+      "sha256": "537fddd764287e38f794328bc5258629a72400e908b710174f7d0176bc2ebcdb",
+      "read_scope": "Prior worth/source complete or selected scope reused exactly as declared in SOURCE-REVIEW-RECEIPT; fresh byte pin only in this actual review. No repeated broader inquiry."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-CLOSE.json",
+      "bytes": 13903,
+      "sha256": "1ecb3d6d37e91b877d3891a4ae5535aceeba820179586d65b5863dc3e11a6d66",
+      "read_scope": "Prior worth/source complete or selected scope reused exactly as declared in SOURCE-REVIEW-RECEIPT; fresh byte pin only in this actual review. No repeated broader inquiry."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/sequential_cell.py",
+      "bytes": 13620,
+      "sha256": "0cfc95490bb7c5fe14ffd89b2fc138039ae221b7f416ed0ae97a2408a4687b2c",
+      "read_scope": "Prior complete305-line source review reused after fresh byte pin, including cap adjacency, final owner refusal and literal label copy."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/compare_packet.py",
+      "bytes": 13543,
+      "sha256": "960bbd2e9d9d6f99d8342fbeb72d6077af551a5a16aee5715e119cc7fec2f375",
+      "read_scope": "Prior complete277-line source review reused after fresh byte pin, including34case definitions and current ownership controls."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/PLAN.md",
+      "bytes": 6510,
+      "sha256": "fd39ec6cf08e56be2c66158ad394caae941b546b731214e2da68d24ae5f64226",
+      "read_scope": "Prior worth/source complete or selected scope reused exactly as declared in SOURCE-REVIEW-RECEIPT; fresh byte pin only in this actual review. No repeated broader inquiry."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/INPUTS.json",
+      "bytes": 1277,
+      "sha256": "e0fabc152ab3cf9f2144c550f725b811ebdfe5603b5a84b24babc0d34e337307",
+      "read_scope": "Prior worth/source complete or selected scope reused exactly as declared in SOURCE-REVIEW-RECEIPT; fresh byte pin only in this actual review. No repeated broader inquiry."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/SOURCE-PREPARATION.json",
+      "bytes": 1800,
+      "sha256": "92ceee7560d3a7a612f85207dc8bdca758cd41ee3661f1a1aae35791478a0ea2",
+      "read_scope": "Prior worth/source complete or selected scope reused exactly as declared in SOURCE-REVIEW-RECEIPT; fresh byte pin only in this actual review. No repeated broader inquiry."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/WORTH.md",
+      "bytes": 3121,
+      "sha256": "ec42293c3c2ac05c5706e8350d7006826efa46cc52e1202b104350d37048a832",
+      "read_scope": "Prior worth/source complete or selected scope reused exactly as declared in SOURCE-REVIEW-RECEIPT; fresh byte pin only in this actual review. No repeated broader inquiry."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/WORTH-RECEIPT.json",
+      "bytes": 6348,
+      "sha256": "9ff858e53cf80f11ba5b4d3e454c71828c15cecd968364f64b3ac7456cc4257f",
+      "read_scope": "Prior worth/source complete or selected scope reused exactly as declared in SOURCE-REVIEW-RECEIPT; fresh byte pin only in this actual review. No repeated broader inquiry."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/SOURCE-REVIEW.md",
+      "bytes": 3854,
+      "sha256": "9ad7f17839f12f8e1586a82727cdb50c7923761332139b01fc40853583b7abba",
+      "read_scope": "Own prior whole source-A handoff reused, exact current bytes verified; all13 input pins freshly rechecked."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/SOURCE-REVIEW-RECEIPT.json",
+      "bytes": 8571,
+      "sha256": "869c29a32f4d1603b2f167cd7a50b54facb9a473c7e044cb025a0701e4952978",
+      "read_scope": "Own prior whole source-A handoff reused, exact current bytes verified; all13 input pins freshly rechecked."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/ROOT-ADMISSION.json",
+      "bytes": 1172,
+      "sha256": "8a6a6626da973d59b7b51b41bdc7768570927b5f2cfd7342d66275ac31bda494",
+      "read_scope": "Whole actual saved record/tool output read; exact source/reference/claim/output/PID/time associations verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/CLAIM.json",
+      "bytes": 213,
+      "sha256": "0153dfc923486aaa356bdc48b3f16a167f2253d4ba602545aa2904192065f16e",
+      "read_scope": "Whole actual saved record/tool output read; exact source/reference/claim/output/PID/time associations verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/PACKET-TOOL-RESULT.json",
+      "bytes": 332,
+      "sha256": "dfd3e29f9f3de26ec9561536e8f0abf2c18217023619c5ab8138b45abc5b2100",
+      "read_scope": "Whole actual saved record/tool output read; exact source/reference/claim/output/PID/time associations verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/RESULT.json",
+      "bytes": 422931,
+      "sha256": "4c5e0b09385846f269359602d9bf7c1bb3bb655acb9c747f9d350acf0ef8a51a",
+      "read_scope": "Entire422931-byte strict JSON parsed; every34 observation, saved rational, input, expected/actual geometry and diagnostic inspected through embedded independent audit."
+    }
+  ],
+  "verified_source_review_input_rows": 13,
+  "jobs": [
+    {
+      "chunk": "e763cb",
+      "exit": 0,
+      "pid": 76500,
+      "utc": "2026-10-19T07:19:34.426832+00:00",
+      "command": "python3 stdin stdlib read/hash/JSON inspection",
+      "scope": "Wholeadmission/claim/rawtoolobject and all34 packet row schemas/status summaries."
+    },
+    {
+      "chunk": "3d9a56",
+      "exit": 0,
+      "pid": 76727,
+      "utc_started": "2026-10-19T07:21:42.922677+00:00",
+      "utc_report": "2026-10-19T07:21:42.937396+00:00",
+      "command": "python3 stdin exact source embedded below",
+      "scope": "Complete independent saved-data audit; no target/helper import or replay."
+    }
+  ],
+  "data_observer": {
+    "exact_source": "import os,datetime,json,hashlib,math\nfrom pathlib import Path\nfrom fractions import Fraction as F\nfrom collections import Counter\nR=Path('/Users/robault/GitHub/sugata-avatar')\nP=R/'docs/evidence/appearance-2026-10-19/sequential-material-cell'\nQ=R/'docs/evidence/appearance-2026-10-18/material-cell-oracle'\nprint('DATA_OBSERVER',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\ndef pairs(xs):\n d={}\n for k,v in xs:\n  assert k not in d,('duplicate JSON key',k)\n  d[k]=v\n return d\ndef read(p):\n return json.loads(p.read_bytes(),object_pairs_hook=pairs,parse_constant=lambda s:(_ for _ in ()).throw(ValueError(s)))\ndef revive(x):\n if isinstance(x,dict):\n  if set(x)=={'n','d'}:\n   n,d=x['n'],x['d'];assert type(n)is int and type(d)is int and d>0 and math.gcd(n,d)==1 and max(abs(n).bit_length(),d.bit_length())<=4096\n   return F(n,d)\n  return {k:revive(v) for k,v in x.items()}\n if isinstance(x,list):return [revive(v) for v in x]\n return x\ndef scalar(x):\n assert type(x)is float and math.isfinite(x)\n return F(*x.as_integer_ratio())\ndef sub(a,b):return [x-y for x,y in zip(a,b)]\ndef dot(a,b):return sum(x*y for x,y in zip(a,b))\ndef cross(a,b):return [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]\ndef rank(pts):\n if not pts:return -1\n a=[sub(x,pts[0]) for x in pts[1:]];k=0\n for j in range(3):\n  pivot=next((i for i in range(k,len(a)) if a[i][j]),None)\n  if pivot is None:continue\n  a[k],a[pivot]=a[pivot],a[k];v=a[k][j];a[k]=[x/v for x in a[k]]\n  for i in range(len(a)):\n   if i!=k:\n    v=a[i][j];a[i]=[x-v*y for x,y in zip(a[i],a[k])]\n  k+=1\n return k\ndef sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()\nm=read(P/'INPUTS.json');prep=read(P/'SOURCE-PREPARATION.json');ad=read(P/'ROOT-ADMISSION.json');claim=read(P/'CLAIM.json');tool=read(P/'PACKET-TOOL-RESULT.json')\nfor z in m['pins']+prep['source_files']:\n p=R/z['path'];assert p.stat().st_size==z['bytes'] and sha(p)==z['sha256']\nfor n,h in ad['sha256'].items():assert sha(P/n)==h\nassert ad['reference_sha256']==sha(Q/'RESULT.json')=='32c38b4e8b192a5b64864ce2ac665e7c1cd0d4f59741a0842735997089c7e21c'\nassert ad['admitted'] is True and ad['scope']=='one 34-call sequential local packet only'\nassert claim['attempt']==1 and claim['scope']==ad['scope'] and claim['admission_sha256']==sha(P/'ROOT-ADMISSION.json')\nassert tool['chunk_id']=='006caa' and tool['exit_code']==0\nsummary=read(P/'PACKET-TOOL-RESULT.json');summary=json.loads(summary['output'])\npacket=revive(read(P/'RESULT.json'));frozen=revive(read(Q/'RESULT.json'))\nassert packet['status']==summary['status']=='PACKET_PASS' and packet['candidate_calls']==summary['candidate_calls']==34 and packet['failure'] is None and summary['failure'] is None\nassert summary['result_bytes']==(P/'RESULT.json').stat().st_size==422931 and summary['result_sha256']==sha(P/'RESULT.json')\nassert packet['pid']==summary['pid']==claim['pid']==76360 and packet['utc_started']==claim['utc']\nassert packet['reference_sha256']==ad['reference_sha256'] and packet['scope']==ad['scope']\nobs=packet['observations'];assert len(obs)==34 and len({o['name'] for o in obs})==34 and all(o['passed'] is True for o in obs)\nvalid=[(i,o) for i,o in enumerate(frozen['observations']) if 'inputs' in o];assert len(valid)==17\ngeo=['dimension','vertices','facets','volume','edge_count']\nfor row,(i,old) in zip(obs[:17],valid):\n assert row['name']=='frozen:'+old['group']+':'+old['part'] and row['reference_index']==i and row['inputs']==old['inputs'] and row['expected']==old['actual']\n assert row['actual']['status']==old['actual']['status']\n for k in geo:\n  if k in old['actual']:assert row['actual'][k]==old['actual'][k],(row['name'],k)\ninvalid_names=['duplicate_gids','nonfinite_point','label','orientation','cut_names','cut_count','ratio']\ninvalid_messages=['four distinct bounded global IDs required','finite binary64 floats required','four complete nonempty source-region sets required','positive nondegenerate tetrahedron required','unique bounded ASCII cut names required','at most seven named global inequalities','input ratio exceeds 128 bits']\nfor j,(n,msg) in enumerate(zip(invalid_names,invalid_messages),17):\n row=obs[j];assert row['name']=='invalid:'+n and row['expected']=='ValueError' and row['reference_index'] is None and row['actual']=={'exception':'ValueError','message':msg}\nI=[o['inputs'] for o in obs[17:24]]\nassert len(set(I[0]['gids']))<4\nassert I[1]['points'][0][0]=={'nonfinite_binary64':'nan'}\nassert I[2]['labels'][0]==['head']\npp=[[scalar(x) for x in p] for p in I[3]['points']];assert dot(sub(pp[1],pp[0]),cross(sub(pp[2],pp[0]),sub(pp[3],pp[0])))<0\nassert len({x[0] for x in I[4]['cuts']})<len(I[4]['cuts'])\nassert len(I[5]['cuts'])==8\nq=scalar(I[6]['cuts'][0][1][0]);assert max(abs(q.numerator).bit_length(),q.denominator.bit_length())>128\nfresh=['plane_then_quad','plane_then_point','plane_then_empty','edge_then_segment','edge_then_empty','point_then_empty','constant_empty','skewed_translated_slab','reversed_cut_order','coincident_then_point']\nassert [o['name'] for o in obs[24:]]==['fresh:'+x for x in fresh]\npositions={\n'fresh:plane_then_quad':[(F(0),F(0),F(0)),(F(0),F(1,2),F(0)),(F(0),F(1,2),F(1,2)),(F(0),F(0),F(1))],\n'fresh:plane_then_point':[(F(0),F(1,4),F(1,4))],\n'fresh:edge_then_segment':[(F(1,4),F(0),F(0)),(F(1,2),F(0),F(0))],\n'fresh:coincident_then_point':[(F(0),F(0),F(0))]}\nstatus_counts=Counter();owner_rows=[];counts=Counter();outcomes=[];byname={o['name']:o for o in obs};intervals=[]\nfor row in obs:\n a=row['actual'];name=row['name']\n if 'exception' in a:\n  status_counts['ValueError']+=1;outcomes.append({'name':name,'status':'ValueError','message':a['message']});continue\n status=a['status'];status_counts[status]+=1\n assert type(a.get('clip_steps',0))is int and 0<=a.get('clip_steps',0)<=7\n if status in ['REFUSED','UNKNOWN']:\n  assert set(a)<={'status','reason'}\n  outcomes.append({'name':name,'status':status,'returned_geometry_fields':False});continue\n inp=row['inputs'];g=inp['gids'];ps=[[scalar(x) for x in p] for p in inp['points']];labs=inp['labels'];fields={n:list(map(scalar,vs)) for n,vs in inp['cuts']}\n determinant=dot(sub(ps[1],ps[0]),cross(sub(ps[2],ps[0]),sub(ps[3],ps[0])));assert determinant>0\n vs=a.get('vertices',[]);facets=a.get('facets',[]);assert len(vs)<=64 and len(facets)<=32\n if status=='EMPTY':\n  assert not vs and not facets\n  if 'dimension' in a:assert a['dimension']==-1 and a['volume']==0\n  if name in ['frozen:empty:single','fresh:edge_then_empty','fresh:constant_empty']:\n   assert any(all(x>0 for x in v) for v in fields.values())\n  elif name=='fresh:plane_then_empty':\n   assert fields['XZERO']==[F(0),F(1),F(0),F(0)] and fields['XLOW']==[F(1,8),-F(7,8),F(1,8),F(1,8)]\n  elif name=='fresh:point_then_empty':\n   assert fields['POINT']==[F(0),F(1),F(1),F(1)] and fields['XLOW']==[F(1,8),-F(7,8),F(1,8),F(1,8)]\n  else:raise AssertionError(name)\n  outcomes.append({'name':name,'status':status,'independent_empty_certificate':'positive field or nonnegative-coordinate contradiction'});continue\n assert status in ['OK','DEGENERATE'] and vs\n assert a['dimension']==rank([v['position'] for v in vs])\n keys=[]\n for v in vs:\n  wm=dict(v['weights']);assert len(wm)==len(v['weights'])==4 and set(wm)==set(g) and v['weights']==sorted(v['weights'])\n  w=[wm[x] for x in g];assert min(w)>=0 and sum(w)==1\n  support=sorted(g[i] for i,x in enumerate(w) if x>0)\n  active=sorted(n for n,x in fields.items() if dot(w,x)==0)\n  assert v['key']==[support,active] and v['u']==w[1:]\n  assert all(dot(w,x)<=0 for x in fields.values())\n  assert v['position']==[sum(w[i]*ps[i][j] for i in range(4)) for j in range(3)]\n  assert v['regions']==sorted(set().union(*(set(labs[i]) for i,x in enumerate(w) if x>0)))\n  keys.append(v['key'])\n assert keys==sorted(keys) and len({str(x) for x in keys})==len(keys)\n counts['all_returned_vertices']+=len(vs)\n if status=='DEGENERATE':\n  assert a['dimension'] in [0,1,2] and a['volume']==0 and facets==[]\n  if name in positions:\n   assert {tuple(v['position']) for v in vs}==set(positions[name])\n   assert {tuple(x) for x in row['expected_positions']}==set(positions[name])\n  assert a['dimension']==row['expected']['dimension']\n  outcomes.append({'name':name,'status':status,'dimension':a['dimension'],'vertices':len(vs)});continue\n assert a['dimension']==3\n edges={};used=set();vol=F(0);owners=set()\n for f in facets:\n  cycle=f['vertices'];normal=f['normal_world']\n  assert len(cycle)>=3 and len(set(cycle))==len(cycle) and all(type(i)is int and 0<=i<len(vs) for i in cycle)\n  assert len(normal)==3 and any(normal) and cycle[0]==min(cycle,key=lambda i:vs[i]['key'])\n  identity=(f['kind'],str(f['owner']));assert identity not in owners;owners.add(identity)\n  if f['kind']=='cut':assert f['owner'] in fields;values=fields[f['owner']]\n  else:\n   assert f['kind']=='tet' and f['owner']==sorted(f['owner']) and len(f['owner'])==len(set(f['owner']))==3 and set(f['owner'])<set(g)\n   omitted=next(k for k in g if k not in f['owner']);values=[-F(1) if k==omitted else F(0) for k in g]\n  for k in range(1,4):assert dot(normal,sub(ps[k],ps[0]))==values[k]-values[0]\n  for i in cycle:\n   wm=dict(vs[i]['weights'])\n   assert sum(wm[g[k]]*values[k] for k in range(4))==0\n   assert dot(normal,sub(vs[i]['position'],ps[0]))+values[0]==0\n  regions=sorted(set().union(*(set(vs[i]['regions']) for i in cycle)))\n  assert f['regions']==regions and len(f['triangles'])==len(cycle)-2\n  for j,t in enumerate(f['triangles'],1):\n   assert t['vertices']==[cycle[0],cycle[j],cycle[j+1]] and t['regions']==regions\n   pa,pb,pc=[vs[i]['position'] for i in t['vertices']]\n   assert dot(normal,cross(sub(pb,pa),sub(pc,pa)))>0\n   vol+=dot(pa,cross(pb,pc))/6;counts['fan_triangles']+=1\n  for u,v in zip(cycle,cycle[1:]+cycle[:1]):edges.setdefault(tuple(sorted((u,v))),[]).append(1 if u<v else -1)\n  used.update(cycle);owner_rows.append({'case':name,'kind':f['kind'],'owner':f['owner'],'points':len(cycle),'normal_and_points_bound':True})\n assert used==set(range(len(vs))) and all(len(x)==2 and sum(x)==0 for x in edges.values())\n assert len(vs)-len(edges)+len(facets)==2 and len(edges)==a['edge_count'] and vol==a['volume']>0\n if 'paired_interval' in name or 'thin_interval' in name or 'skewed_translated_slab' in name:\n  lo=fields['INNER'][0];hi=-fields['OUTER'][0];analytic=((1-lo)**3-(1-hi)**3)/6*determinant\n  assert analytic==vol and all(not all(v[i]<=0 for v in fields.values()) for i in range(4))\n  intervals.append({'name':name,'lo':str(lo),'hi':str(hi),'determinant':str(determinant),'volume':str(vol),'no_original_corner_inside':True})\n elif 'unit_inactive' in name or 'on_original_vertex' in name:assert vol==determinant/6\n elif 'half_x_cap' in name or 'shared_face' in name:assert vol==F(7,48)*determinant\n elif 'all7_active' in name or 'positive_local_order' in name or 'reversed_cut_order' in name:\n  assert vol==F(5,3072)*determinant and {f['owner'] for f in facets}==set(fields)\n else:raise AssertionError(name)\n counts['ok_vertices']+=len(vs);counts['facets']+=len(facets)\n outcomes.append({'name':name,'status':status,'vertices':len(vs),'facets':len(facets),'volume':str(vol)})\ndef geometry(x):return {k:x[k] for k in geo if k in x}\nassert geometry(byname['fresh:reversed_cut_order']['actual'])==geometry(frozen['observations'][4]['actual'])\norig=frozen['observations'][1];skew=byname['fresh:skewed_translated_slab'];base=orig['actual']\nassert skew['inputs']['points']==[[3.+2*x+y/2,-2.+y+z/4,5.+3*z] for x,y,z in orig['inputs']['points']]\nassert skew['inputs']['gids']==orig['inputs']['gids'] and skew['inputs']['labels']==orig['inputs']['labels'] and skew['inputs']['cuts']==orig['inputs']['cuts']\nfor a,b in zip(skew['actual']['vertices'],base['vertices']):\n assert {k:v for k,v in a.items() if k!='position'}=={k:v for k,v in b.items() if k!='position'}\n x,y,z=b['position'];assert a['position']==[3+2*x+y/2,-2+y+z/4,5+3*z]\nfor a,b in zip(skew['actual']['facets'],base['facets']):\n assert {k:v for k,v in a.items() if k!='normal_world'}=={k:v for k,v in b.items() if k!='normal_world'}\n x,y,z=b['normal_world'];gx=x/2;gy=y-gx/2;assert a['normal_world']==[gx,gy,(z-gy/4)/3]\nassert skew['actual']['volume']==base['volume']*6==F(19,64)\ndef shared(row):\n a=row['actual'];f=next(f for f in a['facets'] if f['kind']=='tet' and f['owner']==[10,11,12])\n return [(a['vertices'][i]['key'],a['vertices'][i]['position'],a['vertices'][i]['regions']) for i in f['vertices']]\nsa=shared(byname['frozen:shared_face:above']);sb=shared(byname['frozen:shared_face:below'])\nknown={(F(0),F(0),F(0)),(F(1,2),F(0),F(0)),(F(1,2),F(1,2),F(0)),(F(0),F(1),F(0))}\nassert {tuple(x[1]) for x in sa}=={tuple(x[1]) for x in sb}==known and sa[0]==sb[0] and sa[1:]==list(reversed(sb[1:]))\ndef signature(row):\n a=row['actual'];return {'vertices':[{k:v for k,v in x.items() if k!='u'} for x in a['vertices']],'facets':a['facets'],'volume':a['volume']}\nassert signature(byname['frozen:positive_local_order:base'])==signature(byname['frozen:positive_local_order:permuted'])\nassert status_counts=={'OK':12,'EMPTY':5,'DEGENERATE':7,'REFUSED':2,'UNKNOWN':1,'ValueError':7}\nassert counts=={'all_returned_vertices':86,'fan_triangles':96,'ok_vertices':72,'facets':66}\nassert len(owner_rows)==66 and not(P/'__pycache__').exists()\nout={'pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'scope':'saved exact data only, no target/oracle/helper import or case replay','input_rows_verified':6,'source_rows_verified':2,'frozen_comparisons':17,'invalid_payload_predicates':7,'fresh_checks':10,'status_counts':dict(status_counts),'counts':dict(counts),'outcomes':outcomes,'owner_rows':owner_rows,'interval_analytics':intervals,'shared_face_known_positions_opposed_cycles':True,'positive_local_order':True,'reversed_cut_order':True,'skew_transform_and_inverse_transpose':True,'cache_absent':True}\nprint(json.dumps(out,indent=2))\n",
+    "sha256": "4726274b56db81ca129d4b253df52670a6b029e8a94fc579a17f5e83970b42a3",
+    "tool_result": {
+      "chunk_id": "3d9a56",
+      "wall_time_seconds": 1.4042e-05,
+      "exit_code": 0,
+      "original_token_count": 4571,
+      "output": "DATA_OBSERVER 76727 2026-10-19T07:21:42.922677+00:00\n{\n  \"pid\": 76727,\n  \"utc\": \"2026-10-19T07:21:42.937396+00:00\",\n  \"scope\": \"saved exact data only, no target/oracle/helper import or case replay\",\n  \"input_rows_verified\": 6,\n  \"source_rows_verified\": 2,\n  \"frozen_comparisons\": 17,\n  \"invalid_payload_predicates\": 7,\n  \"fresh_checks\": 10,\n  \"status_counts\": {\n    \"OK\": 12,\n    \"EMPTY\": 5,\n    \"DEGENERATE\": 7,\n    \"REFUSED\": 2,\n    \"UNKNOWN\": 1,\n    \"ValueError\": 7\n  },\n  \"counts\": {\n    \"all_returned_vertices\": 86,\n    \"fan_triangles\": 96,\n    \"ok_vertices\": 72,\n    \"facets\": 66\n  },\n  \"outcomes\": [\n    {\n      \"name\": \"frozen:unit_inactive7:single\",\n      \"status\": \"OK\",\n      \"vertices\": 4,\n      \"facets\": 4,\n      \"volume\": \"1/6\"\n    },\n    {\n      \"name\": \"frozen:paired_interval_no_inside_corner:single\",\n      \"status\": \"OK\",\n      \"vertices\": 6,\n      \"facets\": 5,\n      \"volume\": \"19/384\"\n    },\n    {\n      \"name\": \"frozen:thin_interval_no_inside_corner:single\",\n      \"status\": \"OK\",\n      \"vertices\": 6,\n      \"facets\": 5,\n      \"volume\": \"787969/6442450944\"\n    },\n    {\n      \"name\": \"frozen:half_x_cap:single\",\n      \"status\": \"OK\",\n      \"vertices\": 6,\n      \"facets\": 5,\n      \"volume\": \"7/48\"\n    },\n    {\n      \"name\": \"frozen:all7_active_mixed_support:single\",\n      \"status\": \"OK\",\n      \"vertices\": 7,\n      \"facets\": 7,\n      \"volume\": \"5/3072\"\n    },\n    {\n      \"name\": \"frozen:empty:single\",\n      \"status\": \"EMPTY\",\n      \"independent_empty_certificate\": \"positive field or nonnegative-coordinate contradiction\"\n    },\n    {\n      \"name\": \"frozen:point:single\",\n      \"status\": \"DEGENERATE\",\n      \"dimension\": 0,\n      \"vertices\": 1\n    },\n    {\n      \"name\": \"frozen:edge:single\",\n      \"status\": \"DEGENERATE\",\n      \"dimension\": 1,\n      \"vertices\": 2\n    },\n    {\n      \"name\": \"frozen:face:single\",\n      \"status\": \"DEGENERATE\",\n      \"dimension\": 2,\n      \"vertices\": 3\n    },\n    {\n      \"name\": \"frozen:on_original_vertex:single\",\n      \"status\": \"OK\",\n      \"vertices\": 4,\n      \"facets\": 4,\n      \"volume\": \"1/6\"\n    },\n    {\n      \"name\": \"frozen:coincident_cuts:single\",\n      \"status\": \"REFUSED\",\n      \"returned_geometry_fields\": false\n    },\n    {\n      \"name\": \"frozen:coincident_tet_face:single\",\n      \"status\": \"REFUSED\",\n      \"returned_geometry_fields\": false\n    },\n    {\n      \"name\": \"frozen:zero_global_field:single\",\n      \"status\": \"UNKNOWN\",\n      \"returned_geometry_fields\": false\n    },\n    {\n      \"name\": \"frozen:shared_face:above\",\n      \"status\": \"OK\",\n      \"vertices\": 6,\n      \"facets\": 5,\n      \"volume\": \"7/48\"\n    },\n    {\n      \"name\": \"frozen:shared_face:below\",\n      \"status\": \"OK\",\n      \"vertices\": 6,\n      \"facets\": 5,\n      \"volume\": \"7/48\"\n    },\n    {\n      \"name\": \"frozen:positive_local_order:base\",\n      \"status\": \"OK\",\n      \"vertices\": 7,\n      \"facets\": 7,\n      \"volume\": \"5/3072\"\n    },\n    {\n      \"name\": \"frozen:positive_local_order:permuted\",\n      \"status\": \"OK\",\n      \"vertices\": 7,\n      \"facets\": 7,\n      \"volume\": \"5/3072\"\n    },\n    {\n      \"name\": \"invalid:duplicate_gids\",\n      \"status\": \"ValueError\",\n      \"message\": \"four distinct bounded global IDs required\"\n    },\n    {\n      \"name\": \"invalid:nonfinite_point\",\n      \"status\": \"ValueError\",\n      \"message\": \"finite binary64 floats required\"\n    },\n    {\n      \"name\": \"invalid:label\",\n      \"status\": \"ValueError\",\n      \"message\": \"four complete nonempty source-region sets required\"\n    },\n    {\n      \"name\": \"invalid:orientation\",\n      \"status\": \"ValueError\",\n      \"message\": \"positive nondegenerate tetrahedron required\"\n    },\n    {\n      \"name\": \"invalid:cut_names\",\n      \"status\": \"ValueError\",\n      \"message\": \"unique bounded ASCII cut names required\"\n    },\n    {\n      \"name\": \"invalid:cut_count\",\n      \"status\": \"ValueError\",\n      \"message\": \"at most seven named global inequalities\"\n    },\n    {\n      \"name\": \"invalid:ratio\",\n      \"status\": \"ValueError\",\n      \"message\": \"input ratio exceeds 128 bits\"\n    },\n    {\n      \"name\": \"fresh:plane_then_quad\",\n      \"status\": \"DEGENERATE\",\n      \"dimension\": 2,\n      \"vertices\": 4\n    },\n    {\n      \"name\": \"fresh:plane_then_point\",\n      \"status\": \"DEGENERATE\",\n      \"dimension\": 0,\n      \"vertices\": 1\n    },\n    {\n      \"name\": \"fresh:plane_then_empty\",\n      \"status\": \"EMPTY\",\n      \"independent_empty_certificate\": \"positive field or nonnegative-coordinate contradiction\"\n    },\n    {\n      \"name\": \"fresh:edge_then_segment\",\n      \"status\": \"DEGENERATE\",\n      \"dimension\": 1,\n      \"vertices\": 2\n    },\n    {\n      \"name\": \"fresh:edge_then_empty\",\n      \"status\": \"EMPTY\",\n      \"independent_empty_certificate\": \"positive field or nonnegative-coordinate contradiction\"\n    },\n    {\n      \"name\": \"fresh:point_then_empty\",\n      \"status\": \"EMPTY\",\n      \"independent_empty_certificate\": \"positive field or nonnegative-coordinate contradiction\"\n    },\n    {\n      \"name\": \"fresh:constant_empty\",\n      \"status\": \"EMPTY\",\n      \"independent_empty_certificate\": \"positive field or nonnegative-coordinate contradiction\"\n    },\n    {\n      \"name\": \"fresh:skewed_translated_slab\",\n      \"status\": \"OK\",\n      \"vertices\": 6,\n      \"facets\": 5,\n      \"volume\": \"19/64\"\n    },\n    {\n      \"name\": \"fresh:reversed_cut_order\",\n      \"status\": \"OK\",\n      \"vertices\": 7,\n      \"facets\": 7,\n      \"volume\": \"5/3072\"\n    },\n    {\n      \"name\": \"fresh:coincident_then_point\",\n      \"status\": \"DEGENERATE\",\n      \"dimension\": 0,\n      \"vertices\": 1\n    }\n  ],\n  \"owner_rows\": [\n    {\n      \"case\": \"frozen:unit_inactive7:single\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        11,\n        12\n      ],\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:unit_inactive7:single\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        11,\n        13\n      ],\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:unit_inactive7:single\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        12,\n        13\n      ],\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:unit_inactive7:single\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        11,\n        12,\n        13\n      ],\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:paired_interval_no_inside_corner:single\",\n      \"kind\": \"cut\",\n      \"owner\": \"INNER\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:paired_interval_no_inside_corner:single\",\n      \"kind\": \"cut\",\n      \"owner\": \"OUTER\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:paired_interval_no_inside_corner:single\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        11,\n        12\n      ],\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:paired_interval_no_inside_corner:single\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        11,\n        13\n      ],\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:paired_interval_no_inside_corner:single\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        11,\n        12,\n        13\n      ],\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:thin_interval_no_inside_corner:single\",\n      \"kind\": \"cut\",\n      \"owner\": \"INNER\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:thin_interval_no_inside_corner:single\",\n      \"kind\": \"cut\",\n      \"owner\": \"OUTER\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:thin_interval_no_inside_corner:single\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        11,\n        12\n      ],\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:thin_interval_no_inside_corner:single\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        11,\n        13\n      ],\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:thin_interval_no_inside_corner:single\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        11,\n        12,\n        13\n      ],\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:half_x_cap:single\",\n      \"kind\": \"cut\",\n      \"owner\": \"X\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:half_x_cap:single\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        11,\n        12\n      ],\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:half_x_cap:single\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        11,\n        13\n      ],\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:half_x_cap:single\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        12,\n        13\n      ],\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:half_x_cap:single\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        11,\n        12,\n        13\n      ],\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:all7_active_mixed_support:single\",\n      \"kind\": \"cut\",\n      \"owner\": \"CORNER\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:all7_active_mixed_support:single\",\n      \"kind\": \"cut\",\n      \"owner\": \"XHIGH\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:all7_active_mixed_support:single\",\n      \"kind\": \"cut\",\n      \"owner\": \"XLOW\",\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:all7_active_mixed_support:single\",\n      \"kind\": \"cut\",\n      \"owner\": \"YHIGH\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:all7_active_mixed_support:single\",\n      \"kind\": \"cut\",\n      \"owner\": \"YLOW\",\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:all7_active_mixed_support:single\",\n      \"kind\": \"cut\",\n      \"owner\": \"ZHIGH\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:all7_active_mixed_support:single\",\n      \"kind\": \"cut\",\n      \"owner\": \"ZLOW\",\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:on_original_vertex:single\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        11,\n        12\n      ],\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:on_original_vertex:single\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        11,\n        13\n      ],\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:on_original_vertex:single\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        12,\n        13\n      ],\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:on_original_vertex:single\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        11,\n        12,\n        13\n      ],\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:shared_face:above\",\n      \"kind\": \"cut\",\n      \"owner\": \"X\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:shared_face:above\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        11,\n        12\n      ],\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:shared_face:above\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        11,\n        13\n      ],\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:shared_face:above\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        12,\n        13\n      ],\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:shared_face:above\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        11,\n        12,\n        13\n      ],\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:shared_face:below\",\n      \"kind\": \"cut\",\n      \"owner\": \"X\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:shared_face:below\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        11,\n        12\n      ],\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:shared_face:below\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        11,\n        14\n      ],\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:shared_face:below\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        12,\n        14\n      ],\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:shared_face:below\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        11,\n        12,\n        14\n      ],\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:positive_local_order:base\",\n      \"kind\": \"cut\",\n      \"owner\": \"CORNER\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:positive_local_order:base\",\n      \"kind\": \"cut\",\n      \"owner\": \"XHIGH\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:positive_local_order:base\",\n      \"kind\": \"cut\",\n      \"owner\": \"XLOW\",\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:positive_local_order:base\",\n      \"kind\": \"cut\",\n      \"owner\": \"YHIGH\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:positive_local_order:base\",\n      \"kind\": \"cut\",\n      \"owner\": \"YLOW\",\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:positive_local_order:base\",\n      \"kind\": \"cut\",\n      \"owner\": \"ZHIGH\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:positive_local_order:base\",\n      \"kind\": \"cut\",\n      \"owner\": \"ZLOW\",\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:positive_local_order:permuted\",\n      \"kind\": \"cut\",\n      \"owner\": \"CORNER\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:positive_local_order:permuted\",\n      \"kind\": \"cut\",\n      \"owner\": \"XHIGH\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:positive_local_order:permuted\",\n      \"kind\": \"cut\",\n      \"owner\": \"XLOW\",\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:positive_local_order:permuted\",\n      \"kind\": \"cut\",\n      \"owner\": \"YHIGH\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:positive_local_order:permuted\",\n      \"kind\": \"cut\",\n      \"owner\": \"YLOW\",\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:positive_local_order:permuted\",\n      \"kind\": \"cut\",\n      \"owner\": \"ZHIGH\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"frozen:positive_local_order:permuted\",\n      \"kind\": \"cut\",\n      \"owner\": \"ZLOW\",\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"fresh:skewed_translated_slab\",\n      \"kind\": \"cut\",\n      \"owner\": \"INNER\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"fresh:skewed_translated_slab\",\n      \"kind\": \"cut\",\n      \"owner\": \"OUTER\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"fresh:skewed_translated_slab\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        11,\n        12\n      ],\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"fresh:skewed_translated_slab\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        10,\n        11,\n        13\n      ],\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"fresh:skewed_translated_slab\",\n      \"kind\": \"tet\",\n      \"owner\": [\n        11,\n        12,\n        13\n      ],\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"fresh:reversed_cut_order\",\n      \"kind\": \"cut\",\n      \"owner\": \"CORNER\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"fresh:reversed_cut_order\",\n      \"kind\": \"cut\",\n      \"owner\": \"XHIGH\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"fresh:reversed_cut_order\",\n      \"kind\": \"cut\",\n      \"owner\": \"XLOW\",\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"fresh:reversed_cut_order\",\n      \"kind\": \"cut\",\n      \"owner\": \"YHIGH\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"fresh:reversed_cut_order\",\n      \"kind\": \"cut\",\n      \"owner\": \"YLOW\",\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"fresh:reversed_cut_order\",\n      \"kind\": \"cut\",\n      \"owner\": \"ZHIGH\",\n      \"points\": 3,\n      \"normal_and_points_bound\": true\n    },\n    {\n      \"case\": \"fresh:reversed_cut_order\",\n      \"kind\": \"cut\",\n      \"owner\": \"ZLOW\",\n      \"points\": 4,\n      \"normal_and_points_bound\": true\n    }\n  ],\n  \"interval_analytics\": [\n    {\n      \"name\": \"frozen:paired_interval_no_inside_corner:single\",\n      \"lo\": \"1/4\",\n      \"hi\": \"1/2\",\n      \"determinant\": \"1\",\n      \"volume\": \"19/384\",\n      \"no_original_corner_inside\": true\n    },\n    {\n      \"name\": \"frozen:thin_interval_no_inside_corner:single\",\n      \"lo\": \"511/1024\",\n      \"hi\": \"1/2\",\n      \"determinant\": \"1\",\n      \"volume\": \"787969/6442450944\",\n      \"no_original_corner_inside\": true\n    },\n    {\n      \"name\": \"fresh:skewed_translated_slab\",\n      \"lo\": \"1/4\",\n      \"hi\": \"1/2\",\n      \"determinant\": \"6\",\n      \"volume\": \"19/64\",\n      \"no_original_corner_inside\": true\n    }\n  ],\n  \"shared_face_known_positions_opposed_cycles\": true,\n  \"positive_local_order\": true,\n  \"reversed_cut_order\": true,\n  \"skew_transform_and_inverse_transpose\": true,\n  \"cache_absent\": true\n}\n"
+    },
+    "summary": {
+      "pid": 76727,
+      "utc": "2026-10-19T07:21:42.937396+00:00",
+      "scope": "saved exact data only, no target/oracle/helper import or case replay",
+      "input_rows_verified": 6,
+      "source_rows_verified": 2,
+      "frozen_comparisons": 17,
+      "invalid_payload_predicates": 7,
+      "fresh_checks": 10,
+      "status_counts": {
+        "OK": 12,
+        "EMPTY": 5,
+        "DEGENERATE": 7,
+        "REFUSED": 2,
+        "UNKNOWN": 1,
+        "ValueError": 7
+      },
+      "counts": {
+        "all_returned_vertices": 86,
+        "fan_triangles": 96,
+        "ok_vertices": 72,
+        "facets": 66
+      },
+      "interval_analytics": [
+        {
+          "name": "frozen:paired_interval_no_inside_corner:single",
+          "lo": "1/4",
+          "hi": "1/2",
+          "determinant": "1",
+          "volume": "19/384",
+          "no_original_corner_inside": true
+        },
+        {
+          "name": "frozen:thin_interval_no_inside_corner:single",
+          "lo": "511/1024",
+          "hi": "1/2",
+          "determinant": "1",
+          "volume": "787969/6442450944",
+          "no_original_corner_inside": true
+        },
+        {
+          "name": "fresh:skewed_translated_slab",
+          "lo": "1/4",
+          "hi": "1/2",
+          "determinant": "6",
+          "volume": "19/64",
+          "no_original_corner_inside": true
+        }
+      ],
+      "shared_face_known_positions_opposed_cycles": true,
+      "positive_local_order": true,
+      "reversed_cut_order": true,
+      "skew_transform_and_inverse_transpose": true,
+      "cache_absent": true
+    },
+    "output_schema": "Full34outcomes and66per-facet owner rows are preserved in tool_result.output; no truncation."
+  },
+  "actual_target": {
+    "tool_chunk": "006caa",
+    "exit": 0,
+    "pid": 76360,
+    "utc_started": "2026-10-19T07:18:50.859714+00:00",
+    "utc_finished": "2026-10-19T07:18:50.920293+00:00",
+    "elapsed_seconds_after_imports": 0.06045391700172331,
+    "command_recorded_in_admission": "python3 -I -B docs/evidence/appearance-2026-10-19/sequential-material-cell/compare_packet.py",
+    "attempt": 1,
+    "calls": 34,
+    "result_bytes": 422931,
+    "result_sha256": "4c5e0b09385846f269359602d9bf7c1bb3bb655acb9c747f9d350acf0ef8a51a"
+  },
+  "predicates_reached": [
+    "All17original frozen payloads/expected records/statuses and geometry keys match the immutable old packet.",
+    "Seven explicit invalid argument predicates checked from retained payloads, with exact ValueError type/message records.",
+    "All34outcomes reached;12OK/5EMPTY/7DEGENERATE/2REFUSED/1UNKNOWN/7ValueError.",
+    "All86returned points checked for input-derived position/feasibility/support/activeIDs/labels;72 belong to12OK outputs.",
+    "All66facets/96fans independently bind owner plane and exact normal derivative, canonical outward orientation, polygon union, opposed edges, Euler2 and signed volume.",
+    "Fresh exact ranks/known positions and EMPTY input contradictions verified without constructing or clipping new geometry.",
+    "Paired/thin interval analytics and no originalcornerinside; skew determinant6/inverse transpose/volume19/64.",
+    "Known shared-face positions/opposed cycles, positive local-order global signature, exact reversed-cut geometry.",
+    "Source code literal whole-polygon copy reused from unchanged complete source review; numerical equality alone not treated as dataflow proof.",
+    "Current source/reference/admission/claim/tool/result identities and cache absence verified."
+  ],
+  "findings": [],
+  "alternatives": [
+    {
+      "choice": "Retain exact finite component",
+      "tradeoff": "Gains independently checked selected-method local code; selected with no broader qualification."
+    },
+    {
+      "choice": "Archive without qualified status",
+      "tradeoff": "Avoids reliance but discards the successful fixed comparison/collapse/transform evidence."
+    }
+  ],
+  "errors": [],
+  "limits": [
+    "Critic only parsed/hashed existing saved data and used stdlib exact arithmetic; no module/helper/oracle/fixture import, intersection enumeration, case replay, source/geometry construction or alteration.",
+    "Explicit invalid rows prove only the seven retained payload observations; no new exception invocation or arbitrary-input guarantee.",
+    "Tiny fixed synthetic local packet is not full-grid assembly/cancellation/opening, source eligibility, physical garment/fit/material/motion/native/appearance/AAA proof.",
+    "Raw tool object exposes combined decoded output and exit only; no separate stdout/stderr wire bytes or whole startup/performance/hard memory/OS retirement guarantee.",
+    "Oldoracle/fixture/collector remain closed; actual field/constructor HOLD stays. No new numerical harness or visual experiment admitted.",
+    "Only exclusiveRESULT-REVIEW pair written; all prior source/data/product/accepted/default/frozen assets preserved."
+  ],
+  "next": "Retain/close this component. Any visual-wardrobe work requires a fresh independent worth/source gate; no successor automatically admitted.",
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/RESULT-REVIEW.md",
+    "bytes": 3062,
+    "sha256": "365a04642bb5a99d58dc8850f99824ca14191a38958fa01d6e8b9c1833e8b895"
+  }
+}

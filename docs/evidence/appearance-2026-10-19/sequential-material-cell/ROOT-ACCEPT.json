@@ -1,0 +1,37 @@
+{
+  "utc": "2026-10-19T07:24:50.836365+00:00",
+  "pid": 77066,
+  "decision": "RETAIN_FINITE_LOCAL_SEQUENTIAL_COMPONENT",
+  "critic_job": "71c1ea/exit0/PID76921",
+  "critic_whole_handoff_reads": [
+    "9835c4 review3062bytes",
+    "a99b1f receipt0:18000",
+    "0a2563 receipt18000:36000",
+    "72578b receipt36000:end"
+  ],
+  "direct_pins_verified": 20,
+  "nested_source_review_pins_verified": 13,
+  "critic_observer_source_sha256_verified": "4726274b56db81ca129d4b253df52670a6b029e8a94fc579a17f5e83970b42a3",
+  "critic_observer_ast_only": true,
+  "all66saved_owner_rows_match_actual": true,
+  "all34outcome_rows_present": true,
+  "root_independent_actual_audit": "7e95da/exit0/PID76588; ROOT-RESULT.json and exact ROOT-AUDIT-COMMAND.json",
+  "agreed_status_counts": {
+    "OK": 12,
+    "EMPTY": 5,
+    "DEGENERATE": 7,
+    "REFUSED": 2,
+    "UNKNOWN": 1,
+    "ValueError": 7
+  },
+  "agreed_OK_totals": {
+    "OK_cells": 12,
+    "OK_vertices": 72,
+    "OK_facets": 66,
+    "OK_fan_triangles": 96,
+    "degenerate_vertices": 14
+  },
+  "closed": "One34-call attempt consumed. No source repair, candidate/oracle/fixture replay or successor numerical harness. Actual material-volume constructor and collector stay held.",
+  "limits": "Finite local synthetic evidence only. No production/accepted/default/source geometry change; global field/assembly, physical fit/material/motion/runtime/appearance/AAA and all broad goals remain open.",
+  "next": "Separate visual wardrobe responsibility with fresh worth, after checking historical closed routes; no next experiment admitted."
+}

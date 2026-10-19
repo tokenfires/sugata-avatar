@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-19T07:20:27.992693+00:00",
+  "pid": 76588,
+  "decision": "ROOT_NUMERIC_PASS_AWAIT_INDEPENDENT_RESULT_REVIEW",
+  "packet_job": "006caa/exit0/PID76360",
+  "packet_started": "2026-10-19T07:18:50.859714+00:00",
+  "packet_finished": "2026-10-19T07:18:50.920293+00:00",
+  "packet_elapsed_after_imports": 0.06045391700172331,
+  "reference_rows_exact": 17,
+  "invalid_rows": 7,
+  "fresh_rows": 10,
+  "status_counts": {
+    "OK": 12,
+    "EMPTY": 5,
+    "DEGENERATE": 7,
+    "REFUSED": 2,
+    "UNKNOWN": 1,
+    "ValueError": 7
+  },
+  "totals": {
+    "OK_cells": 12,
+    "OK_vertices": 72,
+    "OK_facets": 66,
+    "OK_fan_triangles": 96,
+    "degenerate_vertices": 14
+  },
+  "result_bytes": 422931,
+  "result_sha256": "4c5e0b09385846f269359602d9bf7c1bb3bb655acb9c747f9d350acf0ef8a51a",
+  "checks": [
+    "Actual collected exit/stdout/result/admission/claim/source/reference exact bindings",
+    "All17 full frozen geometric outputs compared without target/oracle calls",
+    "Fresh exact positions/statuses, transformed world positions/normals and determinant6 volume, reversed box exact outputs",
+    "Independent saved-data Gaussian rank for every OK/DEGENERATE output",
+    "Every vertex full support/active IDs/feasible weights/exact world position/labels",
+    "Every actual facet unique input owner, world normal equations, point planes, canonical fans/whole polygon label union",
+    "All opposed edges/Euler/used vertices/exact positive signed volume"
+  ],
+  "observer_errors": [],
+  "limits": "No candidate/helper/oracle/old fixture imported or called; saved-result arithmetic only. No global assembly, arbitrary-input proof, source eligibility, field, garment, physical, motion, appearance or performance credit."
+}

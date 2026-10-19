@@ -1,0 +1,55 @@
+{
+  "utc": "2026-10-19T07:13:53.775867+00:00",
+  "pid": 75670,
+  "source_files": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/sequential-material-cell/sequential_cell.py",
+      "bytes": 13620,
+      "sha256": "0cfc95490bb7c5fe14ffd89b2fc138039ae221b7f416ed0ae97a2408a4687b2c",
+      "ast_nodes": 3547,
+      "functions": [
+        "bounded",
+        "total",
+        "dot",
+        "sub",
+        "cross",
+        "coefficient",
+        "rank",
+        "clean_cycle",
+        "clip_cycle",
+        "cap_from_boundary",
+        "state_cap",
+        "material_cell",
+        "_material_cell"
+      ]
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/sequential-material-cell/compare_packet.py",
+      "bytes": 13543,
+      "sha256": "960bbd2e9d9d6f99d8342fbeb72d6077af551a5a16aee5715e119cc7fec2f375",
+      "ast_nodes": 3688,
+      "functions": [
+        "decode",
+        "encode",
+        "scalar",
+        "product",
+        "difference",
+        "vector_cross",
+        "consume",
+        "payload",
+        "invoke",
+        "plane",
+        "degen"
+      ]
+    }
+  ],
+  "total_bytes": 27163,
+  "inert_ast_parse_only": true,
+  "execution": false,
+  "boundaries": "No oracle, driver, candidate or collector imported or invoked. One new34-call trial still requires source A and root gate.",
+  "author_notes": [
+    "Initial inert draft had an old_vertices placeholder; fixed by saving pre-clip face vertices, before this prepared epoch and any review/import/execution. No trial repair.",
+    "Literal polygon union and per-triangle list copy at final materialization. Full-rank cap uses reversed unmatched directed boundary edges, not triple/hull oracle.",
+    "Low-dimensional states continue clipping; initial coincident ownership is deferred until final rank."
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "schema": "sequential-material-cell-source-critic-v1",
+  "verdict": "A_ONE_FIXED_SYNTHETIC_PACKET_AFTER_FRESH_ROOT_GATE",
+  "collected_utc": "2026-10-19T07:18:18.095072+00:00",
+  "writer_pid": 76292,
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 10528,
+      "sha256": "809d20c88d9d3f3a3b602231e35692ad3546d744d28be6a810156b37b98ef021"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 21600,
+      "sha256": "f436b16f1db2b159b722bdeb50d53ada15a58b5da44a9afb9090764153955269"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/CONTRACT.json",
+      "bytes": 17528,
+      "sha256": "974c1cbd3ad811717aec75069f8a2c696aaacf2a8c5631599d8244914d1a7fcf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/RESULT.json",
+      "bytes": 174924,
+      "sha256": "32c38b4e8b192a5b64864ce2ac665e7c1cd0d4f59741a0842735997089c7e21c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-ACCEPT.json",
+      "bytes": 2840,
+      "sha256": "537fddd764287e38f794328bc5258629a72400e908b710174f7d0176bc2ebcdb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-CLOSE.json",
+      "bytes": 13903,
+      "sha256": "1ecb3d6d37e91b877d3891a4ae5535aceeba820179586d65b5863dc3e11a6d66"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/sequential_cell.py",
+      "bytes": 13620,
+      "sha256": "0cfc95490bb7c5fe14ffd89b2fc138039ae221b7f416ed0ae97a2408a4687b2c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/compare_packet.py",
+      "bytes": 13543,
+      "sha256": "960bbd2e9d9d6f99d8342fbeb72d6077af551a5a16aee5715e119cc7fec2f375"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/PLAN.md",
+      "bytes": 6510,
+      "sha256": "fd39ec6cf08e56be2c66158ad394caae941b546b731214e2da68d24ae5f64226"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/INPUTS.json",
+      "bytes": 1277,
+      "sha256": "e0fabc152ab3cf9f2144c550f725b811ebdfe5603b5a84b24babc0d34e337307"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/SOURCE-PREPARATION.json",
+      "bytes": 1800,
+      "sha256": "92ceee7560d3a7a612f85207dc8bdca758cd41ee3661f1a1aae35791478a0ea2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/WORTH.md",
+      "bytes": 3121,
+      "sha256": "ec42293c3c2ac05c5706e8350d7006826efa46cc52e1202b104350d37048a832"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/WORTH-RECEIPT.json",
+      "bytes": 6348,
+      "sha256": "9ff858e53cf80f11ba5b4d3e454c71828c15cecd968364f64b3ac7456cc4257f"
+    }
+  ],
+  "verified_manifest_rows": 6,
+  "verified_source_rows": 2,
+  "source_total_bytes": 27163,
+  "source_line_counts": {
+    "sequential_cell.py": 305,
+    "compare_packet.py": 277
+  },
+  "read_scopes": {
+    "sequential_cell.py": "Whole actual source1-190 in d9ff50,191-305 in5c0bdc; no gaps.",
+    "compare_packet.py": "Whole actual source1-120 in d9ff50,121-277 in5c0bdc; no gaps.",
+    "SOURCE-PREPARATION.json": "Whole1800-byte record and source pins.",
+    "PLAN.md": "Whole6510-byte plan reused from current worth441eae after fresh hash.",
+    "INPUTS.json": "Whole1277-byte manifest and all6 exact rows freshly checked.",
+    "CONTRACT.json": "Whole17528-byte mathematical contract read34aab6 in preceding worth; fresh unchanged pin supports reuse.",
+    "frozen RESULT": "Prior complete independent actual audit reused after fresh hash; no rerun/old target import.",
+    "ROOT-ACCEPT/ROOT-CLOSE": "Whole current records read34aab6, fresh pins; prior synthetic scope/closed boundaries only.",
+    "two recovery docs": "Preceding exact documentary review reused, fresh byte pins; not a new full history audit.",
+    "WORTH pair": "Own stable preparation-worth judgment reused, bytes pinned.",
+    "ROOT-SOURCE.json": "Not read or used as an independent oracle."
+  },
+  "jobs": [
+    {
+      "chunk": "d9ff50",
+      "exit": 0,
+      "pid": 75776,
+      "utc": "2026-10-19T07:14:10.951956+00:00",
+      "command": "python3 stdin stdlib read/hash/line-numbered print",
+      "scope": "WholeSOURCE-PREPARATION; module1-190/driver1-120."
+    },
+    {
+      "chunk": "5c0bdc",
+      "exit": 0,
+      "pid": 75793,
+      "utc": "2026-10-19T07:14:17.510722+00:00",
+      "command": "python3 stdin stdlib read/hash/line-numbered print",
+      "scope": "Module191-305/driver121-277 complete."
+    },
+    {
+      "chunk": "fcd14e",
+      "exit": 0,
+      "pid": 76111,
+      "utc": "2026-10-19T07:16:34.481605+00:00",
+      "command": "python3 stdin ast.parse/read/hash only",
+      "scope": "All6inputs+2source pins; AST imports/dynamic module path/18invoke sites; newline constants are literal byte10, no target evaluation."
+    }
+  ],
+  "case_accounting": {
+    "frozen_valid": 17,
+    "explicit_invalid": 7,
+    "fresh": 10,
+    "total_calls": 34,
+    "static_invoke_sites": 18,
+    "frozen_loop_site": 1,
+    "other_explicit_sites": 17,
+    "fresh_skew_volume": "19/64 by determinant6",
+    "fresh_geometry": "Symbolic fixed-declaration assessment only; no candidate run."
+  },
+  "source_predicate_witnesses": {
+    "cap_adjacency": "sequential_cell.py113-145",
+    "dimension_continuation": "sequential_cell.py215-241",
+    "final_owner_refusal": "sequential_cell.py263-271",
+    "canonical_support_active_and_regions": "sequential_cell.py248-261",
+    "cofactor_gradient": "sequential_cell.py275-277",
+    "literal_whole_facet_copy": "sequential_cell.py278-288",
+    "incidence_volume": "sequential_cell.py290-305",
+    "independent_owner_plane_normal": "compare_packet.py125-138",
+    "complete_packet_declarations": "compare_packet.py206-259",
+    "admission_claim_import": "compare_packet.py6-42",
+    "failure_and_exclusive_result": "compare_packet.py260-277"
+  },
+  "findings": [],
+  "alternatives": [
+    {
+      "choice": "One exact synthetic packet after fresh gate",
+      "tradeoff": "Tests selected sequential method against independent frozen outputs; selected at local scope."
+    },
+    {
+      "choice": "Withhold/change workstream",
+      "tradeoff": "Avoids execution but leaves this method unmeasured."
+    }
+  ],
+  "required_root_preflight": [
+    "Verify exact2sources/frozen reference SHA/admission and fresh CLAIM/RESULT absence.",
+    "Use explicit python3 -I -B compare_packet.py (or exact absolute path), with bytecode-off launch and cache absence readback.",
+    "Record collected tool exit/output and complete RESULT identity; PACKET_PASS must actually include all34rows.",
+    "Treat alarm/import/failure/partial/output cap or write error as closed without retry/source repair; no unconditional failure receipt guarantee."
+  ],
+  "observed_absent_at_collection": {
+    "ROOT-ADMISSION.json": true,
+    "CLAIM.json": true,
+    "RESULT.json": true,
+    "__pycache__": true
+  },
+  "limits": [
+    "No target/helper/oracle/fixture import/evaluation/call, array/member decode, real geometry/grid construction, network/browser/native/GPU/render/capture.",
+    "Driver consumer owns fixed known cases, not a general schema/rank/arbitrary-input or global-topology proof.",
+    "4096-bit stored arithmetic/local state caps and10second alarm are not hard instantaneous memory/OSstartup walltime bounds.",
+    "Source A is not actual numerical acceptance; no real source/field/collector/constructor/garment/fit/appearance admission.",
+    "Only exclusiveSOURCE-REVIEW pair written; all prior source/data/product/assets unchanged."
+  ],
+  "deadline": "Sourceauthor07:40/rootgate07:50/soletrial07:55/closure08:10UTC2026-10-19, unchanged.",
+  "errors": [],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/sequential-material-cell/SOURCE-REVIEW.md",
+    "bytes": 3854,
+    "sha256": "9ad7f17839f12f8e1586a82727cdb50c7923761332139b01fc40853583b7abba"
+  }
+}

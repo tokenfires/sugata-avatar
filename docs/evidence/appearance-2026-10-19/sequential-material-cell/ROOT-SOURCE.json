@@ -1,0 +1,73 @@
+{
+  "utc": "2026-10-19T07:14:42.411842+00:00",
+  "pid": 75855,
+  "actual_whole_source_read": [
+    "ba007c/exit0,305lines",
+    "a50bf0/exit0,277lines"
+  ],
+  "source_pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/sequential-material-cell/sequential_cell.py",
+      "bytes": 13620,
+      "sha256": "0cfc95490bb7c5fe14ffd89b2fc138039ae221b7f416ed0ae97a2408a4687b2c",
+      "ast_nodes": 3547,
+      "functions": [
+        "bounded",
+        "total",
+        "dot",
+        "sub",
+        "cross",
+        "coefficient",
+        "rank",
+        "clean_cycle",
+        "clip_cycle",
+        "cap_from_boundary",
+        "state_cap",
+        "material_cell",
+        "_material_cell"
+      ]
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/sequential-material-cell/compare_packet.py",
+      "bytes": 13543,
+      "sha256": "960bbd2e9d9d6f99d8342fbeb72d6077af551a5a16aee5715e119cc7fec2f375",
+      "ast_nodes": 3688,
+      "functions": [
+        "decode",
+        "encode",
+        "scalar",
+        "product",
+        "difference",
+        "vector_cross",
+        "consume",
+        "payload",
+        "invoke",
+        "plane",
+        "degen"
+      ]
+    }
+  ],
+  "module_imports": [
+    "fractions",
+    "math"
+  ],
+  "fixed_valid_saved_records": 17,
+  "invoke_sites": 18,
+  "declared_calls": "17 frozen loop +7 invalid +10 fresh =34",
+  "root_source_reasoning": [
+    "Initial tetra face cycles have outward local normals (1,1,1),(-1,0,0),(0,-1,0),(0,0,-1).",
+    "Edge ratio fp/(fp-fc) gives f=0 on each strict crossing; ordered clipping preserves existing face orientation.",
+    "Cap cancels opposed on-plane edges and reverses remaining directed boundary; requires one covering cycle.",
+    "Low-dimensional polygon/segment/point states continue through remaining inequalities; final owner check occurs only for rank3.",
+    "Cofactor world-gradient formula solves normal dot each world edge = sample difference; separate consumer recomputes those equations and both barycentric/world owner planes.",
+    "Final support uses every strictly positive original weight and all exact active field names. Full polygon union is computed once then list-copied into fans.",
+    "Fresh affine transform determinant6 and inverse-transpose normal formula agree analytically; static cases match PLAN.",
+    "Sources fit27163bytes; 10-second alarm precedes remaining imports. Exclusive claim, fixed clock gate and SHA-admission precede candidate import. No child processes."
+  ],
+  "limits": [
+    "AST parsing/source reasoning only, no candidate/oracle/driver import or invocation.",
+    "No mathematical proof of all arbitrary inputs; actual finite packet not yet executed.",
+    "State/arithmetic/output bounds do not establish hard RSS or native/full-builder suitability."
+  ],
+  "decision": "ROOT_PRELIMINARY_SOURCE_SUITABLE_AWAIT_INDEPENDENT_CRITIC; no trial admission"
+}

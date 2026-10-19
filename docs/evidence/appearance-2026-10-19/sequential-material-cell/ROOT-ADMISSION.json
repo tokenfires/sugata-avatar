@@ -1,0 +1,19 @@
+{
+  "admitted": true,
+  "scope": "one 34-call sequential local packet only",
+  "utc": "2026-10-19T07:18:45.347864+00:00",
+  "pid": 76348,
+  "head": "da1aed48fe41891a4269c7ba4b6f0a73dbbbdfae",
+  "sha256": {
+    "sequential_cell.py": "0cfc95490bb7c5fe14ffd89b2fc138039ae221b7f416ed0ae97a2408a4687b2c",
+    "compare_packet.py": "960bbd2e9d9d6f99d8342fbeb72d6077af551a5a16aee5715e119cc7fec2f375"
+  },
+  "reference_sha256": "32c38b4e8b192a5b64864ce2ac665e7c1cd0d4f59741a0842735997089c7e21c",
+  "critic_source_job": "e1078f/exit0/PID76292",
+  "root_whole_pair_read": "e0163e/exit0 complete3854+8571bytes",
+  "critic_input_and_review_pins_verified": 14,
+  "root_independent_source": "ROOT-SOURCE.json; ba007c/a50bf0/c9300f source read/AST/reasoning",
+  "command": "python3 -I -B docs/evidence/appearance-2026-10-19/sequential-material-cell/compare_packet.py",
+  "limits": "Only one34-call packet before07:55UTC; 10second signal alarm; <=2MiB result; no replay/source repair/old oracle or fixture call/real source field grid constructor/native/GPU/browser. Any failure or partial closes. Not OS memory/walltime guarantee.",
+  "closure_deadline_utc": "2026-10-19T08:10:00+00:00"
+}

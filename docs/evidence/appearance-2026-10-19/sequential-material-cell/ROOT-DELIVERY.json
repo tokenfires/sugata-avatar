@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-19T07:27:08.683828+00:00",
+  "pid": 77380,
+  "delivery_pins": 6,
+  "exact_diff": true,
+  "old_recovery_content_preserved": true,
+  "work_window_append_only": true,
+  "board_checklist_exact_to_base": true,
+  "checklist_counts": {
+    "scoped_checked": 21,
+    "broad_open": 10
+  },
+  "local_links_verified": 27,
+  "target_calls": 0,
+  "observer_errors": [
+    {
+      "job": "bdac7a/exit1",
+      "reason": "Unmatched unquoted shell glob during broad-status read before data access",
+      "correction": "1207a6 rg file inventory; then957a4c explicit checklist read",
+      "candidate_affected": false
+    }
+  ],
+  "scope": "Read-only document/source preservation verification; no additional target test."
+}

@@ -1,0 +1,15 @@
+A — retain the exact local sequential component and its consumed synthetic packet.
+
+The sole tool result006caa reports exit0/PID76360 and PACKET_PASS34. Exact source/admission/reference hashes, exclusive attempt1 claim, PID/start UTC, complete422,931-byte RESULT and tool-output digest agree. The recorded invocation is python3 -I -B compare_packet.py at the declared leaf; no cache exists. Combined decoded tool output does not establish separate stdout/stderr byte identities or a full-process performance measurement.
+
+My independent saved-data observer checked all17 frozen valid observations against the original unchanged RESULT, including complete listed geometry fields; only implementation diagnostics and non-OK prose differ as declared. Seven actual ValueError records have the expected explicit bad-input predicates. All10 fresh cases pass independently: the planar quadrilateral, later point/segment, empty contradictions, coincident-owner-then-origin, reversed seven-cut order and transformed interval. Independent exact rank checks agree. The transformed interval preserves support/weights, has determinant6 and volume19/64, and its normals equal the inverse-transpose expectation. Original thin volumes19/384 and787969/6442450944 remain exact despite no original corner satisfying the interval.
+
+Across12 OK outputs,72 vertices,66 facets and96 fan triangles satisfy exact feasibility, complete positive support/all active IDs, canonical ordering, source-region transport and position reconstruction. Every facet owner binds to its input field or omitted tetra coordinate; every facet vertex lies on that plane and every normal derivative matches all three original world edges. Polygon unions, copied fan labels, outward orientation, opposed local edges/Euler2 and signed volume pass. Seven degenerate outputs add14 points, giving86 returned points across the packet; REFUSED/UNKNOWN return no geometry. Shared-face known positions/opposed cycles and positive local-order signatures also agree.
+
+No actionable component defect is demonstrated. Source279–286 establishes literal whole-facet label copying; matching output labels alone would not prove that dataflow. These fixed cases are not arbitrary-input or global-assembly correctness.
+
+Alternative A is retention as useful local selected-method code with independently checked finite evidence. Alternative B is archival without qualified reference status, avoiding reliance but discarding the successful comparison and fresh collapse/transform evidence. I select A. No production adoption, real source/grid/field/collector/constructor/global cancellation/opening/garment/fit/material/motion/native/appearance/AAA qualification follows.
+
+The one trial is consumed; no candidate/oracle/old-fixture replay or source repair is warranted. No further numerical harness is admitted. Any visual-wardrobe nomination needs its own fresh worth gate. Only this review pair was written; no target/helper imports or calls occurred. pending_edits=false.
+
+Collected UTC: 2026-10-19T07:23:33.453197+00:00
