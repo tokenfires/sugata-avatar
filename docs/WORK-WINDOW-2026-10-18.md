@@ -1,5 +1,11 @@
 # Sugata work window — October 18, 2026
 
+## October 19, 23:05 UTC — skirt-volume worth closed before preparation
+
+The Mara skirt nomination stopped B/unknown after the selected fourth receipt proved to be the rejected unrun cardigan source, rather than the retained 3D comparison required by the plan. Root and independent critic agreed separately; stable WORTH2547/SHA1b489343… and receipt10544/SHAa8f93d0d… were whole-read in3f4d4f and freshly checked against all8 bindings and source witness. Four receipt cap consumed; zero images/references/targets/preparation. No fifth-receipt hunt or renamed skirt/midi/hem/surface/renderer/capture successor. This is an input-selection limit, not a skirt appearance/geometry verdict. [Complete bounded receipt](evidence/appearance-2026-10-19/mara-skirt-volume-worth/README.md).
+
+All assets/defaults/frozen/ignored sources, prior closures, constructor HOLD and full roadmap remain. Checklist32f5098f/8120 stays23 scoped/10 broad outstanding. No live target or critic edit. Review server and same ten-minute recovery retained. Next: a genuinely different character/wardrobe responsibility, independent worth first. Human check-in/pause wins; no push/publication/install/purchase/model/subscription/reset-credit or other project work.
+
 **Resumed by Robert after updates, in this chat.** Continue useful bounded work while active. Ten-minute wakes are recovery, not an instruction to duplicate live jobs or stop an active slice. New human steering takes precedence.
 
 Start with [the current checkpoint](RESUME-2026-10-18.md), [the recovery receipt](evidence/appearance-2026-10-18/resume-from-checkpoint/RECOVERY.json), the latest bounded receipt below, and current Git/jobs/services. Older October 6/8 pauses and slice deadlines are historical. The prospective material-volume constructor remains held until fresh independent worth and full source/workload preflight.

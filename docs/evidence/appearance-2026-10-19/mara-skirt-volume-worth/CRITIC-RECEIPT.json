@@ -1,0 +1,190 @@
+{
+  "kind": "independent-four-receipt-skirt-volume-worth",
+  "verdict": "B_UNKNOWN_REQUIRED_RETAINED_CARDIGAN_CONTEXT",
+  "collectedUTC": "2026-10-19T23:05:00.379784+00:00",
+  "collectionPID": 71426,
+  "deadlineUTC": "2026-10-19T23:20:00Z",
+  "pending_edits": false,
+  "inputBindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "bytes": 3053,
+      "sha256": "f0f6118b1916220de67cb8748ec7232e1ab1b32e745415eb9c1d7629f429ca1d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2092,
+      "sha256": "1ecfdc33f35a4631a0942fc20eaa144844372802edfe36764e365e569efd8358"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-first-native/README.md",
+      "bytes": 1198,
+      "sha256": "e641963f211f225a4b320c628683a0987e40d1cc0f780f0bc4fe0d94ea5e35b2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/README.md",
+      "bytes": 3536,
+      "sha256": "5c80b6bd3ca5899b52b3c3ccf5227d297fc83da7e87a2fa6b2705f0b9f2a6b88"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-skirt-volume-worth/PLAN.md",
+      "bytes": 3735,
+      "sha256": "ba1d22f4b21e58be4cecb784b7f289752cdbc47555731d6eaa27209398880762"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-skirt-volume-worth/RECEIPT-INPUTS.json",
+      "bytes": 891,
+      "sha256": "785300a920af056f98740ad21589583a7f8f581d4ed0c91cf5c326328a800adc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-skirt-volume-worth/ROOT-FIRST.json",
+      "bytes": 3353,
+      "sha256": "c8709ede9805124bb7849c06fed4da2306a71451fcfa27ea51adb0b53896e25a"
+    }
+  ],
+  "reviewBinding": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-skirt-volume-worth/WORTH.md",
+    "bytes": 2547,
+    "sha256": "1b489343087dfbde33ee19d37732ecd799681b4f5904724c8ccef8e4cedb80a5"
+  },
+  "scope": {
+    "wholeReceipts": 4,
+    "receiptCap": 4,
+    "wholeAdditionalRecords": [
+      "PLAN.md",
+      "RECEIPT-INPUTS.json",
+      "ROOT-FIRST.json after independent seal"
+    ],
+    "filenameInventoriesByCritic": 0,
+    "rootFilenameInventoryAllowance": "already consumed; no additional inventory",
+    "imagesViewed": 0,
+    "newReferences": 0,
+    "sourceProgramReads": 0,
+    "targetEntries": 0,
+    "newPreparationAdmitted": false
+  },
+  "independence": {
+    "sealChunk": "cfc486",
+    "sealUTC": "2026-10-19T23:04:17.217067+00:00",
+    "sealPID": 70074,
+    "order": "Own complete B decision emitted before ROOT-FIRST read in same command; earlier collaboration message also states decision.",
+    "rootFirstUTC": "2026-10-19T23:03:24.825459+00:00",
+    "rootDecision": "B/unknown; stop before images/preparation",
+    "comparison": "Agreement on incorrect retained-cardigan receipt role; independent decision not derived from root opinion."
+  },
+  "finding": {
+    "id": "F1",
+    "witnesses": [
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-first-volume/README.md",
+        "lines": [
+          1,
+          3,
+          17
+        ],
+        "actual": "source B, never run; no model, OBJ/MTL, runtime result or rendered image"
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-skirt-volume-worth/PLAN.md",
+        "scope": "Required actual retained cardigan3D receipt; identity ambiguity stops B/unknown; four whole receipt cap"
+      }
+    ],
+    "explanation": "Selected fourth receipt is the unrun rejected parent source, not evidence of a retained actual cardigan3D consumer. Current packet cannot support the intended comparison and no fifth read or recalled fact may repair it.",
+    "alternatives": [
+      {
+        "choice": "defer/close exact nomination",
+        "tradeoff": "Retains existing references/assets without duplicate work; skirt source remains unresolved."
+      },
+      {
+        "choice": "later distinct consequential responsibility with fresh worth",
+        "tradeoff": "Uses effort elsewhere while leaving skirt unresolved; admits no renamed skirt or capture/renderer successor."
+      }
+    ]
+  },
+  "otherReceiptBoundaries": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "lines": [
+        9,
+        13
+      ],
+      "meaning": "Plum-midi direction and open 3D skirt/interface authorship; no measured reconstruction/fit."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround/ARTIST-HANDOFF.md",
+      "lines": [
+        7,
+        9
+      ],
+      "meaning": "Supplementary clothed view discussion; editable body/garment/3D remains unqualified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-06/mara-midi-first-native/README.md",
+      "lines": [
+        1,
+        5
+      ],
+      "meaning": "Old source/data passed but no rendered sheet; fixed capture route closed, not permission to retry."
+    }
+  ],
+  "nextPreparationWorthwhile": false,
+  "nextBoundary": "Root independently whole-read/fresh-verify and checkpoint; no correction, fifth receipt, image, source/constructor or successor admitted.",
+  "limitations": [
+    "No independent appearance judgment from receipts or unseen images.",
+    "This is a bounded evidence-selection refusal, not proof that no skirt3D exists, that all possible artist methods lack value, or that geometry/fit is impossible.",
+    "No target/source edit, import/evaluation, browser/native/GPU/capture/generation/network, model/geometry reconstruction or test.",
+    "Four bound receipt identities were exact; their required evidentiary roles were not interchangeable.",
+    "Prior closures, accepted/default/frozen/ignored assets, material-volume constructor HOLD and full roadmap/checklist scope preserved."
+  ],
+  "errorsAndCorrections": [
+    "None by critic. Root receipt selection is the decisive input limitation; no fallback read/query was attempted."
+  ],
+  "toolJobs": [
+    {
+      "name": "initial",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,datetime,os\nbase=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-skirt-volume-worth')\nprint(json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid()}))\nfor n in ['PLAN.md','RECEIPT-INPUTS.json']:\n p=base/n;b=p.read_bytes();print('\\nFILE',str(p),len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "result": {
+        "chunk_id": "ec2f32",
+        "wall_time_seconds": 7.25e-06,
+        "exit_code": 0,
+        "original_token_count": 1265,
+        "returnedOutputBytes": 5057,
+        "returnedOutputSHA256": "fe4e1be0a7ff271244ad169d88a9c84bf14a7c128c80b33b242d9672b8be5b5e",
+        "firstLine": "{\"utc\": \"2026-10-19T23:03:42.872698+00:00\", \"pid\": 69000}",
+        "scope": "complete untruncated read-only output inspected; no target evaluation"
+      }
+    },
+    {
+      "name": "receipts",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,datetime,os\nr=Path('/Users/robault/GitHub/sugata-avatar');base=r/'docs/evidence/appearance-2026-10-19/mara-skirt-volume-worth'\nprint(json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid()}))\nfor row in json.loads((base/'RECEIPT-INPUTS.json').read_text())['receipts']:\n p=r/row['path'];b=p.read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256'];print('\\nFILE',str(p),len(b),hashlib.sha256(b).hexdigest())\n for i,l in enumerate(b.decode().splitlines(),1):print(f'{i}: {l}')\nPY",
+      "result": {
+        "chunk_id": "f9e428",
+        "wall_time_seconds": 7.917e-06,
+        "exit_code": 0,
+        "original_token_count": 2709,
+        "returnedOutputBytes": 10835,
+        "returnedOutputSHA256": "6119bc960349638ba43a1400cc46c1c46f67c15be30bf34056bb5eae5224d26c",
+        "firstLine": "{\"utc\": \"2026-10-19T23:03:49.953273+00:00\", \"pid\": 69210}",
+        "scope": "complete untruncated read-only output inspected; no target evaluation"
+      }
+    },
+    {
+      "name": "compare",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,datetime,os\nbase=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-skirt-volume-worth')\nprint(json.dumps({'independentDecisionSealedUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'verdict':'B_UNKNOWN_REQUIRED_RETAINED_CARDIGAN_CONTEXT','witness':'Bound fourth receipt title and lines3,17 are sourceB neverrun/no model/exports/image; it cannot establish the required retained cardigan3D comparison. Four receipt cap consumed; no fifth read or image inquiry.','nextPreparationWorthwhile':False,'scope':'This packet only; no global skirt absence or source/geometry/appearance impossibility claim.'}))\np=base/'ROOT-FIRST.json';b=p.read_bytes();print('\\nROOT_OPINION_READ_AFTER_INDEPENDENT_SEAL',len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "result": {
+        "chunk_id": "cfc486",
+        "wall_time_seconds": 7.625e-06,
+        "exit_code": 0,
+        "original_token_count": 994,
+        "returnedOutputBytes": 3973,
+        "returnedOutputSHA256": "ef03c7de775293f171d0fceec2ced346c1d75c2eece1998db34e5e3d5506fe68",
+        "firstLine": "{\"independentDecisionSealedUTC\": \"2026-10-19T23:04:17.217067+00:00\", \"pid\": 70074, \"verdict\": \"B_UNKNOWN_REQUIRED_RETAINED_CARDIGAN_CONTEXT\", \"witness\": \"Bound fourth receipt title and lines3,17 are sourceB neverrun/no model/exports/image; it cannot establish the required retained cardigan3D comparison. Four receipt cap consumed; no fifth read or image inquiry.\", \"nextPreparationWorthwhile\": false, \"scope\": \"This packet only; no global skirt absence or source/geometry/appearance impossibility claim.\"}",
+        "scope": "complete untruncated read-only output inspected; no target evaluation"
+      }
+    }
+  ],
+  "outputWrites": [
+    "WORTH.md",
+    "CRITIC-RECEIPT.json"
+  ]
+}

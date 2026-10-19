@@ -1,0 +1,61 @@
+{
+  "utc": "2026-10-19T23:06:00.701265+00:00",
+  "pid": 73299,
+  "parent_head": "a41cf9f4a68c2882045ee5dcd4c606c374074178",
+  "decision": "B/unknown; nomination closed before preparation",
+  "preclose_files": [
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 129902,
+      "sha256": "e132dbb741665b7f8dcd51244038712eb06e34b1254bc795d6223ba40dccfb52"
+    },
+    {
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 154966,
+      "sha256": "514ad7b0e32e89cde4c53f94079ec85139ad8760c739f865653f9fec8c38482d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-skirt-volume-worth/CRITIC-RECEIPT.json",
+      "bytes": 10544,
+      "sha256": "a8f93d0db2755906df9fafde4ab397eb917b20fb15fc0f6971182fcfe1ead0d2"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-skirt-volume-worth/JOBS.json",
+      "bytes": 42703,
+      "sha256": "cf6760f5cd95d361293e85db25c77e1e60ccfdffb4becb3a599db4c90e42be8d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-skirt-volume-worth/PLAN.md",
+      "bytes": 3735,
+      "sha256": "ba1d22f4b21e58be4cecb784b7f289752cdbc47555731d6eaa27209398880762"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-skirt-volume-worth/README.md",
+      "bytes": 1662,
+      "sha256": "9095a4f355be5a55b290078b0a2bd463f4738e626a99e7cd2d32c83c3cb2fa76"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-skirt-volume-worth/RECEIPT-INPUTS.json",
+      "bytes": 891,
+      "sha256": "785300a920af056f98740ad21589583a7f8f581d4ed0c91cf5c326328a800adc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-skirt-volume-worth/ROOT-FIRST.json",
+      "bytes": 3353,
+      "sha256": "c8709ede9805124bb7849c06fed4da2306a71451fcfa27ea51adb0b53896e25a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-skirt-volume-worth/ROOT-WORTH.json",
+      "bytes": 3420,
+      "sha256": "9b6af091b46c13374c0319c3b6aca6338e2be5b58d8f8324fda639f8e5d57cdb"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-skirt-volume-worth/WORTH.md",
+      "bytes": 2547,
+      "sha256": "1b489343087dfbde33ee19d37732ecd799681b4f5904724c8ccef8e4cedb80a5"
+    }
+  ],
+  "checklist": "8120B/SHA32f5098fa6d5c4a178916fc3283b2bea45abb370280f8173263dd41ecb39c4c6;23scoped/10broad unchanged",
+  "jobs": "none live; critic stable/no edits",
+  "limits": "No image/reference/target/preparation, asset/default/ignored source change or successor. Existing Vite/recovery retained; service availability last read22:58UTC, not reasserted as a new live check."
+}
