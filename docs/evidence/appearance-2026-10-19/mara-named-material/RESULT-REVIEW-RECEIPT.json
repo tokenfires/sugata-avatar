@@ -1,0 +1,188 @@
+{
+  "schema": "mara-named-material-result-critic-v1",
+  "verdict": "A_EXACT_FROZEN_MANIFEST_METADATA_MATCH_ONLY",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 17924,
+      "sha256": "512991e78524fb65ad76e3d7400f02a5108c70dd8b621d1011edc80d38d279c0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/ROOT-CLOSE.json",
+      "bytes": 4128,
+      "sha256": "f1a98ab0831432e0fa5a452061859bc672dfba1fc8968074e426257329f3f3e3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW.md",
+      "bytes": 3405,
+      "sha256": "687ab7c57d062a018bd4e2fdffd0de7b97ae96a993abbb684545d931c7be09bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/ZIP-MANIFEST.json",
+      "bytes": 106320,
+      "sha256": "c55bcea4d98ee45d3ea9a9ba67a80a60bbec201e3c18abbd75c9b8b05aafde8a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "bytes": 3053,
+      "sha256": "f0f6118b1916220de67cb8748ec7232e1ab1b32e745415eb9c1d7629f429ca1d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/PLAN.json",
+      "bytes": 4793,
+      "sha256": "1970276126eb92bb10bb3291d6aeeeeb0ffb0fbefcc2560ce731f159229f389d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/WORTH.md",
+      "bytes": 2134,
+      "sha256": "66997d2bc29bf671d429b5ee291309edd85bb376e435f655f8fe5f9b29e83c7c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/WORTH-RECEIPT.json",
+      "bytes": 5402,
+      "sha256": "433867f120eb7bbb7a7c675daa6f4a225bb16651ee7cd0e1d65e16445d09df6a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/ROOT-WORTH.json",
+      "bytes": 1284,
+      "sha256": "62c0daea012d1bc59259714c7620d47fa23bfeaaee607b6fce85ffd98b4010bb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/RESULT.json",
+      "bytes": 1434,
+      "sha256": "88daefadf502a8f8ae352af1615d8bcec291cf764212b140161e7f1a6eb03d93"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/LOOKUP-CLAIM.json",
+      "bytes": 71,
+      "sha256": "00da55c2cc65544567825492c304609bc1eeef56fe93553ab2ae8ac4dd8d8a4e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/LOOKUP-COMMAND.json",
+      "bytes": 3554,
+      "sha256": "bb283ba2943c79d9ad50daacfa0224228aa8a709094280a0027e866eb1bef564"
+    }
+  ],
+  "declared_rows_verified": 9,
+  "read_scopes": [
+    {
+      "path": "ROOT-WORTH.json",
+      "scope": "Whole1284bytes."
+    },
+    {
+      "path": "RESULT.json",
+      "scope": "Whole1434bytes."
+    },
+    {
+      "path": "LOOKUP-COMMAND.json",
+      "scope": "Whole3554bytes historical recovery text; NOT invoked and not claimed as pre-job source pin."
+    },
+    {
+      "path": "LOOKUP-CLAIM.json",
+      "scope": "Whole saved claim parsed; attempt/PID/time equality."
+    },
+    {
+      "path": "Frozen ZIP-MANIFEST.json",
+      "scope": "Read-only saved-data audit: root schema/count517 and exact saved name/row equality. No alternate names or archive reads; not a second target experiment."
+    },
+    {
+      "path": "PLAN/WORTH/prior source-image evidence",
+      "scope": "Current pin verification and prior whole views/readings reused; no new image or archive member read."
+    }
+  ],
+  "jobs": [
+    {
+      "chunk": "9a35ad",
+      "exit": 0,
+      "pid": 91833,
+      "utc": "2026-10-19T09:29:02.011499+00:00",
+      "scope": "Whole admission/result."
+    },
+    {
+      "chunk": "ec5aee",
+      "exit": 0,
+      "pid": 91914,
+      "utc": "2026-10-19T09:29:50.377973+00:00",
+      "scope": "Whole historical command recovery metadata, text only."
+    },
+    {
+      "chunk": "083b8c",
+      "exit": 0,
+      "pid": 91999,
+      "utc": "2026-10-19T09:30:37.653551+00:00",
+      "scope": "Independent saved-row/pin/claim/time metadata audit only; no original lookup code invocation."
+    }
+  ],
+  "actual_root_operation": {
+    "observed_job": "b0d9a0",
+    "observed_exit": 0,
+    "observed_pid": 91646,
+    "observed_utc": [
+      "2026-10-19T09:27:52.363793+00:00",
+      "2026-10-19T09:27:52.364817+00:00"
+    ]
+  },
+  "actual_saved_metadata": {
+    "name": "skins/old_caucasian_female/old_caucasian_female.mhmat",
+    "bytes": 1457,
+    "compressed_bytes": 702,
+    "crc32": 3142111380,
+    "compression": 8,
+    "external_attr": 2176057344
+  },
+  "ordinary_mode": "0o100664",
+  "claim": {
+    "utc": "2026-10-19T09:27:52.363793+00:00",
+    "pid": 91646,
+    "attempt": 1
+  },
+  "clock": {
+    "recorded_elapsed_seconds": 0.0009092920008697547,
+    "scope": "recorded local query clock only, not startup/RSS/system performance or proof of source-member byte validity",
+    "gate_precedes_query_and_finish_precedes_deadline": true
+  },
+  "findings": [],
+  "next_worth": {
+    "verdict": "A_SEPARATE_EXACT_MATERIAL_AND_LITERAL_LINK_SOURCE_VIEW_PROPOSAL_ONLY",
+    "witness": "One actual named ordinary manifest match supplies concrete potential material input; prior PATH-REVIEW and actual Mara crease/cheek witnesses retain a missing creative-source dependency.",
+    "alternatives": [
+      {
+        "choice": "Prepare separately bounded exact1457-byte MHMAT and literal diffuse source read/view contract",
+        "tradeoff": "Can decide real content/artist usefulness; needs actual archive identity/member CRC/path/image ownership and new critic/root gate. Preferred nomination only."
+      },
+      {
+        "choice": "Retain metadata only and defer until complete artist master supplied",
+        "tradeoff": "Avoids incremental effort but leaves actual content of this available candidate unknown."
+      }
+    ],
+    "conditions": [
+      "Checkpoint this inquiry before any next source operation.",
+      "Fresh exact archive identity/size/CRC/member safety and source-text contract, no bulk extraction.",
+      "Only literal declared diffuse link; missing/unsafe/unsupported/ambiguous links stop without filename alternatives.",
+      "Image/source view separately owned; no current texture/native/parameter admission.",
+      "Material reference cannot replace complete facial rest-form/UV/material/auxiliary/53rig/expression obligations."
+    ]
+  },
+  "errors": [],
+  "limits": [
+    "Saved metadata only; no verification of actual ZIP member bytes, decompressed CRC/encryption state, texture content or appearance.",
+    "No old lookup script execution/replay or new archive/member/native/API/model/geometry/image decode, browser/capture/network.",
+    "Historical command artifact is a post-job recovery copy, not independently compared to raw wire submission or pre-admission byte pin.",
+    "No age/gender/skin identity/MPFB capability/completeMara-master conclusion from filename.",
+    "Only own two exclusive files written;22scoped/10broad/fullroadmap and all closed routes preserved."
+  ],
+  "checkpoint_deadline_utc": "2026-10-19T10:00:00Z",
+  "collected_utc": "2026-10-19T09:31:26.234390+00:00",
+  "writer_pid": 92086,
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/RESULT-REVIEW.md",
+    "bytes": 2491,
+    "sha256": "33db7b14c88712738c9490a9930008740f341777388ffb00585c8f9e09d46f45"
+  }
+}

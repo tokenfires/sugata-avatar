@@ -1,0 +1,94 @@
+{
+  "utc": "2026-10-19T09:32:59.324188+00:00",
+  "pid": 92250,
+  "decision": "CLOSE_CONSUMED_EXACT_METADATA_MATCH_ONLY_NO_MEMBER_OR_APPEARANCE_ADMISSION",
+  "root_whole_review": "8b9ea3 whole2491+8068bytes",
+  "verified_critic_inputs": 13,
+  "result_identity_verified": true,
+  "independent_root_saved_artifact_binding": "cd0ab3 no repeated query",
+  "historical_main_doc_pin_epoch": "192740cc9e448342efc0018de12ae36e1d9ec075",
+  "pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-named-material/LIVE-SERVICES.json",
+      "bytes": 979,
+      "sha256": "e8741f02ee0c4fd55cc270ab40919925d2711cf95f69b73233e72c36ee2c98a9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-named-material/LOOKUP-CLAIM.json",
+      "bytes": 71,
+      "sha256": "00da55c2cc65544567825492c304609bc1eeef56fe93553ab2ae8ac4dd8d8a4e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-named-material/LOOKUP-COMMAND.json",
+      "bytes": 3554,
+      "sha256": "bb283ba2943c79d9ad50daacfa0224228aa8a709094280a0027e866eb1bef564"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-named-material/PLAN.json",
+      "bytes": 4793,
+      "sha256": "1970276126eb92bb10bb3291d6aeeeeb0ffb0fbefcc2560ce731f159229f389d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-named-material/README.md",
+      "bytes": 3680,
+      "sha256": "445f46f96cf39b7f957c20e3c2300657f385f9a8c0198a560ab08f74782e5a2c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-named-material/RESULT-REVIEW-RECEIPT.json",
+      "bytes": 8068,
+      "sha256": "2d33cd41dfa2f8560dc31ac2dda056adeb00ebf5df2e1fa0735cbbd10c6de27f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-named-material/RESULT-REVIEW.md",
+      "bytes": 2491,
+      "sha256": "33db7b14c88712738c9490a9930008740f341777388ffb00585c8f9e09d46f45"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-named-material/RESULT.json",
+      "bytes": 1434,
+      "sha256": "88daefadf502a8f8ae352af1615d8bcec291cf764212b140161e7f1a6eb03d93"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-named-material/ROOT-WORTH.json",
+      "bytes": 1284,
+      "sha256": "62c0daea012d1bc59259714c7620d47fa23bfeaaee607b6fce85ffd98b4010bb"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-named-material/WORTH-RECEIPT.json",
+      "bytes": 5402,
+      "sha256": "433867f120eb7bbb7a7c675daa6f4a225bb16651ee7cd0e1d65e16445d09df6a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-named-material/WORTH.md",
+      "bytes": 2134,
+      "sha256": "66997d2bc29bf671d429b5ee291309edd85bb376e435f655f8fe5f9b29e83c7c"
+    },
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 19108,
+      "sha256": "b6acc877879a0a4f4fae2b7d9c94f811ed29793330e3824e331e8b90d1b71eb5"
+    },
+    {
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 35984,
+      "sha256": "3098d2defd5f11943402beaf37f0229c63d9c2e693c70ef279a8d514cadbc15c"
+    }
+  ],
+  "exact_commit_paths": [
+    "docs/evidence/appearance-2026-10-19/mara-named-material/LIVE-SERVICES.json",
+    "docs/evidence/appearance-2026-10-19/mara-named-material/LOOKUP-CLAIM.json",
+    "docs/evidence/appearance-2026-10-19/mara-named-material/LOOKUP-COMMAND.json",
+    "docs/evidence/appearance-2026-10-19/mara-named-material/PLAN.json",
+    "docs/evidence/appearance-2026-10-19/mara-named-material/README.md",
+    "docs/evidence/appearance-2026-10-19/mara-named-material/RESULT-REVIEW-RECEIPT.json",
+    "docs/evidence/appearance-2026-10-19/mara-named-material/RESULT-REVIEW.md",
+    "docs/evidence/appearance-2026-10-19/mara-named-material/RESULT.json",
+    "docs/evidence/appearance-2026-10-19/mara-named-material/ROOT-WORTH.json",
+    "docs/evidence/appearance-2026-10-19/mara-named-material/WORTH-RECEIPT.json",
+    "docs/evidence/appearance-2026-10-19/mara-named-material/WORTH.md",
+    "docs/RESUME-2026-10-18.md",
+    "docs/WORK-WINDOW-2026-10-18.md",
+    "docs/evidence/appearance-2026-10-19/mara-named-material/ROOT-CLOSE.json"
+  ],
+  "next": "Fresh critic/root-gated exact MHMAT/literal diffuse source/view contract is worth preparing only. No automatic operation or generic filename hunt. Full roadmap/22scoped10broad/closures retained; timer active; no push."
+}

@@ -1,0 +1,128 @@
+{
+  "schema": "mara-named-material-worth-critic-v1",
+  "verdict": "A_ONE_EXACT_METADATA_AVAILABILITY_INQUIRY_ONLY",
+  "pending_edits": false,
+  "read_scopes": [
+    {
+      "path": "PLAN.json",
+      "scope": "Whole4793bytes."
+    },
+    {
+      "path": "mara-native-source/ROOT-CLOSE.json",
+      "scope": "Whole4128bytes; historical preparation stop, not new native evidence."
+    },
+    {
+      "path": "RESUME-2026-10-18.md",
+      "scope": "Lines1–16 current closure boundary."
+    },
+    {
+      "path": "Prior PATH-REVIEW and Mara handoff/image",
+      "scope": "Earlier independent whole readings/views reused after current exact hashes. No new image acquisition or material inquiry."
+    },
+    {
+      "path": "ari-system-assets/ZIP-MANIFEST.json",
+      "scope": "Whole-file byte/hash only. NOT parsed, searched or compared with candidate name."
+    }
+  ],
+  "jobs": [
+    {
+      "chunk": "0147c6",
+      "exit": 0,
+      "pid": 91369,
+      "utc": "2026-10-19T09:25:20.514054+00:00",
+      "scope": "Whole new PLAN."
+    },
+    {
+      "chunk": "0f4717",
+      "exit": 0,
+      "pid": 91428,
+      "utc": "2026-10-19T09:25:52.092905+00:00",
+      "scope": "All6pins exact; whole ROOT-CLOSE and current resume1–16. No manifest parsing/equality lookup."
+    }
+  ],
+  "prior_witnesses": {
+    "image": "Whole original Mara viewed independently at original detail09:10; actual outer-eye/lower-lid990–1270/275–350 and cheek/smilefold1040–1240/340–455. Current original SHA163cf68… unchanged.",
+    "source": "PATH-REVIEW current687ab7… records selected neutral source generic macros/material and complete existing diffuse viewed09:18; no named Mara master was selected.",
+    "limit": "Prior gap is selection/creative ownership, not universal tool or asset absence. Existing texture/Mara unregistered and do not prove geometric wrinkles absent."
+  },
+  "findings": [],
+  "worth_alternatives": [
+    {
+      "choice": "One exact pinned-manifest metadata inquiry",
+      "tradeoff": "Cheaply determines availability of a concrete candidate for a future gate; existence/appearance/suitability not presumed. Selected."
+    },
+    {
+      "choice": "Defer until a complete selected artist source is supplied",
+      "tradeoff": "Avoids speculative lookup but leaves this specific possible input untested."
+    }
+  ],
+  "lookup_conditions": {
+    "name": "skins/old_caucasian_female/old_caucasian_female.mhmat",
+    "max_seconds": 5,
+    "manifest_max_bytes": 2097152,
+    "output_max_bytes": 16384,
+    "exact_unique_safe_ordinary_entry_required": true,
+    "stop_on_absent_ambiguous_invalid_or_unknown": true,
+    "filename_alternatives": 0,
+    "archive_member_or_image_reads": 0,
+    "no_automatic_extraction_or_next_view": true
+  },
+  "errors": [],
+  "deadlines_utc": {
+    "worth": "2026-10-19T09:40:00Z",
+    "root_and_lookup": "2026-10-19T09:45:00Z",
+    "checkpoint": "2026-10-19T10:00:00Z"
+  },
+  "limits": [
+    "Only own exclusive worth pair written.",
+    "No actual material-equality query, manifest parse/census, ZIP/member/native/model/image/geometry decode/API/import/network/browser/render/capture.",
+    "Filename labels do not determine age/gender/ancestry/skin identity, source quality or Mara suitability.",
+    "No reopened native/CPU/collector/numerical/artist route;22scoped/10broad/fullroadmap preserved."
+  ],
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/PLAN.json",
+      "bytes": 4793,
+      "sha256": "1970276126eb92bb10bb3291d6aeeeeb0ffb0fbefcc2560ce731f159229f389d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 17924,
+      "sha256": "512991e78524fb65ad76e3d7400f02a5108c70dd8b621d1011edc80d38d279c0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/ROOT-CLOSE.json",
+      "bytes": 4128,
+      "sha256": "f1a98ab0831432e0fa5a452061859bc672dfba1fc8968074e426257329f3f3e3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW.md",
+      "bytes": 3405,
+      "sha256": "687ab7c57d062a018bd4e2fdffd0de7b97ae96a993abbb684545d931c7be09bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/ZIP-MANIFEST.json",
+      "bytes": 106320,
+      "sha256": "c55bcea4d98ee45d3ea9a9ba67a80a60bbec201e3c18abbd75c9b8b05aafde8a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "bytes": 3053,
+      "sha256": "f0f6118b1916220de67cb8748ec7232e1ab1b32e745415eb9c1d7629f429ca1d"
+    }
+  ],
+  "plan_rows_verified": 6,
+  "plus_plan_self_pin": true,
+  "collected_utc": "2026-10-19T09:26:40.450169+00:00",
+  "writer_pid": 91520,
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/WORTH.md",
+    "bytes": 2134,
+    "sha256": "66997d2bc29bf671d429b5ee291309edd85bb376e435f655f8fe5f9b29e83c7c"
+  }
+}

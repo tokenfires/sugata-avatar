@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-19T09:27:35.758092+00:00",
+  "pid": 91618,
+  "decision": "ADMIT_ONE_EXACT_PINNED_MANIFEST_METADATA_INQUIRY_ONLY",
+  "whole_handoff_read": "b66633 whole2134+5402bytes",
+  "pins_verified": 7,
+  "worth_result_verified": true,
+  "exact_name": "skins/old_caucasian_female/old_caucasian_female.mhmat",
+  "limits": "5second local alarm after Python startup; no hard startup/RSS/performance claim. JSON<=2MiB/output<=16KiB. Exactly one requested name, no alternates/census. Root-schema inspection allowed within same query; ambiguous schema/name/unsafe/insufficient metadata is UNKNOWN/refusal, no retry. No ZIP/member/image/native/API/network.",
+  "pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-named-material/PLAN.json",
+      "bytes": 4793,
+      "sha256": "1970276126eb92bb10bb3291d6aeeeeb0ffb0fbefcc2560ce731f159229f389d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-named-material/WORTH.md",
+      "bytes": 2134,
+      "sha256": "66997d2bc29bf671d429b5ee291309edd85bb376e435f655f8fe5f9b29e83c7c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-named-material/WORTH-RECEIPT.json",
+      "bytes": 5402,
+      "sha256": "433867f120eb7bbb7a7c675daa6f4a225bb16651ee7cd0e1d65e16445d09df6a"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "utc": "2026-10-19T09:24:50.376634+00:00",
+  "pid": 91250,
+  "state": "WORTH_ONLY_NO_MATERIAL_LOOKUP",
+  "head": "192740cc9e448342efc0018de12ae36e1d9ec075",
+  "named_candidate": "skins/old_caucasian_female/old_caucasian_female.mhmat",
+  "candidate_status": "Specific unverified name, not asserted to exist or match Mara. Selected for one exact metadata inquiry, not from an observed candidate image.",
+  "usable_outcome": "If exactly present and later fully source/image reviewed, an isolated source-owned material reference packet could supply a concrete facial-detail input for a later complete Mara master. First phase only selects exact availability; it does not qualify skin/face or authorize extraction/native work.",
+  "bounded_question": "Does the already frozen517member ZIP-MANIFEST contain exactly this literal named material with valid ordinary-file metadata? No substring, alternatefilename, agecategory, source/capability census or asset hunt.",
+  "decision": "Exact one matching safe entry can justify a separate source-read/view contract for that material and only its literal linked texture. Zero/ambiguous/invalid match stops this packet before member decode. A name cannot determine perceived age/gender/skin identity or suitability.",
+  "why_consequential": "Previous Mara source-path review identifies missing selected facial form/material master. This names one concrete potential material input, preserving separate form/UV/rest-expression/ocular/auxiliary/rig/expression duties rather than running age labels. Exact availability can decide whether this named source is a viable next owner.",
+  "alternatives": [
+    {
+      "choice": "One exact frozen-manifest lookup of the named candidate",
+      "tradeoff": "Very small source-owned inquiry may identify a real material; absent/ambiguous match yields no asset, and presence alone yields no appearance qualification. Preferred only if critic judges useful."
+    },
+    {
+      "choice": "Defer until a different actually selected complete face/material source is supplied",
+      "tradeoff": "Avoids speculative filename lookup but leaves this concrete available archive untested; no generic hunt or invented face contract follows."
+    }
+  ],
+  "if_worth_A_only": {
+    "operation": "Parse pinned existing ZIP-MANIFEST JSON and inspect its schema plus exact member equality; retain exact requested name and all matching metadata in RESULT.json. No ZIP/archive member read, download, native/model/target/image decode, APIs, renderer, new image or source/default change.",
+    "limit": "One metadata inquiry under5seconds; manifest<=2MiB; output<=16KiB; stop on no exact unique safe match. No query correction/alternate spelling/refetch or successor recipe. Ordinary current-byte input hashes allowed.",
+    "future_stage": "Any material/member/linked-texture source/image inquiry needs a new explicit bounded contract and critic/root review. Do not extract or choose native values now."
+  },
+  "deadlines_utc": {
+    "worth": "2026-10-19T09:40:00Z",
+    "root_and_sole_lookup": "2026-10-19T09:45:00Z",
+    "checkpoint": "2026-10-19T10:00:00Z"
+  },
+  "preservation": "Full22scoped/10broad character/representation/expression/wardrobe/physicalfit/motion/performance/VTuber/Mii/AAA roadmap retained. All closed native/CPU/sourcecollector/localnumeric/groom/parameter/brief/Mara-capture routes stay closed. No source repair, generic asset hunt, push/publish/purchase/reset/model/subscription/install/otherproject. Existing critic and ACTIVE10minuteheartbeat retained; humancheckin/pausewins.",
+  "pins": [
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 17924,
+      "sha256": "512991e78524fb65ad76e3d7400f02a5108c70dd8b621d1011edc80d38d279c0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-source/ROOT-CLOSE.json",
+      "bytes": 4128,
+      "sha256": "f1a98ab0831432e0fa5a452061859bc672dfba1fc8968074e426257329f3f3e3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW.md",
+      "bytes": 3405,
+      "sha256": "687ab7c57d062a018bd4e2fdffd0de7b97ae96a993abbb684545d931c7be09bc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-system-assets/ZIP-MANIFEST.json",
+      "bytes": 106320,
+      "sha256": "c55bcea4d98ee45d3ea9a9ba67a80a60bbec201e3c18abbd75c9b8b05aafde8a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "bytes": 3053,
+      "sha256": "f0f6118b1916220de67cb8748ec7232e1ab1b32e745415eb9c1d7629f429ca1d"
+    }
+  ]
+}

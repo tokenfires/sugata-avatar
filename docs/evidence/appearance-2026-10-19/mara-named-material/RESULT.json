@@ -1,0 +1,38 @@
+{
+  "utc": "2026-10-19T09:27:52.363793+00:00",
+  "pid": 91646,
+  "attempt": 1,
+  "exact_request": "skins/old_caucasian_female/old_caucasian_female.mhmat",
+  "manifest": {
+    "path": "docs/evidence/appearance-2026-10-07/ari-system-assets/ZIP-MANIFEST.json",
+    "bytes": 106320,
+    "sha256": "c55bcea4d98ee45d3ea9a9ba67a80a60bbec201e3c18abbd75c9b8b05aafde8a"
+  },
+  "schema_root": "dict",
+  "schema_keys": [
+    "archive_sha256",
+    "member_count",
+    "total_uncompressed_bytes",
+    "required_matches",
+    "members"
+  ],
+  "material_comparisons": "One literal requested name only; no alternate substring/category/material query",
+  "matches": [
+    {
+      "name": "skins/old_caucasian_female/old_caucasian_female.mhmat",
+      "bytes": 1457,
+      "compressed_bytes": 702,
+      "crc32": 3142111380,
+      "compression": 8,
+      "external_attr": 2176057344
+    }
+  ],
+  "rows_container": "members",
+  "record_count": 517,
+  "decision": "EXACT_ORDINARY_METADATA_MATCH_ONLY_NO_EXTRACTION_ADMITTED",
+  "ordinary_file_mode": "0o100664",
+  "safe_metadata": true,
+  "elapsed_seconds_unqualified": 0.0009092920008697547,
+  "finished_utc": "2026-10-19T09:27:52.364817+00:00",
+  "limits": "Exact saved metadata only; no ZIP/archive/member/image/model decode, extraction, network, native/API/values or suitability/master/age/appearance pass. Existing allclosedroutes/HOLD/fullroadmap retained. No alternate name or current successor."
+}
