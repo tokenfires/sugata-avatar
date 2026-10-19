@@ -1,0 +1,40 @@
+{
+  "schema": "root-actual-pure-cpu-result-v1",
+  "utc": "2026-10-19T12:08:20.450763+00:00",
+  "pid": 67715,
+  "verdict": "A actual6sharedhelpercases only",
+  "tool_chunk": "a43cbd",
+  "tool_exit": 0,
+  "test_pid": 66705,
+  "test_startedUtc": "2026-10-19T12:07:47.341Z",
+  "test_completedUtc": "2026-10-19T12:07:47.348Z",
+  "checked_elapsedMs": 7.607958,
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/CPU-ADMISSION.json",
+      "bytes": 12987,
+      "sha256": "c86a189b19fe3f8f0f3daaa29a5338ac0997e79046288f2be3ea013bb79f1753"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/CPU-RESULT.json",
+      "bytes": 2242,
+      "sha256": "37c882b0caff4695e5b4eaa5c98a573c9cf569cde1a7a4fd89dbf37ebaed4c5c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/TOOL-CPU.json",
+      "bytes": 2873,
+      "sha256": "ad9d344057769b76ce8193df41bf46f1386fd8dfb8cdacb8c36cbd5bb36ab5d5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/ROOT-SOURCE.json",
+      "bytes": 698,
+      "sha256": "23f0d3cc66638a870fc28e1f63ec97af5579ba9ad33923304069bd67c21ba44d"
+    }
+  ],
+  "all_admission_rows_exact": 50,
+  "independent_numeric_witness": "Root packs exact sourcepositions aslittleendianFloat32 andexactquadtrianglesasUint16; bothSHA matchnormalactualtestresult,not helperreplay or browsernormalproof.",
+  "actual_case_witness": "Returned flags [true,false,false,false,false,false]; calls3/1/2/3/0; closed precedes matchingdigestresolve and no nextdigest inthreecancelcases.",
+  "limits": "No GPU/native/browserallocation/privateconstructorlistener/physicaldriverrelease/appearance proof. No module/helperrerun. Nodeinherent runtime threads not inventoried; sourcehas no child_process/worker_threads imports.",
+  "GPU_admitted": false,
+  "next": "IndependentcriticactualCPUgate beforefreshrootservedsource/GPUgate; deadline12:25:16.725695UTC."
+}

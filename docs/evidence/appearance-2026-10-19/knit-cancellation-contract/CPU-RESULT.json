@@ -1,0 +1,76 @@
+{
+  "schema": "actual-shared-preparation-checks-v1",
+  "startedUtc": "2026-10-19T12:07:47.341Z",
+  "pid": 66705,
+  "node": "v26.9.0",
+  "execPath": "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+  "argv": [
+    "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/check-cancellation.mjs",
+    "c86a189b19fe3f8f0f3daaa29a5338ac0997e79046288f2be3ea013bb79f1753"
+  ],
+  "cases": [
+    {
+      "name": "normal completion",
+      "calls": 3,
+      "returned": true,
+      "positionSha": "202d28b5042e6209c76291be8ec916a5267e7c6d93aa4cbb53add6b10d8891cd",
+      "indexSha": "f4853b96f4531422f3fec4fbfe8a48001e9165e5e0b8ac4272ae977b07803813"
+    },
+    {
+      "name": "closed during digest1",
+      "calls": 1,
+      "returned": false,
+      "error": "Error: Closed continuation",
+      "trace": [
+        "digest1:start",
+        "closed",
+        "digest1:resolved"
+      ]
+    },
+    {
+      "name": "closed during digest2",
+      "calls": 2,
+      "returned": false,
+      "error": "Error: Closed continuation",
+      "trace": [
+        "digest1:start",
+        "digest1:resolved",
+        "digest2:start",
+        "closed",
+        "digest2:resolved"
+      ]
+    },
+    {
+      "name": "closed during digest3",
+      "calls": 3,
+      "returned": false,
+      "error": "Error: Closed continuation",
+      "trace": [
+        "digest1:start",
+        "digest1:resolved",
+        "digest2:start",
+        "digest2:resolved",
+        "digest3:start",
+        "closed",
+        "digest3:resolved"
+      ]
+    },
+    {
+      "name": "already closed",
+      "calls": 0,
+      "returned": false
+    },
+    {
+      "name": "closed between preparation and acquisition guard",
+      "returned": false,
+      "scope": "Actual assertOpen used by viewer; no resource factory or browser was run"
+    }
+  ],
+  "error": null,
+  "meshSha": "0e0460f465cd7c4570abd4510be9a8ba45cb0c3fc7983fa8e22e3e7e56e67fb1",
+  "pass": true,
+  "elapsedMs": 7.607958,
+  "completedUtc": "2026-10-19T12:07:47.348Z",
+  "limits": "Actual shared pure helper/guard only; no Three/DOM/WebGL/native rendering, child_process or worker. No browser allocation/release/appearance qualification."
+}

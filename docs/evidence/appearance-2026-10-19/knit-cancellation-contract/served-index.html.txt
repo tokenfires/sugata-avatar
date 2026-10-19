@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sugata · knit surface comparison</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f2efe8;color:#253337;font:16px/1.5 system-ui,sans-serif}main{width:1200px;max-width:100%;margin:auto;padding:24px 24px 36px}h1{font-size:27px;margin:0}p{margin:6px 0 12px;max-width:950px}small,output{color:#53676a}button{font:inherit;padding:9px 16px;cursor:pointer}button:disabled{cursor:default}output{display:block;margin:12px 0;font-size:13px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}figure{margin:0}figcaption{margin:8px 0;font-size:14px;font-weight:600}img{display:block;width:100%;height:auto;background:#192b32;border-radius:10px}h2{font-size:18px;margin:20px 0 0}footer{margin-top:20px;font-size:13px}a{color:#274f66}canvas[hidden]{display:none}
+</style>
+<main><small>SUGATA / WARDROBE MATERIAL STUDY</small><h1>A soft knit surface?</h1>
+<p>One fixed comparison on the existing sweater draft. Look for a readable knit cue, calm shading and clean transitions around the shoulders and sleeves.</p>
+<button id="render">Render the fixed comparison</button><output id="status" role="status">Ready to render one packet.</output>
+<div id="packet"></div>
+<footer>Artist surface study · unitless T rest. The shape, base colour, roughness, lights and cameras are shared. Only the candidate's loop-normal contribution changes. Physical yarn, thickness, body fit and movement remain open.<br><a href="material.mjs">Editable material source</a> · <a href="https://www.purlsoho.com/create/picking-up-stitches/">Knitting reference</a></footer>
+<script id="observed-record" type="application/json">{}</script><canvas hidden aria-label="Temporary fixed rendering surface"></canvas>
+</main><script type="module" src="./viewer.mjs"></script></html>

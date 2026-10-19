@@ -1,0 +1,91 @@
+{
+  "schema": "root-CPU-and-serving-body-gate-v1",
+  "utc": "2026-10-19T12:11:09.890312+00:00",
+  "pid": 72915,
+  "CPU_verdict": "A sixactualcases; rootwholepair7fe370,11direct+50admissionpins+pair exact",
+  "CPU_review_sha256": "9532463c0f9454242fa1b488e87b11922cbbc5af6a7b528f1909d008cecbbda2",
+  "CPU_receipt_sha256": "1bb48aafb6c89e64c00e08953ea8bae5815819212f2570a3edcac6b9d759420e",
+  "served_authored_comparisons": [
+    {
+      "name": "viewer.mjs",
+      "authored_body_equal": true,
+      "only_allowed_changes": "threeimport andtwo localimports expanded toexactservingpaths +sourcemap"
+    },
+    {
+      "name": "material.mjs",
+      "authored_body_equal": true,
+      "only_allowed_changes": "sourcemap only"
+    },
+    {
+      "name": "prepare.mjs",
+      "authored_body_equal": true,
+      "only_allowed_changes": "sourcemap only"
+    },
+    {
+      "name": "index.html",
+      "authored_body_equal": true,
+      "only_allowed_changes": "exactbyteHTML"
+    }
+  ],
+  "runtime": {
+    "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.js?v=1264994a",
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/served-runtime-three.txt",
+    "bytes": 1828892,
+    "sha256": "da356c10c205f2337f5a033094e16bc36bdf2ea8d52398864c5b3c752949ece5",
+    "direct_imports": [
+      "/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.core-Ddh2Zg6B.js?v=1264994a"
+    ]
+  },
+  "GPU_admitted": false,
+  "remaining": "Runtime directdependency/sourcebinding andfreshrootGPUadmission. No browser target/GPU yet.",
+  "runtime_core": {
+    "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.core-Ddh2Zg6B.js?v=1264994a",
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/served-runtime-core.txt",
+    "status": 200,
+    "bytes": 4078536,
+    "sha256": "3253d631ed61edb9c257cbc1fc6ed5ff363ff054f192b4130dc6bd7375574e19",
+    "direct_imports": []
+  },
+  "vite_metadata": {
+    "path": "/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/_metadata.json",
+    "bytes": 3261,
+    "sha256": "eca69fdd9308dad54141f46c77ee2862f1af675b79f1be38b2f116c8322c4568",
+    "three": {
+      "src": "../../three/build/three.module.js",
+      "file": "three.js",
+      "fileHash": "3056d47e",
+      "needsInterop": false
+    }
+  },
+  "binding_scope": "Raw served runtime+one directcore bytes retained; selected actualAPI/shader spans read, not wholecompiledlibrary. Metadata observed, not cryptographicproofofcompilerhistory.",
+  "runtime_observed_utc": "2026-10-19T12:11:50.428902+00:00",
+  "runtime_pid": 74200,
+  "critical_shader_binding": [
+    {
+      "shader_chunk": "bumpmap_pars_fragment",
+      "token_sequence_matches_installed_source": true
+    },
+    {
+      "shader_chunk": "normal_fragment_maps",
+      "token_sequence_matches_installed_source": true
+    },
+    {
+      "shader_chunk": "normal_fragment_begin",
+      "token_sequence_matches_installed_source": true
+    },
+    {
+      "shader_chunk": "begin_vertex",
+      "token_sequence_matches_installed_source": true
+    }
+  ],
+  "CPU_root_whole_pair": "7fe370;11direct+50admissionpins+pair independentlyexactd3f59f",
+  "scope": "Actual4authoredservedbodiesmatch afteronlydeclared3importrewrites/sourcemaps; exactHTML. Actualservedlibrary/core rawpins,REVISION185,4GLSLtokenmatches+selectedactualhook/context/background/disposal spans,not wholelibrary/compilerhistory/patchversionproof.",
+  "retained_reader_error": {
+    "chunk": "91c12a",
+    "exit": 1,
+    "error": "StrictJSON string reader rejects literal tabs inside actualJS shader string. Failed before writing. Corrected stdlibJSONreader strict=False for existingJS literal; no target/library/sourcechange or target replay.",
+    "classification": "Read-only auxiliary parser error,not a target source/check/runtime/appearance failure."
+  },
+  "final_serving_utc": "2026-10-19T12:13:06.578778+00:00",
+  "final_serving_pid": 76481
+}

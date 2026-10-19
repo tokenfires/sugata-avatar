@@ -1,0 +1,44 @@
+{
+  "schema": "read-only-serving-observation-v1",
+  "utc": "2026-10-19T12:10:11.078190+00:00",
+  "pid": 71150,
+  "records": [
+    {
+      "name": "viewer.mjs",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/viewer.mjs",
+      "status": 200,
+      "served_bytes": 36004,
+      "served_sha256": "c40167ba37bdd20fac74f8711c38f6cf16b31fd40581204405a6825a381565ec",
+      "saved_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/served-viewer.mjs.txt",
+      "local_sha256": "b20d12f091e38b96cd3a5dc6b069dedf866b55a66217944fcb7271a69d50380d"
+    },
+    {
+      "name": "material.mjs",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/material.mjs",
+      "status": 200,
+      "served_bytes": 13431,
+      "served_sha256": "e207289cf989031f7afa69c184d71b8261ee234d239273a128ba4e4db189d9f8",
+      "saved_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/served-material.mjs.txt",
+      "local_sha256": "93beb3bed5d74c2bf885dbbcf60d36349e83b0ab8828b3fad9f1233ae43b9b1a"
+    },
+    {
+      "name": "prepare.mjs",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/prepare.mjs",
+      "status": 200,
+      "served_bytes": 4426,
+      "served_sha256": "50a1e32dc7b6b1a85ed04c674c26fe37a75e90441fe62694c92f7577925c8b8e",
+      "saved_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/served-prepare.mjs.txt",
+      "local_sha256": "bc1e51837e4c8b43f4b8a5db37ad9927f93135003deddcccaca409e5d66aaea2"
+    },
+    {
+      "name": "index.html",
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/index.html",
+      "status": 200,
+      "served_bytes": 1887,
+      "served_sha256": "3055f4f70f0d3d33a3910cd4c9d6fde513776e1bdf36d7d800d8eea514f50421",
+      "saved_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/served-index.html.txt",
+      "local_sha256": "3055f4f70f0d3d33a3910cd4c9d6fde513776e1bdf36d7d800d8eea514f50421"
+    }
+  ],
+  "scope": "Read-only HTTPsource observation only; no targettab/GPU/ADMISSION. Viteimport/sourcemap transforms stillrequire literalcomparison; this file grantsnothing."
+}

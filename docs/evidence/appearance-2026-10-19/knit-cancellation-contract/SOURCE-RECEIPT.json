@@ -1,0 +1,463 @@
+{
+  "schema": "independent-knit-cancellation-source-review-v1",
+  "verdict": "A only for one root-admitted pure CPU entry; no GPU admission",
+  "pending_edits": false,
+  "deadline_utc": "2026-10-19T12:25:16.725695+00:00",
+  "input_manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/PREFLIGHT.json",
+    "bytes": 11605,
+    "sha256": "61d7834f03dceb59e48feda95aec2b61f1c44dd8d0642260da47c52ed91273ed",
+    "verified_rows": 45,
+    "unique_paths": 45,
+    "verification_chunk": "cd5b53",
+    "scope": "All raw byte pins independently verified; hashes do not imply full text review"
+  },
+  "read_scopes": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/PLAN.md",
+      "scope": "Whole 19 lines; current root worth whole 13 lines"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/SOURCE.md",
+      "scope": "Whole 37 lines"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/PREFLIGHT.json",
+      "scope": "Whole metadata and all 45 rows; no historical absence promise inferred"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/prepare.mjs",
+      "scope": "Whole 14 lines"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/check-cancellation.mjs",
+      "scope": "Whole 40 lines; no invocation or syntax evaluation"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/viewer.mjs",
+      "scope": "Whole 90 lines"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/material.mjs",
+      "scope": "Whole 50 lines; exact old-byte comparison"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/index.html",
+      "scope": "Whole 13 lines; exact old-byte comparison"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/viewer.mjs",
+      "scope": "Whole 73 lines; fixed constants and prior ownership ordering"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/SOURCE.md",
+      "scope": "Whole 37 lines; retained field/frame/workload scope"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "scope": "1–80; package/version/export mapping"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/Material.js",
+      "scope": "510–555; initial 950–980 locator was unrelated; corrected 1170–1195 disposal"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/shaders/ShaderLib/meshphysical.glsl.js",
+      "scope": "Whole 1–224"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/shaders/ShaderChunk/bumpmap_pars_fragment.glsl.js",
+      "scope": "Whole 1–43"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/shaders/ShaderChunk/normal_fragment_maps.glsl.js",
+      "scope": "Whole 1–40"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/shaders/ShaderChunk/normal_fragment_begin.glsl.js",
+      "scope": "Whole 1–76; additional direct pin"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/shaders/ShaderChunk/begin_vertex.glsl.js",
+      "scope": "Whole 1–9; additional direct pin"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/webgl/WebGLProgram.js",
+      "scope": "490–515,870–900; compile-error callback"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js",
+      "scope": "65–115,335–410,575–610,1060–1120; selected context, alpha, extension and disposal only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/webgl/WebGLBackground.js",
+      "scope": "1–95; Colour clear-alpha association"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/knit-reference.json",
+      "scope": "Saved structuredContent.markdown 1–74, complete horizontal/vertical stockinette sections before garter/comments; rest hash-only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/renderer-reference.json",
+      "scope": "Saved markdown2361–2384 and2391–2412, selected Material hook/cache/dispose; rest hash-only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/mesh.json",
+      "scope": "Raw hash only; no critic geometry reconstruction/normal computation"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+      "scope": "Raw hash/size and mode0555 only; not executed"
+    },
+    {
+      "path": "Remaining manifest rows",
+      "scope": "Fresh raw hash/size verification; own earlier worth/closure scopes remain historical, not a new whole-corpus read"
+    }
+  ],
+  "visual_reads": [
+    {
+      "tool": "view_image",
+      "detail": "original",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/reference-view.jpg",
+      "bytes": 44307,
+      "sha256": "2ab3b227f1855d3642f6e1f1e75f32695bce5b6708da67090f4f91a47022b091",
+      "scope": "Whole unchanged1280×720 browser reference screenshot; rounded Vs/columns, no raw-remote-image or physical-gauge claim"
+    },
+    {
+      "tool": "view_image",
+      "detail": "original",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/front.jpg",
+      "bytes": 37822,
+      "sha256": "4b7bae3c4852540bfa8f39a28ad8e016cabc7c0f0153fb35afbccebe4fe7b986",
+      "scope": "Whole retained1280×720 plain grey T-rest front; no new candidate render"
+    }
+  ],
+  "commands": [
+    {
+      "chunk_id": "83b7d8",
+      "pid": 50992,
+      "utc": "2026-10-19T11:59:15.923842+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract')\nprint('WHOLE_AUTHORED_READ',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['prepare.mjs','check-cancellation.mjs','viewer.mjs','material.mjs','index.html']:\n p=leaf/name;b=p.read_bytes();print(json.dumps({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}))\n for n,s in enumerate(b.decode().splitlines(),1):print(f'{n}: {s}')\nPY",
+      "role": "Read/hash/metadata inspection only; no target import or execution"
+    },
+    {
+      "chunk_id": "5a05aa",
+      "pid": 51507,
+      "utc": "2026-10-19T11:59:33.308504+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract')\nprint('CONTRACT_READ',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['SOURCE.md','PREFLIGHT.json']:\n p=leaf/name;b=p.read_bytes();print(json.dumps({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}))\n for n,s in enumerate(b.decode().splitlines(),1):print(f'{n}: {s}')\nPY",
+      "role": "Read/hash/metadata inspection only; no target import or execution"
+    },
+    {
+      "chunk_id": "b83b13",
+      "pid": 51974,
+      "utc": "2026-10-19T11:59:47.224627+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,os,datetime\nr=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material');print('PRIMARY_READ',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['knit-reference.json','renderer-reference.json']:\n lines=json.loads((r/name).read_bytes())['structuredContent']['markdown'].splitlines();print('PRIMARY',name,'total_lines',len(lines))\n if name.startswith('knit'):\n  end=next((i for i,s in enumerate(lines) if 'Garter' in s and i>10),min(220,len(lines)))\n  for i,s in enumerate(lines[:end]):print(f'{i+1}: {s}')\n else:\n  chosen=set()\n  for i,s in enumerate(lines):\n   if any(t in s for t in ['onBeforeCompile','customProgramCacheKey','dispose()','dispose ()']):chosen.update(range(max(0,i-2),min(len(lines),i+20)))\n  for i in sorted(chosen):print(f'{i+1}: {lines[i]}')\nPY",
+      "role": "Read/hash/metadata inspection only; no target import or execution"
+    },
+    {
+      "chunk_id": "8eb47c",
+      "pid": 55537,
+      "utc": "2026-10-19T12:01:44.830700+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\nr=Path('/Users/robault/GitHub/sugata-avatar');print('INSTALLED_SHADER_READ',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nspecs=[('node_modules/three/src/materials/Material.js',[(510,555),(950,980)]),('node_modules/three/src/renderers/shaders/ShaderLib/meshphysical.glsl.js',None),('node_modules/three/src/renderers/shaders/ShaderChunk/bumpmap_pars_fragment.glsl.js',None),('node_modules/three/src/renderers/shaders/ShaderChunk/normal_fragment_maps.glsl.js',None),('node_modules/three/src/renderers/shaders/ShaderChunk/normal_fragment_begin.glsl.js',None),('node_modules/three/src/renderers/shaders/ShaderChunk/begin_vertex.glsl.js',None),('node_modules/three/src/renderers/webgl/WebGLProgram.js',[(490,515),(870,900)]),('node_modules/three/src/renderers/webgl/WebGLBackground.js',[(1,95)]),('node_modules/three/package.json',[(1,80)])]\nfor rel,ranges in specs:\n p=r/rel;b=p.read_bytes();print(json.dumps({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}))\n for n,s in enumerate(b.decode().splitlines(),1):\n  if ranges is None or any(a<=n<=z for a,z in ranges):print(f'{n}: {s}')\nPY",
+      "role": "Read/hash/metadata inspection only; no target import or execution"
+    },
+    {
+      "chunk_id": "cd5b53",
+      "pid": 60877,
+      "utc": "2026-10-19T12:04:35.765203+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,os,datetime,stat\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nleaf=Path('docs/evidence/appearance-2026-10-19/knit-cancellation-contract'); d=json.loads((leaf/'PREFLIGHT.json').read_text()); checks=[]\nfor r in d['pins']:\n p=Path(r['path']); b=p.read_bytes(); assert len(b)==r['bytes'] and hashlib.sha256(b).hexdigest()==r['sha256'],str(p); checks.append(str(p))\nassert len(checks)==45 and len(set(checks))==45\nprint('ALL45PINS_EXACT',len(checks))\nfor name in ['material.mjs','index.html']:\n assert (leaf/name).read_bytes()==(leaf.parent/'knit-surface-material'/name).read_bytes();print('EXACT_COPY',name)\nprint('NODE_MODE',oct(stat.S_IMODE(Path(d['proposed_cpu_argv'][0]).stat().st_mode)))\nprint('CURRENT_GATE_ABSENCES', {n:not(leaf/n).exists() for n in ['CPU-ADMISSION.json','CPU-RESULT.json','ADMISSION.json','first.jpg']})\nfor f,ranges in [('node_modules/three/src/renderers/WebGLRenderer.js',[(65,115),(335,410),(575,610),(1060,1120)]),('node_modules/three/src/materials/Material.js',[(1170,1195)]),('docs/evidence/appearance-2026-10-19/knit-surface-material/viewer.mjs',[(1,88)]),('docs/evidence/appearance-2026-10-19/knit-surface-material/SOURCE.md',[(1,37)])]:\n p=Path(f);b=p.read_bytes();lines=b.decode().splitlines();print('\\nFILE',p.resolve(),'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest())\n for lo,hi in ranges:\n  print('SCOPE',lo,min(hi,len(lines)))\n  for n in range(lo,min(hi,len(lines))+1):print(f'{n}: {lines[n-1]}')\nPY",
+      "role": "Read/hash/metadata inspection only; no target import or execution"
+    },
+    {
+      "chunk_id": "15855d",
+      "pid": 62285,
+      "utc": "2026-10-19T12:05:21.825416+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nleaf=Path('docs/evidence/appearance-2026-10-19/knit-cancellation-contract')\nfor name in ['PLAN.md','ROOT-WORTH.json','check-cancellation.mjs']:\n p=leaf/name;b=p.read_bytes();print('FILE',p.resolve(),'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(f'{i}: {line}')\nPY",
+      "role": "Read/hash/metadata inspection only; no target import or execution"
+    }
+  ],
+  "locator_job": {
+    "chunk_id": "37ea40",
+    "pid": 60511,
+    "utc": "2026-10-19T12:04:23.854124+00:00",
+    "exit_code": 0,
+    "scope": "Whole PREFLIGHT text plus literal renderer/Material definition locators; read-only"
+  },
+  "retained_errors_or_corrections": [
+    "An initial Material disposal read at950–980 was unrelated to disposal; targeted literal locator found dispose at1184 and1170–1195 was actually read. No source mutation or runtime inference.",
+    "Earlier wrapper printing truncation belongs to root historical preparation; this review read the selected complete saved primary sections, with explicit scopes."
+  ],
+  "actionable_findings": [],
+  "source_conclusions": {
+    "await_order": "Actual shared helper guards all3digest continuations; viewer guard precedes synchronous registered owner phase and postdecode/hash publication.",
+    "test_scope": "Six finite actual-helper/guard cases; no renderer/DOM/resource factory proof.",
+    "preserved_constants": "Exact material/HTML copies, same mesh association/triangulation, lights/cameras/normal computation/material parameters. Raw provided-context alpha inference difference explicitly retained.",
+    "runtime_absent_at_verification": [
+      "CPU-ADMISSION.json",
+      "CPU-RESULT.json",
+      "ADMISSION.json",
+      "first.jpg"
+    ]
+  },
+  "limits": [
+    "No Node/check/helper/target/library import or evaluation by critic; no synthetic invocation.",
+    "No candidate render, browser/GPU/native/capture/network work; no new reference.",
+    "10s post-hoc checked elapsed is not a hard alarm, preemption or RSS guarantee.",
+    "Raw context ownership and recorded extension request do not prove partial-constructor private listener cleanup or physical driver retirement.",
+    "No whole-library review, actual served-source equality, browser execution, appearance/aliasing/seam/fit/physical-knit/runtime/default/AAA/checklist credit.",
+    "Old sourceB remains frozen/unrun; all six MaraPNGs remain unviewed."
+  ],
+  "next": "Root independently verifies stable pair and expiring exact CPU admission before sole declared entry. Critic must qualify its actual saved result before any separate root GPU gate. Any further failure closes; no patch/variant/retry. Absolute deadline unchanged.",
+  "verified_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/PLAN.md",
+      "bytes": 5953,
+      "sha256": "97288a6a38ea6bfca9c7730e2aeb94d548c15a7e09e5b3b3d4e27f200e97081c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/ROOT-WORTH.json",
+      "bytes": 812,
+      "sha256": "17b49c025c0aa6d38c92b6acc348a309c785a516f6e2bc1b518927cb76e7ea6a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/WORTH.md",
+      "bytes": 3102,
+      "sha256": "3a95e9ee593fc3520e5b630c27beee8b22a830eb7da7a9c808d2455cd28c1e93"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/WORTH-RECEIPT.json",
+      "bytes": 6796,
+      "sha256": "1803c48115613b9ada0d51a1dedc72c7ecb40df646421191845d2a9c49f264bf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/prepare.mjs",
+      "bytes": 923,
+      "sha256": "bc1e51837e4c8b43f4b8a5db37ad9927f93135003deddcccaca409e5d66aaea2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/viewer.mjs",
+      "bytes": 7381,
+      "sha256": "b20d12f091e38b96cd3a5dc6b069dedf866b55a66217944fcb7271a69d50380d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/check-cancellation.mjs",
+      "bytes": 3641,
+      "sha256": "50322fb1c1c20e4c6af3111ce209938ee8da164fdebed02cc48acb6105c71b76"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/material.mjs",
+      "bytes": 2644,
+      "sha256": "93beb3bed5d74c2bf885dbbcf60d36349e83b0ab8828b3fad9f1233ae43b9b1a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/index.html",
+      "bytes": 1887,
+      "sha256": "3055f4f70f0d3d33a3910cd4c9d6fde513776e1bdf36d7d800d8eea514f50421"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/SOURCE.md",
+      "bytes": 9357,
+      "sha256": "2ee9925f937024078534cc03d5c0dd5f517bde6aba2a173f204a080562b93d96"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/PLAN.md",
+      "bytes": 3768,
+      "sha256": "13a20a0fa0ba103913392888bcb497f2bde6bc78d49ba8e3aa6412729c6e3b54"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/ROOT-WORTH.json",
+      "bytes": 823,
+      "sha256": "954eae1b7fc154daa151d66fb2bb1e5e52738031f0f39f09b9e3aee95b10466a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/RECOVERY.json",
+      "bytes": 2704,
+      "sha256": "a8cf7d3afee27e0fc6c231836576d825e47159a920393e08a31e9cf8231ab048"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/WORTH.md",
+      "bytes": 2911,
+      "sha256": "4e81642d4a985023d1a6118f74d13341d8f065dbf80fb7e659064f02e48c81ca"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/WORTH-RECEIPT.json",
+      "bytes": 6931,
+      "sha256": "18cc59628caa6160a60f8d9799e1cecacf14741cee0933f282deedfcd79b7126"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/SEARCHES.json",
+      "bytes": 17124,
+      "sha256": "13f83884012a7558d72da4ba5acc0d2e1ef28000342d7368d91b486d3fe127c0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/knit-reference.json",
+      "bytes": 182842,
+      "sha256": "6c099c19dba89cd5c6c889fa64b4e66350f91973f641a90bf0eab132c85d3592"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/renderer-reference.json",
+      "bytes": 334898,
+      "sha256": "9faa6c684b935f2265608f8717ccb94e8825f01d07f5d87f14bf99f2559c8d56"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/reference-view.jpg",
+      "bytes": 44307,
+      "sha256": "2ab3b227f1855d3642f6e1f1e75f32695bce5b6708da67090f4f91a47022b091"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/SOURCE.md",
+      "bytes": 8506,
+      "sha256": "f561f5c6fd2b77777056508a84057723d9149a729cbfc603a9d8d09601b9782b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/material.mjs",
+      "bytes": 2644,
+      "sha256": "93beb3bed5d74c2bf885dbbcf60d36349e83b0ab8828b3fad9f1233ae43b9b1a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/viewer.mjs",
+      "bytes": 6193,
+      "sha256": "dcb0f2591f780de78299a542dc4d9a584cc92f9127eb96c123176f63bb30c879"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/index.html",
+      "bytes": 1887,
+      "sha256": "3055f4f70f0d3d33a3910cd4c9d6fde513776e1bdf36d7d800d8eea514f50421"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/mesh.json",
+      "bytes": 145508,
+      "sha256": "0e0460f465cd7c4570abd4510be9a8ba45cb0c3fc7983fa8e22e3e7e56e67fb1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/viewer.mjs",
+      "bytes": 3893,
+      "sha256": "3df646cf0d8432fc19c7a2ac600854445c811831d0026b3230b2ca7dee726468"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/index.html",
+      "bytes": 2650,
+      "sha256": "04fc7be512927517ae89eedcc340960da6efdf324cd9df814a9ffe7d2de4d413"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/README.md",
+      "bytes": 1459,
+      "sha256": "29c047836ee3f21954d50e701041b9548a487d0a18f1e93620e2eef610a27c52"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/front.jpg",
+      "bytes": 37822,
+      "sha256": "4b7bae3c4852540bfa8f39a28ad8e016cabc7c0f0153fb35afbccebe4fe7b986"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/Material.js",
+      "bytes": 42885,
+      "sha256": "3af196049d118e5c8a81e07cb9d90c44524ac5a319263e64f18f3ee08178ca68"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/shaders/ShaderLib/meshphysical.glsl.js",
+      "bytes": 5308,
+      "sha256": "2fc4c7abab0acb6a1a83bd67eb313c277ebecd74258a804adcadc8c880e39a5c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/shaders/ShaderChunk/bumpmap_pars_fragment.glsl.js",
+      "bytes": 1263,
+      "sha256": "262903707a8b271adc1882da9f1d60e919726660c082e91bb10c83b5c54bf76c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/shaders/ShaderChunk/normal_fragment_maps.glsl.js",
+      "bytes": 768,
+      "sha256": "7e23407015f8f3dcda7ff6371cb0ab700c586aaeec48273eed5bb0e8c53ec050"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/webgl/WebGLProgram.js",
+      "bytes": 31134,
+      "sha256": "a341febd40f5f16253c1fd624f6ae7d0ca34b7a5411fcee1699b87962081ec72"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/build/three.module.js",
+      "bytes": 650153,
+      "sha256": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/build/three.core.js",
+      "bytes": 1443056,
+      "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/SOURCE-REVIEW.md",
+      "bytes": 2582,
+      "sha256": "5cc78a43639669f0410b7d054d9a18daae6dbb12b914ce8c2d7d016efbc4dbc4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/ROOT-RESULT.json",
+      "bytes": 1896,
+      "sha256": "59893914fc465e4f2158929700bf2cf83c01bf2c74145850ae7760ab5e673c02"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/ROOT-CLOSE.json",
+      "bytes": 5393,
+      "sha256": "1dde1122ba9c4569f59fb71ff28d1c722be489f38d9f5e9e6a04706abc25bbfc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js",
+      "bytes": 108498,
+      "sha256": "867948b57a6abb84d4cfd7619b38ea14fbb2c100c1b6f78d59de2383662ab7a0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/webgl/WebGLBackground.js",
+      "bytes": 7677,
+      "sha256": "faf9d8dfefe385cc139e36783daa32413f9090bcb403dbcf50d1e037e81baf26"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+      "bytes": 132848,
+      "sha256": "91ed66b8cd139609427a3e9d93518dd3b0d5407c737fc9a265bfd991ec623d8a"
+    }
+  ],
+  "additional_direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/shaders/ShaderChunk/normal_fragment_begin.glsl.js",
+      "bytes": 1267,
+      "sha256": "528bc133122cd63341c01e568b69a12034bfd6efb8ff031bb3d13e4bb09cbe2b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/shaders/ShaderChunk/begin_vertex.glsl.js",
+      "bytes": 129,
+      "sha256": "5ddab48ccb50c7baf958047f834496cf1c2be197e00d03d7776b30f353f39392"
+    }
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/SOURCE-REVIEW.md",
+    "bytes": 3744,
+    "sha256": "f85385d3b613052ed194235ff1f2cd3bf92c2cba1fef8cf862bdb8fe8dab5417"
+  },
+  "collected_utc": "2026-10-19T12:06:39.982014+00:00",
+  "collection_pid": 64617
+}

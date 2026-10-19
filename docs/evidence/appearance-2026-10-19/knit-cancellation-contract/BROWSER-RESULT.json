@@ -1,0 +1,274 @@
+{
+  "schema": "root-owned-browser-packet-v1",
+  "browser": "IAB3",
+  "tab": "6",
+  "soleClickUtc": "2026-10-19T12:14:16.469Z",
+  "collectedUtc": "2026-10-19T12:14:47.586Z",
+  "rootAdmissionSha": "b4c0f26d9882bcb2f4aa25040e799caeed60a5ad1950c113c3ab6bb0ab29b096",
+  "record": {
+    "cleanup": [
+      {
+        "error": null,
+        "name": "geometry",
+        "present": true
+      },
+      {
+        "error": null,
+        "name": "control",
+        "present": true
+      },
+      {
+        "error": null,
+        "name": "candidate",
+        "present": true
+      },
+      {
+        "error": null,
+        "name": "renderer",
+        "present": true
+      }
+    ],
+    "closeReason": "six frames complete",
+    "completedUtc": "2026-10-19T12:14:16.762Z",
+    "contextAttributes": {
+      "alpha": true,
+      "antialias": true,
+      "depth": true,
+      "desynchronized": false,
+      "failIfMajorPerformanceCaveat": false,
+      "powerPreference": "default",
+      "premultipliedAlpha": true,
+      "preserveDrawingBuffer": true,
+      "stencil": false,
+      "xrCompatible": false
+    },
+    "contextLossAvailable": true,
+    "contextLossRequested": true,
+    "draws": [
+      {
+        "calls": 1,
+        "camera": [
+          0,
+          0.375,
+          3
+        ],
+        "far": 10,
+        "height": 340,
+        "name": "Control",
+        "near": 0.1,
+        "pngSha": "cd8199e4138ff7f52df4b0d840a8cecff94f3237e545b5194991d618c29ba935",
+        "target": [
+          0,
+          0.375,
+          0
+        ],
+        "triangles": 2112,
+        "verticalHalfExtent": 0.6,
+        "view": "Front",
+        "width": 570
+      },
+      {
+        "calls": 1,
+        "camera": [
+          0,
+          0.375,
+          3
+        ],
+        "far": 10,
+        "height": 340,
+        "name": "Candidate",
+        "near": 0.1,
+        "pngSha": "0271c38409a411de79162e6920e5dbd7e9274e32e125021e759c29f36ae94f00",
+        "target": [
+          0,
+          0.375,
+          0
+        ],
+        "triangles": 2112,
+        "verticalHalfExtent": 0.6,
+        "view": "Front",
+        "width": 570
+      },
+      {
+        "calls": 1,
+        "camera": [
+          2,
+          0.85,
+          2
+        ],
+        "far": 10,
+        "height": 340,
+        "name": "Control",
+        "near": 0.1,
+        "pngSha": "febccc8dae09d3daf8c0bdfc7908d70306b40598f9cfb85a3f1d88e1ff1a74aa",
+        "target": [
+          0,
+          0.375,
+          0
+        ],
+        "triangles": 2112,
+        "verticalHalfExtent": 0.6,
+        "view": "Oblique",
+        "width": 570
+      },
+      {
+        "calls": 1,
+        "camera": [
+          2,
+          0.85,
+          2
+        ],
+        "far": 10,
+        "height": 340,
+        "name": "Candidate",
+        "near": 0.1,
+        "pngSha": "3586f4227f844fd467fc2227c82a2bf3d521f2761c5331cc6aa9e56181d7a7a7",
+        "target": [
+          0,
+          0.375,
+          0
+        ],
+        "triangles": 2112,
+        "verticalHalfExtent": 0.6,
+        "view": "Oblique",
+        "width": 570
+      },
+      {
+        "calls": 1,
+        "camera": [
+          0,
+          0.375,
+          -3
+        ],
+        "far": 10,
+        "height": 340,
+        "name": "Control",
+        "near": 0.1,
+        "pngSha": "154e70c4049f01330b1cdc64594261bc33590e7f0d0875c24d08937735ef8e73",
+        "target": [
+          0,
+          0.375,
+          0
+        ],
+        "triangles": 2112,
+        "verticalHalfExtent": 0.6,
+        "view": "Rear",
+        "width": 570
+      },
+      {
+        "calls": 1,
+        "camera": [
+          0,
+          0.375,
+          -3
+        ],
+        "far": 10,
+        "height": 340,
+        "name": "Candidate",
+        "near": 0.1,
+        "pngSha": "c6de18611ff6ee1807a681f6d2b510a3e01d222b10e9f4a9db9928def32853b5",
+        "target": [
+          0,
+          0.375,
+          0
+        ],
+        "triangles": 2112,
+        "verticalHalfExtent": 0.6,
+        "view": "Rear",
+        "width": 570
+      }
+    ],
+    "error": null,
+    "fetchAbortRequested": true,
+    "geometry": {
+      "indexSha": "f4853b96f4531422f3fec4fbfe8a48001e9165e5e0b8ac4272ae977b07803813",
+      "positionSha": "202d28b5042e6209c76291be8ec916a5267e7c6d93aa4cbb53add6b10d8891cd",
+      "quads": 1056,
+      "triangles": 2112,
+      "uv": false,
+      "vertices": 1102
+    },
+    "materials": {
+      "onlyCandidateAddition": "installKnit normal contribution",
+      "shared": {
+        "color": 10333380,
+        "metalness": 0,
+        "roughness": 1,
+        "side": 2
+      }
+    },
+    "meshSha": "0e0460f465cd7c4570abd4510be9a8ba45cb0c3fc7983fa8e22e3e7e56e67fb1",
+    "renderer": {
+      "antialias": true,
+      "exposure": 1,
+      "output": "sRGB",
+      "pixelRatio": 1,
+      "preserveDrawingBuffer": true,
+      "size": [
+        570,
+        340
+      ],
+      "toneMapping": "ACESFilmic",
+      "type": "WebGL2"
+    },
+    "requestedRenders": 6,
+    "revision": "185",
+    "schema": "knit-cancellation-first-packet-v1",
+    "settings": {
+      "blend": [
+        0.24,
+        0.4
+      ],
+      "columns": 64,
+      "height": 0.0012,
+      "rows": 88
+    },
+    "startedUtc": "2026-10-19T12:14:16.488Z"
+  },
+  "status": "Six fixed views complete · rendering cleanup recorded.",
+  "images": [
+    {
+      "name": "front-control.png",
+      "alt": "Front · Control",
+      "bytes": 30720,
+      "width": 570,
+      "height": 340
+    },
+    {
+      "name": "front-candidate.png",
+      "alt": "Front · Candidate",
+      "bytes": 94942,
+      "width": 570,
+      "height": 340
+    },
+    {
+      "name": "oblique-control.png",
+      "alt": "Oblique · Control",
+      "bytes": 33974,
+      "width": 570,
+      "height": 340
+    },
+    {
+      "name": "oblique-candidate.png",
+      "alt": "Oblique · Candidate",
+      "bytes": 89809,
+      "width": 570,
+      "height": 340
+    },
+    {
+      "name": "rear-control.png",
+      "alt": "Rear · Control",
+      "bytes": 32306,
+      "width": 570,
+      "height": 340
+    },
+    {
+      "name": "rear-candidate.png",
+      "alt": "Rear · Candidate",
+      "bytes": 97291,
+      "width": 570,
+      "height": 340
+    }
+  ],
+  "scope": "Same six DOM PNGbytes extracted unchanged; no second render/capture, no physical driver-release claim."
+}

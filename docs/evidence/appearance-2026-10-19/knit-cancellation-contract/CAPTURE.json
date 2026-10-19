@@ -1,0 +1,25 @@
+{
+  "schema": "root-owned-browser-capture-receipt-v1",
+  "utc": "2026-10-19T12:17:32.569422+00:00",
+  "browser": "IAB3",
+  "tab": "6",
+  "actions": [
+    "createBrowserTab once with exactlocalindexURL,visiblefalse",
+    "freshAXbutton6clickonce12:14:16.469UTC",
+    "read-onlyDOMrecordand6imagesrconce",
+    "decodeexistingDOMdataURLsandwrite6exactPNGsflagwx",
+    "runtime/header/CRC/SHA/66pinpostgate512652",
+    "tab.screenshot({fullPage:true}) once;writefirst.jpgflagwx;emitthesamebytes"
+  ],
+  "capture_utc": "2026-10-19T12:15:10.435Z",
+  "capture_bytes": 100427,
+  "capture_sha256": "a521ca28ae636be6a81f303fca639e4aee67d56b522fef1a32facbd68fcc6e6c",
+  "dimensions": [
+    1280,
+    1618
+  ],
+  "image_bytes": 479469,
+  "image_cap": 16777216,
+  "GPU_job": "Complete,6requestedframes;knownresourcesdisposed/contextlossrequested. TabstillholdsstaticDOMimages;notaliveanimationloop.",
+  "next": "Independentimageverdict,thenretainstaticdeliveryifAorcloseownedtabifB. No rerender/reload."
+}

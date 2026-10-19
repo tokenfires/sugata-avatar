@@ -1,0 +1,406 @@
+{
+  "schema": "independent-first-knit-packet-image-review-v1",
+  "verdict": "B full soft/readable/coherent knit appearance gate; retain isolated rejected packet",
+  "pending_edits": false,
+  "deadline_utc": "2026-10-19T12:25:16.725695+00:00",
+  "visual_sequence": [
+    {
+      "tool": "view_image",
+      "detail": "original",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/first.jpg",
+      "scope": "Whole1280×1618 first, before saved browser/root records or any root pixel opinion"
+    },
+    {
+      "tool": "view_image",
+      "detail": "original",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/front-control.png",
+      "scope": "Whole unchanged570×340 extracted same-render PNG; no crop/zoom/edit/re-render"
+    },
+    {
+      "tool": "view_image",
+      "detail": "original",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/front-candidate.png",
+      "scope": "Whole unchanged570×340 extracted same-render PNG; no crop/zoom/edit/re-render"
+    },
+    {
+      "tool": "view_image",
+      "detail": "original",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/oblique-control.png",
+      "scope": "Whole unchanged570×340 extracted same-render PNG; no crop/zoom/edit/re-render"
+    },
+    {
+      "tool": "view_image",
+      "detail": "original",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/oblique-candidate.png",
+      "scope": "Whole unchanged570×340 extracted same-render PNG; no crop/zoom/edit/re-render"
+    },
+    {
+      "tool": "view_image",
+      "detail": "original",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/rear-control.png",
+      "scope": "Whole unchanged570×340 extracted same-render PNG; no crop/zoom/edit/re-render"
+    },
+    {
+      "tool": "view_image",
+      "detail": "original",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/rear-candidate.png",
+      "scope": "Whole unchanged570×340 extracted same-render PNG; no crop/zoom/edit/re-render"
+    }
+  ],
+  "previous_exact_visual_witnesses": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/reference-view.jpg",
+      "bytes": 44307,
+      "sha256": "2ab3b227f1855d3642f6e1f1e75f32695bce5b6708da67090f4f91a47022b091",
+      "scope": "Whole original-detail saved browser screenshot viewed during this source gate; rounded Vs/columns, not raw remote image/gauge"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/front.jpg",
+      "bytes": 37822,
+      "sha256": "4b7bae3c4852540bfa8f39a28ad8e016cabc7c0f0153fb35afbccebe4fe7b986",
+      "scope": "Whole original-detail retained plain front viewed during source gate; exact pin fresh in66-row verification"
+    }
+  ],
+  "commands": [
+    {
+      "chunk_id": "7d509b",
+      "pid": 83305,
+      "utc": "2026-10-19T12:16:48.359697+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\nleaf=Path('docs/evidence/appearance-2026-10-19/knit-cancellation-contract');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nprint('LEAF_FILES',sorted(p.name for p in leaf.iterdir() if p.is_file()))\nfor name in ['BROWSER-RESULT.json','POST-BROWSER.json','ADMISSION.json','ROOT-SERVING.json']:\n p=leaf/name;b=p.read_bytes();print('\\nFILE',p.resolve(),'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "scope": "Whole BROWSER-RESULT/POST-BROWSER/ADMISSION/ROOT-SERVING metadata; direct leaf filenames"
+    },
+    {
+      "chunk_id": "c130e2",
+      "pid": 84992,
+      "utc": "2026-10-19T12:17:44.106417+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,struct,zlib,datetime,os,re\nleaf=Path('docs/evidence/appearance-2026-10-19/knit-cancellation-contract');sha=lambda b:hashlib.sha256(b).hexdigest();print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\na=json.loads((leaf/'ADMISSION.json').read_text());b=json.loads((leaf/'BROWSER-RESULT.json').read_text());r=b['record'];cpu=json.loads((leaf/'CPU-RESULT.json').read_text())\nassert len(a['pins'])==66 and len({x['path'] for x in a['pins']})==66\nfor row in a['pins']:\n data=Path(row['path']).read_bytes();assert len(data)==row['bytes'] and sha(data)==row['sha256'],row['path']\nassert b['rootAdmissionSha']==sha((leaf/'ADMISSION.json').read_bytes())\nassert a['allow']=='one-fixed-six-frame-packet' and r['requestedRenders']==len(r['draws'])==len(b['images'])==6 and r['error'] is None\nassert datetime.datetime.fromisoformat(a['utc'])<datetime.datetime.fromisoformat(b['soleClickUtc'])<datetime.datetime.fromisoformat(r['startedUtc'])<datetime.datetime.fromisoformat(r['completedUtc'])<datetime.datetime.fromisoformat(a['expiresUtc'])\nassert r['geometry']['positionSha']==cpu['cases'][0]['positionSha'] and r['geometry']['indexSha']==cpu['cases'][0]['indexSha'] and r['meshSha']==cpu['meshSha']\nassert r['revision']=='185' and r['settings']=={'blend':[.24,.4],'columns':64,'height':.0012,'rows':88}\nassert r['closeReason']=='six frames complete' and r['fetchAbortRequested'] is True and r['contextLossAvailable'] is True and r['contextLossRequested'] is True and 'contextLossError' not in r\nassert [(x['name'],x['present'],x['error']) for x in r['cleanup']]==[(n,True,None) for n in ['geometry','control','candidate','renderer']]\nexpected=[('Front',[0,.375,3]),('Oblique',[2,.85,2]),('Rear',[0,.375,-3])];imgs=[]\nfor i,(view,camera) in enumerate(expected):\n for j,name in enumerate(['Control','Candidate']):\n  d=r['draws'][2*i+j];f=b['images'][2*i+j];raw=(leaf/f['name']).read_bytes()\n  assert d['view']==view and d['camera']==camera and d['name']==name and d['calls']==1 and d['triangles']==2112\n  assert d['target']==[0,.375,0] and d['near']==.1 and d['far']==10 and d['verticalHalfExtent']==.6 and [d['width'],d['height']]==[570,340]\n  assert len(raw)==f['bytes'] and sha(raw)==d['pngSha'] and raw[:8]==b'\\x89PNG\\r\\n\\x1a\\n'\n  off=8;chunks=[]\n  while off<len(raw):\n   n=struct.unpack('>I',raw[off:off+4])[0];tag=raw[off+4:off+8];data=raw[off+8:off+8+n];crc=struct.unpack('>I',raw[off+8+n:off+12+n])[0];assert zlib.crc32(tag+data)&0xffffffff==crc\n   chunks.append(tag.decode());\n   if tag==b'IHDR':assert struct.unpack('>IIBBBBB',data)==(570,340,8,6,0,0,0)\n   off+=12+n\n  assert off==len(raw) and chunks[-1]=='IEND';imgs.append({'name':f['name'],'bytes':len(raw),'sha256':sha(raw),'PNGCRC_all':True,'size':[570,340]})\nraw=(leaf/'first.jpg').read_bytes();assert len(raw)==100427 and sha(raw)=='a521ca28ae636be6a81f303fca639e4aee67d56b522fef1a32facbd68fcc6e6c'\nassert raw[:2]==b'\\xff\\xd8';off=2;jpeg_size=None\nwhile off<len(raw):\n assert raw[off]==255;off+=1\n while raw[off]==255:off+=1\n marker=raw[off];off+=1\n if marker in [0xd8,0xd9]:continue\n n=struct.unpack('>H',raw[off:off+2])[0]\n if marker in [0xc0,0xc1,0xc2]:\n  height,width=struct.unpack('>HH',raw[off+3:off+7]);jpeg_size=[width,height];break\n off+=n\nassert jpeg_size==[1280,1618]\nprint(json.dumps({'all66pins_exact':True,'six_frames_exact':imgs,'total_image_bytes':sum(x['bytes'] for x in imgs)+len(raw),'image_cap':16777216,'JPEGsize':jpeg_size,'cleanup_observation_exact':True}))\nfor name in ['SERVING-OBSERVATION.json']:\n p=leaf/name;raw=p.read_bytes();print('FILE',p.resolve(),len(raw),sha(raw));print(raw.decode())\nfor name in ['viewer.mjs','prepare.mjs','material.mjs']:\n s=(leaf/('served-'+name+'.txt')).read_text();print('SERVED_PREFIX',name,repr(s[:750]));print('SERVED_SUFFIX',repr(s[-100:]));\nPY",
+      "scope": "All66 input pins; full raw frame/camera/geometry/cleanup/time/source links; PNG allchunkCRC/SHA/header and JPEG SOF; whole SERVING-OBSERVATION"
+    },
+    {
+      "chunk_id": "412bc4",
+      "pid": 85744,
+      "utc": "2026-10-19T12:18:09.602781+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,re,hashlib,json\nleaf=Path('docs/evidence/appearance-2026-10-19/knit-cancellation-contract');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['material.mjs','SOURCE.md']:\n p=leaf/name;print('FILE',p.resolve())\n for n,line in enumerate(p.read_text().splitlines(),1):print(f'{n}: {line}')\ndef body(name):\n s=(leaf/('served-'+name+'.txt')).read_text();return s.split('//# sourceMappingURL=',1)[0].rstrip('\\n')\nfor name in ['material.mjs','prepare.mjs']:\n assert body(name)==(leaf/name).read_text().rstrip('\\n')\ns=body('viewer.mjs');o=(leaf/'viewer.mjs').read_text().rstrip('\\n')\nreplacements=[('import * as THREE from \\'three\\';','import * as THREE from \"/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.js?v=1264994a\";'),('from \\'./material.mjs\\';','from \"/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/material.mjs\";'),('from \\'./prepare.mjs\\';','from \"/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/prepare.mjs\";')]\nfor before,after in replacements:\n assert o.count(before)==s.count(after)==1;o=o.replace(before,after)\nassert o==s\nassert (leaf/'index.html').read_bytes()==(leaf/'served-index.html.txt').read_bytes()\nprint('ACTUAL_SAVED_AUTHORED_SERVING_BODY matches: HTML exact, material/helper sourcemap removed, viewer exactly3import rewrites + sourcemap removed. Runtime/core bytehash-only in this actual audit, prior selected installed API scopes retained.')\nPY",
+      "scope": "Whole current material50lines/SOURCE37lines; independent complete served-authored-body comparison after specified rewrites"
+    }
+  ],
+  "read_scopes": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/BROWSER-RESULT.json",
+      "scope": "Whole6261-byte record including all6draws/images and cleanup fields"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/POST-BROWSER.json",
+      "scope": "Whole2586-byte root preimage opinion; independent assertions do not rely on verdict"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/ADMISSION.json",
+      "scope": "Whole17527-byte entry contract and all66 raw pins independently verified"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/ROOT-SERVING.json",
+      "scope": "Whole4074-byte root serving semantics and recorded limits"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/SERVING-OBSERVATION.json",
+      "scope": "Whole2572-byte saved HTTP metadata"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/material.mjs",
+      "scope": "Whole50lines reread; source witness6–16/18–26/28–34"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/SOURCE.md",
+      "scope": "Whole37lines reread; full image criterion retained through original surface SOURCE35"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/SOURCE.md",
+      "scope": "Prior whole37-line read reused after fresh current exact pin;15–35 defines surface/fullgate"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/PLAN.md",
+      "scope": "Prior whole19-line source/worth read reused after fresh exactpin; no repair/retry contract"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/served-viewer.mjs.txt",
+      "scope": "Complete authored body after literal3import rewrites and removed sourcemap compared exactly; map itself hashonly"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/served-material.mjs.txt",
+      "scope": "Complete authored body exact after removed sourcemap"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/served-prepare.mjs.txt",
+      "scope": "Complete authored body exact after removed sourcemap"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/served-index.html.txt",
+      "scope": "Whole raw bytes equal actual index.html"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/served-runtime-three.txt",
+      "scope": "Raw bytepin only in this actual audit; prior selected installed API reads, not whole runtime text/compiler provenance"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/served-runtime-core.txt",
+      "scope": "Raw bytepin only in this actual audit; root's token/API record has explicitly limited scope"
+    },
+    {
+      "path": "Remaining66 manifest rows",
+      "scope": "Fresh byte size/SHA only unless current/prior review scopes explicitly state more"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "classification": "Appearance criterion unclear/unmet at fixed review scale; not diagnosed source/runtime defect",
+      "witnesses": [
+        {
+          "image": "front-candidate.png",
+          "region": [
+            215,
+            125,
+            350,
+            270
+          ],
+          "observation": "Dense fine dark etched V/pin marks instead of confidently rounded soft yarn"
+        },
+        {
+          "image": "rear-candidate.png",
+          "region": [
+            215,
+            120,
+            350,
+            275
+          ],
+          "observation": "Repeated angular fine pattern across central back"
+        },
+        {
+          "image": "oblique-candidate.png",
+          "region": [
+            290,
+            130,
+            355,
+            280
+          ],
+          "observation": "Darker mottled normal detail at side/underarm; rounded stitch continuity not confidently readable"
+        },
+        {
+          "source": "material.mjs:6–16,18–26,28–34; SOURCE.md:19; old SOURCE.md:35",
+          "observation": "Analytic ridges/chart blend; source explicitly delegates softness/coherence to first image"
+        }
+      ],
+      "explanation": "The partial V cue is real, but it does not earn the entire fixed soft-knit/calm-transition brief. Existing T-rest shape is excluded from the failure; no temporal alias or unique shader cause inferred.",
+      "alternatives": [
+        {
+          "choice": "Retain incomplete isolated reference plus rejected appearance verdict",
+          "tradeoff": "Keeps finite V-pattern/cancellation evidence without more execution, leaves knit finish unresolved; no deliverable promotion"
+        },
+        {
+          "choice": "Exclude this material from future artist-facing use; retain immutable failure evidence",
+          "tradeoff": "Avoids carrying ambiguous surface intent forward, forfeits its partial cue. No new source/UV/renderer effort admitted"
+        }
+      ]
+    }
+  ],
+  "actual_record_checks": {
+    "admission_rows_exact": 66,
+    "requested_renders": 6,
+    "draw_rows": 6,
+    "each_draw_calls": 1,
+    "each_draw_triangles": 2112,
+    "camera_order": [
+      "Front Control",
+      "Front Candidate",
+      "Oblique Control",
+      "Oblique Candidate",
+      "Rear Control",
+      "Rear Candidate"
+    ],
+    "CPU_position_index_hash_match": true,
+    "revision": "185",
+    "settings": {
+      "columns": 64,
+      "rows": 88,
+      "height": 0.0012,
+      "blend": [
+        0.24,
+        0.4
+      ]
+    },
+    "cleanup_known_owners": [
+      {
+        "name": "geometry",
+        "present": true,
+        "error": null
+      },
+      {
+        "name": "control",
+        "present": true,
+        "error": null
+      },
+      {
+        "name": "candidate",
+        "present": true,
+        "error": null
+      },
+      {
+        "name": "renderer",
+        "present": true,
+        "error": null
+      }
+    ],
+    "fetch_abort_requested": true,
+    "context_loss_available": true,
+    "context_loss_requested": true,
+    "record_error": null,
+    "PNG_headers": [
+      570,
+      340,
+      8,
+      6,
+      0,
+      0,
+      0
+    ],
+    "all_PNG_chunk_CRCs_valid": true,
+    "six_PNG_bytes": 379042,
+    "JPEG_size": [
+      1280,
+      1618
+    ],
+    "JPEG_bytes": 100427,
+    "total_image_bytes": 479469,
+    "cap_bytes": 16777216,
+    "actual_record_interval": [
+      "2026-10-19T12:14:16.488Z",
+      "2026-10-19T12:14:16.762Z"
+    ],
+    "interval_scope": "Saved application timestamps, not full tab/driver lifetime or performance benchmark",
+    "serving_comparison": "HTML exact; material/helper exact after map removal; viewer exact after3literalimport rewrites+map removal; no network read by critic"
+  },
+  "errors_or_corrections": [
+    "Root historical auxiliary parser91c12a rejected a literal JS tab; root corrected read setting before target entry. Retained as reader history, not target failure. Critic did not reproduce this error."
+  ],
+  "limits": [
+    "Only existing whole saved image views; no browser/GPU/render/capture/refetch/new reference, no source edits except review pair.",
+    "No physical driver retirement/private-constructor failure proof; successful normal-path record only.",
+    "No whole runtime/compiler-history/patch-version provenance proof beyond recorded source/pins/selected API scope.",
+    "No temporal alias measurement, uniquely attributed projection bug, physical knitting, fit, thickness, motion, WebGPU/default/runtime/AAA or checkbox credit.",
+    "Consumed first packet closes B; no correction/parameter/renderer/mapping/reload/capture retry or successor admitted; MaraPNGs remain unviewed."
+  ],
+  "next": "Root independently verifies stable pair then freezes rejected first packet/checkpoint within absolute stop; no further experiment admitted.",
+  "verified_manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/ADMISSION.json",
+    "bytes": 17527,
+    "sha256": "b4c0f26d9882bcb2f4aa25040e799caeed60a5ad1950c113c3ab6bb0ab29b096",
+    "all66_rows_verified": true
+  },
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/first.jpg",
+      "bytes": 100427,
+      "sha256": "a521ca28ae636be6a81f303fca639e4aee67d56b522fef1a32facbd68fcc6e6c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/front-control.png",
+      "bytes": 30720,
+      "sha256": "cd8199e4138ff7f52df4b0d840a8cecff94f3237e545b5194991d618c29ba935"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/front-candidate.png",
+      "bytes": 94942,
+      "sha256": "0271c38409a411de79162e6920e5dbd7e9274e32e125021e759c29f36ae94f00"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/oblique-control.png",
+      "bytes": 33974,
+      "sha256": "febccc8dae09d3daf8c0bdfc7908d70306b40598f9cfb85a3f1d88e1ff1a74aa"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/oblique-candidate.png",
+      "bytes": 89809,
+      "sha256": "3586f4227f844fd467fc2227c82a2bf3d521f2761c5331cc6aa9e56181d7a7a7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/rear-control.png",
+      "bytes": 32306,
+      "sha256": "154e70c4049f01330b1cdc64594261bc33590e7f0d0875c24d08937735ef8e73"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/rear-candidate.png",
+      "bytes": 97291,
+      "sha256": "c6de18611ff6ee1807a681f6d2b510a3e01d222b10e9f4a9db9928def32853b5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/BROWSER-RESULT.json",
+      "bytes": 6261,
+      "sha256": "ba64faeb4fa70684e84db0758d8584140b2f1833be8eae46fd896d1262eb3bdb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/POST-BROWSER.json",
+      "bytes": 2586,
+      "sha256": "e902c2201235729937495985049fa89d6a826f1000a4bf0cb524d08c96695d43"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/ADMISSION.json",
+      "bytes": 17527,
+      "sha256": "b4c0f26d9882bcb2f4aa25040e799caeed60a5ad1950c113c3ab6bb0ab29b096"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/ROOT-SERVING.json",
+      "bytes": 4074,
+      "sha256": "73d2799750e27f075943cb3e9b62bdcb6270f640e9d92708be3f6277d655ff5a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/SERVING-OBSERVATION.json",
+      "bytes": 2572,
+      "sha256": "c52c5aa979279e6ad670d5b3a8fbe035a738aaaea56f7ee83b95af557074e54c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/SOURCE.md",
+      "bytes": 9357,
+      "sha256": "2ee9925f937024078534cc03d5c0dd5f517bde6aba2a173f204a080562b93d96"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/material.mjs",
+      "bytes": 2644,
+      "sha256": "93beb3bed5d74c2bf885dbbcf60d36349e83b0ab8828b3fad9f1233ae43b9b1a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/PLAN.md",
+      "bytes": 5953,
+      "sha256": "97288a6a38ea6bfca9c7730e2aeb94d548c15a7e09e5b3b3d4e27f200e97081c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/SOURCE-REVIEW.md",
+      "bytes": 3744,
+      "sha256": "f85385d3b613052ed194235ff1f2cd3bf92c2cba1fef8cf862bdb8fe8dab5417"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/SOURCE-RECEIPT.json",
+      "bytes": 26885,
+      "sha256": "a548be67b79768b53b345aa17cf0253aa9e0ea280729f946cd2623aa97ba7939"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/CPU-REVIEW.md",
+      "bytes": 3005,
+      "sha256": "9532463c0f9454242fa1b488e87b11922cbbc5af6a7b528f1909d008cecbbda2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/CPU-RECEIPT.json",
+      "bytes": 12762,
+      "sha256": "1bb48aafb6c89e64c00e08953ea8bae5815819212f2570a3edcac6b9d759420e"
+    }
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/IMAGE-REVIEW.md",
+    "bytes": 4108,
+    "sha256": "aa5bc120c4d4bb98a8b44b127f910a2aa3d7a4cb3fabd353110002cf50595ad8"
+  },
+  "collected_utc": "2026-10-19T12:19:27.330846+00:00",
+  "collection_pid": 88074
+}

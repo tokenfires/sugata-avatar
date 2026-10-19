@@ -1,0 +1,14 @@
+{
+  "schema": "checkpoint-whitespace-check-v1",
+  "utc": "2026-10-19T12:23:07.697857+00:00",
+  "pid": 94742,
+  "full_staged_check": {
+    "chunk": "975079",
+    "exit": 2,
+    "finding": "Fourtrailingwhitespacelines8511/8560/16253/35957 inexactrawserved-runtime-core.txt"
+  },
+  "decision": "Preserveexactobservedruntimebytes;do notstrip/reformatevidence. Notcandidatecode/test/runtimefailure.",
+  "scoped_check": "git diff --cached --check -- . :(exclude)docs/evidence/appearance-2026-10-19/knit-cancellation-contract/served-runtime-core.txt",
+  "scoped_check_exit": 0,
+  "scope": "Allremainingstagedauthoredsource/records/docs; onlyliteralrawruntimecoreexcluded. No globalwhitespacedisableor sourceevidenceedit."
+}

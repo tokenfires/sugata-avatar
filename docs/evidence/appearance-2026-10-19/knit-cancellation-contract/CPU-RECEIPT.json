@@ -1,0 +1,200 @@
+{
+  "schema": "independent-actual-shared-preparation-cpu-review-v1",
+  "verdict": "A six shared-helper/guard observations only",
+  "next_worth": "A one unchanged first GPU packet only after fresh root served-source/admission gate; no GPU admission by this receipt",
+  "pending_edits": false,
+  "deadline_utc": "2026-10-19T12:25:16.725695+00:00",
+  "commands": [
+    {
+      "chunk_id": "642cee",
+      "pid": 68474,
+      "utc": "2026-10-19T12:08:44.848201+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\nleaf=Path('docs/evidence/appearance-2026-10-19/knit-cancellation-contract')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['CPU-RESULT.json','TOOL-CPU.json','CPU-ADMISSION.json','ROOT-CPU.json']:\n p=leaf/name;b=p.read_bytes();print('\\nFILE',p.resolve(),'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "scope": "Whole CPU-RESULT, TOOL-CPU, CPU-ADMISSION and ROOT-CPU actual records"
+    },
+    {
+      "chunk_id": "9cf4e6",
+      "pid": 69406,
+      "utc": "2026-10-19T12:09:15.248715+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os,struct\nleaf=Path('docs/evidence/appearance-2026-10-19/knit-cancellation-contract')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nsha=lambda b:hashlib.sha256(b).hexdigest()\nadmraw=(leaf/'CPU-ADMISSION.json').read_bytes();a=json.loads(admraw);rraw=(leaf/'CPU-RESULT.json').read_bytes();r=json.loads(rraw);t=json.loads((leaf/'TOOL-CPU.json').read_text())\nassert len(a['pins'])==50 and len({row['path'] for row in a['pins']})==50\nfor row in a['pins']:\n b=Path(row['path']).read_bytes();assert len(b)==row['bytes'] and sha(b)==row['sha256'],row['path']\nassert a['allow']=='one-pure-input-check-entry' and r['argv'][2]==sha(admraw)\nassert r['argv'][0]==r['execPath']==a['argv'][0] and r['argv'][1]==a['argv'][1]\nassert t['command']==' '.join(r['argv']) and t['result']['exit_code']==0 and 'session_id' not in t['result']\nassert json.loads(t['result']['output'])==r and t['result']['output']==rraw.decode()+'\\n'\nassert datetime.datetime.fromisoformat(a['utc'])<datetime.datetime.fromisoformat(r['startedUtc'])<datetime.datetime.fromisoformat(r['completedUtc'])<datetime.datetime.fromisoformat(a['expiresUtc'])\nassert r['error'] is None and r['pass'] is True and 0<=r['elapsedMs']<10000\nassert r['node']=='v26.9.0' and r['pid']==66705\ncs=r['cases'];assert len(cs)==6 and [x['returned'] for x in cs]==[True,False,False,False,False,False]\nassert [x.get('calls') for x in cs]==[3,1,2,3,0,None]\nfor phase in (1,2,3):\n c=cs[phase];expected=[]\n for n in range(1,phase+1):\n  expected.append(f'digest{n}:start')\n  if n==phase:expected.append('closed')\n  expected.append(f'digest{n}:resolved')\n assert c['trace']==expected and c['error']=='Error: Closed continuation'\nraw=Path('docs/evidence/appearance-2026-10-04/whole-knit-serving/mesh.json').read_bytes();assert sha(raw)==r['meshSha'];m=json.loads(raw)\npositions=[x for p in m['positions'] for x in p]; indices=[x for q in m['quads'] for x in (q[0],q[1],q[2],q[0],q[2],q[3])]\npbytes=struct.pack('<'+'f'*len(positions),*positions);ibytes=struct.pack('<'+'H'*len(indices),*indices)\nassert len(positions)==3306 and len(indices)==6336\nassert sha(pbytes)==cs[0]['positionSha'] and sha(ibytes)==cs[0]['indexSha']\nprint(json.dumps({'all_admission_pins':50,'raw_tool_result_JSON_equal':True,'tool_output_bytes':len(t['result']['output'].encode()),'result_bytes':len(rraw),'returned_flags':[x['returned'] for x in cs],'calls':[x.get('calls') for x in cs],'three_traces_exact':True,'position_bytes':len(pbytes),'position_sha':sha(pbytes),'index_bytes':len(ibytes),'index_sha':sha(ibytes),'GPU_absences':{n:not(leaf/n).exists() for n in ['ADMISSION.json','first.jpg']}}))\np=leaf/'ROOT-SOURCE.json';b=p.read_bytes();print('ROOT-SOURCE',len(b),sha(b));print(b.decode())\nprint('No helper/target imported or replayed; data-only JSON/byte packaging audit, no normals/GPU reconstruction.')\nPY",
+      "scope": "All50 pins, command/admission/time and all6 actual trace invariants; independent raw source byte packaging; whole ROOT-SOURCE"
+    }
+  ],
+  "read_scopes": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/CPU-RESULT.json",
+      "scope": "Whole actual JSON, all6cases/3traces"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/TOOL-CPU.json",
+      "scope": "Whole exact saved tool object/command/output"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/CPU-ADMISSION.json",
+      "scope": "Whole metadata and all50pins, independently rehashed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/ROOT-CPU.json",
+      "scope": "Whole supplemental root opinion, not oracle for independent assertions"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/ROOT-SOURCE.json",
+      "scope": "Whole698-byte source-gate record"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/SOURCE-REVIEW.md",
+      "scope": "Prior complete source opinion reused after current exact byte verification"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/SOURCE-RECEIPT.json",
+      "scope": "Prior full literal/API/source scopes reused after exact byte verification; no new library audit"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/prepare.mjs",
+      "scope": "Current hash reverified; prior whole14-line read reused"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/check-cancellation.mjs",
+      "scope": "Current hash reverified; prior whole40-line read reused, actual traces compared with18–33"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/mesh.json",
+      "scope": "Whole saved JSON arrays read for independent Float32/Uint16 expected byte packaging only; no normals/shape reconstruction"
+    },
+    {
+      "path": "All other50-admission rows",
+      "scope": "Fresh raw bytehash/size verification only unless explicitly scoped in prior source receipt"
+    }
+  ],
+  "actual_execution": {
+    "chunk_id": "a43cbd",
+    "tool_exit": 0,
+    "session_id_present": false,
+    "pid": 66705,
+    "node": "v26.9.0",
+    "execPath": "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+    "started_utc": "2026-10-19T12:07:47.341Z",
+    "completed_utc": "2026-10-19T12:07:47.348Z",
+    "elapsed_ms": 7.607958,
+    "elapsed_scope": "Performance timer initialized after module imports; not full launch latency",
+    "tool_wall_seconds": 5.917e-06,
+    "clock_limit": "Distinct limited executor value, no performance/startup claim",
+    "separate_stdio_channels_exposed": false,
+    "result_file_bytes": 2242,
+    "collected_tool_output_utf8_bytes": 2243,
+    "tool_output_equality": "Exact file text plus one console newline; JSON values equal"
+  },
+  "independent_assertions": {
+    "admission_pin_count": 50,
+    "unique_paths": 50,
+    "command_and_argv_exact": true,
+    "admission_digest_matches_argv": true,
+    "within_admission_time_window": true,
+    "returned_flags": [
+      true,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "calls": [
+      3,
+      1,
+      2,
+      3,
+      0,
+      null
+    ],
+    "all_three_exact_traces_verified": true,
+    "position_components": 3306,
+    "position_bytes": 13224,
+    "position_sha256": "202d28b5042e6209c76291be8ec916a5267e7c6d93aa4cbb53add6b10d8891cd",
+    "indices": 6336,
+    "index_bytes": 12672,
+    "index_sha256": "f4853b96f4531422f3fec4fbfe8a48001e9165e5e0b8ac4272ae977b07803813",
+    "normal_case_hashes_independently_match": true,
+    "method": "Python stdlib JSON/struct little-endian packaging of existing saved arrays and declared quad order; no target imports or case replay"
+  },
+  "actionable_findings": [],
+  "limits": [
+    "Only actual shared pure prepareInputs/assertOpen, not browser resource acquisition/release or private-constructor cleanup.",
+    "No separate stderr-zero, all-machine process census, Node internal thread census, hard OS time, hard RSS or full startup latency claim.",
+    "No Three/DOM/WebGL/native renderer/GPU/capture/network execution or candidate image view by critic.",
+    "No shader/appearance/aliasing/join/physical knitting/fit/runtime/AAA/checklist credit.",
+    "Old sourceB and all frozen sources remain unchanged; six MaraPNGs unviewed; no production/default edit."
+  ],
+  "rejections": [],
+  "next": "Root must independently qualify this exact pair, verify served-source provenance and create a fresh expiring single GPU admission. One fixed6frame packet only, actual cleanup/errors/context attributes/outputcaps and firstimages decide; any failure closes with no repair/retry. Deadline unchanged.",
+  "admission_manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/CPU-ADMISSION.json",
+    "rows": 50,
+    "all_current_rows_verified": true
+  },
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/CPU-ADMISSION.json",
+      "bytes": 12987,
+      "sha256": "c86a189b19fe3f8f0f3daaa29a5338ac0997e79046288f2be3ea013bb79f1753"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/CPU-RESULT.json",
+      "bytes": 2242,
+      "sha256": "37c882b0caff4695e5b4eaa5c98a573c9cf569cde1a7a4fd89dbf37ebaed4c5c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/TOOL-CPU.json",
+      "bytes": 2873,
+      "sha256": "ad9d344057769b76ce8193df41bf46f1386fd8dfb8cdacb8c36cbd5bb36ab5d5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/ROOT-CPU.json",
+      "bytes": 2143,
+      "sha256": "325ab79cf9e17bc2ae4419223b82ec52d3e217b5b1fc3be1ea9eaf733fe6f5b6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/ROOT-SOURCE.json",
+      "bytes": 698,
+      "sha256": "23f0d3cc66638a870fc28e1f63ec97af5579ba9ad33923304069bd67c21ba44d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/SOURCE-REVIEW.md",
+      "bytes": 3744,
+      "sha256": "f85385d3b613052ed194235ff1f2cd3bf92c2cba1fef8cf862bdb8fe8dab5417"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/SOURCE-RECEIPT.json",
+      "bytes": 26885,
+      "sha256": "a548be67b79768b53b345aa17cf0253aa9e0ea280729f946cd2623aa97ba7939"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/prepare.mjs",
+      "bytes": 923,
+      "sha256": "bc1e51837e4c8b43f4b8a5db37ad9927f93135003deddcccaca409e5d66aaea2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/check-cancellation.mjs",
+      "bytes": 3641,
+      "sha256": "50322fb1c1c20e4c6af3111ce209938ee8da164fdebed02cc48acb6105c71b76"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/viewer.mjs",
+      "bytes": 7381,
+      "sha256": "b20d12f091e38b96cd3a5dc6b069dedf866b55a66217944fcb7271a69d50380d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/SOURCE.md",
+      "bytes": 9357,
+      "sha256": "2ee9925f937024078534cc03d5c0dd5f517bde6aba2a173f204a080562b93d96"
+    }
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/CPU-REVIEW.md",
+    "bytes": 3005,
+    "sha256": "9532463c0f9454242fa1b488e87b11922cbbc5af6a7b528f1909d008cecbbda2"
+  },
+  "collected_utc": "2026-10-19T12:10:20.866124+00:00",
+  "collection_pid": 71418
+}

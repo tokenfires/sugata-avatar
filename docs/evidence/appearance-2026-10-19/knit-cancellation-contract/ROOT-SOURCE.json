@@ -1,0 +1,17 @@
+{
+  "schema": "root-source-result-v1",
+  "utc": "2026-10-19T12:07:43.251709+00:00",
+  "verdict": "A exactCPUentry only",
+  "root_reads": [
+    "346777 fullhelper/viewer/test",
+    "56b85d wholeoldmaterial/HTML exactcopy",
+    "e3dba7 completeSOURCE",
+    "6e5354 wholecriticpair",
+    "bbaa0b additionalGLSL/47pins+manifest/pair"
+  ],
+  "source_review_sha256": "f85385d3b613052ed194235ff1f2cd3bf92c2cba1fef8cf862bdb8fe8dab5417",
+  "source_receipt_sha256": "a548be67b79768b53b345aa17cf0253aa9e0ea280729f946cd2623aa97ba7939",
+  "CPU_admission_sha256": "c86a189b19fe3f8f0f3daaa29a5338ac0997e79046288f2be3ea013bb79f1753",
+  "GPU_admitted": false,
+  "deadline_utc": "2026-10-19T12:25:16.725695+00:00"
+}

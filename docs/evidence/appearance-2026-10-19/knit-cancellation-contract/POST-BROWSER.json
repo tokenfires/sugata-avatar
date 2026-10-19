@@ -1,0 +1,50 @@
+{
+  "schema": "root-actual-browser-preimage-gate-v1",
+  "utc": "2026-10-19T12:15:05.693496+00:00",
+  "pid": 80105,
+  "verdict": "A actualbounded6frames,readyforsolewholepagecaptureandimagecritique",
+  "admission_rows_exact": 66,
+  "browser": "IAB3/tab6/soleclick12:14:16.469UTC",
+  "actual_interval": [
+    "2026-10-19T12:14:16.488Z",
+    "2026-10-19T12:14:16.762Z"
+  ],
+  "actual_cleanup": "fourknownownerspresent/disposeerrorsnull;fetchabortrequested;contextlossextavailable/requested,noerror. Not physicaldriverrelease/privateconstructorfailure proof.",
+  "actual_geometry": "bothposition/indexSHA matchactualCPU andoriginalmeshsource;1102vertices/1056quads/2112triangles",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/front-control.png",
+      "bytes": 30720,
+      "sha256": "cd8199e4138ff7f52df4b0d840a8cecff94f3237e545b5194991d618c29ba935"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/front-candidate.png",
+      "bytes": 94942,
+      "sha256": "0271c38409a411de79162e6920e5dbd7e9274e32e125021e759c29f36ae94f00"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/oblique-control.png",
+      "bytes": 33974,
+      "sha256": "febccc8dae09d3daf8c0bdfc7908d70306b40598f9cfb85a3f1d88e1ff1a74aa"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/oblique-candidate.png",
+      "bytes": 89809,
+      "sha256": "3586f4227f844fd467fc2227c82a2bf3d521f2761c5331cc6aa9e56181d7a7a7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/rear-control.png",
+      "bytes": 32306,
+      "sha256": "154e70c4049f01330b1cdc64594261bc33590e7f0d0875c24d08937735ef8e73"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/rear-candidate.png",
+      "bytes": 97291,
+      "sha256": "c6de18611ff6ee1807a681f6d2b510a3e01d222b10e9f4a9db9928def32853b5"
+    }
+  ],
+  "six_png_bytes": 379042,
+  "checks": "PNG570x340headers/allchunkCRCs/SHAmatchDOMrecord;6rendersonecall2112triangles;withinadmission;all66pins exact;no browserreload/nativejob",
+  "limits": "Header/CRC/SHA/numerical/cleanup evidence only; no pixel/appearance acceptanceyet.",
+  "next": "Onewholepagecapture;rootandcriticwholeactualimagejudgment;12:25:16.725695UTCstop."
+}
