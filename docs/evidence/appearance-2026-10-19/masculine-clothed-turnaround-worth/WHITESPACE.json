@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-19T23:11:26.208416+00:00",
+  "observed_tool": "1e1f59/exit1 from failed git diff --cached --check exit2; no commit attempted",
+  "exception": {
+    "path": "docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/PLAN.md",
+    "line": 16,
+    "issue": "new blank line at EOF",
+    "bytes": 4087,
+    "sha256": "83d468d1ac4e1f3dba3e4fd706b0655d93505f18bcd3faa035fa9de56b176706",
+    "preservation": "Already frozen source/critic binding; preserve exact empty final line rather than mutate reviewed PLAN."
+  },
+  "scope": "Exactly this single empty EOF line; all other staged owned paths must pass. No global clean whitespace claim."
+}

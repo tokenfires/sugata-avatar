@@ -1,0 +1,77 @@
+{
+  "utc": "2026-10-19T23:11:26.209471+00:00",
+  "pid": 83502,
+  "parent_head": "8f32badc2d6b77136b08ccc5dac495c4e1861f57",
+  "decision": "A: one complete brief preparation only; no generation",
+  "preclose_files": [
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 131095,
+      "sha256": "92189653edad6870153d5c5593b51eefabdcd95616a4c6149184242e9c8f7456"
+    },
+    {
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 156159,
+      "sha256": "e7358dbb85962c03edd28223a73ee0121a88540a6c740cd1b940a4e144f9cf0f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/CRITIC-RECEIPT.json",
+      "bytes": 12566,
+      "sha256": "ae59f4a5c054f20fff6600901dfbde220c5d0aed173cf7f00600ee71d64b06f5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/IMAGE-INPUT.json",
+      "bytes": 419,
+      "sha256": "0ece7c2caa777933de0b50216f07f156135c9e3537c7ecb3ffcc5fe9d10965b7"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/INPUTS.json",
+      "bytes": 409,
+      "sha256": "a84ac4be96aecbc961eca456e503ed95c68721724b9786464839abed4adaff4f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/JOBS.json",
+      "bytes": 69863,
+      "sha256": "afede2486b0f536a944d971c7fd4ebd63a1c3e5c999d82f85ceb66b756ed702a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/PLAN.md",
+      "bytes": 4087,
+      "sha256": "83d468d1ac4e1f3dba3e4fd706b0655d93505f18bcd3faa035fa9de56b176706"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/README.md",
+      "bytes": 2005,
+      "sha256": "fa5f0f3a47833dd6e16afd1cd72904130ed465981f9199df292900a48393d5d8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/ROOT-FIRST.json",
+      "bytes": 3618,
+      "sha256": "96236c8475ec2797d5ff1a7429c5a583ebf122a8d64d1e1a00b05f2efab86e81"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/ROOT-WORTH.json",
+      "bytes": 3627,
+      "sha256": "96eb093135b25f56d0a4308e4559f5d9b1986d18a0f68fd9dc567ddeda90f4a3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/WHITESPACE.json",
+      "bytes": 669,
+      "sha256": "8d1414beff7efd3115433c35f57c72456b383fe54afa63ccc477634ff82135d1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround-worth/WORTH.md",
+      "bytes": 3555,
+      "sha256": "1bfa0c6704b745e09315c5b67360cde5da2c55624e5456ee07c331db059df05e"
+    }
+  ],
+  "counts": {
+    "semantic_records": 2,
+    "filename_inventory": 1,
+    "whole_images": 1,
+    "target": 0,
+    "generation": 0,
+    "references": 0
+  },
+  "whitespace": "One frozen PLAN EOF blank-line exception only; other paths pass. First save failed before commit, retained in JOBS."
+}

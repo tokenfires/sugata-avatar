@@ -1,0 +1,17 @@
+# Masculine clothed-turnaround worth review
+
+**A — exactly one separately gated first-image brief is worth preparing. No generation is admitted by this review.**
+
+**F1 — complete clothed side and rear relationships would add a usable decision surface.** I viewed the sole original whole1536×1024 PNG at original detail. Its left panel has one complete front/three-quarter standing figure (approximately x180–525, y10–965); the right panel is a large head/chest portrait. The open olive overshirt, ivory tee, sandstone trousers and brown boots are readable, but neither panel supplies a true whole-body profile or rear. In particular, the side depth and rear fall of the layered middle, overshirt hem relative to the trouser seat, and trouser-to-boot rear balance are not pictured. This is missing authored view intent, not a defect in the accepted original.
+
+The target document's lines7/11 explicitly distinguish the body/portrait discussion from still-undefined side/back and garment interfaces. Checklist line28 records full-body and portrait only; line63 calls for an artist-owned improvement with actual visual comparison. The proposed consumer is therefore concrete: a future character/wardrobe author can discuss newly chosen clothed profile/rear silhouettes alongside the retained front.
+
+Two alternatives: prepare one supplemental complete clothed front/profile/rear sheet with an explicit first-output gate, gaining immediate discussion intent while accepting the risk of invented-view inconsistency; or defer these choices until coupled editable body/garment authorship, avoiding another unregistered illustration but leaving present profile/rear direction unspecified. The bounded preparation has enough marginal value to choose the former.
+
+**F2 — distinctness depends on keeping the responsibility clothed.** The same document's line11 expressly prohibits rejected Rowan groom, old overshirt context, local hair/foundation and capture-method reuse. This nomination uses only the unchanged original illustration and asks for new clothed middle/seat/rear relationships. The existing portrait provides continuity, not authority to redesign hair/head or reconstruct unseen anatomy.
+
+Two alternatives: constrain the brief to complete clothed views with qualitative face/hair/palette continuity and explicitly invented hidden clothing choices; or wait for a complete editable character master, which could support stronger geometric consistency but is a substantially larger responsibility. Choose the constrained brief. No head/groom closeup, old pose/capture retry or closed-method rescue is justified.
+
+My independent A was sealed in `387822` at **23:08:31.209242 UTC**, before ROOT-FIRST was read. Root's earlier sealed A independently agrees. Exactly two whole bound records and one original whole image were inspected; no second filename inventory or other receipt/source/image was opened. This does not prove global absence of related artwork.
+
+The next brief must fix orientation, full-figure framing, complete shoes, new clothed choices, exact sole reference, output/resource/collection duties and first B/unknown closure before any call. Root still owes whole-handoff verification, complete source critique and fresh admission. Any eventual sheet remains an unregistered artist reference: no editable/3D/native, anatomy, perceived identity/demographic, physical fit/material/rig/motion/runtime/performance/AAA credit. Original/default/frozen assets, old closures, constructor HOLD and checklist23/10 remain. No pending edits.
