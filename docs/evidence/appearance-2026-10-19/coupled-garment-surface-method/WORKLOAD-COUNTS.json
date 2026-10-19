@@ -1,0 +1,83 @@
+{
+  "utc": "2026-10-19T21:58:58.354055+00:00",
+  "pid": 45495,
+  "scope": "Saved list lengths and symbolic BVH size recurrence only; no coordinates recomposed, candidate generated or geometry/solver evaluated.",
+  "owners": [
+    {
+      "uuid": "6a387a24-324d-438d-b152-fb4b7edc4a45",
+      "name": "Human",
+      "wholeRequiredCount": 5038,
+      "cutRequiredFanCornerOccurrencesByListLengths": 1206,
+      "allRequiredCornerOccurrences": 16320
+    },
+    {
+      "uuid": "a7a9658c-98c6-4d71-84a2-c3b96fc536f4",
+      "name": "Humancornea",
+      "wholeRequiredCount": 0,
+      "cutRequiredFanCornerOccurrencesByListLengths": 0,
+      "allRequiredCornerOccurrences": 0
+    },
+    {
+      "uuid": "c7f16e7f-ae2c-4576-9857-31e3fb77afcd",
+      "name": "Humaneyebrow001",
+      "wholeRequiredCount": 0,
+      "cutRequiredFanCornerOccurrencesByListLengths": 0,
+      "allRequiredCornerOccurrences": 0
+    },
+    {
+      "uuid": "4b2cb2b4-4ef6-4e42-8bb4-b5f307177de8",
+      "name": "Humaneyelashes01",
+      "wholeRequiredCount": 0,
+      "cutRequiredFanCornerOccurrencesByListLengths": 0,
+      "allRequiredCornerOccurrences": 0
+    },
+    {
+      "uuid": "ec2b54e5-0684-4532-b426-c952ca10c137",
+      "name": "Humanhigh-poly",
+      "wholeRequiredCount": 0,
+      "cutRequiredFanCornerOccurrencesByListLengths": 0,
+      "allRequiredCornerOccurrences": 0
+    },
+    {
+      "uuid": "2da1713d-ae37-4281-8a96-35af4b82a906",
+      "name": "Humanteeth_base",
+      "wholeRequiredCount": 0,
+      "cutRequiredFanCornerOccurrencesByListLengths": 0,
+      "allRequiredCornerOccurrences": 0
+    },
+    {
+      "uuid": "0f0b54ad-2db8-400c-bef2-d1e60a9d55f9",
+      "name": "Humantongue01",
+      "wholeRequiredCount": 0,
+      "cutRequiredFanCornerOccurrencesByListLengths": 0,
+      "allRequiredCornerOccurrences": 0
+    },
+    {
+      "uuid": "6d05f94d-df07-40e7-8bcc-cec3a090a0cc",
+      "name": "Humanfoundation_bra",
+      "wholeRequiredCount": 22090,
+      "cutRequiredFanCornerOccurrencesByListLengths": 0,
+      "allRequiredCornerOccurrences": 66270
+    },
+    {
+      "uuid": "e760092d-ebae-4e56-8e21-329dc4c6f320",
+      "name": "Humanfoundation_briefs",
+      "wholeRequiredCount": 7417,
+      "cutRequiredFanCornerOccurrencesByListLengths": 768,
+      "allRequiredCornerOccurrences": 23019
+    }
+  ],
+  "requiredCornerOccurrences": 105609,
+  "originalPointGuides": 39546,
+  "queriesPerSweepIfNoEarlierFailure": 145155,
+  "queriesFor24Sweeps": 3483720,
+  "symbolicBVHLeafSizeRange": [
+    4,
+    5
+  ],
+  "symbolicLeafCount": 512,
+  "minimumSolverLeafTriangleTestsIfEveryQueryReachesOneSmallestLeaf": 13934880,
+  "declaredLeafTestCap": 20000000,
+  "maximumAverageLeafTriangleTestsPerQueryWithinCap": 5.740989516953142,
+  "risk": "Closest queries can visit multiple leaves. A finite cap is not evidence the24sweeps fit it. No runtime/cap-exhaustion result or inevitable failure is inferred."
+}

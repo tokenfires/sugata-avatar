@@ -1,0 +1,326 @@
+{
+  "schema": "coupled-garment-surface-method-critic-v1",
+  "verdict": "A_ONE_EXACT_EXECUTABLE_PREPARATION_ONLY",
+  "pending_edits": false,
+  "deadline_utc": "2026-10-19T22:30:00Z",
+  "complete_review": true,
+  "execution_admitted": false,
+  "constructor_admitted": false,
+  "scope": {
+    "whole_current": [
+      "PLAN.md",
+      "INPUTS.json",
+      "METHOD.md",
+      "ARTIST.json",
+      "PREPARATION-DELTA.json",
+      "REFERENCES.md"
+    ],
+    "whole_short_contexts": [
+      "original-surface-ledger/README.md",
+      "sweater-coverage-owned/PLAN.md",
+      "sweater-coverage-owned/WORKSHEET.md",
+      "coupled-garment-surface-worth/ROOT-WORTH.json"
+    ],
+    "prior_worth_reuse": "Current exact worth PLAN/INPUTS/WORTH/CRITIC-RECEIPT, source-rest README and knit ARTIST-HANDOFF bindings verified; semantic/actual two-image review reused from immediately preceding worth at identical pins.",
+    "old_new": "Complete unified diff METHOD.initial.md.txt→METHOD.md and PLAN.initial.md.txt→PLAN.md, including all changes and hunk context; current METHOD read whole.",
+    "references": "Saved REFERENCES.json request/return metadata and scrape.markdown lines341–891,998–1040 whole. This includes required §§3.2/3.3/3.4/4.2/4.3 plus contiguous §§3.5/3.6; OCR/layout artifacts retained. No new retrieval or figure/image inspection.",
+    "ledger": "Stat/hash before parse; top-level schema, literal bounds/counts, first owner property names/types/lengths. No coordinate or triangle reconstruction, source skin evaluation, all-array numerical audit or source geometry computation.",
+    "partition": "Stat/hash before parse; schema, full literal policy/planes/ledgerPin, first owner counts/property types. No cut-fan recomposition or contact evaluation.",
+    "metadata_only": [
+      "JOBS.json",
+      "ROOT-FIRST.json",
+      "Images: byte identity only, no new view"
+    ],
+    "actual_image_views_this_task": 0,
+    "images_reused": {
+      "prior_worth_view_clock": "2026-10-19 21:38:06 UTC",
+      "detail": "original",
+      "paths": [
+        "source-rest-addressed/composite.jpg",
+        "knit-character-turnaround/first.png"
+      ]
+    },
+    "input_data_caps": {
+      "each_MiB": 128,
+      "combined_MiB": 192,
+      "ledger_bytes": 28552628,
+      "partition_bytes": 635671,
+      "combined_bytes": 29188299
+    }
+  },
+  "reasoning": [
+    {
+      "witness": "METHOD27–71; ARTIST topology/outlets/solver",
+      "effect": "Concrete shared topology, free/fixed positions, initialization, regularization and finite schedule differ from closed fixed placement. No convergence or initial safety claim."
+    },
+    {
+      "witness": "METHOD15–23,75–89; PARTITION literal planes/policy",
+      "effect": "Full immutable original surfaces and required fan domains receive continuous exact clearance/embedding/enclosure duties separately from point guides. Full bra retained."
+    },
+    {
+      "witness": "METHOD51; ARTIST cuff root/ring1 literals",
+      "effect": "Initialization may fail embedding before projections. No geometry evaluated; risk does not establish intersection or feasibility.",
+      "alternatives": [
+        {
+          "choice": "Prepare exact method with first structural-refusal stop",
+          "tradeoff": "Genuine feasibility result possible; substantial implementation may end before solve"
+        },
+        {
+          "choice": "Defer to complete coupled garment artist owner",
+          "tradeoff": "Avoids another early refusal; wearable gap remains"
+        }
+      ]
+    },
+    {
+      "witness": "METHOD93–101",
+      "effect": "Runtime/loaded dependency/high-water units and finite collection/retirement must be concrete at executable gate, not inherited from inert budget labels.",
+      "alternatives": [
+        {
+          "choice": "Pin and independently source-review actual bounded programme before trial",
+          "tradeoff": "Supports one finite owned feasibility attempt; no guarantee of success/hard peak prevention"
+        },
+        {
+          "choice": "Withhold if any runtime/evidence/retirement duty remains missing",
+          "tradeoff": "Keeps inert contract only; no observer/supervisor detour admitted"
+        }
+      ]
+    }
+  ],
+  "initial_delta": {
+    "method_changed_hunks": [
+      51,
+      77,
+      89,
+      99
+    ],
+    "plan_change": "Start timestamp only",
+    "interpretation": "Baseline witness/prefix exception explicit; initial structural/physical+cap embedding and final complete acceptance mandatory. Residual is cap-plane reconstruction only, not physical-clearance slack. Observer units/behaviour unqualified pending exact runtime preflight."
+  },
+  "limits": [
+    "No candidate geometry, triangle recomposition, source-member decode, code/helper import/evaluation or solver",
+    "No native/GPU/browser/render/capture/imagegen/new image/network",
+    "No all-motion/otherbody/rig/material/physicalcloth/production/AAA pass",
+    "No source/body/foundation/threshold/gain/frame/camera retry or old closed method reopened",
+    "No root opinion oracle; ROOT-FIRST only hash verified",
+    "No source/workload feasibility or hard OS memory guarantee from method reading"
+  ],
+  "errors": [],
+  "jobs": [
+    {
+      "name": "initial",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PLAN.md','INPUTS.json']:\n b=(p/n).read_bytes();print('FILE',n,len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "returned": {
+        "chunk_id": "62df86",
+        "wall_time_seconds": 7.958e-06,
+        "exit_code": 0,
+        "original_token_count": 2651,
+        "output_bytes": 10601,
+        "output_sha256": "3c6e90cc5b15ec471586147ea0ac089c0ee38757652b2562859880fbb8ee3529",
+        "first_line": "PID 38734 UTC 2026-10-19T21:55:38.109956+00:00"
+      }
+    },
+    {
+      "name": "method",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method');q=p/'METHOD.md';b=q.read_bytes()\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'FILE',len(b),hashlib.sha256(b).hexdigest())\nfor i,l in enumerate(b.decode().splitlines(),1):print(f'{i}: {l}')\nPY",
+      "returned": {
+        "chunk_id": "aa02b4",
+        "wall_time_seconds": 8.166e-06,
+        "exit_code": 0,
+        "original_token_count": 6546,
+        "output_bytes": 26183,
+        "output_sha256": "36e27a2b0e7134155f26bfa384cc2d43da1696d43c59ffd896b94aa44f957185",
+        "first_line": "PID 39029 UTC 2026-10-19T21:55:47.377088+00:00 FILE 25653 966e24a57c1249983ed0da4f3b48489ef3e207b2e94912bbabd9a856ef5d4b24"
+      }
+    },
+    {
+      "name": "artist_delta",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,difflib,json\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['ARTIST.json','PREPARATION-DELTA.json','REFERENCES.md']:\n b=(p/n).read_bytes();print('WHOLE',n,len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nfor a,b in [('METHOD.initial.md.txt','METHOD.md'),('PLAN.initial.md.txt','PLAN.md')]:\n aa=(p/a).read_text();bb=(p/b).read_text();print('COMPLETE_DIFF',a,b);print(''.join(difflib.unified_diff(aa.splitlines(True),bb.splitlines(True),fromfile=a,tofile=b)))\nr=json.loads((p/'REFERENCES.json').read_text());print('REFERENCES_TOP_KEYS',list(r) if isinstance(r,dict) else type(r).__name__)\nif isinstance(r,dict):\n for k,v in r.items():print('REFERENCE_FIELD',k,type(v).__name__,list(v) if isinstance(v,dict) else len(v) if isinstance(v,(str,list)) else v)\nPY",
+      "returned": {
+        "chunk_id": "f3cb12",
+        "wall_time_seconds": 6.208e-06,
+        "exit_code": 0,
+        "original_token_count": 5434,
+        "output_bytes": 21735,
+        "output_sha256": "34560be9e5bdb13a87be35a85fcad6e32bd3af0911be3403aa255ef0a7286b91",
+        "first_line": "PID 39670 UTC 2026-10-19T21:56:03.487126+00:00"
+      }
+    },
+    {
+      "name": "context_schema",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\nroot=Path('/Users/robault/GitHub/sugata-avatar');p=root/'docs/evidence/appearance-2026-10-19/coupled-garment-surface-method';m=json.loads((p/'INPUTS.json').read_text())\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor row in m['data']:assert (root/row['path']).stat().st_size<=128*1024**2\nassert sum((root/row['path']).stat().st_size for row in m['data'])<=192*1024**2\nfor row in m['files']:\n b=(root/row['path']).read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256'],row['path']\nprint('ALL24_MANIFEST_ROWS_EXACT',len(m['files']))\nfor name in ['docs/evidence/appearance-2026-10-04/original-surface-ledger/README.md','docs/evidence/appearance-2026-10-04/sweater-coverage-owned/PLAN.md','docs/evidence/appearance-2026-10-04/sweater-coverage-owned/WORKSHEET.md','docs/evidence/appearance-2026-10-19/coupled-garment-surface-worth/ROOT-WORTH.json']:\n print('WHOLE',name)\n for i,line in enumerate((root/name).read_text().splitlines(),1):print(f'{i}: {line}')\nfor row in m['data']:\n o=json.loads((root/row['path']).read_text());print('DATA_SCHEMA',row['path'])\n for k,v in o.items():print(k,type(v).__name__,list(v.keys()) if isinstance(v,dict) else len(v) if isinstance(v,(list,str)) else v)\nrefs=json.loads((p/'REFERENCES.json').read_text())\ndef walk(o,path=()):\n if isinstance(o,dict):\n  for k,v in o.items():walk(v,path+(k,))\n elif isinstance(o,list):\n  for i,v in enumerate(o):walk(v,path+(i,))\n elif isinstance(o,str) and (len(o)>1000 or path[-1:] in [('url',),('id',)]):print('REF_STRING',path,len(o),o[:120])\nwalk(refs)\nPY",
+      "returned": {
+        "chunk_id": "58f614",
+        "wall_time_seconds": 0.015532875,
+        "exit_code": 0,
+        "original_token_count": 3525,
+        "output_bytes": 14100,
+        "output_sha256": "759c82ad1e391500bfe6b171b7e157b6da65df637b2a28e8ad745219aaf44036",
+        "first_line": "PID 40233 UTC 2026-10-19T21:56:19.228797+00:00"
+      }
+    },
+    {
+      "name": "primary_schema",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,os,datetime,re\nroot=Path('/Users/robault/GitHub/sugata-avatar');p=root/'docs/evidence/appearance-2026-10-19/coupled-garment-surface-method';r=json.loads((p/'REFERENCES.json').read_text())\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['search','scrape','feedback']:\n q=r[name];ret=q['returned'];sc=ret.get('structuredContent',{});print('REFERENCE_REQUEST',name,json.dumps(q['request'],ensure_ascii=False));print('REFERENCE_METADATA',name,json.dumps({k:v for k,v in sc.items() if k!='markdown' and k!='data'},ensure_ascii=False))\ntext=r['scrape']['returned']['structuredContent']['markdown'];lines=text.splitlines()\nfor i,l in enumerate(lines):\n if re.search(r'3\\.2|3\\.3|3\\.4|4\\.2|4\\.3|4\\.4|## 4|## 5',l):print('HEADING_LOCATOR',i+1,l)\nledger=json.loads((root/'docs/evidence/appearance-2026-10-04/original-surface-ledger/LEDGER.json').read_text());part=json.loads((root/'docs/evidence/appearance-2026-10-04/sweater-coverage-owned/PARTITION.json').read_text())\nprint('LEDGER_LITERAL_BOUNDS',json.dumps({'bounds':ledger['bounds'],'observedBounds':ledger['observedBounds'],'vertexCount':ledger['vertexCount']}))\nfor o in ledger['owners']:\n print('LEDGER_OWNER_SCHEMA',[(k,type(v).__name__,len(v) if isinstance(v,(list,dict)) else v) for k,v in o.items() if k not in ['vertices','triangles']]);print('OWNER_KEYS',list(o));break\nprint('PARTITION_LITERAL_POLICY',json.dumps(part['policy'],ensure_ascii=False));print('PARTITION_LITERAL_PLANES',json.dumps(part['planes'],ensure_ascii=False));print('PARTITION_LEDGER_PIN',json.dumps(part['ledgerPin']))\nfor o in part['owners'][:1]:print('PARTITION_OWNER_SCHEMA',[(k,type(v).__name__,len(v) if isinstance(v,(list,dict)) else v) for k,v in o.items()])\nPY",
+      "returned": {
+        "chunk_id": "8c8d6c",
+        "wall_time_seconds": 7.125e-06,
+        "exit_code": 0,
+        "original_token_count": 1828,
+        "output_bytes": 7310,
+        "output_sha256": "ab4473e599a1ecfd61659f1c5e7a22f2c6429a08243ccfcc3f5ea2fd2ed0e9d0",
+        "first_line": "PID 40762 UTC 2026-10-19T21:56:32.843888+00:00"
+      }
+    },
+    {
+      "name": "primary_sections",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method');s=json.loads((p/'REFERENCES.json').read_text())['scrape']['returned']['structuredContent']['markdown'].splitlines()\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor lo,hi in [(341,891),(998,1040)]:\n print('SAVED_PRIMARY_RANGE',lo,hi)\n for i in range(lo,hi+1):print(f'{i}: {s[i-1]}')\nPY",
+      "returned": {
+        "chunk_id": "0862ea",
+        "wall_time_seconds": 7.584e-06,
+        "exit_code": 0,
+        "original_token_count": 5365,
+        "output_bytes": 21457,
+        "output_sha256": "b2083564f7ab6ab6952ec33ca78a6be8b056ec089258de88d39550bb8c9b105f",
+        "first_line": "PID 41171 UTC 2026-10-19T21:56:44.618108+00:00"
+      }
+    }
+  ],
+  "collection": {
+    "exclusive_pair_only": true,
+    "pid": 45233,
+    "utc": "2026-10-19T21:58:50.862096+00:00"
+  },
+  "input_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-worth/PLAN.md",
+      "bytes": 4940,
+      "sha256": "7959d08f3e61d08c621a9520a5c5d1783601b65361af63e6dba152a110084c68"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-worth/INPUTS.json",
+      "bytes": 2153,
+      "sha256": "3736d39577cbfdaad951b58c22ff0c8f17fff4713045361cd50fe534a6988c70"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-worth/WORTH.md",
+      "bytes": 3980,
+      "sha256": "1c6d16de95dca2d7776e99a81b00d3d9341a999ef4b2ab30f95fd136e94bea37"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-worth/ROOT-WORTH.json",
+      "bytes": 4161,
+      "sha256": "5c29a307b1369ffa724d89b7af1c095377eb5e125ffd5909e2a5622b1881db9f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-worth/CRITIC-RECEIPT.json",
+      "bytes": 46005,
+      "sha256": "aaa70b2fe1e3c4e8deb465e0d653aeeff22c3124350541772c4d3182d42dd47b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-rest-addressed/README.md",
+      "bytes": 2213,
+      "sha256": "ff9b2cd1e67a36e781498d829253bd8794d95bd0429c5466d6f9599be9615527"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-rest-addressed/composite.jpg",
+      "bytes": 49827,
+      "sha256": "4bd1fd659f10450875e83a0310d3a93a0d72a90f186e5649d6ad9a51da525c37"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2175,
+      "sha256": "f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+      "bytes": 2023441,
+      "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/original-surface-ledger/README.md",
+      "bytes": 1655,
+      "sha256": "6731d7e9c0f588d6bfbf3e292dd6f90d2ec57f5094cd653df18a69768991da3b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/original-surface-ledger/LEDGER.json",
+      "bytes": 28552628,
+      "sha256": "d221466f48a076c040eef267d9d069c82dca2c0062ba466217ba247138939f5e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/PLAN.md",
+      "bytes": 2520,
+      "sha256": "6b7742747f2c9763f7313122a527e854af5031aa97cc697ff41f85d7e803b4a3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/WORKSHEET.md",
+      "bytes": 1010,
+      "sha256": "2b50c0346b93cca909d6bf5a760d0246046363a051cc6167ec83c7ce03543fcc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/PARTITION.json",
+      "bytes": 635671,
+      "sha256": "08850757c4d630581c2dc11a8c80e8559f6d324d297eaa1bff4d21141dfdb4df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/ARTIST.json",
+      "bytes": 7421,
+      "sha256": "e5796b5d2ccee166a37413433dd475c41f00f8c9695f633ae1ddda8e00e61325"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/JOBS.json",
+      "bytes": 296837,
+      "sha256": "1563502cbdbdad205b773ba4cf9156b5e8c8d7407eb4fff6abe4297265490a4d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/METHOD.initial.md.txt",
+      "bytes": 24008,
+      "sha256": "b4f7d76b86d05bf7823a5d7a723aae704a3d861808d3c6e55586dc13ebbd90ad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/METHOD.md",
+      "bytes": 25653,
+      "sha256": "966e24a57c1249983ed0da4f3b48489ef3e207b2e94912bbabd9a856ef5d4b24"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/PLAN.initial.md.txt",
+      "bytes": 4577,
+      "sha256": "c170d6a25fc06fbcdef309cd370e2481c01906eb22722c12523f7bac4aba2b0c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/PLAN.md",
+      "bytes": 4584,
+      "sha256": "3450ea34cf2d6a11e0ec4af648eaf264dc9b1ed2d773412b8fd74387265cab0b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/PREPARATION-DELTA.json",
+      "bytes": 819,
+      "sha256": "141a75827a33b5435008209ff3668f8499cfbcd9182968173f1d374e23846bec"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/REFERENCES.json",
+      "bytes": 164860,
+      "sha256": "8ab70560bbf24e66c2dc10464d89e6d997bb45e35a0ca10df3ea90fbad959ae4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/REFERENCES.md",
+      "bytes": 1641,
+      "sha256": "82d907dfa05863b72186c050fc35bbce6f96578cb334af661f5c5ae401e2e750"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/ROOT-FIRST.json",
+      "bytes": 2571,
+      "sha256": "45a9f92ef34cd3b24e8cd38fb936f41e07f6f6e3c7c2048f71b257134df1f51b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/INPUTS.json",
+      "bytes": 5798,
+      "sha256": "c64357ad7be5058a5af6cc2924586d47fd0a011b9b2e67a03a5cb98575d7e5c3"
+    }
+  ],
+  "verified_unique_paths": 25,
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-garment-surface-method/METHOD-REVIEW.md",
+    "bytes": 4351,
+    "sha256": "e232f928a08ec6809a4048ea78b1b7be39be9fa6063a7b5d273ff88bb8875b06"
+  }
+}

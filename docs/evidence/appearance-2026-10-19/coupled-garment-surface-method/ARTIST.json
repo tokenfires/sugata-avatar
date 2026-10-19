@@ -1,0 +1,369 @@
+{
+  "schema": "coupled-source-sweater-inert-artist-v1",
+  "status": "UNRUN authored numeric intent; no physical fit/cloth/native/runtime/AAA claim",
+  "frame": {
+    "unit": "metres",
+    "axes": "+Yup/+Zfront/+Xsourceleft",
+    "sourcePose": "frozen original zero-morph worldPositions; unchanged"
+  },
+  "torso": {
+    "X": [
+      -0.27,
+      -0.22,
+      -0.13,
+      0,
+      0.13,
+      0.22,
+      0.27
+    ],
+    "Y": [
+      0.9,
+      1,
+      1.1,
+      1.24,
+      1.33,
+      1.42,
+      1.45
+    ],
+    "Z": [
+      -0.2,
+      -0.14,
+      -0.07,
+      0.04,
+      0.15,
+      0.23,
+      0.27
+    ],
+    "topologyGridCells": 6,
+    "target": "fourth-power rounded cuboid, METHOD section3"
+  },
+  "removedCells": {
+    "hem": "all -Y faces",
+    "neck": {
+      "face": "+Y",
+      "i": [
+        2,
+        3
+      ],
+      "k": [
+        2,
+        3
+      ]
+    },
+    "cuff_l": {
+      "face": "+X",
+      "j": [
+        3,
+        4
+      ],
+      "k": [
+        2,
+        3
+      ]
+    },
+    "cuff_r": {
+      "face": "-X",
+      "j": [
+        3,
+        4
+      ],
+      "k": [
+        2,
+        3
+      ]
+    }
+  },
+  "outlets": {
+    "neck": {
+      "rootAxis": [
+        0,
+        1,
+        0
+      ],
+      "rings": [
+        {
+          "center": [
+            0,
+            1.448,
+            0.035
+          ],
+          "radiusU": 0.115,
+          "radiusV": 0.125
+        },
+        {
+          "center": [
+            0,
+            1.444,
+            0.035
+          ],
+          "radiusU": 0.105,
+          "radiusV": 0.115
+        },
+        {
+          "center": [
+            0,
+            1.44,
+            0.035
+          ],
+          "radiusU": 0.095,
+          "radiusV": 0.105
+        }
+      ],
+      "plane": {
+        "sourceOrigin": [
+          0,
+          1.425,
+          0
+        ],
+        "inwardNormal": [
+          0,
+          -1,
+          0
+        ],
+        "outwardShift": 0.015
+      }
+    },
+    "hem": {
+      "rootAxis": [
+        0,
+        -1,
+        0
+      ],
+      "rings": [
+        {
+          "center": [
+            0,
+            0.85,
+            0.035
+          ],
+          "radiusU": 0.215,
+          "radiusV": 0.25
+        },
+        {
+          "center": [
+            0,
+            0.805,
+            0.035
+          ],
+          "radiusU": 0.19,
+          "radiusV": 0.235
+        }
+      ],
+      "plane": {
+        "sourceOrigin": [
+          0,
+          0.82,
+          0
+        ],
+        "inwardNormal": [
+          0,
+          1,
+          0
+        ],
+        "outwardShift": 0.015
+      }
+    },
+    "cuff_l": {
+      "rootAxis": [
+        1,
+        0,
+        0
+      ],
+      "elbow": [
+        0.33116671565955846,
+        1.1395603167635304,
+        0.02005701065726504
+      ],
+      "plane": {
+        "sourceOrigin": [
+          0.44542589397128357,
+          1.0233330556297953,
+          0.17296551767825433
+        ],
+        "inwardNormal": [
+          -0.5112641203138838,
+          0.5200705037271678,
+          -0.6842044069082285
+        ],
+        "outwardShift": 0.015
+      },
+      "rings": [
+        {
+          "center": [
+            0.3,
+            1.27,
+            0.04
+          ],
+          "radiusU": 0.105,
+          "radiusV": 0.115
+        },
+        {
+          "center": "literal elbow",
+          "radiusU": 0.095,
+          "radiusV": 0.1
+        },
+        {
+          "center": "binary64 mean(elbow, final cuff center), coordinate order(elbow+cuff)/2",
+          "radiusU": 0.085,
+          "radiusV": 0.08
+        },
+        {
+          "center": "sourceOrigin - 0.015*inwardNormal, binary64 product then subtraction per coordinate",
+          "radiusU": 0.075,
+          "radiusV": 0.065
+        }
+      ]
+    },
+    "cuff_r": {
+      "rootAxis": [
+        -1,
+        0,
+        0
+      ],
+      "elbow": [
+        -0.33116671565955846,
+        1.1395603167635304,
+        0.02005701065726504
+      ],
+      "plane": {
+        "sourceOrigin": [
+          -0.44542589397128357,
+          1.0233330556297953,
+          0.17296551767825433
+        ],
+        "inwardNormal": [
+          0.5112641203138838,
+          0.5200705037271678,
+          -0.6842044069082285
+        ],
+        "outwardShift": 0.015
+      },
+      "rings": [
+        {
+          "center": [
+            -0.3,
+            1.27,
+            0.04
+          ],
+          "radiusU": 0.105,
+          "radiusV": 0.115
+        },
+        {
+          "center": "literal elbow",
+          "radiusU": 0.095,
+          "radiusV": 0.1
+        },
+        {
+          "center": "binary64 mean(elbow, final cuff center), coordinate order(elbow+cuff)/2",
+          "radiusU": 0.085,
+          "radiusV": 0.08
+        },
+        {
+          "center": "sourceOrigin - 0.015*inwardNormal, binary64 product then subtraction per coordinate",
+          "radiusU": 0.075,
+          "radiusV": 0.065
+        }
+      ]
+    }
+  },
+  "topology": {
+    "rootLoops": {
+      "neck": 8,
+      "hem": 24,
+      "cuff_l": 8,
+      "cuff_r": 8
+    },
+    "linearSubdivisions": 1,
+    "quadDiagonal": "0-2",
+    "predicted": {
+      "coarseV": 326,
+      "coarseQ": 304,
+      "coarseE": 632,
+      "finalV": 1262,
+      "finalQ": 1216,
+      "finalE": 2480,
+      "physicalTriangles": 2432,
+      "finalBoundaryEdges": 96,
+      "euler": -2
+    },
+    "status": "Predictions only; no construction has occurred"
+  },
+  "solver": {
+    "type": "static frozen-state Jacobi projections",
+    "stages": [
+      {
+        "sweeps": 8,
+        "targetGain": 0.005
+      },
+      {
+        "sweeps": 8,
+        "targetGain": 0.01
+      },
+      {
+        "sweeps": 8,
+        "targetGain": 0.02
+      }
+    ],
+    "edgeGain": 0.25,
+    "differentialGain": 0.1,
+    "contactGain": 0.9,
+    "relaxation": 0.5,
+    "maximumVertexStepMetres": 0.005,
+    "guideGapMetres": 0.015,
+    "hardFixed": "all four final boundary loops including midpoint vertices",
+    "inverseWeights": {
+      "free": 1,
+      "fixed": 0
+    }
+  },
+  "acceptance": {
+    "physicalGapMetres": 0.01,
+    "capOutwardShiftMetres": 0.015,
+    "sourceCapResidualMetres": 1e-12,
+    "minimumPhysicalAreaMetres2": 1e-18,
+    "insideRays": [
+      [
+        1,
+        "37/29",
+        "67/41"
+      ],
+      [
+        "67/41",
+        1,
+        "37/29"
+      ],
+      [
+        "37/29",
+        "67/41",
+        1
+      ]
+    ],
+    "required": "all frozen required fan triangles; entire bra",
+    "physicalClearance": "all entire original positive-area triangles plus required rounded-corner fan triangles; no exposed exception"
+  },
+  "bounds": {
+    "inputEachMiB": 128,
+    "inputCombinedMiB": 192,
+    "vertices": 2000,
+    "physicalTriangles": 4000,
+    "requiredCornerOccurrences": 200000,
+    "originalPoints": 50000,
+    "solverLeafTriangleTests": 20000000,
+    "acceptanceExactLeafPairTests": 20000000,
+    "rayLeafTriangleTests": 5000000,
+    "prospectiveWallSeconds": 600,
+    "terminationGraceSeconds": 2,
+    "prospectiveObservedPeakRSSMiB": 2048,
+    "expectedWorkingMemoryMiB": 1024,
+    "totalOutputMiB": 128,
+    "eachStreamMiB": 8
+  },
+  "limits": [
+    "no source/skin/morph edits or reclassification",
+    "no convergence/global-minimum/physical-cloth claim",
+    "no self-collision response; exact final embedding must pass",
+    "no code or execution admission",
+    "no original asset/default promotion",
+    "all full AAA roadmap goals retained"
+  ]
+}
