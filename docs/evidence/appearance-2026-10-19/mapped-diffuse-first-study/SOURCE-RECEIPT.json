@@ -1,0 +1,277 @@
+{
+  "schema": "static-source-preflight-v1",
+  "utc": "2026-10-19T11:10:24.562208+00:00",
+  "pid": 15225,
+  "verdict": "A_PREPARE_FRESH_ROOT_EXECUTION_GATE_ONLY",
+  "single_six_image_worth": "A_IF_FRESH_ROOT_GATE_PASSES",
+  "pending_edits": false,
+  "direct_contract_pin_count": 17,
+  "direct_contract_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/neutral-source-logged.blend",
+      "bytes": 11983694,
+      "sha256": "6ed771b71a99ac8a5cf9c717fef5364ac0a427763e601fecffa984bafd4f53eb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/COLD-RESULT.json",
+      "bytes": 635270,
+      "sha256": "381b890fba742144626dc49e0188fbb12c02631e5ff046c8317118762b0e85cd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+      "bytes": 6017,
+      "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-source/source/old_lightskinned_female_diffuse.png",
+      "bytes": 4716109,
+      "sha256": "00c45246c145562b917371e92de44a1fe394bc5f4bd91418addf24b6adff5e9d"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/MacOS/Blender",
+      "bytes": 182900560,
+      "sha256": "f5c1f2a0c0bca3389ec772d355242b700975ea84e66cbb3f5257a7bce8e5adeb"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Info.plist",
+      "bytes": 2889,
+      "sha256": "1387794301d134f2a330bd85ea5f3b243303c9bcfd022c98bdd7de47ac81794b"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "bytes": 34640,
+      "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+    },
+    {
+      "path": "/bin/ps",
+      "bytes": 268736,
+      "sha256": "a06fe087161557f1f8c030672eaedcd90bc6a8e92b8f2d44e07cffedc3349205"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/PROBE-SCOPE-CORRECTION.json",
+      "bytes": 5918,
+      "sha256": "75254327bff13c62a459cc4fc19c55daadc1552acb5f26a31e7ebad9e92a31c5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/CAPABILITY.json",
+      "bytes": 837,
+      "sha256": "0de2e1ac815b9497e5f06b389c8aa9945481532509a338820d81831ffce894b9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/PRIMARY-1.json",
+      "bytes": 680439,
+      "sha256": "faf136b5260da77726fcfdc5caf49b7ca9e285f72371c15be6045e5fc1ac15f0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/PRIMARY-2.json",
+      "bytes": 22127,
+      "sha256": "7eec72166f21d6c3836f77f78215af621ceabbcb02ddd6cfb149b8ebeec093e6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/PRIMARY-1.json",
+      "bytes": 44846,
+      "sha256": "da185fc921521596c7c561a5d2697f77e1d992d89c9608cd9a4ad1d8dbe041a3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/PRIMARY-2.json",
+      "bytes": 75171,
+      "sha256": "d755fbd17bd53903dd802d66d7d394a212fe48091356ec20c644fe397b5a92dc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/BODY-BINDING.json",
+      "bytes": 4672,
+      "sha256": "082ee6956d8c9234f656c7fa2123b78cc12ef9e6e2568749972a593bddda85fd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/launch_study.py",
+      "bytes": 13149,
+      "sha256": "abf66d2dfe90b4782854d27b2c64f3dee078402a3dec97e08c514248c8fddfb0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/render_study.py",
+      "bytes": 10889,
+      "sha256": "a1a49718987ce13395e7cb6f1ea332bbcd3fc30390ea429e231303f3ab623158"
+    }
+  ],
+  "additional_direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/PLAN.md",
+      "bytes": 4750,
+      "sha256": "6599f3fe97069356982a21e71c3c61a0abb3ca9cbf9730a12d6598f371bf48a1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/SOURCE-PREPARATION.json",
+      "bytes": 1951,
+      "sha256": "0a080b4888efb15c2872d907d96b6b1eaa4fa8f8a35445929d7d82c84428df59"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/CONTRACT.json",
+      "bytes": 11751,
+      "sha256": "14f97a25114db1950962a3d13df2efaf5be0ad20bf33f02defaa29b1c6bf09bf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/ROOT-WORTH.json",
+      "bytes": 1639,
+      "sha256": "2764be834306fece8cad475beb9b0f2d85138208ec6f5c42a4c4c8ec1282f074"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/WORTH.md",
+      "bytes": 2596,
+      "sha256": "047390b8267adc807c3080c8ed6b28688bce56e203ba8fc074f3f18805831496"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/WORTH-RECEIPT.json",
+      "bytes": 8100,
+      "sha256": "0d429c509a0664f795b5293884217142b1bc73993de4b1ce1651c84549aaa0ad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/launch_study.py",
+      "bytes": 13149,
+      "sha256": "abf66d2dfe90b4782854d27b2c64f3dee078402a3dec97e08c514248c8fddfb0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/render_study.py",
+      "bytes": 10889,
+      "sha256": "a1a49718987ce13395e7cb6f1ea332bbcd3fc30390ea429e231303f3ab623158"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/CONTRACT.json",
+      "bytes": 12870,
+      "sha256": "2c6fa6e34c50188ce7c06f5daca352f51839b63219c80940a0dd53a9d0351e11"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-first-views/head-front.png",
+      "bytes": 309803,
+      "sha256": "4e3ca8d0b3a8d336e4cfc93f72e083445e528dc86119b608636e9f5d082bf393"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-first-views/render_views.py",
+      "bytes": 6209,
+      "sha256": "5f282f96de8c5fc315999443291cd5938f3619caef7c206ab67c559ea066060d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-first-views/README.md",
+      "bytes": 5761,
+      "sha256": "ba4f9115902830a1d3a00482b6275a888b25a6bfddee0d854f0cd2b25c2b2db2"
+    }
+  ],
+  "unique_input_paths": 29,
+  "read_scopes": {
+    "whole_sources": [
+      "launch_study.py1\u2013291",
+      "render_study.py1\u2013194",
+      "scene_receipt.py1\u201381",
+      "historical render_views.py1\u2013128"
+    ],
+    "whole_contracts": [
+      "current CONTRACT.json1\u2013220",
+      "SOURCE-PREPARATION1\u201338",
+      "PLAN.md whole earlier in worth",
+      "ROOT-WORTH whole",
+      "old CONTRACT parsed for fixed semantic/destination comparison"
+    ],
+    "cold": "Whole saved JSON parsed; whole selected Human.body/material/old image equals BODY-BINDING. All7 object metadata compactly inspected. Human98key blocks; all six mesh lists sum242; individual auxiliary key semantics not a new motion audit. No native/blend data decode.",
+    "api_markdown": {
+      "Python_os": "4876\u20134917,4928\u20134944,5044\u20135068 of5597; WNOHANG None/ECHILD/macOS3.13 and WNOWAIT",
+      "POSIX_waitid": "whole1\u2013188",
+      "Blender_ShaderNodeTexImage": "35\u2013155 of198; image/interpolation/projection/texture_mapping",
+      "Blender_Image": "89\u2013105,217\u2013241,401\u2013428 of557; colorspace/packed_file/packed_files/pack raw bytes and mandatory length"
+    },
+    "frame_image": {
+      "tool": "view_image",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-first-views/head-front.png",
+      "detail": "original",
+      "scope": "Whole768x768 prior actual image; no crop/edit/render. Large upper gap/complete crown-face-ears observed. New frame unqualified."
+    },
+    "historic_provenance": "Exact current correction/capability pins verified; prior whole-read in directly bound worth work reused. No stdlib/API/probe operation or claim old preparation complied."
+  },
+  "jobs": [
+    {
+      "chunk_id": "85555d",
+      "exit_code": 0,
+      "pid": 7725,
+      "utc": "2026-10-19T11:04:23.193464+00:00",
+      "scope": "Whole source preparation/contract/renderer printed; combined tool presentation truncated middle launcher; recovered separately.",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\nr=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study')\nprint('READ',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['SOURCE-PREPARATION.json','CONTRACT.json','launch_study.py','render_study.py']:\n p=r/name;b=p.read_bytes();print(json.dumps({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}))\n for n,s in enumerate(b.decode().splitlines(),1):print(f'{n}: {s}')\nPY"
+    },
+    {
+      "chunk_id": "1a75c8",
+      "exit_code": 0,
+      "pid": 8023,
+      "utc": "2026-10-19T11:04:38.501105+00:00",
+      "scope": "Recovered full launcher1\u2013291, no truncation.",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/launch_study.py')\nprint('WHOLE_LAUNCHER',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n,s in enumerate(p.read_text().splitlines(),1):print(f'{n}: {s}')\nPY"
+    },
+    {
+      "chunk_id": "45a0b7",
+      "exit_code": 0,
+      "pid": 8240,
+      "utc": "2026-10-19T11:04:45.889852+00:00",
+      "scope": "Whole scene_receipt1\u201381 and BODY-BINDING1\u2013192; cold JSON schema parsed.",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\nr=Path('/Users/robault/GitHub/sugata-avatar')\nprint('READ',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor rel in ['docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py','docs/evidence/appearance-2026-10-19/mara-diffuse-native/BODY-BINDING.json']:\n p=r/rel;b=p.read_bytes();print(json.dumps({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}))\n for n,s in enumerate(b.decode().splitlines(),1):print(f'{n}: {s}')\np=r/'docs/evidence/appearance-2026-10-07/ari-neutral-native-source/COLD-RESULT.json';x=json.loads(p.read_bytes());print('COLD_SCHEMA',[(k,type(v).__name__) for k,v in x.items()]);print('SCENE_SCHEMA',[(k,type(v).__name__,len(v) if hasattr(v,'__len__') else None) for k,v in x['scene'].items()])\nPY"
+    },
+    {
+      "chunk_id": "c498c0",
+      "exit_code": 0,
+      "pid": 8626,
+      "utc": "2026-10-19T11:05:06.688931+00:00",
+      "scope": "All17 direct pins; exact copies; saved primary metadata/source URLs.",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,os,datetime,hashlib\nr=Path('/Users/robault/GitHub/sugata-avatar')\nprint('METADATA',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor rel in ['docs/evidence/appearance-2026-10-19/mara-native-retirement/PRIMARY-1.json','docs/evidence/appearance-2026-10-19/mara-native-retirement/PRIMARY-2.json','docs/evidence/appearance-2026-10-19/mara-diffuse-native/PRIMARY-1.json','docs/evidence/appearance-2026-10-19/mara-diffuse-native/PRIMARY-2.json']:\n p=r/rel;x=json.loads(p.read_bytes());print('PAGE',rel)\n def walk(v,path=''):\n  if isinstance(v,dict):\n   for k,w in v.items():\n    q=path+'.'+k\n    if k in ['markdown','url','sourceURL','title','statusCode','isError'] and not isinstance(w,(dict,list)):\n     print(q, ('chars='+str(len(w))+' prefix='+repr(w[:180])) if k=='markdown' else repr(w))\n    if isinstance(w,(dict,list)):walk(w,q)\n  elif isinstance(v,list):\n   for i,w in enumerate(v):\n    if isinstance(w,(dict,list)):walk(w,path+f'[{i}]')\n walk(x)\ncontract=json.loads((r/'docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/CONTRACT.json').read_bytes())\nrows=[]\nfor row in contract['pins']:\n p=Path(row['path']);b=p.read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256'];rows.append(row)\nprint('ALL_DIRECT_PINS_EXACT',len(rows))\nfor current,old in [('launch_study.py','launch_study.py'),('render_study.py','render_study.py')]:\n assert (r/'docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study'/current).read_bytes()==(r/'docs/evidence/appearance-2026-10-19/mara-native-retirement'/old).read_bytes()\nprint('BOTH_COPIES_EXACT')\nPY"
+    },
+    {
+      "chunk_id": "1e4b9b",
+      "exit_code": 0,
+      "pid": 9799,
+      "utc": "2026-10-19T11:06:00.541710+00:00",
+      "scope": "Selected saved Python os, full POSIX and selected Blender Image API. Initial shader selector returned no lines; recovered35\u2013155 later.",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,os,datetime\nr=Path('/Users/robault/GitHub/sugata-avatar')\nprint('SAVED_PRIMARY_SCOPES',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nspecs=[('docs/evidence/appearance-2026-10-19/mara-native-retirement/PRIMARY-1.json',['os.waitid(', 'os.WNOWAIT','os.WNOHANG']),('docs/evidence/appearance-2026-10-19/mara-native-retirement/PRIMARY-2.json',None),('docs/evidence/appearance-2026-10-19/mara-diffuse-native/PRIMARY-1.json',['image:','image#','extension#','interpolation#','projection#']),('docs/evidence/appearance-2026-10-19/mara-diffuse-native/PRIMARY-2.json',['pack(','colorspace_settings','packed_file','packed_files'])]\nfor rel,terms in specs:\n lines=json.loads((r/rel).read_bytes())['structuredContent']['markdown'].splitlines()\n chosen=set(range(len(lines))) if terms is None else set()\n if terms:\n  for i,s in enumerate(lines):\n   if any(t in s for t in terms):chosen.update(range(max(0,i-2),min(len(lines),i+15)))\n print('FILE',rel,'total_lines',len(lines),'read_lines',','.join(str(i+1) for i in sorted(chosen)))\n for i in sorted(chosen):print(f'{i+1}: {lines[i]}')\nPY"
+    },
+    {
+      "chunk_id": "5a7d8d",
+      "exit_code": 0,
+      "pid": 10864,
+      "utc": "2026-10-19T11:06:55.064203+00:00",
+      "scope": "Whole saved cold JSON parsed; exact body/material/image comparison succeeded. Oversized per-key print truncated; concise all-object summary recovered next. Shader API35\u2013155 and README frame locator supplied.",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,os,datetime\nr=Path('/Users/robault/GitHub/sugata-avatar');print('SAVED_ASSOCIATIONS',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nc=json.loads((r/'docs/evidence/appearance-2026-10-07/ari-neutral-native-source/COLD-RESULT.json').read_bytes());s=c['scene'];bb=json.loads((r/'docs/evidence/appearance-2026-10-19/mara-diffuse-native/BODY-BINDING.json').read_bytes())\nprint('COLD_TOP', {k:v for k,v in c.items() if k!='scene'})\nfor o in s['objects']:\n x={k:v for k,v in o.items() if k not in ['mesh','rig']}\n if 'mesh' in o:\n  m=o['mesh'];x['mesh']={k:v for k,v in m.items() if k not in ['polygon_smoothing','shape_keys','vertex_group_names']};x['smoothing_count']=len(m['polygon_smoothing']);x['smoothing_values']=sorted(set(m['polygon_smoothing']));x['vertex_group_names']=m['vertex_group_names'];x['shape_keys']=[{'name':a['name'],'vertices':a['vertices'],'value':a['value'],'relative_key':a['relative_key'],'coordinates_sha256':a['coordinates_sha256']} for a in m['shape_keys']]\n if 'rig' in o:\n  q=o['rig'];x['rig']={'pose_position':q['pose_position'],'bone_count':len(q['bones']),'names':[a['name'] for a in q['bones']],'all_basis_identity':all(a['pose_matrix_basis']==[[1.,0.,0.,0.],[0.,1.,0.,0.],[0.,0.,1.,0.],[0.,0.,0.,1.]] for a in q['bones']),'head':next(a for a in q['bones'] if a['name']=='head')}\n print(json.dumps(x,separators=(',',':')))\nbody=next(o for o in s['objects'] if o['name']=='Human');mat=next(m for m in s['materials'] if m['name']=='Human.body');im=next(i for i in s['images'] if i['name']=='young_lightskinned_female_diffuse.png')\nassert {k:body[k] for k in bb['body']}==bb['body'];assert body['mesh']['uvs']==bb['body_uvs'];assert mat==bb['material'];assert im==bb['original_image']\nprint('BODY_BINDING_MATCHES_COLD_EXACT');print('MATERIALS',[(m['name'],m['users'],len(m['nodes']),len(m['links'])) for m in s['materials']]);print('ALL_IMAGES',json.dumps(s['images']));print('ALL_SHAPE_KEY_COUNT',sum(len(o.get('mesh',{}).get('shape_keys',[])) for o in s['objects']))\nlines=json.loads((r/'docs/evidence/appearance-2026-10-19/mara-diffuse-native/PRIMARY-1.json').read_bytes())['structuredContent']['markdown'].splitlines()\nprint('SHADER_NODE_SAVED_API_LINES_35_155')\nfor i in range(34,min(155,len(lines))):print(f'{i+1}: {lines[i]}')\np=r/'docs/evidence/appearance-2026-10-07/ari-neutral-native-source/README.md'\nprint('FRAME_LOCATORS')\nfor n,line in enumerate(p.read_text().splitlines(),1):\n if 'front' in line.lower() or 'camera' in line.lower() or 'frame' in line.lower():print(n,line)\nPY"
+    },
+    {
+      "chunk_id": "ed31ed",
+      "exit_code": 0,
+      "pid": 12113,
+      "utc": "2026-10-19T11:07:58.302689+00:00",
+      "scope": "Whole128-line donor/31-line README read; framing pins; compact all7owner metadata and key counts.",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\nr=Path('/Users/robault/GitHub/sugata-avatar');print('FRAME_AND_COMPACT_COLD',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor rel in ['docs/evidence/appearance-2026-10-07/ari-neutral-first-views/head-front.png','docs/evidence/appearance-2026-10-07/ari-neutral-first-views/render_views.py','docs/evidence/appearance-2026-10-07/ari-neutral-first-views/README.md']:\n p=r/rel;b=p.read_bytes();print(json.dumps({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}))\n if p.suffix!='.png':\n  for n,s in enumerate(b.decode().splitlines(),1):print(f'{n}: {s}')\nc=json.loads((r/'docs/evidence/appearance-2026-10-07/ari-neutral-native-source/COLD-RESULT.json').read_bytes());s=c['scene']\nfor o in s['objects']:\n m=o.get('mesh');q=o.get('rig');print('OWNER',o['name'],o['type'],o['parent'],o['materials'],'mesh',(m['vertices'],len(m['uvs']),len(m['shape_keys']),[(k['name'],k['value']) for k in m['shape_keys'] if k['value']!=0]) if m else None,'rig',(q['pose_position'],len(q['bones'])) if q else None)\n if q:print('HEAD_BONE',next(a for a in q['bones'] if a['name']=='head'))\nprint('BODY_KEYS',len(next(o for o in s['objects'] if o['name']=='Human')['mesh']['shape_keys']));print('ALL_MESH_KEY_BLOCKS',sum(len(o.get('mesh',{}).get('shape_keys',[])) for o in s['objects']));print('SCENE',s['scene_names'])\nPY"
+    },
+    {
+      "chunk_id": "52c4f2",
+      "exit_code": 0,
+      "pid": 13211,
+      "utc": "2026-10-19T11:08:48.710715+00:00",
+      "scope": "Fixed semantic comparison/new destinations;17pins reverified; whole root worth and16 output/admission absences.",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\nr=Path('/Users/robault/GitHub/sugata-avatar');leaf=r/'docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study'\nprint('FINAL_STATIC_CHECK',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nc=json.loads((leaf/'CONTRACT.json').read_bytes());old=json.loads((r/'docs/evidence/appearance-2026-10-19/mara-native-retirement/CONTRACT.json').read_bytes())\nfor key in ['source','source_sha256','cold','helper','diffuse','diffuse_sha256','views','lights','render','render_basis','allowed_delta']:\n assert c[key]==old[key],key\nassert c['argv'][:-1]==old['argv'][:-1] and c['argv'][-1]==str(leaf/'render_study.py')\nassert c['launcher_argv'][:3]==old['launcher_argv'][:3] and c['launcher_argv'][3]==str(leaf/'launch_study.py')\nprint('FIXED_SEMANTICS_AND_DESTINATIONS_MATCH')\nfor key in sorted(set(c)|set(old)):\n if c.get(key)!=old.get(key):\n  print('CONTRACT_CHANGED_KEY',key)\n  if key=='workload':\n   for sub in sorted(set(c[key])|set(old[key])):\n    if c[key].get(sub)!=old[key].get(sub):print(sub,'OLD=',old[key].get(sub),'NEW=',c[key].get(sub))\nrows=c['pins']\nfor row in rows:\n b=Path(row['path']).read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256']\nprint('PIN_COUNT',len(rows))\nfor name in ['ROOT-WORTH.json','PLAN.md','SOURCE-PREPARATION.json','CONTRACT.json','WORTH.md','WORTH-RECEIPT.json']:\n p=leaf/name;b=p.read_bytes();print('EXTRA',json.dumps({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}))\n if name=='ROOT-WORTH.json':print(b.decode())\nabsent=['ROOT-ADMISSION.json','CLAIM.json','STARTED.json','JOB.json','NATIVE.log','RESULT.json','FAILURE.json','BEFORE.json','AFTER.json','candidate.blend']+[v+'-'+w+'.png' for v in ['control','candidate'] for w in ['front','oblique','profile']]\nprint('ABSENCE',json.dumps({name:not (leaf/name).exists() for name in absent}));assert all(not (leaf/name).exists() for name in absent)\nPY"
+    }
+  ],
+  "source_findings": "No actionable unresolved duty demonstrated; captured-state scope/sample and error limits are explicit. No actual runtime/collection/image success claimed.",
+  "root_gate_conditions": [
+    "Reverify all current input/executable/interpreter/argv/destination identities and include three framing witnesses.",
+    "Fresh root admission/output and owned-process absence before sole launch;16 checked paths currently absent, no machine-wide census claimed here.",
+    "Read actual tool/log/job and independently verify collection/exit/ownership/source and complete actual inventory/types/modes/hashes, final aggregate<=128MiB before any image view.",
+    "Any source/error/unknown/resource or unclear first-image outcome closes without repair/retry/retake; saved source remains cold-unqualified."
+  ],
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/SOURCE-REVIEW.md",
+    "bytes": 3258,
+    "sha256": "e4158e4b7d7e801525becd4a05558c2e33f163dca18947bf1a72a9da5298ccbf"
+  },
+  "retained_reader_errors": [
+    "Initial combined source presentation truncated launcher middle; complete291-line standalone reread recovered it.",
+    "First ShaderNodeTexImage term selector matched no lines; explicit saved35\u2013155 read recovered relevant fields.",
+    "Large cold per-key dump truncated; exact whole-file parsed comparisons and compact all-owner/key summary recovered needed scope. No missing field passage is claimed visually read."
+  ],
+  "prohibited_work_not_done": [
+    "No target/helper imports/evaluation, bpy/native/model/geometry payload decode, child/waitid/signal test, browser/GPU/render/save/capture or network/refetch.",
+    "No source/input/product edit or copy, capability reprobe/repair/fallback/harness.",
+    "No recursive prior manifest expansion or new OS/capability census."
+  ],
+  "stop_utc": "2026-10-19T11:32:45.579466+00:00"
+}

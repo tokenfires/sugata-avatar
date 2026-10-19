@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-19T11:15:53Z",
+  "commands": [
+    {"command": "ps -p 17862,17863 -o pid=,ppid=,pgid=,state=,etime=,comm=", "chunk_id": "7c3315", "exit_code": 1, "output": "", "scope": "Neither numeric PID appears in this current read-only snapshot."},
+    {"command": "ps -axo pid=,pgid=,state=,comm= | awk '$2 == 17863 { print }'", "chunk_id": "eece9c", "exit_code": 0, "output": "", "scope": "No row has this numeric PGID in this current snapshot."}
+  ],
+  "limits": "Both numeric identities were already reaped. No historical group-retirement success, ownership of a reused identity or arbitrary escaped descendant absence is inferred. No signal or process mutation occurred. Original supervisor B/unknown is retained.",
+  "owned_state": "Toolsession20691 completed exit1; all67 returned child handles recorded collected exit0. No owned live native/capture job is recorded. Unqualified outputs retained; no new image viewed."
+}

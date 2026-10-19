@@ -1,0 +1,35 @@
+{
+  "utc": "2026-10-19T11:05:07.998177+00:00",
+  "pid": 8669,
+  "state": "ROOT_STATIC_REASONING_NOT_EXECUTION",
+  "verified_contract_inputs": 17,
+  "exact_copy": true,
+  "contract_argv_rebased_correctly": true,
+  "recorded_scene": {
+    "object_counts": {
+      "mesh": 6,
+      "armature": 1
+    },
+    "body_vertices": 19158,
+    "body_uv": [
+      {
+        "name": "UVMap",
+        "sha256": "9422e331f097fe3604df9711b4e8df55c845af3fe9de9bd5ffe6b1019bb3bd9f"
+      }
+    ],
+    "body_shape_keys": 98,
+    "rig_bones": 53,
+    "material_binding_equal": true,
+    "original_image_equal": true
+  },
+  "root_semantic_reasoning": [
+    "Full485line program read1a861c plus full helpera73163. Exact source copies verified, AST only; no imports/evaluation.",
+    "Renderer first requires exact complete recorded cold signature and active original UV/directbodycolour/alpha binding. New camera/lights/world/render settings shared; three paired stage records compare exact perview matrices and properties. Only bodyDiffuseTexture.image and new exactpackedimage permitted by captured-owner comparison. Full saved-state signature is recorded fields, not every Blender property.",
+    "Native/directnumericps children held strongly in CHILDREN and reserved via exactP_PID WEXITED|WNOHANG|WNOWAIT before group signals; PGID checked, no poll/wait/communicate before retirement. Nonblocking reap ends all signals. Finite native/helper retirement observations and separate cleanup/log/inventory/JOB/stdout exception guards; unknown/failure withholds qualification. No hard peak/totalI/O/descendantescape/infallibleevidence guarantee.",
+    "Presence guards in unchanged launchermain are part of the single admitted entry, not a separate capability experiment or historical metadata probe replay. Neither programme calls platform. Root does not repeat the old generic metadata command. Historical uname/file helper uncertainty remains exact.",
+    "Saved API confirms Image.pack takes exact bytes+mandatory data_len. Python3.14 docs return None for WNOHANG/no status; WNOWAIT keeps child waitable per saved POSIX. Docs/presence are not Darwin execution proof. Actual childstatus/exit/output inventory owed.",
+    "The head target/frame/light/resolution are fixed before first image. Real framing/mappedplacement/readability remain unqualified until images; no renderer/parameter rescue. Candidate save is separate and not cold-persistence-qualified."
+  ],
+  "source_gate_stop_utc": "2026-10-19T11:32:45.579466+00:00",
+  "limits": "No native/model/geometry/helper/API execution or new source/reference. Fullroadmap/22scoped/10broad/closures/HOLD retained."
+}

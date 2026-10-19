@@ -1,0 +1,405 @@
+{
+  "schema": "actual-refused-native-review-v1",
+  "utc": "2026-10-19T11:19:54.925783+00:00",
+  "pid": 26846,
+  "verdict": "B_CLOSED_RETIREMENT_UNKNOWN_RETAIN_UNQUALIFIED_DATA",
+  "pending_edits": false,
+  "direct_actual_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/PLAN.md",
+      "bytes": 4750,
+      "sha256": "6599f3fe97069356982a21e71c3c61a0abb3ca9cbf9730a12d6598f371bf48a1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/CONTRACT.json",
+      "bytes": 11751,
+      "sha256": "14f97a25114db1950962a3d13df2efaf5be0ad20bf33f02defaa29b1c6bf09bf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/ROOT-ADMISSION.json",
+      "bytes": 10017,
+      "sha256": "9ac5d89b6616b19ecc2bb9d591ecce8f07d8da30bf3b1f2081d29ca76eadf45e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/PROCESS-PREFLIGHT.json",
+      "bytes": 2468,
+      "sha256": "accb8e2e2613c64ad71bbebfcd4d1a7d3452ced40b4a8e7da5db6956354ce8c8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/SOURCE-REVIEW.md",
+      "bytes": 3258,
+      "sha256": "e4158e4b7d7e801525becd4a05558c2e33f163dca18947bf1a72a9da5298ccbf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/SOURCE-RECEIPT.json",
+      "bytes": 23954,
+      "sha256": "9e88ae8875edf551d65849cfca247ccc07a2d398db70a24b7dc4a13617fb748e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/JOB.json",
+      "bytes": 16806,
+      "sha256": "872014a502ed844f76a9b5b82af4262074d174c44b0a81fc3633d71f86d0e90e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/NATIVE.log",
+      "bytes": 14681,
+      "sha256": "7ed1838a8a50f74ac7e898b2187849c502256ff24a34450965e58bd69326596e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/RESULT.json",
+      "bytes": 28241,
+      "sha256": "d2104ffad9b868623d9ca02e9105b0b9aebb08dd1e2dfbda5876e6120f7401a9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/POST-JOB.json",
+      "bytes": 11112,
+      "sha256": "a5053ac924bb7ef5250886c98c8515fc1d6aad3acfea10963554f0aff20cc5da"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/TOOL-FIRST.json",
+      "bytes": 624,
+      "sha256": "399fa3b5caff2d83ff406e3bd7777755ab20c072f767e6fcbd7e43d1f2c01d61"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/TOOL-FINAL.json",
+      "bytes": 829,
+      "sha256": "729a90df081f7b38287dc1cc93c6abac36b275ea14ef2a5cf3e7551d1d88da43"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/CLAIM.json",
+      "bytes": 162,
+      "sha256": "e27d7bad98a02d90b9a90513bbc5eabfc281561320438901e2dcffc2c345993d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/STARTED.json",
+      "bytes": 588,
+      "sha256": "09d30affa4ef1d6741bd6e395923515bfdde16e77a1b39f0757db29946e37d2b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/CURRENT-ABSENCE.json",
+      "bytes": 936,
+      "sha256": "429ba79926828da8c789c628bddcd1c50c6fae54637a90fb52719114272eb793"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/BEFORE.json",
+      "bytes": 573202,
+      "sha256": "4ff4c493a41c8bb132d33f1afef89c6a17f0ee97f0805715a139b8cedb901343"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/AFTER.json",
+      "bytes": 573618,
+      "sha256": "851553faa1871e8de087106e6694f9985864ed7d6468cff74d91883516b11853"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/launch_study.py",
+      "bytes": 13149,
+      "sha256": "abf66d2dfe90b4782854d27b2c64f3dee078402a3dec97e08c514248c8fddfb0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/render_study.py",
+      "bytes": 10889,
+      "sha256": "a1a49718987ce13395e7cb6f1ea332bbcd3fc30390ea429e231303f3ab623158"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/candidate.blend",
+      "bytes": 16699290,
+      "sha256": "7bb1d69df90eb6f6d8c22771b46d4eaa406ceef5d4ff7792018c49e766a2898e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/control-front.png",
+      "bytes": 820208,
+      "sha256": "7e7cdf1c58a39593b43000577be62a944caf851be9dfbe930c726e79598a4b32"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/control-oblique.png",
+      "bytes": 868947,
+      "sha256": "e034e1deb05fef769789869bc4de898c53778e72fe45cd3a3eb2edd3eddaaa01"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/control-profile.png",
+      "bytes": 921338,
+      "sha256": "17fa2cf1b56628041aa7a68c9f255789df37c2c5367a8d67f68a373900f07144"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/candidate-front.png",
+      "bytes": 834559,
+      "sha256": "3f64e054cdaf51e49da68dab81f226420052d9d848d9592c51add65267151ad6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/candidate-oblique.png",
+      "bytes": 889198,
+      "sha256": "b5198d8c0c4eb48cfc0c9e4d6bed5e6e3b7eda1a7373d708d4a9197efb80d4d6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/candidate-profile.png",
+      "bytes": 960391,
+      "sha256": "c99dc051f498aebeb70965c3693401dc9ef38cff227a5dddfb3cf3a890cfe491"
+    }
+  ],
+  "admission_binding": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/ROOT-ADMISSION.json",
+    "bytes": 10017,
+    "sha256": "9ac5d89b6616b19ecc2bb9d591ecce8f07d8da30bf3b1f2081d29ca76eadf45e",
+    "all_declared_rows_independently_verified": 34,
+    "expansion": "Exact34-row manifest already pinned/read; not recursively duplicated."
+  },
+  "actual_job": {
+    "tool_start": "387372/session20691 running yield",
+    "tool_final": "9a0c1a/exit1/session20691 collected summary",
+    "wrapper_pid": 17862,
+    "native_pid": 17863,
+    "native_exit": 0,
+    "wrapper_exit": 1,
+    "source": "Exact TOOL-FIRST command/claim/admission andJOB argv verified. Final recorded summary agrees with JOB; no separate final raw stdout/stderr byte object claimed."
+  },
+  "audit": {
+    "pid": 24866,
+    "utc": "2026-10-19T11:18:28.530686+00:00",
+    "admission_pins_verified": 34,
+    "job_baseline_rows_verified": 14,
+    "job_pre_JOB_inventory_rows_verified": 27,
+    "post_historical_inventory_rows_verified": 30,
+    "post_historical_total": 23300897,
+    "current_file_count": 32,
+    "current_total": 23312945,
+    "handles": {
+      "all": 67,
+      "native": 1,
+      "numeric_ps": 66,
+      "all_collected_exit0": true
+    },
+    "errors": [
+      {
+        "utc": "2026-10-19T11:12:50.818508+00:00",
+        "operation": "native retirement observation",
+        "type": "ProcessLookupError",
+        "error": "[Errno 3] No such process"
+      },
+      {
+        "utc": "2026-10-19T11:12:50.818611+00:00",
+        "operation": "signal group/process unavailable; no inferred ownership",
+        "type": "ProcessLookupError",
+        "error": "[Errno 3] No such process"
+      }
+    ],
+    "native_exit": 0,
+    "wrapper_exit": 1,
+    "group_retirement": "unknown; reserved signals attempted only if positive waitid/PGID identity",
+    "supervisor_elapsed_seconds": 15.362680375001219,
+    "rss_sample_max_bytes": 794378240,
+    "before_equal_cold": true,
+    "only_declared_after_delta": true,
+    "paired_stages_match": [
+      "front",
+      "oblique",
+      "profile"
+    ],
+    "png_headers_CRC_only": [
+      {
+        "name": "control-front.png",
+        "bytes": 820208,
+        "sha256": "7e7cdf1c58a39593b43000577be62a944caf851be9dfbe930c726e79598a4b32",
+        "ihdr": [
+          1024,
+          1024,
+          8,
+          6,
+          0,
+          0,
+          0
+        ],
+        "chunks": 119,
+        "crc_ok": true
+      },
+      {
+        "name": "control-oblique.png",
+        "bytes": 868947,
+        "sha256": "e034e1deb05fef769789869bc4de898c53778e72fe45cd3a3eb2edd3eddaaa01",
+        "ihdr": [
+          1024,
+          1024,
+          8,
+          6,
+          0,
+          0,
+          0
+        ],
+        "chunks": 125,
+        "crc_ok": true
+      },
+      {
+        "name": "control-profile.png",
+        "bytes": 921338,
+        "sha256": "17fa2cf1b56628041aa7a68c9f255789df37c2c5367a8d67f68a373900f07144",
+        "ihdr": [
+          1024,
+          1024,
+          8,
+          6,
+          0,
+          0,
+          0
+        ],
+        "chunks": 132,
+        "crc_ok": true
+      },
+      {
+        "name": "candidate-front.png",
+        "bytes": 834559,
+        "sha256": "3f64e054cdaf51e49da68dab81f226420052d9d848d9592c51add65267151ad6",
+        "ihdr": [
+          1024,
+          1024,
+          8,
+          6,
+          0,
+          0,
+          0
+        ],
+        "chunks": 121,
+        "crc_ok": true
+      },
+      {
+        "name": "candidate-oblique.png",
+        "bytes": 889198,
+        "sha256": "b5198d8c0c4eb48cfc0c9e4d6bed5e6e3b7eda1a7373d708d4a9197efb80d4d6",
+        "ihdr": [
+          1024,
+          1024,
+          8,
+          6,
+          0,
+          0,
+          0
+        ],
+        "chunks": 128,
+        "crc_ok": true
+      },
+      {
+        "name": "candidate-profile.png",
+        "bytes": 960391,
+        "sha256": "c99dc051f498aebeb70965c3693401dc9ef38cff227a5dddfb3cf3a890cfe491",
+        "ihdr": [
+          1024,
+          1024,
+          8,
+          6,
+          0,
+          0,
+          0
+        ],
+        "chunks": 136,
+        "crc_ok": true
+      }
+    ],
+    "png_total_bytes": 5294641,
+    "new_images_decoded_or_viewed": false,
+    "log_saved_RESULT_equal": true,
+    "log_warning": "One World.use_nodes Blender6.0 deprecation warning, merged log; no channel-specific stderr claim.",
+    "retained_saved_candidate": "Hash only; no cold readback or native invocation.",
+    "source_immutability": "34admissionpins exact; native/collector not imported or rerun."
+  },
+  "jobs": [
+    {
+      "chunk_id": "f63e26",
+      "exit_code": 0,
+      "pid": 23009,
+      "utc": "2026-10-19T11:16:09.416998+00:00",
+      "scope": "Actual leaf filenames/sizes only",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study')\nprint('INVENTORY',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor p in sorted(leaf.iterdir()):\n if p.is_file():print(p.name,p.stat().st_size)\nPY"
+    },
+    {
+      "chunk_id": "c21363",
+      "exit_code": 0,
+      "pid": 23350,
+      "utc": "2026-10-19T11:16:25.380413+00:00",
+      "scope": "Whole JOB.json read and pin",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study')\nprint('JOB_READ',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\np=leaf/'JOB.json';b=p.read_bytes();print(json.dumps({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}))\nprint(b.decode())\nPY"
+    },
+    {
+      "chunk_id": "0dd5a4",
+      "exit_code": 0,
+      "pid": 23833,
+      "utc": "2026-10-19T11:16:45.605086+00:00",
+      "scope": "Whole tool-first/final,claim,started,POST and current-absence records read",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study')\nprint('ACTUAL_RECORDS',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['TOOL-FIRST.json','TOOL-FINAL.json','CLAIM.json','STARTED.json','POST-JOB.json','CURRENT-ABSENCE.json']:\n p=leaf/name;b=p.read_bytes();print(json.dumps({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}));print(b.decode())\nPY"
+    },
+    {
+      "chunk_id": "42ae27",
+      "exit_code": 0,
+      "pid": 24144,
+      "utc": "2026-10-19T11:17:00.316918+00:00",
+      "scope": "Whole merged native log including full embedded RESULT read",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/NATIVE.log');b=p.read_bytes()\nprint('LOG_READ',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat());print(json.dumps({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}));print(b.decode())\nPY"
+    },
+    {
+      "chunk_id": "23159a",
+      "exit_code": 0,
+      "pid": 24414,
+      "utc": "2026-10-19T11:17:12.793759+00:00",
+      "scope": "Whole admission/process-preflight read",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study')\nprint('ADMISSION_READ',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['ROOT-ADMISSION.json','PROCESS-PREFLIGHT.json']:\n p=leaf/name;b=p.read_bytes();print(json.dumps({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}));print(b.decode())\nPY"
+    },
+    {
+      "chunk_id": "2763cc",
+      "exit_code": 0,
+      "pid": 24866,
+      "utc": "2026-10-19T11:18:28.530686+00:00",
+      "scope": "Independent saved-data/hash/owner/stage/header/CRC audit only; no decoder,import,native or process operation",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,stat,struct,zlib,copy,datetime,os,shlex\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study')\ndef read(name):return json.loads((leaf/name).read_bytes())\ndef check(row,base=None):\n p=Path(row['path']);p=p if p.is_absolute() else base/p\n s=p.lstat();b=p.read_bytes();assert stat.S_ISREG(s.st_mode) and len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256']\n if 'mode' in row:assert oct(stat.S_IMODE(s.st_mode))==row['mode']\n return len(b)\nadm=read('ROOT-ADMISSION.json');contract=read('CONTRACT.json');job=read('JOB.json');result=read('RESULT.json');post=read('POST-JOB.json');claim=read('CLAIM.json');started=read('STARTED.json');first=read('TOOL-FIRST.json');final=read('TOOL-FINAL.json');before=read('BEFORE.json');after=read('AFTER.json');absence=read('CURRENT-ABSENCE.json')\nfor row in adm['pins']:check(row)\nassert len(adm['pins'])==34 and len({r['path'] for r in adm['pins']})==34\nfor key in ['baseline','actual_outputs']:\n for row in job[key]:check(row,leaf)\nfor row in post['actual_leaf_inventory_before_this_report']:check(row,leaf)\nassert sum(r['bytes'] for r in post['actual_leaf_inventory_before_this_report'])==post['actual_leaf_total_before_this_report']\nadmhash=hashlib.sha256((leaf/'ROOT-ADMISSION.json').read_bytes()).hexdigest();assert claim['admission_sha256']==admhash\nassert shlex.split(first['command'])==adm['launcher_prefix']+[admhash]\nassert started['argv']==adm['argv']==contract['argv']==job['argv']\nassert first['result']['session_id']==final['session_id_collected']==20691 and final['exit_code']==1\nassert job['wrapper_pid']==claim['wrapper_pid']==started['wrapper_pid']==17862\nassert job['native_pid']==started['native_pid']==started['pgid']==17863\nfirstline=json.loads(first['result']['output']);assert firstline['wrapper_pid']==17862 and firstline['native_pid']==17863\nassert len(job['children'])==67 and len({c['pid'] for c in job['children']})==67\nassert sum(c['role']=='native' for c in job['children'])==1 and sum(c['role']=='numeric_ps' for c in job['children'])==66\nassert all(c['collected'] is True and c['returncode']==0 for c in job['children'])\nassert job['exit_code']==0 and job['native_collected'] is True and job['supervisor_pass'] is False and job['trigger'] is None\nassert len(job['errors'])==2 and all(e['type']=='ProcessLookupError' and e['error']=='[Errno 3] No such process' for e in job['errors'])\nassert [e['operation'] for e in job['errors']]==['native retirement observation','signal group/process unavailable; no inferred ownership']\nassert job['group_retirement']=='unknown; reserved signals attempted only if positive waitid/PGID identity'\nassert datetime.datetime.fromisoformat(adm['utc'])<datetime.datetime.fromisoformat(claim['utc'])<datetime.datetime.fromisoformat(started['utc'])<datetime.datetime.fromisoformat(adm['launch_before_utc'])\nassert datetime.datetime.fromisoformat(result['finished_utc'])<datetime.datetime.fromisoformat(job['errors'][0]['utc'])<=datetime.datetime.fromisoformat(job['finished_utc'])<datetime.datetime.fromisoformat(post['utc'])\ncold=json.loads(Path(contract['cold']).read_bytes())['scene'];assert before==cold\nassert before['objects']==after['objects'] and before['scene_names']==after['scene_names']\nbm={m['name']:m for m in before['materials']};am={m['name']:m for m in after['materials']};assert bm.keys()==am.keys()\nnew_image=next(n['image'] for n in am['Human.body']['nodes'] if n['name']=='DiffuseTexture')\nexpected=copy.deepcopy(bm)\nnext(n for n in expected['Human.body']['nodes'] if n['name']=='DiffuseTexture')['image']=new_image\nassert expected==am\nbi={x['name']:x for x in before['images']};ai={x['name']:x for x in after['images']};assert all(ai[k]==v for k,v in bi.items());assert set(ai)-set(bi)=={new_image}\nreplacement=ai[new_image];assert replacement['filepath']==contract['diffuse'] and replacement['size']==[2048,2048] and replacement['colorspace']=='sRGB' and replacement['packed_files']==1 and replacement['packed_sha256']==contract['diffuse_sha256']\nassert next(n['image'] for n in am['Human.body']['nodes'] if n['name']=='AlphaMapTexture')==next(n['image'] for n in bm['Human.body']['nodes'] if n['name']=='AlphaMapTexture')\nouts=result['outputs'];assert [(x['variant'],x['view']) for x in outs]==[(v,w) for v in ['control','candidate'] for w in ['front','oblique','profile']]\nfor name in ['candidate','before','after']:check(result[name])\npngs=[]\nfor row in outs:\n check(row);b=Path(row['path']).read_bytes();assert b[:8]==b'\\x89PNG\\r\\n\\x1a\\n';pos=8;chunks=[];ihdr=None\n while pos<len(b):\n  length=int.from_bytes(b[pos:pos+4],'big');tag=b[pos+4:pos+8];end=pos+12+length;assert end<=len(b)\n  data=b[pos+8:pos+8+length];crc=int.from_bytes(b[pos+8+length:end],'big');assert zlib.crc32(tag+data)&0xffffffff==crc\n  if tag==b'IHDR':assert ihdr is None;ihdr=struct.unpack('>IIBBBBB',data)\n  chunks.append(tag.decode('ascii'));pos=end\n  if tag==b'IEND':assert length==0 and pos==len(b);break\n assert ihdr==(1024,1024,8,6,0,0,0) and chunks[0]=='IHDR' and chunks[-1]=='IEND' and 'IDAT' in chunks\n pngs.append({'name':Path(row['path']).name,'bytes':len(b),'sha256':row['sha256'],'ihdr':list(ihdr),'chunks':len(chunks),'crc_ok':True})\n st=row['stage'];assert st['engine']=='CYCLES' and st['device']=='CPU' and st['samples']==32 and st['denoise'] is False and st['seed']==0 and st['threads']==8\n assert st['resolution']==[1024,1024,100] and st['output']==['PNG','RGBA','8',True] and st['composite_sequencer']==[False,False]\n assert st['view']==['AgX','None',0.,1.] and st['frame']==1 and st['camera']['type']=='ORTHO' and st['camera']['sensor_fit']=='VERTICAL'\n assert st['camera']['scale']==struct.unpack('f',struct.pack('f',.34))[0]\nfor view in ['front','oblique','profile']:\n pair=[o['stage'] for o in outs if o['view']==view];assert pair[0]==pair[1]\nraw=(leaf/'NATIVE.log').read_text();lines=[a[len('SUGATA_DIFFUSE '):] for a in raw.splitlines() if a.startswith('SUGATA_DIFFUSE ')];assert len(lines)==1 and json.loads(lines[0])==result\nassert raw.count(\"DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0\")==1 and raw.rstrip().endswith('Blender quit')\nassert result['active_uv']=={'name':'UVMap','active_render':True}\nassert len(list(leaf.glob('*.png')))==6 and not (leaf/'FAILURE.json').exists()\ncurrent=[]\nfor p in sorted(leaf.iterdir()):\n s=p.lstat();assert stat.S_ISREG(s.st_mode);b=p.read_bytes();current.append({'name':p.name,'bytes':len(b),'mode':oct(stat.S_IMODE(s.st_mode)),'sha256':hashlib.sha256(b).hexdigest()})\nassert sum(x['bytes'] for x in current)<128*1024**2\nassert absence['commands'][0]['exit_code']==1 and absence['commands'][0]['output']=='' and absence['commands'][1]['exit_code']==0 and absence['commands'][1]['output']==''\nprint(json.dumps({'pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'admission_pins_verified':34,'job_baseline_rows_verified':len(job['baseline']),'job_pre_JOB_inventory_rows_verified':len(job['actual_outputs']),'post_historical_inventory_rows_verified':len(post['actual_leaf_inventory_before_this_report']),'post_historical_total':post['actual_leaf_total_before_this_report'],'current_file_count':len(current),'current_total':sum(x['bytes'] for x in current),'handles':{'all':67,'native':1,'numeric_ps':66,'all_collected_exit0':True},'errors':job['errors'],'native_exit':0,'wrapper_exit':1,'group_retirement':job['group_retirement'],'supervisor_elapsed_seconds':job['elapsed_seconds'],'rss_sample_max_bytes':job['rss_observed_peak_bytes'],'before_equal_cold':True,'only_declared_after_delta':True,'paired_stages_match':['front','oblique','profile'],'png_headers_CRC_only':pngs,'png_total_bytes':sum(x['bytes'] for x in pngs),'new_images_decoded_or_viewed':False,'log_saved_RESULT_equal':True,'log_warning':'One World.use_nodes Blender6.0 deprecation warning, merged log; no channel-specific stderr claim.','retained_saved_candidate':'Hash only; no cold readback or native invocation.','source_immutability':'34admissionpins exact; native/collector not imported or rerun.'},indent=2))\nPY"
+    }
+  ],
+  "read_scopes": {
+    "whole_text": [
+      "JOB.json",
+      "NATIVE.log including embedded entire RESULT",
+      "TOOL-FIRST.json",
+      "TOOL-FINAL.json",
+      "CLAIM.json",
+      "STARTED.json",
+      "POST-JOB.json",
+      "CURRENT-ABSENCE.json",
+      "ROOT-ADMISSION.json",
+      "PROCESS-PREFLIGHT.json"
+    ],
+    "whole_JSON_parse_and_independent_comparison": [
+      "RESULT.json all6output rows/stages",
+      "BEFORE.json complete cold equality",
+      "AFTER.json complete allowed delta",
+      "ROOT-ADMISSION34pins",
+      "JOB baseline14/actual_outputs27",
+      "POST historical30rows/total"
+    ],
+    "current_source": "Whole291/194/81-line source/helper already read in unchanged pinned SOURCE-RECEIPT; current admission hashes reverified. Relevant launcher47\u201380,156\u2013201,259\u2013288 explain error/retirement/reap/qualification. No source imported/evaluated.",
+    "binary": "All6PNGs raw bytes/SHA/header/chunkCRC only; no decompression or raster/pixel decode. candidate.blend and original source/executables hash only.",
+    "absence": "Saved root read-only selected numeric PID/PGID snapshot inspected; no new process query/signals by critic and no historical group success inferred."
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "actual_witness": "JOB errors twoProcessLookupError errno3 at11:12:50.818508/.818611,group unknown,supervisor_passfalse; TOOL-FINAL wrapperexit1 versusnativeexit0.",
+      "source_witness": "launch_study.py162\u2013201; getpgid sites60/158 are possible origins within guarded blocks, not logged exact callsites.",
+      "classification": "Actual required retirement observation failed. Not a renderer/source-identity failure, precise OS cause proof, escaped-worker proof or universal WNOWAIT failure.",
+      "alternatives": [
+        "Close/preserve fullunviewedpacket; sacrifices intended mapped evidence while honoring declared stop.",
+        "Retire diffuse-only direction and defer to complete artist form/material ownership; avoids repeated native infrastructure but postpones narrower placement decision."
+      ],
+      "selected": "Close consumed attempt; no automatic next work."
+    }
+  ],
+  "retained_runtime_warning": "Native merged log contains World.use_nodes deprecation warning for Blender6.0; recorded nativeexit0,no diagnostic/probe introduced.",
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/RESULT-REVIEW.md",
+    "bytes": 3266,
+    "sha256": "506bcf4e27fe3732332cd4ef5a14693cccd5b1be645e388228b3fd926f645a4a"
+  },
+  "limits": [
+    "No new PNG viewed/decoded; header/CRC/source equality cannot qualify mapped appearance or fit.",
+    "No target/helper/native/source import/evaluation,processprobe,signal,repair,retry,renderer variant,capture,coldreadback,network or product/source edit.",
+    "Recorded67handles collected does not establish required historical group retirement or arbitrary descendantabsence.",
+    "Latercurrentabsence and outputbudget checks do not waive actualsupervisorB.",
+    "Prior staticA remains historical source qualification only; currentnative experiment consumed/closed; allaccepted/default/frozen/22scoped10broad/fullroadmap/HOLD preserved."
+  ],
+  "next": "Root independently verifies whole pair and closes/freezes exact unqualified packet. No successor admitted.",
+  "timers": "JOB15.362680375s is supervisor elapsed; firsttool1.002441125s is initialyieldwait only. No full nativeCPU/performance or separate channel-byte claim."
+}

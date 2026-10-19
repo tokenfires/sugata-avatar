@@ -1,0 +1,113 @@
+{
+  "schema": "bounded-worth-review-v1",
+  "utc": "2026-10-19T11:02:06.746979+00:00",
+  "pid": 5217,
+  "verdict": "A_FRESH_STATIC_SOURCE_WORKLOAD_PREPARATION_ONLY",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/PLAN.md",
+      "bytes": 4750,
+      "sha256": "6599f3fe97069356982a21e71c3c61a0abb3ca9cbf9730a12d6598f371bf48a1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-source/RESULT-REVIEW.md",
+      "bytes": 3793,
+      "sha256": "db7364d5fd1e3ff124d806e86c184e1f2bff734ec6aa54b768fca1954666c64e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/SOURCE-REVIEW.md",
+      "bytes": 3261,
+      "sha256": "5cdd6bc0a1c7a2faf95ca9fdc2151f173fa742a37ece379ff76390493dc6790e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/PROBE-SCOPE-CORRECTION.json",
+      "bytes": 5918,
+      "sha256": "75254327bff13c62a459cc4fc19c55daadc1552acb5f26a31e7ebad9e92a31c5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/ROOT-CLOSE.json",
+      "bytes": 7452,
+      "sha256": "bb7492287e1b4d7cd19902344f94c2527b7632640c936cb84a53887edc2866b7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-source/source/old_lightskinned_female_diffuse.png",
+      "bytes": 4716109,
+      "sha256": "00c45246c145562b917371e92de44a1fe394bc5f4bd91418addf24b6adff5e9d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/launch_study.py",
+      "bytes": 13149,
+      "sha256": "abf66d2dfe90b4782854d27b2c64f3dee078402a3dec97e08c514248c8fddfb0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/render_study.py",
+      "bytes": 10889,
+      "sha256": "a1a49718987ce13395e7cb6f1ea332bbcd3fc30390ea429e231303f3ab623158"
+    }
+  ],
+  "read_scopes": {
+    "whole_text": [
+      "docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/PLAN.md",
+      "docs/evidence/appearance-2026-10-19/mara-material-source/RESULT-REVIEW.md",
+      "docs/evidence/appearance-2026-10-19/mara-native-retirement/SOURCE-REVIEW.md",
+      "docs/evidence/appearance-2026-10-19/mara-native-retirement/PROBE-SCOPE-CORRECTION.json",
+      "docs/evidence/appearance-2026-10-19/mara-native-retirement/ROOT-CLOSE.json"
+    ],
+    "hash_only": [
+      "docs/evidence/appearance-2026-10-19/mara-material-source/source/old_lightskinned_female_diffuse.png",
+      "docs/evidence/appearance-2026-10-19/mara-native-retirement/launch_study.py",
+      "docs/evidence/appearance-2026-10-19/mara-native-retirement/render_study.py"
+    ],
+    "historical_atlas_view": "Reuse my verified whole2048x2048 original-detail view recorded in directly pinned mara-material-source/RESULT-REVIEW.md:5. Current whole-file SHA/size reverified; no new decode/view claimed today.",
+    "source_limit": "Launcher and renderer whole-byte identity only today; prior whole source reading stopped remaining render/API/frame qualification at protocolB. A fresh complete source gate remains owed.",
+    "root_close": "Whole closure read; only four directly relevant frozen source/correction rows independently rechecked. Historical mutable recovery-document rows are not asserted current. No recursive receipt expansion."
+  },
+  "selected_frozen_rows_verified": [
+    "docs/evidence/appearance-2026-10-19/mara-native-retirement/SOURCE-REVIEW.md",
+    "docs/evidence/appearance-2026-10-19/mara-native-retirement/PROBE-SCOPE-CORRECTION.json",
+    "docs/evidence/appearance-2026-10-19/mara-native-retirement/launch_study.py",
+    "docs/evidence/appearance-2026-10-19/mara-native-retirement/render_study.py"
+  ],
+  "jobs": [
+    {
+      "chunk_id": "178d3b",
+      "exit_code": 0,
+      "pid": 3440,
+      "utc": "2026-10-19T11:00:50.151526+00:00",
+      "scope": "Whole exact new PLAN.md read/pin"
+    },
+    {
+      "chunk_id": "15a708",
+      "exit_code": 0,
+      "pid": 3796,
+      "utc": "2026-10-19T11:01:05.908491+00:00",
+      "scope": "Whole prior result/source review/provenance correction/closure read; atlas and both programme byte identities only"
+    }
+  ],
+  "exact_commands": [
+    "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/PLAN.md');b=p.read_bytes()\nprint(json.dumps({'pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}))\nfor n,s in enumerate(b.decode().splitlines(),1):print(f'{n}: {s}')\nPY",
+    "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,os,datetime\nr=Path('/Users/robault/GitHub/sugata-avatar')\nprint('READ',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor rel in ['docs/evidence/appearance-2026-10-19/mara-material-source/RESULT-REVIEW.md','docs/evidence/appearance-2026-10-19/mara-native-retirement/SOURCE-REVIEW.md','docs/evidence/appearance-2026-10-19/mara-native-retirement/PROBE-SCOPE-CORRECTION.json','docs/evidence/appearance-2026-10-19/mara-native-retirement/ROOT-CLOSE.json']:\n p=r/rel;b=p.read_bytes();print(json.dumps({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}))\n for n,s in enumerate(b.decode().splitlines(),1):print(f'{n}: {s}')\nfor rel in ['docs/evidence/appearance-2026-10-19/mara-material-source/source/old_lightskinned_female_diffuse.png','docs/evidence/appearance-2026-10-19/mara-native-retirement/launch_study.py','docs/evidence/appearance-2026-10-19/mara-native-retirement/render_study.py']:\n p=r/rel;b=p.read_bytes();print('HASH_ONLY',json.dumps({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}))\nPY"
+  ],
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/WORTH.md",
+    "bytes": 2596,
+    "sha256": "047390b8267adc807c3080c8ed6b28688bce56e203ba8fc074f3f18805831496"
+  },
+  "findings": "No new actionable plan defect demonstrated. Worth rests on the unmapped atlas observation and explicit fresh provenance contract, not capability presence as behavioral proof.",
+  "limits": [
+    "No candidate/helper/program imports/evaluation, native/model/Blender/API operation, geometry/source-array decode, browser/GPU/render/capture, network/reference, copy/reprobe/repair/fallback/harness or product/source edits.",
+    "No actual mapped compatibility, six-image result, resource/cleanup/owner-state/frame guarantee, saved persistence or completeMara/age/gender/identity qualification.",
+    "The6GiB sampled RSS and128MiB sampled leaf-output/per-file bounds are not independently source-qualified here; PLAN sampled scope only is retained.",
+    "Existing source and all closed paths remain exact."
+  ],
+  "next": "Root independently verifies full pair; if accepting worthA, complete exact unchanged-source semantic/API/frame/association/workload preflight in30minutes. A source refusal closes without repair or native. No execution admitted.",
+  "deadline": "30minutes from independent root worth acceptance for the future complete static source/workload review; no earlier failed-epoch deadline reused.",
+  "pre_stable_authoring_correction": {
+    "old_receipt_bytes": 7559,
+    "old_receipt_sha256": "1d0015afa114fd311cc9369b19c932807621948f44bc648f971b05b19ae21969",
+    "path": "limits[2]",
+    "old": "512/6GiB/etc operational bounds are not independently source-qualified here; PLAN sampled scope only is retained.",
+    "reason": "Remove an unrelated512 shorthand introduced while drafting this receipt; no512 setting is asserted for this plan. This is critic prose only, no input or verdict change."
+  }
+}

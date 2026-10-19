@@ -1,0 +1,38 @@
+{
+  "utc": "2026-10-19T11:04:07.644830+00:00",
+  "pid": 7375,
+  "state": "INERT_SOURCE_READY_FOR_INDEPENDENT_REVIEW",
+  "exact_copies": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/launch_study.py",
+      "bytes": 13149,
+      "sha256": "abf66d2dfe90b4782854d27b2c64f3dee078402a3dec97e08c514248c8fddfb0",
+      "original": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/launch_study.py",
+      "byte_equal": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/render_study.py",
+      "bytes": 10889,
+      "sha256": "a1a49718987ce13395e7cb6f1ea332bbcd3fc30390ea429e231303f3ab623158",
+      "original": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/render_study.py",
+      "byte_equal": true
+    }
+  ],
+  "contract": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/CONTRACT.json",
+    "bytes": 11751,
+    "sha256": "14f97a25114db1950962a3d13df2efaf5be0ad20bf33f02defaa29b1c6bf09bf"
+  },
+  "direct_pins": 17,
+  "source_line_counts": {
+    "launch_study.py": 291,
+    "render_study.py": 194
+  },
+  "root_whole_source_reads": [
+    "1a861c/exit0 whole194line renderer+291line launcher",
+    "a73163/exit0 complete scene_receipt helper+body binding+semantics+provenance correction",
+    "904072/exit0 selected four saved official API pages; no network or target imported"
+  ],
+  "notes": "Source AST only. Whole text/source reasoning remains separate from actual runtime. Native source/UV ownership and complete current input identity must be independently checked; no model/program/native/helper operation yet. Exact command is this recorded tool call; no extra capability probe.",
+  "stop_utc": "2026-10-19T11:32:45.579466+00:00"
+}

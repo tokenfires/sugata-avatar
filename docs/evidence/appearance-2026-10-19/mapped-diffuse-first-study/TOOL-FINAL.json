@@ -1,0 +1,17 @@
+{
+  "chunk_id": "9a0c1a",
+  "session_id_collected": 20691,
+  "exit_code": 1,
+  "scope": "Actual final write_stdin tool return, complete SUPERVISOR_RESULT line observed in this chat. No separate stdout/stderr bytes exposed or copied here.",
+  "observed": {
+    "wrapper_pid": 17862,
+    "native_pid": 17863,
+    "native_exit_code": 0,
+    "native_collected": true,
+    "supervisor_pass": false,
+    "group_retirement": "unknown; reserved signals attempted only if positive waitid/PGID identity",
+    "elapsed_seconds": 15.362680375001219,
+    "finished_utc": "2026-10-19T11:12:50.818860+00:00"
+  },
+  "decision": "Attempt consumed and closed on supervisor error; no retry, repair, new renderer or image qualification. Mandatory root complete actual collection and source/output inventory follows before any possible image use."
+}

@@ -1,0 +1,384 @@
+{
+  "utc": "2026-10-19T11:14:39.765952+00:00",
+  "pid": 20878,
+  "state": "B_CLOSED_SUPERVISOR_RETIREMENT_UNKNOWN_NO_IMAGE_QUALIFICATION",
+  "actual_tool_completion": "9a0c1a/exit1/session20691 collected; native17863exit0,wrapper17862exit1",
+  "native_record": {
+    "started_utc": "2026-10-19T11:12:35.456228+00:00",
+    "finished_utc": "2026-10-19T11:12:50.818860+00:00",
+    "elapsed_seconds": 15.362680375001219,
+    "exit_code": 0,
+    "native_collected": true,
+    "group_retirement": "unknown; reserved signals attempted only if positive waitid/PGID identity",
+    "rss_observed_peak_bytes": 794378240,
+    "trigger": null,
+    "supervisor_pass": false,
+    "errors": [
+      {
+        "utc": "2026-10-19T11:12:50.818508+00:00",
+        "operation": "native retirement observation",
+        "type": "ProcessLookupError",
+        "error": "[Errno 3] No such process"
+      },
+      {
+        "utc": "2026-10-19T11:12:50.818611+00:00",
+        "operation": "signal group/process unavailable; no inferred ownership",
+        "type": "ProcessLookupError",
+        "error": "[Errno 3] No such process"
+      }
+    ]
+  },
+  "children": {
+    "count": 67,
+    "native": 1,
+    "numeric_ps": 66,
+    "all_returned_handles_collected_exit0": true
+  },
+  "verified_admission_pins": 34,
+  "recorded_owner_delta": "before equals complete cold record; after equals before with onlyHuman.body.DiffuseTexture.image and one exactpackedreplacement. No universal hiddenproperty/motion proof.",
+  "matched_view_stages": [
+    "front",
+    "oblique",
+    "profile"
+  ],
+  "native_log_result_exact": true,
+  "six_png_byte_header_chunk_checks": [
+    {
+      "path": "control-front.png",
+      "bytes": 820208,
+      "sha256": "7e7cdf1c58a39593b43000577be62a944caf851be9dfbe930c726e79598a4b32",
+      "ihdr": [
+        1024,
+        1024,
+        8,
+        6,
+        0,
+        0,
+        0
+      ],
+      "chunk_count": 119,
+      "all_chunk_CRC_ok": true
+    },
+    {
+      "path": "control-oblique.png",
+      "bytes": 868947,
+      "sha256": "e034e1deb05fef769789869bc4de898c53778e72fe45cd3a3eb2edd3eddaaa01",
+      "ihdr": [
+        1024,
+        1024,
+        8,
+        6,
+        0,
+        0,
+        0
+      ],
+      "chunk_count": 125,
+      "all_chunk_CRC_ok": true
+    },
+    {
+      "path": "control-profile.png",
+      "bytes": 921338,
+      "sha256": "17fa2cf1b56628041aa7a68c9f255789df37c2c5367a8d67f68a373900f07144",
+      "ihdr": [
+        1024,
+        1024,
+        8,
+        6,
+        0,
+        0,
+        0
+      ],
+      "chunk_count": 132,
+      "all_chunk_CRC_ok": true
+    },
+    {
+      "path": "candidate-front.png",
+      "bytes": 834559,
+      "sha256": "3f64e054cdaf51e49da68dab81f226420052d9d848d9592c51add65267151ad6",
+      "ihdr": [
+        1024,
+        1024,
+        8,
+        6,
+        0,
+        0,
+        0
+      ],
+      "chunk_count": 121,
+      "all_chunk_CRC_ok": true
+    },
+    {
+      "path": "candidate-oblique.png",
+      "bytes": 889198,
+      "sha256": "b5198d8c0c4eb48cfc0c9e4d6bed5e6e3b7eda1a7373d708d4a9197efb80d4d6",
+      "ihdr": [
+        1024,
+        1024,
+        8,
+        6,
+        0,
+        0,
+        0
+      ],
+      "chunk_count": 128,
+      "all_chunk_CRC_ok": true
+    },
+    {
+      "path": "candidate-profile.png",
+      "bytes": 960391,
+      "sha256": "c99dc051f498aebeb70965c3693401dc9ef38cff227a5dddfb3cf3a890cfe491",
+      "ihdr": [
+        1024,
+        1024,
+        8,
+        6,
+        0,
+        0,
+        0
+      ],
+      "chunk_count": 136,
+      "all_chunk_CRC_ok": true
+    }
+  ],
+  "PNG_limit": "Whole bytes/headers/CRCs only, not pixel decode or appearance review; no new PNG has been viewed.",
+  "candidate": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/candidate.blend",
+    "bytes": 16699290,
+    "sha256": "7bb1d69df90eb6f6d8c22771b46d4eaa406ceef5d4ff7792018c49e766a2898e"
+  },
+  "actual_leaf_total_before_this_report": 23300897,
+  "parsed_json_files": [
+    "AFTER.json",
+    "BEFORE.json",
+    "CLAIM.json",
+    "CONTRACT.json",
+    "JOB.json",
+    "PROCESS-PREFLIGHT.json",
+    "RESULT.json",
+    "ROOT-ADMISSION.json",
+    "ROOT-SOURCE.json",
+    "ROOT-STATIC.json",
+    "ROOT-WORTH.json",
+    "SOURCE-PREPARATION.json",
+    "SOURCE-RECEIPT.json",
+    "STARTED.json",
+    "TOOL-FINAL.json",
+    "TOOL-FIRST.json",
+    "WORTH-RECEIPT.json"
+  ],
+  "actual_leaf_inventory_before_this_report": [
+    {
+      "path": "AFTER.json",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 573618,
+      "sha256": "851553faa1871e8de087106e6694f9985864ed7d6468cff74d91883516b11853"
+    },
+    {
+      "path": "BEFORE.json",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 573202,
+      "sha256": "4ff4c493a41c8bb132d33f1afef89c6a17f0ee97f0805715a139b8cedb901343"
+    },
+    {
+      "path": "CLAIM.json",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 162,
+      "sha256": "e27d7bad98a02d90b9a90513bbc5eabfc281561320438901e2dcffc2c345993d"
+    },
+    {
+      "path": "CONTRACT.json",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 11751,
+      "sha256": "14f97a25114db1950962a3d13df2efaf5be0ad20bf33f02defaa29b1c6bf09bf"
+    },
+    {
+      "path": "JOB.json",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 16806,
+      "sha256": "872014a502ed844f76a9b5b82af4262074d174c44b0a81fc3633d71f86d0e90e"
+    },
+    {
+      "path": "NATIVE.log",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 14681,
+      "sha256": "7ed1838a8a50f74ac7e898b2187849c502256ff24a34450965e58bd69326596e"
+    },
+    {
+      "path": "PLAN.md",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 4750,
+      "sha256": "6599f3fe97069356982a21e71c3c61a0abb3ca9cbf9730a12d6598f371bf48a1"
+    },
+    {
+      "path": "PROCESS-PREFLIGHT.json",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 2468,
+      "sha256": "accb8e2e2613c64ad71bbebfcd4d1a7d3452ced40b4a8e7da5db6956354ce8c8"
+    },
+    {
+      "path": "RESULT.json",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 28241,
+      "sha256": "d2104ffad9b868623d9ca02e9105b0b9aebb08dd1e2dfbda5876e6120f7401a9"
+    },
+    {
+      "path": "ROOT-ADMISSION.json",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 10017,
+      "sha256": "9ac5d89b6616b19ecc2bb9d591ecce8f07d8da30bf3b1f2081d29ca76eadf45e"
+    },
+    {
+      "path": "ROOT-SOURCE.json",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 1048,
+      "sha256": "57e086898896e3a6f3630c52b1242cf6144cd493a2381d58a695c6d1a13a06f7"
+    },
+    {
+      "path": "ROOT-STATIC.json",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 2645,
+      "sha256": "e63d9d0bc468781818526d73a4d268d18275700b6e26559d942043122d793db4"
+    },
+    {
+      "path": "ROOT-WORTH.json",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 1639,
+      "sha256": "2764be834306fece8cad475beb9b0f2d85138208ec6f5c42a4c4c8ec1282f074"
+    },
+    {
+      "path": "SOURCE-PREPARATION.json",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 1951,
+      "sha256": "0a080b4888efb15c2872d907d96b6b1eaa4fa8f8a35445929d7d82c84428df59"
+    },
+    {
+      "path": "SOURCE-RECEIPT.json",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 23954,
+      "sha256": "9e88ae8875edf551d65849cfca247ccc07a2d398db70a24b7dc4a13617fb748e"
+    },
+    {
+      "path": "SOURCE-REVIEW.md",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 3258,
+      "sha256": "e4158e4b7d7e801525becd4a05558c2e33f163dca18947bf1a72a9da5298ccbf"
+    },
+    {
+      "path": "STARTED.json",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 588,
+      "sha256": "09d30affa4ef1d6741bd6e395923515bfdde16e77a1b39f0757db29946e37d2b"
+    },
+    {
+      "path": "TOOL-FINAL.json",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 829,
+      "sha256": "729a90df081f7b38287dc1cc93c6abac36b275ea14ef2a5cf3e7551d1d88da43"
+    },
+    {
+      "path": "TOOL-FIRST.json",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 624,
+      "sha256": "399fa3b5caff2d83ff406e3bd7777755ab20c072f767e6fcbd7e43d1f2c01d61"
+    },
+    {
+      "path": "WORTH-RECEIPT.json",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 8100,
+      "sha256": "0d429c509a0664f795b5293884217142b1bc73993de4b1ce1651c84549aaa0ad"
+    },
+    {
+      "path": "WORTH.md",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 2596,
+      "sha256": "047390b8267adc807c3080c8ed6b28688bce56e203ba8fc074f3f18805831496"
+    },
+    {
+      "path": "candidate-front.png",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 834559,
+      "sha256": "3f64e054cdaf51e49da68dab81f226420052d9d848d9592c51add65267151ad6"
+    },
+    {
+      "path": "candidate-oblique.png",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 889198,
+      "sha256": "b5198d8c0c4eb48cfc0c9e4d6bed5e6e3b7eda1a7373d708d4a9197efb80d4d6"
+    },
+    {
+      "path": "candidate-profile.png",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 960391,
+      "sha256": "c99dc051f498aebeb70965c3693401dc9ef38cff227a5dddfb3cf3a890cfe491"
+    },
+    {
+      "path": "candidate.blend",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 16699290,
+      "sha256": "7bb1d69df90eb6f6d8c22771b46d4eaa406ceef5d4ff7792018c49e766a2898e"
+    },
+    {
+      "path": "control-front.png",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 820208,
+      "sha256": "7e7cdf1c58a39593b43000577be62a944caf851be9dfbe930c726e79598a4b32"
+    },
+    {
+      "path": "control-oblique.png",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 868947,
+      "sha256": "e034e1deb05fef769789869bc4de898c53778e72fe45cd3a3eb2edd3eddaaa01"
+    },
+    {
+      "path": "control-profile.png",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 921338,
+      "sha256": "17fa2cf1b56628041aa7a68c9f255789df37c2c5367a8d67f68a373900f07144"
+    },
+    {
+      "path": "launch_study.py",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 13149,
+      "sha256": "abf66d2dfe90b4782854d27b2c64f3dee078402a3dec97e08c514248c8fddfb0"
+    },
+    {
+      "path": "render_study.py",
+      "type": "regular",
+      "mode": "0o644",
+      "bytes": 10889,
+      "sha256": "a1a49718987ce13395e7cb6f1ea332bbcd3fc30390ea429e231303f3ab623158"
+    }
+  ],
+  "retirement_limit": "Known direct native/numericps handles collected, but supervisor recorded native-retirement ProcessLookupError and unknown group. No historical group retirement success, all-descendant absence or safe signal ownership is inferred. No signal of reaped identity or new native job.",
+  "next": "Independent critic audits actual failure and evidence; close with exact unqualified outputs and no repair/retry/retake/coldreadback. Root current scoped read-only absence snapshot follows.",
+  "limits": "No new image decoding/appearance or saved persistence, completeMara/form/palette/identity/AAA acceptance. Fullroadmap/22scoped/10broad/olderclosures/HOLD preserved."
+}

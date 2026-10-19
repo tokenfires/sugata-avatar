@@ -1,0 +1,38 @@
+{
+  "utc": "2026-10-19T11:11:16Z",
+  "state": "SCOPED_READONLY_PREFLIGHT",
+  "census": {
+    "filtered_comm_chunk": "eea465",
+    "comm_exit": 0,
+    "filtered_comm_rows": [
+      "861     1   861 S    16:10:56 /Users/robault/.local/share/uv/tools/mempalace/bin/python",
+      "  886     1   886 S    16:10:56 /Users/robault/ComfyUI-Installs/ComfyUI/ComfyUI/.venv/bin/python",
+      "  890     1   890 S    16:10:56 /opt/homebrew/Cellar/python@3.11/3.11.16/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
+      " 1376   880   880 S    16:10:50 /Users/robault/.hermes/tools/python-3.14.7+20260901-darwin-arm64/bin/python3",
+      " 1785  1376   880 S    16:10:46 /Users/robault/.hermes/tools/python-3.14.7+20260901-darwin-arm64/bin/python3",
+      " 1830   890   890 S    16:10:45 /opt/homebrew/Cellar/python@3.11/3.11.16/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
+      " 1835   890   890 S    16:10:45 /opt/homebrew/Cellar/python@3.11/3.11.16/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
+      "42972 42956 42955 S    06:00:43 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python"
+    ],
+    "python_args_chunk": "ce7ccc",
+    "python_args_exit": 0,
+    "python_args_truncated": false,
+    "owned_args": [],
+    "prior_truncated_jobs": [
+      "97157b fullcommand",
+      "1d1d0c comm"
+    ]
+  },
+  "review_http": {
+    "chunk_id": "4854ee",
+    "exit_code": 0,
+    "http": "200"
+  },
+  "owned_job_state": "All root-owned prior tool jobs collected, no native/capture/supervisor job started in this leaf. Current independent source critic completed. No Blender selected; no selected Python args match a Sugata study. Unrelated Python services untouched.",
+  "commands": [
+    "ps -axo pid=,ppid=,pgid=,state=,etime=,comm= | rg -i '(Python|python[0-9.]*|/Blender)$'",
+    "ps -p 861,886,890,1376,1785,1830,1835,42972 -o pid=,ppid=,pgid=,state=,etime=,command=",
+    "curl --max-time 5 -s -o /dev/null -w '%{http_code}' http://127.0.0.1:5173/"
+  ],
+  "limits": "Scoped snapshot and tracked jobs only, not arbitrary renamed/escaped process ownership proof. First two unfiltered census presentations were truncated; not absence evidence. Filtered full stream then selected Python commands is untruncated. Vite870 command observed in first output; retained serviceHTTP200."
+}
