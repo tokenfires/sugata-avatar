@@ -1,0 +1,17 @@
+# Knitwear character turnaround — source review
+
+**A — the exact single built-in request is worth doing after fresh root admission.** This qualifies source, input roles and collection scope only; no generation or appearance is qualified here.
+
+The whole PREPARATION/BRIEF/PROMPT/REQUEST/SOURCE-INPUTS bundle is coherent. PREPARATION:3 and :9 restrict generation to the unchanged original concept, already independently whole-viewed during worth. The prior comparison selection variance remains recorded and is not permission for another view or reference. No T-rest, flat-piece, Mara/Ari or unrelated human image is an input.
+
+BRIEF:3–9 and PROMPT:1–7 preserve the calm fictional adult, warm skin, dark chin-length bob, pale-blue matte crew knit, charcoal generous trousers and brown ankle boots. They ask for front, true90-degree page-left profile and rear with comparable scale and complete bodies. Normal far-hand/shoe overlap is explicitly permitted. New shoulder depth, dropped sleeve/wrist relationship, untucked upper-hip hem over waistband, seat/leg silhouette and boot break are deliberate clothed design choices. They address the missing whole-figure consumer identified by the original target:17–19, rather than attempting to qualify the closed sweater/material/construction methods.
+
+All **16 manifest rows, the manifest itself and two current skill files** verify:19 exact paths. REQUEST.prompt equals PROMPT.txt literally, including the final newline. The only request keys are prompt, referenced_image_paths and transparent_background=false; its one reference is **2,439,336 bytes**, SHA256 **f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77**. The already-read current imagegen skill supports a new image generated from an explicitly assigned original reference. No CLI/fallback/model/dependency change is requested.
+
+PREPARATION:11–15 owns one fresh three-minute admission within the absolute **21:15UTC** stop, exact request/intent and actual returned handle/path/status, unchanged default preservation and project copy. One reported local PNG must pass **15MiB,4,096-edge and8,388,608-pixel** acceptance caps, header/chunk CRC/hash/copy checks before local viewing. Ambiguous/multiple/missing output, unknown actual outcome or unverified acceptance bounds close. Backend model, cost, worker PID, peak memory and physical termination are expressly unreported, not measured passes or hard caps. A late result is retained unqualified; no second call/fallback follows.
+
+No actionable source defect was found. Proceeding once can make useful missing whole-look choices reviewable, with a risk of generated identity/proportion drift. Deferring to the current front and separate drafts avoids that risk but leaves the combined side/rear wearer unresolved. I select the bounded call. Labels, source hashes and completed generation will not establish orientation or visual quality: actual whole-image review must decide the complete brief.
+
+Root must whole-read this stable pair, freshly verify and separately admit the exact call. First source/image B or unknown closes unchanged without correction, crop, regeneration, retake, relabeling or successor. No physical/body/fit/rig/native/3D/groom/motion/material-physics/runtime/AAA or perceived-demographic credit follows. All originals/defaults/closed methods/HOLD and broad goals remain; no checklist/catalogue promotion.
+
+No new image view, retrieval, target execution, browser/native/GPU/capture or source edit was performed in this source review. pending_edits=false.

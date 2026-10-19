@@ -1,0 +1,210 @@
+{
+  "schema": "knit-character-turnaround-source-review-v1",
+  "verdict": "A_EXACT_SINGLE_BUILTIN_REQUEST_AFTER_FRESH_ROOT_GATE",
+  "generation_admitted_by_critic": false,
+  "pending_edits": false,
+  "overall_stop_utc": "2026-10-19T21:15:00Z",
+  "full_reads": [
+    "PREPARATION.md (17lines)",
+    "BRIEF.md (11lines)",
+    "PROMPT.txt (7lines)",
+    "REQUEST.json",
+    "SOURCE-INPUTS.json",
+    "../knit-character-turnaround-worth/ROOT-WORTH.json"
+  ],
+  "reused_scope": {
+    "worth_pair": "Exact stable prior worth pair/three full receipts and shared original/rear whole-image evidence. The extra flat-frame view and root-only oblique remain historical variance; no new comparison views.",
+    "original_view": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "tool": "view_image",
+      "detail": "original",
+      "scope": "whole retained actual image at original detail; worth witness only",
+      "utc": "2026-10-19 20:43:41 UTC"
+    },
+    "skill": "Whole imagegen SKILL.md and references/prompting.md were read in prior source stage441c36; both current hashes freshly match. Not reread or new retrieval.",
+    "main_docs": "Selected current status/roadmap read during immediately prior worth at matching current hashes; no new broad main/history read."
+  },
+  "checks": {
+    "manifest_rows": 16,
+    "including_manifest_and_current_skill_files": 19,
+    "prompt_literal_equality": true,
+    "one_original_reference_only": true,
+    "reference_bytes": 2439336,
+    "request_keys": [
+      "prompt",
+      "referenced_image_paths",
+      "transparent_background"
+    ],
+    "transparent_background": false,
+    "comparison_allowances": "RETIRED; no new views in source inquiry",
+    "output_caps": {
+      "count": 1,
+      "bytes": 15728640,
+      "max_edge": 4096,
+      "pixels": 8388608
+    },
+    "admission": "Fresh<=180s within absolute21:15UTC; any returned-after-expiry output retained unqualified.",
+    "scope_of_unknowns": "Actual tool outcome/path/output acceptance bounds must be known; expressly unreported backend metrics remain unqualified and are not substituted with invented local guarantees."
+  },
+  "findings": [],
+  "alternatives": [
+    {
+      "choice": "One exact single-reference generation",
+      "benefit": "Makes missing clothed side/rear overlap, sleeve/hem/seat/leg/boot choices reviewable",
+      "tradeoff": "Generated consistency may fail; actual full image gate can reject the sole result."
+    },
+    {
+      "choice": "Defer to current front plus separate drafts until coupled artist master",
+      "benefit": "Avoids unregistered illustration drift",
+      "tradeoff": "Leaves the combined whole-figure side/rear wearer unspecified."
+    }
+  ],
+  "limits": [
+    "Source/workload only, not appearance or actual call admission",
+    "No new image views or comparison allowance extension",
+    "No code/import/eval/check/test/browser/native/GPU/capture/online/generation by critic",
+    "Cloud backend model/cost/workerPID/peak/physicaltermination unreported; not a hard resource guarantee",
+    "No fit/body/anatomy/3D/native/rig/morph/groom/motion/runtime/AAA/perceived-demographic certification",
+    "No checklist/catalogue/default/original/accepted/frozen asset changes",
+    "First full source/imageB or unknown closes without fix/regen/retake/crop/relabel/successor",
+    "Critic writes only own source pair"
+  ],
+  "jobs": [
+    {
+      "name": "read",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PREPARATION.md','BRIEF.md','PROMPT.txt','REQUEST.json','SOURCE-INPUTS.json']:\n q=p/n;b=q.read_bytes();print('\\nFILE',n,len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(f'{i}: {line}')\nPY",
+      "result": {
+        "chunk_id": "ac60ec",
+        "wall_time_seconds": 7.458e-06,
+        "exit_code": 0,
+        "original_token_count": 4604,
+        "output_bytes": 18416,
+        "output_sha256": "44b0706aa5301e5ee74c9c5489ce120d9bb8f1bc4ccb0ec9c66b2e5c277b2cd9",
+        "first_line": "PID 1312 UTC 2026-10-19T20:48:29.833916+00:00"
+      }
+    },
+    {
+      "name": "verify",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat());m=json.loads((p/'SOURCE-INPUTS.json').read_text());rows=[]\nfor r in m['pins']:\n b=Path(r['path']).read_bytes();a={'path':r['path'],'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()};assert a==r,(a,r);rows.append(a)\nfor q in [p/'SOURCE-INPUTS.json',Path('/Users/robault/.codex/skills/.system/imagegen/SKILL.md'),Path('/Users/robault/.codex/skills/.system/imagegen/references/prompting.md')]:\n b=q.read_bytes();rows.append({'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})\nassert rows[-2]['sha256']=='681ddb4ad6d06a2acc78a3535b583f8d0c1ea800ecda3d56370d3310fd2cd4ba'\nassert rows[-1]['sha256']=='b210b051c775860267080941eba968212bf0ac7fce581d75c5dcc217d8293f8b'\nr=json.loads((p/'REQUEST.json').read_text());assert r['prompt']==(p/'PROMPT.txt').read_text();assert set(r)=={'prompt','referenced_image_paths','transparent_background'};assert r['transparent_background'] is False\nassert r['referenced_image_paths']==[m['pins'][5]['path']];assert len(Path(r['referenced_image_paths'][0]).read_bytes())==2439336\nprint(json.dumps({'verified_rows':rows,'manifest_rows':len(m['pins']),'total_bound_paths':len(rows),'prompt_literal_equality':True,'one_original_only':True,'comparison_allowances_retired':m['old_comparison_view_allowances'],'absence_snapshot':{n:not (p/n).exists() for n in ['ADMISSION.json','GENERATION-INTENT.json','GENERATION-RESULT.json','first.png','SOURCE-REVIEW.md','SOURCE-RECEIPT.json']}},indent=2))\nq=Path(m['pins'][11]['path']);print('WHOLE ROOT-WORTH',q);print(q.read_text())\nPY",
+      "result": {
+        "chunk_id": "c2226b",
+        "wall_time_seconds": 7.667e-06,
+        "exit_code": 0,
+        "original_token_count": 4150,
+        "output_bytes": 16597,
+        "output_sha256": "c41c12c88ee2b4f6d692b2f27748b19663711a768302ff3e8d3d68fcdc1511fb",
+        "first_line": "PID 2297 UTC 2026-10-19T20:48:59.796507+00:00"
+      }
+    }
+  ],
+  "input_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 107670,
+      "sha256": "67e2486f3c2baa2e233f08030ef66881f7c3e0427e44c0a688982958e655f476"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 132734,
+      "sha256": "ff5c1ac1f4af03666d20eeb04f4394ec474c07ec909d45c843d1a94575fd9ba2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 4214,
+      "sha256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround-worth/PLAN.md",
+      "bytes": 3334,
+      "sha256": "fe0bcec18899a5de29c3da3911792792466733458e2b390044361053eba07cd1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround-worth/SCOPE-VARIANCE.json",
+      "bytes": 1484,
+      "sha256": "95d94a8dd3854ef3058a4ee8c350e0ad43b76953ff66cba5591850e18601de83"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround-worth/WORTH.md",
+      "bytes": 3442,
+      "sha256": "c05d95d3110e7d2b3a18c709cc8513eaa6828aacb3a436c89eef2d710418ecf1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround-worth/WORTH-RECEIPT.json",
+      "bytes": 14367,
+      "sha256": "909c1c8bee1ba3093809decee86e4351f6214bc12c5fbda354ab080aad41b014"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround-worth/ROOT-WORTH-FIRST.json",
+      "bytes": 6832,
+      "sha256": "559629bb6b34dc508ea162dd16a6773e46fad631d2551188406b28ea70da4d53"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround-worth/ROOT-WORTH.json",
+      "bytes": 11607,
+      "sha256": "53e78d621f11c0c5e21d81fd9c780c6aaac3ee72cd3cffcf476878978ba92d3b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/PREPARATION.md",
+      "bytes": 5275,
+      "sha256": "d13de045bbd43dfca07c783c5d5f024dce09e9509f80c2954370c97569e87b95"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/BRIEF.md",
+      "bytes": 2486,
+      "sha256": "f2db02765755da8b0dd1a6d54c75a860dbfe4153e5748a3f6d9055cfd93d3143"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/PROMPT.txt",
+      "bytes": 2704,
+      "sha256": "baa8b8fcab6beeda70aec8e56fe4986d9934c416ebb4798fbf3ecbefdbac5746"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/REQUEST.json",
+      "bytes": 2916,
+      "sha256": "8180467460eafd50094ee91d1a1997b5f0d8cafe93bbe16ea84cf5e2ad06b042"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/SOURCE-INPUTS.json",
+      "bytes": 4051,
+      "sha256": "4546e4927e61d6e4ca5917804fc778efa087809def608381aefb217eccf0278a"
+    },
+    {
+      "path": "/Users/robault/.codex/skills/.system/imagegen/SKILL.md",
+      "bytes": 19201,
+      "sha256": "681ddb4ad6d06a2acc78a3535b583f8d0c1ea800ecda3d56370d3310fd2cd4ba"
+    },
+    {
+      "path": "/Users/robault/.codex/skills/.system/imagegen/references/prompting.md",
+      "bytes": 8282,
+      "sha256": "b210b051c775860267080941eba968212bf0ac7fce581d75c5dcc217d8293f8b"
+    }
+  ],
+  "verified_unique_paths": 19,
+  "collection": {
+    "pid": 3831,
+    "utc": "2026-10-19T20:49:47.800601+00:00",
+    "exclusive_pair_only": true
+  },
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/SOURCE-REVIEW.md",
+    "bytes": 3560,
+    "sha256": "98ed265d4b604e9769d6c679c5e7a2e279fbe6ed2718a20ef45cd4551122db61"
+  }
+}

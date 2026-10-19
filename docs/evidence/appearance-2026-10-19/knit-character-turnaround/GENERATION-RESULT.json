@@ -1,0 +1,86 @@
+{
+  "schema": "knit-turnaround-generation-result-v1",
+  "pid": 7486,
+  "utc": "2026-10-19T20:51:42.694725+00:00",
+  "tool_metadata": {
+    "start": {
+      "current_time": "2026-10-19 20:50:42 UTC"
+    },
+    "finish": {
+      "current_time": "2026-10-19 20:51:16 UTC"
+    },
+    "tool": "image_gen.imagegen",
+    "arguments_source": "REQUEST.json",
+    "dispatches": 1,
+    "result_keys": [
+      "image_url",
+      "output_hint"
+    ],
+    "output_hint": "Generated images are saved to /Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c as /Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-5490f7b2-08b0-4e03-98d2-70493c28e78d.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+    "image_data_url_present": true,
+    "cloud_cost_worker_peak_physical_termination": "UNREPORTED"
+  },
+  "reported_local_png_count": 1,
+  "default_output": {
+    "path": "/Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-5490f7b2-08b0-4e03-98d2-70493c28e78d.png",
+    "bytes": 2023441,
+    "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0"
+  },
+  "project_copy": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+    "bytes": 2023441,
+    "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0"
+  },
+  "copy_identical": true,
+  "png_header": {
+    "width": 1536,
+    "height": 1024,
+    "depth": 8,
+    "colour_type": 2,
+    "interlace": 0
+  },
+  "all_chunk_crcs_pass": true,
+  "png_chunks": [
+    {
+      "type": "IHDR",
+      "bytes": 13
+    },
+    {
+      "type": "caBX",
+      "bytes": 23654
+    },
+    {
+      "type": "IDAT",
+      "bytes": 1999718
+    },
+    {
+      "type": "IEND",
+      "bytes": 0
+    }
+  ],
+  "within_admission": true,
+  "bindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/REQUEST.json",
+      "bytes": 2916,
+      "sha256": "8180467460eafd50094ee91d1a1997b5f0d8cafe93bbe16ea84cf5e2ad06b042"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/ADMISSION.json",
+      "bytes": 2407,
+      "sha256": "dc8ff2e17f0305e815dd54111d846a10b8d568e2d8850bd0fa585190dbc95a8a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/GENERATION-INTENT.json",
+      "bytes": 3910,
+      "sha256": "cab955ea921933a27497a0a2c45d1ad1c681e99721f4b1354d985dcfc9531723"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/ROOT-SOURCE.json",
+      "bytes": 6086,
+      "sha256": "a2524852984cadc845f58f16fc0fec3984067fa277e841ac81f6eb24b05c0711"
+    }
+  ],
+  "qualification": "File/collection integrity only. Actual whole-image review UNRUN; numeric checks do not qualify appearance.",
+  "jobs": "One built-in generation only; no returnedcell/session/providerPID/cost/peak/physicaltermination. No retry/transform/crop/edit/retake/newcapture."
+}

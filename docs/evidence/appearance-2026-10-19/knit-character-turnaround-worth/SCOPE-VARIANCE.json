@@ -1,0 +1,25 @@
+{
+  "schema": "knit-turnaround-worth-view-scope-variance-v1",
+  "utc": "2026-10-19T20:45:08.382377+00:00",
+  "owner": "root coordination error",
+  "planned_global_images": 3,
+  "actual_global_unique_images": 4,
+  "root_views": [
+    "knit-character-concept/concept-v1.png",
+    "whole-knit-serving/oblique.jpg",
+    "whole-knit-serving/back.jpg"
+  ],
+  "critic_views": [
+    "knit-character-concept/concept-v1.png",
+    "piece-publisher/original-frame.jpg",
+    "whole-knit-serving/back.jpg"
+  ],
+  "critic_extra_metadata_only_for_root": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/piece-publisher/original-frame.jpg",
+    "bytes": 98488,
+    "sha256": "caa25095b801c0d1c7b2c6761fdef703225dfabcf9e9282e45f675486a01ce55"
+  },
+  "description": "Parallel selection was not serialized before critic began. All are already-retained directly linked originals, each reader3; union4. No new capture/generation/target. No further worth views/read expansion.",
+  "decision_basis": "Only shared whole concept and rear T-rest images plus three whole receipts are needed for the finding; root did not inspect flat-sheet pixels. Retain actual scopes and critic timestamp correction; do not retrofit union3.",
+  "classification": "Read-only scope variance; root accepts documented overage for worth-only decision, not an extension of target/source/image allowances or a general exception. A separate full source contract required before any generation."
+}

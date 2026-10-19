@@ -1,0 +1,17 @@
+# Knitwear character turnaround — worth review
+
+**Conditional A for complete inert preparation only.** A supplemental clothed front/profile/rear discussion sheet can resolve a useful whole-look authoring question. No generation, prompt, source programme or appearance is admitted.
+
+The two shared whole-image witnesses suffice for this decision. In concept-v1.png the complete figure at approximately x145–530, y14–989 presents pale-blue sweater volume, relaxed wrists/untucked rib hem, charcoal wide legs and brown boots; the other panel is a portrait. It does not show a complete profile or rear wearer. KNIT-CHARACTER-TARGET:17 explicitly leaves sweater side/back/shoulder depth and trouser seat/rear undefined; :19 reserves complete source and coupled-fit duties.
+
+The retained back.jpg instead shows an isolated horizontal-arm T-rest sweater at approximately x379–902, y235–500. It has no wearer, trouser seat, relaxed hands or boots. whole-knit-serving/README:5 expressly limits it to a simple unitless scaffold with worn proportions and finish unresolved. piece-publisher/README:5–7 owns five flat pieces, named joins and openings, with physical folding/shape/fit unresolved. A flat join graph or isolated sweater rear does not settle relaxed whole-figure sweater-to-trouser overlap, sleeve/wrist length, seat/leg silhouette or trouser-to-boot balance.
+
+Two alternatives have real tradeoffs: retain the front concept plus existing garment drafts until a coupled artist master, avoiding another unregistered interpretation while leaving those combined side/rear relationships unresolved; or prepare one supplemental sheet to deliberately choose them, gaining an actionable silhouette/layer target but risking generated drift and no physical/source authority. I select the latter only for bounded preparation. The fixed future brief must preserve the original look, distinguish new hidden choices and require actual whole-image review.
+
+**Read-only scope variance is retained.** Each reviewer viewed three directly linked originals, but different selections made the union four against the planned global three. I viewed concept, flat-piece original-frame.jpg and back.jpg at the stored adjacent-clock time **20:43:41 UTC**; root selected concept, oblique and back, and did not view the flat sheet. I have not viewed oblique. My message’s 20:43:46 timestamp was corrected from the stored record. This is not three global views or full scope compliance. No new capture, generation or target ran.
+
+One conservative alternative is to close for that scope variance, sacrificing the otherwise useful question. The other is to retain the variance honestly and permit only preparation, basing worth on the two shared images and full receipts, with no further comparisons. The latter is proportionate here; it grants no extra image allowance. The prospective source contract must bind **one actual original concept input**, retire comparison-view allowances and independently gate the complete prompt/resource/failure contract before any call.
+
+This does not reopen sweater geometry, knit material, fit, groom, renderer or constructor methods. No body/registration/3D/native/rig/motion/runtime/representation/AAA credit follows. All originals, defaults, closed leaves and broad goals remain unchanged. First source/image B or unknown must stop without repair, crop, regeneration, retake or renamed successor.
+
+pending_edits=false.

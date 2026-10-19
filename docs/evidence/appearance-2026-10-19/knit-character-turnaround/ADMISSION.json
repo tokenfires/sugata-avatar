@@ -1,0 +1,49 @@
+{
+  "schema": "knit-turnaround-generation-admission-v1",
+  "pid": 5222,
+  "utc": "2026-10-19T20:50:32.397082+00:00",
+  "expires_utc": "2026-10-19T20:53:32.397082+00:00",
+  "owner": "root",
+  "tool": "image_gen.imagegen",
+  "calls": 1,
+  "admitted": true,
+  "bindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/REQUEST.json",
+      "bytes": 2916,
+      "sha256": "8180467460eafd50094ee91d1a1997b5f0d8cafe93bbe16ea84cf5e2ad06b042"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/PROMPT.txt",
+      "bytes": 2704,
+      "sha256": "baa8b8fcab6beeda70aec8e56fe4986d9934c416ebb4798fbf3ecbefdbac5746"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/SOURCE-REVIEW.md",
+      "bytes": 3560,
+      "sha256": "98ed265d4b604e9769d6c679c5e7a2e279fbe6ed2718a20ef45cd4551122db61"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/SOURCE-RECEIPT.json",
+      "bytes": 11501,
+      "sha256": "acaeb055ee26de9376f65d01302859689cc56284699fa8227ec03c20060a5c80"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/ROOT-SOURCE.json",
+      "bytes": 6086,
+      "sha256": "a2524852984cadc845f58f16fc0fec3984067fa277e841ac81f6eb24b05c0711"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/SOURCE-INPUTS.json",
+      "bytes": 4051,
+      "sha256": "4546e4927e61d6e4ca5917804fc778efa087809def608381aefb217eccf0278a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    }
+  ],
+  "limits": "No duplicate/retry/CLI/network/purchase/modelchange; backendcost/peak/workerPID/physicaltermination unreported. One local PNG<=15MiB/4096edge/8388608pixels/headerCRC/hash/copy and actualwholeimage qualification; after-expiry returnunqualified.",
+  "stop": "First source/image B/unknown closes unchanged; all comparison views retired. Original/default/frozen/otherwork preserved."
+}
