@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-19T09:42:16.645737+00:00",
+  "pid": 93346,
+  "decision": "ROOT_OWNS_INDEPENDENT_COMPLETE_OUTPUT_READBACK_BEFORE_ANY_RESULT_OR_IMAGE_DECISION",
+  "source_witness": "read_source.py preserve registers after open/write/close/chmod; save_json registers after write/close. Exceptions may leave retained files absent from generated/FAILURE.partial_outputs_retained. Those lists are nonexhaustive completed registrations only, not a complete inventory. No deletion or child/process exists.",
+  "alternatives": [
+    {
+      "choice": "Root independently inventories actual isolated output files and final metadata on success or failure",
+      "tradeoff": "Keeps exact worker/PLAN unchanged while completing evidence; root must collect final process status and all bounded files before judging. Selected."
+    },
+    {
+      "choice": "Withhold this packet and preserve source unrun for a separately reviewed evidence correction",
+      "tradeoff": "Avoids an additional root readback obligation but defers the actual source question. No repair or run would follow automatically."
+    }
+  ],
+  "mandatory_after_the_sole_process": [
+    "Collect final exec exit/termination and any session output first. Never inventory a still-running worker as a finished result; no second source invocation.",
+    "Inventory actual immediate leaf entries and source/ children independently of generated: at most64rootentries and2sourcefiles. Reject symlink/nonregular/unexpected directory types, preserve everything and record HOLD. Metadata/code files<=1MiB each; source combined<=8MiB; runtime new output<=9MiB. No recursion outside this leaf.",
+    "Record each actual regular file path/size/SHA/mode, including partial CLAIM/RESULT/FAILURE and partial source data on any exception. Root source enumeration is actual filesystem state, not worker list. No removal or overwrite.",
+    "Independently parse final RESULT/FAILURE/CLAIM if present, recording incomplete JSON/error status rather than inferring absence from worker lists. Read original material text only if result fully successful; image view remains forbidden on failed/terminated worker or inventory/parse error.",
+    "For success require collected exit0, no FAILURE, exact result status, actual exactly2expected source paths, correct size/SHA/0444 in actual inventory, original archive/input source pins unchanged. Record explicit HOLD for any disagreement.",
+    "Persist bounded POST-JOB readback and reread its exact bytes/JSON before any image. If disk/readback persistence fails, retain tool output and withhold all image/result qualification; no retry of source."
+  ],
+  "preflight": "Before admission require no CLAIM/RESULT/FAILURE/source directory and capture current metadata baseline. ROOT-ADMISSION must bind this condition and explicitly label worker lists nonexhaustive.",
+  "limits": "This is root evidence ownership, not another material/source operation, geometry collector, worker repair or test. Current worker7098bytes/SHAd92ade2d... and PLAN8411/SHA7c5c12a8... remain exact. At most one worker; no new paths/query/capture/native/network. All deadlines/roadmap/closures retained."
+}

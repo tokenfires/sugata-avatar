@@ -1,0 +1,121 @@
+{
+  "utc": "2026-10-19T09:43:09.722886+00:00",
+  "pid": 93437,
+  "decision": "ADMIT_ONE_EXACT_MATERIAL_SOURCE_READ",
+  "root_complete_source_read": "520e30 complete150line worker+8411byte PLAN;5c1347 whole3412+9386byte stable source handoff",
+  "verified_critic_plan_rows": 10,
+  "verified_plan_and_result_identity": true,
+  "worker_source_bytes": 7098,
+  "preconditions_absent": [
+    "CLAIM.json",
+    "RESULT.json",
+    "FAILURE.json",
+    "source"
+  ],
+  "pre_job_actual_metadata_baseline": [
+    {
+      "path": "PLAN.json",
+      "bytes": 8411,
+      "sha256": "7c5c12a80e505fb2617f7fbae0705d730353067143470046d068627c9de3969a",
+      "mode": "0o644"
+    },
+    {
+      "path": "ROOT-EVIDENCE-CONTRACT.json",
+      "bytes": 3167,
+      "sha256": "4a5341610d61552c00f471f22dbd9be0012b4badd54f1868b272b5582ca42a67",
+      "mode": "0o644"
+    },
+    {
+      "path": "SOURCE-REVIEW-RECEIPT.json",
+      "bytes": 9386,
+      "sha256": "0339ece2312ec6c6dbe560f6bf0cf9a99bd0e484f78a492fdcf07cf8dd6848a4",
+      "mode": "0o644"
+    },
+    {
+      "path": "SOURCE-REVIEW.md",
+      "bytes": 3412,
+      "sha256": "5751461df3efe2f0b1620957f49b8caaf82e9705d1f10dd17d55c8e75cb15621",
+      "mode": "0o644"
+    },
+    {
+      "path": "read_source.py",
+      "bytes": 7098,
+      "sha256": "d92ade2d377cd9e8d7d6078d23041ba9b3db862e9b3ca4bb76db54c20338a417",
+      "mode": "0o644"
+    }
+  ],
+  "root_evidence_duty": "Mandatory independent actual leaf/source inventory and final-write/partial-state readback on success or failure per ROOT-EVIDENCE-CONTRACT.json before any result/image decision. Worker generated/partial_outputs_retained is NONEXHAUSTIVE completed registrations. Collect actual final process exit/session first; inventory all actual bounded files/types/sizes/hashes/modes; reject partial/missing result/unexpected artifact/inventory errors; no image or retry on any nonzero/timeout/error. Persist and reread POST-JOB actual readback. No data removal.",
+  "pins": [
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 19108,
+      "sha256": "b6acc877879a0a4f4fae2b7d9c94f811ed29793330e3824e331e8b90d1b71eb5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-named-material/ROOT-CLOSE.json",
+      "bytes": 4317,
+      "sha256": "d8035a199ffc2be106fef6e77ec54541e688a1ada6e7eb32416fcdb97ae25da5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-named-material/RESULT.json",
+      "bytes": 1434,
+      "sha256": "88daefadf502a8f8ae352af1615d8bcec291cf764212b140161e7f1a6eb03d93"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-named-material/RESULT-REVIEW.md",
+      "bytes": 2491,
+      "sha256": "33db7b14c88712738c9490a9930008740f341777388ffb00585c8f9e09d46f45"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "bytes": 3053,
+      "sha256": "f0f6118b1916220de67cb8748ec7232e1ab1b32e745415eb9c1d7629f429ca1d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW.md",
+      "bytes": 3405,
+      "sha256": "687ab7c57d062a018bd4e2fdffd0de7b97ae96a993abbb684545d931c7be09bc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-system-assets/candidate/makehuman_system_assets_cc0.zip",
+      "bytes": 280737770,
+      "sha256": "b542127a8e25547c7c29c19f2d1d2adb9a664c80396ecd694095dbc8028a0107"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-07/ari-system-assets/ZIP-MANIFEST.json",
+      "bytes": 106320,
+      "sha256": "c55bcea4d98ee45d3ea9a9ba67a80a60bbec201e3c18abbd75c9b8b05aafde8a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/read_source.py",
+      "bytes": 7098,
+      "sha256": "d92ade2d377cd9e8d7d6078d23041ba9b3db862e9b3ca4bb76db54c20338a417"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/PLAN.json",
+      "bytes": 8411,
+      "sha256": "7c5c12a80e505fb2617f7fbae0705d730353067143470046d068627c9de3969a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/SOURCE-REVIEW.md",
+      "bytes": 3412,
+      "sha256": "5751461df3efe2f0b1620957f49b8caaf82e9705d1f10dd17d55c8e75cb15621"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/SOURCE-REVIEW-RECEIPT.json",
+      "bytes": 9386,
+      "sha256": "0339ece2312ec6c6dbe560f6bf0cf9a99bd0e484f78a492fdcf07cf8dd6848a4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/ROOT-EVIDENCE-CONTRACT.json",
+      "bytes": 3167,
+      "sha256": "4a5341610d61552c00f471f22dbd9be0012b4badd54f1868b272b5582ca42a67"
+    }
+  ],
+  "scope": "Sole direct Python byte-reader only; exact named MHMAT and literal declared diffuse. No native/API/parameters/newimage/render/browser/GPU/network. Actual complete bitmap view only after root verifies successful source and independent POST-JOB final readback. Prior closures/HOLD/22scoped10broad/fullroadmap preserved."
+}

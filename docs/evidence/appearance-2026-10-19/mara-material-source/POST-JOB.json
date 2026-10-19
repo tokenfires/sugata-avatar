@@ -1,0 +1,114 @@
+{
+  "utc": "2026-10-19T09:44:19.911279+00:00",
+  "pid": 93568,
+  "decision": "SOURCE_SUCCESS_ACTUAL_OUTPUTS_VERIFIED_IMAGE_PENDING",
+  "source_tool_job": "ddbd64",
+  "source_exit": 0,
+  "source_worker_pid": 93455,
+  "actual_complete_inventory": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/CLAIM.json",
+      "bytes": 170,
+      "mode": "0o644",
+      "type": "regular",
+      "sha256": "73201e07503f7b33c28bbbc29ddc043d75b0733057179f62d8eb01adc4c2e6f1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/PLAN.json",
+      "bytes": 8411,
+      "mode": "0o644",
+      "type": "regular",
+      "sha256": "7c5c12a80e505fb2617f7fbae0705d730353067143470046d068627c9de3969a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/RESULT.json",
+      "bytes": 3299,
+      "mode": "0o644",
+      "type": "regular",
+      "sha256": "4308beb3d7be3185380c469bcc15df1ce51ec88dec5e7345475405ef5780396b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/ROOT-ADMISSION.json",
+      "bytes": 5212,
+      "mode": "0o644",
+      "type": "regular",
+      "sha256": "9e4d8f339bdb95c344b09d0fb72f09c4bd7297825f83d830b157c1ed72f00cd9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/ROOT-EVIDENCE-CONTRACT.json",
+      "bytes": 3167,
+      "mode": "0o644",
+      "type": "regular",
+      "sha256": "4a5341610d61552c00f471f22dbd9be0012b4badd54f1868b272b5582ca42a67"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/SOURCE-REVIEW-RECEIPT.json",
+      "bytes": 9386,
+      "mode": "0o644",
+      "type": "regular",
+      "sha256": "0339ece2312ec6c6dbe560f6bf0cf9a99bd0e484f78a492fdcf07cf8dd6848a4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/SOURCE-REVIEW.md",
+      "bytes": 3412,
+      "mode": "0o644",
+      "type": "regular",
+      "sha256": "5751461df3efe2f0b1620957f49b8caaf82e9705d1f10dd17d55c8e75cb15621"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/SOURCE-TOOL-RESULT.json",
+      "bytes": 846,
+      "mode": "0o644",
+      "type": "regular",
+      "sha256": "c6bd08b9f28a0069df293f415f436966a3a556e1a08157cccb479421639fc4ae"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/read_source.py",
+      "bytes": 7098,
+      "mode": "0o644",
+      "type": "regular",
+      "sha256": "d92ade2d377cd9e8d7d6078d23041ba9b3db862e9b3ca4bb76db54c20338a417"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/source/old_caucasian_female.mhmat",
+      "bytes": 1457,
+      "mode": "0o444",
+      "type": "regular",
+      "sha256": "a88440d9f1225d3b4c963259e6f434eb3be7d3a2932e46ea88cfc675ed20c387"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/source/old_lightskinned_female_diffuse.png",
+      "bytes": 4716109,
+      "mode": "0o444",
+      "type": "regular",
+      "sha256": "00c45246c145562b917371e92de44a1fe394bc5f4bd91418addf24b6adff5e9d"
+    }
+  ],
+  "root_actual_source_files": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/source/old_caucasian_female.mhmat",
+      "bytes": 1457,
+      "mode": "0o444",
+      "type": "regular",
+      "sha256": "a88440d9f1225d3b4c963259e6f434eb3be7d3a2932e46ea88cfc675ed20c387"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/source/old_lightskinned_female_diffuse.png",
+      "bytes": 4716109,
+      "mode": "0o444",
+      "type": "regular",
+      "sha256": "00c45246c145562b917371e92de44a1fe394bc5f4bd91418addf24b6adff5e9d"
+    }
+  ],
+  "metadata_parse_states": {
+    "CLAIM.json": "VALID_JSON",
+    "RESULT.json": "VALID_JSON",
+    "FAILURE.json": "ABSENT"
+  },
+  "input_pins_verified": 14,
+  "actual_source_bytes": 4717566,
+  "new_artifact_bytes_including_root_tool_and_admission": 4727093,
+  "errors": [],
+  "worker_generated_list": "Nonexhaustive; not used for discovery. Actual filesystem independently enumerated.",
+  "scope": "Actual final type/size/SHA/mode/JSON/CRC/IHDR checks and input hashes only. No ZIP/member decode, worker replay, pixel decode/view, native/GPU/browser or appearance inference."
+}

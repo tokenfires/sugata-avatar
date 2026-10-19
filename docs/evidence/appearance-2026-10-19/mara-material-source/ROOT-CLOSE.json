@@ -1,0 +1,140 @@
+{
+  "utc": "2026-10-19T09:52:30.720932+00:00",
+  "pid": 94489,
+  "decision": "RETAIN_EXACT_MATERIAL_DIFFUSE_SOURCE_REFERENCE_ONLY_CLOSE_READER",
+  "whole_handoff_read": "14ebce whole3793+20720bytes",
+  "current_critic_inputs_verified": 23,
+  "result_identity_verified": true,
+  "nested_rows_verified": 48,
+  "nested_unique_paths": 22,
+  "root_actual_image_view": "Whole2048x2048 original detail after persisted/reread successful independent POST-JOB; see ROOT-OBSERVATIONS",
+  "source_attempts": 1,
+  "source_files_mode": "0444",
+  "historical_main_doc_pin_epoch": "3741a653642a8e3c62187a477ad004e7f16b1f22",
+  "pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/ARTIST-HANDOFF.md",
+      "bytes": 1661,
+      "sha256": "defb4d4e393eabf788b68478c4f84f91fe1e6b964486ea0a6fa87434ca75fa48"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/CLAIM.json",
+      "bytes": 170,
+      "sha256": "73201e07503f7b33c28bbbc29ddc043d75b0733057179f62d8eb01adc4c2e6f1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/PLAN.json",
+      "bytes": 8411,
+      "sha256": "7c5c12a80e505fb2617f7fbae0705d730353067143470046d068627c9de3969a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/POST-JOB.json",
+      "bytes": 4294,
+      "sha256": "e9e75843b4bbbd28169373aa6ccebf4b58fea3b1d3af7400e6a44ca7aa0336aa"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/README.md",
+      "bytes": 5067,
+      "sha256": "d2872f090bb1641b1ef66bee735813783b653d1723f9f1dc089f1a0636daf964"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/RESULT-PREPARATION.json",
+      "bytes": 3409,
+      "sha256": "31931e73e0e4b1d96b8b88763d9b01cd4a5db8e2c67a1e99eeea1920042aa544"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/RESULT-REVIEW-RECEIPT.json",
+      "bytes": 20720,
+      "sha256": "cab3cbfa91964c494ee2457974812618bc1159f7df4ef3bf7324e00eadb50f37"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/RESULT-REVIEW.md",
+      "bytes": 3793,
+      "sha256": "db7364d5fd1e3ff124d806e86c184e1f2bff734ec6aa54b768fca1954666c64e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/RESULT.json",
+      "bytes": 3299,
+      "sha256": "4308beb3d7be3185380c469bcc15df1ce51ec88dec5e7345475405ef5780396b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/ROOT-ADMISSION.json",
+      "bytes": 5212,
+      "sha256": "9e4d8f339bdb95c344b09d0fb72f09c4bd7297825f83d830b157c1ed72f00cd9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/ROOT-EVIDENCE-CONTRACT.json",
+      "bytes": 3167,
+      "sha256": "4a5341610d61552c00f471f22dbd9be0012b4badd54f1868b272b5582ca42a67"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/ROOT-OBSERVATIONS.md",
+      "bytes": 3095,
+      "sha256": "62dd28c75e12743b10d49f5e5c39da83422bf6b9cf32fd6f9a356256071b6cc9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/SOURCE-REVIEW-RECEIPT.json",
+      "bytes": 9386,
+      "sha256": "0339ece2312ec6c6dbe560f6bf0cf9a99bd0e484f78a492fdcf07cf8dd6848a4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/SOURCE-REVIEW.md",
+      "bytes": 3412,
+      "sha256": "5751461df3efe2f0b1620957f49b8caaf82e9705d1f10dd17d55c8e75cb15621"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/SOURCE-TOOL-RESULT.json",
+      "bytes": 846,
+      "sha256": "c6bd08b9f28a0069df293f415f436966a3a556e1a08157cccb479421639fc4ae"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/read_source.py",
+      "bytes": 7098,
+      "sha256": "d92ade2d377cd9e8d7d6078d23041ba9b3db862e9b3ca4bb76db54c20338a417"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/source/old_caucasian_female.mhmat",
+      "bytes": 1457,
+      "sha256": "a88440d9f1225d3b4c963259e6f434eb3be7d3a2932e46ea88cfc675ed20c387"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-material-source/source/old_lightskinned_female_diffuse.png",
+      "bytes": 4716109,
+      "sha256": "00c45246c145562b917371e92de44a1fe394bc5f4bd91418addf24b6adff5e9d"
+    },
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 20371,
+      "sha256": "118d463c913bd1372f23087574582782748523e47633d876b9a247efd7422688"
+    },
+    {
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 38352,
+      "sha256": "3f310777db9e981c740ed7b5cbd724c8fcfe62d23afe4f435fb99a5ba371339a"
+    }
+  ],
+  "exact_commit_paths": [
+    "docs/evidence/appearance-2026-10-19/mara-material-source/ARTIST-HANDOFF.md",
+    "docs/evidence/appearance-2026-10-19/mara-material-source/CLAIM.json",
+    "docs/evidence/appearance-2026-10-19/mara-material-source/PLAN.json",
+    "docs/evidence/appearance-2026-10-19/mara-material-source/POST-JOB.json",
+    "docs/evidence/appearance-2026-10-19/mara-material-source/README.md",
+    "docs/evidence/appearance-2026-10-19/mara-material-source/RESULT-PREPARATION.json",
+    "docs/evidence/appearance-2026-10-19/mara-material-source/RESULT-REVIEW-RECEIPT.json",
+    "docs/evidence/appearance-2026-10-19/mara-material-source/RESULT-REVIEW.md",
+    "docs/evidence/appearance-2026-10-19/mara-material-source/RESULT.json",
+    "docs/evidence/appearance-2026-10-19/mara-material-source/ROOT-ADMISSION.json",
+    "docs/evidence/appearance-2026-10-19/mara-material-source/ROOT-EVIDENCE-CONTRACT.json",
+    "docs/evidence/appearance-2026-10-19/mara-material-source/ROOT-OBSERVATIONS.md",
+    "docs/evidence/appearance-2026-10-19/mara-material-source/SOURCE-REVIEW-RECEIPT.json",
+    "docs/evidence/appearance-2026-10-19/mara-material-source/SOURCE-REVIEW.md",
+    "docs/evidence/appearance-2026-10-19/mara-material-source/SOURCE-TOOL-RESULT.json",
+    "docs/evidence/appearance-2026-10-19/mara-material-source/read_source.py",
+    "docs/evidence/appearance-2026-10-19/mara-material-source/source/old_caucasian_female.mhmat",
+    "docs/evidence/appearance-2026-10-19/mara-material-source/source/old_lightskinned_female_diffuse.png",
+    "docs/RESUME-2026-10-18.md",
+    "docs/WORK-WINDOW-2026-10-18.md",
+    "docs/evidence/appearance-2026-10-19/mara-material-source/ROOT-CLOSE.json"
+  ],
+  "next": "Fresh conditional unchanged-neutral diffuse-only matched native comparison worth nomination, no current operation. All22/10fullroadmap/closures/HOLD retained; no push."
+}

@@ -1,0 +1,18 @@
+{
+  "cmd": "python3 -I -B docs/evidence/appearance-2026-10-19/mara-material-source/read_source.py 9e4d8f339bdb95c344b09d0fb72f09c4bd7297825f83d830b157c1ed72f00cd9",
+  "executionEnvironment": "python3 -I -B, direct current process; no subprocess",
+  "observedBefore": {
+    "current_time": "2026-10-19 09:43:17 UTC"
+  },
+  "observedAfter": {
+    "current_time": "2026-10-19 09:43:17 UTC"
+  },
+  "result": {
+    "chunk_id": "ddbd64",
+    "wall_time_seconds": 0.225496208,
+    "exit_code": 0,
+    "original_token_count": 40,
+    "output": "EXACT_SOURCE_RETAINED 93455 a88440d9f1225d3b4c963259e6f434eb3be7d3a2932e46ea88cfc675ed20c387 00c45246c145562b917371e92de44a1fe394bc5f4bd91418addf24b6adff5e9d\n"
+  },
+  "scope": "Actual sole source-reader tool return, retained without source replay. Result/image decision awaits independent root inventory."
+}

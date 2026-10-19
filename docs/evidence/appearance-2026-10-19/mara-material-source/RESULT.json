@@ -1,0 +1,54 @@
+{
+  "status": "EXACT_SOURCE_BYTES_RETAINED_PENDING_ACTUAL_IMAGE_REVIEW",
+  "pid": 93455,
+  "finished_utc": "2026-10-19T09:43:17.461480+00:00",
+  "material_member": {
+    "name": "skins/old_caucasian_female/old_caucasian_female.mhmat",
+    "bytes": 1457,
+    "compressed_bytes": 702,
+    "crc32": 3142111380,
+    "compression": 8,
+    "external_attr": 2176057344
+  },
+  "material_text": "# This is a material file for MakeHuman\n#\n# This asset was explicitly released as CC0 in september 2020. The license\n# text for CC0 can be found in the root of this repository.\n#\n# The copyright holders at the point of the release to CC0 were:\n#\n# Copyright (C) 2020 Data Collection AB, https://www.datacollection.se\n# Copyright (C) 2020 Joel Palmius\n# Copyright (C) 2020 Jonas Hauquier\n#\n# The primary legal contact for MakeHuman is Data Collection AB.\n#\n# For more information, see homepage at http://www.makehumancommunity.org\nname old_caucasian_female\ntag MakeHuman\u2122\nambientColor 0.301960784314 0.278431372549 0.278431372549\ndiffuseColor 1.0 1.0 1.0\nspecularColor 0.0627450980392 0.0509803921569 0.0509803921569\nshininess 0.5\nemissiveColor 0.196078431373 0.101960784314 0.101960784314\nopacity 1.0\ntranslucency 0.0\n\nshadeless False\nwireframe False\ntransparent False\nalphaToCoverage True\nbackfaceCull True\ndepthless False\ncastShadows True\nreceiveShadows True\n\ntag MakeHuman\u2122\ntag old\ntag caucasian\ntag female\n\ndiffuseTexture old_lightskinned_female_diffuse.png\n\nsssEnabled True\nsssRScale 5.0\nsssGScale 2.5\nsssBScale 1.0\n\nshader data/shaders/glsl/litsphere\n\nshaderParam litsphereTexture data/litspheres/lit_standard_skin.png\n\nshaderConfig ambientOcclusion True\nshaderConfig normal False\nshaderConfig bump True\nshaderConfig displacement False\nshaderConfig vertexColors True\nshaderConfig spec True\nshaderConfig transparency True\nshaderConfig diffuse True\n",
+  "directives": [
+    [
+      "diffuseTexture",
+      "old_lightskinned_female_diffuse.png"
+    ]
+  ],
+  "literal_diffuse_member": {
+    "name": "skins/old_caucasian_female/old_lightskinned_female_diffuse.png",
+    "bytes": 4716109,
+    "compressed_bytes": 4712799,
+    "crc32": 1090924874,
+    "compression": 8,
+    "external_attr": 2176057344
+  },
+  "material": {
+    "path": "docs/evidence/appearance-2026-10-19/mara-material-source/source/old_caucasian_female.mhmat",
+    "bytes": 1457,
+    "sha256": "a88440d9f1225d3b4c963259e6f434eb3be7d3a2932e46ea88cfc675ed20c387",
+    "mode": "0444"
+  },
+  "texture": {
+    "path": "docs/evidence/appearance-2026-10-19/mara-material-source/source/old_lightskinned_female_diffuse.png",
+    "bytes": 4716109,
+    "sha256": "00c45246c145562b917371e92de44a1fe394bc5f4bd91418addf24b6adff5e9d",
+    "mode": "0444"
+  },
+  "png_header": {
+    "width": 2048,
+    "height": 2048,
+    "depth": 8,
+    "colour_type": 2,
+    "interlace": 0
+  },
+  "archive_sha256": "b542127a8e25547c7c29c19f2d1d2adb9a664c80396ecd694095dbc8028a0107",
+  "generated": [
+    "CLAIM.json",
+    "source/old_caucasian_female.mhmat",
+    "source/old_lightskinned_female_diffuse.png"
+  ],
+  "scope": "Exact local source material and diffuse only. PNG header is not pixel decode or appearance. No native, form, UV registration, expression, fit, motion, runtime or Mara qualification."
+}

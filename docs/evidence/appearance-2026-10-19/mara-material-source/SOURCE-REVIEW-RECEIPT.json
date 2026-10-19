@@ -1,0 +1,177 @@
+{
+  "stable_utc": "2026-10-19T09:41:54.821025+00:00",
+  "pid": 93301,
+  "verdict": "A_CONDITIONAL_ROOT_INDEPENDENT_OUTPUT_INVENTORY",
+  "worth": "A_EXACT_SOURCE_QUESTION_ONLY",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 19108,
+      "sha256": "b6acc877879a0a4f4fae2b7d9c94f811ed29793330e3824e331e8b90d1b71eb5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/ROOT-CLOSE.json",
+      "bytes": 4317,
+      "sha256": "d8035a199ffc2be106fef6e77ec54541e688a1ada6e7eb32416fcdb97ae25da5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/RESULT.json",
+      "bytes": 1434,
+      "sha256": "88daefadf502a8f8ae352af1615d8bcec291cf764212b140161e7f1a6eb03d93"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/RESULT-REVIEW.md",
+      "bytes": 2491,
+      "sha256": "33db7b14c88712738c9490a9930008740f341777388ffb00585c8f9e09d46f45"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "bytes": 3053,
+      "sha256": "f0f6118b1916220de67cb8748ec7232e1ab1b32e745415eb9c1d7629f429ca1d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW.md",
+      "bytes": 3405,
+      "sha256": "687ab7c57d062a018bd4e2fdffd0de7b97ae96a993abbb684545d931c7be09bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/candidate/makehuman_system_assets_cc0.zip",
+      "bytes": 280737770,
+      "sha256": "b542127a8e25547c7c29c19f2d1d2adb9a664c80396ecd694095dbc8028a0107"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/ZIP-MANIFEST.json",
+      "bytes": 106320,
+      "sha256": "c55bcea4d98ee45d3ea9a9ba67a80a60bbec201e3c18abbd75c9b8b05aafde8a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-source/read_source.py",
+      "bytes": 7098,
+      "sha256": "d92ade2d377cd9e8d7d6078d23041ba9b3db862e9b3ca4bb76db54c20338a417"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-source/PLAN.json",
+      "bytes": 8411,
+      "sha256": "7c5c12a80e505fb2617f7fbae0705d730353067143470046d068627c9de3969a"
+    }
+  ],
+  "verified_plan_rows": 10,
+  "plan_self_pin_verified": true,
+  "read_scopes": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-source/PLAN.json",
+      "scope": "whole JSON, including all ten pins and execution/deadline/resource semantics"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-source/read_source.py",
+      "scope": "whole 150 lines, source only; no import, AST evaluation or invocation"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/ROOT-CLOSE.json",
+      "scope": "whole 94 lines; nested rows read but not newly rehashed recursively"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/RESULT.json",
+      "scope": "whole 38 lines, saved metadata result only; no repeated equality inquiry"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/RESULT-REVIEW.md",
+      "scope": "whole 13 lines"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW.md",
+      "scope": "whole 15 lines; prior source/image qualifications reused, no repeated API or model inspection"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "scope": "whole 15 lines"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "scope": "whole-file hash; selected line scopes 2-17,20-23,32-35,40-51,60-69,92-93 only; latest and historical checkpoint distinctions retained"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/candidate/makehuman_system_assets_cc0.zip",
+      "scope": "whole-file byte hash/size only; no ZIP headers, directory, member or payload parsing"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-system-assets/ZIP-MANIFEST.json",
+      "scope": "whole-file byte hash/size only in this stage; no additional material lookup"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "scope": "whole-file hash/size; reused earlier whole-original view from Mara worth/path stage (09:10-09:11 UTC), no new image view in this stage"
+    }
+  ],
+  "jobs": [
+    {
+      "chunk_id": "a5177c",
+      "exit_code": 0,
+      "pid": 92789,
+      "utc": "2026-10-19T09:37:05.909544Z",
+      "scope": "whole PLAN and whole worker read, no truncation; prior current-stage read"
+    },
+    {
+      "chunk_id": "9001ad",
+      "exit_code": 0,
+      "pid": 93016,
+      "utc": "2026-10-19T09:39:14.815752+00:00",
+      "command": "python3 stdin read/hash script: verify ten PLAN pins; hash PLAN/worker; inspect seven output-path absences; print whole PLAN and worker with line numbers",
+      "scope": "all ten rows exact; PLAN/worker full; no target/member parsing"
+    },
+    {
+      "chunk_id": "76c236",
+      "exit_code": 0,
+      "pid": 93091,
+      "utc": "2026-10-19T09:39:53.762862+00:00",
+      "command": "python3 stdin read-only script: print whole named ROOT-CLOSE/RESULT/RESULT-REVIEW, PATH-REVIEW and board ARTIST-HANDOFF; print selected RESUME matching-line contexts",
+      "scope": "complete requested prose sources and explicitly selected RESUME scopes, no source execution"
+    }
+  ],
+  "finding": {
+    "id": "F1",
+    "witness": "read_source.py:39-41,75-78,144-148",
+    "classification": "retained-but-unlisted partial artifact / self-reporting limitation; not observed loss, process-cleanup fault or archive defect",
+    "resolution": "Pre-admission root-owned bounded independent actual-output inventory on success/failure; generated is nonexhaustive. Root condition confirmed by direct parent instruction during review. No target source modification."
+  },
+  "required_root_gate": [
+    "Fresh ROOT-ADMISSION binds exact PLAN, worker, all inputs and both critic review files before one launch.",
+    "Admission explicitly owns fixed-scope actual output inventory with path/type/size/hash/mode and truthful partial/final/error states on success and failure. Refuse unexpected artifacts, partial/missing result or inspection error; never convert failed inspection to absence.",
+    "Only root-verified successful source output may progress to whole retained bitmap inspection; any actual process/content/cap/inventory failure closes without retry, repair, alternate filename or image decision."
+  ],
+  "execution_scope": "One direct stdlib Python process, python3 -I -B read_source.py <root-admission-sha>, exact one MHMAT and at most its one literal diffuse; alarm15s/CPU5s, no subprocess, model/native/GPU/browser or external retrieval. No critic execution admitted.",
+  "limits": [
+    "No actual archive directory/member/texture bytes decoded in review.",
+    "No IHDR/CRC/actual texture usefulness, mode or output success claimed before the reader.",
+    "Unresolved legacy shader declarations are preserved reference text, not runnable material dependencies.",
+    "Payload/file caps and alarm/CPU limits are not hard RSS, complete-startup or performance qualification.",
+    "No form/UV/rest-expression/ocular/auxiliary/53rig/motion/native/appearance/AAA acceptance.",
+    "No new memory lookup, network, browser, capture, image generation, target/helper import/evaluation or source/product modification."
+  ],
+  "retained_errors": [],
+  "deadlines_utc": {
+    "worth_and_source_review": "2026-10-19T09:55:00Z",
+    "root_gate_and_launch": "2026-10-19T10:05:00Z",
+    "actual_image_review": "2026-10-19T10:20:00Z",
+    "checkpoint": "2026-10-19T10:30:00Z"
+  },
+  "prewrite_observations": {
+    "root_admission": false,
+    "claim": false,
+    "result": false,
+    "failure": false,
+    "source_directory": false
+  },
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-source/SOURCE-REVIEW.md",
+    "bytes": 3412,
+    "sha256": "5751461df3efe2f0b1620957f49b8caaf82e9705d1f10dd17d55c8e75cb15621"
+  },
+  "collection": "Exclusive two-file write; review re-read and both output hashes reported externally. Receipt self-digest is external to avoid circular binding."
+}
