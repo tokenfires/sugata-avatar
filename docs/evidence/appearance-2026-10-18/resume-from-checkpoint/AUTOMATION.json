@@ -1,0 +1,41 @@
+{
+  "status": "ACTIVE",
+  "ten_minute_cadence": true,
+  "current_chat": "01a0ff57-d720-7db2-923f-9e3e0521216c",
+  "prior_chat": "01a116ed-8765-73f3-b541-d46f1e63c1b7",
+  "prompt_updated_for_explicit_October18_resume": true,
+  "preserved_fields": [
+    "id",
+    "kind",
+    "name",
+    "rrule",
+    "created_at"
+  ],
+  "update_result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Updated automation in the app."
+      },
+      {
+        "type": "text",
+        "text": "{\"automationId\":\"advance-sugata-avatar-visual-quality\",\"mode\":\"update\",\"status\":\"ACTIVE\"}"
+      }
+    ],
+    "isError": false
+  },
+  "api_view": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Rendered automation card in the app."
+      }
+    ],
+    "isError": false
+  },
+  "saved_file_readback": {
+    "status": "ACTIVE",
+    "updated_at": 1792383268578
+  },
+  "limits": "Verified saved recurrence/status/target, not delivery timing, mobile notification or future wake guarantee."
+}

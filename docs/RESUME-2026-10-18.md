@@ -1,0 +1,15 @@
+# Sugata resume checkpoint — October 18, 2026
+
+Robert explicitly resumed after updates in this chat, with the independent quality critic and ten-minute recovery timer. This revokes the human pause for Sugata. It does not admit expired trials or bypass a source/constructor HOLD.
+
+The current checkout is `codex/bob-appearance-2026-09-29`, HEAD `2fb6d2bf26c237a4481e188ed1c3c4e309f4c20d`. Nine untracked files under `docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/` are preserved. Root verified their seven current and seven source bindings and reproduced the eight-path old/new semantic comparison. The pending README and independent REVIEW remain unchanged. [Recovery receipt](evidence/appearance-2026-10-18/resume-from-checkpoint/RECOVERY.json).
+
+The October 6 checkpoint is historical. Ari's original concept, drawings and later source studies have already progressed beyond that nomination. Read the [October 7–10 work window](WORK-WINDOW-2026-10-07.md), especially its final material-volume contract receipt, and the [latest prospective contract review](evidence/appearance-2026-10-10/ari-volume-owner-revision/REVIEW.md).
+
+The revised contract defines initial native distance U0, range minimum U1 and complete source-region transport through exact vertices and polygon facets. Its geometry has never been constructed. The proposed 1,901,380-node, 11,099,520-tetrahedron workload remains unqualified. Its first implementation needs fresh worth, explicit time/memory/output ownership and complete source preflight before any trial. No field or mesh is admitted by this resume note.
+
+The review service was observed as Vite PID 870 on loopback port 5173; the root returned HTTP 200. The scoped Sugata/Blender/capture census found no other matching worker. This is service availability, not a machine-wide census or visual qualification.
+
+Continue with a concrete bounded implementation/preflight question, using the independent critic and root verification. Preserve the nine untracked files, accepted assets, original references, ignored source buffers, frozen evidence and unrelated worktrees. Do not repeat the closed jacket searches, refused loft/control recipes, local foundation tuning or historical native observers. Numerical/source results cannot qualify appearance, fit, physical occupancy or motion. The complete character, expression, representation, wardrobe, coupled-fit, performance, VTuber and Mii roadmap remains open.
+
+The existing timer is restored through the app API and read back separately. It belongs to this chat; its ten-minute cadence and quiet notification intent remain. A human check-in gets a concise status before another substantial slice. On pause, stop or collect owned work, checkpoint, retain the review server and pause the timer through the app API with readback. No purchases, subscription/model/reset-credit changes, pushing, publishing or other-project resumption are authorized.
