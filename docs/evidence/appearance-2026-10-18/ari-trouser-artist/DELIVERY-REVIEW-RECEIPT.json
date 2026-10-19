@@ -1,0 +1,199 @@
+{
+  "collected_utc": "2026-10-19T06:09:13.754283+00:00",
+  "writer_pid": 67522,
+  "verdict": "A exactlimitedlocaldocumentarydelivery;noactionableissue demonstrated",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/DELIVERY-PREPARATION.json",
+      "bytes": 4112,
+      "sha256": "eca66c49b57ae15b8e9656640e58d20c14533d0917727206e579a9f8021786a8",
+      "read_scope": "Whole literal preparation read."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 15923,
+      "sha256": "a11432b33af9df3f64d14ecec6e5af08faa06c0f3f7ea07887ca46a835fa5ea2",
+      "read_scope": "Whole bytes againstbaseline,exact1anchor removal restores original; fullchangedAri context read in decoded diff; unchanged board not re-audited."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7161,
+      "sha256": "7ce48fa51bff4087e469934635d048ef997d68d900a6ae449849c01e3bccd00f",
+      "read_scope": "Whole currentchecklist read;wholebaselinebytecomparison,oldrows/counts/entireOutstandingexact;allliteralMarkdownlocaltargets checked."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 8207,
+      "sha256": "93d945bbd97e8010e60c9847976fa3d12b7e1626b62130f41684361616d731b4",
+      "read_scope": "Whole changedprose andcontext read in completedecoded4filediff;actualdiffmatched;allcurrentliteralMarkdownlocaltargets checked;unchangedhistoricalcontent notsemanticallyre-audited."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 17486,
+      "sha256": "24e51a1cca73d0d9eb82d60436b13acde5623991eeab0c48f89d7df6effe787b",
+      "read_scope": "Whole changedprose andcontext read in completedecoded4filediff;actualdiffmatched;allcurrentliteralMarkdownlocaltargets checked;unchangedhistoricalcontent notsemanticallyre-audited."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ARTIST-HANDOFF.md",
+      "bytes": 2662,
+      "sha256": "745de392c59db06e67b328678b6cdd98c93b3a382c8ecfb52bc639325613c232",
+      "read_scope": "Whole literal document read in current documentary review."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/README.md",
+      "bytes": 3675,
+      "sha256": "7bf4096fef6054f92c8ea73d7b8a7df3ee26163fc6727e6fbd8edf05d3e8869c",
+      "read_scope": "Whole literal document read in current documentary review."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-IMAGE.json",
+      "bytes": 5158,
+      "sha256": "bfc55c27a8e9a4aeaed586482d860cbdcf0c0b138c36786a24a9adc29342574d",
+      "read_scope": "Whole literal document read in current documentary review."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/IMAGE-REVIEW-2.md",
+      "bytes": 3003,
+      "sha256": "7cc1a4ce4d66b6344809490a6b139172a604886375aa8244b27e0f23b6f48bd1",
+      "read_scope": "Whole bytehash verified; unchanged prior source/actualimage scope reused, not fresh rendering."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/IMAGE-REVIEW-2-RECEIPT.json",
+      "bytes": 11568,
+      "sha256": "eecbab007c3ea3ca2227348674254aa5c9683a6bcefeefbe2a5d0ca66b02cd2c",
+      "read_scope": "Whole bytehash verified; unchanged prior source/actualimage scope reused, not fresh rendering."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/NATIVE-2.json",
+      "bytes": 5008,
+      "sha256": "e4a6d3299c371c0e194d68d2e146fff6456440ab8643f63924faa9a036655c93",
+      "read_scope": "Whole bytehash verified; unchanged prior source/actualimage scope reused, not fresh rendering."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/DELIVERY-DIFF.json",
+      "bytes": 17876,
+      "sha256": "bf13efee958ba9c4bf812347c6bad20b00c1114c8dc9ded747bdc9dd913b6b37",
+      "read_scope": "WholeJSON parsed, complete decoded4filediff read and matched actualgitdiff; baseline/command/scope read."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/trousers-clarity.svg",
+      "bytes": 15096,
+      "sha256": "f89d8777233c34c00428d2c142fe96c473c94ecab730e778be32152b48c1695c",
+      "read_scope": "Whole bytehash verified; unchanged prior source/actualimage scope reused, not fresh rendering."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/design-clarity.json",
+      "bytes": 55596,
+      "sha256": "0ecf4b83cfd83850956426374da6613e6609ec01c5780c5f3b99e9fb07d7d1d5",
+      "read_scope": "Whole bytehash verified; unchanged prior source/actualimage scope reused, not fresh rendering."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/review-clarity.html",
+      "bytes": 2399,
+      "sha256": "4caf8741ccd81cc4fe3687f6c80a77948c3d4e18d742481b30d397db45130538",
+      "read_scope": "Whole bytehash verified; unchanged prior source/actualimage scope reused, not fresh rendering."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/second.jpg",
+      "bytes": 201390,
+      "sha256": "4e10f3f1d84aa1d3b109dabf96df1beeb902244922daf88a407022b0137ad347",
+      "read_scope": "Whole bytehash verified; unchanged prior source/actualimage scope reused, not fresh rendering."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/trousers.svg",
+      "bytes": 15096,
+      "sha256": "6633a94ebeab0d5d9ddfbda1876764fcf2b2f0cdd0715fc018d5671759d522eb",
+      "read_scope": "Whole bytehash verified; unchanged prior source/actualimage scope reused, not fresh rendering."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/design.json",
+      "bytes": 55588,
+      "sha256": "3b5a28f23aeaf6748ea9bc06f631c1c9d78c901f1331dc86d61bd303e0153212",
+      "read_scope": "Whole bytehash verified; unchanged prior source/actualimage scope reused, not fresh rendering."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/review.html",
+      "bytes": 2375,
+      "sha256": "1353bcca4ba01e2c0dafbac7e05de2f4b403caae5fe002d562248cd8c087c67b",
+      "read_scope": "Whole bytehash verified; unchanged prior source/actualimage scope reused, not fresh rendering."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/first.jpg",
+      "bytes": 200624,
+      "sha256": "4d97c515a155cf342e9d7570f4d6afab41a3f775f8653dcc44a2f45c6d5d84c9",
+      "read_scope": "Whole bytehash verified; unchanged prior source/actualimage scope reused, not fresh rendering."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/NATIVE.json",
+      "bytes": 3820,
+      "sha256": "19b58c0708d65c9957b85b9ae8927e6a49475f00ea3b8a398cf57e9b859504b3",
+      "read_scope": "Whole bytehash verified; unchanged prior source/actualimage scope reused, not fresh rendering."
+    }
+  ],
+  "checks": {
+    "delivery_rootimage_rows": 23,
+    "unique_paths": 20,
+    "all_pins_exact": true,
+    "decoded_saved_diff_equals_actual4filediff": true,
+    "baseline": "4e4f2dc97ca69132c6c3faa296364d4058c003d1",
+    "board_exact1anchor_nootherbytes": true,
+    "checklist_exact1row_nootherbytes": true,
+    "all_oldcheckboxrows_exactordered": true,
+    "entireOutstanding_exact": true,
+    "checked_before": 20,
+    "checked_after": 21,
+    "open_before": 10,
+    "open_after": 10,
+    "handoffREADME_local_link_occurrences": 16,
+    "mainMarkdown_local_link_occurrences": 54,
+    "all_checkedlocaltargets_exist": true,
+    "newboardtarget_exists": true,
+    "browser_clickbehavior_tested": false,
+    "newboardlayout_qualified": false
+  },
+  "prior_actual_image_scope": "Own original-detail whole second.jpg review in IMAGE-REVIEW-2 under unchanged4e10f3f1d84aa1d3b109dabf96df1beeb902244922daf88a407022b0137ad347 hash; F1/F2 resolved atartistviewscope only. No freshimage/capture here.",
+  "jobs": [
+    {
+      "chunk": "06a843",
+      "exit": 0,
+      "pid": 67386,
+      "utc": "2026-10-19T06:07:56.821997+00:00",
+      "command_scope": "WholeDELIVERY-PREPARATION,ARTIST-HANDOFF,README,ROOT-IMAGE andcompleteparseddecodedDELIVERY-DIFF read/hashes."
+    },
+    {
+      "chunk": "0790ea",
+      "exit": 0,
+      "pid": 67440,
+      "utc": "2026-10-19T06:08:29.462695+00:00",
+      "command_scope": "Read-onlystdlibhash/JSON/regex andgitshow/diff:23pins,decodedactualdiff,1boardanchorreversal,1checklistrowreversal,checkboxorder/count/Outstanding,16handoffREADME+54mainMarkdownlocaltargets/newboarddestination,wholecurrentchecklist,ownoutputabsence."
+    },
+    {
+      "tool": "exec_command",
+      "pid": 67522,
+      "utc": "2026-10-19T06:09:13.754283+00:00",
+      "command_scope": "Exclusiveowndeliverypairwritesandexactreadback;returnedchunk/exitreportedwithstablehandoff."
+    }
+  ],
+  "findings": "None demonstrated; K-Lwritten-only andallartist/physicalboundaries remain explicit.",
+  "alternatives": {
+    "selected": "Exactlimitedlink/artistrowandlocalcheckpoint:usableartistdiscoverywithrecordedlimits.",
+    "other": "Isolatedevidenceonly:fewerdocchangesbutpoorerartistaccess."
+  },
+  "limits": [
+    "No criticbrowser/network/capture/render/sourceevaluation/import/geometry/memberdecode orsource/productchange; ownpaironly.",
+    "Literal linkexistence isnot clickednativebehavior; no freshservice/timer/OS/GPU census.",
+    "No wholeLbagcontour,physicaltopology/sewing/dimensions/ease/stretch/access/mechanics/materialbehavior/registered3D/bodyfit/motion/runtime/performance/AAAqualification.",
+    "Reference/capturebudgets exhausted; collectortrialrouteclosed; constructorHOLD remains.",
+    "Alloldcheckboxes andwholebroadOutstanding remainexact;noasset/default replacement."
+  ],
+  "errors": [],
+  "next": "Rootwholepair/independentpin/diff verification,ROOT-CLOSE/localcheckpoint only. No newexperiment admitted.",
+  "closure_stop": "2026-10-19T07:00:00Z",
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/DELIVERY-REVIEW.md",
+    "bytes": 2905,
+    "sha256": "6cc1e07e36c94a7860a5deb986f3033457e64a4ba6ed0083ba4fabada578d032",
+    "read_scope": "Wholeownresultreadbackexact."
+  }
+}

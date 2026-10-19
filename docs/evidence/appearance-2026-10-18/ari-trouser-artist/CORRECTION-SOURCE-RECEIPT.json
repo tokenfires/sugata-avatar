@@ -1,0 +1,229 @@
+{
+  "collected_utc": "2026-10-19T06:00:55.449011+00:00",
+  "writer_pid": 66442,
+  "verdict": "A exactcorrectedsource andworthsolelastrootwholecapture; actualcorrectedappearancepending",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/CORRECTION-PREPARATION.json",
+      "bytes": 10185,
+      "sha256": "702f559180d68ee74f69177bd0dc87bc8faa94f3a6a8a616ca7e8bb2c75a83c5",
+      "read_scope": "Whole literal preparation andcompleteunifiedSVGdiff read."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-CORRECTION.json",
+      "bytes": 1332,
+      "sha256": "d67fbd9371e4947b479661b2f5d9f18dae711f3ae04db513b150ac7ca5eac854",
+      "read_scope": "Whole literalrootcorrection decision read."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/IMAGE-REVIEW.md",
+      "bytes": 3233,
+      "sha256": "fe1bff2e9ce9b6576775e343c304a391a0320ca35a85ed3e3a36aa8999548040",
+      "read_scope": "Whole byte hash matched preparation; unchanged prior fullscope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/IMAGE-REVIEW-RECEIPT.json",
+      "bytes": 9631,
+      "sha256": "df0c17cbaa24e8076f782ae407295bf89bb61b39335f95f2972a1ad7b138f5d5",
+      "read_scope": "Whole byte hash matched preparation; unchanged prior fullscope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-FIRST.md",
+      "bytes": 2457,
+      "sha256": "077e52d658ad0d43b4a765cdb754d2939740d458c98301f2ef9cb8aaaad710f5",
+      "read_scope": "Whole byte hash matched preparation; unchanged prior fullscope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/PLAN.json",
+      "bytes": 7420,
+      "sha256": "89dd9f8e466051bae94fcc3f5661a8f0124d000b61364a17665a72ce15252631",
+      "read_scope": "Whole byte hash matched preparation; unchanged prior fullscope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/BRIEF.md",
+      "bytes": 5828,
+      "sha256": "c9da9310d9c05cad7ee1a88b66251fa693106575a6ec0b9df34abe8742024b71",
+      "read_scope": "Whole byte hash matched preparation; unchanged prior fullscope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-SOURCE.json",
+      "bytes": 3254,
+      "sha256": "382c50f26a52b1def286ddb6ff06d5f06886fa0f5e4661082cae974e3c7faca9",
+      "read_scope": "Whole byte hash matched preparation; unchanged prior fullscope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/trousers.svg",
+      "bytes": 15096,
+      "sha256": "6633a94ebeab0d5d9ddfbda1876764fcf2b2f0cdd0715fc018d5671759d522eb",
+      "read_scope": "Whole rawSVG exact3replacement comparison; complete newXML parsed withoutrender; prior wholeliteral originalsource scope reused."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/design.json",
+      "bytes": 55588,
+      "sha256": "3b5a28f23aeaf6748ea9bc06f631c1c9d78c901f1331dc86d61bd303e0153212",
+      "read_scope": "Whole savedJSONparsed; exact5changedvalues; all165newtreenodes compared toactualXML; role/view/limits unchanged."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/review.html",
+      "bytes": 2375,
+      "sha256": "1353bcca4ba01e2c0dafbac7e05de2f4b403caae5fe002d562248cd8c087c67b",
+      "read_scope": "Whole rawHTML compared; new13-line wrapper read; onlyfilenames,9existingrefs/static checks."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/first.jpg",
+      "bytes": 200624,
+      "sha256": "4d97c515a155cf342e9d7570f4d6afab41a3f775f8653dcc44a2f45c6d5d84c9",
+      "read_scope": "Whole byte hash matched preparation; unchanged prior fullscope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/NATIVE.json",
+      "bytes": 3820,
+      "sha256": "19b58c0708d65c9957b85b9ae8927e6a49475f00ea3b8a398cf57e9b859504b3",
+      "read_scope": "Whole byte hash matched preparation; unchanged prior fullscope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/CAPTURE-OPERATION.json",
+      "bytes": 1296,
+      "sha256": "c7b9e5e8286b507cd9344f46a72bda9cbcc3245a466ea11c5aaef381dabb4980",
+      "read_scope": "Whole byte hash matched preparation; unchanged prior fullscope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/trousers-clarity.svg",
+      "bytes": 15096,
+      "sha256": "f89d8777233c34c00428d2c142fe96c473c94ecab730e778be32152b48c1695c",
+      "read_scope": "Whole rawSVG exact3replacement comparison; complete newXML parsed withoutrender; prior wholeliteral originalsource scope reused."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/design-clarity.json",
+      "bytes": 55596,
+      "sha256": "0ecf4b83cfd83850956426374da6613e6609ec01c5780c5f3b99e9fb07d7d1d5",
+      "read_scope": "Whole savedJSONparsed; exact5changedvalues; all165newtreenodes compared toactualXML; role/view/limits unchanged."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/review-clarity.html",
+      "bytes": 2399,
+      "sha256": "4caf8741ccd81cc4fe3687f6c80a77948c3d4e18d742481b30d397db45130538",
+      "read_scope": "Whole rawHTML compared; new13-line wrapper read; onlyfilenames,9existingrefs/static checks."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md",
+      "bytes": 2270,
+      "sha256": "3a5b0493387b14d164455996e2ab3840d02e10341220f0282968d3720878899c",
+      "read_scope": "Whole byte hash matched preparation; unchanged prior fullscope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d",
+      "read_scope": "Whole byte hash matched preparation; unchanged prior fullscope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/review-caption.html",
+      "bytes": 2354,
+      "sha256": "bb0fefc21b0aed842f9a9f37d4c67fe747d3f8dc369e93c6ad680cec52d56e32",
+      "read_scope": "Whole byte hash matched preparation; unchanged prior fullscope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/interior-caption.svg",
+      "bytes": 13143,
+      "sha256": "9ee8e1ede810689eca0ff558a952dba6915fcf827f223dbbc5ff9c0131ce33f2",
+      "read_scope": "Whole byte hash matched preparation; unchanged prior fullscope reused where applicable."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/REFERENCES.md",
+      "bytes": 2308,
+      "sha256": "50a9f94973151b0781e781612b978869f702618483b280de3c9a853b16a8a6dc",
+      "read_scope": "Whole byte hash matched preparation; unchanged prior fullscope reused where applicable."
+    }
+  ],
+  "checks": {
+    "preparation_rows": 25,
+    "unique_paths": 21,
+    "all_pins_exact": true,
+    "SVG_exact_attrchanges": 3,
+    "JSON_exact_changedvalues": [
+      "/authoritative_file",
+      "/svg_sha256",
+      "/complete_svg_tree/children/17/children/0/attributes/d",
+      "/complete_svg_tree/children/17/children/1/attributes/d",
+      "/complete_svg_tree/children/18/attributes/y"
+    ],
+    "SVG_bytes_unchanged": 15096,
+    "complete_XML_JSON_nodes": 165,
+    "tree_policy": "taglocalname,allattributes,nonblanktextverbatim/whitespaceonlyNone,orderedchildren;rawSVGhashbindsotherbytes;notailreconstructionclaim",
+    "roles_viewframes_limits_unchanged": true,
+    "viewer_only2filename_substitutions": true,
+    "viewer_localrefs": 9,
+    "all_exist_static": true,
+    "originals_exact": true,
+    "rendered_result_qualified": false
+  },
+  "witness": "OwnpriorwholefirstimageF1captioncrowding/F2rearunderbandwedge; currentSVG:68-69,83 exactattributes; unchangedband:70 anddivider:84.",
+  "alternatives": [
+    {
+      "choice": "Selectedminimalgroupedcloneandlastcapture",
+      "tradeoff": "Preservesoriginals and garmentdirection; spendsremainingcapture,stillneedsactualimagejudgment."
+    },
+    {
+      "choice": "Retainfirstpartialstudyonly",
+      "tradeoff": "Savescaptureeffort;demonstratedcommunicationissuesremain."
+    }
+  ],
+  "jobs": [
+    {
+      "chunk": "ea6e80",
+      "exit": 0,
+      "pid": 66305,
+      "utc": "2026-10-19T05:59:37.343794+00:00",
+      "command_scope": "WholeCORRECTION-PREPARATION/unifiedSVGdiff/newwrapper readandhash."
+    },
+    {
+      "chunk": "f1e65b",
+      "exit": 0,
+      "pid": 66368,
+      "utc": "2026-10-19T06:00:13.109913+00:00",
+      "command_scope": "Read-onlystdlibhash/JSON/XML/HTML25pins,exact3SVG/5JSONchanges,whole165tree,roles/views/limitsidentity,9refs,wholeROOT-CORRECTION,ownoutputabsence."
+    },
+    {
+      "tool": "exec_command",
+      "pid": 66442,
+      "utc": "2026-10-19T06:00:55.449011+00:00",
+      "command_scope": "Exclusiveowncorrectionsourcepairwritesandexactreadback;returnedchunk/exitreportedwithstablehandoff."
+    }
+  ],
+  "findings": "No new actionable source issue demonstrated; F1/F2 repairs are eligible for final visualtest,not presumed resolvedpixels.",
+  "errors": [],
+  "capture_conditions": {
+    "root_independent_gate": true,
+    "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/review-clarity.html",
+    "viewport": "actualdefault1280x720",
+    "all3imagesloaded": true,
+    "page_max_height": 2200,
+    "exclusiveunmodifiedwholeJPEG": true,
+    "remaining": 1,
+    "no_morevariant_orretake": true,
+    "reference_remaining": 0
+  },
+  "stops": {
+    "worth": "2026-10-19T05:45:00+00:00",
+    "references_and_brief": "2026-10-19T06:00:00+00:00",
+    "source_preparation": "2026-10-19T06:20:00+00:00",
+    "source_review": "2026-10-19T06:30:00+00:00",
+    "root_capture_gate": "2026-10-19T06:35:00+00:00",
+    "capture": "2026-10-19T06:40:00+00:00",
+    "image_review": "2026-10-19T06:50:00+00:00",
+    "closure": "2026-10-19T07:00:00+00:00"
+  },
+  "limits": [
+    "No criticbrowser/render/capture/network/sourceartedit/evaluation/import/geometry/bodymemberdecode orproductchange; ownpaironly.",
+    "No physicalhole/coverage/topology/sewing/scale/ease/stretch/access/materialmechanics/3D/bodyfit/motion/runtime/AAAqualification.",
+    "No source/collector/field/bodyconstructorrouteadmitted; originalclosedholdsremain."
+  ],
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/CORRECTION-SOURCE.md",
+    "bytes": 2617,
+    "sha256": "402e2eb38947876145c5d3c8e8f89c27a68f14052ca66f82de7befc932a1dae8",
+    "read_scope": "Wholeownresultreadbackexact."
+  }
+}

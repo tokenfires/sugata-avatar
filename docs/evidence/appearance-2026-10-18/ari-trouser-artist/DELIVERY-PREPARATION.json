@@ -1,0 +1,82 @@
+{
+  "collected_utc": "2026-10-19T06:07:28.954600+00:00",
+  "writer_pid": 67264,
+  "baseline": "4e4f2dc97ca69132c6c3faa296364d4058c003d1",
+  "files": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 15923,
+      "sha256": "a11432b33af9df3f64d14ecec6e5af08faa06c0f3f7ea07887ca46a835fa5ea2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7161,
+      "sha256": "7ce48fa51bff4087e469934635d048ef997d68d900a6ae449849c01e3bccd00f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 8207,
+      "sha256": "93d945bbd97e8010e60c9847976fa3d12b7e1626b62130f41684361616d731b4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 17486,
+      "sha256": "24e51a1cca73d0d9eb82d60436b13acde5623991eeab0c48f89d7df6effe787b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ARTIST-HANDOFF.md",
+      "bytes": 2662,
+      "sha256": "745de392c59db06e67b328678b6cdd98c93b3a382c8ecfb52bc639325613c232"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/README.md",
+      "bytes": 3675,
+      "sha256": "7bf4096fef6054f92c8ea73d7b8a7df3ee26163fc6727e6fbd8edf05d3e8869c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-IMAGE.json",
+      "bytes": 5158,
+      "sha256": "bfc55c27a8e9a4aeaed586482d860cbdcf0c0b138c36786a24a9adc29342574d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/IMAGE-REVIEW-2.md",
+      "bytes": 3003,
+      "sha256": "7cc1a4ce4d66b6344809490a6b139172a604886375aa8244b27e0f23b6f48bd1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/IMAGE-REVIEW-2-RECEIPT.json",
+      "bytes": 11568,
+      "sha256": "eecbab007c3ea3ca2227348674254aa5c9683a6bcefeefbe2a5d0ca66b02cd2c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/NATIVE-2.json",
+      "bytes": 5008,
+      "sha256": "e4a6d3299c371c0e194d68d2e146fff6456440ab8643f63924faa9a036655c93"
+    }
+  ],
+  "diff_packet": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/DELIVERY-DIFF.json",
+    "bytes": 17876,
+    "sha256": "bf13efee958ba9c4bf812347c6bad20b00c1114c8dc9ded747bdc9dd913b6b37"
+  },
+  "verified_scope": {
+    "board_exactly1anchor": "<a href=\"/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/review-clarity.html\">Trouser drawing</a>",
+    "checklist_exactly1row": "- [x] Original editable Ari trouser artist sheet with front, profile, rear and waist/pleat/fly/pocket-layer/hem intent; sewing, physical fit, 3D and motion remain open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-18/ari-trouser-artist/ARTIST-HANDOFF.md)",
+    "no_date_orother_checklist_bytes_changed": true,
+    "all_old_rows_ordered_exact": true,
+    "entire_Outstanding_exact": true,
+    "checked_before_after": [
+      20,
+      21
+    ],
+    "open_before_after": [
+      10,
+      10
+    ],
+    "handoff_README_links_resolve": 16
+  },
+  "root_whole_new_text_scope": "Own authored handoff/README and complete checkpoint/journal changes prepared after root9efc05 actual image and19pin handoff gate. Exact independent documentary review and root readback still required before localcommit.",
+  "budget": "All graphic/ref budgets exhausted; this is literal source/documentary/link work, no capture or UIqualification.",
+  "limits": "K-L writtenonly; no broad physical/mechanical/material/3D/fit/motion/runtime/AAA credit. Computationalroute remainsclosed/HOLD.",
+  "next": "Critic exact complete handoff/README/decoded4filediff and pins; root whole handoff/pin/diff verification, ROOT-CLOSE and localcheckpoint."
+}

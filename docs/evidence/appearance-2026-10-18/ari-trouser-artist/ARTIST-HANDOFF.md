@@ -1,0 +1,13 @@
+# Ari's generous ink trousers
+
+An original editable artist sheet for the previously indistinct waist and pleats. [Open the complete drawing](review-clarity.html), [editable SVG](trousers-clarity.svg), [design JSON](design-clarity.json), or [actual reviewed image](second.jpg).
+
+The chosen direction has a smooth separate front band, one outward-opening pleat per leg, an owned fly/overlap/guard, separate angled pockets and gathering at the back waist. Front, right profile and rear give the leg and seat intent useful context. Enlarged details separate the anchored upper pleat from its release and lower crease, show pocket mouth and bag roles, and explain plain hems over fictional shoe guides. The right bag is drawn; the left bag is written counterpart intent, with no independently drawn full contour.
+
+This is new authorship, not recovered hidden construction from the old image. The retained character's waist stays covered by the slate tee and short rust jacket. The illustration and reviewed jacket interior remain unchanged below the new sheet. Ink blue-black and a soft matte woven surface are artist direction; light detail fills explain layers rather than changing garment colour. Front puts wearer R at image-left, rear at image-right; the right profile faces image-left. These views are independently drawn, without geometric registration.
+
+Edit named SVG elements and refresh the JSON after changes. It preserves all 165 declared elements, 22 editing roles, side transitions and parent relationships. Arrow, anchor, release-circle and crease marks distinguish the pleat responsibilities. Such named relationships supply no cut-piece lengths or physical seam certificate. [Brief and chosen alternatives](BRIEF.md), [primary reference observations](REFERENCES.md).
+
+Root and the independent critic inspected the whole final 1280×1877 image. A separate three-attribute clarity correction resolves the first image's crowded caption row and small unpainted region beneath the rear band. The band, outer seat, leg and hem outlines, styles and wording stay unchanged. All original sources, the first image and its refusal are preserved. [Final image review](IMAGE-REVIEW-2.md), [root verification](ROOT-IMAGE.json), [capture provenance](NATIVE-2.json).
+
+The sheet is unitless artist intent. Physical sewing and topology, measured rise/ease/stretch, access and pocket/zip mechanics, material behavior, actual shoe/floor contact, body fit, 3D surfaces, rig/morph/pose/motion, runtime/performance and complete-character/AAA quality remain open. No accepted or default asset changed. The held constructor and closed source-checker route remain untouched.

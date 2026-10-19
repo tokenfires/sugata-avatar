@@ -1,0 +1,165 @@
+{
+  "collected_utc": "2026-10-19T05:40:09.565206+00:00",
+  "writer_pid": 63440,
+  "verdict": "A bounded primary-reference and artist brief decision only; no source authoring/capture/physical qualification",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/PLAN.json",
+      "bytes": 7420,
+      "sha256": "89dd9f8e466051bae94fcc3f5661a8f0124d000b61364a17665a72ce15252631",
+      "read_scope": "Whole literal7420-byte plan read."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md",
+      "bytes": 2270,
+      "sha256": "3a5b0493387b14d164455996e2ab3840d02e10341220f0282968d3720878899c",
+      "read_scope": "Whole literal document read in current worth task; exact byte binding verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d",
+      "read_scope": "Actually viewed whole unchanged1536x1024 concept at original detail in current task; full raw byte hash verified; no crop/edit/render/capture."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/PROMPT.txt",
+      "bytes": 3099,
+      "sha256": "648c8ffa2426d1f69be922b5052a8700eba66ec6987d7ab73d8ac58f81ea0dca",
+      "read_scope": "Whole literal document read in current worth task; exact byte binding verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/REFERENCES.md",
+      "bytes": 1821,
+      "sha256": "bb8d903d04b6b86813f1fd9effffeb624fbabca8a3ef886f7fdd1da9e47ccc29",
+      "read_scope": "Whole literal document read in current worth task; exact byte binding verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/ROOT-IMAGE.md",
+      "bytes": 2487,
+      "sha256": "f83f287ed4226e534fe3f967fb58f229b7134ca2d32d7e09be91facf6a2d40b7",
+      "read_scope": "Whole literal document read in current worth task; exact byte binding verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/IMAGE-REVIEW.md",
+      "bytes": 7649,
+      "sha256": "23dfcb764152618ef9f43c520a7066ee827a9200349cc8c6f91c8728da57f93b",
+      "read_scope": "Whole literal document read in current worth task; exact byte binding verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ROOT-CLOSE.json",
+      "bytes": 15930,
+      "sha256": "92bc954de3c5586b58cad0edfdbe6397c72db8552c22c6c1c2f4790da8062f23",
+      "read_scope": "Full bytes hashed and JSON parsed; selected non-list top-level closure/checks/image/mutableepoch/budget/limit/next metadata read; binding arrays/root own reads not independently re-audited."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/ARTIST-HANDOFF.md",
+      "bytes": 2418,
+      "sha256": "08fdb8eaa61304a2af305e357516345ccf26a1a5d5e42c2ece0685fc1f90af40",
+      "read_scope": "Whole literal document read in current worth task; exact byte binding verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-interior-artist/CHECKPOINT.json",
+      "bytes": 1726,
+      "sha256": "6ab0d17de6fd8832ec505d35191afafec4dcd827e529c26f93a5d507e34c06bf",
+      "read_scope": "Whole literal document read in current worth task; exact byte binding verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/ROOT-CLOSE.json",
+      "bytes": 2265,
+      "sha256": "0f320ba076498d0e48e0e9a6bd874fc4c673aacd7effdbba5016e28a23f78a5b",
+      "read_scope": "Whole literal document read in current worth task; exact byte binding verified."
+    }
+  ],
+  "binding_verification": {
+    "PLAN_inputs": 10,
+    "all_exact": true,
+    "transitive_bindings_revalidated": false
+  },
+  "actual_visual_scope": {
+    "tool": "view_image",
+    "detail": "original",
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+    "whole": true,
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "regions": "Front/profile/rear wholetrousers pluswholecharactercontext; approximateimagecoordinates are qualitative locations only.",
+    "independent_observation": "Waist mostly obscured; generous fall/seat visible; distinctpleatopenings/band/hiddenclosure not established."
+  },
+  "witnesses": [
+    {
+      "source": "larger-frame-character/ARTIST-HANDOFF.md:11,13; IMAGE-REVIEW.md:28-30; PROMPT.txt:9",
+      "image": "Front approximatelyx55-335,y425-880;profilex430-620,rearx700-995,y425-890",
+      "finding": "Documented precise waist/pleat authorshipgap; no physicaldefect or elasticconstruction inference.",
+      "alternatives": [
+        "Calmfront/ownedpleat+fly/limitedreareasing:tailoringclarity,moreexplicitrelationships.",
+        "Continuouselastic:simplercomfortvocabulary,gatheredfrontmayalterretainedlook.",
+        "Defer:nofurtherflatart,retaineddecisionremainsopen."
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "chunk": "ccb55f",
+      "exit": 0,
+      "pid": 63275,
+      "utc": "2026-10-19T05:39:02.289513+00:00",
+      "command_scope": "WholePLANreadandhash."
+    },
+    {
+      "tool": "view_image",
+      "detail": "original",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "result": "Wholeoriginalemittedandactuallyviewed;noshellPID."
+    },
+    {
+      "chunk": "ebc249",
+      "exit": 0,
+      "pid": 63308,
+      "utc": "2026-10-19T05:39:20.867991+00:00",
+      "command_scope": "Read-onlystdlibhash/JSON:all10PLANpins;whole8textinputs exceptselectedinteriorROOT-CLOSEmetadata;ownoutputabsence."
+    },
+    {
+      "tool": "exec_command",
+      "pid": 63440,
+      "utc": "2026-10-19T05:40:09.565206+00:00",
+      "command_scope": "ExclusiveownWORTHpairwritesandreadback;returnedchunk/exitreportedwithstablehandoff."
+    }
+  ],
+  "limits": [
+    "No sourceprogramimport/evaluation,archive/GLB/body/memberdecode,construction,network,browser,capture,generation or product edits.",
+    "No globalcorpusabsence claim or repeated oldtrousermesh/viewer/collector/source trial.",
+    "Originalpalette/image/acceptedassets remainunchanged; hiddenconstruction must be declarednewart.",
+    "Thisworthdoesnotchoosefinalconstruction or qualifysewing,dimensions,physicalmaterial/fit,motion/runtime/AAA."
+  ],
+  "bounded_next": {
+    "fresh_root_gate_required": true,
+    "searches_max": 2,
+    "results_per_search_max": 6,
+    "primary_pages_max": 2,
+    "primary_actual_views_max": 2,
+    "question": "Choose one explicitwaist/pleat/pocket direction or defer; no queryladder ifunsupported.",
+    "later_source_and_image_gates_required": true,
+    "candidate_captures_max": 2,
+    "includes_optional_clarity_correction": true
+  },
+  "stops": {
+    "worth": "2026-10-19T05:45:00+00:00",
+    "references_and_brief": "2026-10-19T06:00:00+00:00",
+    "source_preparation": "2026-10-19T06:20:00+00:00",
+    "source_review": "2026-10-19T06:30:00+00:00",
+    "root_capture_gate": "2026-10-19T06:35:00+00:00",
+    "capture": "2026-10-19T06:40:00+00:00",
+    "image_review": "2026-10-19T06:50:00+00:00",
+    "closure": "2026-10-19T07:00:00+00:00"
+  },
+  "errors": [],
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/WORTH.md",
+    "bytes": 3105,
+    "sha256": "a3d1547923375ff451a33d919a31fe6788d805fb3698f4666aff0632cde5d92e",
+    "read_scope": "Wholeownresultreadbackexact."
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "collected_utc": "2026-10-19T05:55:40.074325+00:00",
+  "writer_pid": 65757,
+  "candidate": 1,
+  "image": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/first.jpg",
+    "bytes": 200624,
+    "sha256": "4d97c515a155cf342e9d7570f4d6afab41a3f775f8653dcc44a2f45c6d5d84c9"
+  },
+  "format": "JPEG SOF metadata only, no image alteration",
+  "dimensions": [
+    1280,
+    1877
+  ],
+  "operation": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/CAPTURE-OPERATION.json",
+    "bytes": 1296,
+    "sha256": "c7b9e5e8286b507cd9344f46a72bda9cbcc3245a466ea11c5aaef381dabb4980"
+  },
+  "source_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/trousers.svg",
+      "bytes": 15096,
+      "sha256": "6633a94ebeab0d5d9ddfbda1876764fcf2b2f0cdd0715fc018d5671759d522eb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/design.json",
+      "bytes": 55588,
+      "sha256": "3b5a28f23aeaf6748ea9bc06f631c1c9d78c901f1331dc86d61bd303e0153212"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/review.html",
+      "bytes": 2375,
+      "sha256": "1353bcca4ba01e2c0dafbac7e05de2f4b403caae5fe002d562248cd8c087c67b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-SOURCE.json",
+      "bytes": 3254,
+      "sha256": "382c50f26a52b1def286ddb6ff06d5f06886fa0f5e4661082cae974e3c7faca9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/SOURCE-PREPARATION.json",
+      "bytes": 9249,
+      "sha256": "93f3820f176b9f3f7535b5faf80dfa4148775134d496033265e1ab546d9bf4d5"
+    }
+  ],
+  "observed_dom": {
+    "images": [
+      {
+        "complete": true,
+        "display": [
+          1232,
+          1453.375
+        ],
+        "natural": [
+          1280,
+          1510
+        ],
+        "src": "trousers.svg"
+      },
+      {
+        "complete": true,
+        "display": [
+          604,
+          230
+        ],
+        "natural": [
+          1536,
+          1024
+        ],
+        "src": "../../appearance-2026-10-07/larger-frame-character/concept-v1.png"
+      },
+      {
+        "complete": true,
+        "display": [
+          604,
+          230
+        ],
+        "natural": [
+          1280,
+          1260
+        ],
+        "src": "../ari-interior-artist/interior-caption.svg"
+      }
+    ],
+    "page": [
+      1280,
+      1877
+    ],
+    "title": "Ari \u00b7 a calm front, room to fall",
+    "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/review.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "root_actual_visual_scope": "Root whole first CUA image actually inspected at05:54UTC, independentofcritic. Front/profile/rear and3details/contextcomplete; outwardarrows/release/pocketrolelayers visible.",
+  "root_initial_findings": [
+    "Profile/rear lowercaption rows visiblycollide withfullwidthmain-viewlimit; examine actualbottom ofmainviews beforeartistdelivery.",
+    "Small pale wedge visible underrearWB atcentre; examine actual2D band/legfill alignment. No physical3Dgarmenthole inference."
+  ],
+  "budgets": {
+    "candidate_used": 1,
+    "remaining": 1,
+    "primary_ref_remaining": 0
+  },
+  "next": "Independent critic image-first review thenfullnative/sourcewitness inspection. Atmostoneisolatedclarityclone ifworththeactualdecision; originalsource/imagefrozen.",
+  "limits": "No physicalsewing/dimensions/fit/3D/motion/runtime/AAA/nativeGPUjoborconstructorqualification."
+}

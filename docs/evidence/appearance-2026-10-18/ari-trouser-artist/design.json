@@ -1,0 +1,2086 @@
+{
+  "schema": "sugata.original-trouser-art.v1",
+  "authoritative_file": "trousers.svg",
+  "svg_bytes": 15096,
+  "svg_sha256": "6633a94ebeab0d5d9ddfbda1876764fcf2b2f0cdd0715fc018d5671759d522eb",
+  "viewBox": "0 0 1280 1510",
+  "units": "Independentoriginaldrawingunits,nophysicalscale",
+  "view_frames": {
+    "front-view": "WearerR=imageleft",
+    "profile-view": "WearerR outerside; front=imageleft; notregisteredtofront/rear",
+    "rear-view": "WearerR=imageright",
+    "detail_views": "Independentexplanatorylayers,notmatchedcutpieces"
+  },
+  "material_colour_intent": "Inkblueblackmattewovencloth artistdirection; mainfill#30414e. Lightenlargeddetailfillsarelayerexplanation,notmaterialcolourchange.",
+  "roles": {
+    "F-R": {
+      "elements": [
+        "front-leg-R",
+        "detail-front-R",
+        "profile-shell"
+      ],
+      "boundaries_or_parents": {
+        "waist": "WF-R.lower",
+        "outer_side": "B-R.outer_side",
+        "inner_leg": "B-R.inner_leg",
+        "rise": "F-L.rise",
+        "lower": "H-R.shell",
+        "pleat": "PL-R.shell",
+        "pocket": "P-R.shell"
+      }
+    },
+    "F-L": {
+      "elements": [
+        "front-leg-L",
+        "detail-front-L"
+      ],
+      "boundaries_or_parents": {
+        "waist": "WF-L.lower",
+        "outer_side": "B-L.outer_side",
+        "inner_leg": "B-L.inner_leg",
+        "rise": "F-R.rise",
+        "lower": "H-L.shell",
+        "pleat": "PL-L.shell",
+        "pocket": "P-L.shell"
+      }
+    },
+    "B-R": {
+      "elements": [
+        "back-leg-R",
+        "profile-shell"
+      ],
+      "boundaries_or_parents": {
+        "waist": "WB.lower_R",
+        "outer_side": "F-R.outer_side",
+        "inner_leg": "F-R.inner_leg",
+        "rise": "B-L.rise",
+        "lower": "H-R.shell"
+      }
+    },
+    "B-L": {
+      "elements": [
+        "back-leg-L"
+      ],
+      "boundaries_or_parents": {
+        "waist": "WB.lower_L",
+        "outer_side": "F-L.outer_side",
+        "inner_leg": "F-L.inner_leg",
+        "rise": "B-R.rise",
+        "lower": "H-L.shell"
+      }
+    },
+    "WF-R": {
+      "elements": [
+        "front-band-R",
+        "front-WF-R-label",
+        "detail-WF-R",
+        "profile-front-band"
+      ],
+      "boundaries_or_parents": {
+        "lower": "F-R.waist",
+        "side": "J-R.front",
+        "centre": "G-R.band_support"
+      }
+    },
+    "WF-L": {
+      "elements": [
+        "front-band-L",
+        "front-WF-L-label",
+        "detail-WF-L"
+      ],
+      "boundaries_or_parents": {
+        "lower": "F-L.waist",
+        "side": "J-L.front",
+        "centre": "O-L.band_support"
+      }
+    },
+    "WB": {
+      "elements": [
+        "back-band",
+        "back-gathers",
+        "rear-WB-label",
+        "profile-back-band",
+        "profile-gathers"
+      ],
+      "boundaries_or_parents": {
+        "lower_R": "B-R.waist",
+        "lower_L": "B-L.waist",
+        "side_R": "J-R.back",
+        "side_L": "J-L.back"
+      },
+      "scope": "Gathered rearbandintent only; unmeasuredelasticlength/range/assembly."
+    },
+    "J-R": {
+      "elements": [
+        "front-J-R-label",
+        "rear-J-R-label",
+        "profile-band-transition",
+        "profile-J-R-label"
+      ],
+      "boundaries_or_parents": {
+        "front": "WF-R.side",
+        "back": "WB.side_R"
+      },
+      "scope": "Same side responsibility named in independentlyauthoredviews; no registeredposition/length certificate."
+    },
+    "J-L": {
+      "elements": [
+        "front-J-L-label",
+        "rear-J-L-label"
+      ],
+      "boundaries_or_parents": {
+        "front": "WF-L.side",
+        "back": "WB.side_L"
+      }
+    },
+    "PL-R": {
+      "elements": [
+        "front-pleat-R",
+        "front-anchor-R",
+        "front-release-R",
+        "front-pleat-arrow-R",
+        "front-crease-R",
+        "front-PL-R-label",
+        "profile-pleat-R",
+        "profile-release-R",
+        "detail-pleat-R",
+        "detail-anchor-R",
+        "detail-release-R",
+        "detail-arrow-R",
+        "detail-crease-R"
+      ],
+      "boundaries_or_parents": {
+        "shell": "F-R.pleat",
+        "top": "WF-R.lower",
+        "fall": "F-R.view_crease"
+      },
+      "scope": "One outwardopeningpleat; shortanchor/release separated fromunsewn lowercrease. No measuredtuckdepth/ease."
+    },
+    "PL-L": {
+      "elements": [
+        "front-pleat-L",
+        "front-anchor-L",
+        "front-release-L",
+        "front-pleat-arrow-L",
+        "front-crease-L",
+        "front-PL-L-label",
+        "detail-pleat-L",
+        "detail-anchor-L",
+        "detail-release-L",
+        "detail-arrow-L",
+        "detail-crease-L"
+      ],
+      "boundaries_or_parents": {
+        "shell": "F-L.pleat",
+        "top": "WF-L.lower",
+        "fall": "F-L.view_crease"
+      }
+    },
+    "Z": {
+      "elements": [
+        "front-fly",
+        "front-closure-axis",
+        "front-Z-label",
+        "detail-Z"
+      ],
+      "boundaries_or_parents": {
+        "overlap": "O-L.closure",
+        "underlap": "G-R.closure"
+      },
+      "scope": "Zip/closure graphicintent, no toothmechanism or openingcapacity. Newartistchoice, not Winslowphoto evidence."
+    },
+    "O-L": {
+      "elements": [
+        "front-overlap-L",
+        "front-button",
+        "detail-overlap-L",
+        "detail-button",
+        "detail-OL-label"
+      ],
+      "boundaries_or_parents": {
+        "band_support": "WF-L.centre",
+        "closure": "Z.overlap"
+      },
+      "scope": "Wearerleft overlap extendsacrosscentre. Actualsurface/assemblyunqualified."
+    },
+    "G-R": {
+      "elements": [
+        "detail-guard-R",
+        "detail-GR-label"
+      ],
+      "boundaries_or_parents": {
+        "band_support": "WF-R.centre",
+        "closure": "Z.underlap"
+      },
+      "scope": "Wearerright guard/underlap behind overlap andzip intent. Enlargedhiddenstyle isnot a thirdclosure. Mainexteriordoesnot exposehiddenpanel."
+    },
+    "P-R": {
+      "elements": [
+        "front-pocket-R",
+        "front-P-R-label",
+        "profile-pocket-R",
+        "profile-P-label",
+        "detail-pocket-mouth-R",
+        "detail-P-R-label",
+        "detail-mouth-parent-links"
+      ],
+      "boundaries_or_parents": {
+        "shell": "F-R.pocket",
+        "mouth": "K-R.mouth"
+      },
+      "scope": "Angledoutermouth independentofpleat. Nozipdeclared ontrouserpocket."
+    },
+    "P-L": {
+      "elements": [
+        "front-pocket-L",
+        "front-P-L-label"
+      ],
+      "boundaries_or_parents": {
+        "shell": "F-L.pocket",
+        "mouth": "K-L.mouth"
+      }
+    },
+    "K-R": {
+      "elements": [
+        "detail-bag-R",
+        "detail-bag-mouth-R",
+        "detail-K-R-label",
+        "detail-bag-label"
+      ],
+      "boundaries_or_parents": {
+        "mouth": "P-R.mouth",
+        "perimeter": "K-R.view_envelope"
+      },
+      "scope": "Hiddenbehindfrontshell; exploded R schematic independentlyowned, notregisteredcutpiece."
+    },
+    "K-L": {
+      "elements": [
+        "pocket-caption-3"
+      ],
+      "boundaries_or_parents": {
+        "mouth": "P-L.mouth",
+        "perimeter": "K-L.counterpart_intent"
+      },
+      "scope": "WrittenL counterpart ofReditingintent; no separate fullLbagcontour is drawn or qualified."
+    },
+    "H-R": {
+      "elements": [
+        "front-hem-R",
+        "front-H-R-label",
+        "back-hem-R",
+        "profile-hem",
+        "detail-hem-R",
+        "detail-H-R-label",
+        "front-break-R",
+        "detail-break-R"
+      ],
+      "boundaries_or_parents": {
+        "shell": "F-R.lower+B-R.lower",
+        "reference": "ShoeGuide.R"
+      },
+      "scope": "Plainturnedhem artistintent andsmallfrontbreak; noshoecontact/foldphysics/cuff/elasticankle."
+    },
+    "H-L": {
+      "elements": [
+        "front-hem-L",
+        "front-H-L-label",
+        "back-hem-L",
+        "front-break-L"
+      ],
+      "boundaries_or_parents": {
+        "shell": "F-L.lower+B-L.lower",
+        "reference": "ShoeGuide.L"
+      }
+    },
+    "T": {
+      "elements": [
+        "overlap-intent"
+      ],
+      "boundaries_or_parents": {
+        "waist": "WF-R.top+WF-L.top+WB.top"
+      },
+      "scope": "Writtenretainedtee/jacketcoveringwaistintent; no newtee/jacket/bodygeometry. Originalcontextimageunchanged."
+    },
+    "ShoeGuide": {
+      "elements": [
+        "front-shoe-guide-R",
+        "front-shoe-guide-L",
+        "profile-shoe-guide",
+        "rear-shoe-guide-R",
+        "rear-shoe-guide-L",
+        "detail-shoe-guide",
+        "detail-shoe-label"
+      ],
+      "boundaries_or_parents": {},
+      "scope": "Fictionalschematicguides forhemrelationship, notAri shoegeometry/anatomy/fit/floorcontact."
+    }
+  },
+  "pocket_graphic_association": {
+    "P_R_points": [
+      [
+        43,
+        38
+      ],
+      [
+        24,
+        108
+      ]
+    ],
+    "K_R_points": [
+      [
+        198,
+        38
+      ],
+      [
+        179,
+        108
+      ]
+    ],
+    "detail_translation": [
+      155,
+      0
+    ],
+    "scope": "Exactauthored2Dmouthtranslation only; notphysicalpatternregistration. K-Lwrittenmirrorintentonly."
+  },
+  "pleat_role_semantics": "Arrowsoutward; shortupperanchormarks;circlerelease;lowercreaseisnotasewnpleat. No rearpleats/darts inselectedview.",
+  "scope_limits": [
+    "Artistviewsandparentresponsibilities,notphysicalpanel/topology/seamcertificateorcutpatterns.",
+    "Nophysicalease/stretch/zipcapacity/pocketmechanics/materialbehavior/registeredbodyfit/3D/rigmorphposemotion/runtime/AAAcredit.",
+    "Retainedwholecharacterandjacketcontextunchanged;noselectedbodygeometrysourceorconstructoradmission.",
+    "SVGauthoritative;refreshJSONassociationafteredits."
+  ],
+  "element_count": 165,
+  "complete_svg_tree": {
+    "tag": "svg",
+    "attributes": {
+      "id": "trouser-sheet",
+      "width": "1280",
+      "height": "1510",
+      "viewBox": "0 0 1280 1510",
+      "role": "img",
+      "aria-labelledby": "title description"
+    },
+    "text": null,
+    "children": [
+      {
+        "tag": "title",
+        "attributes": {
+          "id": "title"
+        },
+        "text": "Ari: a calm front, room to fall",
+        "children": []
+      },
+      {
+        "tag": "desc",
+        "attributes": {
+          "id": "description"
+        },
+        "text": "Original unitless ink-trouser artist studies: front, right profile and rear, with flat front waistband, gathered back, outward front pleats, fly overlap and guard, separate angled pockets, plain hems and fictional shoe guides. Independent views and editing relationships, not sewing patterns, registered surfaces or body fit.",
+        "children": []
+      },
+      {
+        "tag": "defs",
+        "attributes": {
+          "id": "resources"
+        },
+        "text": null,
+        "children": [
+          {
+            "tag": "style",
+            "attributes": {
+              "id": "styles"
+            },
+            "text": "\ntext{font-family:Arial,Helvetica,sans-serif;fill:#293239}.title{font-size:34px;font-weight:700}.label{font-size:21px;font-weight:700}.note{font-size:17px;fill:#58635f}.small{font-size:15px;fill:#58635f}.code{font-size:14px;font-weight:700}.on-ink{fill:#f0e8d9}.paper{fill:#faf6ee}.cloth{fill:#30414e;stroke:#1e2d36;stroke-width:2;stroke-linejoin:round}.band{fill:#263640;stroke:#182832;stroke-width:2;stroke-linejoin:round}.edge{fill:none;stroke:#e5ddca;stroke-width:1.8;stroke-linejoin:round}.fold{fill:none;stroke:#c5c8b9;stroke-width:1.6}.crease{fill:none;stroke:#84989c;stroke-width:1.4}.stitch{fill:none;stroke:#e5ddca;stroke-width:1.5;stroke-dasharray:3 3}.leader{fill:none;stroke:#8a8679;stroke-width:1.2}.guide{fill:#e9e2d4;stroke:#a49f92;stroke-width:1.4}.diagram{fill:#d8dfdf;stroke:#384b54;stroke-width:1.8;stroke-linejoin:round}.dband{fill:#b8c6c9;stroke:#384b54;stroke-width:1.8}.dedge{fill:none;stroke:#384b54;stroke-width:2}.dfold{fill:none;stroke:#5b716f;stroke-width:1.8}.dstitch{fill:none;stroke:#755844;stroke-width:1.6;stroke-dasharray:4 3}.hidden{fill:#eee7d8;stroke:#8d8577;stroke-width:1.6;stroke-dasharray:5 4}.release{fill:#faf6ee;stroke:#6e887d;stroke-width:1.7}.arrow{fill:none;stroke:#bdc8b4;stroke-width:1.7}.darrow{fill:none;stroke:#536e62;stroke-width:1.8}\n",
+            "children": []
+          }
+        ]
+      },
+      {
+        "tag": "rect",
+        "attributes": {
+          "id": "paper",
+          "width": "1280",
+          "height": "1510",
+          "class": "paper"
+        },
+        "text": null,
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "eyebrow",
+          "x": "48",
+          "y": "42",
+          "class": "small"
+        },
+        "text": "SUGATA / ARI / ORIGINAL EDITABLE WARDROBE",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "heading",
+          "x": "48",
+          "y": "90",
+          "class": "title"
+        },
+        "text": "A calm front, room to fall.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "subheading",
+          "x": "48",
+          "y": "122",
+          "class": "note"
+        },
+        "text": "Ink woven-cloth intent \u00b7 flat front, outward pleats, gathered rear \u00b7 unmeasured artist views",
+        "children": []
+      },
+      {
+        "tag": "path",
+        "attributes": {
+          "id": "header-rule",
+          "d": "M48 148H1232",
+          "stroke": "#d1cabd"
+        },
+        "text": null,
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "front-heading",
+          "x": "64",
+          "y": "186",
+          "class": "label"
+        },
+        "text": "01 / Front",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "front-side-note",
+          "x": "64",
+          "y": "211",
+          "class": "small"
+        },
+        "text": "Wearer R at image-left",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "profile-heading",
+          "x": "482",
+          "y": "186",
+          "class": "label"
+        },
+        "text": "02 / Right profile",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "profile-side-note",
+          "x": "482",
+          "y": "211",
+          "class": "small"
+        },
+        "text": "Front toward image-left",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "rear-heading",
+          "x": "842",
+          "y": "186",
+          "class": "label"
+        },
+        "text": "03 / Rear",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "rear-side-note",
+          "x": "842",
+          "y": "211",
+          "class": "small"
+        },
+        "text": "Wearer R at image-right",
+        "children": []
+      },
+      {
+        "tag": "path",
+        "attributes": {
+          "id": "view-dividers",
+          "d": "M445 174V816M774 174V816",
+          "stroke": "#e1dace"
+        },
+        "text": null,
+        "children": []
+      },
+      {
+        "tag": "g",
+        "attributes": {
+          "id": "front-view",
+          "transform": "translate(82 238) scale(.98)"
+        },
+        "text": null,
+        "children": [
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-leg-R",
+              "class": "cloth",
+              "d": "M42 46Q97 35 160 46L160 162Q151 178 148 205L142 547Q85 558 23 547L17 219Q5 110 42 46Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-leg-L",
+              "class": "cloth",
+              "d": "M278 46Q223 35 160 46L160 162Q169 178 172 205L178 547Q235 558 297 547L303 219Q315 110 278 46Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-band-R",
+              "class": "band",
+              "d": "M42 20Q100 8 160 18V46Q100 36 42 46Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-band-L",
+              "class": "band",
+              "d": "M160 18Q220 8 278 20V46Q220 36 160 46Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-overlap-L",
+              "class": "band",
+              "d": "M150 17H170V47H150Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "circle",
+            "attributes": {
+              "id": "front-button",
+              "cx": "155",
+              "cy": "31",
+              "r": "3.2",
+              "fill": "#d4d4be"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-fly",
+              "class": "stitch",
+              "d": "M173 53V130Q173 144 160 146"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-closure-axis",
+              "class": "crease",
+              "d": "M160 51V146"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-pleat-R",
+              "class": "fold",
+              "d": "M98 46L85 87"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-anchor-R",
+              "class": "stitch",
+              "d": "M102 48L90 81"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "circle",
+            "attributes": {
+              "id": "front-release-R",
+              "class": "release",
+              "cx": "85",
+              "cy": "89",
+              "r": "3"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-pleat-arrow-R",
+              "class": "arrow",
+              "d": "M99 66H75L81 61M75 66L81 71"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-crease-R",
+              "class": "crease",
+              "d": "M85 95Q77 273 85 493"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-pleat-L",
+              "class": "fold",
+              "d": "M222 46L235 87"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-anchor-L",
+              "class": "stitch",
+              "d": "M218 48L230 81"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "circle",
+            "attributes": {
+              "id": "front-release-L",
+              "class": "release",
+              "cx": "235",
+              "cy": "89",
+              "r": "3"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-pleat-arrow-L",
+              "class": "arrow",
+              "d": "M221 66H245L239 61M245 66L239 71"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-crease-L",
+              "class": "crease",
+              "d": "M235 95Q243 273 235 493"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-pocket-R",
+              "class": "edge",
+              "d": "M51 69L31 141"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-pocket-L",
+              "class": "edge",
+              "d": "M269 69L289 141"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-hem-R",
+              "class": "stitch",
+              "d": "M24 529Q84 538 142 529"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-hem-L",
+              "class": "stitch",
+              "d": "M178 529Q236 538 296 529"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-break-R",
+              "class": "crease",
+              "d": "M47 505L99 520L65 527"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-break-L",
+              "class": "crease",
+              "d": "M273 505L221 520L255 527"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-shoe-guide-R",
+              "class": "guide",
+              "d": "M43 557Q1 559 4 580H150V567Q126 552 111 553Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-shoe-guide-L",
+              "class": "guide",
+              "d": "M277 557Q319 559 316 580H170V567Q194 552 209 553Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-WF-R-label",
+              "x": "69",
+              "y": "-2",
+              "class": "code"
+            },
+            "text": "WF-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-WF-L-label",
+              "x": "213",
+              "y": "-2",
+              "class": "code"
+            },
+            "text": "WF-L",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-J-R-label",
+              "x": "-2",
+              "y": "30",
+              "class": "code"
+            },
+            "text": "J-R",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-J-R-leader",
+              "class": "leader",
+              "d": "M23 25L43 29"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-J-L-label",
+              "x": "296",
+              "y": "30",
+              "class": "code"
+            },
+            "text": "J-L",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-J-L-leader",
+              "class": "leader",
+              "d": "M295 25L277 29"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-P-R-label",
+              "x": "-28",
+              "y": "115",
+              "class": "code"
+            },
+            "text": "P-R",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-P-R-leader",
+              "class": "leader",
+              "d": "M-2 110L37 109"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-P-L-label",
+              "x": "322",
+              "y": "115",
+              "class": "code"
+            },
+            "text": "P-L",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-P-L-leader",
+              "class": "leader",
+              "d": "M320 110L283 109"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-Z-label",
+              "x": "183",
+              "y": "119",
+              "class": "code on-ink"
+            },
+            "text": "Z",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "front-Z-leader",
+              "class": "leader",
+              "d": "M181 113L168 101"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-PL-R-label",
+              "x": "64",
+              "y": "293",
+              "class": "code on-ink"
+            },
+            "text": "PL-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-PL-L-label",
+              "x": "222",
+              "y": "293",
+              "class": "code on-ink"
+            },
+            "text": "PL-L",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-H-R-label",
+              "x": "62",
+              "y": "548",
+              "class": "code on-ink"
+            },
+            "text": "H-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "front-H-L-label",
+              "x": "229",
+              "y": "548",
+              "class": "code on-ink"
+            },
+            "text": "H-L",
+            "children": []
+          }
+        ]
+      },
+      {
+        "tag": "g",
+        "attributes": {
+          "id": "profile-view",
+          "transform": "translate(514 238) scale(.98)"
+        },
+        "text": null,
+        "children": [
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "profile-shell",
+              "class": "cloth",
+              "d": "M48 46Q90 35 132 46L145 84Q176 108 170 162L145 544L30 548L35 533L27 522L22 228Q5 146 24 90Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "profile-front-band",
+              "class": "band",
+              "d": "M48 20Q73 13 97 17V44Q73 40 48 46Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "profile-back-band",
+              "class": "band",
+              "d": "M97 17Q118 15 132 20V46Q115 40 97 44Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "profile-gathers",
+              "class": "crease",
+              "d": "M103 20L102 40M110 20L112 41M119 20L117 41M126 22L129 43"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "profile-band-transition",
+              "class": "edge",
+              "d": "M97 18V43"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "profile-pocket-R",
+              "class": "edge",
+              "d": "M54 69L45 141"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "profile-pleat-R",
+              "class": "fold",
+              "d": "M42 48L35 87"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "circle",
+            "attributes": {
+              "id": "profile-release-R",
+              "class": "release",
+              "cx": "35",
+              "cy": "89",
+              "r": "3"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "profile-fall",
+              "class": "crease",
+              "d": "M35 96Q32 273 63 480M144 168Q115 279 125 493"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "profile-hem",
+              "class": "stitch",
+              "d": "M32 529L145 526"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "profile-shoe-guide",
+              "class": "guide",
+              "d": "M32 552Q7 555 4 567V579H153V563Q127 550 122 549Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "profile-J-R-label",
+              "x": "75",
+              "y": "-3",
+              "class": "code"
+            },
+            "text": "J-R",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "profile-J-R-leader",
+              "class": "leader",
+              "d": "M91 0L97 19"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "profile-WB-label",
+              "x": "163",
+              "y": "30",
+              "class": "code"
+            },
+            "text": "WB",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "profile-WB-leader",
+              "class": "leader",
+              "d": "M158 25L130 29"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "profile-P-label",
+              "x": "-22",
+              "y": "133",
+              "class": "code"
+            },
+            "text": "P-R",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "profile-P-leader",
+              "class": "leader",
+              "d": "M5 128L47 117"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "profile-seat-label",
+              "x": "187",
+              "y": "185",
+              "class": "code"
+            },
+            "text": "Seat",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "profile-seat-leader",
+              "class": "leader",
+              "d": "M181 180L166 152"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "profile-front-label",
+              "x": "21",
+              "y": "609",
+              "class": "small"
+            },
+            "text": "Fictional shoe guide",
+            "children": []
+          }
+        ]
+      },
+      {
+        "tag": "g",
+        "attributes": {
+          "id": "rear-view",
+          "transform": "translate(824 238) scale(.98)"
+        },
+        "text": null,
+        "children": [
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "back-leg-L",
+              "class": "cloth",
+              "d": "M38 49Q95 41 160 51V172Q150 190 148 215L142 547Q84 558 22 547L15 219Q3 112 38 49Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "back-leg-R",
+              "class": "cloth",
+              "d": "M282 49Q225 41 160 51V172Q170 190 172 215L178 547Q236 558 298 547L305 219Q317 112 282 49Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "back-band",
+              "class": "band",
+              "d": "M38 20Q160 7 282 20V49Q160 36 38 49Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "back-gathers",
+              "class": "crease",
+              "d": "M45 24L49 45M57 24L54 43M69 22L73 42M82 23L79 42M94 21L99 40M107 21L104 40M120 20L125 39M134 21L131 40M147 20L151 39M160 20L157 39M174 20L179 40M187 21L184 40M200 21L204 41M214 22L211 42M227 22L232 42M240 23L236 44M253 24L258 44M269 25L265 46"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "back-rise",
+              "class": "crease",
+              "d": "M160 52Q155 117 160 172"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "back-seat-fall",
+              "class": "crease",
+              "d": "M47 148Q94 177 145 164M273 148Q226 177 175 164M80 190Q71 340 83 488M240 190Q249 340 237 488"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "back-hem-L",
+              "class": "stitch",
+              "d": "M23 529Q83 537 142 529"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "back-hem-R",
+              "class": "stitch",
+              "d": "M178 529Q237 537 297 529"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "rear-shoe-guide-L",
+              "class": "guide",
+              "d": "M35 555Q26 566 31 580H143Q148 568 134 555Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "rear-shoe-guide-R",
+              "class": "guide",
+              "d": "M285 555Q294 566 289 580H177Q172 568 186 555Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "rear-WB-label",
+              "x": "146",
+              "y": "-2",
+              "class": "code"
+            },
+            "text": "WB",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "rear-J-L-label",
+              "x": "-4",
+              "y": "38",
+              "class": "code"
+            },
+            "text": "J-L",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "rear-J-L-leader",
+              "class": "leader",
+              "d": "M22 33L39 33"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "rear-J-R-label",
+              "x": "298",
+              "y": "38",
+              "class": "code"
+            },
+            "text": "J-R",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "rear-J-R-leader",
+              "class": "leader",
+              "d": "M295 33L281 33"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "rear-B-L-label",
+              "x": "66",
+              "y": "299",
+              "class": "code on-ink"
+            },
+            "text": "B-L",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "rear-B-R-label",
+              "x": "225",
+              "y": "299",
+              "class": "code on-ink"
+            },
+            "text": "B-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "rear-clean-label",
+              "x": "20",
+              "y": "609",
+              "class": "small"
+            },
+            "text": "No authored back pockets or pleats",
+            "children": []
+          }
+        ]
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "main-view-limit",
+          "x": "48",
+          "y": "846",
+          "class": "small"
+        },
+        "text": "New independent artist views, not registered projections. Seat, rise and leg shapes express intent; no measured fit or cloth solution.",
+        "children": []
+      },
+      {
+        "tag": "path",
+        "attributes": {
+          "id": "detail-rule",
+          "d": "M48 873H1232",
+          "stroke": "#d1cabd"
+        },
+        "text": null,
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "waist-heading",
+          "x": "48",
+          "y": "914",
+          "class": "label"
+        },
+        "text": "04 / Waist, pleat and fly",
+        "children": []
+      },
+      {
+        "tag": "g",
+        "attributes": {
+          "id": "waist-detail",
+          "transform": "translate(65 964)"
+        },
+        "text": null,
+        "children": [
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-front-R",
+              "class": "diagram",
+              "d": "M0 40H157V240H0Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-front-L",
+              "class": "diagram",
+              "d": "M157 40H314V240H157Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "rect",
+            "attributes": {
+              "id": "detail-WF-R",
+              "class": "dband",
+              "x": "0",
+              "y": "0",
+              "width": "157",
+              "height": "40"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "rect",
+            "attributes": {
+              "id": "detail-WF-L",
+              "class": "dband",
+              "x": "157",
+              "y": "0",
+              "width": "157",
+              "height": "40"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-guard-R",
+              "class": "hidden",
+              "d": "M136 44H168V169H136Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-overlap-L",
+              "class": "dband",
+              "d": "M149 0H174V171Q168 181 157 181H149Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "circle",
+            "attributes": {
+              "id": "detail-button",
+              "cx": "158",
+              "cy": "21",
+              "r": "3.5",
+              "fill": "#455958"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-Z",
+              "class": "dstitch",
+              "d": "M165 48V158"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-pleat-R",
+              "class": "dfold",
+              "d": "M70 42L57 104"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-anchor-R",
+              "class": "dstitch",
+              "d": "M76 47L63 97"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "circle",
+            "attributes": {
+              "id": "detail-release-R",
+              "class": "release",
+              "cx": "57",
+              "cy": "108",
+              "r": "4"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-crease-R",
+              "class": "leader",
+              "d": "M57 117Q49 177 58 231"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-arrow-R",
+              "class": "darrow",
+              "d": "M84 68H36L43 62M36 68L43 74"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-pleat-L",
+              "class": "dfold",
+              "d": "M244 42L257 104"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-anchor-L",
+              "class": "dstitch",
+              "d": "M238 47L251 97"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "circle",
+            "attributes": {
+              "id": "detail-release-L",
+              "class": "release",
+              "cx": "257",
+              "cy": "108",
+              "r": "4"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-crease-L",
+              "class": "leader",
+              "d": "M257 117Q265 177 256 231"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-arrow-L",
+              "class": "darrow",
+              "d": "M230 68H278L271 62M278 68L271 74"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-WF-R-label",
+              "x": "37",
+              "y": "-13",
+              "class": "code"
+            },
+            "text": "WF-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-WF-L-label",
+              "x": "230",
+              "y": "-13",
+              "class": "code"
+            },
+            "text": "WF-L",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-PL-R-label",
+              "x": "12",
+              "y": "164",
+              "class": "code"
+            },
+            "text": "PL-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-PL-L-label",
+              "x": "269",
+              "y": "164",
+              "class": "code"
+            },
+            "text": "PL-L",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-OL-label",
+              "x": "181",
+              "y": "198",
+              "class": "code"
+            },
+            "text": "O-L / Z",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-OL-leader",
+              "class": "leader",
+              "d": "M179 191L166 149"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-GR-label",
+              "x": "88",
+              "y": "216",
+              "class": "code"
+            },
+            "text": "G-R",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-GR-leader",
+              "class": "leader",
+              "d": "M111 207L140 153"
+            },
+            "text": null,
+            "children": []
+          }
+        ]
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "waist-caption-1",
+          "x": "48",
+          "y": "1247",
+          "class": "small"
+        },
+        "text": "Arrows open outward. Circles mark release.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "waist-caption-2",
+          "x": "48",
+          "y": "1272",
+          "class": "small"
+        },
+        "text": "Short upper marks: anchored pleat intent.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "waist-caption-3",
+          "x": "48",
+          "y": "1297",
+          "class": "small"
+        },
+        "text": "Lower line: crease, not another sewn pleat.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "waist-caption-4",
+          "x": "48",
+          "y": "1322",
+          "class": "small"
+        },
+        "text": "G-R is behind the overlap and zip intent.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "pocket-heading",
+          "x": "465",
+          "y": "914",
+          "class": "label"
+        },
+        "text": "05 / Separate pocket layers",
+        "children": []
+      },
+      {
+        "tag": "g",
+        "attributes": {
+          "id": "pocket-detail",
+          "transform": "translate(482 964)"
+        },
+        "text": null,
+        "children": [
+          {
+            "tag": "rect",
+            "attributes": {
+              "id": "detail-shell-R",
+              "class": "diagram",
+              "x": "0",
+              "y": "0",
+              "width": "112",
+              "height": "240"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-pocket-mouth-R",
+              "class": "dedge",
+              "d": "M43 38L24 108"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-bag-R",
+              "class": "hidden",
+              "d": "M198 38L179 108Q160 160 178 230H269Q270 141 230 79Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-bag-mouth-R",
+              "class": "dedge",
+              "d": "M198 38L179 108"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-mouth-parent-links",
+              "class": "leader",
+              "d": "M48 38H191M29 108H172",
+              "stroke-dasharray": "3 4"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-P-R-label",
+              "x": "13",
+              "y": "-13",
+              "class": "code"
+            },
+            "text": "P-R on F-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-K-R-label",
+              "x": "193",
+              "y": "-13",
+              "class": "code"
+            },
+            "text": "K-R",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-shell-label",
+              "x": "18",
+              "y": "264",
+              "class": "small"
+            },
+            "text": "Shell",
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-bag-label",
+              "x": "191",
+              "y": "264",
+              "class": "small"
+            },
+            "text": "Bag behind",
+            "children": []
+          }
+        ]
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "pocket-caption-1",
+          "x": "465",
+          "y": "1272",
+          "class": "small"
+        },
+        "text": "Mouth belongs to shell; bag attaches there.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "pocket-caption-2",
+          "x": "465",
+          "y": "1297",
+          "class": "small"
+        },
+        "text": "Pockets sit outside the pleat lines.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "pocket-caption-3",
+          "x": "465",
+          "y": "1322",
+          "class": "small"
+        },
+        "text": "R shown; L repeats this editing intent.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "hem-heading",
+          "x": "878",
+          "y": "914",
+          "class": "label"
+        },
+        "text": "06 / Plain hem and fall",
+        "children": []
+      },
+      {
+        "tag": "g",
+        "attributes": {
+          "id": "hem-detail",
+          "transform": "translate(908 964)"
+        },
+        "text": null,
+        "children": [
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-lower-leg-R",
+              "class": "cloth",
+              "d": "M42 0H191L181 157L188 171L177 180H36L43 168L36 155Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-hem-R",
+              "class": "stitch",
+              "d": "M38 152H183"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-break-R",
+              "class": "crease",
+              "d": "M61 119L151 137L99 148"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-shoe-guide",
+              "class": "guide",
+              "d": "M69 186Q12 189 10 212V226H201V206Q176 187 154 185Z"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-H-R-label",
+              "x": "206",
+              "y": "161",
+              "class": "code"
+            },
+            "text": "H-R",
+            "children": []
+          },
+          {
+            "tag": "path",
+            "attributes": {
+              "id": "detail-H-leader",
+              "class": "leader",
+              "d": "M202 155L184 155"
+            },
+            "text": null,
+            "children": []
+          },
+          {
+            "tag": "text",
+            "attributes": {
+              "id": "detail-shoe-label",
+              "x": "16",
+              "y": "263",
+              "class": "small"
+            },
+            "text": "Fictional shoe-guide symbol",
+            "children": []
+          }
+        ]
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "hem-caption-1",
+          "x": "878",
+          "y": "1272",
+          "class": "small"
+        },
+        "text": "Plain turned hem; no cuff or ankle elastic.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "hem-caption-2",
+          "x": "878",
+          "y": "1297",
+          "class": "small"
+        },
+        "text": "Small front break, quieter rear fall.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "hem-caption-3",
+          "x": "878",
+          "y": "1322",
+          "class": "small"
+        },
+        "text": "No shoe fit, floor contact or fold solution.",
+        "children": []
+      },
+      {
+        "tag": "path",
+        "attributes": {
+          "id": "footer-rule",
+          "d": "M48 1364H1232",
+          "stroke": "#d1cabd"
+        },
+        "text": null,
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "line-key",
+          "x": "48",
+          "y": "1394",
+          "class": "small"
+        },
+        "text": "Solid: visible edge/fold \u00b7 short dashed: stitch/closure intent \u00b7 long dashed: hidden bag/guard \u00b7 circle: pleat release",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "diagram-key",
+          "x": "48",
+          "y": "1420",
+          "class": "small"
+        },
+        "text": "Enlarged light fills are layer diagrams, not colour changes. Named joins and side transitions are editing relationships only.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "overlap-intent",
+          "x": "48",
+          "y": "1446",
+          "class": "small"
+        },
+        "text": "T / Worn intent: slate tee covers the waist beneath the short rust jacket; the retained character below remains unchanged.",
+        "children": []
+      },
+      {
+        "tag": "text",
+        "attributes": {
+          "id": "scope-limit",
+          "x": "48",
+          "y": "1475",
+          "class": "small"
+        },
+        "text": "Unitless original art. Physical seams, stretch, access, material behavior, 3D body fit, pose/motion and runtime remain open.",
+        "children": []
+      }
+    ]
+  }
+}

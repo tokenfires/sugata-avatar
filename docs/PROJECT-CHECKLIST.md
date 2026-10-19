@@ -37,6 +37,8 @@ Updated October 18, 2026. **Customization is usable; complete character quality 
 
 - [x] Original editable Ari lining and facing artist sheet with front, back, both sleeve linings and pocket-layer details; physical interior, sewing, 3D fit and motion remain open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-18/ari-interior-artist/ARTIST-HANDOFF.md)
 
+- [x] Original editable Ari trouser artist sheet with front, profile, rear and waist/pleat/fly/pocket-layer/hem intent; sewing, physical fit, 3D and motion remain open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-18/ari-trouser-artist/ARTIST-HANDOFF.md)
+
 [Open the visual wardrobe board](ARTIST-WARDROBE.html) to inspect the retained character directions and editable drafts together.
 
 These references do not establish physical folding, wearable fit or finished garment appearance. The original body/foundation source data and coverage guide support further authorship. The latest sewn-panel trial failed its clearance requirement and remains isolated. [Current evidence and recovery](DAY-REPORT-2026-10-04.md)

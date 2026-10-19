@@ -1,0 +1,347 @@
+{
+  "collected_utc": "2026-10-19T06:12:53.742034+00:00",
+  "writer_pid": 67909,
+  "baseline": "4e4f2dc97ca69132c6c3faa296364d4058c003d1",
+  "verdict": "Accepted limited original 2D artist delivery; root independently verified critic handoff.",
+  "root_reads": {
+    "critic_delivery_pair": "bcef8a/exit0, whole untruncated pair",
+    "new_handoff_readme": "a56e13/exit0",
+    "decoded_four_file_diff": "383099/exit0",
+    "delivery_preparation": "27ca53/exit0/PID67264/06:07:28.954600UTC",
+    "root_final_image_receipt": "9efc05/exit0/PID67037"
+  },
+  "independent_checks": {
+    "critic_input_rows": 21,
+    "all_input_bytes_hashes_exact": true,
+    "critic_output_pair_exact": true,
+    "decoded_diff_equals_actual_git_diff": true,
+    "board_exact_one_anchor_reversal": true,
+    "checklist_exact_one_row_reversal": true,
+    "old_checked": 20,
+    "current_checked": 21,
+    "old_open": 10,
+    "current_open": 10,
+    "entire_outstanding_exact": true,
+    "git_diff_check_exit": 0
+  },
+  "final_source": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/trousers-clarity.svg",
+      "bytes": 15096,
+      "sha256": "f89d8777233c34c00428d2c142fe96c473c94ecab730e778be32152b48c1695c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/design-clarity.json",
+      "bytes": 55596,
+      "sha256": "0ecf4b83cfd83850956426374da6613e6609ec01c5780c5f3b99e9fb07d7d1d5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/review-clarity.html",
+      "bytes": 2399,
+      "sha256": "4caf8741ccd81cc4fe3687f6c80a77948c3d4e18d742481b30d397db45130538"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/second.jpg",
+      "bytes": 201390,
+      "sha256": "4e10f3f1d84aa1d3b109dabf96df1beeb902244922daf88a407022b0137ad347"
+    }
+  ],
+  "leaf_manifest_excludes_self": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ARTIST-HANDOFF.md",
+      "bytes": 2662,
+      "sha256": "745de392c59db06e67b328678b6cdd98c93b3a382c8ecfb52bc639325613c232"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/BRIEF-REVIEW-RECEIPT.json",
+      "bytes": 14244,
+      "sha256": "6416f9ff61f8333afbc2958aa9d1b3a85f2f8c4b2f888f2b9b05f756d4fff416"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/BRIEF-REVIEW.md",
+      "bytes": 3256,
+      "sha256": "35541d9ffebacce5d6a73a09658e0ec06b8463f279983faffa471ef02f3dabf0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/BRIEF.md",
+      "bytes": 5828,
+      "sha256": "c9da9310d9c05cad7ee1a88b66251fa693106575a6ec0b9df34abe8742024b71"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/CAPTURE-OPERATION-2.json",
+      "bytes": 1312,
+      "sha256": "b184b8c5a8699e3e523f883537ed2b41bb18d004140885cf3dc9e8fc0fb47429"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/CAPTURE-OPERATION.json",
+      "bytes": 1296,
+      "sha256": "c7b9e5e8286b507cd9344f46a72bda9cbcc3245a466ea11c5aaef381dabb4980"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/CORRECTION-PREPARATION.json",
+      "bytes": 10185,
+      "sha256": "702f559180d68ee74f69177bd0dc87bc8faa94f3a6a8a616ca7e8bb2c75a83c5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/CORRECTION-SOURCE-RECEIPT.json",
+      "bytes": 11881,
+      "sha256": "c85721c1ca6ffd7903d42ea8a2a56c750e536755e6d4242316e4e16e8b0668ac"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/CORRECTION-SOURCE.md",
+      "bytes": 2617,
+      "sha256": "402e2eb38947876145c5d3c8e8f89c27a68f14052ca66f82de7befc932a1dae8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/DELIVERY-DIFF.json",
+      "bytes": 17876,
+      "sha256": "bf13efee958ba9c4bf812347c6bad20b00c1114c8dc9ded747bdc9dd913b6b37"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/DELIVERY-PREPARATION.json",
+      "bytes": 4112,
+      "sha256": "eca66c49b57ae15b8e9656640e58d20c14533d0917727206e579a9f8021786a8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/DELIVERY-REVIEW-RECEIPT.json",
+      "bytes": 10971,
+      "sha256": "688b7b6fc9d828403de442d1ec70dbdebe9b61512cb469e1a063dbbf16880072"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/DELIVERY-REVIEW.md",
+      "bytes": 2905,
+      "sha256": "6cc1e07e36c94a7860a5deb986f3033457e64a4ba6ed0083ba4fabada578d032"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/IMAGE-REVIEW-2-RECEIPT.json",
+      "bytes": 11568,
+      "sha256": "eecbab007c3ea3ca2227348674254aa5c9683a6bcefeefbe2a5d0ca66b02cd2c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/IMAGE-REVIEW-2.md",
+      "bytes": 3003,
+      "sha256": "7cc1a4ce4d66b6344809490a6b139172a604886375aa8244b27e0f23b6f48bd1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/IMAGE-REVIEW-RECEIPT.json",
+      "bytes": 9631,
+      "sha256": "df0c17cbaa24e8076f782ae407295bf89bb61b39335f95f2972a1ad7b138f5d5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/IMAGE-REVIEW.md",
+      "bytes": 3233,
+      "sha256": "fe1bff2e9ce9b6576775e343c304a391a0320ca35a85ed3e3a36aa8999548040"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/NATIVE-2.json",
+      "bytes": 5008,
+      "sha256": "e4a6d3299c371c0e194d68d2e146fff6456440ab8643f63924faa9a036655c93"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/NATIVE.json",
+      "bytes": 3820,
+      "sha256": "19b58c0708d65c9957b85b9ae8927e6a49475f00ea3b8a398cf57e9b859504b3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/PLAN.json",
+      "bytes": 7420,
+      "sha256": "89dd9f8e466051bae94fcc3f5661a8f0124d000b61364a17665a72ce15252631"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/PRIMARY-MITCHELL.json",
+      "bytes": 68783,
+      "sha256": "0ed35c183df6b7a8f78ca06ce6939bfd80edf78b1d909b751e836accea400563"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/PRIMARY-WINSLOW.json",
+      "bytes": 466735,
+      "sha256": "ae989ae11f31ccc2054f8b7f2991a127ec636c0585620395129e4c480cffada1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/README.md",
+      "bytes": 3675,
+      "sha256": "7bf4096fef6054f92c8ea73d7b8a7df3ee26163fc6727e6fbd8edf05d3e8869c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/REFERENCE-OPERATION-1.json",
+      "bytes": 754,
+      "sha256": "67ca91d0d5150f81375bccebb806ed67b80e73b00c79eca6094b81a3cbf7317d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/REFERENCE-OPERATION-2.json",
+      "bytes": 704,
+      "sha256": "0eb372daa417f95a32cbeb88ff60dd8fdad8711b4c9daa05ff7d4792503bc756"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/REFERENCES-RECEIPT.json",
+      "bytes": 11618,
+      "sha256": "d8f9c9151f0cab8f36204632e6f36d9f1236c6b4110525e27ed4a69d0cd2d46a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/REFERENCES.md",
+      "bytes": 2308,
+      "sha256": "50a9f94973151b0781e781612b978869f702618483b280de3c9a853b16a8a6dc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-BRIEF.json",
+      "bytes": 2680,
+      "sha256": "af5dcb6705916a550b235045a6f636978b4acf3c3cc6b5b735b90076243c10f3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-CAPTURE-2.json",
+      "bytes": 3050,
+      "sha256": "847a0252b56c429e726abda82fbd710cbe15c0d494bbde9a4bc4581c89daf74d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-CORRECTION.json",
+      "bytes": 1332,
+      "sha256": "d67fbd9371e4947b479661b2f5d9f18dae711f3ae04db513b150ac7ca5eac854"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-FIRST.md",
+      "bytes": 2457,
+      "sha256": "077e52d658ad0d43b4a765cdb754d2939740d458c98301f2ef9cb8aaaad710f5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-IMAGE.json",
+      "bytes": 5158,
+      "sha256": "bfc55c27a8e9a4aeaed586482d860cbdcf0c0b138c36786a24a9adc29342574d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-SOURCE.json",
+      "bytes": 3254,
+      "sha256": "382c50f26a52b1def286ddb6ff06d5f06886fa0f5e4661082cae974e3c7faca9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-WORTH.json",
+      "bytes": 2580,
+      "sha256": "1b85f2a69387a9d5d1b9c69b0a7d718e93287f37332d14bb7a6fe7b7c77991b7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/SEARCH-1.json",
+      "bytes": 10283,
+      "sha256": "3831925f5b17446853184f6945f09fa9cef2a68a0b50799d610f67cc3cc9edf5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/SEARCH-2.json",
+      "bytes": 10213,
+      "sha256": "89aef9fd677189e737953624ad035c66603a08742ebd8b44ff2adcc89612bad1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/SOURCE-PREPARATION.json",
+      "bytes": 9249,
+      "sha256": "93f3820f176b9f3f7535b5faf80dfa4148775134d496033265e1ab546d9bf4d5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/SOURCE-REVIEW-RECEIPT.json",
+      "bytes": 13467,
+      "sha256": "6dbe9bcfe6947cbdfa4810d0fb87f5ac551abe0adb466338f5bd980f082d194f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/SOURCE-REVIEW.md",
+      "bytes": 3283,
+      "sha256": "ae438f98e2437199e66686b35d2de1d96dedc2f1ec9ea2aaf669135e4cfb790c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/WORTH-RECEIPT.json",
+      "bytes": 8038,
+      "sha256": "007d299dd1204544e727acdfb25d986c61fe66eb0ca87734ac2299506f41edd7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/WORTH.md",
+      "bytes": 3105,
+      "sha256": "a3d1547923375ff451a33d919a31fe6788d805fb3698f4666aff0632cde5d92e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/design-clarity.json",
+      "bytes": 55596,
+      "sha256": "0ecf4b83cfd83850956426374da6613e6609ec01c5780c5f3b99e9fb07d7d1d5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/design.json",
+      "bytes": 55588,
+      "sha256": "3b5a28f23aeaf6748ea9bc06f631c1c9d78c901f1331dc86d61bd303e0153212"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/first.jpg",
+      "bytes": 200624,
+      "sha256": "4d97c515a155cf342e9d7570f4d6afab41a3f775f8653dcc44a2f45c6d5d84c9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/reference-mitchell.jpg",
+      "bytes": 29482,
+      "sha256": "28410a4fe3d6fe4b662f9631018e08bacf4ff39070a7f9dc6f6498758a791dd1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/reference-winslow.jpg",
+      "bytes": 81368,
+      "sha256": "ff822c73f48c7f782ab25a88b56cdf1ee11aceba76a4f78d90bb3f4d62a502c3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/review-clarity.html",
+      "bytes": 2399,
+      "sha256": "4caf8741ccd81cc4fe3687f6c80a77948c3d4e18d742481b30d397db45130538"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/review.html",
+      "bytes": 2375,
+      "sha256": "1353bcca4ba01e2c0dafbac7e05de2f4b403caae5fe002d562248cd8c087c67b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/second.jpg",
+      "bytes": 201390,
+      "sha256": "4e10f3f1d84aa1d3b109dabf96df1beeb902244922daf88a407022b0137ad347"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/trousers-clarity.svg",
+      "bytes": 15096,
+      "sha256": "f89d8777233c34c00428d2c142fe96c473c94ecab730e778be32152b48c1695c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/trousers.svg",
+      "bytes": 15096,
+      "sha256": "6633a94ebeab0d5d9ddfbda1876764fcf2b2f0cdd0715fc018d5671759d522eb"
+    }
+  ],
+  "mutable_document_review_epoch_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 15923,
+      "sha256": "a11432b33af9df3f64d14ecec6e5af08faa06c0f3f7ea07887ca46a835fa5ea2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7161,
+      "sha256": "7ce48fa51bff4087e469934635d048ef997d68d900a6ae449849c01e3bccd00f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 8207,
+      "sha256": "93d945bbd97e8010e60c9847976fa3d12b7e1626b62130f41684361616d731b4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 17486,
+      "sha256": "24e51a1cca73d0d9eb82d60436b13acde5623991eeab0c48f89d7df6effe787b"
+    }
+  ],
+  "mutable_pin_recovery": "These pins describe this documentary review epoch. Recover exact bytes via DELIVERY-DIFF.json and the local commit; future legitimate document updates are not evidence corruption.",
+  "budgets": {
+    "candidate_captures": "2/2 exhausted",
+    "search_requests": "2/2 exhausted",
+    "primary_pages": "2/2 exhausted",
+    "primary_visual_views": "2/2 exhausted",
+    "closure_stop": "2026-10-19T07:00:00Z",
+    "graphics_closed": true
+  },
+  "rejections_and_limits": [
+    "First image B: caption/section rule crowding and pale rear waistband wedge; corrected only three attributes in separate clone.",
+    "No style, silhouette, material or reference retries. Original source, original first image and all primary reference evidence retained.",
+    "K-L pocket bag remains a written counterpart; no complete drawn left bag contour claim.",
+    "2D artist planning only: no sewing, dimensions, ease, stretch, access mechanics, material behavior, registered 3D, body fit, pose, motion, runtime, performance or AAA acceptance.",
+    "No native, GPU, source member decode, body/field/tetrahedral constructor or collector work in this slice. Collector retries remain closed this window; material-volume constructor HOLD remains.",
+    "Root previously observed Vite and automation; no fresh service/automation delivery claim in this receipt."
+  ],
+  "errors": "No new errors; prior same-page metadata/tool-output truncation was recovered by targeted complete saved-text reads without refetch.",
+  "next": "Stage only this leaf plus four reviewed docs, local commit, verify exact commit scope and clean tree. Then choose a distinct bounded proposal with fresh critic worth gate; human steering wins. No new experiment admitted here."
+}

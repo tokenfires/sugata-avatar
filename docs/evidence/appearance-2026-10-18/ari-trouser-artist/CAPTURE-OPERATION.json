@@ -1,0 +1,63 @@
+{
+  "start_utc": "2026-10-19T05:54:11.501Z",
+  "end_utc": "2026-10-19T05:54:11.577Z",
+  "actor": "root",
+  "browser": "IAB3",
+  "tab": "2",
+  "command": "screenshot({fullPage:true}); exclusive unmodified JPEG save",
+  "candidate": 1,
+  "options": {
+    "fullPage": true
+  },
+  "dom": {
+    "images": [
+      {
+        "complete": true,
+        "display": [
+          1232,
+          1453.375
+        ],
+        "natural": [
+          1280,
+          1510
+        ],
+        "src": "trousers.svg"
+      },
+      {
+        "complete": true,
+        "display": [
+          604,
+          230
+        ],
+        "natural": [
+          1536,
+          1024
+        ],
+        "src": "../../appearance-2026-10-07/larger-frame-character/concept-v1.png"
+      },
+      {
+        "complete": true,
+        "display": [
+          604,
+          230
+        ],
+        "natural": [
+          1280,
+          1260
+        ],
+        "src": "../ari-interior-artist/interior-caption.svg"
+      }
+    ],
+    "page": [
+      1280,
+      1877
+    ],
+    "title": "Ari · a calm front, room to fall",
+    "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/review.html",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "bytes": 200624
+}
