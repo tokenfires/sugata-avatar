@@ -1,0 +1,30 @@
+{
+  "utc": "2026-10-19T04:50:01.649039+00:00",
+  "pid": 3904,
+  "job": "396a55/exit0/fixturePID2878/04:49:29.512630UTC",
+  "invocations": 1,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/FIXTURE-ADMISSION.json",
+      "bytes": 1684,
+      "sha256": "c43ff3bba893b6643c5ab708d8f687579f58f2185576dfa5f6bd0a68f5153eb5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/SOURCE-PREPARATION.json",
+      "bytes": 2734,
+      "sha256": "b93631b65b832f49b8e5cf9904fcac7e1c710658eb012ae4e22b6e8679c5fb65"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/FIXTURE-RUN-1.tool.json",
+      "bytes": 2067,
+      "sha256": "906ebca2202ea6055bc95515cf4e651aaece1689201ed1ade675f9d2d3c3f473"
+    }
+  ],
+  "output_text_bytes": 1730,
+  "output_text_sha256": "e6cdbe1d8a47fc97b42dcd78860dfb3339b03c0cb2234bebaab8634251820bd5",
+  "root_result": "17 actual synthetic cases pass; forbidden child-output calls absent, independent errors reached receipt attempt, receipt failure returned false, valid on-column link accepted and12invalid variants rejected.",
+  "stdio_limit": "Tool returned one combined output text field; it parses as the sole JSON report without extra text. Separate stdout/stderr byte identities were not exposed and are not claimed.",
+  "preservation": "All three source pins unchanged; no bytecode/config/worker/kernel/geometry-output artifacts. No source member decode or source/observer main invocation.",
+  "qualification": "Synthetic same-function evidence/certificate-link interfaces only. Not OS/process collection/resource enforcement/full real certificate/geometry/fit/appearance or future-field admission.",
+  "critic_actual_review_pending": true
+}

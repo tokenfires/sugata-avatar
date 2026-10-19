@@ -1,0 +1,15 @@
+# Evidence repair: actual synthetic result
+
+**A — retain the17-case same-function synthetic regression result and close this repair slice.** No new actionable finding is demonstrated. This does not reopen the original unrun source-B geometry proposal or admit any future field trial.
+
+The exact admitted `python3.14 -B test_guards.py` invocation returned exit0 (`396a55`, reported fixture PID2878,04:49:29.512630UTC). The saved tool object contains one1730-byte JSON report, SHA256 `e6cdbe1d8a47fc97b42dcd78860dfb3339b03c0cb2234bebaab8634251820bd5`, within4096 bytes. I independently parsed its complete ordered case list and observations and reverified unchanged source/fixture/diff/review/original-input pins.
+
+For F1, the actual first case records exactly the stdout/stderr/JOB stats and no RESULT read/stat when uncollected, with one receipt attempt. The next case records independent result-inspection/stdout-stat/stderr-stat errors and a later receipt attempt. The third reports a failed receipt write as false after one attempt; the fourth reports the19-byte synthetic result identity and one receipt attempt. These observations match `test_guards.py:69–110` and the actual corrected functions at `run_once.py:26–74`; source assertions also check continuation and identity, rather than relying only on PASS labels.
+
+For F2, the accepted synthetic indices are[0,1,2]. All12 named mutations report rejection, including a different otherwise-valid column, invalid index types/ranges, wrong axis/other axes, column and scale. This matches the same independent linkage function at `inspect_saved.py:156–172` and the explicit expected outcomes in `test_guards.py:113–140`. It qualifies link checks on tiny records; the fixture intentionally does not evaluate the real geometric predicate or bbox certificate.
+
+The tool exposes combined output text only. Sole-JSON parsing/exit0 are established; separate stdout/stderr identities or zero stderr are not. The report's internal elapsed value and tool wall field are distinct narrow clocks, not startup, OS performance or collection benchmarks. No second invocation is needed merely to expand that observation.
+
+Alternative A is to retain this useful limited repair evidence and close, keeping all real source/OS/field work held. Alternative B is to keep the whole route deferred without reusing the synthetic qualification; that avoids future coupling work but discards a demonstrated narrow result. **A is preferred at the stated scope.** Root should independently verify and freeze this handoff, not start a successor automatically.
+
+No critic rerun/import/fixture evaluation, archive access, member decode, subprocess/native/GPU/browser/network or source/product change occurred. Local repair CONFIG/worker/kernel/ADMISSION/real-output/cache artifacts were absent in the scoped check. The tested save failure promises no durable error receipt, and the tests do not qualify OS/process collection, enforcement, main integration, a real certificate, geometry, fit, rendering or AAA. Stable pair; no pending edits.

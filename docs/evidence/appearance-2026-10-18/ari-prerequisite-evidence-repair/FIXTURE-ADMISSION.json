@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-19T04:49:25.895125+00:00",
+  "pid": 2756,
+  "decision": "A one exact synthetic fixture invocation only",
+  "command": [
+    "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+    "-B",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/test_guards.py"
+  ],
+  "review_pair": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/SOURCE-REVIEW.md",
+      "bytes": 3139,
+      "sha256": "ccf4734d52c54b901c2e5d66723048c3ef3a0c3e530e746b84dbbcc7f48fe6a6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/SOURCE-REVIEW-RECEIPT.json",
+      "bytes": 11493,
+      "sha256": "5c71280ba56f14ce5f885c9eaf3d98e6ea13a5254c63ca1643eb4bef2d5360d0"
+    }
+  ],
+  "root_whole_handoff_read": "f3adfd/exit0 full3139+11493 bytes",
+  "root_source_read": "Base whole scripts bb0150/2727c9 plus independently reproduced exact3e14ec diffs; whole current fixture d943de. No new module imported/evaluated before this gate.",
+  "verified_rows": 21,
+  "actual_invocations_before": 0,
+  "invocations_admitted_now": 1,
+  "max_total_invocations": 2,
+  "alarm_seconds": 5,
+  "stdout_bytes_max": 4096,
+  "scope": "Same-function synthetic interfaces/call observations and certificate link mutations; no main, worker/kernel, subprocess, archive or source-array access. Original geometry remains closed even after tests.",
+  "remaining_fixture_latest": "2026-10-19T05:05:00+00:00",
+  "absolute_closure": "2026-10-19T05:10:00+00:00"
+}

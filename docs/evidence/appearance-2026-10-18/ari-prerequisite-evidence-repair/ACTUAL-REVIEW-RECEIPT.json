@@ -1,0 +1,266 @@
+{
+  "collected_utc": "2026-10-19T04:51:26.579115+00:00",
+  "writer_pid": 6545,
+  "verdict": "A17 synthetic evidence/link cases; close repair-only slice",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/PLAN.json",
+      "bytes": 5241,
+      "sha256": "8aa2684a46c61bfcd422d54cdc575a4037972b6395334615ae4ae492efd236a8",
+      "read_scope": "complete earlier705305, fresh hash"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/SOURCE-PREPARATION.json",
+      "bytes": 2734,
+      "sha256": "b93631b65b832f49b8e5cf9904fcac7e1c710658eb012ae4e22b6e8679c5fb65",
+      "read_scope": "complete earlier705305, fresh hash"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/FIXTURE-ADMISSION.json",
+      "bytes": 1684,
+      "sha256": "c43ff3bba893b6643c5ab708d8f687579f58f2185576dfa5f6bd0a68f5153eb5",
+      "read_scope": "complete dce387"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/FIXTURE-RUN-1.tool.json",
+      "bytes": 2067,
+      "sha256": "906ebca2202ea6055bc95515cf4e651aaece1689201ed1ade675f9d2d3c3f473",
+      "read_scope": "whole exact tool object and sole embedded report text dce387; strict independently parsed18f650"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/ROOT-FIXTURE-OBSERVATION.json",
+      "bytes": 1916,
+      "sha256": "dd4724db25fd9ae5bd3f7fc8ddec5aec7a20eafe5854b0ac68efd65600fb9253",
+      "read_scope": "complete dce387; supplemental comparison only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/run_once.py",
+      "bytes": 10105,
+      "sha256": "a27e76666d6d0687f7d26cb70ef478049e8f316aabfc6c62cdf4cb149f8eef78",
+      "read_scope": "source: full byte verification; prior complete reviewed source/diff/assertion scopes retained, no reexecution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/inspect_saved.py",
+      "bytes": 16722,
+      "sha256": "f5375792b091a3276429787bf25573c94db512c465e470ba5ceb87b381dcd8f2",
+      "read_scope": "source: full byte verification; prior complete reviewed source/diff/assertion scopes retained, no reexecution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/test_guards.py",
+      "bytes": 6757,
+      "sha256": "274f46f73662ea2e04fcd7426d9f4a415f1570cf31e845d8dcef61fd548f374d",
+      "read_scope": "source: full byte verification; prior complete reviewed source/diff/assertion scopes retained, no reexecution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/run_once.py.diff",
+      "bytes": 4542,
+      "sha256": "9c5811e990ead5efe79a010478486569fc78262e685352abd8d4a66732d98ea0",
+      "read_scope": "diff: full byte verification; prior complete reviewed source/diff/assertion scopes retained, no reexecution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/inspect_saved.py.diff",
+      "bytes": 2100,
+      "sha256": "7b6de9c2d397e5ef77da6ca8f3dfd848f9d272e66f314914c58b59dcf7d7ecdb",
+      "read_scope": "diff: full byte verification; prior complete reviewed source/diff/assertion scopes retained, no reexecution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/SOURCE-REVIEW.md",
+      "bytes": 3139,
+      "sha256": "ccf4734d52c54b901c2e5d66723048c3ef3a0c3e530e746b84dbbcc7f48fe6a6",
+      "read_scope": "source_review: full byte verification; prior complete reviewed source/diff/assertion scopes retained, no reexecution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/SOURCE-REVIEW-RECEIPT.json",
+      "bytes": 11493,
+      "sha256": "5c71280ba56f14ce5f885c9eaf3d98e6ea13a5254c63ca1643eb4bef2d5360d0",
+      "read_scope": "source_review: full byte verification; prior complete reviewed source/diff/assertion scopes retained, no reexecution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/run_once.py",
+      "bytes": 7802,
+      "sha256": "e6240a41bbca4aa13f16c6dfe9d5d5eb559e2200a696d897429ec70e6d3b83cc",
+      "read_scope": "old_input: full byte verification; prior complete reviewed source/diff/assertion scopes retained, no reexecution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/inspect_saved.py",
+      "bytes": 15701,
+      "sha256": "5303abbda0e141eb6e8125afec171d5c4923a0adbcee404f7bdef0bcd0e318a7",
+      "read_scope": "old_input: full byte verification; prior complete reviewed source/diff/assertion scopes retained, no reexecution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/kernel.py",
+      "bytes": 8722,
+      "sha256": "b916bfa9799d3af0f3415502461b95e77f676c42c26caaed9083b130d3b42523",
+      "read_scope": "old_input: full byte verification; prior complete reviewed source/diff/assertion scopes retained, no reexecution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/worker.py",
+      "bytes": 12174,
+      "sha256": "413be90f2c3e63cf7ec7747ac379c09bb3f3e27eea3def49c51419f3af5eedd2",
+      "read_scope": "old_input: full byte verification; prior complete reviewed source/diff/assertion scopes retained, no reexecution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PLAN.json",
+      "bytes": 7090,
+      "sha256": "4bfe32cbfdbabf2255264427689adfb33a0a62b751a47be6536f1b836a59031f",
+      "read_scope": "old_input: full byte verification; prior complete reviewed source/diff/assertion scopes retained, no reexecution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/CONFIG.json",
+      "bytes": 19491,
+      "sha256": "94a9876c08de21ed19ed716523e3ff7980283b8112628d0077d7de20f3560d6f",
+      "read_scope": "old_input: full byte verification; prior complete reviewed source/diff/assertion scopes retained, no reexecution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/SOURCE-PREFLIGHT.md",
+      "bytes": 4037,
+      "sha256": "434077fa083953082592d6b166e1f9d5f2f5bf9a880a11db9c7c5f227e4da229",
+      "read_scope": "old_input: full byte verification; prior complete reviewed source/diff/assertion scopes retained, no reexecution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/SOURCE-PREFLIGHT-RECEIPT.json",
+      "bytes": 31554,
+      "sha256": "a07c20f8e846cd647287667540a5410d148b5d9d9ff9e56ab2d66f869b3c1a6a",
+      "read_scope": "old_input: full byte verification; prior complete reviewed source/diff/assertion scopes retained, no reexecution"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-volume-field-prerequisites/ROOT-CLOSE.json",
+      "bytes": 2747,
+      "sha256": "53f27434283b27b4b06719e95b642af21e509396fd8ae192a457effca2d152a2",
+      "read_scope": "old_input: full byte verification; prior complete reviewed source/diff/assertion scopes retained, no reexecution"
+    }
+  ],
+  "unique_input_paths": 21,
+  "actual_invocation": {
+    "tool_chunk": "396a55",
+    "exit_code": 0,
+    "command": [
+      "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "-B",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/test_guards.py"
+    ],
+    "fixture_report_pid": 2878,
+    "fixture_report_utc": "2026-10-19T04:49:29.512630+00:00",
+    "internal_elapsed_seconds": 0.00030116699781501666,
+    "tool_wall_seconds": 7.166e-06,
+    "clock_scope": "distinct narrow reported clocks; no complete startup/OS/performance guarantee",
+    "invocations_used": 1,
+    "remaining_budget_not_permission_for_another": 1
+  },
+  "actual_combined_output": {
+    "bytes": 1730,
+    "sha256": "e6cdbe1d8a47fc97b42dcd78860dfb3339b03c0cb2234bebaab8634251820bd5",
+    "sole_strict_JSON": true,
+    "separate_stdout_stderr_identity_exposed": false
+  },
+  "independent_results": {
+    "expected_case_count": 17,
+    "actual_case_count": 17,
+    "case_names": [
+      "uncollected_child_output_withheld",
+      "independent_errors_reach_receipt",
+      "receipt_failure_returned",
+      "finalized_success_identity",
+      "on_column_link_accepted",
+      "different_valid_column",
+      "negative_index",
+      "out_of_range_index",
+      "bool_index",
+      "wrong_axis",
+      "bool_axis",
+      "wrong_other_axes",
+      "wrong_outside_axis",
+      "negative_column",
+      "column_out_of_range",
+      "bool_column",
+      "wrong_scale"
+    ],
+    "four_evidence_observations": [
+      {
+        "calls": [
+          "stat:STDOUT.txt",
+          "stat:STDERR.txt",
+          "stat:JOB.json"
+        ],
+        "receipt_attempts": 1
+      },
+      {
+        "phases": [
+          "result_inspection",
+          "stat_STDOUT.txt",
+          "stat_STDERR.txt"
+        ],
+        "receipt_attempts": 1
+      },
+      {
+        "written": false,
+        "attempts": 1
+      },
+      {
+        "raw_bytes": 19,
+        "receipt_attempts": 1
+      }
+    ],
+    "accepted_link_indices": [
+      0,
+      1,
+      2
+    ],
+    "rejected_variants": [
+      "different_valid_column",
+      "negative_index",
+      "out_of_range_index",
+      "bool_index",
+      "wrong_axis",
+      "bool_axis",
+      "wrong_other_axes",
+      "wrong_outside_axis",
+      "negative_column",
+      "column_out_of_range",
+      "bool_column",
+      "wrong_scale"
+    ],
+    "all_raw_observations_equal_literal_independent_expectations": true,
+    "not_based_only_on_pass_flags": true
+  },
+  "jobs": [
+    {
+      "chunk": "dce387",
+      "exit": 0,
+      "pid": 4472,
+      "utc": "2026-10-19T04:50:18.973520+00:00",
+      "command": "python3 stdin: complete admission/tool-result/root-observation raw read and SHA256"
+    },
+    {
+      "chunk": "18f650",
+      "exit": 0,
+      "pid": 5219,
+      "utc": "2026-10-19T04:50:43.123362+00:00",
+      "command": "python3 stdin: strict duplicate-key/nonfinite-refusing JSON parse of saved data only; verify3source+2diff+2review+9oldPLAN+3root-observation pin rows, exact command; independently compare all17 names and raw observations; exact1730byte/hash check; limited absent paths/cache check",
+      "target_import_or_rerun": false
+    }
+  ],
+  "source_assertion_scopes_reused": {
+    "collector": "complete199 lines f7fea9; final_evidence26-61,persist_job64-74,main180-195",
+    "observer": "complete288 lines ce298f; validate_node_column156-172 and main262-270",
+    "fixture": "complete150 lines f166fa; exact raw call/assertion69-110 and literal certificate mutation113-140"
+  },
+  "findings": [],
+  "retained_errors": [],
+  "limitations": [
+    "One combined tool output field; no separate stdout/stderr or zero-stderr claim.",
+    "Synthetic file/save/link interfaces only; no OS fault/process or whole-main invocation, actual geometric/outside-bbox proof or memory/resource enforcement.",
+    "No original source proposal was reopened or executed; no future constructor/native/field/mesh/fit/render/motion/AAA admission.",
+    "Metadata observed absence is limited to this repair leaf and listed paths, not a global job/process census.",
+    "No source/member/array archive decode, source execution, test replay, browser/network/native or product edits by critic."
+  ],
+  "next": "Root independent full actual handoff verification and closure/freeze; no successor or second invocation admitted.",
+  "stop_utc": "2026-10-19T05:10:00+00:00",
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/ACTUAL-REVIEW.md",
+    "bytes": 3072,
+    "sha256": "2df2dbc432e8a8a78515273f937221776f075c1608f9a65ef149cac50dea125b",
+    "read_scope": "complete text byte readback"
+  }
+}

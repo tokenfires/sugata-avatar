@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-19T04:47:07.927368+00:00",
+  "pid": 97971,
+  "source": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/run_once.py",
+      "bytes": 10105,
+      "sha256": "a27e76666d6d0687f7d26cb70ef478049e8f316aabfc6c62cdf4cb149f8eef78"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/inspect_saved.py",
+      "bytes": 16722,
+      "sha256": "f5375792b091a3276429787bf25573c94db512c465e470ba5ceb87b381dcd8f2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/test_guards.py",
+      "bytes": 6757,
+      "sha256": "274f46f73662ea2e04fcd7426d9f4a415f1570cf31e845d8dcef61fd548f374d"
+    }
+  ],
+  "diffs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/run_once.py.diff",
+      "bytes": 4542,
+      "sha256": "9c5811e990ead5efe79a010478486569fc78262e685352abd8d4a66732d98ea0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/inspect_saved.py.diff",
+      "bytes": 2100,
+      "sha256": "7b6de9c2d397e5ef77da6ca8f3dfd848f9d272e66f314914c58b59dcf7d7ecdb"
+    }
+  ],
+  "syntax": "ast.parse only; no module import/evaluation or fixture invocation",
+  "same_functions": "Copied main calls final_evidence/persist_job and copied observer main calls validate_node_column; fixtures call those exact functions with synthetic interfaces and assert independent outcomes/call continuations.",
+  "source_changes": "F1 independent error containment, collection-gated bounded child result inspection, separately attempted receipt with truthful failure; F2 exact axis/type/range/column linkage. Geometry/math unchanged.",
+  "fixture_count": 17,
+  "caps": {
+    "invocations_max": 2,
+    "alarm_seconds": 5,
+    "tiny_cases_max": 64,
+    "stdout_bytes_max": 4096
+  },
+  "execution": "No config, worker, kernel or ADMISSION in this repair leaf; geometry entry cannot run. Only future separately reviewed fixture command allowed. No archive or geometry access in fixture driver.",
+  "python": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+  "proposed_command": [
+    "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+    "-B",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/test_guards.py"
+  ],
+  "stop_utc": "2026-10-19T05:10:00+00:00",
+  "critic_review_required": true
+}

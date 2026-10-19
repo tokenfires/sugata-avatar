@@ -1,0 +1,92 @@
+--- closed/run_once.py
++++ repair/run_once.py
+@@ -21,6 +21,57 @@
+         raise ValueError('collector metadata cap')
+     with (P/name).open('xb') as stream:
+         stream.write(raw)
++
++
++def final_evidence(collected, names, errors, root=None):
++    """Inspect finalized child output only; keep independent size duties separate."""
++    root = P if root is None else root
++    result = None
++    result_state = 'withheld_uncollected'
++    if collected:
++        try:
++            with (root/'RESULT.json').open('rb') as stream:
++                raw = stream.read(8126465)
++            if len(raw) > 8126464:
++                raise ValueError('result inspection cap')
++            result = {'bytes':len(raw), 'sha256':sha(raw)}
++            result_state = 'finalized_read'
++        except BaseException as error:
++            result_state = 'inspection_error'
++            errors.append({'phase':'result_inspection','type':type(error).__name__,
++                           'message':str(error)[:1024]})
++    sizes = {}; total = 0; complete = True
++    for name in names:
++        if name == 'RESULT.json' and not collected:
++            sizes[name] = {'state':'withheld_uncollected'}
++            complete = False
++            continue
++        try:
++            size = (root/name).stat().st_size
++            if size < 0:
++                raise ValueError('negative output size')
++            sizes[name] = {'state':'observed','bytes':size}; total += size
++        except FileNotFoundError:
++            sizes[name] = {'state':'absent'}
++        except BaseException as error:
++            complete = False; sizes[name] = {'state':'stat_error'}
++            errors.append({'phase':'stat_'+name,'type':type(error).__name__,
++                           'message':str(error)[:1024]})
++    return {'result':result,'result_state':result_state,'sizes':sizes,
++            'observed_bytes':total,'sizes_complete':complete}
++
++
++def persist_job(job):
++    """Always attempt the receipt; return persistence failure literally."""
++    try:
++        save('JOB.json',job)
++    except BaseException as error:
++        job['errors'].append({'phase':'write_JOB','type':type(error).__name__,
++                              'message':str(error)[:1024]})
++        job['receipt_written'] = False
++        return False
++    job['receipt_written'] = True  # Terminal status; disk write succeeded first.
++    return True
+ 
+ 
+ def main():
+@@ -126,21 +177,22 @@
+             errors.append({'phase':'write_'+key,'type':type(error).__name__,'message':str(error)})
+         streams[key] = {'bytes':len(buffers[key]),'observed_read_bytes':observed[key],
+                         'sha256':sha(buffers[key]),'eof':eof[key],'closed':closed.get(key,False),'written':written}
+-    result = None
+-    if (P/'RESULT.json').is_file():
+-        b = (P/'RESULT.json').read_bytes()
+-        result = {'bytes':len(b),'sha256':sha(b)}
+-    output_bytes = sum((P/name).stat().st_size for name in config['first_outputs'] if (P/name).is_file())
+-    if output_bytes+65536 > 8388608:
++    evidence = final_evidence(collected, config['first_outputs'], errors)
++    if not evidence['sizes_complete']:
++        reason = reason or 'incomplete final size evidence'
++    if evidence['observed_bytes']+65536 > 8388608:
+         reason = reason or 'aggregate output cap'
+     job = {'collector_pid':os.getpid(),'child_pid':None if child is None else child.pid,
+            'started_utc':started.isoformat(),'collected_utc':now().isoformat(),
+            'elapsed_seconds':time.monotonic()-tick,'returncode':code,'collected':collected,
+-           'reason':reason,'errors':errors,'streams':streams,'result':result,'output_bytes_before_JOB':output_bytes,
++           'reason':reason,'errors':errors,'streams':streams,
++           'result':evidence['result'],'result_state':evidence['result_state'],
++           'output_bytes_before_JOB':evidence['observed_bytes'],
++           'output_sizes_complete':evidence['sizes_complete'],'output_sizes':evidence['sizes'],
+            'scope':'One CPU child;120s collection plus at most two2s retirement waits. Prefixes/EOF/retirement reported literally; no unconditional OS/GPU or hard instantaneous RSS guarantee.'}
+-    save('JOB.json',job)
++    written = persist_job(job)
+     print(json.dumps(job))
+-    return 0 if code == 0 and collected and reason is None and not errors and all(eof.values()) else 1
++    return 0 if written and code == 0 and collected and reason is None and not errors and all(eof.values()) else 1
+ 
+ 
+ if __name__ == '__main__':

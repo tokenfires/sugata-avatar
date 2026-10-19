@@ -1,0 +1,38 @@
+--- closed/inspect_saved.py
++++ repair/inspect_saved.py
+@@ -151,6 +151,25 @@
+         return fail('nonzero_chain_volume',{'volume6_int':0})
+     return {'status':'PASS','V':n,'E':len(edges),'F':len(faces),'components':1,'used':n,
+             'Euler':2,'cyclic_links':n,'volume6_int':volume6,'orientation':1 if volume6>0 else -1}
++
++
++def validate_node_column(stop, stations):
++    """Bind a claimed nonboundary node to the affected column independently."""
++    axis = stop['axis']
++    assert type(axis) is int and 0 <= axis < 3
++    other = [a for a in range(3) if a != axis]
++    assert stop['other_axes'] == other and all(type(a) is int for a in stop['other_axes'])
++    column = stop['column_indices']
++    assert len(column) == 2 and all(type(i) is int for i in column)
++    assert all(0 <= column[k] < len(stations[a]) for k,a in enumerate(other))
++    node = stop['node']; idx = node['indices']
++    assert len(idx) == 3 and all(type(i) is int for i in idx)
++    assert all(0 <= idx[a] < len(stations[a]) for a in range(3))
++    assert [idx[a] for a in other] == column
++    assert type(node['strict_outside_axis']) is int and node['strict_outside_axis'] == axis
++    assert type(stop['scale_exponent']) is int and 0 <= stop['scale_exponent'] <= 149
++    assert node['scale_exponent'] == stop['scale_exponent']
++    return idx
+ 
+ 
+ def main():
+@@ -241,7 +260,8 @@
+                 assert stop['vertices_int'] == [list(vi[k]) for k in faces[stop['face_id']]]
+                 node = stop['node']; assert not r['complete']
+                 if node['proven_nonboundary']:
+-                    idx = node['indices']; point = [q32[a][idx[a]] for a in range(3)]
++                    idx = validate_node_column(stop,q32)
++                    point = [q32[a][idx[a]] for a in range(3)]
+                     assert point == node['q32'] and [struct.pack('<f',x).hex() for x in point] == node['q32_bits_hex']
+                     assert node['gid'] == ((idx[0]*len(qi[1])+idx[1])*len(qi[2])+idx[2])
+                     axis = stop['axis']; bounds = [min(p[axis] for p in vi),max(p[axis] for p in vi)]

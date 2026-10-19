@@ -1,0 +1,15 @@
+# Evidence repair fixture-source review
+
+**A — the exact bounded synthetic fixture command is source-qualified and worth one root-admitted invocation.** At most two invocations remain the total repair budget, each with the declared five-second alarm; no copied main, worker, kernel, source archive or geometry trial is admitted. No new actionable source blocker is demonstrated in this limited gate.
+
+I read all199 collector lines,288 observer lines and150 fixture lines, both complete diffs, PLAN and SOURCE-PREPARATION. The three source pins, two diff pins and nine old input pins match. Independent unified-diff recomputation matches the stored diffs exactly; old source bytes remain untouched.
+
+`run_once.py:26–61` reads bounded child result bytes only when collected, skips result inspection/stat otherwise, independently contains each stat error, and retains size-completeness state. `:64–74` attempts the actual save function, returns failure with a write_JOB error, and reports successful persistence only after save returns. Main uses these functions at `:180–195`. This fixes the two reviewed final-evidence duties in the copied source; it guarantees neither successful disk persistence nor OS collection.
+
+`inspect_saved.py:156–172` checks exact axis/index types, ranges, other-axis identity, column correspondence and outside-axis/scale association. Main calls it before the previously reviewed bits/gid/full-bbox comparison at `:262–270`. The fixture exercises that same linkage function; it does not run the independent geometry predicates or prove a real outside-bbox certificate.
+
+`test_guards.py:69–110` asserts forbidden child-output calls are absent when uncollected, independent result/stat errors reach a receipt attempt, final-write failure returns false, and a successful bounded result has the expected identity. `:113–140` supplies one accepted linkage plus12 rejected mutations, including a different valid column, negative/out-of-range/bool indices and wrong axes/scale. Together these are17 literal cases with independent call/outcome observations, not just returned PASS labels. Save injection is restored in finally. The alarm precedes copied-module imports; -B and the pre-import bytecode setting avoid cache writes. The driver neither calls main nor spawns a process or opens an archive. Output is checked against4096 bytes before writing.
+
+Alternative A is this small same-function fixture run: it can provide actual synthetic regression evidence for the repairs at low bounded cost. Alternative B is to retain source findings without running: less infrastructure effort, but no regression result. **A is preferred only at this scope**, after root rechecks exact pins/command and remaining invocation budget before05:05; closure remains05:10. Alarm delivery is not an unconditional OS runtime guarantee.
+
+No fixture was invoked by this critic. Any future passing output must be independently reviewed and cannot reopen original source B or admit process collection, resource enforcement, real source eligibility, field/mesh/fit/rendering or broader AAA work. Stable pair; no pending edits.

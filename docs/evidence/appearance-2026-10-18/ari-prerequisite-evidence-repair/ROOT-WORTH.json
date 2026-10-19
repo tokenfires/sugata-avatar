@@ -1,0 +1,20 @@
+{
+  "utc": "2026-10-19T04:45:39.850419+00:00",
+  "pid": 95338,
+  "decision": "A inert repair and bounded synthetic-fixture source preparation only",
+  "whole_root_handoff_read": "2c8481/exit0 full3055+7228 bytes",
+  "verified_input_rows": 9,
+  "critic_pair": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/WORTH.md",
+      "bytes": 3055,
+      "sha256": "c70aa684c2832809ee540cb4e2f5d3fbc377cfe4fcf82fff3e83b7202e4d62b9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/WORTH-RECEIPT.json",
+      "bytes": 7228,
+      "sha256": "8fbf41bf0b2147ad448e9a77f1277c8f5a1f53be4b4e9d1fcd69b1833529e73c"
+    }
+  ],
+  "root_assessment": "Both source findings independently confirmed; same-function interface faults and wrong-column controls can change whether a future checker is reviewable. Scope/stop fixed. No original-source edits, member decode, fixture invocation, geometry or native admission."
+}
