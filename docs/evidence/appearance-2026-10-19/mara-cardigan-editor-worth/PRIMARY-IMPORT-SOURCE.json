@@ -1,0 +1,33 @@
+{
+  "stem": "PRIMARY-IMPORT-SOURCE",
+  "args": {
+    "url": "https://raw.githubusercontent.com/blender/blender/v5.2.2/source/blender/io/wavefront_obj/importer/obj_import_objects.cc",
+    "formats": [
+      "markdown"
+    ],
+    "maxAge": 0,
+    "onlyMainContent": true,
+    "proxy": "basic",
+    "timeout": 30000
+  },
+  "result": {
+    "markdown": "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta name=\"color-scheme\" content=\"light dark\"></head><body><pre style=\"word-wrap: break-word; white-space: pre-wrap;\">404: Not Found</pre></body></html>",
+    "metadata": {
+      "color-scheme": "light dark",
+      "scrapeId": "01a1559c-29d1-74ef-bb6a-f094d31a74e8",
+      "sourceURL": "https://raw.githubusercontent.com/blender/blender/v5.2.2/source/blender/io/wavefront_obj/importer/obj_import_objects.cc",
+      "url": "https://raw.githubusercontent.com/blender/blender/v5.2.2/source/blender/io/wavefront_obj/importer/obj_import_objects.cc",
+      "statusCode": 404,
+      "error": "Not Found",
+      "contentType": "text/plain; charset=utf-8",
+      "timezone": "America/New_York",
+      "proxyUsed": "basic",
+      "indexId": "1ca98f91-4805-4e13-a246-84109fbc3cb2",
+      "creditsUsed": 1,
+      "concurrencyLimited": false
+    },
+    "agent_hints": [
+      "The source page returned 404. If you need its current location or an alternative, use firecrawl_search with {\"query\":\"site:raw.githubusercontent.com importer obj import objects\",\"sources\":[\"web\"]}. Adjust the query to the page identity from your task; this is not a transient-error retry."
+    ]
+  }
+}

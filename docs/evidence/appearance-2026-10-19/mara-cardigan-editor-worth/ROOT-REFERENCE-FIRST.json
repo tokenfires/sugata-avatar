@@ -1,0 +1,114 @@
+{
+  "schema": "root-editor-reference-first-v1",
+  "utc": "2026-10-19T19:22:03.186489+00:00",
+  "pid": 93079,
+  "decision": "B_REQUIRED_IMPORT_SOURCE_UNAVAILABLE_NO_PROGRAM_NATIVE_OR_DELIVERY",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PLAN.md",
+      "bytes": 6216,
+      "sha256": "a726b80e7457b998701edfb7445cfe70f28c7ff292d17e2d2d9f7bfff2b58838"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH-INPUTS.json",
+      "bytes": 6156,
+      "sha256": "19d347332858e62cff6f121f5cf0fed4fa0f37ddabeecc58933d5027b55d9565"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH.md",
+      "bytes": 2804,
+      "sha256": "9d5a719e634f47fe68fe60da5be6a0a6d6da558e65f77287d11555756609c80c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH-RECEIPT.json",
+      "bytes": 19596,
+      "sha256": "d4f82b76c10915d27b333cf1b1ee2c24d9529e35916564f50374d1b4f382bb56"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/ROOT-WORTH-FIRST.json",
+      "bytes": 8865,
+      "sha256": "1488533bd45f88423c93a30c1b9d1c47028d7e3e1be92020cc63de2da20306dc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/ROOT-WORTH.json",
+      "bytes": 13958,
+      "sha256": "cd2c533d3b5e8b5b2c8b47e8626cb3b189edc89a670f2ffd3b8ec9959ea9bb3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PREPARATION.md",
+      "bytes": 2612,
+      "sha256": "715a39fa56249909a892326b547b9d3fbb480439d17e7e5e54f8281da6484bb6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-CLI.json",
+      "bytes": 20410,
+      "sha256": "043d1b3125f457f7747b7a711e1b549ceb950108139f66795dad2aa180120a31"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-CLI.md",
+      "bytes": 18334,
+      "sha256": "457b7b409de181b4fbabfa62aa528ee195bf21dba2dde7c113d19f5c6b0db056"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-WM.json",
+      "bytes": 217679,
+      "sha256": "fc8a02573ec574b7a25e47bcb718828370475cbc76b761a0a28eb5204d091454"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-WM.md",
+      "bytes": 203189,
+      "sha256": "5116df89d31b58058c944213c85e246c72c0850a39531be9d3b048eac1f46a8e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-IMPORT-SOURCE.json",
+      "bytes": 1613,
+      "sha256": "2f22db62bb5d3bec4933e1557d3eeadebc1910ae5df1c75b7948faa52e59c9fb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-IMPORT-SOURCE.md",
+      "bytes": 232,
+      "sha256": "085299fa63d15c9a18a8dd8b2909663e0e329d2869b53da661ff1ad9d1a40555"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-WM-EXCERPTS.md",
+      "bytes": 12767,
+      "sha256": "ec0b062ebd91d79c6054528774cf02b3453f91c2b92f58c8d91891e3fc60ee27"
+    }
+  ],
+  "actual_outcome": "Three primary page reads consumed3reportedcredits. CLI/API5.2 documents HTTP200. Selected exact5.2.2 importer source HTTP404; full232Bbody says404:NotFound. No retry/fallback or local native API probe.",
+  "source_requirement": "PREPARATION says no fallback if required exactsource unavailable. Third source was selected to resolve actual axis conversion/import semantics for complete immutable geometry readback; public API parameter descriptions alone do not prove the exact concrete matrix. Missing source is research/provenance unknown, not evidence that installed Blender importer fails.",
+  "witnesses": [
+    {
+      "path": "PRIMARY-IMPORT-SOURCE.json",
+      "fields": "args.url+result.metadata.statusCode404/sourceURL/url/error/scrapeId01a1559c-29d1-74ef-bb6a-f094d31a74e8/creditsUsed1; markdown raw404body",
+      "effect": "Needed versioned implementation witness unavailable at this selected address."
+    },
+    {
+      "path": "PREPARATION.md",
+      "text": "no retrieval retry or fallback if a required exact source is unavailable",
+      "effect": "Closes exact new serialization method before source construction/native entry."
+    },
+    {
+      "path": "PRIMARY-WM-EXCERPTS.md",
+      "effect": "Parameter enums/defaults and save/reopen signatures support API planning, not exact axis/matrix/material conversion or installed execution."
+    }
+  ],
+  "alternatives": [
+    {
+      "choice": "Stop and preserve existing accepted JSON/OBJ/MTL with untested-editor warning, selected",
+      "tradeoff": "No native risk or altered acceptance, but practical native file remains unresolved."
+    },
+    {
+      "choice": "Search another revision/path or use runtime axis/API probe, rejected under frozen contract",
+      "tradeoff": "Might resolve implementation ambiguity, but exceeds three-read and no-fallback boundaries and would not justify execution now."
+    }
+  ],
+  "native_entries": 0,
+  "program_constructed": false,
+  "source_admission": false,
+  "online_reads": 3,
+  "reported_credits": 3,
+  "preserved": "Accepted assets, old closures/HOLD, protected roadmap/checklist/board and active review service/timer unchanged. No appearance, editor file, physical fit or runtime credit.",
+  "receipt_observer_correction": "4dcedd/exit1 wrote only exact saved API excerpts before NameError false in root receipt dictionary; Python boolean spelling corrected in collector, no target program/native/source change.",
+  "next": "Wait independent complete reference pair, freshroot verify, freeze concise checkpoint; no native/program/source/reference successor in this method."
+}

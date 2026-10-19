@@ -1,0 +1,644 @@
+{
+  "schema": "root-cardigan-editor-preparation-close-v1",
+  "utc": "2026-10-19T19:24:38.349069+00:00",
+  "pid": 93628,
+  "decision": "B_REFERENCE_UNKNOWN_NO_TARGET_EXECUTION",
+  "verified_rows": 104,
+  "verified_unique_paths": 39,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/REFERENCE-REVIEW.md",
+      "bytes": 2341,
+      "sha256": "6288cf4804081437ca4c1992e65c7ffdc4aef6f0414fc578d41607aa50506c09"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/REFERENCE-RECEIPT.json",
+      "bytes": 14689,
+      "sha256": "66bd99e92c23d2ddf1ec3c69ed60ce67bbfc14e23a8faab33d3c53d1f529aa0f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH.md",
+      "bytes": 2804,
+      "sha256": "9d5a719e634f47fe68fe60da5be6a0a6d6da558e65f77287d11555756609c80c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH-RECEIPT.json",
+      "bytes": 19596,
+      "sha256": "d4f82b76c10915d27b333cf1b1ee2c24d9529e35916564f50374d1b4f382bb56"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PLAN.md",
+      "bytes": 6216,
+      "sha256": "a726b80e7457b998701edfb7445cfe70f28c7ff292d17e2d2d9f7bfff2b58838"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 94311,
+      "sha256": "614bb650a2ebe0d665fc479d65eccaa0bc604e4e086f28728960f3373b90834d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 119375,
+      "sha256": "b4082c8b7b0699ff8690f455a00d5f82523d86860a3216dc085aa02d66961ab2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/ARTIST-HANDOFF.md",
+      "bytes": 3381,
+      "sha256": "c4272c4bcbb1e970a37d829eb26c30b0c17d17c8b2bdce7133ca497069e94cbb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/README.md",
+      "bytes": 4024,
+      "sha256": "f84e1d7738bf75afd5b34df539606a90a2619407f91a8018d8b141080902ad09"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/CONTRACT.md",
+      "bytes": 4358,
+      "sha256": "53ebf7a82eb715ec43b723f31a27f47c25bb99e9651894232a876f8d316959b9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/CPU-REVIEW.md",
+      "bytes": 3662,
+      "sha256": "d4b2f2a53b642f011fa51cee03a79da5a0d2d0a0b64514e32c36a95c79e7e7c0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/IMAGE-REVIEW.md",
+      "bytes": 3462,
+      "sha256": "f48985a40fcfdbfbc27c810aa67ab90abd7f12f5f1583cbaf919cf92a171b029"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/DELIVERY-REVIEW.md",
+      "bytes": 2389,
+      "sha256": "53f35f66b502064dffa04d88567143afb5474489b620835487c82c3468984762"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/ROOT-DELIVERY.json",
+      "bytes": 10041,
+      "sha256": "5a9725f596aba9c2405e430bacac468146cde16ec3b2ea125c63156b60d01f66"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.json",
+      "bytes": 312209,
+      "sha256": "0f59daa8cdeb7686bcf76ced2f4b6fe5397c06296fb763f6ae63baa2da4de99d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.obj",
+      "bytes": 158628,
+      "sha256": "1f975f43642272b8d86235ae44208846712215d709182ab7592cebe336fb2c54"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.mtl",
+      "bytes": 467,
+      "sha256": "87db47d3188a6466fef907c7fdb8691e80d5166e9c523724b4da21b6d5007683"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/front.png",
+      "bytes": 47609,
+      "sha256": "76d7119554c819c914211b8fd37d890e1e9092c8932471e345959dcd93be9d0e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/README.md",
+      "bytes": 3955,
+      "sha256": "08a239bf34929797e3ad0aede7319b4b4b86437d1393e52c9dfa73896287a0ae"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/README.md",
+      "bytes": 4476,
+      "sha256": "a75d60b87af0fbb8e40f3d027afcb1989c67b379a789884f24e7215d994edb3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/README.md",
+      "bytes": 4196,
+      "sha256": "0760a823c86c4575463881f3f7747f734cd28c339a2272d1027472c2fcfa414b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/README.md",
+      "bytes": 5641,
+      "sha256": "3736979f4312810d12b7315b5d822e131e1ef29a6f54632d9fe6549413b67178"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/README.md",
+      "bytes": 5367,
+      "sha256": "4b64a9ccc9baa49bca76e742bfc070f14bb331bf9d2cd5ae9d4c230eb7e54902"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-welcoming-gesture-worth/README.md",
+      "bytes": 3734,
+      "sha256": "68bb1807a534392208c973d9073658b1cef81161746fc21c113a61272f4a86c3"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Info.plist",
+      "bytes": 2889,
+      "sha256": "1387794301d134f2a330bd85ea5f3b243303c9bcfd022c98bdd7de47ac81794b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH-INPUTS.json",
+      "bytes": 6156,
+      "sha256": "19d347332858e62cff6f121f5cf0fed4fa0f37ddabeecc58933d5027b55d9565"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH.md",
+      "bytes": 2804,
+      "sha256": "9d5a719e634f47fe68fe60da5be6a0a6d6da558e65f77287d11555756609c80c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PLAN.md",
+      "bytes": 6216,
+      "sha256": "a726b80e7457b998701edfb7445cfe70f28c7ff292d17e2d2d9f7bfff2b58838"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 94311,
+      "sha256": "614bb650a2ebe0d665fc479d65eccaa0bc604e4e086f28728960f3373b90834d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 119375,
+      "sha256": "b4082c8b7b0699ff8690f455a00d5f82523d86860a3216dc085aa02d66961ab2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/ARTIST-HANDOFF.md",
+      "bytes": 3381,
+      "sha256": "c4272c4bcbb1e970a37d829eb26c30b0c17d17c8b2bdce7133ca497069e94cbb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/README.md",
+      "bytes": 4024,
+      "sha256": "f84e1d7738bf75afd5b34df539606a90a2619407f91a8018d8b141080902ad09"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/CONTRACT.md",
+      "bytes": 4358,
+      "sha256": "53ebf7a82eb715ec43b723f31a27f47c25bb99e9651894232a876f8d316959b9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/CPU-REVIEW.md",
+      "bytes": 3662,
+      "sha256": "d4b2f2a53b642f011fa51cee03a79da5a0d2d0a0b64514e32c36a95c79e7e7c0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/IMAGE-REVIEW.md",
+      "bytes": 3462,
+      "sha256": "f48985a40fcfdbfbc27c810aa67ab90abd7f12f5f1583cbaf919cf92a171b029"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/DELIVERY-REVIEW.md",
+      "bytes": 2389,
+      "sha256": "53f35f66b502064dffa04d88567143afb5474489b620835487c82c3468984762"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/ROOT-DELIVERY.json",
+      "bytes": 10041,
+      "sha256": "5a9725f596aba9c2405e430bacac468146cde16ec3b2ea125c63156b60d01f66"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.json",
+      "bytes": 312209,
+      "sha256": "0f59daa8cdeb7686bcf76ced2f4b6fe5397c06296fb763f6ae63baa2da4de99d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.obj",
+      "bytes": 158628,
+      "sha256": "1f975f43642272b8d86235ae44208846712215d709182ab7592cebe336fb2c54"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.mtl",
+      "bytes": 467,
+      "sha256": "87db47d3188a6466fef907c7fdb8691e80d5166e9c523724b4da21b6d5007683"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/front.png",
+      "bytes": 47609,
+      "sha256": "76d7119554c819c914211b8fd37d890e1e9092c8932471e345959dcd93be9d0e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/README.md",
+      "bytes": 3955,
+      "sha256": "08a239bf34929797e3ad0aede7319b4b4b86437d1393e52c9dfa73896287a0ae"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/README.md",
+      "bytes": 4476,
+      "sha256": "a75d60b87af0fbb8e40f3d027afcb1989c67b379a789884f24e7215d994edb3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/README.md",
+      "bytes": 4196,
+      "sha256": "0760a823c86c4575463881f3f7747f734cd28c339a2272d1027472c2fcfa414b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/README.md",
+      "bytes": 5641,
+      "sha256": "3736979f4312810d12b7315b5d822e131e1ef29a6f54632d9fe6549413b67178"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/README.md",
+      "bytes": 5367,
+      "sha256": "4b64a9ccc9baa49bca76e742bfc070f14bb331bf9d2cd5ae9d4c230eb7e54902"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-welcoming-gesture-worth/README.md",
+      "bytes": 3734,
+      "sha256": "68bb1807a534392208c973d9073658b1cef81161746fc21c113a61272f4a86c3"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Info.plist",
+      "bytes": 2889,
+      "sha256": "1387794301d134f2a330bd85ea5f3b243303c9bcfd022c98bdd7de47ac81794b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/ROOT-WORTH-FIRST.json",
+      "bytes": 8865,
+      "sha256": "1488533bd45f88423c93a30c1b9d1c47028d7e3e1be92020cc63de2da20306dc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PLAN.md",
+      "bytes": 6216,
+      "sha256": "a726b80e7457b998701edfb7445cfe70f28c7ff292d17e2d2d9f7bfff2b58838"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 94311,
+      "sha256": "614bb650a2ebe0d665fc479d65eccaa0bc604e4e086f28728960f3373b90834d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 119375,
+      "sha256": "b4082c8b7b0699ff8690f455a00d5f82523d86860a3216dc085aa02d66961ab2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/ARTIST-HANDOFF.md",
+      "bytes": 3381,
+      "sha256": "c4272c4bcbb1e970a37d829eb26c30b0c17d17c8b2bdce7133ca497069e94cbb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/README.md",
+      "bytes": 4024,
+      "sha256": "f84e1d7738bf75afd5b34df539606a90a2619407f91a8018d8b141080902ad09"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/CONTRACT.md",
+      "bytes": 4358,
+      "sha256": "53ebf7a82eb715ec43b723f31a27f47c25bb99e9651894232a876f8d316959b9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/CPU-REVIEW.md",
+      "bytes": 3662,
+      "sha256": "d4b2f2a53b642f011fa51cee03a79da5a0d2d0a0b64514e32c36a95c79e7e7c0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/IMAGE-REVIEW.md",
+      "bytes": 3462,
+      "sha256": "f48985a40fcfdbfbc27c810aa67ab90abd7f12f5f1583cbaf919cf92a171b029"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/DELIVERY-REVIEW.md",
+      "bytes": 2389,
+      "sha256": "53f35f66b502064dffa04d88567143afb5474489b620835487c82c3468984762"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/ROOT-DELIVERY.json",
+      "bytes": 10041,
+      "sha256": "5a9725f596aba9c2405e430bacac468146cde16ec3b2ea125c63156b60d01f66"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.json",
+      "bytes": 312209,
+      "sha256": "0f59daa8cdeb7686bcf76ced2f4b6fe5397c06296fb763f6ae63baa2da4de99d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.obj",
+      "bytes": 158628,
+      "sha256": "1f975f43642272b8d86235ae44208846712215d709182ab7592cebe336fb2c54"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.mtl",
+      "bytes": 467,
+      "sha256": "87db47d3188a6466fef907c7fdb8691e80d5166e9c523724b4da21b6d5007683"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/front.png",
+      "bytes": 47609,
+      "sha256": "76d7119554c819c914211b8fd37d890e1e9092c8932471e345959dcd93be9d0e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/README.md",
+      "bytes": 3955,
+      "sha256": "08a239bf34929797e3ad0aede7319b4b4b86437d1393e52c9dfa73896287a0ae"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/README.md",
+      "bytes": 4476,
+      "sha256": "a75d60b87af0fbb8e40f3d027afcb1989c67b379a789884f24e7215d994edb3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/README.md",
+      "bytes": 4196,
+      "sha256": "0760a823c86c4575463881f3f7747f734cd28c339a2272d1027472c2fcfa414b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-portable-artist-kit/README.md",
+      "bytes": 5641,
+      "sha256": "3736979f4312810d12b7315b5d822e131e1ef29a6f54632d9fe6549413b67178"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/README.md",
+      "bytes": 5367,
+      "sha256": "4b64a9ccc9baa49bca76e742bfc070f14bb331bf9d2cd5ae9d4c230eb7e54902"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-welcoming-gesture-worth/README.md",
+      "bytes": 3734,
+      "sha256": "68bb1807a534392208c973d9073658b1cef81161746fc21c113a61272f4a86c3"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Info.plist",
+      "bytes": 2889,
+      "sha256": "1387794301d134f2a330bd85ea5f3b243303c9bcfd022c98bdd7de47ac81794b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH-INPUTS.json",
+      "bytes": 6156,
+      "sha256": "19d347332858e62cff6f121f5cf0fed4fa0f37ddabeecc58933d5027b55d9565"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PLAN.md",
+      "bytes": 6216,
+      "sha256": "a726b80e7457b998701edfb7445cfe70f28c7ff292d17e2d2d9f7bfff2b58838"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH-INPUTS.json",
+      "bytes": 6156,
+      "sha256": "19d347332858e62cff6f121f5cf0fed4fa0f37ddabeecc58933d5027b55d9565"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH.md",
+      "bytes": 2804,
+      "sha256": "9d5a719e634f47fe68fe60da5be6a0a6d6da558e65f77287d11555756609c80c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH-RECEIPT.json",
+      "bytes": 19596,
+      "sha256": "d4f82b76c10915d27b333cf1b1ee2c24d9529e35916564f50374d1b4f382bb56"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/ROOT-WORTH-FIRST.json",
+      "bytes": 8865,
+      "sha256": "1488533bd45f88423c93a30c1b9d1c47028d7e3e1be92020cc63de2da20306dc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/ROOT-WORTH.json",
+      "bytes": 13958,
+      "sha256": "cd2c533d3b5e8b5b2c8b47e8626cb3b189edc89a670f2ffd3b8ec9959ea9bb3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PREPARATION.md",
+      "bytes": 2612,
+      "sha256": "715a39fa56249909a892326b547b9d3fbb480439d17e7e5e54f8281da6484bb6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-CLI.json",
+      "bytes": 20410,
+      "sha256": "043d1b3125f457f7747b7a711e1b549ceb950108139f66795dad2aa180120a31"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-CLI.md",
+      "bytes": 18334,
+      "sha256": "457b7b409de181b4fbabfa62aa528ee195bf21dba2dde7c113d19f5c6b0db056"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-WM.json",
+      "bytes": 217679,
+      "sha256": "fc8a02573ec574b7a25e47bcb718828370475cbc76b761a0a28eb5204d091454"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-WM.md",
+      "bytes": 203189,
+      "sha256": "5116df89d31b58058c944213c85e246c72c0850a39531be9d3b048eac1f46a8e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-IMPORT-SOURCE.json",
+      "bytes": 1613,
+      "sha256": "2f22db62bb5d3bec4933e1557d3eeadebc1910ae5df1c75b7948faa52e59c9fb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-IMPORT-SOURCE.md",
+      "bytes": 232,
+      "sha256": "085299fa63d15c9a18a8dd8b2909663e0e329d2869b53da661ff1ad9d1a40555"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-WM-EXCERPTS.md",
+      "bytes": 12767,
+      "sha256": "ec0b062ebd91d79c6054528774cf02b3453f91c2b92f58c8d91891e3fc60ee27"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PREPARATION.md",
+      "bytes": 2612,
+      "sha256": "715a39fa56249909a892326b547b9d3fbb480439d17e7e5e54f8281da6484bb6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PLAN.md",
+      "bytes": 6216,
+      "sha256": "a726b80e7457b998701edfb7445cfe70f28c7ff292d17e2d2d9f7bfff2b58838"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH-INPUTS.json",
+      "bytes": 6156,
+      "sha256": "19d347332858e62cff6f121f5cf0fed4fa0f37ddabeecc58933d5027b55d9565"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH.md",
+      "bytes": 2804,
+      "sha256": "9d5a719e634f47fe68fe60da5be6a0a6d6da558e65f77287d11555756609c80c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH-RECEIPT.json",
+      "bytes": 19596,
+      "sha256": "d4f82b76c10915d27b333cf1b1ee2c24d9529e35916564f50374d1b4f382bb56"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/ROOT-WORTH.json",
+      "bytes": 13958,
+      "sha256": "cd2c533d3b5e8b5b2c8b47e8626cb3b189edc89a670f2ffd3b8ec9959ea9bb3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-CLI.json",
+      "bytes": 20410,
+      "sha256": "043d1b3125f457f7747b7a711e1b549ceb950108139f66795dad2aa180120a31"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-WM.json",
+      "bytes": 217679,
+      "sha256": "fc8a02573ec574b7a25e47bcb718828370475cbc76b761a0a28eb5204d091454"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-IMPORT-SOURCE.json",
+      "bytes": 1613,
+      "sha256": "2f22db62bb5d3bec4933e1557d3eeadebc1910ae5df1c75b7948faa52e59c9fb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/REFERENCE-REVIEW.md",
+      "bytes": 2341,
+      "sha256": "6288cf4804081437ca4c1992e65c7ffdc4aef6f0414fc578d41607aa50506c09"
+    }
+  ],
+  "leaf_files": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/CHECKPOINT-JOBS.json",
+      "bytes": 340278,
+      "sha256": "1fda17f576d768390561f292a91c88e08953f350394b960a961f8f85ac254327"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PLAN.md",
+      "bytes": 6216,
+      "sha256": "a726b80e7457b998701edfb7445cfe70f28c7ff292d17e2d2d9f7bfff2b58838"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PREPARATION.md",
+      "bytes": 2612,
+      "sha256": "715a39fa56249909a892326b547b9d3fbb480439d17e7e5e54f8281da6484bb6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-CLI.json",
+      "bytes": 20410,
+      "sha256": "043d1b3125f457f7747b7a711e1b549ceb950108139f66795dad2aa180120a31"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-CLI.md",
+      "bytes": 18334,
+      "sha256": "457b7b409de181b4fbabfa62aa528ee195bf21dba2dde7c113d19f5c6b0db056"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-IMPORT-SOURCE.json",
+      "bytes": 1613,
+      "sha256": "2f22db62bb5d3bec4933e1557d3eeadebc1910ae5df1c75b7948faa52e59c9fb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-IMPORT-SOURCE.md",
+      "bytes": 232,
+      "sha256": "085299fa63d15c9a18a8dd8b2909663e0e329d2869b53da661ff1ad9d1a40555"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-WM-EXCERPTS.md",
+      "bytes": 12767,
+      "sha256": "ec0b062ebd91d79c6054528774cf02b3453f91c2b92f58c8d91891e3fc60ee27"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-WM.json",
+      "bytes": 217679,
+      "sha256": "fc8a02573ec574b7a25e47bcb718828370475cbc76b761a0a28eb5204d091454"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-WM.md",
+      "bytes": 203189,
+      "sha256": "5116df89d31b58058c944213c85e246c72c0850a39531be9d3b048eac1f46a8e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/README.md",
+      "bytes": 3579,
+      "sha256": "84479e2b761daaad4fea735c1637959d96a67566f391443d657dbb5e1198102c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/REFERENCE-RECEIPT.json",
+      "bytes": 14689,
+      "sha256": "66bd99e92c23d2ddf1ec3c69ed60ce67bbfc14e23a8faab33d3c53d1f529aa0f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/REFERENCE-REVIEW.md",
+      "bytes": 2341,
+      "sha256": "6288cf4804081437ca4c1992e65c7ffdc4aef6f0414fc578d41607aa50506c09"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/ROOT-REFERENCE-FIRST.json",
+      "bytes": 6340,
+      "sha256": "64d75c153d46c89a0a527c07014d8be551670c03ccd14fa6d972adda85eb5e6f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/ROOT-WORTH-FIRST.json",
+      "bytes": 8865,
+      "sha256": "1488533bd45f88423c93a30c1b9d1c47028d7e3e1be92020cc63de2da20306dc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/ROOT-WORTH.json",
+      "bytes": 13958,
+      "sha256": "cd2c533d3b5e8b5b2c8b47e8626cb3b189edc89a670f2ffd3b8ec9959ea9bb3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH-INPUTS.json",
+      "bytes": 6156,
+      "sha256": "19d347332858e62cff6f121f5cf0fed4fa0f37ddabeecc58933d5027b55d9565"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH-RECEIPT.json",
+      "bytes": 19596,
+      "sha256": "d4f82b76c10915d27b333cf1b1ee2c24d9529e35916564f50374d1b4f382bb56"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH.md",
+      "bytes": 2804,
+      "sha256": "9d5a719e634f47fe68fe60da5be6a0a6d6da558e65f77287d11555756609c80c"
+    }
+  ],
+  "independent_handoff": "84dcd7 complete review2341B/receipt14689B, fresh all nested53worth/direct/source/first/pair identities and target absences inspected; no target or appearance opinion substituted",
+  "root_agreement": "Selected exact required source returned404; no concrete axis mapping from parameter enums, no native/process/source contract admitted. Close early without fallback or program. Different source/probe alternative rejected under frozen inquiry.",
+  "observer_corrections": [
+    "bbfe1e schema observer KeyError positions, corrected45964b from actual vertices/faces without source change.",
+    "4dcedd receipt NameError false after exact existing reference excerpt save, corrected4622f3 preserving exact excerpt bytes.",
+    "Critic f62126 heading locator escaped underscores, recovered saved full sections with no retrieval.",
+    "Summary-only prior front hash corrected to actual pinned47609/76d7119554c819c914211b8fd37d890e1e9092c8932471e345959dcd93be9d0e."
+  ],
+  "online_reads": 3,
+  "reported_credits": 3,
+  "native_entries": 0,
+  "render_capture_entries": 0,
+  "target_or_programs_present": false,
+  "preparation_stop_utc": "2026-10-19T20:03:00Z",
+  "unused_allowances": "All retired on first complete source unknown; no retry/fallback/retake/source repair/successor.",
+  "historical_main_pin_git": "c83ee21141e3a5d1657d13a9ed4e60cd78664c3c",
+  "next": "Local checkpoint; only genuinely different Phase1 worth may follow. Check-in/pause supersedes, no old closure/HOLD lifted."
+}

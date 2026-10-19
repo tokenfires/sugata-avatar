@@ -1,0 +1,220 @@
+{
+  "schema": "critic-editor-preparation-reference-outcome-v1",
+  "verdict": "B_UNKNOWN_REQUIRED_IMPORTER_SOURCE_UNAVAILABLE_CLOSE_UNRUN",
+  "collected_utc": "2026-10-19T19:23:21.895420+00:00",
+  "pid": 93346,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PREPARATION.md",
+      "bytes": 2612,
+      "sha256": "715a39fa56249909a892326b547b9d3fbb480439d17e7e5e54f8281da6484bb6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PLAN.md",
+      "bytes": 6216,
+      "sha256": "a726b80e7457b998701edfb7445cfe70f28c7ff292d17e2d2d9f7bfff2b58838"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH-INPUTS.json",
+      "bytes": 6156,
+      "sha256": "19d347332858e62cff6f121f5cf0fed4fa0f37ddabeecc58933d5027b55d9565"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH.md",
+      "bytes": 2804,
+      "sha256": "9d5a719e634f47fe68fe60da5be6a0a6d6da558e65f77287d11555756609c80c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/WORTH-RECEIPT.json",
+      "bytes": 19596,
+      "sha256": "d4f82b76c10915d27b333cf1b1ee2c24d9529e35916564f50374d1b4f382bb56"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/ROOT-WORTH.json",
+      "bytes": 13958,
+      "sha256": "cd2c533d3b5e8b5b2c8b47e8626cb3b189edc89a670f2ffd3b8ec9959ea9bb3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-CLI.json",
+      "bytes": 20410,
+      "sha256": "043d1b3125f457f7747b7a711e1b549ceb950108139f66795dad2aa180120a31"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-WM.json",
+      "bytes": 217679,
+      "sha256": "fc8a02573ec574b7a25e47bcb718828370475cbc76b761a0a28eb5204d091454"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/PRIMARY-IMPORT-SOURCE.json",
+      "bytes": 1613,
+      "sha256": "2f22db62bb5d3bec4933e1557d3eeadebc1910ae5df1c75b7948faa52e59c9fb"
+    }
+  ],
+  "verified_ROOT_WORTH_rows": 53,
+  "verified_ROOT_WORTH_unique_paths": 28,
+  "nested_binding_owner": "Exact pinned ROOT-WORTH.json verified_bindings; all53 rows freshly hashed by literal50a124 command; no duplicate expanded manifest required.",
+  "read_scope": {
+    "whole": [
+      "PREPARATION.md",
+      "ROOT-WORTH.json complete",
+      "PRIMARY-CLI.json args/all result metadata and all727markdownlines/18334bytes",
+      "PRIMARY-IMPORT-SOURCE.json entire request/result/metadata/hints,232bytebody",
+      "PRIMARY-WM.json request/all result metadata"
+    ],
+    "wm_full_sections": [
+      "obj_import markdown2143–2297",
+      "open_mainfile markdown2298–2380",
+      "save_as_mainfile markdown3474–3556"
+    ],
+    "wm_other_body": "Other wm operators not semantically reviewed; complete file hashed, not a whole API/library claim.",
+    "unchanged_prior_documents": "PLAN and stable WORTH pair reused from this conversation completef5fc73/0cbb32 readbacks; current hashes verified. No rewritten prior verdict or input.",
+    "program_or_model": "No new code constructed/read/evaluated and no old generator import/replay. Existing original artifact and appearance qualifications are unchanged, not expanded.",
+    "images": "No image decode or new view in this reference epoch; exact retained front view at prior worth remains bounded artist evidence."
+  },
+  "observed_results": [
+    {
+      "file": "PRIMARY-CLI.json",
+      "status": 200,
+      "reported_credits": 1,
+      "body_bytes": 18334,
+      "scrape_id": "01a1559b-cb53-7718-873f-7dd5c41646b4",
+      "support": "CLIbackground/factory/autoexec/Pythonexit/argument-order signatures only, not installed execution."
+    },
+    {
+      "file": "PRIMARY-WM.json",
+      "status": 200,
+      "reported_credits": 1,
+      "body_bytes": 203189,
+      "scrape_id": "01a1559b-ecf1-74da-ae79-735a7ebf3ea8",
+      "support": "Selected full import/open/save parameters and documented enum/return types; no actual API or complete implementation/axis matrix/collection behavior."
+    },
+    {
+      "file": "PRIMARY-IMPORT-SOURCE.json",
+      "status": 404,
+      "reported_credits": 1,
+      "body_bytes": 232,
+      "scrape_id": "01a1559c-29d1-74ef-bb6a-f094d31a74e8",
+      "requested_URL": "https://raw.githubusercontent.com/blender/blender/v5.2.2/source/blender/io/wavefront_obj/importer/obj_import_objects.cc",
+      "support": "Exact URL Not Found only. No alternative-path/existence/native failure inference."
+    }
+  ],
+  "reported_total_credits": 3,
+  "finding": {
+    "id": "F1",
+    "witness": "PRIMARY-IMPORT-SOURCE args/result.metadata.statusCode404/result.markdown232bytes; PREPARATION paragraph2; wm.obj_import selected2215–2261",
+    "effect": "Required selected concrete source/axis ownership remains unavailable. No literal program/resource/entry/collection contract can be admitted from these references; preparation closes before native.",
+    "alternatives": [
+      {
+        "choice": "Selected retain partial useful references and fixed exports, close",
+        "tradeoff": "Respects the source gate and preserves honest untested editor status, but no native artist file is delivered."
+      },
+      {
+        "choice": "Seek alternative source or rely on assumptions/native probe now, rejected",
+        "tradeoff": "Could discover actual mapping/interoperability, but violates fixed no-fallback/no-probe/current preparation limits."
+      }
+    ]
+  },
+  "reader_corrections": [
+    {
+      "chunk_id": "f62126",
+      "exit_code": 1,
+      "scope": "Whole CLI printed successfully; heading locator expected unescaped operator name, so no match. This was a saved-markdown reader assumption, not API/source failure.",
+      "recovery": "ef6567 identified literal escaped headings in same saved response; e347ab read complete selected sections without refetch or target operation."
+    }
+  ],
+  "jobs": [
+    {
+      "name": "complete preparation/current bindings/reference args+metadata",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PREPARATION.md','ROOT-WORTH.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nprint('PRIMARY_NAMES',[q.name for q in p.glob('PRIMARY-*.json')])\nfor q in sorted(p.glob('PRIMARY-*.json')):\n b=q.read_bytes();o=json.loads(b);print('\\nFILE',q.name,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest())\n def trim(v):\n  if isinstance(v,dict):return {k:({'string_bytes':len(x.encode()),'sha256':hashlib.sha256(x.encode()).hexdigest(),'prefix':x[:100]} if isinstance(x,str) and len(x)>800 else trim(x)) for k,x in v.items()}\n  if isinstance(v,list):return [trim(x) for x in v]\n  return v\n print(json.dumps(trim(o),ensure_ascii=False,indent=2))\nPY",
+      "result": {
+        "chunk_id": "2bdff9",
+        "wall_time_seconds": 6.458e-06,
+        "exit_code": 0,
+        "original_token_count": 5381,
+        "output_utf8_bytes": 21523,
+        "output_sha256": "aa60464ceb75f66f23d41b0b6a976c317b206e8cb8fc914b98089503394dcaf1",
+        "PID": 93020,
+        "UTC": "2026-10-19T19:21:36.634394+00:00"
+      }
+    },
+    {
+      "name": "full CLI plus initial operator locator",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,os,datetime,re\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\no=json.loads((p/'PRIMARY-CLI.json').read_text());print('\\nFULL_CLI_MARKDOWN')\nfor i,line in enumerate(o['result']['markdown'].splitlines(),1):print(f'{i}: {line}')\ntext=json.loads((p/'PRIMARY-WM.json').read_text())['result']['markdown'];lines=text.splitlines()\nfor name in ['obj_import','open_mainfile','save_as_mainfile']:\n starts=[i for i,line in enumerate(lines) if line.startswith('bpy.ops.wm.') and name in line.split('(')[0]]\n print('\\nOPERATOR',name,'STARTS',starts);assert len(starts)==1\n start=starts[0];end=next((i for i in range(start+1,len(lines)) if lines[i].startswith('bpy.ops.wm.')),len(lines))\n for i in range(start,end):print(f'{i+1}: {lines[i]}')\nPY",
+      "result": {
+        "chunk_id": "f62126",
+        "wall_time_seconds": 7.459e-06,
+        "exit_code": 1,
+        "original_token_count": 5512,
+        "output_utf8_bytes": 22048,
+        "output_sha256": "adf255b67e036710981498c3743f8e8d98721ace41f0776d2a7144dbe70b2dad",
+        "PID": 93037,
+        "UTC": "2026-10-19T19:21:46.562275+00:00"
+      }
+    },
+    {
+      "name": "same-byte escaped operator locator",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,os,datetime,re\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth')\nlines=json.loads((p/'PRIMARY-WM.json').read_text())['result']['markdown'].splitlines()\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['obj_import','open_mainfile','save_as_mainfile']:\n hits=[i for i,line in enumerate(lines) if name in line.replace('\\\\','')]\n print('HITS',name,[(i+1,lines[i][:180]) for i in hits])\nPY",
+      "result": {
+        "chunk_id": "ef6567",
+        "wall_time_seconds": 7.541e-06,
+        "exit_code": 0,
+        "original_token_count": 177,
+        "output_utf8_bytes": 708,
+        "output_sha256": "b6803d764ecf6226fcad694c3efe70c20f2f42fe5a3bf8c75378adc9206d0a47",
+        "PID": 93068,
+        "UTC": "2026-10-19T19:21:57.721820+00:00"
+      }
+    },
+    {
+      "name": "complete three wm operator sections",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth');lines=json.loads((p/'PRIMARY-WM.json').read_text())['result']['markdown'].splitlines()\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['obj_import','open_mainfile','save_as_mainfile']:\n starts=[i for i,line in enumerate(lines) if line.split('(')[0].replace('\\\\','')=='bpy.ops.wm.'+name];assert len(starts)==1\n start=starts[0];end=next((i for i in range(start+1,len(lines)) if lines[i].startswith('bpy.ops.wm.')),len(lines));print('\\nFULL_OPERATOR',name,'LINES',start+1,end)\n for i in range(start,end):print(f'{i+1}: {lines[i]}')\nPY",
+      "result": {
+        "chunk_id": "e347ab",
+        "wall_time_seconds": 8.667e-06,
+        "exit_code": 0,
+        "original_token_count": 3719,
+        "output_utf8_bytes": 14874,
+        "output_sha256": "fcc42e0fa989e938b286eae3406808a7333e4c0d587ca48c3920d2f961cab509",
+        "PID": 93089,
+        "UTC": "2026-10-19T19:22:07.849937+00:00"
+      }
+    },
+    {
+      "name": "all current bindings/results/target absences",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth')\ndef pin(q):\n b=q.read_bytes();return {'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nr=json.loads((p/'ROOT-WORTH.json').read_text());rows=r['verified_bindings']\nfor row in rows:assert pin(Path(row['path']))==row,row['path']\nsummary=[]\nfor n in ['PRIMARY-CLI.json','PRIMARY-WM.json','PRIMARY-IMPORT-SOURCE.json']:\n o=json.loads((p/n).read_text());result=o['result'];summary.append({'file':n,'args':o['args'],'status':result['metadata']['statusCode'],'credits':result['metadata']['creditsUsed'],'body_bytes':len(result['markdown'].encode())})\nassert [x['status'] for x in summary]==[200,200,404];assert sum(x['credits'] for x in summary)==3\nassert summary[2]['body_bytes']==232\nabsent=['import_save.py','roundtrip.py','SOURCE.md','SOURCE-PREPARATION.json','ADMISSION.json','NATIVE-RESULT.json','out']\nfor n in absent:assert not (p/n).exists()\nprograms=[q.name for q in p.iterdir() if q.suffix in ['.py','.mjs','.js','.blend']];assert not programs\nprint(json.dumps({'pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'verified_root_rows':len(rows),'root_unique_paths':len(set(x['path'] for x in rows)),'fixed_three_results':summary,'target_absences':absent,'programs':programs,'leaf_names':sorted(q.name for q in p.iterdir()),'current_pins':[pin(p/n) for n in ['PREPARATION.md','PLAN.md','WORTH-INPUTS.json','WORTH.md','WORTH-RECEIPT.json','ROOT-WORTH.json','PRIMARY-CLI.json','PRIMARY-WM.json','PRIMARY-IMPORT-SOURCE.json']]},indent=2))\nPY",
+      "result": {
+        "chunk_id": "50a124",
+        "wall_time_seconds": 7.875e-06,
+        "exit_code": 0,
+        "original_token_count": 1053,
+        "output_utf8_bytes": 4210,
+        "output_sha256": "5d4ec5f1983997e77bca854b9134832a127f6e799619aa3be2a15e3043f79bd4",
+        "PID": 93202,
+        "UTC": "2026-10-19T19:22:29.998606+00:00"
+      }
+    }
+  ],
+  "target_absences": [
+    "import_save.py",
+    "roundtrip.py",
+    "SOURCE.md",
+    "SOURCE-PREPARATION.json",
+    "ADMISSION.json",
+    "NATIVE-RESULT.json",
+    "out"
+  ],
+  "native_programs_present": [],
+  "next": "Root full stable handoff verification and freeze/checkpoint this preparation unrun. No retry, fallback retrieval, new source/native program, probe, import/save/reopen, renderer/capture or successor admitted.",
+  "limits": "Existing standalone blockout/source/export/appearance A remains limited; no native interoperability, process retirement, axis/units conversion, fit/cloth/rig/motion/runtime/AAA or board/default/checklist credit.",
+  "preparation_stop_utc": "2026-10-19T20:03:00Z",
+  "output_review": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-editor-worth/REFERENCE-REVIEW.md",
+    "bytes": 2341,
+    "sha256": "6288cf4804081437ca4c1992e65c7ffdc4aef6f0414fc578d41607aa50506c09"
+  },
+  "only_writes": [
+    "REFERENCE-REVIEW.md",
+    "REFERENCE-RECEIPT.json"
+  ],
+  "pending_edits": false
+}
