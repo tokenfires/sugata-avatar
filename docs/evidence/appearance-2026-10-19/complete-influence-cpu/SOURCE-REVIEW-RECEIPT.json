@@ -1,0 +1,418 @@
+{
+  "schema": "complete-influence-source-critic-v1",
+  "verdict": "B_CLOSE_EXACT_PACKET_UNRUN",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/full-influence.mjs",
+      "bytes": 14197,
+      "sha256": "d372130609558891ee484606160da8f632a2e3a0d0e23a6d530ea543535702d0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/packet.mjs",
+      "bytes": 16457,
+      "sha256": "dec19b21ff845e4388b31efb3ea5674676f8350e2df1c3a8454c4ea537c10321"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/launch.py",
+      "bytes": 2051,
+      "sha256": "360417006378af424d390358f3fa1ff666ea5ef6f6f630fee32d10d96edb64a2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/FIXED.json",
+      "bytes": 37504,
+      "sha256": "06ef4d241a8bb9c73fb8ef183d52a504d2b52ba5f3871440bc90c4628907ab65"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/SOURCE-SUITABILITY.json",
+      "bytes": 7482,
+      "sha256": "332ae9cc76f4cd1b396d6c808665f8e1dd80a28537fdf13e4792cf1c7feb3c53"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/PLAN.json",
+      "bytes": 11981,
+      "sha256": "0ce5776eb7f5001203b0867da642ff75fb565cc9977136e0463899a4fadb1873"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/CONTRACT.md",
+      "bytes": 14368,
+      "sha256": "407abb41f9f30db92eeb610e772642a7a2fb32860a9dbe4e6818d66ae3a75dc7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/CONTRACT-REVIEW.md",
+      "bytes": 3396,
+      "sha256": "63074a9b07dabf9c84d4b8c573bfdfd6485f775f095c48bed7732bea09802acd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/CONTRACT-REVIEW-RECEIPT.json",
+      "bytes": 13488,
+      "sha256": "18ea16ba7f5ca94b13769855b7ba9e9978f9ce5bae8256bf1ef8ce7f7bfa5b41"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/ROOT-CONTRACT.json",
+      "bytes": 2332,
+      "sha256": "30c0c64ba2faab62a04bf4e030a45ff9c35755c209f1ee949b4c99b1615f649d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/ROOT-CONTRACT-CHECK.json",
+      "bytes": 1894,
+      "sha256": "26e61511f888ee213f4c00ed1f10bfc3eb380f00846ad0ff50fb19ddb57e1b02"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/REFERENCES.md",
+      "bytes": 2174,
+      "sha256": "4e692832362a3c571659b2b35cdd6426dc36b752e20fe08881e6e534b6e2ec91"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/REFERENCES-RECEIPT.json",
+      "bytes": 3956,
+      "sha256": "3de202df6111414990db62c1137b7bb252abb9cc1529e04e41dac4aa837f7607"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/PRIMARY-1.json",
+      "bytes": 644612,
+      "sha256": "9e31ab14eca4b24bd27e9cf02c7f6ef6114425f6e40db5d2e6ea2eefe8cae8ea"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/PRIMARY-2.json",
+      "bytes": 286601,
+      "sha256": "432136ff33610ea89ff5221fae2623d2aa87fbd5c29c5259a0dfaa026927be03"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/GLB-DOCUMENT.json",
+      "bytes": 260643,
+      "sha256": "6c56d646bb31bd3f3a46d5085cc54cbd53a3e67432dcf9c4561f1d3b6561ede0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/MANIFEST.json",
+      "bytes": 5390,
+      "sha256": "45fcbf4f5cda0ae07ac2c3ba15de00d6910401d610147f63ae271b282a029ea8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 15295,
+      "sha256": "3cc4e39c11322b54d0bee4f807c0738687d2e3350dda51cba41a9e14b91645a1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 29966,
+      "sha256": "880f18d4af33e97d2fe4464278f00f8bf617339acfd21b82995fcea70e85c15f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-tee-artist/ROOT-CLOSE.json",
+      "bytes": 2865,
+      "sha256": "b5745ebeba6e028a04e2160ad5d7b0a1d1b0773f00fdb3069ec750532ec1d447"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-three-consumer-first/README.md",
+      "bytes": 6430,
+      "sha256": "5ee5c4efc82f5c0f7693748d2abb27a8a4c824b4bef3dc5819159e1a64580c0a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-three-consumer-first/RESULT.json",
+      "bytes": 105576,
+      "sha256": "f6275f6bfc2fe20da924caa082e8bf03a123d7e243db6102bcffff881a02a9f3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-three-consumer-first/ROOT-RESULT.json",
+      "bytes": 4004,
+      "sha256": "0ee95fdca302a213b0d692c224b2183b0e655503019988552c3ac019bbeb38a9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-three-consumer-first/RESULT-REVIEW.md",
+      "bytes": 8508,
+      "sha256": "12af4e22d68b21bf9504b09d764e7263ec74b50fd8f32f7432d555eea8b68ca1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/RESULT.json",
+      "bytes": 1394674,
+      "sha256": "30afce7aed8de4ea6f376cdc90c0c26f91cd47574d79ea7b398c6009221d5763"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/work/candidate.glb",
+      "bytes": 26851380,
+      "sha256": "62c3c58ef118738ce3d3640879f81ceb23a4d70ffc19f9b5ea372bce758301bb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/objects/SkinnedMesh.js",
+      "bytes": 9078,
+      "sha256": "b01477c050eff4c32bb4ae6792cb2948e5908adc09bd13335104e68966f6690f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/objects/Mesh.js",
+      "bytes": 12371,
+      "sha256": "432460d6dc5d290ead0c4664475e71b04dbe8fa0c1c08ccd032bd65c6acc9864"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/SOURCE-PREPARATION.json",
+      "bytes": 7350,
+      "sha256": "043455ced3187f4448a4e67bf7980005fad8158f11787f7ac18dbba7662f57d7"
+    }
+  ],
+  "verified_rows": 32,
+  "unique_paths": 33,
+  "source_total_bytes": 32705,
+  "read_scopes": [
+    {
+      "path": "SOURCE-PREPARATION.json",
+      "scope": "Whole7350bytes."
+    },
+    {
+      "path": "SOURCE-SUITABILITY.json",
+      "scope": "Whole7482bytes; parent findings treated as comparative context, independently derived below."
+    },
+    {
+      "path": "full-influence.mjs",
+      "scope": "Entire170lines/14197bytes."
+    },
+    {
+      "path": "packet.mjs",
+      "scope": "Entire186lines/16457bytes."
+    },
+    {
+      "path": "launch.py",
+      "scope": "Entire37lines/2051bytes."
+    },
+    {
+      "path": "Saved GLB-DOCUMENT.json",
+      "scope": "Whole JSON parsed as existing retained metadata. All293 accessor declarations scanned for sparse/base-view; all6mesh primitive POSITION/influence-set declarations used for independent scalar count arithmetic. Accessor17 read explicitly. No BIN/array payload decoded."
+    },
+    {
+      "path": "Saved MANIFEST.json",
+      "scope": "Whole metadata read; exact GLB-DOCUMENT row binds retained JSON."
+    },
+    {
+      "path": "FIXED.json and old actual RESULT.json",
+      "scope": "Saved JSON parsed; exact candidate identity and53joint/6mesh/witness equality checked. No new graph/position/Three evaluation."
+    },
+    {
+      "path": "Other preparation inputs",
+      "scope": "Whole-file hashes; prior contract/reference/worth scopes reused after unchanged hashes. Original GLB hash/mode only."
+    }
+  ],
+  "jobs": [
+    {
+      "chunk": "f5e40d",
+      "exit": 0,
+      "pid": 88853,
+      "utc": "2026-10-19T09:04:35.209208+00:00",
+      "scope": "Whole preparation and suitability."
+    },
+    {
+      "chunk": "04520a",
+      "exit": 0,
+      "pid": 88877,
+      "utc": "2026-10-19T09:04:43.920934+00:00",
+      "scope": "Every line of module and launcher."
+    },
+    {
+      "chunk": "66f484",
+      "exit": 0,
+      "pid": 88899,
+      "utc": "2026-10-19T09:04:56.950360+00:00",
+      "scope": "Every line of fixed packet."
+    },
+    {
+      "chunk": "d743e1",
+      "exit": 0,
+      "pid": 88960,
+      "utc": "2026-10-19T09:05:29.490998+00:00",
+      "scope": "Saved-document schema/accessor17, full manifest, FIXED metadata/schema."
+    },
+    {
+      "chunk": "90dc46",
+      "exit": 0,
+      "pid": 89067,
+      "utc": "2026-10-19T09:06:19.597933+00:00",
+      "scope": "Independent saved-JSON counts, static arithmetic, all32pins+prep, FIXED equality and six artifact absences. No source-program invocation."
+    }
+  ],
+  "findings": [
+    {
+      "id": "S1",
+      "kind": "Selected-input incompatibility",
+      "witness": {
+        "source": "full-influence.mjs46/60; packet.mjs114/120",
+        "saved_document_sha256": "6c56d646bb31bd3f3a46d5085cc54cbd53a3e67432dcf9c4561f1d3b6561ede0",
+        "accessor_count": 293,
+        "sparse_count": 202,
+        "sparse_no_base_count": 202,
+        "accessor17": {
+          "componentType": 5126,
+          "count": 53512,
+          "max": [
+            0,
+            0,
+            0
+          ],
+          "min": [
+            0,
+            0,
+            0
+          ],
+          "sparse": {
+            "count": 1,
+            "indices": {
+              "bufferView": 18,
+              "componentType": 5121
+            },
+            "values": {
+              "bufferView": 19
+            }
+          },
+          "type": "VEC3"
+        }
+      },
+      "effect": "The source reader cannot return this complete selected input; if prior guards pass, accessor17 is unsupported. No actual runtime/corruption/appearance finding.",
+      "alternatives": [
+        {
+          "choice": "Close packed-only packet unrun",
+          "tradeoff": "Preserves refusal and avoids an incapable trial; full CPU duty remains open. Selected."
+        },
+        {
+          "choice": "Separately owned future sparse-accessor contract",
+          "tradeoff": "Could support the fixed source, but requires new worth/source/memory ownership and no current repair/decoder successor is admitted."
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "kind": "Conditional retained owned-payload lower bound",
+      "witness": {
+        "source": "OwnedBudget8–21; table121; packet113/117,140–155; positions167",
+        "meshes": [
+          {
+            "mesh_index": 0,
+            "mesh": "base.001",
+            "vertices": 53512,
+            "sets": 2,
+            "slots": 428096,
+            "morphs": 97
+          },
+          {
+            "mesh_index": 1,
+            "mesh": "eyebrow001",
+            "vertices": 384,
+            "sets": 1,
+            "slots": 1536,
+            "morphs": 49
+          },
+          {
+            "mesh_index": 2,
+            "mesh": "eyelashes01",
+            "vertices": 736,
+            "sets": 1,
+            "slots": 2944,
+            "morphs": 27
+          },
+          {
+            "mesh_index": 3,
+            "mesh": "high-poly",
+            "vertices": 4080,
+            "sets": 1,
+            "slots": 16320,
+            "morphs": 8
+          },
+          {
+            "mesh_index": 4,
+            "mesh": "teeth_base",
+            "vertices": 14240,
+            "sets": 1,
+            "slots": 56960,
+            "morphs": 27
+          },
+          {
+            "mesh_index": 5,
+            "mesh": "tongue01",
+            "vertices": 896,
+            "sets": 1,
+            "slots": 3584,
+            "morphs": 28
+          }
+        ],
+        "vertices": 73848,
+        "slots": 509440,
+        "parts": {
+          "two_input_copies": 53702760,
+          "complete_slot_tables_U16_F32_F64": 7132160,
+          "two_states_actual_reference_F64_xyz": 7089408
+        },
+        "total": 67924328,
+        "cap": 67108864,
+        "excess": 815464
+      },
+      "effect": "If S1 were separately addressed, required allocations alone cannot fit current retained64MiB budget. Static lower bound, not measured RAM or an actual cap event.",
+      "alternatives": [
+        {
+          "choice": "Withhold current packet, preserve64MiB",
+          "tradeoff": "No impossible admission or trial cost; bridge remains unqualified. Selected."
+        },
+        {
+          "choice": "Future explicit lifetime/streaming/alias allocation ownership under unchanged bounds",
+          "tradeoff": "Could reduce actual retained payload but needs new independent proof; no silent counter release/evidence loss/bound increase or current repair."
+        }
+      ]
+    }
+  ],
+  "static_scope": {
+    "source_bytes": 32705,
+    "metadata_provenance": {
+      "name": "GLB-DOCUMENT.json",
+      "bytes": 260643,
+      "sha256": "6c56d646bb31bd3f3a46d5085cc54cbd53a3e67432dcf9c4561f1d3b6561ede0"
+    },
+    "fixed_matches_old_actual_record": true,
+    "candidate_mode": "0o444",
+    "execution_artifact_absence": {
+      "ROOT-ADMISSION.json": true,
+      "EXEC.json": true,
+      "CLAIM.json": true,
+      "RAW.bin": true,
+      "RESULT.json": true,
+      "FAILURE.json": true
+    },
+    "full_source_read_is_not_runtime_qualification": true
+  },
+  "runtime_memory_limit": "--max-old-space-size=512 concerns OLD space only; no hard totalV8heap/RSS. No actual stage measurements exist.",
+  "next": "Close and checkpoint this exact source packet unrun. No sparse/memory repair, admission, target trial or decoder successor authorized.",
+  "errors": [],
+  "deadlines_utc": {
+    "source": "2026-10-19T09:25:00Z",
+    "source_review": "2026-10-19T09:40:00Z",
+    "closure": "2026-10-19T10:25:00Z"
+  },
+  "limits": [
+    "Only two critic files written; no source inputs altered.",
+    "Read-only file hashes and existing saved JSON scalar metadata only; no new GLB header/JSON/BIN/accessor/image data decode.",
+    "No target/helper/Three/launcher/Node imports/evaluation/tests, browser/GPU/native/network.",
+    "No actualconsumer/memory/completeinfluence/GPU/native Ari/fit/motion/performance/AAA pass; old worth/contract admissions remain limited and preserved.",
+    "Parent new ROOT-STATIC/LIVE-SERVICES not needed/read for this independent decision.22scoped/10broad/fullroadmap unchanged."
+  ],
+  "collected_utc": "2026-10-19T09:07:42.940646+00:00",
+  "writer_pid": 89231,
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/SOURCE-REVIEW.md",
+    "bytes": 3391,
+    "sha256": "5627051068aa6c5fad6518b0b5ace0b7a676a2f59fb7d5a986c8e261c8befe9f"
+  }
+}

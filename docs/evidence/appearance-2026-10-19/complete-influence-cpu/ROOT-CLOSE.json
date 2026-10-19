@@ -1,0 +1,181 @@
+{
+  "utc": "2026-10-19T09:09:07.043413+00:00",
+  "pid": 89384,
+  "decision": "CLOSE_EXACT_PACKET_UNRUN_NO_REPAIR_OR_DECODER_SUCCESSOR",
+  "root_whole_handoff_read": "ddf83f, review3391/SHA5627051068aa6c5fad6518b0b5ace0b7a676a2f59fb7d5a986c8e261c8befe9f; receipt16332/SHA3715ab90adbea090e118856041a7915d895c51f42a923b222a9ce383cac289be",
+  "critic_input_paths_verified": 33,
+  "critic_result_verified": true,
+  "root_independent_static_readback": "56029c/PID88935; ROOT-STATIC.json",
+  "actual_consumer_attempts": 0,
+  "new_GLB_payload_decodes": 0,
+  "execution_artifacts_absent": true,
+  "historical_main_doc_pin_epoch": "32d9868bb4e79f44c386b0b2254e9847f14dfe90; original plan/source/critic receipts immutable",
+  "pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/CONTRACT-PREPARATION.json",
+      "bytes": 5539,
+      "sha256": "a8e50d8cf46029961616fbac7942ab483ab7c6f665306822b79aa7adb983aa15"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/CONTRACT-REVIEW-RECEIPT.json",
+      "bytes": 13488,
+      "sha256": "18ea16ba7f5ca94b13769855b7ba9e9978f9ce5bae8256bf1ef8ce7f7bfa5b41"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/CONTRACT-REVIEW.md",
+      "bytes": 3396,
+      "sha256": "63074a9b07dabf9c84d4b8c573bfdfd6485f775f095c48bed7732bea09802acd"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/CONTRACT.md",
+      "bytes": 14368,
+      "sha256": "407abb41f9f30db92eeb610e772642a7a2fb32860a9dbe4e6818d66ae3a75dc7"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/FIXED.json",
+      "bytes": 37504,
+      "sha256": "06ef4d241a8bb9c73fb8ef183d52a504d2b52ba5f3871440bc90c4628907ab65"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/LIVE-SERVICES.json",
+      "bytes": 1440,
+      "sha256": "eb7f35fa41097b06ae160917cf4904896706e6851ac9ce4691874f98d3ec2d39"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/PLAN.json",
+      "bytes": 11981,
+      "sha256": "0ce5776eb7f5001203b0867da642ff75fb565cc9977136e0463899a4fadb1873"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/PRIMARY-1.json",
+      "bytes": 644612,
+      "sha256": "9e31ab14eca4b24bd27e9cf02c7f6ef6114425f6e40db5d2e6ea2eefe8cae8ea"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/PRIMARY-2.json",
+      "bytes": 286601,
+      "sha256": "432136ff33610ea89ff5221fae2623d2aa87fbd5c29c5259a0dfaa026927be03"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/README.md",
+      "bytes": 5090,
+      "sha256": "fb4cf30415e8a591517ba74e7abc05442a5f0a667999828f5f8654a24ce42729"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/REFERENCES-RECEIPT.json",
+      "bytes": 3956,
+      "sha256": "3de202df6111414990db62c1137b7bb252abb9cc1529e04e41dac4aa837f7607"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/REFERENCES.md",
+      "bytes": 2174,
+      "sha256": "4e692832362a3c571659b2b35cdd6426dc36b752e20fe08881e6e534b6e2ec91"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/ROOT-CONTRACT-CHECK.json",
+      "bytes": 1894,
+      "sha256": "26e61511f888ee213f4c00ed1f10bfc3eb380f00846ad0ff50fb19ddb57e1b02"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/ROOT-CONTRACT.json",
+      "bytes": 2332,
+      "sha256": "30c0c64ba2faab62a04bf4e030a45ff9c35755c209f1ee949b4c99b1615f649d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/ROOT-STATIC.json",
+      "bytes": 1726,
+      "sha256": "43e19eb1602977b521e434449fde2abc4af352271c899da603cb75a5701a0b9f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/ROOT-WORTH.json",
+      "bytes": 2265,
+      "sha256": "ab422c708081e847e5e7ed96d7d95ecb37b0334bdd3ef0dd11c1cc75d5c089d0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/SOURCE-PREPARATION.json",
+      "bytes": 7350,
+      "sha256": "043455ced3187f4448a4e67bf7980005fad8158f11787f7ac18dbba7662f57d7"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/SOURCE-REVIEW-RECEIPT.json",
+      "bytes": 16332,
+      "sha256": "3715ab90adbea090e118856041a7915d895c51f42a923b222a9ce383cac289be"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/SOURCE-REVIEW.md",
+      "bytes": 3391,
+      "sha256": "5627051068aa6c5fad6518b0b5ace0b7a676a2f59fb7d5a986c8e261c8befe9f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/SOURCE-SUITABILITY.json",
+      "bytes": 7482,
+      "sha256": "332ae9cc76f4cd1b396d6c808665f8e1dd80a28537fdf13e4792cf1c7feb3c53"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/WORTH-RECEIPT.json",
+      "bytes": 10801,
+      "sha256": "d4688fccf8db55f84058aa8978b3659e9e8365e96e59b19b529d0a3aa3cfbfaf"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/WORTH.md",
+      "bytes": 3597,
+      "sha256": "17cff22f60d43ae4a28ad99aa4c2e5c3b4147350c5c0f7a482dfb85dedc1aca1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/full-influence.mjs",
+      "bytes": 14197,
+      "sha256": "d372130609558891ee484606160da8f632a2e3a0d0e23a6d530ea543535702d0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/launch.py",
+      "bytes": 2051,
+      "sha256": "360417006378af424d390358f3fa1ff666ea5ef6f6f630fee32d10d96edb64a2"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/packet.mjs",
+      "bytes": 16457,
+      "sha256": "dec19b21ff845e4388b31efb3ea5674676f8350e2df1c3a8454c4ea537c10321"
+    },
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 16672,
+      "sha256": "bf5fbe99e773de1531538f281817681d3085d641a6f675052c01649db66350a2"
+    },
+    {
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 32192,
+      "sha256": "c4d52a5fef5b16a4aa53f7f8ecc08b9ef1a928cbd22ed69ec3136a7b2cb8dc64"
+    }
+  ],
+  "exact_commit_paths": [
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/CONTRACT-PREPARATION.json",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/CONTRACT-REVIEW-RECEIPT.json",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/CONTRACT-REVIEW.md",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/CONTRACT.md",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/FIXED.json",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/LIVE-SERVICES.json",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/PLAN.json",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/PRIMARY-1.json",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/PRIMARY-2.json",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/README.md",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/REFERENCES-RECEIPT.json",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/REFERENCES.md",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/ROOT-CONTRACT-CHECK.json",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/ROOT-CONTRACT.json",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/ROOT-STATIC.json",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/ROOT-WORTH.json",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/SOURCE-PREPARATION.json",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/SOURCE-REVIEW-RECEIPT.json",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/SOURCE-REVIEW.md",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/SOURCE-SUITABILITY.json",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/WORTH-RECEIPT.json",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/WORTH.md",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/full-influence.mjs",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/launch.py",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/packet.mjs",
+    "docs/RESUME-2026-10-18.md",
+    "docs/WORK-WINDOW-2026-10-18.md",
+    "docs/evidence/appearance-2026-10-19/complete-influence-cpu/ROOT-CLOSE.json"
+  ],
+  "limits": "Static suitability only. No source/model/appearance/runtime fix. All prior closures/HOLD/fullroadmap remain;22scoped/10broad unchanged. No push."
+}

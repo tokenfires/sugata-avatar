@@ -1,0 +1,44 @@
+{
+  "utc": "2026-10-19T09:06:20.999377+00:00",
+  "pid": 89069,
+  "decision": "WITHHOLD_EXECUTION_PENDING_INDEPENDENT_REVIEW",
+  "whole_sources_read": {
+    "full-influence.mjs": "9ac8fe output source section,170 lines",
+    "packet.mjs": "9ac8fe first section;349039 lines80-end;e101e3 lines1-84, complete combined",
+    "launch.py": "349039 whole37lines"
+  },
+  "root_current_pin_readback": {
+    "job": "56029c",
+    "pid": 88935,
+    "utc": "2026-10-19T09:05:15.105962+00:00",
+    "exit": 0,
+    "unique_exact_current_pins": 32,
+    "source_bytes": 32705,
+    "pin_sets": "SOURCE-PREPARATION.json source+pins+all_original_plan_pins"
+  },
+  "independent_saved_metadata_recalculation": {
+    "job": "56029c",
+    "sparse_count": 202,
+    "accessor17": "53512 FLOAT VEC3 rows, no base bufferView, sparse count1; module46 rejects sparse and implicit base; all293 accessors scanned before loader",
+    "vertices": 73848,
+    "slots": 509440,
+    "two_input_copies": 53702760,
+    "tables_U16_F32_F64": 7132160,
+    "two_states_both_F64_xyz": 7089408,
+    "conditional_bare_owned_sum": 67924328,
+    "cap": 67108864,
+    "excess": 815464,
+    "caveat": "Static lower bound from saved document and retained-backing source; not observed RAM, execution or performance. S1 would stop first."
+  },
+  "not_present": [
+    "EXEC.json",
+    "ROOT-ADMISSION.json",
+    "CLAIM.json",
+    "RESULT.json",
+    "RAW.bin",
+    "FAILURE.json"
+  ],
+  "actual_consumer_attempts": 0,
+  "source_payload_decodes": 0,
+  "scope": "Static source and historical decoded metadata only. No target imports or launcher/driver/module call. Previous syntax/Node capability calls are not consumer attempts. Await complete critic handoff; no repair/relaunch."
+}

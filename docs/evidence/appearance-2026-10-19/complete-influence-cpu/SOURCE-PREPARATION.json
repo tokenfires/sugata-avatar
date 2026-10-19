@@ -1,0 +1,179 @@
+{
+  "utc": "2026-10-19T09:00:59.825366+00:00",
+  "pid": 88367,
+  "state": "INERT_SOURCE_UNSUITABLE_FOR_SELECTED_INPUT_AWAIT_INDEPENDENT_SOURCE_REVIEW_NO_EXECUTION",
+  "source": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/full-influence.mjs",
+      "bytes": 14197,
+      "sha256": "d372130609558891ee484606160da8f632a2e3a0d0e23a6d530ea543535702d0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/packet.mjs",
+      "bytes": 16457,
+      "sha256": "dec19b21ff845e4388b31efb3ea5674676f8350e2df1c3a8454c4ea537c10321"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/launch.py",
+      "bytes": 2051,
+      "sha256": "360417006378af424d390358f3fa1ff666ea5ef6f6f630fee32d10d96edb64a2"
+    }
+  ],
+  "source_total_bytes": 32705,
+  "pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/FIXED.json",
+      "bytes": 37504,
+      "sha256": "06ef4d241a8bb9c73fb8ef183d52a504d2b52ba5f3871440bc90c4628907ab65"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/SOURCE-SUITABILITY.json",
+      "bytes": 7482,
+      "sha256": "332ae9cc76f4cd1b396d6c808665f8e1dd80a28537fdf13e4792cf1c7feb3c53"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/PLAN.json",
+      "bytes": 11981,
+      "sha256": "0ce5776eb7f5001203b0867da642ff75fb565cc9977136e0463899a4fadb1873"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/CONTRACT.md",
+      "bytes": 14368,
+      "sha256": "407abb41f9f30db92eeb610e772642a7a2fb32860a9dbe4e6818d66ae3a75dc7"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/CONTRACT-REVIEW.md",
+      "bytes": 3396,
+      "sha256": "63074a9b07dabf9c84d4b8c573bfdfd6485f775f095c48bed7732bea09802acd"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/CONTRACT-REVIEW-RECEIPT.json",
+      "bytes": 13488,
+      "sha256": "18ea16ba7f5ca94b13769855b7ba9e9978f9ce5bae8256bf1ef8ce7f7bfa5b41"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/ROOT-CONTRACT.json",
+      "bytes": 2332,
+      "sha256": "30c0c64ba2faab62a04bf4e030a45ff9c35755c209f1ee949b4c99b1615f649d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/ROOT-CONTRACT-CHECK.json",
+      "bytes": 1894,
+      "sha256": "26e61511f888ee213f4c00ed1f10bfc3eb380f00846ad0ff50fb19ddb57e1b02"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/REFERENCES.md",
+      "bytes": 2174,
+      "sha256": "4e692832362a3c571659b2b35cdd6426dc36b752e20fe08881e6e534b6e2ec91"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/REFERENCES-RECEIPT.json",
+      "bytes": 3956,
+      "sha256": "3de202df6111414990db62c1137b7bb252abb9cc1529e04e41dac4aa837f7607"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/PRIMARY-1.json",
+      "bytes": 644612,
+      "sha256": "9e31ab14eca4b24bd27e9cf02c7f6ef6114425f6e40db5d2e6ea2eefe8cae8ea"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/PRIMARY-2.json",
+      "bytes": 286601,
+      "sha256": "432136ff33610ea89ff5221fae2623d2aa87fbd5c29c5259a0dfaa026927be03"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-helper-glb-first/GLB-DOCUMENT.json",
+      "bytes": 260643,
+      "sha256": "6c56d646bb31bd3f3a46d5085cc54cbd53a3e67432dcf9c4561f1d3b6561ede0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-helper-glb-first/MANIFEST.json",
+      "bytes": 5390,
+      "sha256": "45fcbf4f5cda0ae07ac2c3ba15de00d6910401d610147f63ae271b282a029ea8"
+    }
+  ],
+  "all_original_plan_pins": [
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 15295,
+      "sha256": "3cc4e39c11322b54d0bee4f807c0738687d2e3350dda51cba41a9e14b91645a1"
+    },
+    {
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 29966,
+      "sha256": "880f18d4af33e97d2fe4464278f00f8bf617339acfd21b82995fcea70e85c15f"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-tee-artist/ROOT-CLOSE.json",
+      "bytes": 2865,
+      "sha256": "b5745ebeba6e028a04e2160ad5d7b0a1d1b0773f00fdb3069ec750532ec1d447"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-three-consumer-first/README.md",
+      "bytes": 6430,
+      "sha256": "5ee5c4efc82f5c0f7693748d2abb27a8a4c824b4bef3dc5819159e1a64580c0a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-three-consumer-first/RESULT.json",
+      "bytes": 105576,
+      "sha256": "f6275f6bfc2fe20da924caa082e8bf03a123d7e243db6102bcffff881a02a9f3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-three-consumer-first/ROOT-RESULT.json",
+      "bytes": 4004,
+      "sha256": "0ee95fdca302a213b0d692c224b2183b0e655503019988552c3ac019bbeb38a9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-three-consumer-first/RESULT-REVIEW.md",
+      "bytes": 8508,
+      "sha256": "12af4e22d68b21bf9504b09d764e7263ec74b50fd8f32f7432d555eea8b68ca1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-helper-glb-first/RESULT.json",
+      "bytes": 1394674,
+      "sha256": "30afce7aed8de4ea6f376cdc90c0c26f91cd47574d79ea7b398c6009221d5763"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-helper-glb-first/work/candidate.glb",
+      "bytes": 26851380,
+      "sha256": "62c3c58ef118738ce3d3640879f81ceb23a4d70ffc19f9b5ea372bce758301bb"
+    },
+    {
+      "path": "node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "node_modules/three/src/objects/SkinnedMesh.js",
+      "bytes": 9078,
+      "sha256": "b01477c050eff4c32bb4ae6792cb2948e5908adc09bd13335104e68966f6690f"
+    },
+    {
+      "path": "node_modules/three/src/objects/Mesh.js",
+      "bytes": 12371,
+      "sha256": "432460d6dc5d290ead0c4664475e71b04dbe8fa0c1c08ccd032bd65c6acc9864"
+    },
+    {
+      "path": "node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    }
+  ],
+  "actual_consumer_attempts": 0,
+  "loader_imports": 0,
+  "GLB_payload_decodes": 0,
+  "new_browser_GPU_native_captures": 0,
+  "capability_only": "ExistingNode--v8-options and--check syntax;Pythonresource/signal/execv introspection andast.parse. No launcher/driver/module executed.",
+  "source_suitability": "S1known202sparseaccessors conflictswithproposedpacked-onlycontract;S2conditionalownedpayload67924328>67108864 beforeotherallocations. NoEXEC/admission/claim/raw/result created.",
+  "next": "Independentfullsource/source-suitabilityreview; stopcurrentpacketratherthanpatchingcontracts/sourceorborrowinganolddecoder/harness. Allpriorclosures/HOLD/22scoped10broad/fullroadmap retained."
+}

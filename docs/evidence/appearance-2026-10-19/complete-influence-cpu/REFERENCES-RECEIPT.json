@@ -1,0 +1,100 @@
+{
+  "utc": "2026-10-19T08:32:04.668918+00:00",
+  "pid": 85223,
+  "root_gate": {
+    "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/ROOT-WORTH.json",
+    "bytes": 2265,
+    "sha256": "ab422c708081e847e5e7ed96d7d95ecb37b0334bdd3ef0dd11c1cc75d5c089d0"
+  },
+  "references": [
+    {
+      "raw": {
+        "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/PRIMARY-1.json",
+        "bytes": 644612,
+        "sha256": "9e31ab14eca4b24bd27e9cf02c7f6ef6114425f6e40db5d2e6ea2eefe8cae8ea"
+      },
+      "request": {
+        "url": "https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#skins",
+        "formats": [
+          "markdown"
+        ],
+        "maxAge": 0,
+        "onlyMainContent": true,
+        "timeout": 20000,
+        "domainTools": false
+      },
+      "metadata": {
+        "author": "The Khronos\u00ae 3D Formats Working Group",
+        "title": "glTF\u2122 2.0 Specification",
+        "generator": "Asciidoctor 2.0.16",
+        "language": "en",
+        "viewport": "width=device-width, initial-scale=1.0",
+        "scrapeId": "01a15343-6ac0-75c6-951a-37f42acdf36d",
+        "sourceURL": "https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#skins",
+        "url": "https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#skins",
+        "statusCode": 200,
+        "contentType": "text/html",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "indexId": "62c82d38-6329-420f-8eb8-664ff95033fb",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "markdown_chars": 297746,
+      "read_scope": "f2011c localneedleindex;4fcb10 lines1400\u20131440,1464\u20131512;6e6162 lines1361\u20131395"
+    },
+    {
+      "raw": {
+        "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/PRIMARY-2.json",
+        "bytes": 286601,
+        "sha256": "432136ff33610ea89ff5221fae2623d2aa87fbd5c29c5259a0dfaa026927be03"
+      },
+      "request": {
+        "url": "https://threejs.org/docs/#api/en/objects/SkinnedMesh",
+        "formats": [
+          "markdown"
+        ],
+        "maxAge": 0,
+        "onlyMainContent": true,
+        "timeout": 20000,
+        "domainTools": false
+      },
+      "metadata": {
+        "title": "SkinnedMesh \u2013 three.js docs",
+        "language": "en",
+        "viewport": [
+          "width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0",
+          "width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+        ],
+        "favicon": "https://threejs.org/files/favicon_white.ico",
+        "scrapeId": "01a15343-5fcc-760c-bce8-405af5cc5549",
+        "sourceURL": "https://threejs.org/docs/#api/en/objects/SkinnedMesh",
+        "url": "https://threejs.org/docs/#SkinnedMesh",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "indexId": "3f2e3825-8553-43fc-99db-0270364254fe",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "markdown_chars": 138798,
+      "read_scope": "f2011c localneedleindex;4fcb10 full actualSkinnedMeshbody1975\u20132077; precedingnavigation not substantively read"
+    }
+  ],
+  "observed_credits": 2,
+  "budget": {
+    "fixed_primary_pages": 2,
+    "searches": 0,
+    "images": 0,
+    "refetches": 0,
+    "exhausted": true
+  },
+  "actual_sources": "Currentinstalledprimarycode941583+977aee; exactPLANsourcepins unchanged. No importer/node/GLBdecode/implementation.",
+  "reference_prose": {
+    "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/REFERENCES.md",
+    "bytes": 2174,
+    "sha256": "4e692832362a3c571659b2b35cdd6426dc36b752e20fe08881e6e534b6e2ec91"
+  },
+  "limits": "Selected normativemethod sections only, notfull7301-line glTFpage orThree1974-linenavigation. BothHTTP200 andexactlive sourceURLs withscrapeIDs stored. Noimagesource/appearance/GPU/nativeequivalence claim."
+}

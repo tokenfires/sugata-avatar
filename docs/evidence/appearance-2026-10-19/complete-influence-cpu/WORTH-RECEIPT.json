@@ -1,0 +1,240 @@
+{
+  "schema": "complete-influence-cpu-worth-critic-v1",
+  "verdict": "A_REFERENCE_AND_COMPLETE_CONTRACT_PREPARATION_ONLY",
+  "pending_edits": false,
+  "read_scopes": [
+    {
+      "path": "PLAN.json",
+      "scope": "Whole11981bytes."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-three-consumer-first/README.md",
+      "scope": "Whole current6430bytes, including final closure/remaining mandatory bridge duty."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-three-consumer-first/RESULT-REVIEW.md",
+      "scope": "Whole8508bytes; historical original-decode claims are not repeated as new decoding."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-three-consumer-first/ROOT-RESULT.json",
+      "scope": "Whole4004bytes; source/witness/limits."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-three-consumer-first/RESULT.json",
+      "scope": "Parsed saved JSON root/schema, all671 pass classifications, complete first influence witness and all6 mesh/default/attribute rows. Did not independently revalidate all53 joint matrices/graph records."
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-helper-glb-first/RESULT.json",
+      "scope": "Saved JSON root/schema and complete decoder_limits/format objects; no current GLB decoding or full historical numerical requalification."
+    },
+    {
+      "path": "node_modules/three/src/objects/SkinnedMesh.js",
+      "scope": "Lines220–365 and206–224/213–219."
+    },
+    {
+      "path": "node_modules/three/src/objects/Mesh.js",
+      "scope": "Lines145–220, including complete getVertexPosition."
+    },
+    {
+      "path": "node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "scope": "Lines2210–2255 and3830–3865 only."
+    },
+    {
+      "path": "Other PLAN inputs",
+      "scope": "Whole-file byte/hash verification only; no new full roadmap/recovery/closure audit. candidate.glb hash/mode only, no header/JSON/BIN/accessor/image decode."
+    }
+  ],
+  "jobs": [
+    {
+      "chunk": "eed145",
+      "exit": 0,
+      "pid": 84000,
+      "utc": "2026-10-19T08:20:23.942750+00:00",
+      "scope": "Whole new PLAN."
+    },
+    {
+      "chunk": "22fb3f",
+      "exit": 0,
+      "pid": 84047,
+      "utc": "2026-10-19T08:20:50.746887+00:00",
+      "scope": "All15inputpins; full README/root result, current selected source, saved RESULT root/schema only."
+    },
+    {
+      "chunk": "ad48d6",
+      "exit": 1,
+      "pid": 84090,
+      "utc": "2026-10-19T08:21:14.459097+00:00",
+      "scope": "Whole historical review, complete witness/all671flags; metadata reader then errored treating integer morph-count as array. No target invocation."
+    },
+    {
+      "chunk": "1fc171",
+      "exit": 0,
+      "pid": 84109,
+      "utc": "2026-10-19T08:21:24.936331+00:00",
+      "scope": "Corrected same saved JSON reading: six complete mesh rows, helper decoder_limits/format, current method composition source."
+    }
+  ],
+  "actual_witness": {
+    "owner": "Human",
+    "split_vertex": 2997,
+    "native_vertex": 750,
+    "secondary_joint": "upperarm_r",
+    "secondary_weight": 0.0010000000474974513,
+    "set0_first_raw": 0.4802999496459961,
+    "set0_first_loaded": 0.4807807505130768,
+    "scope": "Saved actual Oct8 records and current method source; old packet did not exercise posed weighted positions or GPU."
+  },
+  "findings": [
+    {
+      "id": "P1",
+      "classification": "Pre-authoring contract clarification, not source/runtime failure",
+      "witness": "PLAN.workload_bounds.decoded_accessor_rows200000; saved six mesh morph counts97/49/27/8/27/28.",
+      "explanation": "Per-accessor versus aggregate counting materially changes declared workload. Parent's current clarification selects per accessor, but source contract must record it and own loader/cache memory separately.",
+      "alternatives": [
+        {
+          "choice": "Explicit per-accessor200000 plus unchanged64MiB owned-array limit and loader/cache allocation duties",
+          "tradeoff": "Faithful to declared intended bound; requires honest allocation/refusal contract. Selected for preparation."
+        },
+        {
+          "choice": "Treat200000 as aggregate and withhold if complete data exceeds it",
+          "tradeoff": "Stricter, but may reject the accounting interpretation rather than answer intended component question."
+        }
+      ]
+    }
+  ],
+  "required_next_contract": [
+    "Raw complete JOINTS_n/WEIGHTS_n, type/layout/offset/normalization/sparse/unsupported policy; exact mesh/primitive/index/joint/IBM associations.",
+    "Separate raw weights and global normalization/evaluation precision, preserve every positive influence and ratios without cutoff.",
+    "Exact morph-before-skin matrix/local-world/homogeneous order and two-state rotation/morph semantics/restoration.",
+    "No global/prototype/default mutation or stock GPU parity claim; explicit CPU-only API.",
+    "Input/owned buffers/loader caches/output/source byte caps, executable/alarm/CPU/partial-output/exclusivity support, independently source-reviewed before one actual packet."
+  ],
+  "workstream_alternatives": [
+    {
+      "choice": "Prepare isolated complete-influence CPU operator contract",
+      "tradeoff": "Answers documented CPU-consumer duty with actual existing input; no visible/GPU acceptance. Selected."
+    },
+    {
+      "choice": "Defer until combined CPU/actual-WebGPU bridge",
+      "tradeoff": "Avoids temporary divergence but expands scope and leaves proved CPU boundary unresolved."
+    }
+  ],
+  "research_allowance": {
+    "fixed_official_pages_max": 2,
+    "searches": 0,
+    "images": 0,
+    "condition": "Only after independent/root worth verification; source/contract admission remains separate."
+  },
+  "parent_clarification": {
+    "scope": "Current trusted task message, not an edit to pinned PLAN",
+    "meaning": "200000rows per accessor; aggregate owned typed-array bytes67108864; actual loader/cache allocations must be owned; no hardRSSclaim."
+  },
+  "errors": [
+    {
+      "chunk": "ad48d6",
+      "exit": 1,
+      "kind": "Read-only metadata reader TypeError len(integer)",
+      "recovery": "1fc171 reads morph count as scalar, same saved JSON; no input/source change."
+    }
+  ],
+  "limits": [
+    "No target/helper/oldconsumer import/evaluation/GLB payload decode/Node execution.",
+    "No network/browser/GPU/native/render/capture/source edits; only own exclusive pair.",
+    "No full graph/position/GPU/normal/material/physical/native Ari/appearance/motion/performance/AAA acceptance.",
+    "Old closed oracle/cell/collector/export/capture routes stay closed; no source GLB or defaults changed."
+  ],
+  "fixed_worth_deadline_utc": "2026-10-19T08:35:00Z",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/PLAN.json",
+      "bytes": 11981,
+      "sha256": "0ce5776eb7f5001203b0867da642ff75fb565cc9977136e0463899a4fadb1873"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 15295,
+      "sha256": "3cc4e39c11322b54d0bee4f807c0738687d2e3350dda51cba41a9e14b91645a1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 29966,
+      "sha256": "880f18d4af33e97d2fe4464278f00f8bf617339acfd21b82995fcea70e85c15f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-tee-artist/ROOT-CLOSE.json",
+      "bytes": 2865,
+      "sha256": "b5745ebeba6e028a04e2160ad5d7b0a1d1b0773f00fdb3069ec750532ec1d447"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-three-consumer-first/README.md",
+      "bytes": 6430,
+      "sha256": "5ee5c4efc82f5c0f7693748d2abb27a8a4c824b4bef3dc5819159e1a64580c0a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-three-consumer-first/RESULT.json",
+      "bytes": 105576,
+      "sha256": "f6275f6bfc2fe20da924caa082e8bf03a123d7e243db6102bcffff881a02a9f3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-three-consumer-first/ROOT-RESULT.json",
+      "bytes": 4004,
+      "sha256": "0ee95fdca302a213b0d692c224b2183b0e655503019988552c3ac019bbeb38a9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-three-consumer-first/RESULT-REVIEW.md",
+      "bytes": 8508,
+      "sha256": "12af4e22d68b21bf9504b09d764e7263ec74b50fd8f32f7432d555eea8b68ca1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/RESULT.json",
+      "bytes": 1394674,
+      "sha256": "30afce7aed8de4ea6f376cdc90c0c26f91cd47574d79ea7b398c6009221d5763"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-helper-glb-first/work/candidate.glb",
+      "bytes": 26851380,
+      "sha256": "62c3c58ef118738ce3d3640879f81ceb23a4d70ffc19f9b5ea372bce758301bb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/objects/SkinnedMesh.js",
+      "bytes": 9078,
+      "sha256": "b01477c050eff4c32bb4ae6792cb2948e5908adc09bd13335104e68966f6690f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/objects/Mesh.js",
+      "bytes": 12371,
+      "sha256": "432460d6dc5d290ead0c4664475e71b04dbe8fa0c1c08ccd032bd65c6acc9864"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    }
+  ],
+  "candidate_mode": "0o444",
+  "installed_three_version": "0.185.1",
+  "input_rows_verified": 15,
+  "plus_plan_pin": true,
+  "collected_utc": "2026-10-19T08:23:14.207085+00:00",
+  "writer_pid": 84299,
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/complete-influence-cpu/WORTH.md",
+    "bytes": 3597,
+    "sha256": "17cff22f60d43ae4a28ad99aa4c2e5c3b4147350c5c0f7a482dfb85dedc1aca1"
+  }
+}

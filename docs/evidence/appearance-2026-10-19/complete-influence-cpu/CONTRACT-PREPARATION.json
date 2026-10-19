@@ -1,0 +1,134 @@
+{
+  "utc": "2026-10-19T08:32:04.669602+00:00",
+  "pid": 85223,
+  "state": "COMPLETE_CONTRACT_ONLY_AWAIT_INDEPENDENT_REVIEW_NO_IMPLEMENTATION",
+  "contract": {
+    "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/CONTRACT.md",
+    "bytes": 14368,
+    "sha256": "407abb41f9f30db92eeb610e772642a7a2fb32860a9dbe4e6818d66ae3a75dc7"
+  },
+  "references": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/REFERENCES.md",
+      "bytes": 2174,
+      "sha256": "4e692832362a3c571659b2b35cdd6426dc36b752e20fe08881e6e534b6e2ec91"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/REFERENCES-RECEIPT.json",
+      "bytes": 3956,
+      "sha256": "3de202df6111414990db62c1137b7bb252abb9cc1529e04e41dac4aa837f7607"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/PRIMARY-1.json",
+      "bytes": 644612,
+      "sha256": "9e31ab14eca4b24bd27e9cf02c7f6ef6114425f6e40db5d2e6ea2eefe8cae8ea"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/PRIMARY-2.json",
+      "bytes": 286601,
+      "sha256": "432136ff33610ea89ff5221fae2623d2aa87fbd5c29c5259a0dfaa026927be03"
+    }
+  ],
+  "worth_pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/PLAN.json",
+      "bytes": 11981,
+      "sha256": "0ce5776eb7f5001203b0867da642ff75fb565cc9977136e0463899a4fadb1873"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/WORTH.md",
+      "bytes": 3597,
+      "sha256": "17cff22f60d43ae4a28ad99aa4c2e5c3b4147350c5c0f7a482dfb85dedc1aca1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/WORTH-RECEIPT.json",
+      "bytes": 10801,
+      "sha256": "d4688fccf8db55f84058aa8978b3659e9e8365e96e59b19b529d0a3aa3cfbfaf"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/complete-influence-cpu/ROOT-WORTH.json",
+      "bytes": 2265,
+      "sha256": "ab422c708081e847e5e7ed96d7d95ecb37b0334bdd3ef0dd11c1cc75d5c089d0"
+    }
+  ],
+  "original_input_pins": [
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 15295,
+      "sha256": "3cc4e39c11322b54d0bee4f807c0738687d2e3350dda51cba41a9e14b91645a1"
+    },
+    {
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 29966,
+      "sha256": "880f18d4af33e97d2fe4464278f00f8bf617339acfd21b82995fcea70e85c15f"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-tee-artist/ROOT-CLOSE.json",
+      "bytes": 2865,
+      "sha256": "b5745ebeba6e028a04e2160ad5d7b0a1d1b0773f00fdb3069ec750532ec1d447"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-three-consumer-first/README.md",
+      "bytes": 6430,
+      "sha256": "5ee5c4efc82f5c0f7693748d2abb27a8a4c824b4bef3dc5819159e1a64580c0a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-three-consumer-first/RESULT.json",
+      "bytes": 105576,
+      "sha256": "f6275f6bfc2fe20da924caa082e8bf03a123d7e243db6102bcffff881a02a9f3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-three-consumer-first/ROOT-RESULT.json",
+      "bytes": 4004,
+      "sha256": "0ee95fdca302a213b0d692c224b2183b0e655503019988552c3ac019bbeb38a9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-three-consumer-first/RESULT-REVIEW.md",
+      "bytes": 8508,
+      "sha256": "12af4e22d68b21bf9504b09d764e7263ec74b50fd8f32f7432d555eea8b68ca1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-helper-glb-first/RESULT.json",
+      "bytes": 1394674,
+      "sha256": "30afce7aed8de4ea6f376cdc90c0c26f91cd47574d79ea7b398c6009221d5763"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-08/ari-helper-glb-first/work/candidate.glb",
+      "bytes": 26851380,
+      "sha256": "62c3c58ef118738ce3d3640879f81ceb23a4d70ffc19f9b5ea372bce758301bb"
+    },
+    {
+      "path": "node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "node_modules/three/src/objects/SkinnedMesh.js",
+      "bytes": 9078,
+      "sha256": "b01477c050eff4c32bb4ae6792cb2948e5908adc09bd13335104e68966f6690f"
+    },
+    {
+      "path": "node_modules/three/src/objects/Mesh.js",
+      "bytes": 12371,
+      "sha256": "432460d6dc5d290ead0c4664475e71b04dbe8fa0c1c08ccd032bd65c6acc9864"
+    },
+    {
+      "path": "node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+    }
+  ],
+  "new_external_reference_credits": 2,
+  "clarifications": "P1 per-accessor rows/owned64MiB vsseparateloaderpayload256MiB,512MiBheapnotRSS; exactmatrixandhomogeneous/local/world/state/default/normalization duties. Added fixed8tinytablefailurechecks withinsole actual packet, not extraGLBload/process/pose oroldharnessreplay; contractreview must explicitly own this pre-code refinement.",
+  "source_admission": "No contract verdict assumed. No source module/driver/launcher,GLBdecode/Threeimport/Node/CPU/browser/GPU/native job. Freshcritic/root contractbeforeauthorship, thenindependentsource/workload/rootbeforeexecution."
+}
