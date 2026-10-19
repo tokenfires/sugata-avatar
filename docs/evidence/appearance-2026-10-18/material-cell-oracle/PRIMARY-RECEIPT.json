@@ -1,0 +1,23 @@
+{
+  "url": "https://docs.python.org/3.14/library/fractions.html",
+  "request": {
+    "formats": [
+      "markdown"
+    ],
+    "onlyMainContent": true,
+    "maxAge": 0,
+    "timeout": 20000,
+    "domainTools": false
+  },
+  "http_status": 200,
+  "scrapeId": "01a152da-b39b-7009-8789-670c7a2bad5e",
+  "saved_response": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/PRIMARY-FRACTIONS.json",
+    "bytes": 39363,
+    "sha256": "007b40e7f5feabc42d94166cce8f12ce5984b05fcb2553e180497e0f7900e016"
+  },
+  "read_scope": "First13000characters read as returned, covering constructor/exact ratio/positive denominator/immutable/hashable Fraction documentation; remainder formatting/navigation not read and not needed.",
+  "support": "Fraction numerator/denominator preserves the supplied exact ratio; float1.1 differs from decimal11/10. Implementation explicitly converts finite binary64 as_integer_ratio pairs, without decimal rounding or limit_denominator approximation. This documents API semantics, not geometric correctness.",
+  "budget": "One official primary page, budget exhausted; no further lookup.",
+  "credits_cost": "Not separately exposed in structured response; no inferred amount."
+}

@@ -1,0 +1,27 @@
+{
+  "scope": "Read-only current service/timer verification; API view rendered a card, saved TOML provides status/cadence/target. Future timer delivery and notifications untested.",
+  "results": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Rendered automation card in the app."
+          }
+        ],
+        "isError": false
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "c727aa",
+        "wall_time_seconds": 0.000006459,
+        "exit_code": 0,
+        "original_token_count": 237,
+        "output": "{\n  \"utc\": \"2026-10-19T06:44:52.782313+00:00\",\n  \"observer_pid\": 71686,\n  \"scope\": \"Retained review service and existing Sugata timer only; no machine-wide census or future delivery claim.\",\n  \"review_process\": {\n    \"exit\": 0,\n    \"output\": \"  870 11:44:32 /opt/homebrew/bin/node /Users/robault/GitHub/sugata-avatar/node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173 --strictPort\\n\"\n  },\n  \"loopback_root\": {\n    \"status\": 200,\n    \"content_type\": \"text/html\"\n  },\n  \"saved_timer\": {\n    \"id\": \"advance-sugata-avatar-visual-quality\",\n    \"name\": \"Advance Sugata until check-in\",\n    \"status\": \"ACTIVE\",\n    \"rrule\": \"FREQ=MINUTELY;INTERVAL=10\",\n    \"kind\": \"heartbeat\",\n    \"target_thread_id\": \"01a0ff57-d720-7db2-923f-9e3e0521216c\",\n    \"targetThreadId\": null\n  },\n  \"saved_keys\": [\n    \"version\",\n    \"id\",\n    \"kind\",\n    \"name\",\n    \"prompt\",\n    \"status\",\n    \"rrule\",\n    \"target_thread_id\",\n    \"created_at\",\n    \"updated_at\"\n  ]\n}\n"
+      }
+    }
+  ]
+}

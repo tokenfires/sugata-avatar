@@ -1,0 +1,141 @@
+{
+  "collected_utc": "2026-10-19T06:24:53.884099+00:00",
+  "writer_pid": 69367,
+  "verdict": "A combinedPLAN+PLAN-CLARIFICATION forsource/fixturepreparationonly; originalimpossiblefixture excluded; no execution",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/PLAN.json",
+      "bytes": 9233,
+      "sha256": "20557cda84b3ef715b7f11f3c7eba099626b0b773cbf7e12a34d8a0240aa5abb",
+      "read_scope": "Whole9233-byte literal plan read; originalfixtureissue retained."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/PLAN-CLARIFICATION.md",
+      "bytes": 1717,
+      "sha256": "f26f7abe02e1b47b0693f9fe7b55e0b88e0add09eb9e6e4470b2ff8178fa1f28",
+      "read_scope": "Whole1717-byte operativeaddendum read; removesimpossiblefixture,selectedrealizablechecks,unchangedlimits."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/CONTRACT.json",
+      "bytes": 17528,
+      "sha256": "974c1cbd3ad811717aec75069f8a2c696aaacf2a8c5631599d8244914d1a7fcf",
+      "read_scope": "Whole literal currentcontract315lines/currentreview26lines read; named normative local duties inspected symbolically; referenced archives untouched."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/REVIEW.md",
+      "bytes": 4983,
+      "sha256": "275e04a50a500eb1b617c42b47b573c644c83efa1bf6f961a105a6d33c4f66f6",
+      "read_scope": "Whole literal currentcontract315lines/currentreview26lines read; named normative local duties inspected symbolically; referenced archives untouched."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/ROOT-CLOSE.json",
+      "bytes": 2265,
+      "sha256": "0f320ba076498d0e48e0e9a6bd874fc4c673aacd7effdbba5016e28a23f78a5b",
+      "read_scope": "Whole43-line closure read; old sourceB/no furthercollectorrepair/no actualtrial boundaries."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-CLOSE.json",
+      "bytes": 17089,
+      "sha256": "3a36aeafcd2b14aaad184eb67bb959836643bfb08ee3ca9b715a3db4e3b392d9",
+      "read_scope": "FullbytehashandJSONparse; selectedbudgets/next read; no freshfullbindingaudit."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/terracotta-ink-look/ROOT-CLOSE.json",
+      "bytes": 1524,
+      "sha256": "4352b857d8ff72c4b113cb07195de2cd87fb93c9b62eaf23d94b21d83ca7b805",
+      "read_scope": "Whole28-line paletteclosure read; valueB/no recipe/native boundary."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 17486,
+      "sha256": "24e51a1cca73d0d9eb82d60436b13acde5623991eeab0c48f89d7df6effe787b",
+      "read_scope": "Whole rawbytehash; latestcurrentdocumentdiff previouslyread in documentarygate reused, not a newfullhistoricalreread."
+    }
+  ],
+  "checks": {
+    "PLAN_inputs": 6,
+    "all_exact": true,
+    "transitive_source_members_read": 0,
+    "source_or_fixture_invocations": 0,
+    "geometry_constructed": false,
+    "mathematical_analysis": "Symbolic affine/nonnegativebarycentricargument only; no numericcaseconstructed/evaluated."
+  },
+  "finding": {
+    "id": "F1",
+    "witness": "PLAN.synthetic_programme itemMixedsupport...strictlylargerfacetunion; CONTRACT.source_region_transport.volume_vertex/facet",
+    "classification": "Impossible geometricfixture inoriginalplan; resolvedprospectivelybyoperativeclarification,not anactualtestresult.",
+    "explanation": "Nonnegativeaffinecoordinatezeroat3noncollinearfacepoints iszeroonwholefacetplane; absenceoflabelontriangleforcesabsenceonfacet.",
+    "alternativeA": "Realizablemixedsupport,independentfacetunionsandfaninheritance;localAPIpreserved,whole-sourcecopydataflowstillmustbereviewed.",
+    "alternativeB": "Arbitrarycombinatoriallabelhelper;demonstratesabstractcopyingbutscopeexpandsandisnotgeometricwitness.",
+    "selected": "A underPLAN-CLARIFICATION."
+  },
+  "worth_alternatives": [
+    {
+      "choice": "Independentexactsingle-cellreference now",
+      "tradeoff": "Reusablesubstantivealgorithm/adversariallocalevidence;cannotqualifyactualfieldorstillunwrittensequentialbuilder."
+    },
+    {
+      "choice": "Deferuntilcompletefieldadmission",
+      "tradeoff": "Avoidsisolatedprerequisite;leavesclipping/identity/transportwithoutindependentbaseline."
+    }
+  ],
+  "source_gate_conditions": [
+    "Wholecodeandfixedfixture reviewbeforeanyinvocation.",
+    "Inspect literalwhole-facet-labelcopy dataflow; equaloutputlabels alonedonotprovenance-qualifyimplementation.",
+    "All7material/cutinequalities represented withoutmax-onlymask;exactminimal-support/all-active-ID policy.",
+    "Independentlyspecifiedanalyticvolume/dimension/sharedface/facet/transport expectations; nounrealizablefixtureorassertionweakening.",
+    "Concretefinitework/numeric/output/alarm controls and truthful statuses; no OS/process/geometry/globalfieldcredit."
+  ],
+  "jobs": [
+    {
+      "chunk": "c0588b",
+      "exit": 0,
+      "pid": 68995,
+      "utc": "2026-10-19T06:21:22.913042+00:00",
+      "command_scope": "WholePLANreadandhash."
+    },
+    {
+      "chunk": "b6919c",
+      "exit": 0,
+      "pid": 69015,
+      "utc": "2026-10-19T06:21:33.762930+00:00",
+      "command_scope": "Read-onlystdlibhash all6pins;wholecontract/review/v2closure/paletteclosure;selectedtrouserclosuremetadata."
+    },
+    {
+      "chunk": "6bda78",
+      "exit": 0,
+      "pid": 69192,
+      "utc": "2026-10-19T06:23:15.204107+00:00",
+      "command_scope": "WholePLAN-CLARIFICATIONreadandhash."
+    },
+    {
+      "tool": "exec_command",
+      "pid": 69367,
+      "utc": "2026-10-19T06:24:53.884099+00:00",
+      "command_scope": "Exclusiveownworthpairwritesandexactreadback;returnedchunk/exitreportedwithstablehandoff."
+    }
+  ],
+  "errors": [],
+  "limits": [
+    "No targetimplementation/import/evaluation/fixture/worker/collector/archive/grid/realgeometry/exports/native/browser/GPU/network orproduct/sourceedit; ownpaironly.",
+    "No actualsource-chain/metric/tie/globalopening/contact/fit/appearance/runtime/AAAqualification.",
+    "OldsourceB/collectorclosures and constructorHOLD remainunchanged.",
+    "Any futureonefixedtrial requiresindependentsource+rootgate; max24cases/5salarm,firstfailurestops/noretry."
+  ],
+  "fixed_stops": {
+    "worth": "2026-10-19T06:40:00Z",
+    "source_authoring": "2026-10-19T07:00:00Z",
+    "source_review_and_root": "2026-10-19T07:10:00Z",
+    "sole_trial_complete": "2026-10-19T07:15:00Z",
+    "result_review": "2026-10-19T07:25:00Z",
+    "closure": "2026-10-19T07:35:00Z"
+  },
+  "next": "Rootverifycombinedworthhandoffthenonlyinertoracle/fixedfixtureauthorship;fullsourcegatebeforeonepossibletrial.",
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/WORTH.md",
+    "bytes": 3392,
+    "sha256": "ae958cf83fbe2e9652b1f5fbdabfc3a0bbd4b7b5fb46a69975fb08682415d948",
+    "read_scope": "Wholeownresultreadbackexact."
+  }
+}

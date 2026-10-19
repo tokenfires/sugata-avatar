@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-19T06:48:31.805146+00:00",
+  "pid": 72069,
+  "scope": "Independent saved exact-data readback only; zero oracle/helper imports/calls.",
+  "input_sha256": "32c38b4e8b192a5b64864ce2ac665e7c1cd0d4f59741a0842735997089c7e21c",
+  "actual_vertices_checked": 59,
+  "actual_facets_checked": 54,
+  "checks": [
+    "All59actualvertices:exactfeasibility/support/allactiveIDs/positions/source-labelunion.",
+    "All54actualfacets:input-ownerbinding andworldnormalderivative/pointplaneequations;fullpolygonlabelunionandtriangleinheritance.",
+    "Actualsharedfacehasexactfourdeclaredpositionsandoppositecanonicalcycles.",
+    "Actualpositive-orderoutputsagree inglobalvertices/facets/volumeafterexcludinglocalu."
+  ],
+  "analytic_volumes": "IndependentlycheckedinROOT-RESULT;notreplayedhere.",
+  "limits": "Outputdatareadback,not literal-sourcecopyprovenance or universal/fullfield/physical/appearance proof. No new test cases or original code execution."
+}

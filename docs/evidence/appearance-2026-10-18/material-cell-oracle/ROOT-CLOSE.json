@@ -1,0 +1,252 @@
+{
+  "utc": "2026-10-19T07:02:45.938601+00:00",
+  "pid": 73854,
+  "baseline": "fa786efdc3cf47209805769e12526125086a5d93",
+  "decision": "Retain local synthetic reference and exact documentary checkpoint; closed consumed experiment, no retry. Preserve palette nomination as unexecuted valueB and both earlier reviewedartistdeliveries.",
+  "critic_delivery_job": "911151/exit0/PID73560/07:01:04.799240UTC",
+  "root_whole_delivery_pair_read": "31ba22/exit0,2673+10827bytes untruncated",
+  "root_independent_checks": {
+    "direct_delivery_rows_exact": 16,
+    "decoded_epoch2_diff_equals_actual": true,
+    "wording_mapping_exact": true,
+    "historical_baseline_docs_recovered": true,
+    "tracked_changes_exact2recoverydocs": true,
+    "board_checklist_baseline_exact": true,
+    "checked": 21,
+    "open": 10,
+    "git_diff_check_exit": 0
+  },
+  "numerical_qualification": "ROOT-ACCEPT.json,8f1c2a,wholeactualcriticpair22direct25nestedpins;independent552413all59OKvertices54facets/sharedface/order;78fantriangles andall54savedownerrows independentlymatched. One22group24callfixture785263 plus oneRESULT-onlyowner6cfd99;no replay. Exact command/source/admission/claim/rawtool/outputbindings retained.",
+  "source_and_doc_findings": "Impossible planned strict facet-vs-fan label witness excluded withaffineproof. InitialsourceB independentowner-bindinggap closedviaunchangedoriginalplusseparateverifier. Documentary59countqualifiedto10OKoutputs; originalepochs+reversiblemappingpreserved. Criticreader/writererrorsareclassified inimmutablepairs; no target/datarepair.",
+  "leaf_manifest_excludes_self": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/CLAIM.json",
+      "bytes": 209,
+      "sha256": "5263431c09f32fcc924089cc23471b3fac88e1ba372d12785a4a3a88fde54d15"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/DELIVERY-DIFF-2.json",
+      "bytes": 11112,
+      "sha256": "1db338e6c6f06c918044a54f2b4ab40ee33bf77946f93e9bcbff4079dc9d349f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/DELIVERY-DIFF.json",
+      "bytes": 11138,
+      "sha256": "e3dc179d11b34b1171c17be78f72dc44156e43e758521854e9684fbdb2fc8b12"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/DELIVERY-PREPARATION-2.json",
+      "bytes": 11303,
+      "sha256": "cf764796802ed4f1430643cc54bcdde07e1ec76469c7db1ca1a40661c7c04996"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/DELIVERY-PREPARATION.json",
+      "bytes": 10388,
+      "sha256": "db8f330953b58b34a69b5d38d245f1b11e827377c0c660c9fd4f00cc8d5b385f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/DELIVERY-REVIEW-RECEIPT.json",
+      "bytes": 10827,
+      "sha256": "15ed92849dfae46e95352c910c66c9c04d756176bd670ab30d7039a4b5e84201"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/DELIVERY-REVIEW.md",
+      "bytes": 2673,
+      "sha256": "49122399504c71c94eefd88d9184b0753b07b04208ab5d2d04baf5c7f598bb99"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/FIXTURE-TOOL-RESULT.json",
+      "bytes": 370,
+      "sha256": "6f6824de1ef7e75648422ced5dd9292af6ed20e4133613d0a320a1bb81e3517f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/LIVE-SERVICES.json",
+      "bytes": 1716,
+      "sha256": "f82ad661ed166cdb8f6e2ac43def616b7f71b4d7fe5149763060f39f4d9b7ecc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/OWNERS-PREPARATION.json",
+      "bytes": 4715,
+      "sha256": "f40d11145bdcc781545a7f976cf89a753d7d152d9151bc224baf0459f8691627"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/OWNERS-RESULT.json",
+      "bytes": 13368,
+      "sha256": "c6fc7e53cf29c3e9557abf3ce2bf12823d8c51f4d9b48e0125860be061e0f936"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/OWNERS-SOURCE-RECEIPT.json",
+      "bytes": 8787,
+      "sha256": "ee85f9daf38e84eb832bc18682495012742a1206c4b9a40fcc08230c14f2e081"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/OWNERS-SOURCE-REVIEW.md",
+      "bytes": 3350,
+      "sha256": "213e429042688e6b5e64903206c304c017133bc7154eef4fbb500b0569f1b8a9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/OWNERS-TOOL-RESULT.json",
+      "bytes": 316,
+      "sha256": "d05e992fa07a2a8871274114a9befa939a4ac16d3c74e33cbec9fd077202620f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/PLAN-CLARIFICATION.md",
+      "bytes": 1717,
+      "sha256": "f26f7abe02e1b47b0693f9fe7b55e0b88e0add09eb9e6e4470b2ff8178fa1f28"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/PLAN.json",
+      "bytes": 9233,
+      "sha256": "20557cda84b3ef715b7f11f3c7eba099626b0b773cbf7e12a34d8a0240aa5abb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/PRIMARY-FRACTIONS.json",
+      "bytes": 39363,
+      "sha256": "007b40e7f5feabc42d94166cce8f12ce5984b05fcb2553e180497e0f7900e016"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/PRIMARY-RECEIPT.json",
+      "bytes": 1247,
+      "sha256": "626fb4cd5023a9f5e416ddaa5070318c5b9c84a7074db87c60fbadfa89776aa2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/README.md",
+      "bytes": 3812,
+      "sha256": "0ff9ca1495e20813462dd5f3740ec17fc2c157d83230a4a1195c4c26307ea866"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/RESULT-REVIEW-RECEIPT.json",
+      "bytes": 37143,
+      "sha256": "8fed7ebe49ebc67d2dd575bdc40ca2415210948dcfbecff91a79573bc8135ba5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/RESULT-REVIEW.md",
+      "bytes": 3278,
+      "sha256": "e1e1c1c7ab0a739f5849a642171ca5e927bc78e97ddea58689ec24662b680d9d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/RESULT.json",
+      "bytes": 174924,
+      "sha256": "32c38b4e8b192a5b64864ce2ac665e7c1cd0d4f59741a0842735997089c7e21c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-ACCEPT.json",
+      "bytes": 2840,
+      "sha256": "537fddd764287e38f794328bc5258629a72400e908b710174f7d0176bc2ebcdb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-ADMISSION.json",
+      "bytes": 2814,
+      "sha256": "c1c4d0da285d577ee81f4614ce7011a368f85c3653b7da3f3eabdbfddcb5eaf6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-INDEPENDENT-DATA.json",
+      "bytes": 963,
+      "sha256": "a348bf9cf18b37bfb629695a9c95838f76d3fe4d60a7ae0048ca2bcfec476150"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-INITIAL-SOURCE.json",
+      "bytes": 1421,
+      "sha256": "fae70f9f527c8719c08957dddf3e8d3612dc677c818711c3b80283e46d66d282"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-RESULT.json",
+      "bytes": 9426,
+      "sha256": "4dfd51b52079454898d5a782eba15108ea204a7772679633580b9f489a4a00d2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-SOURCE-PREP.json",
+      "bytes": 3840,
+      "sha256": "88ca58d01d23360a67eb9680659c7c4f05d52be2e98b17e9333729ce67fadc3b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-WORTH.json",
+      "bytes": 939,
+      "sha256": "077b78439827ae3f4dda227efea32a8b46a8d4daca8074c625791ec25edec1fc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/SOURCE-PREPARATION.json",
+      "bytes": 2390,
+      "sha256": "1871d09d1c2faab79a3e191be0f4e3d9cb54a0f6da2e64cb86a06e0de6191af6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/SOURCE-REVIEW-RECEIPT.json",
+      "bytes": 10545,
+      "sha256": "94e57dcda08066823d25fe67b7656b925c8c8905279cf60e6dc9dae08328f134"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/SOURCE-REVIEW.md",
+      "bytes": 3357,
+      "sha256": "cd3cac7c5da047654945f481c5418b1c740bbd812167fb6195cf61ca8c752ff8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/WORDING-CORRECTION.json",
+      "bytes": 1072,
+      "sha256": "948e443ebac2142a6ae1cdce15be1d3a4522bf99b7f7f0c226140ba6e39195d8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/WORTH-RECEIPT.json",
+      "bytes": 7305,
+      "sha256": "a1c3da4a58c6754264fa275d88220c876c6dc6e52c47a26d8dc8aa6d27f0f993"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/WORTH.md",
+      "bytes": 3392,
+      "sha256": "ae958cf83fbe2e9652b1f5fbdabfc3a0bbd4b7b5fb46a69975fb08682415d948"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/cell_oracle.py",
+      "bytes": 10368,
+      "sha256": "4ef679f6e892ada5282eecfd0f0f7945594261fa3a310217871722cf44007444"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/fixed_fixture.py",
+      "bytes": 11689,
+      "sha256": "be267cb559ba9acea70756f793a5bd332a8e5ff065a60601869c9f04134f91c7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/verify_owners.py",
+      "bytes": 4408,
+      "sha256": "b38184091fe880306961e3dcc610e183ad78a82aaf901d8722a780f56d2c8732"
+    }
+  ],
+  "palette_manifest": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/terracotta-ink-look/PLAN.json",
+      "bytes": 8323,
+      "sha256": "4915f810a02acb2c2720c2858640067f30f7033171bd98235180e0342fe957fe"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/terracotta-ink-look/ROOT-CLOSE.json",
+      "bytes": 1524,
+      "sha256": "4352b857d8ff72c4b113cb07195de2cd87fb93c9b62eaf23d94b21d83ca7b805"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/terracotta-ink-look/WORTH-RECEIPT.json",
+      "bytes": 8641,
+      "sha256": "d51a6b34c5f0ddfde7aad7629aff0e3816c9fe12611fbd5c2813d81f48c3355a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/terracotta-ink-look/WORTH.md",
+      "bytes": 3016,
+      "sha256": "afb4a085524ee3e2cc7fde09b4e670118d99ec86cf5ba1af85e80df0771024a4"
+    }
+  ],
+  "mutable_document_review_epoch_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 10528,
+      "sha256": "809d20c88d9d3f3a3b602231e35692ad3546d744d28be6a810156b37b98ef021"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 21600,
+      "sha256": "f436b16f1db2b159b722bdeb50d53ada15a58b5da44a9afb9090764153955269"
+    }
+  ],
+  "mutable_document_epoch_note": "These are this documentary review epoch. Later legitimate checkpoints may change these two docs; exact preceding bytes recover from Git baseline+DELIVERY-DIFF-2, with WORDING-CORRECTION preserving the intermediate epoch. Do not misclassify mutable status updates as immutable-source drift.",
+  "preservation": "All immutableold/newsource/results/images/references unchanged; allaccepted/default/production/character-sourcegeometry/otherworktrees preserved byscopedwrites. No newbroadchecklistcredit,source-memberdecode/native/GPU/browser/render/realgrid/field/garment. Closedcollector andrealconstructorHOLD remain. Fullcharacter/expression/representation/wardrobe/physicalfit/morph/pose/motion/runtime/performance/VTuber/Mii/AAA remainopen.",
+  "services": "LIVE-SERVICES.json exact06:44:52UTC read-onlyAPIview+savedACTIVE10minute/currentchattarget+Vite870HTTP200; nofuturedelivery/notificationclaim.",
+  "deadlines": "All source/soletrial/result/closure beforefixedstops; finalclosure07:35UTC.",
+  "next": "Stage onlybothnewleaves+2reviewedrecoverydocs;localcommitandpost-checkexactpaths/pins/cleancheckout. Then freshboundedgeneral-sequential-local-clippernominationusingfrozenexpectedoutputs,nooldoracle/fixtureexecution. Freshcriticworth/source/workload/rootgatesbeforeanythingelse. Ifonlygenericmetadata/harness,changeworkstream. Humansteeringwins;no push/publish/purchase/model/subscription/resetcredit/otherprojects."
+}

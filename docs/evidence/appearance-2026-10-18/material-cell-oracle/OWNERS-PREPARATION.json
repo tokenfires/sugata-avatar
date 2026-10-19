@@ -1,0 +1,86 @@
+{
+  "utc": "2026-10-19T06:38:47.118239+00:00",
+  "pid": 70898,
+  "source_rows": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/cell_oracle.py",
+      "bytes": 10368,
+      "sha256": "4ef679f6e892ada5282eecfd0f0f7945594261fa3a310217871722cf44007444"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/fixed_fixture.py",
+      "bytes": 11689,
+      "sha256": "be267cb559ba9acea70756f793a5bd332a8e5ff065a60601869c9f04134f91c7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/verify_owners.py",
+      "bytes": 4408,
+      "sha256": "b38184091fe880306961e3dcc610e183ad78a82aaf901d8722a780f56d2c8732"
+    }
+  ],
+  "total_source_bytes": 26465,
+  "unchanged_initial_source_pins": true,
+  "initial_sourceB": "SOURCE-REVIEW.md / SOURCE-REVIEW-RECEIPT.json and root d86360 preserve F1; no original source/preparation altered.",
+  "selection": "Add separate saved-result verifier as the assertion correction. Does not import or call oracle. Only completed fixed RESULT observations are consumed; each cut owner binds to its exact input sample plane, each tetra owner binds omitted global barycentric coordinate; normal derivatives and all facet point-plane values checked exactly.",
+  "combined_programme": "Only after independent combined source/root A: one original24-call/22group fixture invocation. Its FIXTURE_PASS remains incomplete without owner readback. Then one bounded result-only verifier invocation, separate5secondalarm/<=1MiBinput/output; no additional oraclecalls. Any failure stops, no correction/retry.",
+  "commands_after_gate": [
+    [
+      "python3",
+      "-I",
+      "-B",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/fixed_fixture.py"
+    ],
+    [
+      "python3",
+      "-I",
+      "-B",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/verify_owners.py"
+    ]
+  ],
+  "expected_result_scope": "10OK local synthetic cell outputs, per-facet exact owner/normal bindings; count is predeclared source expectation, not measured. No actual source/grid/native/collector/field/garment/global cancellation/physical/appearance result.",
+  "interpreter_recovery": "bcb93d/exit0: /opt/homebrew/opt/python@3.14/bin/python3.14,3.14.7. Current official3.14docs expose3.14.8 banner; used numerator/denominator API predates both. No install/update.",
+  "deadline": "Source authoring07:00/root07:10/fixture complete07:15/result07:25/closure07:35UTC unchanged.",
+  "candidate_import_or_execution": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/PLAN.json",
+      "bytes": 9233,
+      "sha256": "20557cda84b3ef715b7f11f3c7eba099626b0b773cbf7e12a34d8a0240aa5abb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/PLAN-CLARIFICATION.md",
+      "bytes": 1717,
+      "sha256": "f26f7abe02e1b47b0693f9fe7b55e0b88e0add09eb9e6e4470b2ff8178fa1f28"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-WORTH.json",
+      "bytes": 939,
+      "sha256": "077b78439827ae3f4dda227efea32a8b46a8d4daca8074c625791ec25edec1fc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/SOURCE-PREPARATION.json",
+      "bytes": 2390,
+      "sha256": "1871d09d1c2faab79a3e191be0f4e3d9cb54a0f6da2e64cb86a06e0de6191af6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-SOURCE-PREP.json",
+      "bytes": 3840,
+      "sha256": "88ca58d01d23360a67eb9680659c7c4f05d52be2e98b17e9333729ce67fadc3b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/SOURCE-REVIEW.md",
+      "bytes": 3357,
+      "sha256": "cd3cac7c5da047654945f481c5418b1c740bbd812167fb6195cf61ca8c752ff8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/SOURCE-REVIEW-RECEIPT.json",
+      "bytes": 10545,
+      "sha256": "94e57dcda08066823d25fe67b7656b925c8c8905279cf60e6dc9dae08328f134"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-INITIAL-SOURCE.json",
+      "bytes": 1421,
+      "sha256": "fae70f9f527c8719c08957dddf3e8d3612dc677c818711c3b80283e46d66d282"
+    }
+  ]
+}

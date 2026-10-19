@@ -1,0 +1,48 @@
+{
+  "admitted": true,
+  "scope": "one synthetic local-cell packet only",
+  "utc": "2026-10-19T06:42:12.344440+00:00",
+  "pid": 71337,
+  "sha256": {
+    "cell_oracle.py": "4ef679f6e892ada5282eecfd0f0f7945594261fa3a310217871722cf44007444",
+    "fixed_fixture.py": "be267cb559ba9acea70756f793a5bd332a8e5ff065a60601869c9f04134f91c7",
+    "verify_owners.py": "b38184091fe880306961e3dcc610e183ad78a82aaf901d8722a780f56d2c8732"
+  },
+  "source_rows": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/cell_oracle.py",
+      "bytes": 10368,
+      "sha256": "4ef679f6e892ada5282eecfd0f0f7945594261fa3a310217871722cf44007444"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/fixed_fixture.py",
+      "bytes": 11689,
+      "sha256": "be267cb559ba9acea70756f793a5bd332a8e5ff065a60601869c9f04134f91c7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/verify_owners.py",
+      "bytes": 4408,
+      "sha256": "b38184091fe880306961e3dcc610e183ad78a82aaf901d8722a780f56d2c8732"
+    }
+  ],
+  "critic_source": "9b9b7f/exit0/PID71278/06:41:40.223281UTC; whole pair55f569; all12direct input rows freshly verified",
+  "root_independent": "Complete original sources4156a7 and new verifierd2f314 read. Owner normal condition independently derived from f(P0+sum u_i edge_i)=f0+sum u_i(fi-f0). Tetra owner values are -lambda_omitted. Both world and support-weight equations are checked at every facet vertex. Fixed analytic expectations and shared-face/opposed cycles remain unchanged. Whole-facet literalcopy verified in source, not inferred from equality.",
+  "commands": [
+    [
+      "python3",
+      "-I",
+      "-B",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/fixed_fixture.py"
+    ],
+    [
+      "python3",
+      "-I",
+      "-B",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/verify_owners.py"
+    ]
+  ],
+  "invocation_limits": "One original fixture invocation,22groups/24calls,5secondalarm. Only after collected exit0 and completeFIXTURE_PASS may one separately5secondalarmedRESULT-only owner readback run; zero additional oraclecalls. Any failure/partial/timeout stops without correction/retry.",
+  "deadlines": "Fixturecomplete07:15/resultreview07:25/closure07:35UTC",
+  "outputs": "ExclusiveCLAIM/RESULT;oneexclusiveOWNERS-RESULT from postflight,all<=1MiB. Actual tool result captured separately byroot.",
+  "limits": "Not actual field/source/grid/garment/globaltopology/physical/fit/appearance orhardRSSqualification. Collectorrouteclosed/realconstructorHOLD. All original sources and sourceB preserved."
+}

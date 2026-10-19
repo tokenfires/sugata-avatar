@@ -1,0 +1,312 @@
+{
+  "utc": "2026-10-19T06:43:22.595208+00:00",
+  "pid": 71465,
+  "trial_job": "785263/exit0/PID71345; one original invocation,22groups/24calls; elapsed_seconds is driver post-import measurement, not full process benchmarking",
+  "postflight_job": "6cfd99/exit0/PID71375; one result-only owner readback,0oraclecalls",
+  "pre_post_gate": "ababbc/exit0 verified collected complete original RESULT before postflight",
+  "source_postpins_exact": true,
+  "claim_and_admission_exact": true,
+  "all24_actual_observations": [
+    {
+      "group": "unit_inactive7",
+      "part": "single",
+      "passed": true,
+      "status": "OK",
+      "dimension": 3,
+      "vertices": 4,
+      "facets": 4,
+      "volume": "1/6",
+      "reason": null
+    },
+    {
+      "group": "paired_interval_no_inside_corner",
+      "part": "single",
+      "passed": true,
+      "status": "OK",
+      "dimension": 3,
+      "vertices": 6,
+      "facets": 5,
+      "volume": "19/384",
+      "reason": null
+    },
+    {
+      "group": "thin_interval_no_inside_corner",
+      "part": "single",
+      "passed": true,
+      "status": "OK",
+      "dimension": 3,
+      "vertices": 6,
+      "facets": 5,
+      "volume": "787969/6442450944",
+      "reason": null
+    },
+    {
+      "group": "half_x_cap",
+      "part": "single",
+      "passed": true,
+      "status": "OK",
+      "dimension": 3,
+      "vertices": 6,
+      "facets": 5,
+      "volume": "7/48",
+      "reason": null
+    },
+    {
+      "group": "all7_active_mixed_support",
+      "part": "single",
+      "passed": true,
+      "status": "OK",
+      "dimension": 3,
+      "vertices": 7,
+      "facets": 7,
+      "volume": "5/3072",
+      "reason": null
+    },
+    {
+      "group": "empty",
+      "part": "single",
+      "passed": true,
+      "status": "EMPTY",
+      "dimension": -1,
+      "vertices": 0,
+      "facets": 0,
+      "volume": "0",
+      "reason": null
+    },
+    {
+      "group": "point",
+      "part": "single",
+      "passed": true,
+      "status": "DEGENERATE",
+      "dimension": 0,
+      "vertices": 1,
+      "facets": 0,
+      "volume": "0",
+      "reason": null
+    },
+    {
+      "group": "edge",
+      "part": "single",
+      "passed": true,
+      "status": "DEGENERATE",
+      "dimension": 1,
+      "vertices": 2,
+      "facets": 0,
+      "volume": "0",
+      "reason": null
+    },
+    {
+      "group": "face",
+      "part": "single",
+      "passed": true,
+      "status": "DEGENERATE",
+      "dimension": 2,
+      "vertices": 3,
+      "facets": 0,
+      "volume": "0",
+      "reason": null
+    },
+    {
+      "group": "on_original_vertex",
+      "part": "single",
+      "passed": true,
+      "status": "OK",
+      "dimension": 3,
+      "vertices": 4,
+      "facets": 4,
+      "volume": "1/6",
+      "reason": null
+    },
+    {
+      "group": "coincident_cuts",
+      "part": "single",
+      "passed": true,
+      "status": "REFUSED",
+      "dimension": null,
+      "vertices": 0,
+      "facets": 0,
+      "volume": "n/a",
+      "reason": "multiple positive-area facet owners"
+    },
+    {
+      "group": "coincident_tet_face",
+      "part": "single",
+      "passed": true,
+      "status": "REFUSED",
+      "dimension": null,
+      "vertices": 0,
+      "facets": 0,
+      "volume": "n/a",
+      "reason": "multiple positive-area facet owners"
+    },
+    {
+      "group": "zero_global_field",
+      "part": "single",
+      "passed": true,
+      "status": "UNKNOWN",
+      "dimension": null,
+      "vertices": 0,
+      "facets": 0,
+      "volume": "n/a",
+      "reason": "identically zero global inequality has no outward gradient"
+    },
+    {
+      "group": "shared_face",
+      "part": "above",
+      "passed": true,
+      "status": "OK",
+      "dimension": 3,
+      "vertices": 6,
+      "facets": 5,
+      "volume": "7/48",
+      "reason": null
+    },
+    {
+      "group": "shared_face",
+      "part": "below",
+      "passed": true,
+      "status": "OK",
+      "dimension": 3,
+      "vertices": 6,
+      "facets": 5,
+      "volume": "7/48",
+      "reason": null
+    },
+    {
+      "group": "positive_local_order",
+      "part": "base",
+      "passed": true,
+      "status": "OK",
+      "dimension": 3,
+      "vertices": 7,
+      "facets": 7,
+      "volume": "5/3072",
+      "reason": null
+    },
+    {
+      "group": "positive_local_order",
+      "part": "permuted",
+      "passed": true,
+      "status": "OK",
+      "dimension": 3,
+      "vertices": 7,
+      "facets": 7,
+      "volume": "5/3072",
+      "reason": null
+    },
+    {
+      "group": "duplicate_gids",
+      "part": null,
+      "passed": true,
+      "expected": "ValueError",
+      "actual_error": "four distinct bounded global node IDs required"
+    },
+    {
+      "group": "nonfinite_point",
+      "part": null,
+      "passed": true,
+      "expected": "ValueError",
+      "actual_error": "coefficients must be finite binary64 floats"
+    },
+    {
+      "group": "invalid_label",
+      "part": null,
+      "passed": true,
+      "expected": "ValueError",
+      "actual_error": "four nonempty accepted source-region sets required"
+    },
+    {
+      "group": "inverted_tetra",
+      "part": null,
+      "passed": true,
+      "expected": "ValueError",
+      "actual_error": "positive nondegenerate tetra determinant required"
+    },
+    {
+      "group": "duplicate_cut_ids",
+      "part": null,
+      "passed": true,
+      "expected": "ValueError",
+      "actual_error": "unique bounded ASCII global inequality IDs required"
+    },
+    {
+      "group": "too_many_cuts",
+      "part": null,
+      "passed": true,
+      "expected": "ValueError",
+      "actual_error": "at most seven global inequalities"
+    },
+    {
+      "group": "excessive_input_ratio",
+      "part": null,
+      "passed": true,
+      "expected": "ValueError",
+      "actual_error": "input ratio exceeds 128 bits"
+    }
+  ],
+  "owner_readback": {
+    "ok_cells": 10,
+    "facets": 54,
+    "same_exact_RESULT": true
+  },
+  "root_checks": "Complete RESULT and OWNERS JSON parsed; all actual outcomes inspected via24row summary; fixed analytic volumes independently rederived from unit sections/cube-minus-tetra; thin intervals independently bounded inx and no originalcornerinside. Exact source/claim/admission/tool-output/RESULT identities verified. Whole-facet copy is source-inspected only, as mathematically required.",
+  "bindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/cell_oracle.py",
+      "bytes": 10368,
+      "sha256": "4ef679f6e892ada5282eecfd0f0f7945594261fa3a310217871722cf44007444"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/fixed_fixture.py",
+      "bytes": 11689,
+      "sha256": "be267cb559ba9acea70756f793a5bd332a8e5ff065a60601869c9f04134f91c7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/verify_owners.py",
+      "bytes": 4408,
+      "sha256": "b38184091fe880306961e3dcc610e183ad78a82aaf901d8722a780f56d2c8732"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-ADMISSION.json",
+      "bytes": 2814,
+      "sha256": "c1c4d0da285d577ee81f4614ce7011a368f85c3653b7da3f3eabdbfddcb5eaf6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/CLAIM.json",
+      "bytes": 209,
+      "sha256": "5263431c09f32fcc924089cc23471b3fac88e1ba372d12785a4a3a88fde54d15"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/FIXTURE-TOOL-RESULT.json",
+      "bytes": 370,
+      "sha256": "6f6824de1ef7e75648422ced5dd9292af6ed20e4133613d0a320a1bb81e3517f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/RESULT.json",
+      "bytes": 174924,
+      "sha256": "32c38b4e8b192a5b64864ce2ac665e7c1cd0d4f59741a0842735997089c7e21c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/OWNERS-TOOL-RESULT.json",
+      "bytes": 316,
+      "sha256": "d05e992fa07a2a8871274114a9befa939a4ac16d3c74e33cbec9fd077202620f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/OWNERS-RESULT.json",
+      "bytes": 13368,
+      "sha256": "c6fc7e53cf29c3e9557abf3ce2bf12823d8c51f4d9b48e0125860be061e0f936"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/OWNERS-SOURCE-REVIEW.md",
+      "bytes": 3350,
+      "sha256": "213e429042688e6b5e64903206c304c017133bc7154eef4fbb500b0569f1b8a9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/OWNERS-SOURCE-RECEIPT.json",
+      "bytes": 8787,
+      "sha256": "ee85f9daf38e84eb832bc18682495012742a1206c4b9a40fcc08230c14f2e081"
+    }
+  ],
+  "limits": "Local synthetic reference component only; no full field/grid/global cancellation/source/garment/physical/fit/pose/motion/runtime/performance/appearance or AAA credit; no real constructor/collector route released. No native/GPU/browser/source-member decode or additionalcaseinvocation.",
+  "next": "Independent actual result review and root handoff verification; no repeat or tuning."
+}

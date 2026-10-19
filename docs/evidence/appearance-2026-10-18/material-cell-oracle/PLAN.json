@@ -1,0 +1,100 @@
+{
+  "utc": "2026-10-19T06:21:03.472979+00:00",
+  "pid": 68893,
+  "baseline": "fa786efdc3cf47209805769e12526125086a5d93",
+  "authority": "Robert Oct18 Sugata resume; independent critic and ten-minute recovery. Human steering wins.",
+  "usable_improvement": "One small reusable pure-Python exact-rational reference oracle for a SINGLE synthetic tetrahedron clipped by up to seven affine material/cut inequalities, with canonical minimal support, active labels, outward polygon facets and full-facet source-region transport. A future sequential-clipping builder could be checked independently against it. No production or full-field constructor.",
+  "bounded_question": "Can an independent bounded halfspace-intersection oracle preserve a thin paired material interval missed by corner-only membership and return consistent canonical support/facet labels, while explicitly refusing lower-dimensional or ambiguous ownership cases?",
+  "decision": "Retain this independently source-reviewed component only if one fixed synthetic packet supports its declared local invariants. Otherwise preserve the concrete failure and stop without correction/retry. It never releases the held real-field/constructor or closed collector route.",
+  "exact_contract_witness": "CONTRACT.json /material_polytope requires all7halfspaces, exact rational barycentrics, minimal support/active inequality identity and whole pre-fan facet labels. /source_region_transport forbids shrinking a mixed polygon label set. The current collector route is closed; no actual field/mesh exists from this method.",
+  "distinct_representation": "This component is an independent local oracle using at most C(11,3)=165 exact triple-plane intersections and exact projected convex hull facet ordering. It is deliberately NOT the specified sequential whole-grid builder; that contract stays unchanged. It does not read body/grid/source data. A later integration needs separate review and complete source/workload ownership.",
+  "input_api": {
+    "nodes": "Exactly4 distinct nonnegative global IDs,4 finite binary64 worldXYZ coordinates and4 nonempty sets from r/l/torso. The four world points must define a positive determinant. These are synthetic only in this slice.",
+    "inequalities": "At most7 distinct named global inequality IDs with4 finite binary64 sample values each, inside<=0; exact conversion with as_integer_ratio. Four barycentric tetra bounds added internally. Reject invalid types/nonfinite/duplicates or excessive numeric size.",
+    "bounds": "4nodes/11planes/165triple solves; exact Fraction numerators/denominators guarded at4096bits. No unbounded recursion/iteration or variable external data.",
+    "status": "OK only full-dimensional positive-volume local polytope with owned outward facets; EMPTY/DEGENERATE/UNKNOWN/REFUSED or invalid-input exception explicit, never whole-fieldPASS."
+  },
+  "algorithm_contract": [
+    "Convert finite float inputs to exact ratios; represent lambda0=1-u-v-w and other lambdas=u,v,w. Enumerate independent triples of the11or fewer plane equations; retain only exactly feasible intersections.",
+    "Classify affine dimension exactly. Derive each positive-area facet with exact projected convex hull, orient outward using generating inequality normal, and rotate to the smallest canonical vertex key. Coincident positive-area face owners or rank/order ambiguity refuse, with explicit status rather than epsilon rescue.",
+    "Canonical vertex key uses sorted global IDs with strictly positive barycentrics and ALL exactly active global inequalities; record exact rational barycentrics/position. Union source-label sets over complete support. Each polygon facet and every canonical fan triangle retain the UNION over ALL polygon vertices.",
+    "Check exact local edge incidences/orientation, nonzero fan triangles, positive volume. Preserve full output in fixed synthetic result; no world float export or mesh adoption."
+  ],
+  "synthetic_programme": [
+    "Single uncut positive unit tetra control with known volume1/6.",
+    "Thin paired interval with every original corner outside but nonempty local volume; analytic independently specified volume.",
+    "One plane cap, all-outside EMPTY, point/edge/face degeneracy, exact on-plane original vertices.",
+    "Two cells sharing a face/global IDs: canonical occurrences and transport must agree under independent local ordering; no actual grid allocation.",
+    "Mixed support and a facet whose full label set is larger than a fan triangle subset: every fan retains whole facet labels.",
+    "Coincident positive-area owners refuse; invalid nonfinite/duplicate IDs/labels and inverted determinant reject.",
+    "No random generation or parameter sweep; at most24explicit cases, expectations declared in fixture before source review."
+  ],
+  "execution_gate": "Worth A first. Root authors oracle+fixed fixture, root whole source check, independent critic whole source review and root verification. Only then one five-second alarm-bounded synthetic invocation of those same functions, using stdlib and no original workers/kernel/archive/native source imports. No trial correction/retry; result review decides retention.",
+  "resource_limits": {
+    "invocations": 1,
+    "wall_alarm_seconds": 5,
+    "synthetic_cases_max": 24,
+    "input_nodes_per_case": 4,
+    "inequalities_max": 7,
+    "triple_solves_per_case_max": 165,
+    "output_bytes_max": 1048576,
+    "source_bytes_max": 32768,
+    "memory_policy": "Owned input/output and finite work caps; no claim of hard instantaneous RSS enforcement. Small stdlib Fraction implementation only.",
+    "writes": "Own new leaf, exclusive RESULT.json and captured exact tool output; source and documentation only before run. No external files, accepted assets, existing code, grid or body members."
+  },
+  "online_budget": "At most one current official primary exact-arithmetic/API page if useful to settle implementation. No design images needed for this mathematical source component; no empirical appearance inference.",
+  "fixed_stops_utc": {
+    "worth": "2026-10-19T06:40:00Z",
+    "source_authoring": "2026-10-19T07:00:00Z",
+    "source_review_and_root": "2026-10-19T07:10:00Z",
+    "sole_trial_complete": "2026-10-19T07:15:00Z",
+    "result_review": "2026-10-19T07:25:00Z",
+    "closure": "2026-10-19T07:35:00Z"
+  },
+  "alternatives": [
+    {
+      "id": "A",
+      "choice": "Independent exact single-cell oracle now.",
+      "tradeoff": "Concrete reusable algorithm and adversarial local evidence, isolated from blocked field work; cannot qualify actual geometry or even the future sequential implementation."
+    },
+    {
+      "id": "B",
+      "choice": "Defer component until a future complete field/builder admission.",
+      "tradeoff": "Avoids another isolated prerequisite, but leaves a substantive exact geometry operation and thin-interval failure mode without an independent reference."
+    }
+  ],
+  "preservation": "No collector changes/trials, source-member decode, native/GPU/browser/capture, full grid/tetra allocation, candidate garment construction or export. First constructor HOLD, earlier closed methods and all accepted/default/original/frozen/unrelated work preserved. Full AAA character/expression/representation/wardrobe/physical fit/morph/pose/motion/performance/VTuber/Mii remains open.",
+  "recovery_scope": "Root read exact current revised contract (987422), current review/README(2e7c05), and stopped palette after worth B(6e12c0,18c7f4). Historical Ari body request was read for recovery; later work-window header inspection shows it was superseded by completed neutral/native actor studies, so it is NOT a current nomination. A broad rg historical excerpt truncated and was not treated as full source review. No repeated body inventory/trial.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/CONTRACT.json",
+      "bytes": 17528,
+      "sha256": "974c1cbd3ad811717aec75069f8a2c696aaacf2a8c5631599d8244914d1a7fcf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/REVIEW.md",
+      "bytes": 4983,
+      "sha256": "275e04a50a500eb1b617c42b47b573c644c83efa1bf6f961a105a6d33c4f66f6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-source-eligibility-v2/ROOT-CLOSE.json",
+      "bytes": 2265,
+      "sha256": "0f320ba076498d0e48e0e9a6bd874fc4c673aacd7effdbba5016e28a23f78a5b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-CLOSE.json",
+      "bytes": 17089,
+      "sha256": "3a36aeafcd2b14aaad184eb67bb959836643bfb08ee3ca9b715a3db4e3b392d9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/terracotta-ink-look/ROOT-CLOSE.json",
+      "bytes": 1524,
+      "sha256": "4352b857d8ff72c4b113cb07195de2cd87fb93c9b62eaf23d94b21d83ca7b805"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 17486,
+      "sha256": "24e51a1cca73d0d9eb82d60436b13acde5623991eeab0c48f89d7df6effe787b"
+    }
+  ]
+}

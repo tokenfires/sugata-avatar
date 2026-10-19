@@ -1,0 +1,282 @@
+{
+  "utc": "2026-10-19T06:55:52.127367+00:00",
+  "pid": 72847,
+  "baseline": "fa786efdc3cf47209805769e12526125086a5d93",
+  "scope": "Only2recoverydocumentchanges plus2newleaves; allalgorithm/source/result evidence remains unchanged.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/README.md",
+      "bytes": 3812,
+      "sha256": "0ff9ca1495e20813462dd5f3740ec17fc2c157d83230a4a1195c4c26307ea866"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-ACCEPT.json",
+      "bytes": 2840,
+      "sha256": "537fddd764287e38f794328bc5258629a72400e908b710174f7d0176bc2ebcdb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-INDEPENDENT-DATA.json",
+      "bytes": 963,
+      "sha256": "a348bf9cf18b37bfb629695a9c95838f76d3fe4d60a7ae0048ca2bcfec476150"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/RESULT-REVIEW.md",
+      "bytes": 3278,
+      "sha256": "e1e1c1c7ab0a739f5849a642171ca5e927bc78e97ddea58689ec24662b680d9d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/RESULT-REVIEW-RECEIPT.json",
+      "bytes": 37143,
+      "sha256": "8fed7ebe49ebc67d2dd575bdc40ca2415210948dcfbecff91a79573bc8135ba5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/LIVE-SERVICES.json",
+      "bytes": 1716,
+      "sha256": "f82ad661ed166cdb8f6e2ac43def616b7f71b4d7fe5149763060f39f4d9b7ecc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/DELIVERY-DIFF.json",
+      "bytes": 11138,
+      "sha256": "e3dc179d11b34b1171c17be78f72dc44156e43e758521854e9684fbdb2fc8b12"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 10528,
+      "sha256": "809d20c88d9d3f3a3b602231e35692ad3546d744d28be6a810156b37b98ef021"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 21577,
+      "sha256": "313005a26581b59fc35713917b213b8eb416eaa21cd8c1b6867c937349788926"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7161,
+      "sha256": "7ce48fa51bff4087e469934635d048ef997d68d900a6ae449849c01e3bccd00f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 15923,
+      "sha256": "a11432b33af9df3f64d14ecec6e5af08faa06c0f3f7ea07887ca46a835fa5ea2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/terracotta-ink-look/ROOT-CLOSE.json",
+      "bytes": 1524,
+      "sha256": "4352b857d8ff72c4b113cb07195de2cd87fb93c9b62eaf23d94b21d83ca7b805"
+    }
+  ],
+  "links": [
+    {
+      "source": "docs/evidence/appearance-2026-10-18/material-cell-oracle/README.md",
+      "target": "cell_oracle.py",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-18/material-cell-oracle/README.md",
+      "target": "RESULT.json",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-18/material-cell-oracle/README.md",
+      "target": "ROOT-RESULT.json",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-18/material-cell-oracle/README.md",
+      "target": "RESULT-REVIEW.md",
+      "exists": true
+    },
+    {
+      "source": "docs/evidence/appearance-2026-10-18/material-cell-oracle/README.md",
+      "target": "PRIMARY-RECEIPT.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESUME-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/material-cell-oracle/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESUME-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/material-cell-oracle/ROOT-ACCEPT.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESUME-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/material-cell-oracle/LIVE-SERVICES.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESUME-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-trouser-artist/ARTIST-HANDOFF.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESUME-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-trouser-artist/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESUME-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-IMAGE.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESUME-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-interior-artist/ARTIST-HANDOFF.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESUME-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-interior-artist/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESUME-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-interior-artist/ROOT-IMAGE.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESUME-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/resume-from-checkpoint/RECOVERY.json",
+      "exists": true
+    },
+    {
+      "source": "docs/RESUME-2026-10-18.md",
+      "target": "WORK-WINDOW-2026-10-07.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESUME-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-10/ari-volume-owner-revision/REVIEW.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESUME-2026-10-18.md",
+      "target": "WORK-WINDOW-2026-10-18.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESUME-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-volume-field-prerequisites/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESUME-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/RESUME-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-source-eligibility-v2/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/WORK-WINDOW-2026-10-18.md",
+      "target": "RESUME-2026-10-18.md",
+      "exists": true
+    },
+    {
+      "source": "docs/WORK-WINDOW-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/resume-from-checkpoint/RECOVERY.json",
+      "exists": true
+    },
+    {
+      "source": "docs/WORK-WINDOW-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-volume-field-prerequisites/PLAN.json",
+      "exists": true
+    },
+    {
+      "source": "docs/WORK-WINDOW-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-volume-field-prerequisites/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/WORK-WINDOW-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-volume-field-prerequisites/ROOT-CLOSE.json",
+      "exists": true
+    },
+    {
+      "source": "docs/WORK-WINDOW-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-prerequisite-evidence-repair/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/WORK-WINDOW-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-source-eligibility-v2/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/WORK-WINDOW-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-interior-artist/ARTIST-HANDOFF.md",
+      "exists": true
+    },
+    {
+      "source": "docs/WORK-WINDOW-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-interior-artist/ROOT-IMAGE.json",
+      "exists": true
+    },
+    {
+      "source": "docs/WORK-WINDOW-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-trouser-artist/PLAN.json",
+      "exists": true
+    },
+    {
+      "source": "docs/WORK-WINDOW-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-trouser-artist/REFERENCES-RECEIPT.json",
+      "exists": true
+    },
+    {
+      "source": "docs/WORK-WINDOW-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-trouser-artist/SOURCE-PREPARATION.json",
+      "exists": true
+    },
+    {
+      "source": "docs/WORK-WINDOW-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-trouser-artist/ARTIST-HANDOFF.md",
+      "exists": true
+    },
+    {
+      "source": "docs/WORK-WINDOW-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-IMAGE.json",
+      "exists": true
+    },
+    {
+      "source": "docs/WORK-WINDOW-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/terracotta-ink-look/ROOT-CLOSE.json",
+      "exists": true
+    },
+    {
+      "source": "docs/WORK-WINDOW-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/material-cell-oracle/README.md",
+      "exists": true
+    },
+    {
+      "source": "docs/WORK-WINDOW-2026-10-18.md",
+      "target": "evidence/appearance-2026-10-18/material-cell-oracle/ROOT-ACCEPT.json",
+      "exists": true
+    }
+  ],
+  "literal_local_link_occurrences": 38,
+  "board_and_checklist_exactbaseline": true,
+  "checked": 21,
+  "open": 10,
+  "diff_exact": true,
+  "git_diff_check_exit": 0,
+  "historical_mutable_document_pins": [
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "git_epoch": "fa786efdc3cf47209805769e12526125086a5d93",
+      "bytes": 8207,
+      "sha256": "93d945bbd97e8010e60c9847976fa3d12b7e1626b62130f41684361616d731b4"
+    },
+    {
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "git_epoch": "fa786efdc3cf47209805769e12526125086a5d93",
+      "bytes": 17486,
+      "sha256": "24e51a1cca73d0d9eb82d60436b13acde5623991eeab0c48f89d7df6effe787b"
+    }
+  ],
+  "epoch_note": "Older plan/worth/source pins of these two recovery documents are historical review epochs, not a demand that legitimate later checkpoint text stay frozen. Exact oldbytes are recoverable from baselineGit and DELIVERY-DIFF.json. All immutable source/actual/result files stay unchanged.",
+  "next": "Independent narrow documentary consistency review; rootwholehandoff/pins/scope verification then exclusiveROOT-CLOSE andlocalcommit. No next experiment admitted."
+}

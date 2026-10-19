@@ -1,0 +1,604 @@
+{
+  "scope": "saved synthetic local-cell facet owner readback only",
+  "status": "OWNERS_PASS",
+  "pid": 71375,
+  "utc": "2026-10-19T06:42:30.375749+00:00",
+  "input_bytes": 174924,
+  "input_sha256": "32c38b4e8b192a5b64864ce2ac665e7c1cd0d4f59741a0842735997089c7e21c",
+  "ok_cells": 10,
+  "facets_checked": 54,
+  "rows": [
+    {
+      "group": "unit_inactive7",
+      "part": "single",
+      "kind": "tet",
+      "owner": [
+        10,
+        11,
+        12
+      ],
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "unit_inactive7",
+      "part": "single",
+      "kind": "tet",
+      "owner": [
+        10,
+        11,
+        13
+      ],
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "unit_inactive7",
+      "part": "single",
+      "kind": "tet",
+      "owner": [
+        10,
+        12,
+        13
+      ],
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "unit_inactive7",
+      "part": "single",
+      "kind": "tet",
+      "owner": [
+        11,
+        12,
+        13
+      ],
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "paired_interval_no_inside_corner",
+      "part": "single",
+      "kind": "cut",
+      "owner": "INNER",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "paired_interval_no_inside_corner",
+      "part": "single",
+      "kind": "cut",
+      "owner": "OUTER",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "paired_interval_no_inside_corner",
+      "part": "single",
+      "kind": "tet",
+      "owner": [
+        10,
+        11,
+        12
+      ],
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "paired_interval_no_inside_corner",
+      "part": "single",
+      "kind": "tet",
+      "owner": [
+        10,
+        11,
+        13
+      ],
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "paired_interval_no_inside_corner",
+      "part": "single",
+      "kind": "tet",
+      "owner": [
+        11,
+        12,
+        13
+      ],
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "thin_interval_no_inside_corner",
+      "part": "single",
+      "kind": "cut",
+      "owner": "INNER",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "thin_interval_no_inside_corner",
+      "part": "single",
+      "kind": "cut",
+      "owner": "OUTER",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "thin_interval_no_inside_corner",
+      "part": "single",
+      "kind": "tet",
+      "owner": [
+        10,
+        11,
+        12
+      ],
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "thin_interval_no_inside_corner",
+      "part": "single",
+      "kind": "tet",
+      "owner": [
+        10,
+        11,
+        13
+      ],
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "thin_interval_no_inside_corner",
+      "part": "single",
+      "kind": "tet",
+      "owner": [
+        11,
+        12,
+        13
+      ],
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "half_x_cap",
+      "part": "single",
+      "kind": "cut",
+      "owner": "X",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "half_x_cap",
+      "part": "single",
+      "kind": "tet",
+      "owner": [
+        10,
+        11,
+        12
+      ],
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "half_x_cap",
+      "part": "single",
+      "kind": "tet",
+      "owner": [
+        10,
+        11,
+        13
+      ],
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "half_x_cap",
+      "part": "single",
+      "kind": "tet",
+      "owner": [
+        10,
+        12,
+        13
+      ],
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "half_x_cap",
+      "part": "single",
+      "kind": "tet",
+      "owner": [
+        11,
+        12,
+        13
+      ],
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "all7_active_mixed_support",
+      "part": "single",
+      "kind": "cut",
+      "owner": "CORNER",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "all7_active_mixed_support",
+      "part": "single",
+      "kind": "cut",
+      "owner": "XHIGH",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "all7_active_mixed_support",
+      "part": "single",
+      "kind": "cut",
+      "owner": "XLOW",
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "all7_active_mixed_support",
+      "part": "single",
+      "kind": "cut",
+      "owner": "YHIGH",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "all7_active_mixed_support",
+      "part": "single",
+      "kind": "cut",
+      "owner": "YLOW",
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "all7_active_mixed_support",
+      "part": "single",
+      "kind": "cut",
+      "owner": "ZHIGH",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "all7_active_mixed_support",
+      "part": "single",
+      "kind": "cut",
+      "owner": "ZLOW",
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "on_original_vertex",
+      "part": "single",
+      "kind": "tet",
+      "owner": [
+        10,
+        11,
+        12
+      ],
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "on_original_vertex",
+      "part": "single",
+      "kind": "tet",
+      "owner": [
+        10,
+        11,
+        13
+      ],
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "on_original_vertex",
+      "part": "single",
+      "kind": "tet",
+      "owner": [
+        10,
+        12,
+        13
+      ],
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "on_original_vertex",
+      "part": "single",
+      "kind": "tet",
+      "owner": [
+        11,
+        12,
+        13
+      ],
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "shared_face",
+      "part": "above",
+      "kind": "cut",
+      "owner": "X",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "shared_face",
+      "part": "above",
+      "kind": "tet",
+      "owner": [
+        10,
+        11,
+        12
+      ],
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "shared_face",
+      "part": "above",
+      "kind": "tet",
+      "owner": [
+        10,
+        11,
+        13
+      ],
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "shared_face",
+      "part": "above",
+      "kind": "tet",
+      "owner": [
+        10,
+        12,
+        13
+      ],
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "shared_face",
+      "part": "above",
+      "kind": "tet",
+      "owner": [
+        11,
+        12,
+        13
+      ],
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "shared_face",
+      "part": "below",
+      "kind": "cut",
+      "owner": "X",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "shared_face",
+      "part": "below",
+      "kind": "tet",
+      "owner": [
+        10,
+        11,
+        12
+      ],
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "shared_face",
+      "part": "below",
+      "kind": "tet",
+      "owner": [
+        10,
+        11,
+        14
+      ],
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "shared_face",
+      "part": "below",
+      "kind": "tet",
+      "owner": [
+        10,
+        12,
+        14
+      ],
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "shared_face",
+      "part": "below",
+      "kind": "tet",
+      "owner": [
+        11,
+        12,
+        14
+      ],
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "positive_local_order",
+      "part": "base",
+      "kind": "cut",
+      "owner": "CORNER",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "positive_local_order",
+      "part": "base",
+      "kind": "cut",
+      "owner": "XHIGH",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "positive_local_order",
+      "part": "base",
+      "kind": "cut",
+      "owner": "XLOW",
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "positive_local_order",
+      "part": "base",
+      "kind": "cut",
+      "owner": "YHIGH",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "positive_local_order",
+      "part": "base",
+      "kind": "cut",
+      "owner": "YLOW",
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "positive_local_order",
+      "part": "base",
+      "kind": "cut",
+      "owner": "ZHIGH",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "positive_local_order",
+      "part": "base",
+      "kind": "cut",
+      "owner": "ZLOW",
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "positive_local_order",
+      "part": "permuted",
+      "kind": "cut",
+      "owner": "CORNER",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "positive_local_order",
+      "part": "permuted",
+      "kind": "cut",
+      "owner": "XHIGH",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "positive_local_order",
+      "part": "permuted",
+      "kind": "cut",
+      "owner": "XLOW",
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "positive_local_order",
+      "part": "permuted",
+      "kind": "cut",
+      "owner": "YHIGH",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "positive_local_order",
+      "part": "permuted",
+      "kind": "cut",
+      "owner": "YLOW",
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "positive_local_order",
+      "part": "permuted",
+      "kind": "cut",
+      "owner": "ZHIGH",
+      "facet_vertices": 3,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    },
+    {
+      "group": "positive_local_order",
+      "part": "permuted",
+      "kind": "cut",
+      "owner": "ZLOW",
+      "facet_vertices": 4,
+      "normal_bound": true,
+      "all_facet_points_on_input_plane": true
+    }
+  ],
+  "oracle_invocations": 0,
+  "limits": "No case replay or oracle import; no real field/grid/global cancellation/physical/fit/appearance credit."
+}

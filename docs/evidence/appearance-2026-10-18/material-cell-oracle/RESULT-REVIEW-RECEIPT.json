@@ -1,0 +1,472 @@
+{
+  "schema": "material-cell-actual-critic-v1",
+  "verdict": "A_LOCAL_SYNTHETIC_REFERENCE_ONLY",
+  "collected_utc": "2026-10-19T06:52:02.357037+00:00",
+  "writer_pid": 72439,
+  "pending_edits": false,
+  "deadline": "Result07:25UTC/root07:35UTC,2026-10-19; unchanged.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/CLAIM.json",
+      "bytes": 209,
+      "sha256": "5263431c09f32fcc924089cc23471b3fac88e1ba372d12785a4a3a88fde54d15",
+      "read_scope": "Whole sole-attempt claim/PID/scope/admission hash and exact RESULT-start UTC."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/FIXTURE-TOOL-RESULT.json",
+      "bytes": 370,
+      "sha256": "6f6824de1ef7e75648422ced5dd9292af6ed20e4133613d0a320a1bb81e3517f",
+      "read_scope": "Whole saved tool object/complete decoded output; exit/chunk/hash/size/PID/elapsed associations."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/OWNERS-PREPARATION.json",
+      "bytes": 4715,
+      "sha256": "f40d11145bdcc781545a7f976cf89a753d7d152d9151bc224baf0459f8691627",
+      "read_scope": "Whole unchanged combined preparation and all source/input rows."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/OWNERS-RESULT.json",
+      "bytes": 13368,
+      "sha256": "c6fc7e53cf29c3e9557abf3ce2bf12823d8c51f4d9b48e0125860be061e0f936",
+      "read_scope": "Entire13368-byte strict JSON; all54 rows independently rederived from RESULT input coefficients/world edges and compared in exact saved order."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/OWNERS-SOURCE-RECEIPT.json",
+      "bytes": 8787,
+      "sha256": "ee85f9daf38e84eb832bc18682495012742a1206c4b9a40fcc08230c14f2e081",
+      "read_scope": "Own whole combined source-A receipt reused; fresh pin."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/OWNERS-SOURCE-REVIEW.md",
+      "bytes": 3350,
+      "sha256": "213e429042688e6b5e64903206c304c017133bc7154eef4fbb500b0569f1b8a9",
+      "read_scope": "Own whole combined source-A handoff reused; fresh pin."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/OWNERS-TOOL-RESULT.json",
+      "bytes": 316,
+      "sha256": "d05e992fa07a2a8871274114a9befa939a4ac16d3c74e33cbec9fd077202620f",
+      "read_scope": "Whole saved tool object/complete decoded output; exit/chunk/hash/size/PID associations."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/PLAN-CLARIFICATION.md",
+      "bytes": 1717,
+      "sha256": "f26f7abe02e1b47b0693f9fe7b55e0b88e0add09eb9e6e4470b2ff8178fa1f28",
+      "read_scope": "Prior complete1717-byte read reused after fresh byte pin; impossible strict label-loss fixture remains excluded."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/PLAN.json",
+      "bytes": 9233,
+      "sha256": "20557cda84b3ef715b7f11f3c7eba099626b0b773cbf7e12a34d8a0240aa5abb",
+      "read_scope": "Prior complete plan read reused after fresh byte pin; no new investigation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/README.md",
+      "bytes": 3812,
+      "sha256": "0ff9ca1495e20813462dd5f3740ec17fc2c157d83230a4a1195c4c26307ea866",
+      "read_scope": "Entire3812-byte draft numeric/scope wording; all5 local Markdown links checked, RESULT-REVIEW intentionally pending before write; final ROOT-CLOSE pending plain-text reference."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/RESULT.json",
+      "bytes": 174924,
+      "sha256": "32c38b4e8b192a5b64864ce2ac665e7c1cd0d4f59741a0842735997089c7e21c",
+      "read_scope": "Entire174924-byte strict JSON; all24 outcomes and every saved exact fraction/returned vertex/facet/fan independently traversed by embedded audit."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-ADMISSION.json",
+      "bytes": 2814,
+      "sha256": "c1c4d0da285d577ee81f4614ce7011a368f85c3653b7da3f3eabdbfddcb5eaf6",
+      "read_scope": "Whole admission/commands/deadlines/source hashes; all3 source rows and sha256 map independently verified."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-INITIAL-SOURCE.json",
+      "bytes": 1421,
+      "sha256": "fae70f9f527c8719c08957dddf3e8d3612dc677c818711c3b80283e46d66d282",
+      "read_scope": "Preserved whole initial-B mapping/selection; fresh pin."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-RESULT.json",
+      "bytes": 9426,
+      "sha256": "4dfd51b52079454898d5a782eba15108ea204a7772679633580b9f489a4a00d2",
+      "read_scope": "Whole comparative root observation/pin manifest; root conclusions not used as independent oracle."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-SOURCE-PREP.json",
+      "bytes": 3840,
+      "sha256": "88ca58d01d23360a67eb9680659c7c4f05d52be2e98b17e9333729ce67fadc3b",
+      "read_scope": "Prior whole metadata read reused with fresh pin."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-WORTH.json",
+      "bytes": 939,
+      "sha256": "077b78439827ae3f4dda227efea32a8b46a8d4daca8074c625791ec25edec1fc",
+      "read_scope": "Bytes reverified as an unchanged binding; no fresh broader read claim."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/SOURCE-PREPARATION.json",
+      "bytes": 2390,
+      "sha256": "1871d09d1c2faab79a3e191be0f4e3d9cb54a0f6da2e64cb86a06e0de6191af6",
+      "read_scope": "Whole unchanged initial preparation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/SOURCE-REVIEW-RECEIPT.json",
+      "bytes": 10545,
+      "sha256": "94e57dcda08066823d25fe67b7656b925c8c8905279cf60e6dc9dae08328f134",
+      "read_scope": "Preserved whole initial source-B receipt; fresh pin."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/SOURCE-REVIEW.md",
+      "bytes": 3357,
+      "sha256": "cd3cac7c5da047654945f481c5418b1c740bbd812167fb6195cf61ca8c752ff8",
+      "read_scope": "Preserved whole initial source-B finding; fresh pin."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/cell_oracle.py",
+      "bytes": 10368,
+      "sha256": "4ef679f6e892ada5282eecfd0f0f7945594261fa3a310217871722cf44007444",
+      "read_scope": "Prior complete234-line review reused after fresh byte pin; current188-234 reread for actual plane ownership/whole-facet copy/incidence/volume."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/fixed_fixture.py",
+      "bytes": 11689,
+      "sha256": "be267cb559ba9acea70756f793a5bd332a8e5ff065a60601869c9f04134f91c7",
+      "read_scope": "Prior complete235-line review reused after fresh byte pin; current118-235 reread for all cases, invalids, analytic/shared/order expectations and exclusive output."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/verify_owners.py",
+      "bytes": 4408,
+      "sha256": "b38184091fe880306961e3dcc610e183ad78a82aaf901d8722a780f56d2c8732",
+      "read_scope": "Prior complete98-line combined review reused after fresh byte pin. Not imported or invoked by critic."
+    }
+  ],
+  "verified_nested_binding_rows": 25,
+  "verified_nested_unique_paths": 19,
+  "jobs": [
+    {
+      "chunk": "70aeb5",
+      "exit": 0,
+      "pid": 71657,
+      "utc": "2026-10-19T06:44:34.599906+00:00",
+      "command_scope": "Read/hash complete ROOT-ADMISSION,CLAIM,ROOT-RESULT and artifact inventory."
+    },
+    {
+      "chunk": "bb0e87",
+      "exit": 0,
+      "pid": 71867,
+      "utc": "2026-10-19T06:46:34.775947+00:00",
+      "command_scope": "Whole tool objects, packet metadata/schema and first-row inspection."
+    },
+    {
+      "chunk": "b39aaa",
+      "exit": 0,
+      "pid": 71884,
+      "utc": "2026-10-19T06:46:44.148625+00:00",
+      "command_scope": "All24 saved outcome summaries, seven complete invalid rows, full source/owner preparation and README."
+    },
+    {
+      "chunk": "13bd1c",
+      "exit": 0,
+      "pid": null,
+      "command_scope": "Text-only selected current source118-235/188-234; PID not exposed."
+    },
+    {
+      "chunk": "885a47",
+      "exit": 1,
+      "pid": null,
+      "command_scope": "Independent saved-data audit; overstrong box support expectation failed; no target import/call. PID not printed."
+    },
+    {
+      "chunk": "b98a08",
+      "exit": 0,
+      "pid": 72079,
+      "utc_start": "2026-10-19T06:48:38.099059+00:00",
+      "utc_report": "2026-10-19T06:48:38.108513+00:00",
+      "command_scope": "python3 stdin data-only exact Fraction audit, exact body embedded."
+    },
+    {
+      "chunk": "2324ee",
+      "exit": 0,
+      "pid": 72150,
+      "utc": "2026-10-19T06:49:16.957463+00:00",
+      "command_scope": "Full admission reread; README pin/local links and output sizes."
+    },
+    {
+      "chunk": "2e4952",
+      "exit": 1,
+      "pid": null,
+      "command_scope": "First receipt-writer text had a quoting SyntaxError before Python execution; no files were created or source changed. Corrected only writer quoting."
+    }
+  ],
+  "independent_observer": {
+    "command": "python3 stdin; exact_source is the complete submitted data-only observer body.",
+    "exact_source": "import os,datetime,json,hashlib,math\nfrom pathlib import Path\nfrom fractions import Fraction as F\nfrom collections import Counter\nP=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle')\nprint('OBSERVER',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\ndef pairs(rows):\n d={}\n for k,v in rows:\n  assert k not in d,('duplicate key',k)\n  d[k]=v\n return d\ndef read(n):\n return json.loads((P/n).read_bytes(),object_pairs_hook=pairs,parse_constant=lambda x:(_ for _ in ()).throw(ValueError(x)))\ndef revive(v):\n if isinstance(v,dict):\n  if set(v)=={'n','d'}:\n   n,d=v['n'],v['d']\n   assert type(n)is int and type(d)is int and d>0 and math.gcd(n,d)==1 and max(abs(n).bit_length(),d.bit_length())<=4096\n   return F(n,d)\n  return {k:revive(x) for k,x in v.items()}\n if isinstance(v,list):return [revive(x) for x in v]\n return v\ndef q(v):\n assert type(v)is float and math.isfinite(v)\n return F(*v.as_integer_ratio())\ndef sub(a,b):return [x-y for x,y in zip(a,b)]\ndef dot(a,b):return sum(x*y for x,y in zip(a,b))\ndef cross(a,b):return [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]\ndef rank(rows):\n a=[list(x) for x in rows]; r=0\n for j in range(3):\n  k=next((i for i in range(r,len(a)) if a[i][j]),None)\n  if k is None:continue\n  a[r],a[k]=a[k],a[r]; z=a[r][j]; a[r]=[x/z for x in a[r]]\n  for i in range(len(a)):\n   if i!=r:\n    z=a[i][j];a[i]=[x-z*y for x,y in zip(a[i],a[r])]\n  r+=1\n return r\npin_rows=[]\ndef verify_rows(v,label):\n if isinstance(v,dict):\n  if {'path','bytes','sha256'}<=set(v):\n   p=Path(v['path']); p=p if p.is_absolute() else P/p\n   b=p.read_bytes();assert len(b)==v['bytes'] and hashlib.sha256(b).hexdigest()==v['sha256'],(label,str(p))\n   pin_rows.append((label,str(p),len(b),hashlib.sha256(b).hexdigest()))\n  for k,x in v.items():verify_rows(x,label+'.'+k)\n elif isinstance(v,list):\n  for i,x in enumerate(v):verify_rows(x,label+'.'+str(i))\nfor n in ['ROOT-ADMISSION.json','ROOT-RESULT.json','OWNERS-PREPARATION.json']:\n verify_rows(read(n),n)\nad=read('ROOT-ADMISSION.json');cl=read('CLAIM.json')\nassert ad['admitted'] is True and cl['attempt']==1 and cl['scope']==ad['scope']\nassert cl['admission_sha256']==hashlib.sha256((P/'ROOT-ADMISSION.json').read_bytes()).hexdigest()\nr=revive(read('RESULT.json')); own=read('OWNERS-RESULT.json')\nft=read('FIXTURE-TOOL-RESULT.json');ot=read('OWNERS-TOOL-RESULT.json')\nfsummary=json.loads(ft['output']);osummary=json.loads(ot['output'])\nassert ft['exit_code']==ot['exit_code']==0\nassert fsummary['result_sha256']==hashlib.sha256((P/'RESULT.json').read_bytes()).hexdigest()\nassert osummary['sha256']==hashlib.sha256((P/'OWNERS-RESULT.json').read_bytes()).hexdigest()\nassert r['pid']==cl['pid']==fsummary['pid']==71345\nassert r['utc_started']==cl['utc']\nassert r['status']=='FIXTURE_PASS' and r['groups']==22 and r['oracle_calls']==24\nassert own['status']=='OWNERS_PASS' and own['pid']==osummary['pid']==71375\nassert own['input_bytes']==len((P/'RESULT.json').read_bytes())==174924 and own['input_sha256']==fsummary['result_sha256']\nassert own['oracle_invocations']==0\nexpected=[\n('unit_inactive7','single','OK',F(1,6)),('paired_interval_no_inside_corner','single','OK',F(19,384)),\n('thin_interval_no_inside_corner','single','OK',F(787969,6442450944)),('half_x_cap','single','OK',F(7,48)),\n('all7_active_mixed_support','single','OK',F(5,3072)),('empty','single','EMPTY',F(0)),\n('point','single','DEGENERATE',F(0)),('edge','single','DEGENERATE',F(0)),('face','single','DEGENERATE',F(0)),\n('on_original_vertex','single','OK',F(1,6)),('coincident_cuts','single','REFUSED',None),\n('coincident_tet_face','single','REFUSED',None),('zero_global_field','single','UNKNOWN',None),\n('shared_face','above','OK',F(7,48)),('shared_face','below','OK',F(7,48)),\n('positive_local_order','base','OK',F(5,3072)),('positive_local_order','permuted','OK',F(5,3072))]\ninvalid=[\n('duplicate_gids','four distinct bounded global node IDs required'),\n('nonfinite_point','coefficients must be finite binary64 floats'),\n('invalid_label','four nonempty accepted source-region sets required'),\n('inverted_tetra','positive nondegenerate tetra determinant required'),\n('duplicate_cut_ids','unique bounded ASCII global inequality IDs required'),\n('too_many_cuts','at most seven global inequalities'),('excessive_input_ratio','input ratio exceeds 128 bits')]\nobs=r['observations'];assert len(obs)==24 and len({x['group'] for x in obs})==22\nowner_rows=[];checked=[];vertex_count=0;fan_count=0;facet_count=0;corner_checks=[];saved={}\nfor row,e in zip(obs[:17],expected):\n group,part,status,volume=e;assert (row['group'],row['part'],row['expected_status'])==(group,part,status)\n assert row['passed'] is True\n a=row['actual'];assert a['status']==status\n I=row['inputs'];g=I['gids'];pts=[[q(x) for x in p] for p in I['points']];labels=I['labels'];fields={n:list(map(q,x)) for n,x in I['cuts']}\n assert len(g)==4 and len(set(g))==4 and len(fields)==len(I['cuts'])<=7\n assert dot(sub(pts[1],pts[0]),cross(sub(pts[2],pts[0]),sub(pts[3],pts[0])))>0\n saved[(group,part)]=row\n if status in ['REFUSED','UNKNOWN']:\n  assert set(a)=={'status','reason'}\n  if status=='REFUSED':\n   assert a['reason']=='multiple positive-area facet owners'\n   if group=='coincident_cuts':assert fields['A']==fields['B']\n   else:assert fields['TET_DUPLICATE']==[-F(1),F(0),F(0),F(0)]\n  else:assert a['reason']=='identically zero global inequality has no outward gradient' and fields['ZERO']==[F(0)]*4\n  checked.append({'group':group,'part':part,'status':status,'returned_geometry_fields':False});continue\n vs=a['vertices'];fs=a['facets'];assert a['volume']==volume\n if row['expected_volume'] is not None:assert row['expected_volume']==volume\n assert 0<=a['triple_solves']<=165 and type(a['triple_solves'])is int\n if vs:\n  assert a['dimension']==rank([sub(v['position'],vs[0]['position']) for v in vs])\n else:assert a['dimension']==-1\n keys=[]\n for v in vs:\n  wm=dict(v['weights']);assert len(wm)==4 and sorted(wm)==sorted(g) and len(v['weights'])==4\n  w=[wm[k] for k in g];assert sum(w)==1 and all(x>=0 for x in w)\n  assert v['u']==w[1:]\n  support=sorted(g[i] for i,x in enumerate(w) if x>0)\n  active=sorted(n for n,x in fields.items() if dot(w,x)==0)\n  assert all(dot(w,x)<=0 for x in fields.values())\n  assert v['key']==[support,active]\n  assert v['position']==[sum(w[i]*pts[i][j] for i in range(4)) for j in range(3)]\n  assert v['regions']==sorted(set().union(*(set(labels[i]) for i,x in enumerate(w) if x>0)))\n  keys.append(v['key'])\n assert keys==sorted(keys) and len({str(k) for k in keys})==len(keys)\n if status!='OK':\n  assert fs==[] and a['volume']==0\n  assert a['dimension']=={'empty':-1,'point':0,'edge':1,'face':2}[group]\n  assert len(vs)=={'empty':0,'point':1,'edge':2,'face':3}[group]\n  if group=='empty':assert all(x>0 for x in fields['NEGATIVE_X'])\n  checked.append({'group':group,'part':part,'status':status,'dimension':a['dimension'],'vertices':len(vs),'volume':'0'});continue\n assert a['dimension']==3\n boundary={};used=set();sumvol=F(0);seen_owners=set()\n for f in fs:\n  cycle=f['vertices'];normal=f['normal_world'];assert len(normal)==3 and any(normal)\n  assert len(cycle)>=3 and len(set(cycle))==len(cycle) and all(type(i)is int and 0<=i<len(vs) for i in cycle)\n  assert cycle[0]==min(cycle,key=lambda i:vs[i]['key'])\n  okey=(f['kind'],str(f['owner']));assert okey not in seen_owners;seen_owners.add(okey)\n  if f['kind']=='cut':\n   assert type(f['owner'])is str and f['owner'] in fields\n   values=fields[f['owner']]\n  else:\n   assert f['kind']=='tet' and f['owner']==sorted(f['owner']) and len(f['owner'])==3 and len(set(f['owner']))==3 and set(f['owner'])<set(g)\n   omitted=next(k for k in g if k not in f['owner']);values=[-F(1) if k==omitted else F(0) for k in g]\n  for j in range(1,4):assert dot(normal,sub(pts[j],pts[0]))==values[j]-values[0]\n  for k in cycle:\n   wm=dict(vs[k]['weights']);assert sum(wm[g[i]]*values[i] for i in range(4))==0\n   assert dot(normal,sub(vs[k]['position'],pts[0]))+values[0]==0\n  regions=sorted(set().union(*(set(vs[k]['regions']) for k in cycle)))\n  assert f['regions']==regions\n  assert len(f['triangles'])==len(cycle)-2\n  for j,t in enumerate(f['triangles'],1):\n   assert t['vertices']==[cycle[0],cycle[j],cycle[j+1]] and t['regions']==regions\n   p0,p1,p2=[vs[k]['position'] for k in t['vertices']]\n   assert dot(normal,cross(sub(p1,p0),sub(p2,p0)))>0\n   sumvol+=dot(p0,cross(p1,p2))/6\n   fan_count+=1\n  for u,v in zip(cycle,cycle[1:]+cycle[:1]):\n   edge=tuple(sorted((u,v)));boundary.setdefault(edge,[]).append(1 if u<v else -1)\n  used.update(cycle)\n  owner_rows.append({'group':group,'part':part,'kind':f['kind'],'owner':f['owner'],'facet_vertices':len(cycle),'normal_bound':True,'all_facet_points_on_input_plane':True})\n assert used==set(range(len(vs))) and all(len(x)==2 and sum(x)==0 for x in boundary.values())\n assert len(vs)-len(boundary)+len(fs)==2 and len(boundary)==a['edge_count']\n assert sumvol==volume and sumvol>0\n if group in ['paired_interval_no_inside_corner','thin_interval_no_inside_corner']:\n  lo=fields['INNER'][0];hi=-fields['OUTER'][0]\n  assert fields['INNER']==[lo-p[0] for p in pts] and fields['OUTER']==[p[0]-hi for p in pts]\n  assert ((1-lo)**3-(1-hi)**3)/6==volume\n  assert all(not all(x[i]<=0 for x in fields.values()) for i in range(4))\n  corner_checks.append({'group':group,'lo':str(lo),'hi':str(hi),'volume':str(volume),'no_original_corner_inside':True})\n if group in ['all7_active_mixed_support','positive_local_order']:\n  normals={'XLOW':[-1,0,0],'XHIGH':[1,0,0],'YLOW':[0,-1,0],'YHIGH':[0,1,0],'ZLOW':[0,0,-1],'ZHIGH':[0,0,1],'CORNER':[1,1,1]}\n  constants={'XLOW':F(1,8),'XHIGH':-F(1,4),'YLOW':F(1,8),'YHIGH':-F(1,4),'ZLOW':F(1,8),'ZHIGH':-F(1,4),'CORNER':-F(5,8)}\n  assert all(x==[dot(normals[n],p)+constants[n] for p in pts] for n,x in fields.items())\n  assert {f['owner'] for f in fs}==set(normals) and all(f['kind']=='cut' for f in fs)\n  assert all(v['regions']==['l','r','torso'] for v in vs) and F(1,8)**3*(1-F(1,6))==volume\n  assert all(v['key'][0]==sorted(g) for v in vs)\n if group in ['half_x_cap','shared_face']:\n  assert fields['X']==[p[0]-F(1,2) for p in pts] and F(1,6)-F(1,2)**3/6==volume\n if group=='on_original_vertex':assert sum('TOUCH' in v['key'][1] for v in vs)==1\n checked.append({'group':group,'part':part,'status':status,'vertices':len(vs),'facets':len(fs),'volume':str(volume)})\n vertex_count+=len(vs);facet_count+=len(fs)\nfor row,(group,message) in zip(obs[17:],invalid):\n assert row=={'group':group,'expected':'ValueError','actual':message,'passed':True}\n checked.append({'group':group,'status':'ValueError','message':message})\nassert owner_rows==own['rows'] and len(owner_rows)==own['facets_checked']==54\nassert facet_count==54 and own['ok_cells']==10\ndef shared(row):\n a=row['actual'];f=next(f for f in a['facets'] if f['kind']=='tet' and f['owner']==[10,11,12])\n return [(a['vertices'][i]['key'],a['vertices'][i]['position'],a['vertices'][i]['regions']) for i in f['vertices']]\nsa=shared(saved[('shared_face','above')]);sb=shared(saved[('shared_face','below')])\nknown={(F(0),F(0),F(0)),(F(1,2),F(0),F(0)),(F(1,2),F(1,2),F(0)),(F(0),F(1),F(0))}\nassert {tuple(x[1]) for x in sa}=={tuple(x[1]) for x in sb}==known\nassert sa[0]==sb[0] and sa[1:]==list(reversed(sb[1:]))\ndef glob(row):\n a=row['actual'];return {'vertices':[{k:v for k,v in x.items() if k!='u'} for x in a['vertices']],'facets':a['facets'],'volume':a['volume']}\nassert glob(saved[('positive_local_order','base')])==glob(saved[('positive_local_order','permuted')])\nout={'observer_pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'scope':'independent saved-data arithmetic only; no target/helper import or replay','verified_binding_rows':len(pin_rows),'unique_binding_paths':len({x[1] for x in pin_rows}),'outcomes':checked,'ok_cells':10,'ok_vertices':vertex_count,'facets':facet_count,'fan_triangles':fan_count,'owner_rows_exactly_match_saved_54':True,'paired_interval_analytics':corner_checks,'shared_face_exact_known_positions_and_opposed_cycles':True,'global_order_signature_exact':True,'source_whole_facet_dataflow_not_proved_by_equal_outputs':True,'invalid_rows_scope':'saved ValueError observations plus source inspection, no re-execution'}\nprint(json.dumps(out,indent=2))\n",
+    "sha256": "29029f6120e3294674fde1e9217f66497115459987705dff6fd1d38a2ddf1d7d",
+    "tool_result": {
+      "chunk_id": "b98a08",
+      "wall_time_seconds": 6.583e-06,
+      "exit_code": 0,
+      "original_token_count": 1175,
+      "output": "OBSERVER 72079 2026-10-19T06:48:38.099059+00:00\n{\n  \"observer_pid\": 72079,\n  \"utc\": \"2026-10-19T06:48:38.108513+00:00\",\n  \"scope\": \"independent saved-data arithmetic only; no target/helper import or replay\",\n  \"verified_binding_rows\": 25,\n  \"unique_binding_paths\": 19,\n  \"outcomes\": [\n    {\n      \"group\": \"unit_inactive7\",\n      \"part\": \"single\",\n      \"status\": \"OK\",\n      \"vertices\": 4,\n      \"facets\": 4,\n      \"volume\": \"1/6\"\n    },\n    {\n      \"group\": \"paired_interval_no_inside_corner\",\n      \"part\": \"single\",\n      \"status\": \"OK\",\n      \"vertices\": 6,\n      \"facets\": 5,\n      \"volume\": \"19/384\"\n    },\n    {\n      \"group\": \"thin_interval_no_inside_corner\",\n      \"part\": \"single\",\n      \"status\": \"OK\",\n      \"vertices\": 6,\n      \"facets\": 5,\n      \"volume\": \"787969/6442450944\"\n    },\n    {\n      \"group\": \"half_x_cap\",\n      \"part\": \"single\",\n      \"status\": \"OK\",\n      \"vertices\": 6,\n      \"facets\": 5,\n      \"volume\": \"7/48\"\n    },\n    {\n      \"group\": \"all7_active_mixed_support\",\n      \"part\": \"single\",\n      \"status\": \"OK\",\n      \"vertices\": 7,\n      \"facets\": 7,\n      \"volume\": \"5/3072\"\n    },\n    {\n      \"group\": \"empty\",\n      \"part\": \"single\",\n      \"status\": \"EMPTY\",\n      \"dimension\": -1,\n      \"vertices\": 0,\n      \"volume\": \"0\"\n    },\n    {\n      \"group\": \"point\",\n      \"part\": \"single\",\n      \"status\": \"DEGENERATE\",\n      \"dimension\": 0,\n      \"vertices\": 1,\n      \"volume\": \"0\"\n    },\n    {\n      \"group\": \"edge\",\n      \"part\": \"single\",\n      \"status\": \"DEGENERATE\",\n      \"dimension\": 1,\n      \"vertices\": 2,\n      \"volume\": \"0\"\n    },\n    {\n      \"group\": \"face\",\n      \"part\": \"single\",\n      \"status\": \"DEGENERATE\",\n      \"dimension\": 2,\n      \"vertices\": 3,\n      \"volume\": \"0\"\n    },\n    {\n      \"group\": \"on_original_vertex\",\n      \"part\": \"single\",\n      \"status\": \"OK\",\n      \"vertices\": 4,\n      \"facets\": 4,\n      \"volume\": \"1/6\"\n    },\n    {\n      \"group\": \"coincident_cuts\",\n      \"part\": \"single\",\n      \"status\": \"REFUSED\",\n      \"returned_geometry_fields\": false\n    },\n    {\n      \"group\": \"coincident_tet_face\",\n      \"part\": \"single\",\n      \"status\": \"REFUSED\",\n      \"returned_geometry_fields\": false\n    },\n    {\n      \"group\": \"zero_global_field\",\n      \"part\": \"single\",\n      \"status\": \"UNKNOWN\",\n      \"returned_geometry_fields\": false\n    },\n    {\n      \"group\": \"shared_face\",\n      \"part\": \"above\",\n      \"status\": \"OK\",\n      \"vertices\": 6,\n      \"facets\": 5,\n      \"volume\": \"7/48\"\n    },\n    {\n      \"group\": \"shared_face\",\n      \"part\": \"below\",\n      \"status\": \"OK\",\n      \"vertices\": 6,\n      \"facets\": 5,\n      \"volume\": \"7/48\"\n    },\n    {\n      \"group\": \"positive_local_order\",\n      \"part\": \"base\",\n      \"status\": \"OK\",\n      \"vertices\": 7,\n      \"facets\": 7,\n      \"volume\": \"5/3072\"\n    },\n    {\n      \"group\": \"positive_local_order\",\n      \"part\": \"permuted\",\n      \"status\": \"OK\",\n      \"vertices\": 7,\n      \"facets\": 7,\n      \"volume\": \"5/3072\"\n    },\n    {\n      \"group\": \"duplicate_gids\",\n      \"status\": \"ValueError\",\n      \"message\": \"four distinct bounded global node IDs required\"\n    },\n    {\n      \"group\": \"nonfinite_point\",\n      \"status\": \"ValueError\",\n      \"message\": \"coefficients must be finite binary64 floats\"\n    },\n    {\n      \"group\": \"invalid_label\",\n      \"status\": \"ValueError\",\n      \"message\": \"four nonempty accepted source-region sets required\"\n    },\n    {\n      \"group\": \"inverted_tetra\",\n      \"status\": \"ValueError\",\n      \"message\": \"positive nondegenerate tetra determinant required\"\n    },\n    {\n      \"group\": \"duplicate_cut_ids\",\n      \"status\": \"ValueError\",\n      \"message\": \"unique bounded ASCII global inequality IDs required\"\n    },\n    {\n      \"group\": \"too_many_cuts\",\n      \"status\": \"ValueError\",\n      \"message\": \"at most seven global inequalities\"\n    },\n    {\n      \"group\": \"excessive_input_ratio\",\n      \"status\": \"ValueError\",\n      \"message\": \"input ratio exceeds 128 bits\"\n    }\n  ],\n  \"ok_cells\": 10,\n  \"ok_vertices\": 59,\n  \"facets\": 54,\n  \"fan_triangles\": 78,\n  \"owner_rows_exactly_match_saved_54\": true,\n  \"paired_interval_analytics\": [\n    {\n      \"group\": \"paired_interval_no_inside_corner\",\n      \"lo\": \"1/4\",\n      \"hi\": \"1/2\",\n      \"volume\": \"19/384\",\n      \"no_original_corner_inside\": true\n    },\n    {\n      \"group\": \"thin_interval_no_inside_corner\",\n      \"lo\": \"511/1024\",\n      \"hi\": \"1/2\",\n      \"volume\": \"787969/6442450944\",\n      \"no_original_corner_inside\": true\n    }\n  ],\n  \"shared_face_exact_known_positions_and_opposed_cycles\": true,\n  \"global_order_signature_exact\": true,\n  \"source_whole_facet_dataflow_not_proved_by_equal_outputs\": true,\n  \"invalid_rows_scope\": \"saved ValueError observations plus source inspection, no re-execution\"\n}\n"
+    },
+    "derived_observations": {
+      "observer_pid": 72079,
+      "utc": "2026-10-19T06:48:38.108513+00:00",
+      "scope": "independent saved-data arithmetic only; no target/helper import or replay",
+      "verified_binding_rows": 25,
+      "unique_binding_paths": 19,
+      "outcomes": [
+        {
+          "group": "unit_inactive7",
+          "part": "single",
+          "status": "OK",
+          "vertices": 4,
+          "facets": 4,
+          "volume": "1/6"
+        },
+        {
+          "group": "paired_interval_no_inside_corner",
+          "part": "single",
+          "status": "OK",
+          "vertices": 6,
+          "facets": 5,
+          "volume": "19/384"
+        },
+        {
+          "group": "thin_interval_no_inside_corner",
+          "part": "single",
+          "status": "OK",
+          "vertices": 6,
+          "facets": 5,
+          "volume": "787969/6442450944"
+        },
+        {
+          "group": "half_x_cap",
+          "part": "single",
+          "status": "OK",
+          "vertices": 6,
+          "facets": 5,
+          "volume": "7/48"
+        },
+        {
+          "group": "all7_active_mixed_support",
+          "part": "single",
+          "status": "OK",
+          "vertices": 7,
+          "facets": 7,
+          "volume": "5/3072"
+        },
+        {
+          "group": "empty",
+          "part": "single",
+          "status": "EMPTY",
+          "dimension": -1,
+          "vertices": 0,
+          "volume": "0"
+        },
+        {
+          "group": "point",
+          "part": "single",
+          "status": "DEGENERATE",
+          "dimension": 0,
+          "vertices": 1,
+          "volume": "0"
+        },
+        {
+          "group": "edge",
+          "part": "single",
+          "status": "DEGENERATE",
+          "dimension": 1,
+          "vertices": 2,
+          "volume": "0"
+        },
+        {
+          "group": "face",
+          "part": "single",
+          "status": "DEGENERATE",
+          "dimension": 2,
+          "vertices": 3,
+          "volume": "0"
+        },
+        {
+          "group": "on_original_vertex",
+          "part": "single",
+          "status": "OK",
+          "vertices": 4,
+          "facets": 4,
+          "volume": "1/6"
+        },
+        {
+          "group": "coincident_cuts",
+          "part": "single",
+          "status": "REFUSED",
+          "returned_geometry_fields": false
+        },
+        {
+          "group": "coincident_tet_face",
+          "part": "single",
+          "status": "REFUSED",
+          "returned_geometry_fields": false
+        },
+        {
+          "group": "zero_global_field",
+          "part": "single",
+          "status": "UNKNOWN",
+          "returned_geometry_fields": false
+        },
+        {
+          "group": "shared_face",
+          "part": "above",
+          "status": "OK",
+          "vertices": 6,
+          "facets": 5,
+          "volume": "7/48"
+        },
+        {
+          "group": "shared_face",
+          "part": "below",
+          "status": "OK",
+          "vertices": 6,
+          "facets": 5,
+          "volume": "7/48"
+        },
+        {
+          "group": "positive_local_order",
+          "part": "base",
+          "status": "OK",
+          "vertices": 7,
+          "facets": 7,
+          "volume": "5/3072"
+        },
+        {
+          "group": "positive_local_order",
+          "part": "permuted",
+          "status": "OK",
+          "vertices": 7,
+          "facets": 7,
+          "volume": "5/3072"
+        },
+        {
+          "group": "duplicate_gids",
+          "status": "ValueError",
+          "message": "four distinct bounded global node IDs required"
+        },
+        {
+          "group": "nonfinite_point",
+          "status": "ValueError",
+          "message": "coefficients must be finite binary64 floats"
+        },
+        {
+          "group": "invalid_label",
+          "status": "ValueError",
+          "message": "four nonempty accepted source-region sets required"
+        },
+        {
+          "group": "inverted_tetra",
+          "status": "ValueError",
+          "message": "positive nondegenerate tetra determinant required"
+        },
+        {
+          "group": "duplicate_cut_ids",
+          "status": "ValueError",
+          "message": "unique bounded ASCII global inequality IDs required"
+        },
+        {
+          "group": "too_many_cuts",
+          "status": "ValueError",
+          "message": "at most seven global inequalities"
+        },
+        {
+          "group": "excessive_input_ratio",
+          "status": "ValueError",
+          "message": "input ratio exceeds 128 bits"
+        }
+      ],
+      "ok_cells": 10,
+      "ok_vertices": 59,
+      "facets": 54,
+      "fan_triangles": 78,
+      "owner_rows_exactly_match_saved_54": true,
+      "paired_interval_analytics": [
+        {
+          "group": "paired_interval_no_inside_corner",
+          "lo": "1/4",
+          "hi": "1/2",
+          "volume": "19/384",
+          "no_original_corner_inside": true
+        },
+        {
+          "group": "thin_interval_no_inside_corner",
+          "lo": "511/1024",
+          "hi": "1/2",
+          "volume": "787969/6442450944",
+          "no_original_corner_inside": true
+        }
+      ],
+      "shared_face_exact_known_positions_and_opposed_cycles": true,
+      "global_order_signature_exact": true,
+      "source_whole_facet_dataflow_not_proved_by_equal_outputs": true,
+      "invalid_rows_scope": "saved ValueError observations plus source inspection, no re-execution"
+    }
+  },
+  "retained_observer_error": {
+    "initial_source_sha256": "35c05dc05851d31b32ecff1c4f4f784510bb4a1e6ca3505dee07f570eca84fa5",
+    "initial_source_reconstruction": "Remove the initial OBSERVER print from exact_source and reverse the one assertion change below.",
+    "failed_literal": "  assert len({str(v['key'][0]) for v in vs})>1",
+    "corrected_literal": "  assert all(v['key'][0]==sorted(g) for v in vs)",
+    "error": "Traceback (most recent call last):\n  File \"<stdin>\", line 171, in <module>\nAssertionError\n",
+    "classification": "Reader expectation error only. Fully inset box has all4 positive barycentric coordinates. Target/source/data unchanged; audit reread is not case replay.",
+    "alternatives": [
+      {
+        "choice": "Correct only the reader expectation",
+        "tradeoff": "Matches exact inset bounds while preserving target/data; selected."
+      },
+      {
+        "choice": "Withhold this row pending clarification",
+        "tradeoff": "Conservative but adds no evidence once the exact bounds establish full support; no target rerun."
+      }
+    ]
+  },
+  "actual_target_jobs": [
+    {
+      "command": [
+        "python3",
+        "-I",
+        "-B",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/fixed_fixture.py"
+      ],
+      "chunk": "785263",
+      "exit": 0,
+      "pid": 71345,
+      "utc_start": "2026-10-19T06:42:16.060726+00:00",
+      "utc_finish": "2026-10-19T06:42:16.093971+00:00",
+      "elapsed_internal_seconds": 0.03325158300140174
+    },
+    {
+      "command": [
+        "python3",
+        "-I",
+        "-B",
+        "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/verify_owners.py"
+      ],
+      "chunk": "6cfd99",
+      "exit": 0,
+      "pid": 71375,
+      "utc": "2026-10-19T06:42:30.375749+00:00",
+      "scope": "One saved-result owner readback; no oracle calls by source inspection."
+    }
+  ],
+  "limits": [
+    "All saved exact vertices/facets/fans/outcome rows audited; no intersection enumeration or target/helper import/replay.",
+    "Invalid input argument payloads remain source-defined; saved invalid rows retain category/message, not arguments. No independent exception re-execution claim.",
+    "Whole-facet copying is source-inspected; equal labels alone do not prove that dataflow.",
+    "ROOT-INDEPENDENT-DATA.json was not read or used as oracle. Own expectations derive from source definitions and exact saved input fields.",
+    "No real source/array/archive decode, geometry construction, browser/network/native/capture/render, source/product/checklist writes.",
+    "Combined decoded tool output does not expose separate stdout/stderr byte identities. Timers are narrow and distinct; whole startup/OS/GPU retirement/hard RSS not established.",
+    "No arbitrary-input proof, field/grid/global cancellation/opening/constructor/garment/fit/material/motion/appearance qualification. Constructor HOLD/closed collector routes preserved. No next experiment admitted."
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/RESULT-REVIEW.md",
+    "bytes": 3278,
+    "sha256": "e1e1c1c7ab0a739f5849a642171ca5e927bc78e97ddea58689ec24662b680d9d"
+  }
+}

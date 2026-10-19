@@ -1,0 +1,55 @@
+{
+  "utc": "2026-10-19T06:29:42.481806+00:00",
+  "pid": 69862,
+  "sources": [
+    {
+      "name": "cell_oracle.py",
+      "bytes": 10368,
+      "sha256": "4ef679f6e892ada5282eecfd0f0f7945594261fa3a310217871722cf44007444",
+      "ast_parse_only": true,
+      "imports": [
+        "fractions",
+        "itertools",
+        "math"
+      ]
+    },
+    {
+      "name": "fixed_fixture.py",
+      "bytes": 11689,
+      "sha256": "be267cb559ba9acea70756f793a5bd332a8e5ff065a60601869c9f04134f91c7",
+      "ast_parse_only": true,
+      "imports": [
+        "signal",
+        "datetime",
+        "fractions",
+        "hashlib",
+        "importlib.util",
+        "json",
+        "os",
+        "pathlib",
+        "sys",
+        "time"
+      ]
+    }
+  ],
+  "source_bytes_total": 22057,
+  "evaluated_candidate_or_fixture": false,
+  "case_scope": "22groups/24calls max, including two shared-cell calls and two positive-order calls; at most7cuts/4nodes/165triple-solves each.",
+  "runtime_command_after_gate": [
+    "python3",
+    "-I",
+    "-B",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/fixed_fixture.py"
+  ],
+  "gate": "ROOT-ADMISSION.json must explicitly admit this scope and exact two source digests; absent now. CLAIM.json exclusive consumes sole attempt. Five-second alarm covers all post-signal imports/admission/claim/fixture/result work. No children, collector, archive, native, source/grid data or output mesh.",
+  "outputs": "Only own exclusive CLAIM.json/RESULT.json at runtime; <=1MiB RESULT; fixed deadline07:15UTC; raw actual tool output retained after run by root.",
+  "source_only_changes": [
+    "Container/row validation completed during first source authoring before freeze; no import or function invocation."
+  ],
+  "known_limits": [
+    "Input ratio128bits; exact intermediates4096bits checked at named arithmetic boundaries. No hard RSS cap; only tiny fixed owned/work/output bounds.",
+    "Output invariants and analytic volumes are synthetic; explicit whole-facet dataflow needs source review, equality alone is insufficient.",
+    "Coincident positive-area cut/tet ownership refuses; constant zero field UNKNOWN. These conservative local statuses do not change the held contract."
+  ],
+  "next": "Whole root source reading and independent whole source review, then root verification before any possible single invocation."
+}

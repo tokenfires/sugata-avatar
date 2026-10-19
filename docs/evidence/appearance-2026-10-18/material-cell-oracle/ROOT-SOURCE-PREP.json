@@ -1,0 +1,151 @@
+{
+  "utc": "2026-10-19T06:31:15.859925+00:00",
+  "pid": 70026,
+  "source_full_read": "4156a7/exit0, complete cell_oracle.py10368bytes and fixed_fixture.py11689bytes untruncated",
+  "sources_exact": [
+    {
+      "name": "cell_oracle.py",
+      "bytes": 10368,
+      "sha256": "4ef679f6e892ada5282eecfd0f0f7945594261fa3a310217871722cf44007444",
+      "ast_parse_only": true,
+      "imports": [
+        "fractions",
+        "itertools",
+        "math"
+      ]
+    },
+    {
+      "name": "fixed_fixture.py",
+      "bytes": 11689,
+      "sha256": "be267cb559ba9acea70756f793a5bd332a8e5ff065a60601869c9f04134f91c7",
+      "ast_parse_only": true,
+      "imports": [
+        "signal",
+        "datetime",
+        "fractions",
+        "hashlib",
+        "importlib.util",
+        "json",
+        "os",
+        "pathlib",
+        "sys",
+        "time"
+      ]
+    }
+  ],
+  "ast_only_case_calls": [
+    [
+      "case",
+      "unit_inactive7"
+    ],
+    [
+      "case",
+      "paired_interval_no_inside_corner"
+    ],
+    [
+      "case",
+      "thin_interval_no_inside_corner"
+    ],
+    [
+      "case",
+      "half_x_cap"
+    ],
+    [
+      "case",
+      "all7_active_mixed_support"
+    ],
+    [
+      "case",
+      "empty"
+    ],
+    [
+      "case",
+      "point"
+    ],
+    [
+      "case",
+      "edge"
+    ],
+    [
+      "case",
+      "face"
+    ],
+    [
+      "case",
+      "on_original_vertex"
+    ],
+    [
+      "case",
+      "coincident_cuts"
+    ],
+    [
+      "case",
+      "coincident_tet_face"
+    ],
+    [
+      "case",
+      "zero_global_field"
+    ],
+    [
+      "case",
+      "shared_face"
+    ],
+    [
+      "case",
+      "shared_face"
+    ],
+    [
+      "case",
+      "positive_local_order"
+    ],
+    [
+      "case",
+      "positive_local_order"
+    ],
+    [
+      "invalid",
+      "duplicate_gids"
+    ],
+    [
+      "invalid",
+      "nonfinite_point"
+    ],
+    [
+      "invalid",
+      "invalid_label"
+    ],
+    [
+      "invalid",
+      "inverted_tetra"
+    ],
+    [
+      "invalid",
+      "duplicate_cut_ids"
+    ],
+    [
+      "invalid",
+      "too_many_cuts"
+    ],
+    [
+      "invalid",
+      "excessive_input_ratio"
+    ]
+  ],
+  "groups": 22,
+  "calls": 24,
+  "candidate_imports_or_invocations": 0,
+  "root_static_findings": [
+    "All7inequalities supported independently; finite 11-plane/165triple bound. Exact feasible intersections and lower dimension states distinct.",
+    "Root independently derives unit1/6, slab19/384, thin787969/6442450944, cap7/48, insetbox5/3072 from analytic sections/cube-minus-tetra. These are stated fixture expectations, not measured outcomes.",
+    "Outward hull orientation is checked against inequality gradient; world normal solves basis rows; local edges oppose; region union is computed over full pre-fan cycle and every triangle literally copies that list.",
+    "Shared-cell example uses identical three global source IDs with opposite side points and a positive local frame; four expected shared positions declared independently. Positive permutation excludes local u from global signature.",
+    "Single5-second signal alarm precedes further imports/admission; exact two source hashes and exclusive CLAIM consume one attempt. Late/no admission refuses. No children/global source reads.",
+    "No hard RSS or universal arbitrary-input/API/whole-field result; local conservative coincident-owner refusal and zero-field UNKNOWN remain explicit."
+  ],
+  "primary_reference_receipt": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/PRIMARY-RECEIPT.json",
+    "bytes": 1247,
+    "sha256": "626fb4cd5023a9f5e416ddaa5070318c5b9c84a7074db87c60fbadfa89776aa2"
+  },
+  "next": "Independent full source/fixture review, root whole handoff/current-pin verification, exact ROOT-ADMISSION only if source A. No source execution yet."
+}

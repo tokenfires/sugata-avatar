@@ -1,0 +1,183 @@
+{
+  "collected_utc": "2026-10-19T06:18:49.556066+00:00",
+  "writer_pid": 68658,
+  "verdict": "B deferexactfour-viewpalettework onmarginalvalue;no technical/appearancefailure diagnosed",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/terracotta-ink-look/PLAN.json",
+      "bytes": 8323,
+      "sha256": "4915f810a02acb2c2720c2858640067f30f7033171bd98235180e0342fe957fe",
+      "read_scope": "Whole literal8323-byte plan read; fixedscope/budget/stops/alternatives examined."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 8207,
+      "sha256": "93d945bbd97e8010e60c9847976fa3d12b7e1626b62130f41684361616d731b4",
+      "read_scope": "Whole rawbytes hashed againstPLAN; currentdocument semantic scopes from immediately prior documentary review reused where applicable, not freshly re-audited."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 17486,
+      "sha256": "24e51a1cca73d0d9eb82d60436b13acde5623991eeab0c48f89d7df6effe787b",
+      "read_scope": "Whole rawbytes hashed againstPLAN; currentdocument semantic scopes from immediately prior documentary review reused where applicable, not freshly re-audited."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7161,
+      "sha256": "7ce48fa51bff4087e469934635d048ef997d68d900a6ae449849c01e3bccd00f",
+      "read_scope": "Whole rawbytes hashed againstPLAN; currentdocument semantic scopes from immediately prior documentary review reused where applicable, not freshly re-audited."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/looks/README.md",
+      "bytes": 3301,
+      "sha256": "39412cbe152e54ab907cbf1da81ad64fca7606af33dedcb4316a323e765a7ee2",
+      "read_scope": "Whole literal file read with numberedlines in current task; no import/evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/looks/INK-DENIM.md",
+      "bytes": 2818,
+      "sha256": "bc65e1c00ab929268e2ec8ffe4618d7e671caf1a2b69fcf00e5c9c40e4243fe6",
+      "read_scope": "Whole literal file read with numberedlines in current task; no import/evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/looks/ink-denim.json",
+      "bytes": 554,
+      "sha256": "80562c5d8584fb75c127afd5dc240470fdf46c1a9f964d9075cbe38de3f07407",
+      "read_scope": "Whole literal file read with numberedlines in current task; no import/evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/looks/sage-lavender-chin.json",
+      "bytes": 623,
+      "sha256": "09c1220b64c291935088ed731f68315b44557d4b323a38d6417403c863e1e978",
+      "read_scope": "Whole literal file read with numberedlines in current task; no import/evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad",
+      "read_scope": "Whole literal file read with numberedlines in current task; no import/evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941",
+      "read_scope": "Whole literal file read with numberedlines in current task; no import/evaluation."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "bytes": 796582,
+      "sha256": "f1c225b73be2d97d657927d2d4a859eba15f25c49018402f2eb2ade48a63d3f8",
+      "read_scope": "Actually viewed whole unchanged original-detail900x900 savedimage in current task; fullrawhash matched; no crop/render/capture."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+      "bytes": 1009568,
+      "sha256": "4e7c174fbea2cc223b79cbe073c6fc40bacfaa1af7d800b62064d29ff16b7bc8",
+      "read_scope": "Actually viewed whole unchanged original-detail900x900 savedimage in current task; fullrawhash matched; no crop/render/capture."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/ari-trouser-artist/ROOT-CLOSE.json",
+      "bytes": 17089,
+      "sha256": "3a36aeafcd2b14aaad184eb67bb959836643bfb08ee3ca9b715a3db4e3b392d9",
+      "read_scope": "Whole rawbytehash only againstPLAN; no freshfullclosure/transitive-binding audit."
+    }
+  ],
+  "checks": {
+    "PLAN_input_rows": 12,
+    "all_exact": true,
+    "target_module_invocations": 0,
+    "newrecipe_created": false,
+    "new_native_views": 0
+  },
+  "actual_visual_scope": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/neutral-body.png",
+      "tool": "view_image",
+      "detail": "original",
+      "whole": true,
+      "dimensions": [
+        900,
+        900
+      ],
+      "observation": "Navytee/denimandboots legible inthewholefigure; no newwarmrecipeobserved."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-03/ink-denim-look/archive/capture/kitchen-body.png",
+      "tool": "view_image",
+      "detail": "original",
+      "whole": true,
+      "dimensions": [
+        900,
+        900
+      ],
+      "observation": "Warmer/shadowedscene softensgarmentboundaries; plausibletwo-scenecheck,butnopaletteacceptanceornewdefectclaim."
+    }
+  ],
+  "source_witnesses": [
+    "looks/README.md:10-16 existingreopen/edit/saveguide",
+    "looks/INK-DENIM.md:3,19-21 existingwholelook/contextandhair/necklinelimits",
+    "looks/ink-denim.json:1-30 exactexistingbase; proposedonly3colourdeltas inPLAN",
+    "showcase-settings.mjs:19-49 strictcompleteconfigurationreconstruction",
+    "showcase-presets.mjs:42-52,62-96 existingoptions/exportguards"
+  ],
+  "alternatives": [
+    {
+      "choice": "A exactsingleoptionalwarmrecipe/fourviews",
+      "tradeoff": "Directlyusablecreativevariety andactualscene/facechecks;freshpreflightand4capturesforsmallpalette-onlyincrement."
+    },
+    {
+      "choice": "B deferpalette",
+      "tradeoff": "Noaddedrenderingeffort/preservescurrentrecipes;forgoesnewwarmexample;doesnotadmitlargersourcework."
+    }
+  ],
+  "jobs": [
+    {
+      "chunk": "114098",
+      "exit": 0,
+      "pid": 68358,
+      "utc": "2026-10-19T06:16:03.293291+00:00",
+      "command_scope": "WholePLANreadandhash."
+    },
+    {
+      "tool": "view_image",
+      "detail": "original",
+      "result": "BothwholepinnedInkbodyoriginals emittedandactuallyviewed;noshellPID."
+    },
+    {
+      "chunk": "512fd7",
+      "exit": 0,
+      "pid": 68420,
+      "utc": "2026-10-19T06:16:39.199655+00:00",
+      "command_scope": "Read-onlystdlibhash all12PLANpins;wholelooksREADME/INKguide/2recipes/settings/presets literalreads."
+    },
+    {
+      "tool": "exec_command",
+      "pid": 68658,
+      "utc": "2026-10-19T06:18:49.556066+00:00",
+      "command_scope": "Exclusiveownworthpairwritesandexactreadback;returnedchunk/exitreportedwithstablehandoff."
+    }
+  ],
+  "findings": "No technicaldefectproved. Newpaletteappearanceunknown. WorthB isprioritization,not sourceabsence orfeaturefailure.",
+  "limits": [
+    "No target/sourceprogramimport/evaluation/test,body/GLB/memberdecode,network/browser/GPU/capture/generation or product/sourceedit; ownpaironly.",
+    "Strictcolour/material normalization/renderlifecycle closure notfullytracedatworthstage; no runtime/roundtrip/sceneacceptance claim.",
+    "No humanloss/currentUIdefect,globalpaletteabsence,perceivedidentity/gender/age orAriattribution.",
+    "Geometry/collector/material-volume/bodyrecipeholds remainclosed; no immediatealternateexperiment admitted."
+  ],
+  "fixed_stops": {
+    "worth": "2026-10-19T06:35:00Z",
+    "source_preflight": "2026-10-19T06:50:00Z",
+    "native_complete": "2026-10-19T07:10:00Z",
+    "image_decision": "2026-10-19T07:20:00Z",
+    "closure": "2026-10-19T07:30:00Z"
+  },
+  "next": "Preserve unexecuted nomination and existingrecipes. No recipe/native/preflight implementation or renamedpalette successor authorized bythisreview.",
+  "errors": [],
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/terracotta-ink-look/WORTH.md",
+    "bytes": 3016,
+    "sha256": "afb4a085524ee3e2cc7fde09b4e670118d99ec86cf5ba1af85e80df0771024a4",
+    "read_scope": "Wholeownresultreadbackexact."
+  }
+}

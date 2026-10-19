@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-19T06:59:09.081178+00:00",
+  "pid": 73267,
+  "path": "docs/WORK-WINDOW-2026-10-18.md",
+  "before": {
+    "bytes": 21577,
+    "sha256": "313005a26581b59fc35713917b213b8eb416eaa21cd8c1b6867c937349788926"
+  },
+  "after": {
+    "bytes": 21600,
+    "sha256": "f436b16f1db2b159b722bdeb50d53ada15a58b5da44a9afb9090764153955269"
+  },
+  "old_literal": "audits all 24 outcomes, 59 returned vertices, 54 facets and 78 fan triangles",
+  "new_literal": "audits all 24 outcomes, 59 vertices across 10 nondegenerate outputs, 54 facets and 78 fan triangles",
+  "reverse_mapping_exact": true,
+  "reason": "59counts vertices across the10OK records; degenerate records also retain1+2+3points. This narrows prose scope, without changing any code/data/result.",
+  "alternatives": "Selected minimumscopeclarification; alternatively state65allreturnedvertices/59OK,addinglessusefulcount.",
+  "preservation": "First DELIVERY-DIFF/PREPARATION remain unchanged. Their oldworkwindow bytes recover exactly by reversing this one phrase; older baselineepoch remainsGit fa786efd."
+}

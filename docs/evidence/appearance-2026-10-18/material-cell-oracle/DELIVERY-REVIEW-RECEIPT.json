@@ -1,0 +1,223 @@
+{
+  "schema": "material-cell-documentary-critic-v1",
+  "verdict": "A_EPOCH2_DOCUMENTARY_CHECKPOINT_ONLY",
+  "collected_utc": "2026-10-19T07:01:04.799240+00:00",
+  "writer_pid": 73560,
+  "pending_edits": false,
+  "deadline": "Closure07:35UTC,2026-10-19; unchanged.",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/README.md",
+      "bytes": 3812,
+      "sha256": "0ff9ca1495e20813462dd5f3740ec17fc2c157d83230a4a1195c4c26307ea866"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-ACCEPT.json",
+      "bytes": 2840,
+      "sha256": "537fddd764287e38f794328bc5258629a72400e908b710174f7d0176bc2ebcdb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/ROOT-INDEPENDENT-DATA.json",
+      "bytes": 963,
+      "sha256": "a348bf9cf18b37bfb629695a9c95838f76d3fe4d60a7ae0048ca2bcfec476150"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/RESULT-REVIEW.md",
+      "bytes": 3278,
+      "sha256": "e1e1c1c7ab0a739f5849a642171ca5e927bc78e97ddea58689ec24662b680d9d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/RESULT-REVIEW-RECEIPT.json",
+      "bytes": 37143,
+      "sha256": "8fed7ebe49ebc67d2dd575bdc40ca2415210948dcfbecff91a79573bc8135ba5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/LIVE-SERVICES.json",
+      "bytes": 1716,
+      "sha256": "f82ad661ed166cdb8f6e2ac43def616b7f71b4d7fe5149763060f39f4d9b7ecc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 10528,
+      "sha256": "809d20c88d9d3f3a3b602231e35692ad3546d744d28be6a810156b37b98ef021"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 21600,
+      "sha256": "f436b16f1db2b159b722bdeb50d53ada15a58b5da44a9afb9090764153955269"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7161,
+      "sha256": "7ce48fa51bff4087e469934635d048ef997d68d900a6ae449849c01e3bccd00f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 15923,
+      "sha256": "a11432b33af9df3f64d14ecec6e5af08faa06c0f3f7ea07887ca46a835fa5ea2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/terracotta-ink-look/ROOT-CLOSE.json",
+      "bytes": 1524,
+      "sha256": "4352b857d8ff72c4b113cb07195de2cd87fb93c9b62eaf23d94b21d83ca7b805"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/DELIVERY-DIFF-2.json",
+      "bytes": 11112,
+      "sha256": "1db338e6c6f06c918044a54f2b4ab40ee33bf77946f93e9bcbff4079dc9d349f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/WORDING-CORRECTION.json",
+      "bytes": 1072,
+      "sha256": "948e443ebac2142a6ae1cdce15be1d3a4522bf99b7f7f0c226140ba6e39195d8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/DELIVERY-DIFF.json",
+      "bytes": 11138,
+      "sha256": "e3dc179d11b34b1171c17be78f72dc44156e43e758521854e9684fbdb2fc8b12"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/DELIVERY-PREPARATION.json",
+      "bytes": 10388,
+      "sha256": "db8f330953b58b34a69b5d38d245f1b11e827377c0c660c9fd4f00cc8d5b385f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/DELIVERY-PREPARATION-2.json",
+      "bytes": 11303,
+      "sha256": "cf764796802ed4f1430643cc54bcdde07e1ec76469c7db1ca1a40661c7c04996"
+    }
+  ],
+  "input_scopes": {
+    "DELIVERY-PREPARATION.json": "Whole first10388-byte record; input pins checked before legitimate mutable document update; historical bytes now via explicit epoch map.",
+    "DELIVERY-DIFF.json": "Whole first11138-byte JSON and entire decoded diff.",
+    "DELIVERY-PREPARATION-2.json": "Whole11303-byte record and all15 exact rows.",
+    "DELIVERY-DIFF-2.json": "Whole11112-byte JSON and entire decoded diff; exact comparison to current baselineGit diff.",
+    "WORDING-CORRECTION.json": "Whole1072-byte map; current byte string reversed exactly to first epoch size/hash.",
+    "ROOT-ACCEPT.json": "Whole2840-byte acceptance/scope/own result bindings.",
+    "LIVE-SERVICES.json": "Whole1716-byte saved tool/config observation; no live service/API invocation bycritic.",
+    "README.md": "Unchanged3812-byte whole numeric/scope read reused from prior result review; all5 local link occurrences rechecked.",
+    "docs/RESUME-2026-10-18.md": "Complete changed text in decoded diff; whole current bytes/hash and baseline bytes verified. Unchanged old contents not re-audited.",
+    "docs/WORK-WINDOW-2026-10-18.md": "Complete changed text in both decoded diffs; whole current bytes/hash/reverse-mapped first epoch/baseline bytes verified. Unchanged old contents not re-audited.",
+    "ROOT-INDEPENDENT-DATA.json": "Pin only; not read or used as numerical oracle.",
+    "ROOT-CLOSE palette": "Prior complete worth closure reused with fresh pin; no palette inquiry.",
+    "accepted RESULT-REVIEW pair": "Own existing full review retained;22 input byte pins reverified without repeating arithmetic."
+  },
+  "checks": {
+    "current_preparation_input_rows": 15,
+    "plus_preparation_self_pin": true,
+    "accepted_result_input_rows_reverified": 22,
+    "current_diff_equals_git_baseline": true,
+    "tracked_changed_paths": [
+      "docs/RESUME-2026-10-18.md",
+      "docs/WORK-WINDOW-2026-10-18.md"
+    ],
+    "board_and_checklist_baseline_byte_equal": true,
+    "checked": 21,
+    "open": 10,
+    "literal_local_link_occurrences": 38,
+    "all_links_exist": true,
+    "one_prose_phrase_only_between_epochs": true,
+    "automatic_changed_Git_blob_index_accounted": true,
+    "baseline_mutable_document_pins_recovered": [
+      {
+        "path": "docs/RESUME-2026-10-18.md",
+        "git_epoch": "fa786efdc3cf47209805769e12526125086a5d93",
+        "bytes": 8207,
+        "sha256": "93d945bbd97e8010e60c9847976fa3d12b7e1626b62130f41684361616d731b4"
+      },
+      {
+        "path": "docs/WORK-WINDOW-2026-10-18.md",
+        "git_epoch": "fa786efdc3cf47209805769e12526125086a5d93",
+        "bytes": 17486,
+        "sha256": "24e51a1cca73d0d9eb82d60436b13acde5623991eeab0c48f89d7df6effe787b"
+      }
+    ],
+    "no_new_experiment_admitted": true
+  },
+  "resolved_finding": {
+    "witness_before": "audits all 24 outcomes, 59 returned vertices, 54 facets and 78 fan triangles",
+    "witness_after": "audits all 24 outcomes, 59 vertices across 10 nondegenerate outputs, 54 facets and 78 fan triangles",
+    "current_path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+    "current_line": 88,
+    "why": "59counts the10 OK outputs; the first unqualified wording could be mistaken for every returned point acrossall24 outcomes.",
+    "correction_map": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/WORDING-CORRECTION.json",
+    "alternatives": [
+      {
+        "choice": "Qualify59 across10nondegenerate outputs",
+        "tradeoff": "Minimum precise wording; selected byroot."
+      },
+      {
+        "choice": "State65returned total/59OK",
+        "tradeoff": "More explicit total but adds a less useful count."
+      }
+    ],
+    "source_or_data_change": false
+  },
+  "jobs": [
+    {
+      "chunk": "f94c72",
+      "exit": 0,
+      "pid": 72957,
+      "utc": "2026-10-19T06:56:15.596878+00:00",
+      "scope": "Whole first preparation/decoded diff/ROOT-ACCEPT."
+    },
+    {
+      "chunk": "974038",
+      "exit": 1,
+      "pid": 73028,
+      "utc": "2026-10-19T06:56:57.921605+00:00",
+      "scope": "All12firstepochpins/diff/baseline/board/checklist/count assertions passed; link reader then used wrong relative path to RESUME and raised FileNotFoundError. No file mutation."
+    },
+    {
+      "chunk": "5f6a0e",
+      "exit": 0,
+      "pid": 73071,
+      "utc": "2026-10-19T06:57:17.771221+00:00",
+      "scope": "Correct actual docs paths; all38local links pass; whole saved service record read."
+    },
+    {
+      "chunk": "a73ac6",
+      "exit": 1,
+      "pid": 73309,
+      "utc": "2026-10-19T06:59:30.087233+00:00",
+      "scope": "Whole secondprep/map/decoded diff; all15pins/currentGitdiff pass. Overstrict old-vs-new rawdiff assertion ignored automatic Git blob-index header change; observer error only."
+    },
+    {
+      "chunk": "0e1c1e",
+      "exit": 0,
+      "pid": 73346,
+      "utc": "2026-10-19T06:59:53.159619+00:00",
+      "scope": "All15currentpins/currentGitdiff/exactfile reverse mapping/normalizeddiffbody/baselinehistoricalpins/board/checklist/38links pass."
+    }
+  ],
+  "commands": [
+    "python3 stdin stdlib-only local JSON/hash/link checks",
+    "git diff fa786efdc3cf47209805769e12526125086a5d93 -- docs/RESUME-2026-10-18.md docs/WORK-WINDOW-2026-10-18.md",
+    "git diff --name-only fa786efdc3cf47209805769e12526125086a5d93",
+    "git show fa786efdc3cf47209805769e12526125086a5d93:<each of2recoverydocs/board/checklist>"
+  ],
+  "retained_errors": [
+    {
+      "chunk": "974038",
+      "error": "FileNotFoundError:/Users/robault/GitHub/sugata-avatar/RESUME-2026-10-18.md",
+      "cause_scope": "Critic relative-path mistake; actual file isunder docs; corrected reader only."
+    },
+    {
+      "chunk": "a73ac6",
+      "error": "AssertionError in rawdiff equality after allcurrentpins/currentGitdiff passed",
+      "cause_scope": "A one-phrase document change also changes Git index hashheader. Exact file reversal and diffbody comparison then pass; no root artifact/source fault inferred."
+    }
+  ],
+  "limits": [
+    "Narrow documentary review only; no new arithmetic/source/algorithm investigation.",
+    "Local link existence is not rendered navigation/browser qualification.",
+    "Service/timer status is taken from exact06:44:52UTC saved observations, not a fresh critic probe or future delivery/notifications test.",
+    "Conditional next nomination is advice, not source/CPU/field/constructor/native admission.",
+    "Only own DELIVERY-REVIEW pair written; prior result pair unchanged."
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-18/material-cell-oracle/DELIVERY-REVIEW.md",
+    "bytes": 2673,
+    "sha256": "49122399504c71c94eefd88d9184b0753b07b04208ab5d2d04baf5c7f598bb99"
+  }
+}
