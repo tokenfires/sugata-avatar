@@ -1,0 +1,133 @@
+{
+  "utc": "2026-10-19T10:09:25.063415+00:00",
+  "pid": 96684,
+  "state": "CLOSED_SOURCE_B_UNRUN",
+  "base_head": "9ab3b4d4eb7a536f3efffb7a321525554964aef3",
+  "pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-diffuse-native/BODY-BINDING.json",
+      "bytes": 4672,
+      "sha256": "082ee6956d8c9234f656c7fa2123b78cc12ef9e6e2568749972a593bddda85fd"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-diffuse-native/CONTRACT.json",
+      "bytes": 9237,
+      "sha256": "ffc19766cd98973801aca1188bc7a6df4510e20b9eb9824e3630f51dac49089d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-diffuse-native/PLAN.json",
+      "bytes": 6980,
+      "sha256": "ff488474f415fbe00e7a240a2f1dd7a5ef53ea7c2e5bf1d5d012430e4b564de5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-diffuse-native/PRIMARY-1.json",
+      "bytes": 44846,
+      "sha256": "da185fc921521596c7c561a5d2697f77e1d992d89c9608cd9a4ad1d8dbe041a3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-diffuse-native/PRIMARY-2.json",
+      "bytes": 75171,
+      "sha256": "d755fbd17bd53903dd802d66d7d394a212fe48091356ec20c644fe397b5a92dc"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-diffuse-native/README.md",
+      "bytes": 4196,
+      "sha256": "0760a823c86c4575463881f3f7747f734cd28c339a2272d1027472c2fcfa414b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-diffuse-native/ROOT-SOURCE.json",
+      "bytes": 1807,
+      "sha256": "ab80661868399c092c906f9aa4d7fea972e8063979c89a8226c7bb30e8e5ce77"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-diffuse-native/ROOT-STATIC.json",
+      "bytes": 2663,
+      "sha256": "4a97290dbe62312bb608fce79dce0e5b0498fd9799de841ba5eab9a46b43c0f4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-diffuse-native/ROOT-WORTH.json",
+      "bytes": 1619,
+      "sha256": "d148517d2f6981cdecb690dcfad21ab55feb0dc989cc5d63a39d2b00dc6caf6b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-diffuse-native/SOURCE-PREPARATION.json",
+      "bytes": 4399,
+      "sha256": "d9c87e134d7a19527224b708e9ee1a175f84bc9f4c10c50874c7609deb16e9ce"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-diffuse-native/SOURCE-RECEIPT.json",
+      "bytes": 13093,
+      "sha256": "b519cbf876fdc97f971d4b07a5b4490fbb922c6267de68b8e1547c00ed5fac2d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-diffuse-native/SOURCE-REVIEW.md",
+      "bytes": 3644,
+      "sha256": "70a91265b987e2ab37d46ac2470f4da9c2070985a83086994c95ffb13dbca0d6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-diffuse-native/WORTH-RECEIPT.json",
+      "bytes": 10420,
+      "sha256": "ed16e66b1f4ad0035d53653e592877a1e57db4dcd5098e376ba896031afdcb08"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-diffuse-native/WORTH.md",
+      "bytes": 3368,
+      "sha256": "1ba522bd46019aa62790ce9dbb6ca32e907a22ae8ac9de1a275a4ef8eb7ba385"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-diffuse-native/launch_study.py",
+      "bytes": 6591,
+      "sha256": "b7f52c99f56bf6d6f8b328fa794bedc0d397a3ec489277997f30ca3563b06ba9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-diffuse-native/render_study.py",
+      "bytes": 10889,
+      "sha256": "a1a49718987ce13395e7cb6f1ea332bbcd3fc30390ea429e231303f3ab623158"
+    },
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 21578,
+      "sha256": "11090297b509ac217415887bd2d2e363c64b50c4f87dc1e45306a3af4da18d3f"
+    },
+    {
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 40175,
+      "sha256": "9da4a9969d7825d2b4113a682d59459371b46d9dd3e561df1aef5d281525c30c"
+    }
+  ],
+  "historical_pin_resolution": "Original RESUME pin in PLAN/critic receipt intentionally resolves through base_head9ab3b4d4 after newest closure insertion; all other exact input pins unchanged. Frozen records preserved.",
+  "commit_paths": [
+    "docs/evidence/appearance-2026-10-19/mara-diffuse-native/BODY-BINDING.json",
+    "docs/evidence/appearance-2026-10-19/mara-diffuse-native/CONTRACT.json",
+    "docs/evidence/appearance-2026-10-19/mara-diffuse-native/PLAN.json",
+    "docs/evidence/appearance-2026-10-19/mara-diffuse-native/PRIMARY-1.json",
+    "docs/evidence/appearance-2026-10-19/mara-diffuse-native/PRIMARY-2.json",
+    "docs/evidence/appearance-2026-10-19/mara-diffuse-native/README.md",
+    "docs/evidence/appearance-2026-10-19/mara-diffuse-native/ROOT-SOURCE.json",
+    "docs/evidence/appearance-2026-10-19/mara-diffuse-native/ROOT-STATIC.json",
+    "docs/evidence/appearance-2026-10-19/mara-diffuse-native/ROOT-WORTH.json",
+    "docs/evidence/appearance-2026-10-19/mara-diffuse-native/SOURCE-PREPARATION.json",
+    "docs/evidence/appearance-2026-10-19/mara-diffuse-native/SOURCE-RECEIPT.json",
+    "docs/evidence/appearance-2026-10-19/mara-diffuse-native/SOURCE-REVIEW.md",
+    "docs/evidence/appearance-2026-10-19/mara-diffuse-native/WORTH-RECEIPT.json",
+    "docs/evidence/appearance-2026-10-19/mara-diffuse-native/WORTH.md",
+    "docs/evidence/appearance-2026-10-19/mara-diffuse-native/launch_study.py",
+    "docs/evidence/appearance-2026-10-19/mara-diffuse-native/render_study.py",
+    "docs/RESUME-2026-10-18.md",
+    "docs/WORK-WINDOW-2026-10-18.md",
+    "docs/evidence/appearance-2026-10-19/mara-diffuse-native/ROOT-CLOSE.json"
+  ],
+  "jobs": {
+    "worth": "ee0d01/PID95621 +30b51b/PID95636",
+    "root_worth": "9031db/PID95682/10:01:03.949490",
+    "inert_preparation": "ee942f/PID96189/10:05:29.702089",
+    "root_full_source": "35229d/PID96287/10:05:50.188906",
+    "critic_source": "4cc95f/PID96474 +0aa9bc/PID96495",
+    "root_full_handoff": "abda03",
+    "root_binding_source": "e8cbee/PID96550/10:08:10.784309"
+  },
+  "rejections": "F1boundedretirement/positiveownership/finalJOB. Actual native source remains unrun;16admission/targetpaths absent. One invalid empty-hunk closure patch rejected pre-modification, corrected.",
+  "limits": "No target/native/API/model/geometry/render/capture/save/cold/execution or synthetic trial; no actual resources/appearance. Only2officialprimarypages/2reportedcredits, no additional refs. Recorded owner proof remains prospective.",
+  "next": "Fresh worth only for a distinct consequential responsibility or explicitly new bounded process-identity/retirement/evidence contract. No current source repair/retry admitted. Full material/character/roadmap duties remain.",
+  "preservation": "22scoped/10broad; unchanged board/checklist/accepted/default/production/3Dsource; all prior closures/constructorHOLD; retained Vite/existingACTIVE10min; humancheckin/pausewins."
+}

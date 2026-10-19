@@ -1,0 +1,50 @@
+{
+  "utc": "2026-10-19T10:06:07.839759+00:00",
+  "pid": 96319,
+  "source_read_job": "35229d/exit0/PID96287/10:05:50.188906UTC; full326source lines+contract read, all15contract pins verified",
+  "preparation_verified_rows": 10,
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/render_study.py",
+      "bytes": 10889,
+      "sha256": "a1a49718987ce13395e7cb6f1ea332bbcd3fc30390ea429e231303f3ab623158"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/launch_study.py",
+      "bytes": 6591,
+      "sha256": "b7f52c99f56bf6d6f8b328fa794bedc0d397a3ec489277997f30ca3563b06ba9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/CONTRACT.json",
+      "bytes": 9237,
+      "sha256": "ffc19766cd98973801aca1188bc7a6df4510e20b9eb9824e3630f51dac49089d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/SOURCE-PREPARATION.json",
+      "bytes": 4399,
+      "sha256": "d9c87e134d7a19527224b708e9ee1a175f84bc9f4c10c50874c7609deb16e9ce"
+    }
+  ],
+  "assessment": "Source alters only the body DiffuseTexture.image and creates exact packed image; alpha stays original. Whole old recorded owner baseline compared before staging, after each variant and save. Separate stage makes identical view/light/CPU settings per pair. Fixed framing derives actual old head-front; six first images decide mapped utility. No target/source geometry or production/default work. Source stage preserves recorded scope, not all possible hidden Blender state. Native can refuse before images; no retry.",
+  "runtime": "180s sampled wall/6GiB groupRSS/128MiB aggregate leaf, perfile128MiB childRLIMIT; sample overshoot and wrapperfinally limits explicit; exclusiveclaim+nativePID/group cleanup and root independent post-job all-output inventory needed. No execution admitted pending completed critic/root gates.",
+  "actual_witness": "Root independently viewed unchanged original head-front.png at768x768. Crown,ears,chin visible with large upper gap and soft material. New fixed target -0.04mZ/0.34m scale selected before any study image.",
+  "not_run": [
+    "native",
+    "model/API",
+    "render",
+    "candidate save",
+    "cold readback",
+    "exports"
+  ],
+  "outputs_absent": {
+    "CLAIM.json": true,
+    "STARTED.json": true,
+    "JOB.json": true,
+    "NATIVE.log": true,
+    "BEFORE.json": true,
+    "AFTER.json": true,
+    "RESULT.json": true,
+    "FAILURE.json": true,
+    "candidate.blend": true
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "utc": "2026-10-19T10:02:18.181505+00:00",
+  "pid": 95836,
+  "body": {
+    "name": "Human",
+    "type": "MESH",
+    "source_role": "body_with_helpers",
+    "materials": [
+      "Human.body"
+    ]
+  },
+  "body_uvs": [
+    {
+      "name": "UVMap",
+      "sha256": "9422e331f097fe3604df9711b4e8df55c845af3fe9de9bd5ffe6b1019bb3bd9f"
+    }
+  ],
+  "material": {
+    "name": "Human.body",
+    "users": 1,
+    "use_nodes": true,
+    "nodes": [
+      {
+        "name": "Material Output",
+        "type": "OUTPUT_MATERIAL",
+        "image": null,
+        "input_defaults": {
+          "Displacement": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Thickness": 0.0
+        },
+        "settings": {}
+      },
+      {
+        "name": "Principled BSDF",
+        "type": "BSDF_PRINCIPLED",
+        "image": null,
+        "input_defaults": {
+          "Base Color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "Metallic": 0.0,
+          "Roughness": 0.5,
+          "IOR": 1.5,
+          "Alpha": 1.0,
+          "Thin Wall": false,
+          "Normal": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Weight": 0.0,
+          "Diffuse Roughness": 0.0,
+          "Subsurface Weight": 0.0,
+          "Subsurface Radius": [
+            1.0,
+            0.20000000298023224,
+            0.10000000149011612
+          ],
+          "Subsurface Scale": 0.004999999888241291,
+          "Subsurface IOR": 1.399999976158142,
+          "Subsurface Anisotropy": 0.0,
+          "Specular IOR Level": 0.5,
+          "Specular Tint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "Anisotropic": 0.0,
+          "Anisotropic Rotation": 0.0,
+          "Tangent": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Transmission Weight": 0.0,
+          "Coat Weight": 0.0,
+          "Coat Roughness": 0.029999999329447746,
+          "Coat IOR": 1.5,
+          "Coat Tint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "Coat Normal": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "Sheen Weight": 0.0,
+          "Sheen Roughness": 0.5,
+          "Sheen Tint": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "Emission Color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "Emission Strength": 0.0,
+          "Thin Film Thickness": 0.0,
+          "Thin Film IOR": 1.3300000429153442
+        },
+        "settings": {}
+      },
+      {
+        "name": "DiffuseTexture",
+        "type": "TEX_IMAGE",
+        "image": "young_lightskinned_female_diffuse.png",
+        "input_defaults": {
+          "Vector": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "settings": {
+          "interpolation": "Linear",
+          "extension": "REPEAT",
+          "projection": "FLAT"
+        }
+      },
+      {
+        "name": "AlphaMapTexture",
+        "type": "TEX_IMAGE",
+        "image": "young_lightskinned_female_diffuse.png",
+        "input_defaults": {
+          "Vector": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "settings": {
+          "interpolation": "Linear",
+          "extension": "REPEAT",
+          "projection": "FLAT"
+        }
+      }
+    ],
+    "links": [
+      {
+        "from_node": "Principled BSDF",
+        "from_socket": "BSDF",
+        "to_node": "Material Output",
+        "to_socket": "Surface"
+      },
+      {
+        "from_node": "DiffuseTexture",
+        "from_socket": "Color",
+        "to_node": "Principled BSDF",
+        "to_socket": "Base Color"
+      },
+      {
+        "from_node": "AlphaMapTexture",
+        "from_socket": "Alpha",
+        "to_node": "Principled BSDF",
+        "to_socket": "Alpha"
+      }
+    ],
+    "modes": {
+      "blend_method": "HASHED",
+      "surface_render_method": "DITHERED",
+      "use_backface_culling": false,
+      "alpha_threshold": 0.5
+    }
+  },
+  "original_image": {
+    "name": "young_lightskinned_female_diffuse.png",
+    "filepath": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/user/data/skins/young_caucasian_female/young_lightskinned_female_diffuse.png",
+    "size": [
+      2048,
+      2048
+    ],
+    "colorspace": "sRGB",
+    "packed_files": 1,
+    "packed_sha256": "b2a6ac8cd4f9febdb447368e29c76cd68410bb66e46d9dcfa2d5f75126eea8fc"
+  },
+  "scope": "Selected persisted Human.body association only. No additional key/material/helper census or native invocation."
+}

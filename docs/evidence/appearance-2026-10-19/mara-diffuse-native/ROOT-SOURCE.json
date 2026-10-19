@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-19T10:08:10.784309+00:00",
+  "pid": 96550,
+  "decision": "B_CLOSE_EXACT_SOURCE_WORKLOAD_UNRUN",
+  "review_whole_read": "abda03/exit0 both stable files complete",
+  "verified_direct_rows": 25,
+  "verified_nested_rows": 34,
+  "source_witness": "35229d full launcher and renderer/contract, root independently confirms launcher105wait has no timeout;107-123can signal PGID after child.poll/wait reap;finally95-127can raise beforeJOB. No actual runtime/PIDreuse/fault is alleged.",
+  "conclusion": "Retain exact source and useful selected body association. Stop first missing bounded retirement/final-evidence owner, no native launch, repair, source/import/API/model/capture/save or cold execution admitted. Any successor needs new explicit positive process ownership and bounded failure-evidence contract/worth, no automatic retry.",
+  "absence": {
+    "ROOT-ADMISSION.json": true,
+    "CLAIM.json": true,
+    "STARTED.json": true,
+    "JOB.json": true,
+    "NATIVE.log": true,
+    "RESULT.json": true,
+    "FAILURE.json": true,
+    "candidate.blend": true,
+    "BEFORE.json": true,
+    "AFTER.json": true,
+    "control-front.png": true,
+    "control-oblique.png": true,
+    "control-profile.png": true,
+    "candidate-front.png": true,
+    "candidate-oblique.png": true,
+    "candidate-profile.png": true
+  },
+  "critic": {
+    "SOURCE-REVIEW.md": {
+      "path": "docs/evidence/appearance-2026-10-19/mara-diffuse-native/SOURCE-REVIEW.md",
+      "bytes": 3644,
+      "sha256": "70a91265b987e2ab37d46ac2470f4da9c2070985a83086994c95ffb13dbca0d6"
+    },
+    "SOURCE-RECEIPT.json": {
+      "path": "docs/evidence/appearance-2026-10-19/mara-diffuse-native/SOURCE-RECEIPT.json",
+      "bytes": 13093,
+      "sha256": "b519cbf876fdc97f971d4b07a5b4490fbb922c6267de68b8e1547c00ed5fac2d"
+    }
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "utc": "2026-10-19T10:05:29.618157+00:00",
+  "state": "INERT_SOURCE_CONTRACT_NOT_EXECUTION",
+  "source": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/neutral-source-logged.blend",
+  "source_sha256": "6ed771b71a99ac8a5cf9c717fef5364ac0a427763e601fecffa984bafd4f53eb",
+  "cold": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/COLD-RESULT.json",
+  "helper": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+  "diffuse": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-source/source/old_lightskinned_female_diffuse.png",
+  "diffuse_sha256": "00c45246c145562b917371e92de44a1fe394bc5f4bd91418addf24b6adff5e9d",
+  "views": [
+    [
+      "front",
+      [
+        0,
+        -1,
+        0
+      ]
+    ],
+    [
+      "oblique",
+      [
+        1,
+        -1,
+        0
+      ]
+    ],
+    [
+      "profile",
+      [
+        1,
+        0,
+        0
+      ]
+    ]
+  ],
+  "lights": [
+    [
+      "MaraDiffuseKey",
+      [
+        -3,
+        -4,
+        4
+      ],
+      550,
+      1.5
+    ],
+    [
+      "MaraDiffuseFill",
+      [
+        3,
+        -2,
+        3
+      ],
+      220,
+      3
+    ],
+    [
+      "MaraDiffuseRear",
+      [
+        0,
+        4,
+        4
+      ],
+      400,
+      3
+    ]
+  ],
+  "render": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "threads": 8,
+    "samples": 32,
+    "seed": 0,
+    "denoising": false,
+    "resolution": [
+      1024,
+      1024
+    ],
+    "rgba8_png": true,
+    "transparent": true,
+    "view": "AgX exposure0/gamma1 existing look recorded unchanged",
+    "head_target": "saved head bone midpoint translated only by worldZ -0.04m",
+    "ortho_scale_m": 0.34,
+    "distance_m": 5
+  },
+  "render_basis": "Actual original768x768front image has crown~275/chin~620 and forehead-centred target with0.50m scale. Fix0.34m scale and target0.04m lower before first study to retain whole crown/ears/chin and useful face area. New differential has harder fixed key, lower fill and no denoising to make literal painted detail readable. No old retake; no tuning after images.",
+  "allowed_delta": "Human.body DiffuseTexture.image only plus exact new packed Image; preserve AlphaMapTexture on original bitmap. Existing one UVMap active/render plus direct Color->Principled BaseColor checked at native start. Complete captured old owner signature must match cold baseline before staging; only explicit allowed image delta after each variant and save. New staging lights/world/camera/settings shared identically between variants.",
+  "argv": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--offline-mode",
+    "--factory-startup",
+    "--disable-autoexec",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/neutral-source-logged.blend",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/render_study.py"
+  ],
+  "launcher_argv": [
+    "python3",
+    "-I",
+    "-B",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/launch_study.py",
+    "<fresh ROOT-ADMISSION SHA256>"
+  ],
+  "workload": {
+    "one_native_attempt": true,
+    "wall_seconds": 180,
+    "term_grace_seconds": 5,
+    "remaining_group_cleanup_seconds": 5,
+    "rss_sampled_threshold_bytes": 6442450944,
+    "aggregate_leaf_output_sampled_threshold_bytes": 134217728,
+    "file_size_child_rlimit_bytes": 134217728,
+    "poll_seconds": 0.2,
+    "sampling_limit": "RSS and aggregate disk thresholds may overshoot between polls; not hard whole-RSS/peak/all-native-I/O guarantee. RLIMIT_FSIZE is perfile only. No peak/performance acceptance.",
+    "budget_basis": "Prior recorded six CPU firstviews16threads/16samples768x768+body completed~11.6s native without guaranteed future bound. This job has six1024headimages/32samples/8threads plus one save;180s is a refusal deadline, not duration prediction.128GiB machine,18logicalCPU,~1.7TBfree observed.6GiB threshold provides a bounded stop signal, not measured allocation proof.",
+    "outputs": "Six first PNGs plus one separate candidate.blend and exact recorded before/after/result/job/log/claim/inventory. No seventh image, overwrite, automatic retry, exports or other model open.",
+    "failure_ownership": "Exclusive CLAIM before Popen; STARTED native PID/pgid, raw NATIVE.log, complete JOB finally inventory on normal Python paths, TERM/KILL own group. Root separately records raw tool completion and independent actual full leaf inventory incl all partial/types/modes/SHA/size, source pins and group absence before viewing. Any nonzero/timeout/result/inventory/identity failure rejects operation and closes no retry. Exceptions before native script try are owned by root wrapper/post-job, not promised FAILURE JSON.",
+    "persistence": "Saved candidate is unqualified until separately justified and admitted one cold readback; no automatic second native process. Actual first images decide mapped utility only."
+  },
+  "stop_conditions": [
+    "First missing linked association or source/preflight duty: close before native.",
+    "Source A and complete independent root gate including input hashes/executable/argv/processabsence/outputabsence/deadlines before one launch.",
+    "Actual failed/unclear image, changed owner/identity, timeout, threshold or error: stop no parameter/renderer/capture rescue."
+  ],
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/work/neutral-source-logged.blend",
+      "bytes": 11983694,
+      "sha256": "6ed771b71a99ac8a5cf9c717fef5364ac0a427763e601fecffa984bafd4f53eb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-source/source/old_lightskinned_female_diffuse.png",
+      "bytes": 4716109,
+      "sha256": "00c45246c145562b917371e92de44a1fe394bc5f4bd91418addf24b6adff5e9d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/COLD-RESULT.json",
+      "bytes": 635270,
+      "sha256": "381b890fba742144626dc49e0188fbb12c02631e5ff046c8317118762b0e85cd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/LOGGED-JOB.json",
+      "bytes": 510,
+      "sha256": "5eefd8e24fc03a1375279359394034ce0ae375f16b8d067f6ff3d84a06969c6a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-native-source/scene_receipt.py",
+      "bytes": 6017,
+      "sha256": "82b10908efaf576d6cd6763fc7a6d557604eb45c9f7e4652359c4da69b5c9f21"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-first-views/README.md",
+      "bytes": 5761,
+      "sha256": "ba4f9115902830a1d3a00482b6275a888b25a6bfddee0d854f0cd2b25c2b2db2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-first-views/render_views.py",
+      "bytes": 6209,
+      "sha256": "5f282f96de8c5fc315999443291cd5938f3619caef7c206ab67c559ea066060d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/ari-neutral-first-views/head-front.png",
+      "bytes": 309803,
+      "sha256": "4e3ca8d0b3a8d336e4cfc93f72e083445e528dc86119b608636e9f5d082bf393"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/MacOS/Blender",
+      "bytes": 182900560,
+      "sha256": "f5c1f2a0c0bca3389ec772d355242b700975ea84e66cbb3f5257a7bce8e5adeb"
+    },
+    {
+      "path": "/Applications/Blender.app/Contents/Info.plist",
+      "bytes": 2889,
+      "sha256": "1387794301d134f2a330bd85ea5f3b243303c9bcfd022c98bdd7de47ac81794b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/BODY-BINDING.json",
+      "bytes": 4672,
+      "sha256": "082ee6956d8c9234f656c7fa2123b78cc12ef9e6e2568749972a593bddda85fd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/PRIMARY-1.json",
+      "bytes": 44846,
+      "sha256": "da185fc921521596c7c561a5d2697f77e1d992d89c9608cd9a4ad1d8dbe041a3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/PRIMARY-2.json",
+      "bytes": 75171,
+      "sha256": "d755fbd17bd53903dd802d66d7d394a212fe48091356ec20c644fe397b5a92dc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/render_study.py",
+      "bytes": 10889,
+      "sha256": "a1a49718987ce13395e7cb6f1ea332bbcd3fc30390ea429e231303f3ab623158"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/launch_study.py",
+      "bytes": 6591,
+      "sha256": "b7f52c99f56bf6d6f8b328fa794bedc0d397a3ec489277997f30ca3563b06ba9"
+    }
+  ]
+}
