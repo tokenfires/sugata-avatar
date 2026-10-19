@@ -1,0 +1,72 @@
+{
+  "schema": "worth-only-frozen-artifact-review-v1",
+  "utc": "2026-10-19T11:26:55.280971+00:00",
+  "pid": 33760,
+  "verdict": "B_NO_IMAGE_REVIEW_LEAVE_ALL_SIX_UNVIEWED",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-artifact-review/PLAN.md",
+      "bytes": 3569,
+      "sha256": "10f17dcce3f85224b53ce7b7bdd9282fa990e1c8a6d61bc4ebef19bb40311f3c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/ROOT-CLOSE.json",
+      "bytes": 10655,
+      "sha256": "427bab358dbf8fe26f3259963f54573c0ab97fe2efc6c7309756ad61f9c002e1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/PLAN.md",
+      "bytes": 4750,
+      "sha256": "6599f3fe97069356982a21e71c3c61a0abb3ca9cbf9730a12d6598f371bf48a1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/RESULT-REVIEW.md",
+      "bytes": 3266,
+      "sha256": "506bcf4e27fe3732332cd4ef5a14693cccd5b1be645e388228b3fd926f645a4a"
+    }
+  ],
+  "read_scope": "Whole four named text/JSON files; selected two directly relevant closure pin associations independently rechecked. No recursive39-row closure or34-row admission re-audit. Prior actual saved-data audit remains historical and unchanged, not rerun here.",
+  "jobs": [
+    {
+      "chunk_id": "399e7e",
+      "exit_code": 0,
+      "pid": 33650,
+      "utc": "2026-10-19T11:25:51.095413+00:00",
+      "scope": "Whole proposal/old closure/old plan/own actual result review read and exact raw pins",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\nr=Path('/Users/robault/GitHub/sugata-avatar');print('WORTH_READ',os.getpid(),datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor rel in ['docs/evidence/appearance-2026-10-19/mapped-diffuse-artifact-review/PLAN.md','docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/ROOT-CLOSE.json','docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/PLAN.md','docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/RESULT-REVIEW.md']:\n p=r/rel;b=p.read_bytes();print(json.dumps({'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}))\n for n,s in enumerate(b.decode().splitlines(),1):print(f'{n}: {s}')\nPY"
+    }
+  ],
+  "finding": {
+    "id": "F1",
+    "classification": "Insufficient separation: same mapped-reference judgment after failed no-image gate. Not a corrupted-image or universal artifact-invalidity claim.",
+    "witnesses": [
+      "newPLAN5\u20139",
+      "oldPLAN5\u20137,13,15",
+      "oldRESULT-REVIEW3\u20137",
+      "oldROOT-CLOSE242\u2013247"
+    ],
+    "alternatives": [
+      "Retain exact unviewed packet and defer complete artist material decision; preserves stop,placement unresolved.",
+      "Review existing pixels with supervisorB retained; no new nativecost,but would relax failed gate for the same claim and is declined."
+    ]
+  },
+  "visual_work": {
+    "new_PNG_bytes_read": false,
+    "new_PNG_decompressed_decoded_or_viewed": false,
+    "image_tool_calls": 0
+  },
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-artifact-review/WORTH.md",
+    "bytes": 2556,
+    "sha256": "489ca6ab65ff0f0e9f5cb5e0cf3c6838ddb30aa50b7ee88be7aa61b72e25eb3f"
+  },
+  "limits": [
+    "No target/source/helper/native/model/API imports or execution,processprobe,render,capture,coldreadback,network/refetch or source/product edit.",
+    "No old criterion rewritten; no native/provenance/appearance/source/default/persistence/AAA promotion.",
+    "No second study or automatic successor suggested/admitted.",
+    "Current Git commit/cleanliness stated by parent is context,not independently checked in this narrow review."
+  ],
+  "deadline": "20minutes is the declined future artifact-review cap; no new pixel-review period starts. Fresh worth handled promptly.",
+  "next": "Root independently verifies pair,then closes nomination with sixPNGsunviewed."
+}
