@@ -1,0 +1,24 @@
+{
+  "schema": "mara-discovery-checkpoint-checks-v1",
+  "checks": [
+    {
+      "chunk_id": "e7e947",
+      "wall_time_seconds": 0.000007625,
+      "exit_code": 2,
+      "original_token_count": 128,
+      "output": "docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/PROPOSED.diff:39: trailing whitespace.\n+ \ndocs/evidence/appearance-2026-10-19/mara-cardigan-discovery/PROPOSED.diff:41: trailing whitespace.\n+ \ndocs/evidence/appearance-2026-10-19/mara-cardigan-discovery/PROPOSED.diff:46: trailing whitespace.\n+ \ndocs/evidence/appearance-2026-10-19/mara-cardigan-discovery/PROPOSED.diff:48: trailing whitespace.\n+ \ndocs/evidence/appearance-2026-10-19/mara-cardigan-discovery/PROPOSED.diff:48: new blank line at EOF.\n"
+    },
+    {
+      "chunk_id": "578d36",
+      "wall_time_seconds": 0.000006208,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    }
+  ],
+  "decision": "Full staged whitespace advisory is limited to exact unified diff context lines and final blank context. Authored documents pass scoped check. Preserve frozen PROPOSED.diff bytes; no target edit or replay.",
+  "commands": [
+    "git diff --cached --check",
+    "git diff --cached --check -- . ':(exclude)docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/PROPOSED.diff'"
+  ]
+}

@@ -1,0 +1,48 @@
+--- baseline/ARTIST-WARDROBE.html
++++ candidate/ARTIST-WARDROBE.html
+@@ -9,7 +9,7 @@
+ </style></head><body>
+ <a class="skip" href="#directions">Skip to character directions</a>
+ <main><nav aria-label="Wardrobe board navigation"><span class="brand">SUGATA / ARTIST WORK</span><div class="nav-links"><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md">Project checklist</a><a href="/src/showcase.html">Customize current look</a></div></nav>
+-<header class="hero"><p class="eyebrow">Character &amp; wardrobe · October 7</p><h1>Wardrobe, taking shape.</h1><p class="lead">Four character directions. Four 3D drafts.</p><p class="context">See the retained artwork and open its original files. The character pictures are illustrations; the separate 3D drafts are starting shapes for further authorship. They have not been assembled or fitted as complete outfits.</p></header>
++<header class="hero"><p class="eyebrow">Character &amp; wardrobe · October 19</p><h1>Wardrobe, taking shape.</h1><p class="lead">Four character directions. Five 3D drafts.</p><p class="context">See the retained artwork and open its original files. The character pictures are illustrations; the separate 3D drafts are starting shapes for further authorship. They have not been assembled or fitted as complete outfits.</p></header>
+ <section id="directions" aria-labelledby="directions-title"><div class="section-head"><h2 id="directions-title">Character directions</h2><p>Whole-character illustrations for discussing shape, materials and face framing.</p></div><div class="grid">
+ <article class="card" aria-labelledby="item-0">
+ <div class="copy"><p class="label">Illustrated character direction</p><h3 id="item-0">Soft knit, wider legs</h3></div>
+@@ -24,7 +24,7 @@
+ <article class="card" aria-labelledby="item-6">
+ <div class="copy"><p class="label">Illustrated character direction</p><h3 id="item-6">Silver bob, long layers</h3></div>
+ <figure><img src="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png" alt="Original full-body and portrait Mara illustration with a silver side-part bob, caramel open cardigan, ivory tee, plum midi skirt and oxblood low-heeled loafers" decoding="async"><figcaption><p>Mara's silver bob and warm layers: an open cardigan, visible skirt waist and a plum midi hem above low leather loafers.</p><p class="limit">An artist discussion target. Editable character, garment fit, motion and runtime use remain open.</p><a class="original" href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png">Open complete original image ↗</a></figcaption></figure>
+-<div class="links" aria-label="Silver bob, long layers files"><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md">Design brief</a></div>
++<div class="links" aria-label="Silver bob, long layers files"><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md">Design brief</a><a href="#mara-cardigan-draft">Unfitted cardigan draft</a></div>
+ </article>
+ <article class="card" aria-labelledby="item-7">
+ <div class="copy"><p class="label">Illustrated character direction</p><h3 id="item-7">Short rust layers, broader volume</h3></div>
+@@ -53,7 +53,12 @@
+ <figure><img src="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/boot-artist-first-view/triptych-first.jpg" alt="Retained actual front, profile and rear mesh views of brown ankle boots with crossing laces, rear counters, dark soles and low heels" decoding="async"><figcaption><p>Rounded forefeet, crossing laces, ankle rims and rear counters. Faceted insteps and raised details remain a coarse blockout.</p><p class="limit">The interior reference is fictional. Anatomical fit, leather finish and movement remain open.</p><a class="original" href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/boot-artist-first-view/triptych-first.jpg">Open complete original image ↗</a></figcaption></figure>
+ <div class="links" aria-label="Paired ankle boots files"><a download href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/boot-artist-first-view/export/mesh.json">Mesh JSON</a><a download href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/boot-artist-first-view/export/boots.obj">Boot OBJ</a><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/boot-artist-first-view/README.md">Source and limits</a></div>
+ </article>
++<article class="card" id="mara-cardigan-draft" aria-labelledby="item-8">
++<div class="copy"><p class="label">3D artist draft · unfitted</p><h3 id="item-8">Mara’s open cardigan</h3></div>
++<figure><img src="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/high-front.png" alt="Retained actual oblique mesh view of Mara’s caramel open cardigan, with hanging sleeves, an inside back and two low patch shapes" decoding="async"><figcaption><p>A long open volume with connected sleeves, inner surfaces and two low patch-pocket intentions.</p><p class="limit">A stylized blockout with coarse surfaces and subtle pocket mouths. Body fit, cloth, sewing, rigging, motion and runtime use remain open.</p><a class="original" href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/high-front.png">Open complete original image ↗</a></figcaption></figure>
++<div class="links" aria-label="Mara cardigan draft files"><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/ARTIST-HANDOFF.md">Six views and limits</a><a download href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.json">Mesh JSON</a><a download href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.obj">OBJ</a><a download href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/out/model.mtl">MTL</a></div>
++</article>
+ </div></section>
+ <section class="next" aria-labelledby="next-title"><h2 id="next-title">From these drafts to a wearable character</h2><p>Finished surfaces, coherent proportions, body and foundation coverage, layering, expression and movement still need work. The complete character goal stays open.</p><a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md">See the full roadmap ↗</a></section>
+-<footer>Local artist review. Original images and source studies stay preserved. <a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/wardrobe-board/README.md">Review evidence</a></footer>
++<footer>Local artist review. Original images and source studies stay preserved. <a href="/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/wardrobe-board/README.md">Original board review</a></footer>
+ </main></body></html>
+
+--- baseline/PROJECT-CHECKLIST.md
++++ candidate/PROJECT-CHECKLIST.md
+@@ -27,7 +27,9 @@
+ 
+ - [x] Original Mara artist discussion sheet with full-body and portrait views, silver bob and an open cardigan/plum midi direction; editable character, fit, motion and runtime remain open. [Character design](evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md)
+ 
+-- [x] Original editable Mara long-cardigan technical drawing with front, profile, rear and smaller inside-facing views; unitless artist design, with sewing, 3D, body fit and motion still open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md)
++- [x] Original editable Mara long-cardigan technical drawing with front, profile, rear and smaller inside-facing views; unitless artist design, with sewing, finished 3D clothing, body fit and motion still open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-05/mara-cardigan-first-native/ARTIST-HANDOFF.md)
++
++- [x] Editable standalone Mara cardigan 3D artist blockout with six reviewed mesh views and JSON/OBJ/MTL; unitless and unfitted, with finished cloth, sewing, body fit, rigging, motion and runtime use still open. [Mesh, exports, views and limits](evidence/appearance-2026-10-19/mara-cardigan-attachment-index/ARTIST-HANDOFF.md)
+ 
+ - [x] Original editable Mara loafer technical drawing with top, profile, front, rear, outsole and inside views of one left shoe; unitless artist intent, with anatomical pairing, manufacturing, 3D fit and motion still open. [SVG, JSON and reviewed sheet](evidence/appearance-2026-10-06/mara-loafer-first-native/ARTIST-HANDOFF.md)
+ 

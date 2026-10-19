@@ -1,0 +1,77 @@
+{
+  "schema": "root-Mara-discovery-baseline-whole-image-first-opinion-v1",
+  "utc": "2026-10-19T16:51:55.608732+00:00",
+  "pid": 7183,
+  "decision": "B/unknown baseline visual readiness. Close discovery method before integration; final capture allowance retired unused.",
+  "before_critic_baseline_pixel_opinion": true,
+  "whole_actual_image": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/baseline.jpg",
+    "bytes": 399612,
+    "sha256": "03788c37f674b28943d34b470bd516c2171658e152a91db940c93267d8d01ebe"
+  },
+  "whole_display": "view_image original whole1280x3835 requested/displayed; no crop/edit/retake",
+  "witness": "baseline.jpg secondcharacterrow: Mara left and Ari right have large blank white image fields below their headings and above captions (approximatelyx53\u2013627 andx652\u20131227,y1278\u20131663). Firstrow and lower meshimages are visible.",
+  "explanation": "Actual whole-page witness does not show all eight source images even though the public DOM reports allcomplete/positive naturaldimensions. Loaded metadata is insufficient to qualify complete painted page evidence. This is an actualcapture/display unknown, not proof acceptedart is absent/corrupt or a diagnosis oflazydecoding/driver/server cause.",
+  "source_witness": "Unchanged baselineHTML twoimgsrc attributes and SOURCE manifest exactMara/Ari originalimagepins; BASELINE-DOM imagescomplete/natural>0. Main/source/assets remain unchanged.",
+  "alternatives": [
+    {
+      "choice": "Freeze this actual incomplete witness/inertproposal and retain currentmainexactbaseline",
+      "tradeoff": "Preserves truthful quality boundary without anothercapture or unqualifiedintegration; discoverygap remains",
+      "preferred_now": true
+    },
+    {
+      "choice": "Defer complete painted-page/readiness ownership to a later separatelyauthorizedcontract",
+      "tradeoff": "Could establish why loaded metadata andpaint differ but adds investigation; no currentrerender/reload/retake/crop/clarityclone or successor admitted",
+      "admitted_now": false
+    }
+  ],
+  "metadata": {
+    "reported_images": 8,
+    "allcomplete": true,
+    "reported_character_cards": 4,
+    "reported_mesh_cards": 4
+  },
+  "main_board_and_checklist_unchanged": true,
+  "owned_baseline_tab14_closed_before_anycopy": true,
+  "no_candidate_copy_or_final_entry": true,
+  "closed_budget": {
+    "baseline_whole_capture": 1,
+    "final_whole_capture": 0,
+    "unused_final_retired": true,
+    "modelentries": 0
+  },
+  "absolute_stop_utc": "2026-10-19T17:28:58.989769+00:00",
+  "next": "Independentcriticwholeactualbaseline/pin review, rootverifyhandoff, checkpointunchanged; no rescue/promotion.",
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/BASELINE-ADMISSION.json",
+      "bytes": 10646,
+      "sha256": "ba16bf61cc43b7eae1ddd080986907a418958b8e03bdc48f4d3bfc4e3d0bc346"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/BASELINE-DOM.json",
+      "bytes": 13969,
+      "sha256": "936ec673e542ef17ad738f8944a198336345eae0238fba5327ebb85cc1b6178c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/BASELINE-CAPTURE.json",
+      "bytes": 606,
+      "sha256": "87adf619e1a840749662208a1245be574e1a238d8d53f8457a152d59878128bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/BASELINE-TAB-CLOSE.json",
+      "bytes": 1189,
+      "sha256": "3fb0858ab65807051ed2a9ec6ab67e096a37bad8ebaa596ab0d9ea50809b7d4b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/SOURCE.md",
+      "bytes": 6449,
+      "sha256": "4cf0d912917192455339db9031a4b04f9d18da48b354365e078e7deceee0df3f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/SOURCE-INPUTS.json",
+      "bytes": 9378,
+      "sha256": "8c50086926c71d1e4230bf445172454bba67de3c04a27386462343ea70c592bc"
+    }
+  ]
+}

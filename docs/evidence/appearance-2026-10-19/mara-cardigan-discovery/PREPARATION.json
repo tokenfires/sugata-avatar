@@ -1,0 +1,44 @@
+{
+  "schema": "Mara-discovery-inert-preparation-v1",
+  "utc": "2026-10-19T16:44:59.307704+00:00",
+  "pid": 93927,
+  "root_worth": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/ROOT-WORTH.json",
+    "bytes": 4788,
+    "sha256": "4503ef616491f9ff349061b2d720f400bc7f9ca28427e7b740371413a13a2333"
+  },
+  "baseline": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/baseline/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/baseline/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    }
+  ],
+  "candidate": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/candidate/ARTIST-WARDROBE.html",
+      "bytes": 17772,
+      "sha256": "c2f4bd286395aa9324692e3aac5faf1654e30aa6858625c1db98e1e5dc281046"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/candidate/PROJECT-CHECKLIST.md",
+      "bytes": 7833,
+      "sha256": "bbac2e27f6a4b1b8d10de8984fe401f60bf361624db9e66725e9ef616fc75d16"
+    }
+  ],
+  "current_main_unchanged": true,
+  "diff": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/PROPOSED.diff",
+    "bytes": 8869,
+    "sha256": "602949e8236ce6a8a9610734d4dec6055f338be57c8b65a7ff5879a16a63856d"
+  },
+  "research": "Local accepted wording settles purpose; optional external budget retired unused at ROOT-WORTH. No onlinecall.",
+  "no_frozen_leaf_renderer_or_model_change": true,
+  "no_capture_or_target_page_entry": true,
+  "absolute_deadline_utc": "2026-10-19T17:28:58.989769+00:00"
+}

@@ -1,0 +1,83 @@
+{
+  "schema": "root-Mara-discovery-worth-acceptance-v1",
+  "utc": "2026-10-19T16:43:58.989769+00:00",
+  "pid": 92133,
+  "decision": "A inert documentary preparation only; no board/checklist edit, online research or capture admission yet",
+  "whole_stable_pair_read": "8f3ea0",
+  "reverified_rows": 42,
+  "unique_paths": 22,
+  "stable_pair": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/WORTH.md",
+      "bytes": 3051,
+      "sha256": "987f27415ab79eef6055e7dfcecf99bb43393db12bf8830977e1dd5404aa528f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/WORTH-RECEIPT.json",
+      "bytes": 19866,
+      "sha256": "f8d3b0010730dbcbcc8f5f31af8e2709eda213b251dab80bce392b25d04c7d3d"
+    }
+  ],
+  "metadata_only_receipt_reverse_exact": true,
+  "independent_root_inputs": "70bcf4 wholeboard+Mara handoff/README/image/deliveryreviews; bfa4b7 wholeroadmap;2f7562 wholeunchangedchecklist; actualunchangedwholeMara first/front/highfront inspected; frozen fullartistA reused atsamepins, no newmodelqualifications",
+  "additional_existing_preview_input": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/high-front.png",
+    "bytes": 39479,
+    "sha256": "1cdf7674edf39137f4753261ee18c1bf836f3c01d6b81035fd976219e5d2ce90"
+  },
+  "gap": "No cardigan3D leaf on currentboard; fourolderpiececards/heroFourdrafts; MaracharacteronlyDesignbrief; checklist2Dcardiganonly",
+  "actionable_conditions": [
+    {
+      "id": "G1",
+      "witness": [
+        "ARTIST-WARDROBE.html:12,27,35\u201355",
+        "PROJECT-CHECKLIST.md:30",
+        "ARTIST-HANDOFF.md:3\u201317",
+        "Whole existing first.jpg/front.png/rear.png"
+      ],
+      "effect": "Concrete discovery gap for the accepted standalone artist volume; current board links only to the character brief and four older mesh drafts.",
+      "alternatives": [
+        {
+          "choice": "One narrow static preview/artist-blockout entry and direct handoff path",
+          "tradeoff": "Improves visual discovery but adds catalogue height and interpretation duties."
+        },
+        {
+          "choice": "Text handoff link only on current Mara card; no extra scoped row",
+          "tradeoff": "Less clutter, weaker visual discovery and no explicit available-deliverable record."
+        }
+      ],
+      "preference": "Small preview/entry subject to separate complete source/link/diff and actual page gates."
+    },
+    {
+      "id": "G2",
+      "witness": [
+        "ARTIST-HANDOFF.md:3,7,9,15\u201319",
+        "IMAGE-REVIEW.md:3\u201317",
+        "DELIVERY-REVIEW.md:7\u201313",
+        "PROJECT-CHECKLIST.md:46\u201361",
+        "PRODUCT-ROADMAP.md:42,131\u2013138"
+      ],
+      "effect": "A new access path must not imply fitting, finished cloth or broad-goal completion; literal four-draft count must agree with final catalogue content.",
+      "alternatives": [
+        {
+          "choice": "One exact narrow artist row, accurate board count and explicit unfitted limitations",
+          "tradeoff": "Truthful useful availability; requires complete later doc/image review and leaves ten broad goals open."
+        },
+        {
+          "choice": "Defer row until coupled body/garment owner; link only current handoff",
+          "tradeoff": "Reduces overstatement risk but understates the existing standalone deliverable."
+        }
+      ],
+      "preference": "First, if later gates pass; neither admits implementation now."
+    }
+  ],
+  "selected_improvement": "One accurate newstatic Mara cardigan blockout card/directhandoff/downloadlinks plus characterjump and one narrowchecklistrow; correspondingliteralcount/date and older2Drowwording updated without changingoldlinks/assets or tenbroadgoals",
+  "research_decision": "Existing local accepted handoff and catalogue settle linkpurpose: unfitted3Dartistdraft, Sixviewsandlimits, explicitfiletypes. Another externalpage cannot add artistqualification. Retire optional1query/1W3Cpage/0images/2credit ceiling unused; no onlinecall/capacityfailure.",
+  "window_minutes": 45,
+  "absolute_deadline_utc": "2026-10-19T17:28:58.989769+00:00",
+  "capture_ceiling": "At mostonebaseline andonefinalnaturalwholepagecapture,2MiBeach; no crop/scale/viewport/DPRoverride/retake/clarityclone; no modelrenderer. Separatecomplete source/link/preflight then freshrootstageadmission required. Closeownedbaselinetab beforeapplyingcandidate toavoidHMRreload.",
+  "first_source_or_final_image_B_unknown_closes": true,
+  "no_frozen_leaf_or_Ari_B_or_model_viewer_reopening": true,
+  "full_roadmap_and_constructor_HOLD_and_old_closures_preserved": true,
+  "human_checkin_pause_wins": true
+}

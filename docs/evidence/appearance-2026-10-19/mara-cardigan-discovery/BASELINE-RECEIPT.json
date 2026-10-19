@@ -1,0 +1,408 @@
+{
+  "schema": "critic-mara-cardigan-discovery-actual-baseline-v1",
+  "verdict": "B/unknown — actual complete painted baseline readiness unqualified; close unintegrated",
+  "pending_edits": false,
+  "absolute_stop_utc": "2026-10-19T17:28:58.989769+00:00",
+  "independent_blind_decision": {
+    "decision": "B/unknown — actual baseline painted readiness not qualified; close without integration/final capture",
+    "before_root_first_read": true,
+    "whole_image": "baseline.jpg1280x3835, original detail, all page content inspected",
+    "finding": {
+      "id": "F1",
+      "witness": "The Mara and Ari second-row character image regions are blank paper/white while their headings/captions and links remain painted. Approximate whole-image areas: Mara x53–627/y1270–1680; Ari x652–1228/y1270–1680. The first two character illustrations and later mesh reference blocks are painted.",
+      "effect": "The required complete original board baseline cannot be qualified from actual pixels; source/DOM image presence cannot stand in for seeing all retained character artwork. This is a painted readiness failure/unknown, not an artifact syntax/model/image-source-quality diagnosis.",
+      "source_witness": "Exact baseline ARTIST-WARDROBE.html lines26 and31 declare unchanged complete Mara/Ari img sources. Existing source caps and prior source A do not qualify painting.",
+      "cause": "Unknown; no decoder/server/driver/lazy-loading/resource attribution.",
+      "alternatives": [
+        {
+          "choice": "Close this capture method unintegrated, retain actual baseline evidence and inert reviewed candidate; leave current main at exact baseline",
+          "tradeoff": "Honors one-attempt stop and preserves source/data value, but provides no new discovery delivery."
+        },
+        {
+          "choice": "Defer any catalogue publication to a genuinely separate future delivery owner under fresh human/roadmap authority",
+          "tradeoff": "Could eventually own actual complete image delivery, but entails new scope and is not a reload/URL/decoder/capture rescue in this nomination."
+        }
+      ],
+      "preferred": "First; retire unused final capture and no new target."
+    },
+    "positive_scope": "Readable header/count/scope text, card headings/captions/links and first two illustrations; later older mesh previews present. Does not qualify whole complete page.",
+    "pending_edits": false
+  },
+  "image_view": {
+    "tool": "tools.view_image",
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/baseline.jpg",
+    "detail": "original",
+    "scope": "Whole actual1280x3835 saved baseline JPEG before ROOT-BASELINE-FIRST; no crop, reconstruction, browser or new capture",
+    "process_or_backend_id_exposed": false
+  },
+  "blind_sequence": [
+    "Whole saved baseline.jpg viewed at original detail",
+    "Own B/unknown fixed in persistent store and sent to root",
+    "Complete actual records and ROOT-BASELINE-FIRST read",
+    "Independent saved metadata/identity audit, no new target action"
+  ],
+  "root_reconciliation": "ROOT-BASELINE-FIRST was sealed16:51:55.608732UTC/PID7183 before critic opinion; after own fixed judgment, its blank Mara/Ari image-field witness independently agrees. No pixel opinion changed to match root.",
+  "read_scopes": [
+    {
+      "scope": "Shallow current leaf filename/size inventory only, no target invocation or output reconstruction",
+      "job": {
+        "chunk_id": "5d23f8",
+        "wall_time_seconds": 7.125e-06,
+        "exit_code": 0,
+        "original_token_count": 130,
+        "pid": 8831,
+        "utc": "2026-10-19T16:52:49.911979+00:00"
+      }
+    },
+    {
+      "scope": "Whole BASELINE-ADMISSION, BASELINE-DOM, BASELINE-CAPTURE, BASELINE-TAB-CLOSE, ROOT-BASELINE-FIRST and ROOT-PREPARED-SOURCE JSON",
+      "job": {
+        "chunk_id": "a9d2a8",
+        "wall_time_seconds": 4.875e-06,
+        "exit_code": 0,
+        "original_token_count": 8760,
+        "pid": 9229,
+        "utc": "2026-10-19T16:53:03.346876+00:00"
+      }
+    },
+    {
+      "scope": "All39 admission+31 source+6 root-first raw-byte bindings; whole JPEG hash and SOF metadata; all8 original image raw identities/header dimensions vs DOM;37 literal source/public links; temporal/cap/tab/current-main checks",
+      "job": {
+        "chunk_id": "a9e3e9",
+        "wall_time_seconds": 6.958e-06,
+        "exit_code": 0,
+        "original_token_count": 1046,
+        "pid": 10373,
+        "utc": "2026-10-19T16:53:37.857785+00:00"
+      }
+    },
+    {
+      "scope": "Complete original baseline, candidate, diff, SOURCE and prior image/data/delivery qualifications reused at unchanged exact preceding source/worth pins. No model parsing, source import/evaluation, library or geometry re-audit."
+    }
+  ],
+  "actual_audit": {
+    "verified_rows": 76,
+    "unique_paths": 43,
+    "all39_admission_rows_exact": true,
+    "all31_source_rows_exact": true,
+    "all6_root_first_rows_exact": true,
+    "baseline_JPEG": {
+      "bytes": 399612,
+      "sha256": "03788c37f674b28943d34b470bd516c2171658e152a91db940c93267d8d01ebe",
+      "dimensions": [
+        1280,
+        3835
+      ],
+      "within2MiB": true
+    },
+    "recorded_interval": {
+      "opened": "2026-10-19T16:50:21.686Z",
+      "screenshot_requested": "2026-10-19T16:50:41.942Z",
+      "screenshot_returned": "2026-10-19T16:50:42.062Z",
+      "owned_tab_closed": "2026-10-19T16:50:46.486Z",
+      "within_admission_expiry": true
+    },
+    "public_DOM": {
+      "image_count": 8,
+      "allcomplete_positive_natural": true,
+      "natural_dimensions_equal_source_headers": true,
+      "character_cards": 4,
+      "mesh_cards": 4,
+      "link_occurrences": 37,
+      "all_source_links_exact": true
+    },
+    "images": [
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+        "bytes": 2439336,
+        "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77",
+        "natural_header_dimensions": [
+          1536,
+          1024
+        ],
+        "public_complete": true
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+        "bytes": 2262882,
+        "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44",
+        "natural_header_dimensions": [
+          1536,
+          1024
+        ],
+        "public_complete": true
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+        "bytes": 2383355,
+        "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311",
+        "natural_header_dimensions": [
+          1536,
+          1024
+        ],
+        "public_complete": true
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+        "bytes": 2193053,
+        "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d",
+        "natural_header_dimensions": [
+          1536,
+          1024
+        ],
+        "public_complete": true
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/whole-knit-serving/front.jpg",
+        "bytes": 37822,
+        "sha256": "4b7bae3c4852540bfa8f39a28ad8e016cabc7c0f0153fb35afbccebe4fe7b986",
+        "natural_header_dimensions": [
+          1280,
+          720
+        ],
+        "public_complete": true
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/triptych-first.jpg",
+        "bytes": 46998,
+        "sha256": "459c0f23d5d46be2c9e1421d132979044cca159f444c12d270b6e50cfe1ef13f",
+        "natural_header_dimensions": [
+          1280,
+          868
+        ],
+        "public_complete": true
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/triptych-first.jpg",
+        "bytes": 47399,
+        "sha256": "5fd1071f64a7a7a1ebb5e36bd677b6412defba321a061a2e34e5b8dfb15b65da",
+        "natural_header_dimensions": [
+          1280,
+          900
+        ],
+        "public_complete": true
+      },
+      {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/boot-artist-first-view/triptych-first.jpg",
+        "bytes": 62548,
+        "sha256": "b08dd2d698032cdbbe58514337f8075c01ac7fb6f92e78ece396ca542d3011c3",
+        "natural_header_dimensions": [
+          1280,
+          841
+        ],
+        "public_complete": true
+      }
+    ],
+    "main_board_checklist_exact_baseline": true,
+    "scoped_checks": 22,
+    "broad_open": 10,
+    "tab_close_scope": "Saved public API record only: owned14 closed; narrow remaining1/2/3. No live/global census or physical backend retirement claim.",
+    "no_critic_browser_capture_target_or_mutation": true,
+    "painted_readiness": "Not established by these header/DOM/source observations; independent whole-image B/unknown remains."
+  },
+  "actionable_findings": [
+    {
+      "id": "F1",
+      "classification": "Actual painted baseline readiness B/unknown, not a diagnosed source/decoder/server/driver fault",
+      "image_witness": {
+        "path": "baseline.jpg",
+        "whole_dimensions": [
+          1280,
+          3835
+        ],
+        "areas": [
+          {
+            "role": "Mara illustration field",
+            "approximate_xyxy": [
+              53,
+              1270,
+              627,
+              1680
+            ]
+          },
+          {
+            "role": "Ari illustration field",
+            "approximate_xyxy": [
+              652,
+              1270,
+              1228,
+              1680
+            ]
+          }
+        ],
+        "observation": "Both illustration fields are blank while surrounding headings/captions/links and other source images paint."
+      },
+      "source_witness": [
+        "baseline/ARTIST-WARDROBE.html:26,31",
+        "BASELINE-DOM.json.publicDOM.images[2..3]:complete=true/natural1536x1024",
+        "Exact unchanged original Mara/Ari image raw pins in BASELINE-ADMISSION and SOURCE-INPUTS"
+      ],
+      "explanation": "The planned actual whole-board baseline must expose retained artwork. Positive loaded metadata/header identities do not establish painting. Unknown cause closes the one-entry method before candidate copy.",
+      "alternatives": [
+        {
+          "choice": "Freeze current actual witness/inert proposal and leave exact baseline live",
+          "tradeoff": "Truthful bounded closure, but no discovery improvement delivered.",
+          "preferred": true
+        },
+        {
+          "choice": "Defer complete actual page delivery to a later genuinely separate authorized owner",
+          "tradeoff": "Could eventually own actual painting, but adds scope and does not permit current readiness/URL/source/reload/capture rescue.",
+          "admitted_now": false
+        }
+      ],
+      "excluded_inferences": [
+        "No accepted image absence/corruption",
+        "No defect in the unintegrated candidate",
+        "No decoder/server/driver/lazy-loading/capacity cause",
+        "No full-board visual A from metadata",
+        "No generic browser/backend retirement or machine census"
+      ]
+    }
+  ],
+  "record_scope": {
+    "actual_entry": "Root-owned existing IAB3/tab14, one original real HTTP board entry; no candidate copy/final entry per saved records and current exact-main checks.",
+    "raw_command_limits": "This review pins the actual saved public DOM/capture/close/admission records and attributed root operation. No raw CUA transport/wire bytes or backend PID/resource/lifetime identity claimed.",
+    "opened_utc": "2026-10-19T16:50:21.686Z",
+    "capture_utc": [
+      "2026-10-19T16:50:41.942Z",
+      "2026-10-19T16:50:42.062Z"
+    ],
+    "owned_close_utc": "2026-10-19T16:50:46.486Z",
+    "natural_viewport": [
+      1280,
+      720
+    ],
+    "natural_whole_page": [
+      1280,
+      3835
+    ],
+    "image_bytes": 399612,
+    "image_sha256": "03788c37f674b28943d34b470bd516c2171658e152a91db940c93267d8d01ebe",
+    "image_cap_bytes": 2097152,
+    "baseline_captures_used": 1,
+    "final_captures_used": 0,
+    "unused_final_retired": true,
+    "current_scoped_checked": 22,
+    "current_broad_open": 10,
+    "rollback": "Not needed; main remains exact baseline, candidate never copied.",
+    "qualifications_retained": "Inert documentary SOURCE A and frozen Mara standalone artist data/image/delivery A; no added catalogue delivery/appearance/product credit."
+  },
+  "commands": {
+    "shallow_inventory": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor f in sorted(p.iterdir()):\n if f.is_file():print(f.name,f.stat().st_size)\nPY",
+    "whole_actual_records": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['BASELINE-ADMISSION.json','BASELINE-CAPTURE.json','BASELINE-DOM.json','BASELINE-TAB-CLOSE.json','ROOT-BASELINE-FIRST.json','ROOT-PREPARED-SOURCE.json']:\n b=(p/n).read_bytes();print('FILE',str(p/n),len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+    "independent_saved_record_audit": "python3 - <<'PY'\nfrom pathlib import Path\nfrom html.parser import HTMLParser\nfrom urllib.parse import urlsplit\nimport os,datetime,json,hashlib,struct,re\nr=Path('/Users/robault/GitHub/sugata-avatar');p=r/'docs/evidence/appearance-2026-10-19/mara-cardigan-discovery'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nadm=json.loads((p/'BASELINE-ADMISSION.json').read_text());dom=json.loads((p/'BASELINE-DOM.json').read_text());cap=json.loads((p/'BASELINE-CAPTURE.json').read_text());close=json.loads((p/'BASELINE-TAB-CLOSE.json').read_text());root=json.loads((p/'ROOT-BASELINE-FIRST.json').read_text())\nsource=json.loads((p/'SOURCE-INPUTS.json').read_text())['inputs'];rows=adm['inputs']+source+root['pins']\nfor x in rows:\n b=Path(x['path']).read_bytes();assert len(b)==x['bytes'] and hashlib.sha256(b).hexdigest()==x['sha256'],x['path']\nassert len(adm['inputs'])==39 and len(source)==31\nb=(p/'baseline.jpg').read_bytes();assert len(b)==cap['bytes']==399612 and hashlib.sha256(b).hexdigest()==cap['sha256']=='03788c37f674b28943d34b470bd516c2171658e152a91db940c93267d8d01ebe'\ndef jpeg_dims(q):\n assert q[:2]==b'\\xff\\xd8';i=2\n while i<len(q):\n  assert q[i]==255;i+=1\n  while q[i]==255:i+=1\n  m=q[i];i+=1\n  if m in {0xd8,0xd9,0x01} or 0xd0<=m<=0xd7:continue\n  n=int.from_bytes(q[i:i+2],'big');assert n>=2\n  if m in {0xc0,0xc1,0xc2,0xc3,0xc5,0xc6,0xc7,0xc9,0xca,0xcb,0xcd,0xce,0xcf}:return (int.from_bytes(q[i+5:i+7],'big'),int.from_bytes(q[i+3:i+5],'big'))\n  i+=n\n raise AssertionError('No SOF')\nassert jpeg_dims(b)==(1280,3835)\nassert len(b)<=adm['caps']['screenshot_bytes']==2*1024*1024\nassert cap['layout']==dom['publicDOM']['layout']=={'height':720,'scrollHeight':3835,'scrollWidth':1280,'width':1280}\nassert dom['tab_id']==cap['tab_id']==close['owned_tab_id']=='14' and close['closed'] is True\nassert [x['id'] for x in close['remaining_tabs']]==['1','2','3']\nassert adm['utc']<dom['opened_utc']<cap['utc']<cap['returned_utc']<close['utc']<adm['expires_utc']\nclass H(HTMLParser):\n def __init__(self):super().__init__();self.imgs=[];self.links=[];self.active=None\n def handle_starttag(self,t,a):\n  d=dict(a)\n  if t=='img':self.imgs.append(d)\n  if t=='a':self.active={'href':d.get('href'),'text':''}\n def handle_data(self,s):\n  if self.active is not None:self.active['text']+=s\n def handle_endtag(self,t):\n  if t=='a' and self.active is not None:self.links.append(self.active);self.active=None\nh=H();old=(p/'baseline/ARTIST-WARDROBE.html').read_bytes();assert (r/'docs/ARTIST-WARDROBE.html').read_bytes()==old;h.feed(old.decode());pub=dom['publicDOM'];assert len(h.imgs)==len(pub['images'])==8\nassert h.links==pub['links']\nimage_rows=[]\nfor src,x in zip(h.imgs,pub['images']):\n assert x['src']=='http://127.0.0.1:5173'+src['src'] and x['alt']==src['alt'] and x['complete'] is True and x['width']>0 and x['height']>0\n f=Path(urlsplit(x['src']).path[len('/@fs'):]);q=f.read_bytes()\n dims=struct.unpack('>II',q[16:24]) if q.startswith(b'\\x89PNG\\r\\n\\x1a\\n') else jpeg_dims(q)\n assert dims==(x['width'],x['height'])\n image_rows.append({'path':str(f),'bytes':len(q),'sha256':hashlib.sha256(q).hexdigest(),'natural_header_dimensions':list(dims),'public_complete':True})\nassert pub['characterCards']==pub['meshCards']==4 and pub['lead']=='Four character directions. Four 3D drafts.'\nchecks=(r/'docs/PROJECT-CHECKLIST.md').read_bytes();assert checks==(p/'baseline/PROJECT-CHECKLIST.md').read_bytes();s=checks.decode();assert len(re.findall(r'^- \\[x\\]',s,re.M))==22 and len(re.findall(r'^- \\[ \\]',s,re.M))==10\nprint(json.dumps({'verified_rows':len(rows),'unique_paths':len({x['path'] for x in rows}),'all39_admission_rows_exact':True,'all31_source_rows_exact':True,'all6_root_first_rows_exact':True,'baseline_JPEG':{'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'dimensions':[1280,3835],'within2MiB':True},'recorded_interval':{'opened':dom['opened_utc'],'screenshot_requested':cap['utc'],'screenshot_returned':cap['returned_utc'],'owned_tab_closed':close['utc'],'within_admission_expiry':True},'public_DOM':{'image_count':8,'allcomplete_positive_natural':True,'natural_dimensions_equal_source_headers':True,'character_cards':4,'mesh_cards':4,'link_occurrences':len(pub['links']),'all_source_links_exact':True},'images':image_rows,'main_board_checklist_exact_baseline':True,'scoped_checks':22,'broad_open':10,'tab_close_scope':'Saved public API record only: owned14 closed; narrow remaining1/2/3. No live/global census or physical backend retirement claim.','no_critic_browser_capture_target_or_mutation':True,'painted_readiness':'Not established by these header/DOM/source observations; independent whole-image B/unknown remains.'},indent=2))\nPY"
+  },
+  "jobs": {
+    "shallow_inventory": {
+      "chunk_id": "5d23f8",
+      "wall_time_seconds": 7.125e-06,
+      "exit_code": 0,
+      "original_token_count": 130,
+      "pid": 8831,
+      "utc": "2026-10-19T16:52:49.911979+00:00"
+    },
+    "whole_actual_records": {
+      "chunk_id": "a9d2a8",
+      "wall_time_seconds": 4.875e-06,
+      "exit_code": 0,
+      "original_token_count": 8760,
+      "pid": 9229,
+      "utc": "2026-10-19T16:53:03.346876+00:00"
+    },
+    "independent_saved_record_audit": {
+      "chunk_id": "a9e3e9",
+      "wall_time_seconds": 6.958e-06,
+      "exit_code": 0,
+      "original_token_count": 1046,
+      "pid": 10373,
+      "utc": "2026-10-19T16:53:37.857785+00:00"
+    }
+  },
+  "errors_and_limits": [
+    "No critic reader/import/assertion error occurred in this actual baseline review.",
+    "Whole existing JPEG original detail requested; no crop/scale/edit/reconstruction or new image/capture by critic. Image tool exposes no backend/OS PID.",
+    "Actual source images, JSON/OBJ/MTL and prior source qualifiers were only identity-checked or reused; no renderer/model/GLB/native/library import, execution or output regeneration.",
+    "Saved public metadata and image headers cannot prove painting; lack of painting does not diagnose its cause.",
+    "Root tab-close API snapshot is narrow/historical, not physical driver retirement or global running-work inventory.",
+    "No live browser/network/helper/target/capture call, main/frozen/artifact edit, candidate promotion, or additional experiment by critic."
+  ],
+  "next": "Close/freeze the actual baseline B/unknown and preserve source A/inert proposal. No final integration, screenshot, reload, retake, model entry, workaround, source/parameter/readiness correction, relabelling or successor. Root independently verifies stable pair and checkpoints.",
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/BASELINE-ADMISSION.json",
+      "bytes": 10646,
+      "sha256": "ba16bf61cc43b7eae1ddd080986907a418958b8e03bdc48f4d3bfc4e3d0bc346"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/BASELINE-DOM.json",
+      "bytes": 13969,
+      "sha256": "936ec673e542ef17ad738f8944a198336345eae0238fba5327ebb85cc1b6178c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/BASELINE-CAPTURE.json",
+      "bytes": 606,
+      "sha256": "87adf619e1a840749662208a1245be574e1a238d8d53f8457a152d59878128bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/BASELINE-TAB-CLOSE.json",
+      "bytes": 1189,
+      "sha256": "3fb0858ab65807051ed2a9ec6ab67e096a37bad8ebaa596ab0d9ea50809b7d4b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/ROOT-BASELINE-FIRST.json",
+      "bytes": 4233,
+      "sha256": "7743afbd320d6e1486b435c4afb8023f6db1311a9fb85c2d162e96b51fc7e3c2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/ROOT-PREPARED-SOURCE.json",
+      "bytes": 3177,
+      "sha256": "18a71dea167e1e3a2f6910c6fa9c40d3a9493a2a2997a96126e705684790e15a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/SOURCE-INPUTS.json",
+      "bytes": 9378,
+      "sha256": "8c50086926c71d1e4230bf445172454bba67de3c04a27386462343ea70c592bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/SOURCE.md",
+      "bytes": 6449,
+      "sha256": "4cf0d912917192455339db9031a4b04f9d18da48b354365e078e7deceee0df3f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/SOURCE-REVIEW.md",
+      "bytes": 3083,
+      "sha256": "0c6a84cf7ba2873f4f1aebe8df46890f0f25ab5168a020ac50acc6c7974fb585"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/SOURCE-RECEIPT.json",
+      "bytes": 24814,
+      "sha256": "7890a093076166ff51778536d5b327a7ec0bf3052bc876ebe5d1b24be9563e49"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/baseline.jpg",
+      "bytes": 399612,
+      "sha256": "03788c37f674b28943d34b470bd516c2171658e152a91db940c93267d8d01ebe"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/baseline/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/baseline/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    }
+  ],
+  "collection": {
+    "pid": 12506,
+    "utc": "2026-10-19T16:54:51.300827+00:00",
+    "mode": "Exclusive x, own pair only",
+    "pending_edits": false
+  },
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/BASELINE-REVIEW.md",
+    "bytes": 3257,
+    "sha256": "fd40ffd7a9fca25c00ffd6e4279c48c6f356b53a1ad3d3a6b62a762f0b4b8e19"
+  }
+}

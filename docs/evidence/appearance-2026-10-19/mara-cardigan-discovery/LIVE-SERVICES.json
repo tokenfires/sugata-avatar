@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-19T16:58:08.360936+00:00",
+  "pid": 18563,
+  "config": {
+    "path": "/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml",
+    "bytes": 3344,
+    "sha256": "9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a"
+  },
+  "fields": {
+    "id": "advance-sugata-avatar-visual-quality",
+    "name": "Advance Sugata until check-in",
+    "kind": "heartbeat",
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "target_thread_id": "01a0ff57-d720-7db2-923f-9e3e0521216c"
+  },
+  "review_root_HTTP": 200,
+  "listener": "COMMAND PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nnode    870 robault   23u  IPv4 0x8e2e4daf1ddacb28      0t0  TCP 127.0.0.1:5173 (LISTEN)\n",
+  "HEAD": "2dafce7a14fe1e519edd943e0c7be8650697a24c",
+  "status": " M docs/RESUME-2026-10-18.md\n M docs/WORK-WINDOW-2026-10-18.md\n?? docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/\n",
+  "main_baseline_exact": {
+    "ARTIST-WARDROBE.html": true,
+    "PROJECT-CHECKLIST.md": true
+  },
+  "roadmap_unchanged": true,
+  "limits": "Saved ACTIVEcadence/target and scopedHTTP/listener/currentfile observation only; no future/mobile notification delivery, globalworker/tab census or physicalbackendretirement proof. No configuration mutation."
+}

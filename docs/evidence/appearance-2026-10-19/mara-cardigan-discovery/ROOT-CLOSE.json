@@ -1,0 +1,226 @@
+{
+  "schema": "root-mara-discovery-closed-checkpoint-v1",
+  "utc": "2026-10-19T17:02:38.554706+00:00",
+  "pid": 23976,
+  "base_HEAD": "2dafce7a14fe1e519edd943e0c7be8650697a24c",
+  "decision": "CLOSED unintegrated B/unknown actual baseline painting; source proposal A/inert only. No application/final admission/final image. All capture allowance consumed or retired; no rescue/successor.",
+  "root_whole_handoff": "aee03b whole BASELINE pair;6649ff/exit0/PID15041/16:56:08UTC verifies99bindings/46paths and actual witness independently",
+  "baseline": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/baseline.jpg",
+    "bytes": 399612,
+    "sha256": "03788c37f674b28943d34b470bd516c2171658e152a91db940c93267d8d01ebe"
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/BASELINE-ADMISSION.json",
+      "bytes": 10646,
+      "sha256": "ba16bf61cc43b7eae1ddd080986907a418958b8e03bdc48f4d3bfc4e3d0bc346"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/BASELINE-CAPTURE.json",
+      "bytes": 606,
+      "sha256": "87adf619e1a840749662208a1245be574e1a238d8d53f8457a152d59878128bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/BASELINE-DOM.json",
+      "bytes": 13969,
+      "sha256": "936ec673e542ef17ad738f8944a198336345eae0238fba5327ebb85cc1b6178c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/BASELINE-OBSERVER.json",
+      "bytes": 5841,
+      "sha256": "942a5d4d80b51f22324234c405acb4a21766cb2ce8e6d5fdac1390f642f38999"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/BASELINE-RECEIPT.json",
+      "bytes": 24061,
+      "sha256": "faf9b54e8af5fab387c54445d9cb1f10a56a535a44cbc3033b9c42fb602ea3da"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/BASELINE-REVIEW.md",
+      "bytes": 3257,
+      "sha256": "fd40ffd7a9fca25c00ffd6e4279c48c6f356b53a1ad3d3a6b62a762f0b4b8e19"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/BASELINE-TAB-CLOSE.json",
+      "bytes": 1189,
+      "sha256": "3fb0858ab65807051ed2a9ec6ab67e096a37bad8ebaa596ab0d9ea50809b7d4b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/CHECKPOINT-CHECKS.json",
+      "bytes": 1301,
+      "sha256": "4cf47e7864b9da8c04bb1601fa115ecfef53ad4b511719cbbe678e4506f89b41"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/LIVE-SERVICES.json",
+      "bytes": 1310,
+      "sha256": "92c775e99b4b874cba254a9a135ca97feac370628e5e51e4331fcf27359fa906"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/PLAN.md",
+      "bytes": 4210,
+      "sha256": "ae695feb784861169a6e68e5c3fefcf20360a066330bf8de71c88ec52934726f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/PREPARATION.json",
+      "bytes": 2010,
+      "sha256": "aa7bba79af3ccd810051367833c88c7ae06bb8864029afed254fbf398ae7d766"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/PROPOSED.diff",
+      "bytes": 8869,
+      "sha256": "602949e8236ce6a8a9610734d4dec6055f338be57c8b65a7ff5879a16a63856d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/README.md",
+      "bytes": 5357,
+      "sha256": "528ae0cd8567ef2b58faf2e945768b92cc4ef21ae7aa0631908bd54b9d3c4602"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/ROOT-BASELINE-FIRST.json",
+      "bytes": 4233,
+      "sha256": "7743afbd320d6e1486b435c4afb8023f6db1311a9fb85c2d162e96b51fc7e3c2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/ROOT-BASELINE-INTEGRITY.json",
+      "bytes": 2784,
+      "sha256": "03e8d08bf5113acabe2ab44104697b97524820b4eb8732f6600cc77d7369ea69"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/ROOT-BASELINE.json",
+      "bytes": 28069,
+      "sha256": "b6674de02b3d55c0da51c5eb5543646c1fc968917b16a4341d0383b263705369"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/ROOT-PREPARED-SOURCE.json",
+      "bytes": 3177,
+      "sha256": "18a71dea167e1e3a2f6910c6fa9c40d3a9493a2a2997a96126e705684790e15a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/ROOT-SOURCE-REVIEW.json",
+      "bytes": 17852,
+      "sha256": "b740471ca0f8f15659a6c1b86ccc99d0c008ba92aa1b404fd9620cf62dc8de4c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/ROOT-WORTH.json",
+      "bytes": 4788,
+      "sha256": "4503ef616491f9ff349061b2d720f400bc7f9ca28427e7b740371413a13a2333"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/SOURCE-INPUTS.json",
+      "bytes": 9378,
+      "sha256": "8c50086926c71d1e4230bf445172454bba67de3c04a27386462343ea70c592bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/SOURCE-RECEIPT.json",
+      "bytes": 24814,
+      "sha256": "7890a093076166ff51778536d5b327a7ec0bf3052bc876ebe5d1b24be9563e49"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/SOURCE-REVIEW.md",
+      "bytes": 3083,
+      "sha256": "0c6a84cf7ba2873f4f1aebe8df46890f0f25ab5168a020ac50acc6c7974fb585"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/SOURCE.md",
+      "bytes": 6449,
+      "sha256": "4cf0d912917192455339db9031a4b04f9d18da48b354365e078e7deceee0df3f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/TOOL-BASELINE.json",
+      "bytes": 34403,
+      "sha256": "7ca35952b7b3cba28c83f8f754bcfea6ef6d1809642260753f147278429fcbb4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/TOOL-PREPARATION.json",
+      "bytes": 20005,
+      "sha256": "24c00dea9363841c6c7d8a804c0362d2dc8ad98e17648abe6f9f3683803f0c14"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/WORTH-INPUTS.json",
+      "bytes": 5191,
+      "sha256": "2dd87e4cd3f956e1391376bcd8925542c4ed66ace90e6949e25989d93625e0e4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/WORTH-RECEIPT.json",
+      "bytes": 19866,
+      "sha256": "f8d3b0010730dbcbcc8f5f31af8e2709eda213b251dab80bce392b25d04c7d3d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/WORTH.md",
+      "bytes": 3051,
+      "sha256": "987f27415ab79eef6055e7dfcecf99bb43393db12bf8830977e1dd5404aa528f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/baseline/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/baseline/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/baseline.jpg",
+      "bytes": 399612,
+      "sha256": "03788c37f674b28943d34b470bd516c2171658e152a91db940c93267d8d01ebe"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/candidate/ARTIST-WARDROBE.html",
+      "bytes": 17772,
+      "sha256": "c2f4bd286395aa9324692e3aac5faf1654e30aa6858625c1db98e1e5dc281046"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-discovery/candidate/PROJECT-CHECKLIST.md",
+      "bytes": 7833,
+      "sha256": "bbac2e27f6a4b1b8d10de8984fe401f60bf361624db9e66725e9ef616fc75d16"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 82791,
+      "sha256": "a5384802d21b6f0cebafef65ed4bfc26aed23f13c3ab71ed93a8c543e01cde2b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 109242,
+      "sha256": "5be1d14ba5e6a6177a849961f6c69b14f85eb3cbd33a5a422640d8cadcca2330"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-cardigan-attachment-index/ROOT-CLOSE.json",
+      "bytes": 27825,
+      "sha256": "c5fcdada7c81f1e10873e5118430732e666f31f2657ecd5fa184f6baeedf5799"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-bomber-first-volume/ROOT-CLOSE.json",
+      "bytes": 25724,
+      "sha256": "d4aae2e50fd6b3a5e2b71a38cc0ba5ab3196ca51dd93580475771b0fd114ce32"
+    },
+    {
+      "path": "/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml",
+      "bytes": 3344,
+      "sha256": "9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a"
+    }
+  ],
+  "README_links_checked": 19,
+  "protected_main": "Exact baseline four mesh drafts/22 scoped checks/10 broad goals; roadmap unchanged. No rollback needed.",
+  "owned_jobs": "No active owned target job; baseline tab14 closed. Vite retained. Service record scoped, not global process/physical driver proof.",
+  "automation": "Same existing ACTIVE ten-minute heartbeat/config retained; future/mobile delivery untested.",
+  "next": "Local recoverable checkpoint, then only genuinely different fresh critic worth nomination; no new target admitted.",
+  "limits": "Source/metadata/header A does not establish actual painting. Cause unknown. No source/readiness/URL/reload/capture/crop/retake/clarity clone/rescue/successor. Full roadmap/HOLD/old closures/defaults/accepted originals/frozen evidence retained; human check-in/pause wins."
+}
