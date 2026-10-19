@@ -1,0 +1,212 @@
+{
+  "schema": "completed-skin-owner-formatting-critic-v1",
+  "verdict": "A_PRESERVE_EXACT_EVIDENCE_WITH_THREE_FILE_SCOPED_EXCEPTION",
+  "completed_utc": "2026-10-19T20:07:48.039556+00:00",
+  "collection_pid": 1523,
+  "deadline_utc": "2026-10-19T20:12:00Z",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/CANDIDATE.diff",
+      "bytes": 3365,
+      "sha256": "c4b5fa2cc1535ee26adc79fb7984ddc2bbe5363fa647f0c7784eae08edce4e60"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/ADOPTION-PLAN.md",
+      "bytes": 3676,
+      "sha256": "6adc3747517c45088e17be4d1b4c64de065150e09023c1766b0ffe02f02fa45c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/PROOF-OUTPUT.txt",
+      "bytes": 4683,
+      "sha256": "dff619e0c9399ae91f0ffe976aef64b098981a6ae6a01e4d15af4ad97ed0c302"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/SkinMaterial.original.js.txt",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/FORMATTING-ROOT-FIRST.json",
+      "bytes": 26810,
+      "sha256": "65083f764af933acfe06b24530984ac2a312652687ec48195a8b1d2b0decfb9a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/SOURCE-REVIEW.md",
+      "bytes": 3328,
+      "sha256": "44ffbd3de0c22bf267b65a47385367afa863f055590fd8c04f6dbe6d5912ae14"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/SOURCE-RECEIPT.json",
+      "bytes": 42362,
+      "sha256": "3709e0b6da0a7445fe0186ff5fc01c91378e3ccc8623b23047509bd070fa0241"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/PROOF-REVIEW.md",
+      "bytes": 3333,
+      "sha256": "ecc073042e8b78077af00ad735e814202df2caa743d700098153321650986a97"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/PROOF-RECEIPT.json",
+      "bytes": 23221,
+      "sha256": "0a09b7e33aaba0fe4a3003ee79a8295e8d44981c3608630d2fa40ce09ef8e946"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/ADOPTION.json",
+      "bytes": 2438,
+      "sha256": "86e1be319716804d7fb3a6589e32a59cab79f2147988cc65658b06f56c77be57"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMaterial.js",
+      "bytes": 72436,
+      "sha256": "803522f23feb60a98f5dc927e2a274351c872141a7d038b11c4673a4ff91440e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMaterial.owner-candidate.js",
+      "bytes": 72436,
+      "sha256": "803522f23feb60a98f5dc927e2a274351c872141a7d038b11c4673a4ff91440e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 101830,
+      "sha256": "d63d40860e3ee582d7d45a70b4bf20896eb1c258b8a4a9e39e590b2144a0463e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 126894,
+      "sha256": "c7db64cf56b567de813d7a899fae156f0b640b45ee93e93dde2b52ba7a511e75"
+    }
+  ],
+  "input_count": 14,
+  "scope": "Mechanical documentary formatting and byte identity only. Not a proof rerun, new target source/logic exception, full closure re-audit or commit approval beyond this formatting question.",
+  "recorded_checks": {
+    "source_candidate_checkpoint_exit": 0,
+    "full_staged_exit": 2,
+    "exact_diagnostic_findings": 171,
+    "other_diagnostic_paths": [],
+    "record_scope": "Exact saved root staged-check epoch, independently parsed; critic did not rerun Git check or target."
+  },
+  "exception": [
+    {
+      "filename": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/CANDIDATE.diff",
+      "lines": [
+        6,
+        14,
+        16,
+        19,
+        21,
+        25,
+        28,
+        64,
+        66,
+        70,
+        85,
+        88,
+        93,
+        98
+      ],
+      "types": [
+        "Single-space unified-diff context prefix on all14lines",
+        "Extra terminal context-blank diagnostic also at98"
+      ],
+      "pin": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/CANDIDATE.diff",
+        "bytes": 3365,
+        "sha256": "c4b5fa2cc1535ee26adc79fb7984ddc2bbe5363fa647f0c7784eae08edce4e60"
+      }
+    },
+    {
+      "filename": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/ADOPTION-PLAN.md",
+      "lines": [
+        14
+      ],
+      "types": [
+        "Terminal empty line; no trailing horizontal whitespace"
+      ],
+      "pin": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/ADOPTION-PLAN.md",
+        "bytes": 3676,
+        "sha256": "6adc3747517c45088e17be4d1b4c64de065150e09023c1766b0ffe02f02fa45c"
+      }
+    },
+    {
+      "filename": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/PROOF-OUTPUT.txt",
+      "lines_inclusive": [
+        1,
+        155
+      ],
+      "types": [
+        "All155unchangedCRLFrawTTYline endings"
+      ],
+      "pin": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/PROOF-OUTPUT.txt",
+        "bytes": 4683,
+        "sha256": "dff619e0c9399ae91f0ffe976aef64b098981a6ae6a01e4d15af4ad97ed0c302"
+      }
+    }
+  ],
+  "independent_checks": [
+    "Both documentary files whole-read with each literal line represented;14single-space lines verified.",
+    "Raw output retains exactly155CRLFline endings/4683bytes and reviewed output hash; no extra bareLF or embeddedCR.",
+    "Root full-check parsed diagnostics exactly equal14context trailing+1contextEOF+1planEOF+155rawCRLF=171; exactly3files.",
+    "Canonical/candidate exact testedhash803522f2 and original→canonical full saved unified-diff equality pass.",
+    "Current canonical/candidate/RESUME/WORK-WINDOW have no trailing horizontal whitespace or extra terminal blank lines; LFterminated.",
+    "Prior source/proof pairs and frozen artifact bytes read as pinned; original canonical references in earlier receipts remain historical adoption epochs."
+  ],
+  "historical_scope_correction": "Initial two-file nomination and root finding selected prose are narrower historical descriptions. Actual saved full_check.stdout already includes PROOF-OUTPUT as third filename. Final exception must name all3; do not claim global full-check pass.",
+  "finding": {
+    "id": "F1",
+    "witness": "CANDIDATE.diff6,14,16,19,21,25,28,64,66,70,85,88,93,98;ADOPTION-PLAN14;PROOF-OUTPUT1–155;FORMATTING-ROOT-FIRST.full_check",
+    "effect": "Generic text whitespace checking flags exact evidence syntax/line endings and harmless frozen planEOF. No changed JavaScript/proof behavior or new target failure is established.",
+    "alternatives": [
+      {
+        "choice": "Preserve frozen bytes with explicit3file/line/type exception",
+        "tradeoff": "Retains exact diff/raw-output/bindings; full staged check remains honestly nonzero with narrow classification."
+      },
+      {
+        "choice": "Normalize in separately reviewed documentary epoch with retained originals",
+        "tradeoff": "Cleaner generic text check, but changes bound artifact bytes and raw-output equality if substituted, requiring new mappings/review without behavior value."
+      }
+    ],
+    "selected": "Preserve; no source/logic/test exception."
+  },
+  "jobs": [
+    {
+      "name": "skin_owner_formatting_read",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json,difflib\nr=Path('/Users/robault/GitHub/sugata-avatar');p=r/'docs/evidence/appearance-2026-10-19/skin-completed-material-owner'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\ndef pin(q):\n b=q.read_bytes();return {'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nfor n in ['CANDIDATE.diff','ADOPTION-PLAN.md']:\n q=p/n;b=q.read_bytes();print('\\nFILE',json.dumps(pin(q)))\n for i,line in enumerate(b.decode().splitlines(keepends=True),1):print(f'{i}: {line!r}')\n print('TRAILING_HORIZONTAL',[(i,repr(line)) for i,line in enumerate(b.decode().splitlines(),1) if line.rstrip(' \\t')!=line])\n print('EOF_BYTES',repr(b[-30:]))\ncanon=r/'packages/core/src/material/SkinMaterial.js';candidate=r/'packages/core/src/material/SkinMaterial.owner-candidate.js';original=p/'SkinMaterial.original.js.txt'\nassert canon.read_bytes()==candidate.read_bytes()\nassert pin(canon)['sha256']=='803522f23feb60a98f5dc927e2a274351c872141a7d038b11c4673a4ff91440e'\nactual=''.join(difflib.unified_diff(original.read_text().splitlines(True),canon.read_text().splitlines(True),fromfile='SkinMaterial.original.js',tofile='SkinMaterial.owner-candidate.js'))\nassert actual==(p/'CANDIDATE.diff').read_text()\nfor q in [canon,candidate,r/'docs/RESUME-2026-10-18.md',r/'docs/WORK-WINDOW-2026-10-18.md']:\n b=q.read_bytes();lines=b.decode().splitlines();bad=[i for i,l in enumerate(lines,1) if l.rstrip(' \\t')!=l];trailing=0\n for l in reversed(lines):\n  if l!='':break\n  trailing+=1\n print('ACTUAL_WHITESPACE',json.dumps({'pin':pin(q),'trailing_horizontal_lines':bad,'terminal_empty_lines':trailing,'ends_lf':b.endswith(b'\\n')}))\nprint('INPUT_REVIEW_PINS')\nfor n in ['SOURCE-REVIEW.md','SOURCE-RECEIPT.json','PROOF-REVIEW.md','PROOF-RECEIPT.json','ADOPTION.json','ROOT-CLOSE.json']:\n q=p/n\n if q.exists():print(json.dumps(pin(q)))\nPY",
+      "tool_return": {
+        "chunk_id": "4c0623",
+        "wall_time_seconds": 6.958e-06,
+        "exit_code": 0,
+        "original_token_count": 2813
+      },
+      "returned_output_bytes": 11250,
+      "returned_output_sha256": "ae4b795c7dd7490991b5133ed0d5c5a1c752cf4a7d245127568778e0014bbc98",
+      "pid": 1210,
+      "utc": "2026-10-19T20:06:10.075451+00:00"
+    },
+    {
+      "name": "skin_owner_formatting_fullcheck",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nq=p/'FORMATTING-ROOT-FIRST.json';b=q.read_bytes();print('FILE',len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nb=(p/'PROOF-OUTPUT.txt').read_bytes();lines=b.splitlines(keepends=True)\nassert len(lines)==155 and all(l.endswith(b'\\r\\n') for l in lines)\nassert hashlib.sha256(b).hexdigest()=='dff619e0c9399ae91f0ffe976aef64b098981a6ae6a01e4d15af4ad97ed0c302'\nprint('INDEPENDENT_RAW_TTY_CHECK',json.dumps({'bytes':len(b),'lines':len(lines),'all_lines_crlf':True,'lf_without_preceding_cr':b.replace(b'\\r\\n',b'').count(b'\\n'),'embedded_other_cr':b.replace(b'\\r\\n',b'').count(b'\\r'),'unchanged_actual_output_sha256':hashlib.sha256(b).hexdigest()}))\nPY",
+      "tool_return": {
+        "chunk_id": "be7a71",
+        "wall_time_seconds": 6.875e-06,
+        "exit_code": 0,
+        "original_token_count": 6793
+      },
+      "returned_output_bytes": 27169,
+      "returned_output_sha256": "efded3ec00ba189bd64672f14a722104f64dbd4c847e1a98dbbb2c15848bf8e4",
+      "pid": 1321,
+      "utc": "2026-10-19T20:06:46.545250+00:00"
+    }
+  ],
+  "pending_edits": false,
+  "only_owned_outputs": [
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/FORMATTING-REVIEW.md",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/FORMATTING-RECEIPT.json"
+  ],
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/FORMATTING-REVIEW.md",
+    "bytes": 2102,
+    "sha256": "990e7daee645612eca7667d02b02f672665d392e2065b7e4d22d5329c02504a4"
+  }
+}

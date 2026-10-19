@@ -1,0 +1,31 @@
+{
+  "schema": "completed-skin-owner-root-proof-first-v1",
+  "verdict": "A_FIXED_CPU_PROTOCOL_ONLY",
+  "pid": 99272,
+  "utc": "2026-10-19T19:58:44.027011+00:00",
+  "target_entries": 1,
+  "actual_chunk": "880d7a",
+  "actual_pid": 99186,
+  "actual_exit": 0,
+  "actual_session": null,
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/PROOF-TOOL.json",
+      "bytes": 5854,
+      "sha256": "3662912d57d77d40c128ed379ca863245383b91d9e48a3ed61e5c2d73f9dc476"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/PROOF-OUTPUT.txt",
+      "bytes": 4683,
+      "sha256": "dff619e0c9399ae91f0ffe976aef64b098981a6ae6a01e4d15af4ad97ed0c302"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/PROOF-REPORT.json",
+      "bytes": 4528,
+      "sha256": "0f3f847e1dc5d0c4f7608a1ea94be7f5a562ad031e6d262b632fdf9b327a95c1"
+    }
+  ],
+  "root_checks": "Parsed exact collected TTY return, checked four fixed cases/4factorycalls/9maps; baseline0 versus candidate5 attempts, later repeat10, optional2/nested1, errors5/10/15 with material3 and exact-error assertions. This checks actual component selftest summaries against literal proof, not independent raw UUID event trace.",
+  "claim_limits": "No actual decode/network/render/GPU allocation/destruction, actual reuse, peak or memory savings, performance/appearance/fit/AAA qualification. Original canonical still unchanged; adoption not admitted. TTY return is combined output, not separately captured stdout/stderr identities. Tool wall_time_seconds is metadata, not a reconciled performance measurement.",
+  "next": "Critic complete proof handoff, root fresh whole read and exact-pin verification, then separate adoption worth/source gate. No rerun or source repair."
+}

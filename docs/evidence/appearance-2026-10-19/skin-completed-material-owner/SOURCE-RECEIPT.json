@@ -1,0 +1,616 @@
+{
+  "schema": "completed-skin-owner-source-critic-v1",
+  "verdict": "A_ONE_CPU_PROOF_CONDITIONAL_FRESH_ROOT_GATE",
+  "completed_utc": "2026-10-19T19:54:39.420047+00:00",
+  "collection_pid": 98774,
+  "source_stop_utc": "2026-10-19T20:15:00Z",
+  "proof_closure_stop_utc": "2026-10-19T20:35:00Z",
+  "direct_inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 98515,
+      "sha256": "d78a0039a11ec9fe052a77a42fd8b26d1811c9e7ea82d5c19e100d29a5658648"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 123579,
+      "sha256": "a5266d5f5245666d89d0364f503c060ad36c61a501855c93f96496658c00cc62"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/README.md",
+      "bytes": 4221,
+      "sha256": "0ac9ca9ea4bfd5f97445e4cc6b0c6cc84ebb4d5272b99338fc591e4a2000b0f2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/CANDIDATE.diff",
+      "bytes": 3365,
+      "sha256": "c4b5fa2cc1535ee26adc79fb7984ddc2bbe5363fa647f0c7784eae08edce4e60"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/INPUTS.json",
+      "bytes": 4179,
+      "sha256": "b63be0bdfff9179eed5907e2d8924af89bf42f06d033196372e2bce9a88f54bf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/PLAN.md",
+      "bytes": 4783,
+      "sha256": "6ce36568c8e5659a80c9a75f61c4814e21789fd8a01f982f4b22635ee4ea0d32"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/PRIMARY-DISPOSAL.json",
+      "bytes": 14385,
+      "sha256": "14934af4717d69fb47afbcb8bab353caa552c0fd4fd87dc673b867c6772832dd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/PRIMARY-DISPOSAL.md",
+      "bytes": 12846,
+      "sha256": "9dabf4d34241cdc99153abb0cb0097fe5cdb9a34c777c7c491248ee0e4c72cbb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/ROOT-WORTH-FIRST.json",
+      "bytes": 8624,
+      "sha256": "25237d13c76039cbdfa9be2d298bcfd9b798d17f0a69e6b966d4148566841c99"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/ROOT-WORTH.json",
+      "bytes": 17398,
+      "sha256": "aafdee11674671c5e87ffdead837456c0cb9c7a8c2d6d0de4f732d18ba194c4d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/SOURCE-PLAN.md",
+      "bytes": 4359,
+      "sha256": "8322b8d0c8b0a53a6db9d26f012932b5f4723d3806b054fa449d725b0af532be"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/SOURCE.md",
+      "bytes": 6147,
+      "sha256": "a9e81e9677259d0a87c8e4c29aba39e769519a1b757879194829e249c73ad5b4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/SkinMaterial.original.js.txt",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/WORTH-RECEIPT.json",
+      "bytes": 25875,
+      "sha256": "fad74e4a54545410d57d0b05c3063a9213371d037d528855411b666dfe89118c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/WORTH.md",
+      "bytes": 2771,
+      "sha256": "3a1c7f9bc4f83dd2ea01d2eba5ef82c2f7e6c1a9a8e01dcf5c350c896cedba79"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/proof.mjs",
+      "bytes": 11583,
+      "sha256": "c1527894675b2b449fb291f7d00c113bb3c0afd28c6c81fde8522cbf4eef14c0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-map-failure-ownership/README.md",
+      "bytes": 2668,
+      "sha256": "edf57c565f63e6e6c08a0961a51c105d88860686f155543ada860b3f5a2ae412"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/build/three.core.js",
+      "bytes": 1443056,
+      "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/build/three.tsl.js",
+      "bytes": 34213,
+      "sha256": "c3844718a7becd4d2d10fef29a503e6a8789bd1636e2e62767f2cf00fa56f8c1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/build/three.webgpu.js",
+      "bytes": 2172442,
+      "sha256": "50e4013dd3903e8afb09a4829962dbf105488de7bd47f61308f44bd2e66b3340"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/loaders/TextureLoader.js",
+      "bytes": 2060,
+      "sha256": "e774b09c9bb463e3eac3b35b69d26c733205a27372e2549a604494fec4b9075f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/Material.js",
+      "bytes": 42885,
+      "sha256": "3af196049d118e5c8a81e07cb9d90c44524ac5a319263e64f18f3ee08178ca68"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/nodes/MeshPhysicalNodeMaterial.js",
+      "bytes": 15599,
+      "sha256": "501eef8b78bc5bf44a392bb9662ecacb8f78434d6a215e6725d8ca1054af709a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/nodes/MeshStandardNodeMaterial.js",
+      "bytes": 4641,
+      "sha256": "98030c8814d5344a10f8d890c5be57dec396080d183cc44aa96d094d9671be35"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/nodes/NodeMaterial.js",
+      "bytes": 33182,
+      "sha256": "dbef1e6d16b4291afd41e98d06e865f912ea317de3b3298ff0fc057aa3ce24c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/Bindings.js",
+      "bytes": 9748,
+      "sha256": "347ad3f0d102b67bf837b85806ef74e231a75836f43fe854160259dce4e97904"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/DataMap.js",
+      "bytes": 1328,
+      "sha256": "943c549f262d6f60ced6e9d5d3a1c614149166f934ed8e4f2aae3ef9be22d8de"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/RenderObject.js",
+      "bytes": 20805,
+      "sha256": "8a4fc82b26bb416270e32c2e436238fe0390f53a4c981a3ec61224529001953e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/RenderObjects.js",
+      "bytes": 5524,
+      "sha256": "86bc0e8c44f89f7619341cec0a3f4fc9b6e9196a5dbbdc58dfa1088527e50f42"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/SampledTexture.js",
+      "bytes": 2762,
+      "sha256": "ff78adb262b08b0c247d945169a3f754db7830fa17ab4136384d153b15b73005"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/Sampler.js",
+      "bytes": 1971,
+      "sha256": "de18a7b14e6a23581320e06bdef4a9a7a2f1c484c4e45cd963a08b919028daf6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/Textures.js",
+      "bytes": 15247,
+      "sha256": "c91bf90f3d04431e1a3343601e9883bb0d09f7a80105843258653f5896b607cb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/nodes/NodeManager.js",
+      "bytes": 24078,
+      "sha256": "dd3da027ea55b59557bc143426fe1db3f0b0d7c17d6bddd8270709c35cf06aae"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/nodes/NodeSampledTexture.js",
+      "bytes": 2950,
+      "sha256": "7fbca5e2c133d9a265e7b87fd3f3f95cab8c4eaf4eb4aa64a4ef51b0ec783d2f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/nodes/NodeSampler.js",
+      "bytes": 1097,
+      "sha256": "db732bab94f7468e30b93047272cf95e782ae0ca47771e239b9c7de3841d63ee"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/textures/Texture.js",
+      "bytes": 18698,
+      "sha256": "ab2b297f91c58c69a95849ef8d1d3a9b7c0e7d2c3a574964b0ffd90b107452c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/package.json",
+      "bytes": 789,
+      "sha256": "d4d274d275043e7e3c6ec79e2a3f2ebeb861ac5073251df9867b8d882f7b12c8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/Figure.js",
+      "bytes": 15821,
+      "sha256": "4e3390925f20a497e6a5cf5ee863a0f372a3dc1f9a1ff3f4f280101a5220b90e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/PreintegratedSkinLut.js",
+      "bytes": 15988,
+      "sha256": "99d34e28550ca01853d572d485799ccc3e13608f6259abf4f51b445ced8ca5f4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinCurvature.js",
+      "bytes": 18056,
+      "sha256": "9231a606cbdd454663dbfb1a190273b7f6a9f1cb672d85ba576f50de029baa54"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMaterial.js",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMaterial.owner-candidate.js",
+      "bytes": 72436,
+      "sha256": "803522f23feb60a98f5dc927e2a274351c872141a7d038b11c4673a4ff91440e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMicroNormal.js",
+      "bytes": 10622,
+      "sha256": "c906a9bbcac40257311a182af8d109022296c9f386740d6536861a714a029685"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinRegions.js",
+      "bytes": 30791,
+      "sha256": "a353cd86848ce47482a92cdcb1566386e338a09db99d3043d954db84b172b06d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/render/Toksvig.js",
+      "bytes": 9540,
+      "sha256": "8cebaef419a3c373d6b5e0ea6c0fc3906c15cef1796f4ca336e9fd4c00b11fc0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentInterior.js",
+      "bytes": 7381,
+      "sha256": "6ad4be9086153e0c51a0aedc3289d2bbf59514b5d3cf8568cb5cd3a9fbaa8ee0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49992,
+      "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/alive.js",
+      "bytes": 266546,
+      "sha256": "1cb483d397d75e8f97e046a5ac5987a127302edf89df26571e0bd65e90e0108d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/post.js",
+      "bytes": 33467,
+      "sha256": "9828e259fa29021a7b283d858597fd85ee06fb4faa04689d04de5f145463e72a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/skin.js",
+      "bytes": 59361,
+      "sha256": "989b18a7b3d9b900b452bb52c98e6a84739faa04f28c1130fa9447c8426027c1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/PREFLIGHT.json",
+      "bytes": 20784,
+      "sha256": "1a70074203d9f6210aeecea40edfe3af1b78e97759d689c6b403342f5ebed638"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/RUNTIME-PREFLIGHT.json",
+      "bytes": 372026,
+      "sha256": "6e314d0fbd0723673ded689a4acdfa6bd45c3c2a7a937c087c888decee0c48d5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/RUNTIME-ADDENDUM.md",
+      "bytes": 1795,
+      "sha256": "0cde14f67a203feb6c519517f58afb6a41be02551e32a8e258aa17bf16a64a36"
+    }
+  ],
+  "direct_input_count": 57,
+  "runtime_manifest_binding": {
+    "manifest": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/RUNTIME-PREFLIGHT.json",
+      "bytes": 372026,
+      "sha256": "6e314d0fbd0723673ded689a4acdfa6bd45c3c2a7a937c087c888decee0c48d5"
+    },
+    "pin_array_key": "pins",
+    "all_filesystem_rows_verified": 97,
+    "unique_combined_direct_runtime_paths": 154,
+    "total_runtime_file_bytes": 110338016,
+    "nominal_edge_records_validated": 1331,
+    "edge_checks": "All from endpoints pinned; resolved endpoints pinned; remaining endpoints explicitly system-managed /usr/lib or /System/Library. Not a dyld trace or complete OS/runtime behavior qualification."
+  },
+  "closure": {
+    "files": 13,
+    "bytes": 3894299,
+    "scope": "Static import/export targets plus manually read literal dynamic imports proof43–45. Selected root package exports resolve three/webgpu and three/tsl. No target evaluated."
+  },
+  "unchanged_original_and_diff": {
+    "canonical_sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164",
+    "snapshot_equal_canonical": true,
+    "candidate_sha256": "803522f23feb60a98f5dc927e2a274351c872141a7d038b11c4673a4ff91440e",
+    "complete_unified_diff_equal_saved": true,
+    "saved_diff": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/CANDIDATE.diff",
+      "bytes": 3365,
+      "sha256": "c4b5fa2cc1535ee26adc79fb7984ddc2bbe5363fa647f0c7784eae08edce4e60"
+    }
+  },
+  "read_scopes": {
+    "candidate": "All1386literal lines, recovered in bounded overlapping ranges; complete delta/class/factory/helpers inspected. Historical unchanged visual claims were read, not re-measured or promoted.",
+    "proof.mjs": "Whole261lines; no syntax/import/evaluation.",
+    "CANDIDATE.diff": "Whole98lines; independently reconstructed unified text from exact original/candidate and compared, not target execution.",
+    "SOURCE-PLAN.md": "Whole",
+    "SOURCE.md": "Whole17lines",
+    "RUNTIME-ADDENDUM.md": "Whole7lines",
+    "PREFLIGHT.json": "Complete parsed54pins/import-closure/static-edge/resource/absence semantics. Initial display was truncated; decisive non-table fields recovered and all rows hashed.",
+    "RUNTIME-PREFLIGHT.json": "Complete parsed97pin/1331edge records validated; no claim whole native library semantics or actual runtime trace. Initial literal display exceeded output budget.",
+    "PRIMARY-DISPOSAL.md": "Whole saved manual; disposal/material-vs-texture/shared/reuse sections decisive.",
+    "PRIMARY-DISPOSAL.json": "Exact args and result metadata/status200/one credit; saved markdown equality verified. No retrieval by critic.",
+    "PreintegratedSkinLut.js": "Whole409lines across bounded recovery reads; fixed generator dimensions/ring loops/workspace allocations.",
+    "SkinMicroNormal.js": "Whole268lines; fixed size/octaves/array loops.",
+    "Toksvig.js": "Whole198lines from read job1424d0 tail; TSL graph helper, not renderer invocation.",
+    "SkinCurvature.js": "1–120 for constant/module and function declarations, plus parsed static imports; unused bake functions not audited or invoked.",
+    "SkinRegions.js": "1–185 for module constants/region table/declarations; unused geometric bake functions not audited or invoked.",
+    "Avatar.js": "Current3046–3065,3088–3098,3134–3150,3220–3246,3834–3858 plus bounded caller/share locators; prior completed-owner event chain at unchanged pins reused.",
+    "Figure.js": "305–331",
+    "GarmentInterior.js": "65–110",
+    "Wardrobe.js": "1008–1038",
+    "testbed alive.js": "1916–1955,3450–3472,4258–4280 plus named caller/clone locators",
+    "testbed post.js": "419–438,482–503 plus named caller/clone locators",
+    "testbed skin.js": "280–300 plus named caller/clone locators",
+    "three.core.js": "Selected actual EventDispatcher2174–2290, DataTexture24194–24265, TextureLoader45543–45620, Texture.dispose7865–7875,Material.dispose21659–21669; static import/reexport metadata. Not whole bundled semantic audit.",
+    "three.webgpu.js / three.tsl.js": "Pinned full bytes, parsed static imports/export-map association; selected API/inheritance proof reused from worth at exact src pins. Not whole library/lazy-code audit.",
+    "prior worth / renderer-chain evidence": "Current exact input pins verified; earlier complete selected material-event→binding-release and texture-specific destroy chain scopes retained in WORTH receipt, not replayed.",
+    "main docs and other historical rows": "Exact pins only unless specifically listed; no fresh roadmap/checklist/appearance qualification."
+  },
+  "jobs": [
+    {
+      "name": "skin_owner_source_contract",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['SOURCE-PLAN.md','SOURCE.md','RUNTIME-ADDENDUM.md','PREFLIGHT.json','RUNTIME-PREFLIGHT.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "tool_return": {
+        "chunk_id": "6ffa6b",
+        "wall_time_seconds": 6.792e-06,
+        "exit_code": 0,
+        "original_token_count": 101424
+      },
+      "captured_returned_output_bytes": 80111,
+      "captured_returned_output_sha256": "869d94d0b2cfc8a609db2ae4bd78d8d4a5fccb229ac580c60061b2dc44b40b77",
+      "observed_pid": 97775,
+      "observed_utc": "2026-10-19T19:49:15.520231+00:00",
+      "display_truncated": true
+    },
+    {
+      "name": "skin_owner_candidate_read",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib\nr=Path('/Users/robault/GitHub/sugata-avatar');p=r/'docs/evidence/appearance-2026-10-19/skin-completed-material-owner'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PREFLIGHT.json','RUNTIME-PREFLIGHT.json']:\n q=p/n;v=json.loads(q.read_text());print('\\nSTRUCTURE',n,[(k,type(x).__name__,len(x) if isinstance(x,(dict,list,str)) else x) for k,x in v.items()]);print('NON_TABLE_SEMANTICS',json.dumps({k:x for k,x in v.items() if not isinstance(x,list) or k not in ['inputs','images','edges','load_edges','libraries','runtime_images']},indent=2,ensure_ascii=False))\nfor n in ['CANDIDATE.diff','proof.mjs']:\n q=p/n;print('\\nFILE',n)\n for i,line in enumerate(q.read_text().splitlines(),1):print(f'{i}: {line}')\nq=r/'packages/core/src/material/SkinMaterial.owner-candidate.js';lines=q.read_text().splitlines();print('\\nCANDIDATE',q,len(lines))\nfor lo,hi in [(1,36),(885,len(lines))]:\n for i in range(lo-1,min(hi,len(lines))):print(f'{i+1}: {lines[i]}')\nPY",
+      "tool_return": {
+        "chunk_id": "da64f2",
+        "wall_time_seconds": 6.209e-06,
+        "exit_code": 0,
+        "original_token_count": 18660
+      },
+      "captured_returned_output_bytes": 54109,
+      "captured_returned_output_sha256": "2a35f884615eb6e6cbc66e3d2e3f40f19f3955cf6055620ce7f0c7153dfc7aba",
+      "observed_pid": 97801,
+      "observed_utc": "2026-10-19T19:49:27.413363+00:00",
+      "display_truncated": true
+    },
+    {
+      "name": "skin_owner_diff_proof",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['CANDIDATE.diff','proof.mjs']:\n print('\\nFILE',n)\n for i,line in enumerate((p/n).read_text().splitlines(),1):print(f'{i}: {line}')\nPY",
+      "tool_return": {
+        "chunk_id": "1648cf",
+        "wall_time_seconds": 7.709e-06,
+        "exit_code": 0,
+        "original_token_count": 4153
+      },
+      "captured_returned_output_bytes": 16612,
+      "captured_returned_output_sha256": "c7c02d56f4620bed005aac493eadd3c63dbebdfa6b94543a85036431709991e5",
+      "observed_pid": 97873,
+      "observed_utc": "2026-10-19T19:49:32.860008+00:00",
+      "display_truncated": false
+    },
+    {
+      "name": "skin_owner_pins_deps",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib,difflib,re\nr=Path('/Users/robault/GitHub/sugata-avatar');p=r/'docs/evidence/appearance-2026-10-19/skin-completed-material-owner'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\ndef sha(q):\n h=hashlib.sha256()\n with q.open('rb') as f:\n  while chunk:=f.read(1024*1024):h.update(chunk)\n return h.hexdigest()\na=json.loads((p/'PREFLIGHT.json').read_text());b=json.loads((p/'RUNTIME-PREFLIGHT.json').read_text())\nfor row in a['inputs']+b['pins']:\n q=Path(row['path']);assert q.stat().st_size==row['bytes'] and sha(q)==row['sha256'],q\nprint('VERIFIED filesystem rows',len(a['inputs']),len(b['pins']),'closure',len(a['import_closure']),sum(Path(n).stat().st_size for n in a['import_closure']),'runtimebytes',sum(x['bytes'] for x in b['pins']),'edges',len(b['load_edges']))\nassert len(b['unresolved'])==0\nfor edge in b['load_edges']:\n assert Path(edge['from']).exists()\n if 'resolved' in edge:assert Path(edge['resolved']).exists()\nprint('RUNTIME NON-TABLE',json.dumps({k:v for k,v in b.items() if k not in ['pins','load_edges']},indent=2))\nprint('PREFLIGHT NON-TABLE',json.dumps({k:v for k,v in a.items() if k not in ['inputs','static_edges']},indent=2))\noriginal=(p/'SkinMaterial.original.js.txt').read_bytes();canonical=(r/'packages/core/src/material/SkinMaterial.js').read_bytes();candidate=(r/'packages/core/src/material/SkinMaterial.owner-candidate.js').read_bytes();assert original==canonical\nactual=''.join(difflib.unified_diff(original.decode().splitlines(True),candidate.decode().splitlines(True),fromfile='SkinMaterial.original.js',tofile='SkinMaterial.owner-candidate.js'))\nassert actual==(p/'CANDIDATE.diff').read_text();print('COMPLETE_DIFF_EQUALITY',len(original),len(candidate),sha(r/'packages/core/src/material/SkinMaterial.owner-candidate.js'))\nfor n in ['PROOF-ADMISSION.json','PROOF-TOOL.json','PROOF-REPORT.json','ADOPTION.json']:assert not (p/n).exists()\nprint('TARGET_ABSENCES_PASS')\nfor n in ['PreintegratedSkinLut.js','SkinMicroNormal.js','SkinCurvature.js','SkinRegions.js']:\n q=r/'packages/core/src/material'/n;print('\\nFILE',q,'TOTAL_LINES',len(q.read_text().splitlines()))\n for i,line in enumerate(q.read_text().splitlines(),1):print(f'{i}: {line}')\nq=r/'packages/core/src/render/Toksvig.js';print('\\nFILE',q)\nfor i,line in enumerate(q.read_text().splitlines(),1):print(f'{i}: {line}')\nPY",
+      "tool_return": {
+        "chunk_id": "1424d0",
+        "wall_time_seconds": 6.542e-06,
+        "exit_code": 0,
+        "original_token_count": 24665
+      },
+      "captured_returned_output_bytes": 42110,
+      "captured_returned_output_sha256": "04abd06fcfa315b2af9a753e9091b3339a5f7208189002d205d6c31e0b2129a8",
+      "observed_pid": 97947,
+      "observed_utc": "2026-10-19T19:49:59.306547+00:00",
+      "display_truncated": true
+    },
+    {
+      "name": "skin_owner_class_micro",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime\nr=Path('/Users/robault/GitHub/sugata-avatar');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfiles=[('packages/core/src/material/SkinMaterial.owner-candidate.js',[(1,70),(885,1115),(1180,1386)]),('packages/core/src/material/SkinMicroNormal.js',[(1,500)])]\nfor n,ranges in files:\n lines=(r/n).read_text().splitlines();print('\\nFILE',n,'TOTAL_LINES',len(lines))\n for lo,hi in ranges:\n  for i in range(lo-1,min(hi,len(lines))):print(f'{i+1}: {lines[i]}')\nPY",
+      "tool_return": {
+        "chunk_id": "0642a9",
+        "wall_time_seconds": 7.75e-06,
+        "exit_code": 0,
+        "original_token_count": 9298
+      },
+      "captured_returned_output_bytes": 37191,
+      "captured_returned_output_sha256": "1847a19463787d030a09bb9106ef7860208a88a968834802bab028eacf83c6e2",
+      "observed_pid": 97988,
+      "observed_utc": "2026-10-19T19:50:20.169414+00:00",
+      "display_truncated": false
+    },
+    {
+      "name": "skin_owner_middle_primary",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json\nr=Path('/Users/robault/GitHub/sugata-avatar');p=r/'docs/evidence/appearance-2026-10-19/skin-completed-material-owner'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nprint('PREFLIGHT PATHS');print('\\n'.join(x['path'] for x in json.loads((p/'PREFLIGHT.json').read_text())['inputs']))\nq=r/'packages/core/src/material/SkinMaterial.owner-candidate.js';lines=q.read_text().splitlines();print('\\nCANDIDATE 71–470')\nfor i in range(70,470):print(f'{i+1}: {lines[i]}')\nprint('\\nPRIMARY-DISPOSAL.md WHOLE');print((p/'PRIMARY-DISPOSAL.md').read_text())\nv=json.loads((p/'PRIMARY-DISPOSAL.json').read_text());print('PRIMARY JSON KEYS',list(v));print('PRIMARY SELECTED METADATA',json.dumps({k:x for k,x in v.items() if k!='result'},indent=2)[:5000]);print('RESULT KEYS',list(v.get('result',{})))\nPY",
+      "tool_return": {
+        "chunk_id": "1f76b6",
+        "wall_time_seconds": 6.333e-06,
+        "exit_code": 0,
+        "original_token_count": 11315
+      },
+      "captured_returned_output_bytes": 42107,
+      "captured_returned_output_sha256": "f67ea6db87a904eeae295761362693803d80f09b40f0df4b399d5327bbe07414",
+      "observed_pid": 98039,
+      "observed_utc": "2026-10-19T19:50:36.544142+00:00",
+      "display_truncated": true
+    },
+    {
+      "name": "skin_owner_candidate_remainder",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json\nr=Path('/Users/robault/GitHub/sugata-avatar');p=r/'docs/evidence/appearance-2026-10-19/skin-completed-material-owner'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfiles=[('packages/core/src/material/SkinMaterial.owner-candidate.js',[(329,371),(471,884),(1113,1179)]),('packages/core/src/material/PreintegratedSkinLut.js',[(246,409)])]\nfor n,ranges in files:\n lines=(r/n).read_text().splitlines();print('\\nFILE',n)\n for lo,hi in ranges:\n  for i in range(lo-1,min(hi,len(lines))):print(f'{i+1}: {lines[i]}')\nv=json.loads((p/'PRIMARY-DISPOSAL.json').read_text());print('\\nPRIMARY_METADATA',json.dumps(v['result']['metadata'],indent=2));assert v['result']['markdown']==(p/'PRIMARY-DISPOSAL.md').read_text()\nPY",
+      "tool_return": {
+        "chunk_id": "f0472d",
+        "wall_time_seconds": 6.625e-06,
+        "exit_code": 0,
+        "original_token_count": 9403
+      },
+      "captured_returned_output_bytes": 37610,
+      "captured_returned_output_sha256": "6cebd29dbbf66cdb14ce36006d1a190acf3f4fed84770643ef7a6e22bd6a581e",
+      "observed_pid": 98109,
+      "observed_utc": "2026-10-19T19:50:55.222678+00:00",
+      "display_truncated": false
+    },
+    {
+      "name": "skin_owner_callers_imports",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,re\nr=Path('/Users/robault/GitHub/sugata-avatar');p=r/'docs/evidence/appearance-2026-10-19/skin-completed-material-owner'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nscopes=[('packages/core/src/material/SkinCurvature.js',[(1,120)]),('packages/core/src/material/SkinRegions.js',[(1,160)]),('packages/core/src/wardrobe/GarmentInterior.js',[(65,110)]),('packages/core/src/wardrobe/Wardrobe.js',[(1008,1038)]),('packages/core/src/Avatar.js',[(3046,3065),(3088,3098),(3134,3150),(3220,3246),(3834,3858)]),('packages/core/src/figure/Figure.js',[(305,331)])]\nfor n,ranges in scopes:\n lines=(r/n).read_text().splitlines();print('\\nFILE',n)\n for lo,hi in ranges:\n  for i in range(lo-1,min(hi,len(lines))):print(f'{i+1}: {lines[i]}')\nfor n in ['packages/core/src/Avatar.js','packages/core/src/material/SkinMaterial.js','packages/core/src/figure/Figure.js','packages/testbed/src/alive.js','packages/testbed/src/post.js','packages/testbed/src/skin.js']:\n lines=(r/n).read_text().splitlines();print('\\nCALL/SHARE LOCATORS',n)\n for i,line in enumerate(lines,1):\n  if re.search(r'createSkinMaterial|applySkinMaterial|skin\\.clone|skinMaterial\\.clone|body\\.material\\.clone|\\.skin\\s*=|disposeShading',line):\n   for k in range(max(0,i-4),min(len(lines),i+7)):print(f'{k+1}: {lines[k]}')\nfor n in ['node_modules/three/build/three.core.js','node_modules/three/build/three.webgpu.js']:\n lines=(r/n).read_text().splitlines();print('\\nACTUAL BUNDLE METHOD LOCATORS',n)\n for i,line in enumerate(lines,1):\n  if re.search(r'^class (TextureLoader|DataTexture|Texture|Material|EventDispatcher|MeshPhysicalNodeMaterial)\\b|^\\s+(dispose|dispatchEvent)\\( ',line):print(i,line)\nprint('\\nPACKAGE EXPORTS',json.dumps(json.loads((r/'node_modules/three/package.json').read_text())['exports'],indent=2))\nPY",
+      "tool_return": {
+        "chunk_id": "a8220f",
+        "wall_time_seconds": 6.416e-06,
+        "exit_code": 0,
+        "original_token_count": 10568
+      },
+      "captured_returned_output_bytes": 30108,
+      "captured_returned_output_sha256": "431de698f6f0c4494781a49e07dddf96231d7f7a074ea6144aab82f08e9ec45d",
+      "observed_pid": 98218,
+      "observed_utc": "2026-10-19T19:51:20.434382+00:00",
+      "display_truncated": true
+    },
+    {
+      "name": "skin_owner_bundle",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,re\nr=Path('/Users/robault/GitHub/sugata-avatar');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nq=r/'node_modules/three/build/three.core.js';txt=q.read_text();lines=txt.splitlines()\nfor lo,hi in [(2174,2290),(24194,24265),(45543,45620)]:\n print('\\nBUNDLE',q,lo,hi)\n for i in range(lo-1,hi):print(f'{i+1}: {lines[i]}')\nfor name in ['Texture','Material']:\n start=next(i for i,l in enumerate(lines) if l.startswith('class '+name+' '));stop=next(i for i in range(start+1,len(lines)) if lines[i].startswith('class '))\n loc=[i for i in range(start,stop) if re.match(r'\\s*dispose\\(',lines[i])];print('\\nCLASS',name,'DISPOSE_LINES',[i+1 for i in loc])\n for i in loc:\n  for j in range(i-9,i+12):print(f'{j+1}: {lines[j]}')\nprint('\\nIMPORT PREFIXES')\nfor n in ['node_modules/three/build/three.core.js','node_modules/three/build/three.webgpu.js','node_modules/three/build/three.tsl.js']:\n s=(r/n).read_text();print(n)\n for m in re.finditer(r'^import[^;]+;',s,re.M):print(m.group(0)[:1600])\nPY",
+      "tool_return": {
+        "chunk_id": "47b3a2",
+        "wall_time_seconds": 8.375e-06,
+        "exit_code": 0,
+        "original_token_count": 3211
+      },
+      "captured_returned_output_bytes": 12841,
+      "captured_returned_output_sha256": "7150bc50d4c35bc23153a316fe0b83d0537f3074ec94e8cb0e76eef2f4093bb3",
+      "observed_pid": 98320,
+      "observed_utc": "2026-10-19T19:51:45.762697+00:00",
+      "display_truncated": false
+    },
+    {
+      "name": "skin_owner_callers",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,re\nr=Path('/Users/robault/GitHub/sugata-avatar');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n,ranges in [('packages/core/src/wardrobe/GarmentInterior.js',[(65,110)]),('packages/core/src/wardrobe/Wardrobe.js',[(1008,1038)]),('packages/core/src/Avatar.js',[(3046,3065),(3088,3098),(3134,3150),(3220,3246),(3834,3858)]),('packages/core/src/figure/Figure.js',[(305,331)]),('packages/testbed/src/alive.js',[(1916,1955),(3450,3472),(4258,4280)]),('packages/testbed/src/post.js',[(419,438),(482,503)]),('packages/testbed/src/skin.js',[(280,300)])]:\n  lines=(r/n).read_text().splitlines();print('\\nFILE',n)\n  for lo,hi in ranges:\n   for i in range(lo-1,hi):print(f'{i+1}: {lines[i]}')\nprint('\\nBOUNDED CLONE/SHARE LOCATORS')\nfor n in ['packages/core/src/Avatar.js','packages/core/src/figure/Figure.js','packages/core/src/material/SkinMaterial.js','packages/testbed/src/alive.js','packages/testbed/src/post.js','packages/testbed/src/skin.js']:\n for i,line in enumerate((r/n).read_text().splitlines(),1):\n  if re.search(r'(?:skin|body\\.material|skinMaterial)\\s*\\.clone\\s*\\(',line,re.I):print(n,i,line)\nPY",
+      "tool_return": {
+        "chunk_id": "c06d1c",
+        "wall_time_seconds": 6.583e-06,
+        "exit_code": 0,
+        "original_token_count": 3820
+      },
+      "captured_returned_output_bytes": 15280,
+      "captured_returned_output_sha256": "e56ca0568a6ff2cdc1379c31657a5d5a6490d6b9b71a2d9fa350994b6e973ad6",
+      "observed_pid": 98319,
+      "observed_utc": "2026-10-19T19:51:45.762694+00:00",
+      "display_truncated": false
+    },
+    {
+      "name": "skin_owner_scope_finalize",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,re,hashlib\nr=Path('/Users/robault/GitHub/sugata-avatar');p=r/'docs/evidence/appearance-2026-10-19/skin-completed-material-owner';print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\na=json.loads((p/'PREFLIGHT.json').read_text());b=json.loads((p/'RUNTIME-PREFLIGHT.json').read_text());paths={x['path'] for x in b['pins']}\nassert b['main'] in paths\nfor e in b['load_edges']:\n assert e['from'] in paths,e\n if 'resolved' in e:assert e['resolved'] in paths,e\n else:assert e.get('system_managed_unpinned') is True and e['load_name'].startswith(('/usr/lib/','/System/Library/')),e\nprint('ALL runtime edge endpoints bound or explicitly system-managed:',len(b['load_edges']))\nknown=set(a['import_closure']);edges=[]\nfor n in a['import_closure']:\n if not n.endswith(('.js','.mjs')):continue\n s=Path(n).read_text()\n for m in re.finditer(r'^(?:import\\s+[^;]+?\\s+from\\s*|export\\s+[^;]+?\\s+from\\s*)[\\\"\\x27]([^\\\"\\x27]+)[\\\"\\x27]',s,re.M):\n  spec=m.group(1)\n  if spec.startswith('node:'):continue\n  if spec.startswith('.'):q=str((Path(n).parent/spec).resolve())\n  elif spec=='three/webgpu':q=str(r/'node_modules/three/build/three.webgpu.js')\n  elif spec=='three/tsl':q=str(r/'node_modules/three/build/three.tsl.js')\n  else:raise AssertionError((n,spec))\n  assert q in known,(n,spec,q);edges.append((n,spec,q))\nprint('INDEPENDENT static import/export edges',len(edges),'plus3literal dynamic imports in proof43–45, no target evaluated')\nfor q,lo,hi in [(r/'packages/core/src/material/SkinRegions.js',147,185),(p/'SOURCE.md',1,200),(p/'RUNTIME-ADDENDUM.md',1,100)]:\n print('\\nFILE',q)\n for i,line in enumerate(q.read_text().splitlines(),1):\n  if lo<=i<=hi:print(f'{i}: {line}')\nprint('\\nSOURCE/MODULE KEYS',json.dumps([(x['path'],x['bytes']) for x in a['inputs'] if 'Skin' in x['path'] or x['path'].endswith('Toksvig.js')],indent=2))\nPY",
+      "tool_return": {
+        "chunk_id": "a313bd",
+        "wall_time_seconds": 6.75e-06,
+        "exit_code": 0,
+        "original_token_count": 2873
+      },
+      "captured_returned_output_bytes": 11489,
+      "captured_returned_output_sha256": "5d31d57cbebc78bf6cbbb706df841f08985f76b82c72bf1dd0756c64ca8e6be5",
+      "observed_pid": 98428,
+      "observed_utc": "2026-10-19T19:52:35.441447+00:00",
+      "display_truncated": false
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "classification": "Nonblocking only under explicit fresh-admission correction of resource label",
+      "source_witness": "SOURCE.md13 says256MiB V8 heap ceiling; SOURCE.md15 selects --max-old-space-size=256; PREFLIGHT.future_limits.v8_heap_mib uses shorthand.",
+      "effect": "The flag does not establish a hard total-heap/RSS cap. No runtime setting or cap has been increased.",
+      "alternatives": [
+        {
+          "choice": "Precise old-space/sampled/cooperative admission",
+          "tradeoff": "Preserves this fixed CPU packet and truthful limits; startup, synchronous stalls, total heap and peakRSS remain unqualified."
+        },
+        {
+          "choice": "Withhold for an independently owned hard process limiter",
+          "tradeoff": "Stronger process bound but requires different infrastructure outside this slice; no new supervisor/probe is admitted."
+        }
+      ],
+      "selected_condition": "Parent explicitly accepts frozen wording as historical shorthand and requires future admission v8OldSpaceLimitMiB=256, sampledRssCapMiB=768, cooperativeBodySeconds=30; no total-memory guarantee."
+    }
+  ],
+  "source_assessment": {
+    "owned_set": "Only new optional loaded maps+generated LUT/micro-normal; borrowed albedo excluded. Default two-argument direct class construction has empty ownership.",
+    "disposal": "Each texture and super.dispose attempted independently; exact single error including undefined; AggregateError order matches set/base sequence; guard resets in finally and later calls repeat. Throwing individual event listener can still prevent later listeners on the same resource; explicitly limited.",
+    "sharing": "Inspected Avatar/Figure/testbed body usage and garment-only clone path. No universal arbitrary clone/shared-user qualification or generic refcount framework.",
+    "visual_and_failure_scope": "Complete diff preserves original loading/construction failures, graph/settings/texture conventions and helpers; this does not repair deferred acquisition or qualify pixels."
+  },
+  "prospective_proof": {
+    "entries": 1,
+    "factory_calls": 4,
+    "fixture_loaded_maps": 9,
+    "fixed_records": [
+      "baseline-full",
+      "candidate-full",
+      "optional-null-reentrant",
+      "listener-failures"
+    ],
+    "predetermined_listener_schedule": "multi-error, single undefined, later clean public call after removing only known fixture listeners; not a failure-triggered target retry.",
+    "evidence": "Actual returned material and Three Texture/DataTexture/EventDispatcher paths with finite loader callback substitution and delegate observer; assertions bind object identities. This is protocol evidence, not raw GPU-resource observations.",
+    "required_environment": {
+      "NODE_OPTIONS": "",
+      "NODE_PATH": "",
+      "DYLD_INSERT_LIBRARIES": "",
+      "DYLD_LIBRARY_PATH": "",
+      "DYLD_FRAMEWORK_PATH": "",
+      "SUGATA_SKIN_ADMISSION_SHA256": "fresh root admission digest"
+    },
+    "executable_invoked": "/opt/homebrew/bin/node",
+    "executable_real": "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+    "argv_suffix": [
+      "--max-old-space-size=256",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/proof.mjs"
+    ],
+    "old_space_limit_mib": 256,
+    "sampled_rss_cap_mib": 768,
+    "cooperative_body_seconds": 30,
+    "stdout_report_cap_bytes": 65536,
+    "caught_error_text_cap_utf16_units": 16384,
+    "target_disk_writes": 0,
+    "collection": "Root preserves actual tool return/status; loginfalse/ttytrue/exec replacement;35s collection threshold uses only existing actual tool session, one interrupt and bounded collection if needed, unknown closes. No guessedPID or second entry. TTY return does not prove separate stdout/stderr byte identities."
+  },
+  "reviewer_errors_and_recovery": [
+    {
+      "chunks": [
+        "6ffa6b",
+        "da64f2",
+        "1424d0",
+        "1f76b6",
+        "a8220f"
+      ],
+      "issue": "Overlarge literal metadata/dependency displays were truncated.",
+      "recovery": "Decision-changing candidate/proof/source/manual/method/caller portions were recovered in smaller exact-file reads1648cf,0642a9,f0472d,47b3a2,c06d1c,a313bd; manifests fully parsed and every pin verified. No target failure or source mutation."
+    }
+  ],
+  "no_execution_or_adoption": true,
+  "target_absences_verified": [
+    "PROOF-ADMISSION.json",
+    "PROOF-TOOL.json",
+    "PROOF-REPORT.json",
+    "ADOPTION.json"
+  ],
+  "limits": [
+    "No target syntax check/import/evaluation/proof/API call/browser/native/GPU/render/network/capture or source mutation by critic.",
+    "No hard startup/synchronous wall/RSS cap; no complete OS/native/private-helper/lazy-library trace.",
+    "CPU event assertions cannot qualify actual decode/network/renderer allocation or physical destruction, render reuse, GC/memory savings, appearance/fit/performance/AAA.",
+    "Failed-acquisition branch, existing assets/defaults and all old closed methods/HOLD unchanged.",
+    "Fresh root whole-read/current-pin/admission gate remains mandatory; actual proof and adoption independently qualified afterward."
+  ],
+  "pending_edits": false,
+  "only_owned_outputs": [
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/SOURCE-REVIEW.md",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/SOURCE-RECEIPT.json"
+  ],
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/SOURCE-REVIEW.md",
+    "bytes": 3328,
+    "sha256": "44ffbd3de0c22bf267b65a47385367afa863f055590fd8c04f6dbe6d5912ae14"
+  }
+}

@@ -1,0 +1,13 @@
+# Completed skin material ownership — worth review
+
+A: one bounded inert source/proof preparation is worthwhile. This admits no implementation execution, production adoption or GPU qualification.
+
+F1 — The completed material has a concrete missing texture-retirement owner. SkinMaterial.js:945–1068 acquires up to three optional maps and creates LUT/micro-normal textures; :897–926 has no disposal override. Borrowed albedo (:1001) is a different responsibility. Avatar.disposeShading (:3835–3856), reached during swapFigure (:3094), releases the material; Figure.dispose (:309–330) also disposes materials without walking their texture graphs.
+
+Installed Three 0.185.1 reaches Material.dispose (:1184–1194), which dispatches a material event. The actual common-renderer chain is not an overlooked texture owner: RenderObject:325–346 → RenderObjects:201–207 → Bindings:173–181,248–289 / NodeManager:421–443 removes render/binding state; Sampler.release:125–129 clears its reference. Texture-specific disposal instead reaches Textures:404–410,592–648 through Texture.dispose:647–657. Thus this existing host retirement route does not explicitly notify retirement of the factory-created textures after successful use. Some maps are optional or may not have renderer allocations; this is not proof of five live GPU resources, an observed leak, memory savings or physical driver release.
+
+Alternative A: retain the exact factory-created texture set in a small skin-specific owner and attempt its releases alongside inherited material notifications. This directly connects the current host route to owned maps, but requires careful exception, repeat-disposal/reuse and actual caller-sharing decisions. Alternative B: defer to broader asset/renderer ownership. That avoids a local lifecycle change but leaves this concrete published-material route unqualified. I prefer A for preparation because this duty includes textures that can actually have reached the renderer, distinct from the deferred loading-failure nomination.
+
+A fresh full source/workload gate must preserve successful graphs, settings/assets, borrowed albedo and inherited repeated notifications; explicitly bound actual clone/share usages; and test the returned candidate with actual Three texture/material events, including optional maps and listener failures. Loader substitution and CPU event evidence must remain explicit limits. No generic clone/refcount framework, failed-acquisition repair or preview-utility adoption is warranted by this review.
+
+The failed-acquisition branch and every closed visual/native method remain unchanged. Full roadmap, 22 scoped checks and ten broad open goals receive no credit here. Only this review pair was written; no pending edits.

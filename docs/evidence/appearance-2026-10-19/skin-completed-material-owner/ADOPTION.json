@@ -1,0 +1,54 @@
+{
+  "schema": "completed-skin-owner-adoption-v1",
+  "status": "EXACT_TESTED_BYTES_ADOPTED",
+  "pid": 170,
+  "utc": "2026-10-19T20:02:54.787754+00:00",
+  "before": {
+    "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMaterial.js",
+    "bytes": 70957,
+    "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+  },
+  "after": {
+    "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMaterial.js",
+    "bytes": 72436,
+    "sha256": "803522f23feb60a98f5dc927e2a274351c872141a7d038b11c4673a4ff91440e"
+  },
+  "preserved_candidate": {
+    "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMaterial.owner-candidate.js",
+    "bytes": 72436,
+    "sha256": "803522f23feb60a98f5dc927e2a274351c872141a7d038b11c4673a4ff91440e"
+  },
+  "preserved_original": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/SkinMaterial.original.js.txt",
+    "bytes": 70957,
+    "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+  },
+  "root_gate": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/ROOT-PROOF.json",
+    "bytes": 40420,
+    "sha256": "bd2f010dec86b1bc7d0f35d21e63bf986614af5def6e5cfb795e240b6f7273e5"
+  },
+  "plan": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/ADOPTION-PLAN.md",
+    "bytes": 3676,
+    "sha256": "6adc3747517c45088e17be4d1b4c64de065150e09023c1766b0ffe02f02fa45c"
+  },
+  "canonical_candidate_equal": true,
+  "saved_complete_diff_equal": true,
+  "git_diff_check": {
+    "argv": [
+      "git",
+      "diff",
+      "--check",
+      "--",
+      "packages/core/src/material/SkinMaterial.js"
+    ],
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "new_target_entries": 0,
+  "proof_identity": "Exact same-directory candidate bytes evaluated once880d7a/PID99186/exit0; no reevaluation after copy.",
+  "historical_pins": "Old canonical source bindings resolve to original snapshot and Git6dd97655188f9a6d0b6b4293df575a264ccf7f8d; no refresh/rerun of expired one-shot proof.",
+  "limits": "CPU component protocol and exact source-copy only. No browser/reload/GPU/native/image/physical-release/performance/appearance claim; arbitrary external clone/sharing and failed acquisition remain unqualified."
+}

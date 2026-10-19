@@ -1,0 +1,155 @@
+{
+  "schema": "completed-skin-owner-cpu-proof-v1",
+  "status": "PASS",
+  "pid": 99186,
+  "utc": "2026-10-19T19:58:15.573Z",
+  "node": "v26.9.0",
+  "factoryCalls": 4,
+  "fixtureLoadedTextures": 9,
+  "cases": [
+    {
+      "case": "baseline-full",
+      "materialEvents": 1,
+      "textureAttempts": 0
+    },
+    {
+      "case": "candidate-full",
+      "successfulStateMatchesBaseline": true,
+      "first": {
+        "ownedTextureCount": 5,
+        "attempts": 5,
+        "loadedTextureCount": 3,
+        "generatedTextureCount": 2,
+        "generated": [
+          {
+            "width": 128,
+            "height": 64,
+            "bytes": 131072,
+            "sha256": "e02946d805af57ddb809c959a8cf57a78bcba8ebc093b77e10f54e8737a1a05a"
+          },
+          {
+            "width": 256,
+            "height": 256,
+            "bytes": 262144,
+            "sha256": "448489a94d08684f2795284f25492ae4c20b14097754b3a97548576614ca3aa4"
+          }
+        ]
+      },
+      "repeat": {
+        "ownedTextureCount": 5,
+        "attempts": 10,
+        "loadedTextureCount": 3,
+        "generatedTextureCount": 2,
+        "generated": [
+          {
+            "width": 128,
+            "height": 64,
+            "bytes": 131072,
+            "sha256": "e02946d805af57ddb809c959a8cf57a78bcba8ebc093b77e10f54e8737a1a05a"
+          },
+          {
+            "width": 256,
+            "height": 256,
+            "bytes": 262144,
+            "sha256": "448489a94d08684f2795284f25492ae4c20b14097754b3a97548576614ca3aa4"
+          }
+        ]
+      },
+      "materialEvents": 2,
+      "borrowedAlbedoAttempts": 0
+    },
+    {
+      "case": "optional-null-reentrant",
+      "ownedTextureCount": 2,
+      "attempts": 2,
+      "loadedTextureCount": 0,
+      "generatedTextureCount": 2,
+      "generated": [
+        {
+          "width": 128,
+          "height": 64,
+          "bytes": 131072,
+          "sha256": "e02946d805af57ddb809c959a8cf57a78bcba8ebc093b77e10f54e8737a1a05a"
+        },
+        {
+          "width": 256,
+          "height": 256,
+          "bytes": 262144,
+          "sha256": "448489a94d08684f2795284f25492ae4c20b14097754b3a97548576614ca3aa4"
+        }
+      ],
+      "nestedRequests": 1,
+      "materialEvents": 1,
+      "borrowedAlbedoAttempts": 0
+    },
+    {
+      "case": "listener-failures",
+      "multipleFailures": {
+        "ownedTextureCount": 5,
+        "attempts": 5,
+        "loadedTextureCount": 3,
+        "generatedTextureCount": 2,
+        "generated": [
+          {
+            "width": 128,
+            "height": 64,
+            "bytes": 131072,
+            "sha256": "e02946d805af57ddb809c959a8cf57a78bcba8ebc093b77e10f54e8737a1a05a"
+          },
+          {
+            "width": 256,
+            "height": 256,
+            "bytes": 262144,
+            "sha256": "448489a94d08684f2795284f25492ae4c20b14097754b3a97548576614ca3aa4"
+          }
+        ]
+      },
+      "singleFailure": {
+        "ownedTextureCount": 5,
+        "attempts": 10,
+        "loadedTextureCount": 3,
+        "generatedTextureCount": 2,
+        "generated": [
+          {
+            "width": 128,
+            "height": 64,
+            "bytes": 131072,
+            "sha256": "e02946d805af57ddb809c959a8cf57a78bcba8ebc093b77e10f54e8737a1a05a"
+          },
+          {
+            "width": 256,
+            "height": 256,
+            "bytes": 262144,
+            "sha256": "448489a94d08684f2795284f25492ae4c20b14097754b3a97548576614ca3aa4"
+          }
+        ]
+      },
+      "laterCleanCall": {
+        "ownedTextureCount": 5,
+        "attempts": 15,
+        "loadedTextureCount": 3,
+        "generatedTextureCount": 2,
+        "generated": [
+          {
+            "width": 128,
+            "height": 64,
+            "bytes": 131072,
+            "sha256": "e02946d805af57ddb809c959a8cf57a78bcba8ebc093b77e10f54e8737a1a05a"
+          },
+          {
+            "width": 256,
+            "height": 256,
+            "bytes": 262144,
+            "sha256": "448489a94d08684f2795284f25492ae4c20b14097754b3a97548576614ca3aa4"
+          }
+        ]
+      },
+      "materialEvents": 3,
+      "exactFailureValues": true,
+      "borrowedAlbedoAttempts": 0
+    }
+  ],
+  "elapsedAfterAdmissionMs": 88.677542,
+  "sampledRssBytes": 90095616,
+  "limits": "Actual component and Three CPU objects/events; loader callback substitution, no decode/network/render/WebGPU or physical-release proof. Repeated signals do not qualify actual render reuse. Loading/constructor failures and arbitrary external clone/shared users are outside this proof."
+}

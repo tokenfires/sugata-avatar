@@ -1,0 +1,820 @@
+{
+  "schema": "completed-skin-owner-root-source-v1",
+  "verdict": "A_ONE_CPU_PROOF_ONLY",
+  "pid": 99148,
+  "utc": "2026-10-19T19:57:55.957396+00:00",
+  "whole_pair_readback": "c8274c truncated then full untruncated following exec; no target execution",
+  "verified_rows": 213,
+  "unique_paths": 158,
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 98515,
+      "sha256": "d78a0039a11ec9fe052a77a42fd8b26d1811c9e7ea82d5c19e100d29a5658648"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 123579,
+      "sha256": "a5266d5f5245666d89d0364f503c060ad36c61a501855c93f96496658c00cc62"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/preview-lifetime-owner/README.md",
+      "bytes": 4221,
+      "sha256": "0ac9ca9ea4bfd5f97445e4cc6b0c6cc84ebb4d5272b99338fc591e4a2000b0f2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/CANDIDATE.diff",
+      "bytes": 3365,
+      "sha256": "c4b5fa2cc1535ee26adc79fb7984ddc2bbe5363fa647f0c7784eae08edce4e60"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/INPUTS.json",
+      "bytes": 4179,
+      "sha256": "b63be0bdfff9179eed5907e2d8924af89bf42f06d033196372e2bce9a88f54bf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/PLAN.md",
+      "bytes": 4783,
+      "sha256": "6ce36568c8e5659a80c9a75f61c4814e21789fd8a01f982f4b22635ee4ea0d32"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/PRIMARY-DISPOSAL.json",
+      "bytes": 14385,
+      "sha256": "14934af4717d69fb47afbcb8bab353caa552c0fd4fd87dc673b867c6772832dd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/PRIMARY-DISPOSAL.md",
+      "bytes": 12846,
+      "sha256": "9dabf4d34241cdc99153abb0cb0097fe5cdb9a34c777c7c491248ee0e4c72cbb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/ROOT-WORTH-FIRST.json",
+      "bytes": 8624,
+      "sha256": "25237d13c76039cbdfa9be2d298bcfd9b798d17f0a69e6b966d4148566841c99"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/ROOT-WORTH.json",
+      "bytes": 17398,
+      "sha256": "aafdee11674671c5e87ffdead837456c0cb9c7a8c2d6d0de4f732d18ba194c4d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/SOURCE-PLAN.md",
+      "bytes": 4359,
+      "sha256": "8322b8d0c8b0a53a6db9d26f012932b5f4723d3806b054fa449d725b0af532be"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/SOURCE.md",
+      "bytes": 6147,
+      "sha256": "a9e81e9677259d0a87c8e4c29aba39e769519a1b757879194829e249c73ad5b4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/SkinMaterial.original.js.txt",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/WORTH-RECEIPT.json",
+      "bytes": 25875,
+      "sha256": "fad74e4a54545410d57d0b05c3063a9213371d037d528855411b666dfe89118c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/WORTH.md",
+      "bytes": 2771,
+      "sha256": "3a1c7f9bc4f83dd2ea01d2eba5ef82c2f7e6c1a9a8e01dcf5c350c896cedba79"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/proof.mjs",
+      "bytes": 11583,
+      "sha256": "c1527894675b2b449fb291f7d00c113bb3c0afd28c6c81fde8522cbf4eef14c0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-map-failure-ownership/README.md",
+      "bytes": 2668,
+      "sha256": "edf57c565f63e6e6c08a0961a51c105d88860686f155543ada860b3f5a2ae412"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/build/three.core.js",
+      "bytes": 1443056,
+      "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/build/three.tsl.js",
+      "bytes": 34213,
+      "sha256": "c3844718a7becd4d2d10fef29a503e6a8789bd1636e2e62767f2cf00fa56f8c1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/build/three.webgpu.js",
+      "bytes": 2172442,
+      "sha256": "50e4013dd3903e8afb09a4829962dbf105488de7bd47f61308f44bd2e66b3340"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/loaders/TextureLoader.js",
+      "bytes": 2060,
+      "sha256": "e774b09c9bb463e3eac3b35b69d26c733205a27372e2549a604494fec4b9075f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/Material.js",
+      "bytes": 42885,
+      "sha256": "3af196049d118e5c8a81e07cb9d90c44524ac5a319263e64f18f3ee08178ca68"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/nodes/MeshPhysicalNodeMaterial.js",
+      "bytes": 15599,
+      "sha256": "501eef8b78bc5bf44a392bb9662ecacb8f78434d6a215e6725d8ca1054af709a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/nodes/MeshStandardNodeMaterial.js",
+      "bytes": 4641,
+      "sha256": "98030c8814d5344a10f8d890c5be57dec396080d183cc44aa96d094d9671be35"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/materials/nodes/NodeMaterial.js",
+      "bytes": 33182,
+      "sha256": "dbef1e6d16b4291afd41e98d06e865f912ea317de3b3298ff0fc057aa3ce24c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/Bindings.js",
+      "bytes": 9748,
+      "sha256": "347ad3f0d102b67bf837b85806ef74e231a75836f43fe854160259dce4e97904"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/DataMap.js",
+      "bytes": 1328,
+      "sha256": "943c549f262d6f60ced6e9d5d3a1c614149166f934ed8e4f2aae3ef9be22d8de"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/RenderObject.js",
+      "bytes": 20805,
+      "sha256": "8a4fc82b26bb416270e32c2e436238fe0390f53a4c981a3ec61224529001953e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/RenderObjects.js",
+      "bytes": 5524,
+      "sha256": "86bc0e8c44f89f7619341cec0a3f4fc9b6e9196a5dbbdc58dfa1088527e50f42"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/SampledTexture.js",
+      "bytes": 2762,
+      "sha256": "ff78adb262b08b0c247d945169a3f754db7830fa17ab4136384d153b15b73005"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/Sampler.js",
+      "bytes": 1971,
+      "sha256": "de18a7b14e6a23581320e06bdef4a9a7a2f1c484c4e45cd963a08b919028daf6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/Textures.js",
+      "bytes": 15247,
+      "sha256": "c91bf90f3d04431e1a3343601e9883bb0d09f7a80105843258653f5896b607cb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/nodes/NodeManager.js",
+      "bytes": 24078,
+      "sha256": "dd3da027ea55b59557bc143426fe1db3f0b0d7c17d6bddd8270709c35cf06aae"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/nodes/NodeSampledTexture.js",
+      "bytes": 2950,
+      "sha256": "7fbca5e2c133d9a265e7b87fd3f3f95cab8c4eaf4eb4aa64a4ef51b0ec783d2f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/common/nodes/NodeSampler.js",
+      "bytes": 1097,
+      "sha256": "db732bab94f7468e30b93047272cf95e782ae0ca47771e239b9c7de3841d63ee"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/textures/Texture.js",
+      "bytes": 18698,
+      "sha256": "ab2b297f91c58c69a95849ef8d1d3a9b7c0e7d2c3a574964b0ffd90b107452c6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/package.json",
+      "bytes": 789,
+      "sha256": "d4d274d275043e7e3c6ec79e2a3f2ebeb861ac5073251df9867b8d882f7b12c8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/figure/Figure.js",
+      "bytes": 15821,
+      "sha256": "4e3390925f20a497e6a5cf5ee863a0f372a3dc1f9a1ff3f4f280101a5220b90e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/PreintegratedSkinLut.js",
+      "bytes": 15988,
+      "sha256": "99d34e28550ca01853d572d485799ccc3e13608f6259abf4f51b445ced8ca5f4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinCurvature.js",
+      "bytes": 18056,
+      "sha256": "9231a606cbdd454663dbfb1a190273b7f6a9f1cb672d85ba576f50de029baa54"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMaterial.js",
+      "bytes": 70957,
+      "sha256": "cc70579edf2686db953d9c413e40403f6d1135d18eef3a7353e45637abf24164"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMaterial.owner-candidate.js",
+      "bytes": 72436,
+      "sha256": "803522f23feb60a98f5dc927e2a274351c872141a7d038b11c4673a4ff91440e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinMicroNormal.js",
+      "bytes": 10622,
+      "sha256": "c906a9bbcac40257311a182af8d109022296c9f386740d6536861a714a029685"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/SkinRegions.js",
+      "bytes": 30791,
+      "sha256": "a353cd86848ce47482a92cdcb1566386e338a09db99d3043d954db84b172b06d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/render/Toksvig.js",
+      "bytes": 9540,
+      "sha256": "8cebaef419a3c373d6b5e0ea6c0fc3906c15cef1796f4ca336e9fd4c00b11fc0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/GarmentInterior.js",
+      "bytes": 7381,
+      "sha256": "6ad4be9086153e0c51a0aedc3289d2bbf59514b5d3cf8568cb5cd3a9fbaa8ee0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/Wardrobe.js",
+      "bytes": 49992,
+      "sha256": "607a40084e604f7eae31afa33b753b478b50a51ee44057975e8d71d322ba4936"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/alive.js",
+      "bytes": 266546,
+      "sha256": "1cb483d397d75e8f97e046a5ac5987a127302edf89df26571e0bd65e90e0108d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/post.js",
+      "bytes": 33467,
+      "sha256": "9828e259fa29021a7b283d858597fd85ee06fb4faa04689d04de5f145463e72a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/skin.js",
+      "bytes": 59361,
+      "sha256": "989b18a7b3d9b900b452bb52c98e6a84739faa04f28c1130fa9447c8426027c1"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_base.2608.0.0.dylib",
+      "bytes": 57104,
+      "sha256": "9375f0a888e642b904fe3650d33a901529f361163a7fdb269f2869881a61f8fb"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_base_cpu_detect.2608.0.0.dylib",
+      "bytes": 34688,
+      "sha256": "40004034f363e6649269c9ecc88aa8ab4be94c528434fb14f4cd90af65b271fc"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_city.2608.0.0.dylib",
+      "bytes": 17312,
+      "sha256": "6378d401843f3b7ebc8297ea6e88db4afd29c69ee57f146867f7ed2662d71d6d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_civil_time.2608.0.0.dylib",
+      "bytes": 39856,
+      "sha256": "d44e2c2f4f4f479ba1b3f4717e2a896b303096a7f0d507972e72e625de535750"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_cord.2608.0.0.dylib",
+      "bytes": 147232,
+      "sha256": "6d1b41a0a9f9cd6d3f47452d6afe9427fb0e457c29093e426db07fd17d6bea3a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_cord_internal.2608.0.0.dylib",
+      "bytes": 100752,
+      "sha256": "dd11ec6d26a3bef6ae56e732add0ad94b6b4a498599f7b361b45d7239d7a193a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_cordz_functions.2608.0.0.dylib",
+      "bytes": 33760,
+      "sha256": "5aa0f143cffdab249833a76fa6c3731bf13785378870c7e37a1f670ecf490a08"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_cordz_handle.2608.0.0.dylib",
+      "bytes": 71520,
+      "sha256": "7a8276e1ed0f2eb629b8d326dc2ec429b4d87254d2dc254e28cebefc111d4448"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_cordz_info.2608.0.0.dylib",
+      "bytes": 89120,
+      "sha256": "03ce4fb8ff4913f54fcf426f7a0ff1d5bad8a39cbe5294f7bb6427a48ab8d605"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_crc32c.2608.0.0.dylib",
+      "bytes": 74096,
+      "sha256": "e67f10b791f0b32a670792c9017d983249cd65fad8cad7253176579f2d0e41f8"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_crc_cord_state.2608.0.0.dylib",
+      "bytes": 56848,
+      "sha256": "554c8a81c9c7c7a07bde0095f1b5fc9711561a1489f3556fd82e57e50a32528e"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_crc_internal.2608.0.0.dylib",
+      "bytes": 61712,
+      "sha256": "4340bcdd787f9d086ef4aa74d0c01368393675362ba34c959e71477a62412483"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_debugging_internal.2608.0.0.dylib",
+      "bytes": 17024,
+      "sha256": "014714cd2ad9173c9db60213deaa9e0a65262170de39047a6ce5c311629a9aaf"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_decode_rust_punycode.2608.0.0.dylib",
+      "bytes": 34016,
+      "sha256": "574ba91bf156937fc4dc1ad6833b6bcfadf25969395d03f10a0975d8456a97e4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_demangle_internal.2608.0.0.dylib",
+      "bytes": 73408,
+      "sha256": "fc0e01f38f27757e2afb4bac191a97faaa0aeab3f06e68b50f030ee2032f31fa"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_demangle_rust.2608.0.0.dylib",
+      "bytes": 51456,
+      "sha256": "3e59c1875a507a8c900356b5a15915480d85c54c2118b2745ac5f198c20862d8"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_die_if_null.2608.0.0.dylib",
+      "bytes": 84672,
+      "sha256": "0275370e19a90371009483a7348d5160757c8312e18d1c410ef2d343786e4a55"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_examine_stack.2608.0.0.dylib",
+      "bytes": 51424,
+      "sha256": "b12eef962f1a986ed031d61b62c9fa62efebd93b819378eec608028b1ebc0ccf"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_exponential_biased.2608.0.0.dylib",
+      "bytes": 33984,
+      "sha256": "879a00b1437013bb55a7a54f60307e2c776fb36181e1d5ef937add8e59836e62"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_failure_signal_handler.2608.0.0.dylib",
+      "bytes": 69216,
+      "sha256": "17e997f1b7520c7512bde6af4000b6fa135d2f35f231d3c32c8456e9ab0056ee"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_graphcycles_internal.2608.0.0.dylib",
+      "bytes": 56368,
+      "sha256": "b4c0ad5c79f8e9ceaa61568ed1c5f093a8b4435b6f77db2f2b70872a688081c0"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_hardening.2608.0.0.dylib",
+      "bytes": 17008,
+      "sha256": "232e5aa6f0ad4109edc57aa5f86152f278290030d118e881f5fd1c24e2df2020"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_hash.2608.0.0.dylib",
+      "bytes": 51152,
+      "sha256": "ae38554101cdce65c3471a449acf1997411b5e1e9f07e70000f4fe4cb2f1ddf1"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_hashtablez_sampler.2608.0.0.dylib",
+      "bytes": 89712,
+      "sha256": "92315be32b893b239f188a11ee08ce3bef737bee39049e685285d6d7ec65b1db"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_int128.2608.0.0.dylib",
+      "bytes": 40240,
+      "sha256": "c9b9a31bdee2b70ba6434cb85c8ae3d289de554f3b81060829e41df50cbd20c3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_kernel_timeout_internal.2608.0.0.dylib",
+      "bytes": 53216,
+      "sha256": "c84e6e220544faf63fae49e07b4b611de31ad8c51dd541018acacfbd2b826302"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_leak_check.2608.0.0.dylib",
+      "bytes": 17696,
+      "sha256": "97dce3e7137cf6df6c03653b8af3182fd81552e7c43b4306584fe32397f26a44"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_log_entry.2608.0.0.dylib",
+      "bytes": 54496,
+      "sha256": "948841336bd3da61fd7a9a6238d8efff57f682c238d67d2bbb57b35c8acaf5e2"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_log_globals.2608.0.0.dylib",
+      "bytes": 89168,
+      "sha256": "f82e96f8f54357aff361bdd6cad92178a861498e3d5d56c38b5d08fcdb26fe39"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_log_initialize.2608.0.0.dylib",
+      "bytes": 66976,
+      "sha256": "030964b8b27174c92edb581454b7f184a891c56bac933bd1f6877f260c8c5d83"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_log_internal_check_op.2608.0.0.dylib",
+      "bytes": 95088,
+      "sha256": "28e12bf31d25cbdfeabc600d7ec0a617579a5d14c22d9d56ca2a08862f1cac2c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_log_internal_conditions.2608.0.0.dylib",
+      "bytes": 34224,
+      "sha256": "0bd29169a52ce9d164abcb880db55546faaffbf8bdb6b2e590a915177c6834c2"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_log_internal_fnmatch.2608.0.0.dylib",
+      "bytes": 33968,
+      "sha256": "79e61c46c1825291ecbe9d59c16afcc57eaa1c5a61cd107c7adcb70c33371b4b"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_log_internal_format.2608.0.0.dylib",
+      "bytes": 54240,
+      "sha256": "3f66fb51ded366962df7beeabf4df7fa0b39fcec7bdcc2c8682f3e7b81e506ea"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_log_internal_globals.2608.0.0.dylib",
+      "bytes": 69024,
+      "sha256": "bf5f10661c46033ab49a503500777d97401624b574f04e26f7bf5c894b3ba1cd"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_log_internal_log_sink_set.2608.0.0.dylib",
+      "bytes": 91568,
+      "sha256": "d867270923f5e939962511e9e6b9fa86e99036ce9d430ad26a2efbd290f3769e"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_log_internal_message.2608.0.0.dylib",
+      "bytes": 130800,
+      "sha256": "eadb5b8b7424b3e5b701262016a33372e317bcb2dc7b239fe09147f4118f3eaa"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_log_internal_nullguard.2608.0.0.dylib",
+      "bytes": 17200,
+      "sha256": "c8e2340c79646a95c82006225db3bb6ef05346f106aecd0fb154650e7095139a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_log_internal_proto.2608.0.0.dylib",
+      "bytes": 51072,
+      "sha256": "a98c2018e6840c3faab7867f12fbdbc4e9f9177bace14df7ba8f3ba6d58072ca"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_log_internal_structured_proto.2608.0.0.dylib",
+      "bytes": 55552,
+      "sha256": "560193e67aac58152890142c9b0fe40e336153650c09975a63fe6eb96cbf6cac"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_log_severity.2608.0.0.dylib",
+      "bytes": 36640,
+      "sha256": "6c055cd4d49dc57c6a2dc6467f2ffbb3e2edde947b299149bd5e7694cf830a11"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_log_sink.2608.0.0.dylib",
+      "bytes": 50624,
+      "sha256": "19cd121f5d779e55bc03f557b71a2420c86db09632e6e6bbd07d83b9b67c5f22"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_malloc_internal.2608.0.0.dylib",
+      "bytes": 39952,
+      "sha256": "a3bcd539b4f5ec9ddb1961b3b30bb774868983d605b54eac80ab50e9d3913205"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_random_distributions.2608.0.0.dylib",
+      "bytes": 52304,
+      "sha256": "c7c730f0486843cad739e269705cc65f8658bcdac89550631ef717802ea87edd"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_random_internal_entropy_pool.2608.0.0.dylib",
+      "bytes": 87232,
+      "sha256": "64fd8cbbbaa53b6256f31881093ddc722fa16eccd13b4e15b4f394e601ca1b0b"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_random_internal_platform.2608.0.0.dylib",
+      "bytes": 17120,
+      "sha256": "75a54b4ef6fa63544b222cb115fc18f07b1ec77e93f2bf8905d99cea55219c82"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_random_internal_randen.2608.0.0.dylib",
+      "bytes": 34944,
+      "sha256": "2e8ba5db30ee581f54f7dfeb520cc91104e070c11a5d8d713dd6bf814a881a52"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_random_internal_randen_hwaes.2608.0.0.dylib",
+      "bytes": 34704,
+      "sha256": "a283f5cda345a6fc8a02b47e477c642d08a89ac42d6bc18da83b38b94a3039f4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_random_internal_randen_hwaes_impl.2608.0.0.dylib",
+      "bytes": 34080,
+      "sha256": "55f13df6d21a5ffdec490611970e302b7a85cc8f2ae0cb8821b2a67a973c4d23"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_random_internal_randen_slow.2608.0.0.dylib",
+      "bytes": 34096,
+      "sha256": "d32f7d2840f1516c1e586bb7dc784cc0da3082556199b353dae5bcafd8fb3a20"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_random_internal_seed_material.2608.0.0.dylib",
+      "bytes": 51424,
+      "sha256": "9e492eeb4f4316f9078a3af28cb51d2a5fc498e419126cfa31ffc9f4f0a15ac4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_random_seed_gen_exception.2608.0.0.dylib",
+      "bytes": 34752,
+      "sha256": "8309b5e78727bb89272878e839c4a46ce2479de111672255bd05c31114e8e0d3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_random_seed_sequences.2608.0.0.dylib",
+      "bytes": 68624,
+      "sha256": "2f4fec150fee6bc388e8e207770c3f33d751d4a595271e99998c252a3d04b1ce"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_raw_hash_set.2608.0.0.dylib",
+      "bytes": 115168,
+      "sha256": "af8f05c217ca1e6ed1447822f8d89e4a338dfa4da31f76a16a279000cb437cd8"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_raw_logging_internal.2608.0.0.dylib",
+      "bytes": 52768,
+      "sha256": "0cff48f2a0a36c3116d2d90d70a368591669a919d1de4d6bc5e92547bc389f63"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_source_location.2608.0.0.dylib",
+      "bytes": 16880,
+      "sha256": "ff821ad289dce5a14076d6ab756e73bc974bfe85d5eb74427e923f80ef7ac7e6"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_spinlock_wait.2608.0.0.dylib",
+      "bytes": 34608,
+      "sha256": "d69b4ce2f4953ece42f0126f64485580fccf84df297d888797cebc6122c1b7ae"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_stacktrace.2608.0.0.dylib",
+      "bytes": 52080,
+      "sha256": "8b55702e448b15f5cb9ee4470ce64a8b990b0ade31444e65260bebdbedffcab7"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_status.2608.0.0.dylib",
+      "bytes": 141616,
+      "sha256": "065a90fd5cf893b6b854a2c3b3f12629d967df61c711ce0d7062290688a96b24"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_statusor.2608.0.0.dylib",
+      "bytes": 89440,
+      "sha256": "12d1df685406a203c87e18851d31c722b8e31625d281d6af83f32ac89d61f38f"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_str_format_internal.2608.0.0.dylib",
+      "bytes": 124864,
+      "sha256": "0b4daf203209a8a73c50a32093303d6be88fa8c82ee6a3a55d5773f4a50f78e4"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_strerror.2608.0.0.dylib",
+      "bytes": 35872,
+      "sha256": "3648f22d467be8b1c2e04fbe7a10fc403f6797c2aa8998d9cccbd89f5ecf3f99"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_strings.2608.0.0.dylib",
+      "bytes": 156064,
+      "sha256": "f2099d0fcb283d473483c7dd736c6933f1ca7d262a5ba31d74f4b4241db38e05"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_strings_internal.2608.0.0.dylib",
+      "bytes": 38512,
+      "sha256": "e43a06406fbbca1928356143fec57902e87bf347a1bc72b8d2e540e44d241cf6"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_symbolize.2608.0.0.dylib",
+      "bytes": 52784,
+      "sha256": "f74d52731d1aa923d747258f0746d38226fa7398c3e56bc02f6841ee08ab9bb6"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_synchronization.2608.0.0.dylib",
+      "bytes": 123904,
+      "sha256": "7ea4c06fa127e3eaf3af98f99ce1613696130713b40d541dca82ee302992b67d"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_throw_delegate.2608.0.0.dylib",
+      "bytes": 42464,
+      "sha256": "8438db6f3f9bb6fef27232963ea74b5d3cfc0b892cbb47bd4aa3c0c8ea9bbe1c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_time.2608.0.0.dylib",
+      "bytes": 94464,
+      "sha256": "db06136dc3e7f74c7caa1871f2be1f4efd0342b40a4990f2830ec2d63fa7b26f"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_time_zone.2608.0.0.dylib",
+      "bytes": 148032,
+      "sha256": "a44dbfe629b2e26a88890c44a136c4ffd3eec130db5b9fb4b0ddbc29f4609ad0"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_tracing_internal.2608.0.0.dylib",
+      "bytes": 17216,
+      "sha256": "76cf6e733f5e5f6ed0140e9f299d7919a2e82f7034a54a026f2de2705956e447"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_utf8_for_code_point.2608.0.0.dylib",
+      "bytes": 17120,
+      "sha256": "40c07a92a4cc6d38cfe13372f602fc562fdd042d5c7e512ad6a66dbe7dba70dd"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/abseil/20260817.0/lib/libabsl_vlog_config_internal.2608.0.0.dylib",
+      "bytes": 77392,
+      "sha256": "6866be4a9f158035c08b997f1f83d0c3bbafe8ba3aaacdcc080ff6dd03407b99"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/ada-url/4.0.0/lib/libada.4.0.0.dylib",
+      "bytes": 393120,
+      "sha256": "875a4ce73549e611b8183126248a2ba0f5837cae6460a612e0ea5de45b61d94c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/brotli/1.2.0/lib/libbrotlicommon.1.2.0.dylib",
+      "bytes": 167264,
+      "sha256": "3426742c78df5c3b523071df603f07f2bb8dea6bd8e65c366a2c6adf2bf0a3ad"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/brotli/1.2.0/lib/libbrotlidec.1.2.0.dylib",
+      "bytes": 87728,
+      "sha256": "d7ac1e69b6c443341fb4302de0169d187489d58d8a641c8eadd6db9ca2cd0cbf"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/brotli/1.2.0/lib/libbrotlienc.1.2.0.dylib",
+      "bytes": 653328,
+      "sha256": "32e38a8ab06c8770ea4bfaf11ea324d7bcb6fe5f07eaff9d6260f93984ee6729"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/c-ares/1.34.8/lib/libcares.2.19.7.dylib",
+      "bytes": 227136,
+      "sha256": "380a4b57ed007eecfd8b31d27feb3ea4749125e49780f8ca55dceb6112993c77"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/hdrhistogram_c/0.11.10/lib/libhdr_histogram.6.3.3.dylib",
+      "bytes": 57920,
+      "sha256": "90286f692dd222d09642670523a5ef978f14b553614e6fa2d550dcb179e0d39c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/highway/1.4.0/lib/libhwy.1.4.0.dylib",
+      "bytes": 81200,
+      "sha256": "4141d80b03fe52479c0f469ff66addf9ed1034b93ec81876431f9343692c19bb"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/icu4c@78/78.3/lib/libicudata.78.3.dylib",
+      "bytes": 33195120,
+      "sha256": "e7dafc3fe6613326daa30d1c930aa66219ab5524fe576b0e7b3039451652b6bf"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/icu4c@78/78.3/lib/libicui18n.78.3.dylib",
+      "bytes": 3168272,
+      "sha256": "f319e50c965a1a0065d2cc5595d8553ff60b0e78a2e76bc3173774fd112de9ed"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/icu4c@78/78.3/lib/libicuuc.78.3.dylib",
+      "bytes": 1866592,
+      "sha256": "177dab8ae0bf0b1357d7ec6404a1e145bcc3d927aa15c3064171d23b2a1fd263"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/libffi/3.8.0/lib/libffi.8.dylib",
+      "bytes": 120576,
+      "sha256": "e400b27537b9c7ff08e4e1d89fafc83e233020fcfb425a3ad25cb8c35029e1e1"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/libnghttp2/1.70.0/lib/libnghttp2.14.dylib",
+      "bytes": 184496,
+      "sha256": "530cc144437609d7345345d026edc992dcb878539c32e7f05cc76493819dd944"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/libuv/1.52.1/lib/libuv.1.0.0.dylib",
+      "bytes": 206320,
+      "sha256": "34d4e2cd30b56dca5bda539f4448667360f0994c6b337ffebc5d37d818bc15d5"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/llhttp/9.4.3/lib/libllhttp.9.4.3.dylib",
+      "bytes": 77664,
+      "sha256": "78cd1d7e5016246878a00dbaf76300628e5f48aa2174bf2e83fe1b31dc3e5691"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/merve/1.2.2_3/lib/libmerve.1.2.2.dylib",
+      "bytes": 78176,
+      "sha256": "5770259b36bd08a341ce4704f5d4e08d2c4df4e34a175e0b8b81b6310b2ef0bb"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/nbytes/0.1.4/lib/libnbytes.dylib",
+      "bytes": 35136,
+      "sha256": "b063a6b50d0982379e5a78fa22904e9299ac0048d82cae4f90bd4ad11fa40f65"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+      "bytes": 132848,
+      "sha256": "91ed66b8cd139609427a3e9d93518dd3b0d5407c737fc9a265bfd991ec623d8a"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/node/26.9.0/lib/libnode.147.dylib",
+      "bytes": 57140096,
+      "sha256": "962d6add54b805dfcdd847d5830baae73e4348928fc1b2fd5e7886ed39a6d7f5"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/openssl@3/3.6.4/lib/libcrypto.3.dylib",
+      "bytes": 4872736,
+      "sha256": "bae675614cd791d37ec35416ea9f87edcc85407d020810504cf458119b63522c"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/openssl@3/3.6.4/lib/libssl.3.dylib",
+      "bytes": 888928,
+      "sha256": "c6ee373222087cf31bc2f3817537d268b3c23e56b7fadd44bbf5c2317caed349"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/simdjson/4.6.11/lib/libsimdjson.33.0.0.dylib",
+      "bytes": 95152,
+      "sha256": "0030c2ad39507ca6224ae1713862667547ae1047538d46838e62e23c98203ea6"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/simdutf/9.2.0/lib/libsimdutf.36.0.0.dylib",
+      "bytes": 223296,
+      "sha256": "6ce426fd8dfc5ddfcab7228a5d50f3ce12d3c83ed07ce6f3523e2e11ef808914"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/sqlite/3.53.4/lib/libsqlite3.3.53.4.dylib",
+      "bytes": 1276320,
+      "sha256": "75feed7151d3e496343ffee9c25960d85188ed99b2ffb1051fe016f912c6c808"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/uvwasi/0.0.23/lib/libuvwasi.dylib",
+      "bytes": 83232,
+      "sha256": "c922288c5179279316b32b2c83d5c50d7b87216b442473ada8c99ef4a58ba312"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/zstd/1.5.7_1/lib/libzstd.1.5.7.dylib",
+      "bytes": 649648,
+      "sha256": "e2847c4613b386683c234913ae3b7b04299254096caf7616e3b3cd9bb97a39ab"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/PREFLIGHT.json",
+      "bytes": 20784,
+      "sha256": "1a70074203d9f6210aeecea40edfe3af1b78e97759d689c6b403342f5ebed638"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/RUNTIME-PREFLIGHT.json",
+      "bytes": 372026,
+      "sha256": "6e314d0fbd0723673ded689a4acdfa6bd45c3c2a7a937c087c888decee0c48d5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/RUNTIME-ADDENDUM.md",
+      "bytes": 1795,
+      "sha256": "0cde14f67a203feb6c519517f58afb6a41be02551e32a8e258aa17bf16a64a36"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/SOURCE-REVIEW.md",
+      "bytes": 3328,
+      "sha256": "44ffbd3de0c22bf267b65a47385367afa863f055590fd8c04f6dbe6d5912ae14"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/ROOT-SOURCE-FIRST.json",
+      "bytes": 36082,
+      "sha256": "53d55fd577175cbc6426f863ecc3882c51352d13bc1fa307fff567b5253cf25c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/PREPARATION-JOBS.json",
+      "bytes": 73598,
+      "sha256": "ca5dfb8b054f8edaf19246be58ce921fdcb22fb10d6db3a9cdbe878f5494b99f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/skin-completed-material-owner/SOURCE-RECEIPT.json",
+      "bytes": 42362,
+      "sha256": "3709e0b6da0a7445fe0186ff5fc01c91378e3ccc8623b23047509bd070fa0241"
+    }
+  ],
+  "independent_assessment": "Exact complete diff and actual class/factory/proof previously inspected, then whole diff/proof reread. Factory private textures only; borrowed albedo excluded; all attempts plus base event and exact errors, nested guard reset and repeat public calls. Original canonical unchanged. CPU event assertions and generated texture headers/digests qualify fixed component protocol only, not raw event trace, render or GPU release.",
+  "F1_decision": {
+    "witness": "SOURCE.md13 and PREFLIGHT.future_limits.v8_heap_mib versus SOURCE.md15 --max-old-space-size=256",
+    "selected": "v8OldSpaceLimitMiB=256; sampledRssCapMiB=768; cooperativeBodySeconds=30. No total-heap/RSS/peak or startup/sync-wall hard bound.",
+    "alternative": "Withhold until a hard whole-process limiter exists: stronger bounds but new native/supervisor infrastructure outside this finite slice.",
+    "frozen_source_unchanged": true
+  },
+  "entry_contract": {
+    "entries": 1,
+    "factory_calls": 4,
+    "fixture_loaded_maps": 9,
+    "new_child_or_native_program": false,
+    "browser_gpu_render": false,
+    "canonical_adoption": false,
+    "first_failure_unknown": "Close without source/proof repair or second entry",
+    "collection": "loginfalse/ttytrue/exec replacement; actual tool return or sole known session only. Beyond35s interrupt that actual session once and bounded collect; unknown closes."
+  },
+  "source_stop_utc": "2026-10-19T20:15:00Z",
+  "proof_closure_stop_utc": "2026-10-19T20:35:00Z"
+}

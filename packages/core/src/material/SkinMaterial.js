@@ -896,6 +896,9 @@ function decodeBakedCurvature( map ) {
  */
 export class SkinNodeMaterial extends MeshPhysicalNodeMaterial {
 
+    #ownedTextures;
+    #disposing = false;
+
     /**
      * `NodeMaterial.type` is a getter over `constructor.type`, so declaring this makes the scene
      * graph self-describing: a mesh's material reads as `SkinNodeMaterial` rather than as the base
@@ -908,10 +911,11 @@ export class SkinNodeMaterial extends MeshPhysicalNodeMaterial {
 
     }
 
-    constructor( nodes, parameters ) {
+    constructor( nodes, parameters, ownedTextures = new Set() ) {
 
         super( parameters );
 
+        this.#ownedTextures = ownedTextures;
         this.isSkinNodeMaterial = true;
         this.skin = nodes;
 
@@ -920,6 +924,40 @@ export class SkinNodeMaterial extends MeshPhysicalNodeMaterial {
     setupLightingModel() {
 
         return new SkinLightingModel( this.skin, this.useClearcoat );
+
+    }
+
+    /**
+     * Retires factory-owned maps as well as the material. The figure's albedo is borrowed.
+     * Keep the set for later independent disposal calls: Three permits disposed resources to
+     * be rendered again. A nested request joins the current retirement attempt instead of
+     * recursively dispatching the same listeners. Every resource and the base notification
+     * still get an attempt if a listener throws.
+     */
+    dispose() {
+
+        if ( this.#disposing ) return;
+        this.#disposing = true;
+        const errors = [];
+
+        try {
+
+            for ( const ownedTexture of this.#ownedTextures ) {
+
+                try { ownedTexture.dispose(); } catch ( error ) { errors.push( error ); }
+
+            }
+
+            try { super.dispose(); } catch ( error ) { errors.push( error ); }
+
+        } finally {
+
+            this.#disposing = false;
+
+        }
+
+        if ( errors.length === 1 ) throw errors[ 0 ];
+        if ( errors.length > 1 ) throw new AggregateError( errors, 'Skin texture disposal failed.' );
 
     }
 
@@ -973,8 +1011,13 @@ export async function createSkinMaterial( options = {} ) {
     const ratio = settings.transmissionChannelRatio;
     const distance = settings.transmissionDistanceMillimetres;
 
+    const lutTexture = createLutTexture();
+    // Only this factory's new textures are owned; the caller retains the albedo.
+    const ownedTextures = new Set( [ curvatureMap, regionMap, cavityMap, lutTexture ]
+        .filter( map => map !== null ) );
+
     const nodes = {
-        lut: texture( createLutTexture() ),
+        lut: texture( lutTexture ),
         curvatureMap: curvatureMap === null ? null : texture( curvatureMap ),
         regionMap: regionMap === null ? null : texture( regionMap ),
         scatterDistanceMillimetres: uniform( settings.scatterDistanceMillimetres ),
@@ -996,7 +1039,7 @@ export async function createSkinMaterial( options = {} ) {
         thinTissueTint: uniform( new Vector3( ...settings.thinTissueTint ) )
     };
 
-    const material = new SkinNodeMaterial( nodes );
+    const material = new SkinNodeMaterial( nodes, undefined, ownedTextures );
 
     material.map = options.albedoMap ?? null;
     material.metalness = 0;                       // skin is a dielectric; nothing about it is metal
@@ -1030,6 +1073,7 @@ export async function createSkinMaterial( options = {} ) {
     material.clearcoatRoughness = settings.secondLobeRoughness;
 
     const microTexture = createMicroNormalTexture();
+    ownedTextures.add( microTexture );
     const microScale = uniform( settings.microNormalScale );
     const microRepeat = uniform( settings.microNormalRepeat );
 
