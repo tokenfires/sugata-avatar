@@ -1,0 +1,296 @@
+{
+  "schema": "catalogue-suggestion-try-worth-review-v1",
+  "verdict": "B_MARGINAL_UTILITY_EXISTING_EXPLICIT_ROUTE_ADEQUATE",
+  "pending_edits": false,
+  "worth_stop_utc": "2026-10-19T20:55:00Z",
+  "full_reads": [
+    "PLAN.md",
+    "INPUTS.json",
+    "docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/README.md",
+    "docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/README.md",
+    "packages/testbed/src/showcase-outfit-suggestions.mjs (72lines)",
+    "packages/testbed/src/showcase-presets.mjs (97lines)"
+  ],
+  "selected_reads": [
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "ranges": [
+        [
+          1,
+          118
+        ],
+        [
+          239,
+          341
+        ],
+        [
+          425,
+          455
+        ]
+      ],
+      "purpose": "Actual opt-in catalogue callback, busy guards, outfit-specific change versus settings/open navigation and event binding"
+    }
+  ],
+  "source_code_files_semantically_read": 3,
+  "max_source_code_files": 6,
+  "views": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/REQUEST.jpg",
+      "tool": "view_image",
+      "detail": "original",
+      "scope": "whole retained Showcase UI image, historical pixel witness, current source must establish current behavior",
+      "utc": "2026-10-19 20:32:40 UTC"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/MOBILE.jpg",
+      "tool": "view_image",
+      "detail": "original",
+      "scope": "whole retained Showcase UI image, historical pixel witness, current source must establish current behavior",
+      "utc": "2026-10-19 20:32:40 UTC"
+    }
+  ],
+  "metadata_only_scope": [
+    "All8 INPUTS files freshly hashed; current main recovery/checklist/roadmap and previous Mara handoff/closure were not wholly reread in this worth inquiry. Frozen broad boundaries and completed Mara state reused from immediately previous full review at their exact historical/current epochs."
+  ],
+  "findings": [
+    {
+      "id": "V1",
+      "classification": "Worth/value refusal, not implementation defect",
+      "witnesses": [
+        "showcase-outfit-suggestions.mjs:25–27 and39–50: guidance plus read-only request/explanation",
+        "showcase.js:71–83: choice comes from SHOWCASE_OUTFITS, returns label/reason",
+        "showcase-presets.mjs:13–16: exactly two recipes",
+        "showcase.js:279–294 and440: existing explicit guarded outfit action and actual button bindings",
+        "Whole historical REQUEST.jpg: adjacent Outfit buttons aroundx855–1225,y149–191, suggested label/guidance aroundx868–1225,y418–505",
+        "Whole historical MOBILE.jpg: both Outfit buttons aroundx24–367,y210–252, guidance aroundy550–591"
+      ],
+      "explanation": "A card-local Try button is absent but no supported outfit is inaccessible. With two visible named options and guidance, a duplicate entry removes modest navigation/label matching; no measured material user friction or newly enabled decision was shown.",
+      "alternatives": [
+        {
+          "choice": "Keep existing Request/read/Dismiss and explicit named Outfit buttons",
+          "benefit": "Avoids new selection/API/state/test/capture duties",
+          "tradeoff": "Small amount of navigation and label matching remains"
+        },
+        {
+          "choice": "New direct action delegating to the existing outfit-specific transaction",
+          "benefit": "Contextual one-click navigation convenience",
+          "tradeoff": "Requires fresh selected-id, disabled/stale/failure/focus and unchanged-state evidence for a currently marginal benefit"
+        }
+      ]
+    }
+  ],
+  "non_findings": [
+    "No runtime/UI capture was performed; screenshots are historical pixels and current source supplies current route evidence",
+    "No unsafe reuse, actual lost draft, memory/GPU issue or complete preservation guarantee was demonstrated",
+    "openLook is settings/navigation, distinct from changeOutfit; that distinction is a future ownership duty rather than an asserted defect",
+    "No code changes or duplicate/renamed successor proposed"
+  ],
+  "next": "Close this worth nomination unrun; no source/test/native UI/capture preparation follows.",
+  "limits": [
+    "No target/source import/eval/syntaxcheck/test/build/apply",
+    "No browser/native/GPU/newcapture/online/network/reference action",
+    "No new garment combinations/fit reasoning/autodressing/hairdraft semantics or visual/default change",
+    "No source, accepted/frozen/main-doc edit; critic writes only own pair",
+    "All previous closures and constructorHOLD remain; broad roadmap unchanged"
+  ],
+  "jobs": [
+    {
+      "name": "initial",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/catalogue-suggestion-try-worth')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PLAN.md','INPUTS.json']:\n q=p/n;b=q.read_bytes();print('\\nFILE',n,len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nprint('FILES',sorted(x.name for x in p.iterdir()))\nPY",
+      "result": {
+        "chunk_id": "14b425",
+        "wall_time_seconds": 5.292e-06,
+        "exit_code": 0,
+        "original_token_count": 1345,
+        "output_bytes": 5380,
+        "output_sha256": "d9694dfd820c5485a32dabd831022b079846dbc4f89a1a8fe8f13c26dfd494b9",
+        "first_line": "PID 49011 UTC 2026-10-19T20:32:20.505751+00:00"
+      }
+    },
+    {
+      "name": "receipts",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\nroot=Path('/Users/robault/GitHub/sugata-avatar')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/README.md','docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/README.md']:\n q=root/n;b=q.read_bytes();print('\\nFILE',q,len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):print(f'{i}: {line}')\nPY",
+      "result": {
+        "chunk_id": "96c3ba",
+        "wall_time_seconds": 6.542e-06,
+        "exit_code": 0,
+        "original_token_count": 1261,
+        "output_bytes": 5044,
+        "output_sha256": "e22d8a0ab364dd7369c2a821acd5f162036344e4d49bf8474ba4842c7e353066",
+        "first_line": "PID 49152 UTC 2026-10-19T20:32:25.799810+00:00"
+      }
+    },
+    {
+      "name": "locator",
+      "tool": "exec_command",
+      "command": "rg -n 'catalogueRequest|Dismiss suggestion|Use the Outfit buttons|Request suggestion|CatalogueDresser|apply.*open|applyAndOpen' packages/testbed/src",
+      "result": {
+        "chunk_id": "41fc99",
+        "wall_time_seconds": 8.167e-06,
+        "exit_code": 0,
+        "original_token_count": 183,
+        "output_bytes": 730,
+        "output_sha256": "22b5205d87de7d4c32d2679c0f4d43060c2429513b20f9a87d747b3350980010",
+        "first_line": "packages/testbed/src/showcase.js:18:import { CatalogueDresser } from '../../core/src/wardrobe/CatalogueDresser.js';"
+      }
+    },
+    {
+      "name": "suggestion",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\nroot=Path('/Users/robault/GitHub/sugata-avatar')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nq=root/'packages/testbed/src/showcase-outfit-suggestions.mjs';b=q.read_bytes();print('FILE',q,len(b),hashlib.sha256(b).hexdigest())\nfor i,line in enumerate(b.decode().splitlines(),1):print(f'{i}: {line}')\nPY",
+      "result": {
+        "chunk_id": "04d7a4",
+        "wall_time_seconds": 8.125e-06,
+        "exit_code": 0,
+        "original_token_count": 1314,
+        "output_bytes": 5255,
+        "output_sha256": "442a54ef497e17e81f1cab53b4312b17f708ac7936203a074bc08035e03e3b4a",
+        "first_line": "PID 60026 UTC 2026-10-19T20:32:56.506699+00:00"
+      }
+    },
+    {
+      "name": "showcase_locator",
+      "tool": "exec_command",
+      "command": "rg -n 'SHOWCASE_OUTFITS|mountOutfitSuggestions|catalogue|Outfit|apply|open|recipe|outfit-suggestions' packages/testbed/src/showcase.js",
+      "result": {
+        "chunk_id": "5dafc1",
+        "wall_time_seconds": 6.5e-06,
+        "exit_code": 0,
+        "original_token_count": 1346,
+        "output_bytes": 5384,
+        "output_sha256": "1457b34f1025806e66f804a1a57fc54a84b7250bcf99be6bb396603b0440c988",
+        "first_line": "4:import { SHOWCASE_PRESETS, SHOWCASE_OUTFITS, resolveShowcaseSelection, optionsForShowcase, outfitFromReport, configurationFromReport } from './showcase-presets.mjs';"
+      }
+    },
+    {
+      "name": "transaction",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\nroot=Path('/Users/robault/GitHub/sugata-avatar');q=root/'packages/testbed/src/showcase.js';b=q.read_bytes();lines=b.decode().splitlines()\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'FILE',q,len(b),hashlib.sha256(b).hexdigest())\nfor lo,hi in [(1,118),(239,341),(425,455)]:\n print('SCOPE',lo,hi)\n for i in range(lo,min(hi,len(lines))+1):print(f'{i}: {lines[i-1]}')\nq=root/'packages/testbed/src/showcase-presets.mjs';b=q.read_bytes();print('\\nFILE',q,len(b),hashlib.sha256(b).hexdigest())\nfor i,line in enumerate(b.decode().splitlines(),1):print(f'{i}: {line}')\nPY",
+      "result": {
+        "chunk_id": "b26f78",
+        "wall_time_seconds": 7.459e-06,
+        "exit_code": 0,
+        "original_token_count": 6817,
+        "output_bytes": 27268,
+        "output_sha256": "6fbc5bc212daf59e972b62cd8aa9a77fb32ffd9eb5cac4079e68e78e462f5e5f",
+        "first_line": "PID 60433 UTC 2026-10-19T20:33:08.937531+00:00 FILE /Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js 36058 0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59"
+      }
+    },
+    {
+      "name": "verify",
+      "tool": "exec_command",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\nroot=Path('/Users/robault/GitHub/sugata-avatar');p=root/'docs/evidence/appearance-2026-10-19/catalogue-suggestion-try-worth'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat());m=json.loads((p/'INPUTS.json').read_text());rows=[]\nfor row in m['pins']:\n b=Path(row['path']).read_bytes();a={'path':row['path'],'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()};rows.append({'expected':row,'actual':a,'matches':a==row})\nprint(json.dumps({'manifest_rows':rows},indent=2))\nfor n in ['packages/testbed/src/showcase-outfit-suggestions.mjs','packages/testbed/src/showcase.js','packages/testbed/src/showcase-presets.mjs','docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/REQUEST.jpg','docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/MOBILE.jpg']:\n q=root/n;b=q.read_bytes();print('ACTUAL',q,len(b),hashlib.sha256(b).hexdigest())\nq=p/'SOURCE-INPUTS.json';print('SOURCE_INPUTS_EXISTS',q.exists())\nPY",
+      "result": {
+        "chunk_id": "9743f4",
+        "wall_time_seconds": 6.458e-06,
+        "exit_code": 0,
+        "original_token_count": 1262,
+        "output_bytes": 5045,
+        "output_sha256": "4e064b00aad73e5501d1f546148020eec911d0d96ea685cb49c421417daf4878",
+        "first_line": "PID 61185 UTC 2026-10-19T20:33:33.105086+00:00"
+      }
+    }
+  ],
+  "root_addendum_present_at_collection": true,
+  "root_addendum_semantic_scope": "Addendum full text collected in the final readback; files outside declared3source semantic scopes remain metadata-only.",
+  "input_pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 104980,
+      "sha256": "bf2118988ab15383aab16a411f6828962b1a70e8273c8fd71f8a6fe922d4865a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 130044,
+      "sha256": "ddd161bf7b05780144450bd0248009753845b8a8a998cfba9a4257fc8531d329"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/README.md",
+      "bytes": 2518,
+      "sha256": "61ceb90b2fd595d16af967736816c09414c156ab1bd87e59ad4bf1cf832ae608"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-04/catalogue-proposal-ui/README.md",
+      "bytes": 2040,
+      "sha256": "610ed7de9ad976852381bb661c2bb053374b432a78e33cdc4bdd83184bc05834"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2092,
+      "sha256": "1ecfdc33f35a4631a0942fc20eaa144844372802edfe36764e365e569efd8358"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround/ROOT-CLOSE.json",
+      "bytes": 11220,
+      "sha256": "2d962cb717b3113567734003b35beabd4433f960d0575743c957453e7b2eb941"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/catalogue-suggestion-try-worth/PLAN.md",
+      "bytes": 2956,
+      "sha256": "097d29fa17f2e8691a2c6fd7d65ec2debb0d6c5864cd228cce38e1004ecb7712"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/catalogue-suggestion-try-worth/INPUTS.json",
+      "bytes": 2170,
+      "sha256": "ab6d5909e4beae64ca2d889746351aaf6d09ccf59cc01c9b0f21ef2cc017d1fe"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-outfit-suggestions.mjs",
+      "bytes": 4765,
+      "sha256": "5835346f8df458dbacca996e2223c59336ea054d4d09822f886b36597921fe93"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/REQUEST.jpg",
+      "bytes": 49567,
+      "sha256": "d41ed883c4a05ac8457b6ec3f7701e14b9567597c290b426d6ad0d99d0901328"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/showcase-viewport-ui/MOBILE.jpg",
+      "bytes": 35894,
+      "sha256": "2aee78c25190f73d0bd166a49e968ca90c5649efd1646d27b685912516802f3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/catalogue-suggestion-try-worth/SOURCE-INPUTS.json",
+      "bytes": 1652,
+      "sha256": "fb4a830a3c3da6cd9b14d98eda1fd44da2be0a96f507eab2f592b845ebe67572"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.html",
+      "bytes": 21951,
+      "sha256": "dbda8923ece4cca7509b28a3b1fcee07b7068c78338f64a29fd45f996079fabc"
+    }
+  ],
+  "verified_unique_paths": 17,
+  "collection": {
+    "pid": 64511,
+    "utc": "2026-10-19T20:35:17.336443+00:00",
+    "exclusive_pair_only": true
+  },
+  "review_output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/catalogue-suggestion-try-worth/WORTH.md",
+    "bytes": 2619,
+    "sha256": "a601fcd109a8512a92b6698fe6cb35af79e1a8fbece6002ee7b9f574d8296ba7"
+  }
+}
