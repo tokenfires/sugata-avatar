@@ -1,0 +1,60 @@
+{
+  "schema": "root-ari-actual-render-collection-v1",
+  "utc": "2026-10-19T13:38:44.003527+00:00",
+  "pid": 36710,
+  "GPU_admission": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/GPU-ADMISSION.json",
+    "bytes": 13834,
+    "sha256": "433f7e65a93c6b1570b3978f15bfbf75b0306ff9c50f41b17ab019eb8e9e5f15"
+  },
+  "browser_result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/BROWSER-RESULT.json",
+    "bytes": 9990,
+    "sha256": "6f903bc60db7ad3e71a6af6d5da3aa1cda82e23647a5fe10823ac8428b3f6d1b"
+  },
+  "image_copy": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/IMAGE-COPY.json",
+    "bytes": 1960,
+    "sha256": "1a8f05bebb2ca06917b40c68ccae689160582b55d4be3a0379d628c46bf05b57"
+  },
+  "first_image": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/first.jpg",
+    "bytes": 235416,
+    "sha256": "e6b62f4015e37b70ed999499da0dfbaba152b49031083b19fb8c4b8460d4db9e"
+  },
+  "known_job": "One explicitclickAX12 in IAB3tab8, source/data/rootadmitted, actual13:35:31.763\u2013.908UTC complete; no repeatingrender/screenshot",
+  "facts": {
+    "inputpins": 51,
+    "views": 6,
+    "parts": 25,
+    "vertices": 4190,
+    "triangles": 8364,
+    "drawcalls_each": 29,
+    "known_disposals": 34,
+    "recorded_disposal_errors": 0,
+    "abort_requested": true,
+    "contextloss_requested": true,
+    "renderer_size": [
+      570,
+      340
+    ],
+    "renderer_dpr": 1,
+    "browser_natural_viewport": [
+      1280,
+      720
+    ],
+    "browser_dpr": 2,
+    "whole_dimensions": [
+      1280,
+      2670
+    ],
+    "whole_bytes": 235416,
+    "six_png_bytes": 299321,
+    "total_image_bytes": 534737,
+    "actual_checked_elapsed_ms": 145.30000000447035
+  },
+  "root_validation": "b3ba6d checks full51pins/6rawPNGCRCs,dims,rawidentities/admission/model/counts/cleanup/time;wholeoriginaldetailimageview precedesprivateROOT-VISUAL-OBSERVATIONS. Later existingfront/undersidePNG independentlywholeviewed aftercriticblindinitialshapeB, no newcapture.",
+  "cleanup": "Tab8explicitlyclosed; CUAlistTabs confirms onlyaccepted1\u20133 remain. Vite retained. No ownedbuilder/native/GPU/capturejob pending; criticstableimagepairpending. Knownownerdisposal/contextlossrequest is not privateconstructor/physicaldriverretirementproof.",
+  "decision": "Provisional fullappearanceB, no delivery/promotion. Awaitstableimagepair/rootfinalclosure; no successor/retake/sourceormaterialrepair.",
+  "deadline_utc": "2026-10-19T14:13:55.357882+00:00"
+}

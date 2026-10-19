@@ -1,0 +1,37 @@
+{
+  "schema": "ari-readonly-served-runtime-binding-v1",
+  "utc": "2026-10-19T13:33:18.100738+00:00",
+  "pid": 26723,
+  "rows": [
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.js?v=1264994a",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/served-runtime-three.txt",
+      "bytes": 1828892,
+      "sha256": "da356c10c205f2337f5a033094e16bc36bdf2ea8d52398864c5b3c752949ece5",
+      "binding": "Fresh whole HTTP bytes exactly equal frozen raw module",
+      "direct_imports": [
+        "/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.core-Ddh2Zg6B.js?v=1264994a"
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/three.core-Ddh2Zg6B.js?v=1264994a",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/served-runtime-core.txt",
+      "bytes": 4078536,
+      "sha256": "3253d631ed61edb9c257cbc1fc6ed5ff363ff054f192b4130dc6bd7375574e19",
+      "binding": "Fresh whole HTTP bytes exactly equal frozen raw core",
+      "direct_imports": []
+    }
+  ],
+  "metadata": {
+    "path": "/Users/robault/GitHub/sugata-avatar/node_modules/.vite/deps/_metadata.json",
+    "bytes": 3261,
+    "sha256": "eca69fdd9308dad54141f46c77ee2862f1af675b79f1be38b2f116c8322c4568"
+  },
+  "observed_three_metadata": {
+    "src": "../../three/build/three.module.js",
+    "file": "three.js",
+    "fileHash": "3056d47e",
+    "needsInterop": false
+  },
+  "scope": "Read-only source retrieval, no module evaluation/browser/GPU. Raw served current library identity and metadata binding; not cryptographic compiler-history or whole-library code review."
+}

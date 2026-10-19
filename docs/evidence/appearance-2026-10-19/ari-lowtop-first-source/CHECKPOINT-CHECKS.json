@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-19T13:42:34.214997+00:00",
+  "pid": 43849,
+  "root_close_sha256": "1fdea2d8e4211551d56aa3bae1aa4b3f9f669728a2cc746dcfd347ceacff71a9",
+  "closepins_exact": 69,
+  "staged_whitespace_check": {
+    "command": "git diff --cached --check",
+    "chunk": "0bea67",
+    "exit_code": 2,
+    "output": "docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/model.mtl:56: new blank line at EOF.",
+    "decision": "Preserve exact frozen actual MTL output including legal blank terminator. This is a repository whitespace advisory, not geometry/material/export/parser failure. No output byte editing or builder replay."
+  },
+  "validation": "Root/critic actualcompleteJSONOBJMTLdata and actualimages checked. README local link existence and protectedbaselineSHAs pass cb3eff. No runtime product change; no additional tests warranted."
+}

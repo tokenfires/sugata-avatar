@@ -1,0 +1,407 @@
+{
+  "schema": "root-ari-actual-cpu-data-audit-v1",
+  "utc": "2026-10-19T13:24:43.533746+00:00",
+  "pid": 10615,
+  "decision": "A limited actualCPU/export/declaredclosedcomponentdata; no GPU/appearance admission",
+  "checks": "34inputpins/exactstdoutJSON+exit0/nosession/outputhashes/full4190positions+8364triangles/independenttriangular-edgeorientation-connectivity-Euler-area-volume/fullOBJvertices+faces+objectmaterialidentities/all8MTLcolors/fullframe/materials/64vertexRIMinterfaceequalitiespluscapcentrewherepresent/realupperentrygenus1+two5holegenus5stays/10rims+continuouslacepart. No builder replay.",
+  "counts": {
+    "parts": 25,
+    "vertices": 4190,
+    "triangles": 8364
+  },
+  "maxPredictedFloat32CoordinateError": 5.957592774663567e-08,
+  "predictedFloat32AllTrianglesNonzero": true,
+  "actual_source_elapsed_ms": 20.458667,
+  "actual_RSS_sample_bytes": 76234752,
+  "time_and_memory_limits": "Postimport checked source elapsed, not OSstartup/nativeCPU/performance. RSS one sample, notpeak orhardcap. Tool wall metadata notused asruntime.",
+  "retained_audit_reader_error": {
+    "tool": "6f0aec/exit1,line50 beforeROOTCPUwrite",
+    "cause": "Root incorrectly expected allverticeson a cappedslablevel tocontainonly64rimvertices. slab() alsoownsonecentrefor itscap. Thiswas a verifierexpectation error, not actualdata/sourcefailure.",
+    "witness": "d4ffec/PID8745/13:23:44UTC showscontact/sidewall65=65exact; upper64 versussole65 differsONLY(0,.19,0); upper64 versusfootbed65 differsONLY(0,.205,0). All64rimverticesmatch.",
+    "correction": "Comparecompletecapjointand64rimsetsseparately. Reauditthe sameimmutableoutputs, no source/modelchange,builderreplay or newcandidate.",
+    "alternatives": "Correct the read-only audit to the declared cap/rim semantics, selected; or defer qualification for an independent verifier, preserving uncertainty but no false source rejection."
+  },
+  "parts": [
+    {
+      "name": "contact-edge",
+      "vertices": 130,
+      "triangles": 256,
+      "triangleEdges": 384,
+      "euler": 2,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 0.10417197547216415,
+      "minTriangleArea": 0.0009087393201642195,
+      "materials": {
+        "contact": 256
+      },
+      "predictedFloat32PositionSHA256": "1d001bf91f6afc8d1a84e28465ba8948da695847ef8c7b5b83e1fc14d3868c48"
+    },
+    {
+      "name": "unstriped-sidewall",
+      "vertices": 130,
+      "triangles": 256,
+      "triangleEdges": 384,
+      "euler": 2,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 0.3906449080206155,
+      "minTriangleArea": 0.0034077724506158228,
+      "materials": {
+        "sole": 256
+      },
+      "predictedFloat32PositionSHA256": "dd34c38a16e93ef82d7c2e1bac26f112c547bd987aa8e74252fdf1f11938c82b"
+    },
+    {
+      "name": "footbed",
+      "vertices": 130,
+      "triangles": 256,
+      "triangleEdges": 384,
+      "euler": 2,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 0.049502522744015405,
+      "minTriangleArea": 0.00044069837397037425,
+      "materials": {
+        "footbed": 256
+      },
+      "predictedFloat32PositionSHA256": "83e61bc4e7598ab67af492bf57f20e1b97d1084d310c4fee5aa088095e411d5d"
+    },
+    {
+      "name": "upper-and-lining",
+      "vertices": 896,
+      "triangles": 1792,
+      "triangleEdges": 2688,
+      "euler": 0,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 0.03647182253304001,
+      "minTriangleArea": 0.0003038123469916238,
+      "materials": {
+        "upper": 896,
+        "lining": 896
+      },
+      "predictedFloat32PositionSHA256": "fe242fb782ad7b5aff8a630175658ba339d9af7a0ff29c4227e529c8b1c38856"
+    },
+    {
+      "name": "padded-tongue",
+      "vertices": 98,
+      "triangles": 192,
+      "triangleEdges": 288,
+      "euler": 2,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 0.02617593870582263,
+      "minTriangleArea": 0.0004679651182535945,
+      "materials": {
+        "upper": 144,
+        "lining": 48
+      },
+      "predictedFloat32PositionSHA256": "832694a9a6af6c78bdfb997a62c38917b19048e99bc409c0f09569df32ff243f"
+    },
+    {
+      "name": "medial-perforated-stay",
+      "vertices": 136,
+      "triangles": 288,
+      "triangleEdges": 432,
+      "euler": -8,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 0.0021931322028892475,
+      "minTriangleArea": 0.00010613396200309616,
+      "materials": {
+        "upper": 208,
+        "guide": 80
+      },
+      "predictedFloat32PositionSHA256": "b09849db432c390f0b40a9e23466aae203bfd4d58f2613cb9290a514f228e181"
+    },
+    {
+      "name": "lateral-perforated-stay",
+      "vertices": 136,
+      "triangles": 288,
+      "triangleEdges": 432,
+      "euler": -8,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 0.0021931322028892787,
+      "minTriangleArea": 0.00010613396200309616,
+      "materials": {
+        "upper": 208,
+        "guide": 80
+      },
+      "predictedFloat32PositionSHA256": "433e7f708984c05155d1b5ea64881fe9e252198d355f9ecfbcef2e7ed2313804"
+    },
+    {
+      "name": "medial-guide-1",
+      "vertices": 96,
+      "triangles": 192,
+      "triangleEdges": 288,
+      "euler": 0,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 5.599563766329263e-06,
+      "minTriangleArea": 1.2163897052558405e-05,
+      "materials": {
+        "guide": 192
+      },
+      "predictedFloat32PositionSHA256": "7744eb60d2e9f95fa6256de2e761aa5302e5290996626e28533d1582581488da"
+    },
+    {
+      "name": "medial-guide-2",
+      "vertices": 96,
+      "triangles": 192,
+      "triangleEdges": 288,
+      "euler": 0,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 5.599563729353752e-06,
+      "minTriangleArea": 1.2616687842541431e-05,
+      "materials": {
+        "guide": 192
+      },
+      "predictedFloat32PositionSHA256": "f8b355332f7a93f0ec26bcea11ef046fbdba79a9014941fb0eb9a768214247f9"
+    },
+    {
+      "name": "medial-guide-3",
+      "vertices": 96,
+      "triangles": 192,
+      "triangleEdges": 288,
+      "euler": 0,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 5.599563698356998e-06,
+      "minTriangleArea": 1.2933931860327437e-05,
+      "materials": {
+        "guide": 192
+      },
+      "predictedFloat32PositionSHA256": "4b750555c09e4aadf7d61d5266e5387a01549257052212e962042812a3a0c04b"
+    },
+    {
+      "name": "medial-guide-4",
+      "vertices": 96,
+      "triangles": 192,
+      "triangleEdges": 288,
+      "euler": 0,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 5.59956373160278e-06,
+      "minTriangleArea": 1.3198715299870511e-05,
+      "materials": {
+        "guide": 192
+      },
+      "predictedFloat32PositionSHA256": "fe688de5babe289ec640c8632f5885bcaa90657506a6033f9a1b1fbc63063584"
+    },
+    {
+      "name": "medial-guide-5",
+      "vertices": 96,
+      "triangles": 192,
+      "triangleEdges": 288,
+      "euler": 0,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 5.5995643599337925e-06,
+      "minTriangleArea": 1.3895511235911415e-05,
+      "materials": {
+        "guide": 192
+      },
+      "predictedFloat32PositionSHA256": "f5673f2a34fc74f642ff76b546c281884cc0a8671845eb2c4397e978fcb9296f"
+    },
+    {
+      "name": "lateral-guide-1",
+      "vertices": 96,
+      "triangles": 192,
+      "triangleEdges": 288,
+      "euler": 0,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 5.5995637663158245e-06,
+      "minTriangleArea": 1.2163897052558405e-05,
+      "materials": {
+        "guide": 192
+      },
+      "predictedFloat32PositionSHA256": "04a6db172b5c4ed4cc5c8244392101d2b6cfa79706e1373bb8225b8b729bdedf"
+    },
+    {
+      "name": "lateral-guide-2",
+      "vertices": 96,
+      "triangles": 192,
+      "triangleEdges": 288,
+      "euler": 0,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 5.599563729329953e-06,
+      "minTriangleArea": 1.2616687842541431e-05,
+      "materials": {
+        "guide": 192
+      },
+      "predictedFloat32PositionSHA256": "487cd83f9365e463854f144e3743d3a34fcc0a87ca8ddb8261d092f1ec083c8d"
+    },
+    {
+      "name": "lateral-guide-3",
+      "vertices": 96,
+      "triangles": 192,
+      "triangleEdges": 288,
+      "euler": 0,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 5.599563698357054e-06,
+      "minTriangleArea": 1.2933931860327437e-05,
+      "materials": {
+        "guide": 192
+      },
+      "predictedFloat32PositionSHA256": "f3427e8e5823d31b98810a16aed3db66cba37cda53eb3cc7a551571eb43148b6"
+    },
+    {
+      "name": "lateral-guide-4",
+      "vertices": 96,
+      "triangles": 192,
+      "triangleEdges": 288,
+      "euler": 0,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 5.599563731602391e-06,
+      "minTriangleArea": 1.3198715299870511e-05,
+      "materials": {
+        "guide": 192
+      },
+      "predictedFloat32PositionSHA256": "475a7b15ca47ed90b92e78ae2d1ab521107c51d6b9a35eccb5a772bccf36777e"
+    },
+    {
+      "name": "lateral-guide-5",
+      "vertices": 96,
+      "triangles": 192,
+      "triangleEdges": 288,
+      "euler": 0,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 5.599564359936527e-06,
+      "minTriangleArea": 1.3895511235911415e-05,
+      "materials": {
+        "guide": 192
+      },
+      "predictedFloat32PositionSHA256": "2f719eaf1107a24ce306c0bf316ee7ac4a3e1553530bf5bebec65e475ea0746b"
+    },
+    {
+      "name": "continuous-five-pair-lace",
+      "vertices": 1050,
+      "triangles": 2096,
+      "triangleEdges": 3144,
+      "euler": 2,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 0.0023446586343557818,
+      "minTriangleArea": 5.091168509055493e-05,
+      "materials": {
+        "lace": 2096
+      },
+      "predictedFloat32PositionSHA256": "1550cb645dc3fce9e43af64e47ca88efce163a2bccf1ffa139c2e5bb62999754"
+    },
+    {
+      "name": "heel-counter",
+      "vertices": 68,
+      "triangles": 132,
+      "triangleEdges": 198,
+      "euler": 2,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 0.003184535925126898,
+      "minTriangleArea": 0.00022427515977749559,
+      "materials": {
+        "upper": 132
+      },
+      "predictedFloat32PositionSHA256": "284e542ce2e569e12db05da52ce66d7854b57a2ac585717aaacb38649cb16b66"
+    },
+    {
+      "name": "central-back-join",
+      "vertices": 56,
+      "triangles": 108,
+      "triangleEdges": 162,
+      "euler": 2,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 3.5370011505195575e-05,
+      "minTriangleArea": 2.1217620769756718e-05,
+      "materials": {
+        "seam": 108
+      },
+      "predictedFloat32PositionSHA256": "9ab2a71c50d76d6fc474b0ac83370b76f1d01ca14eb1beb9e1c73074384fe7e4"
+    },
+    {
+      "name": "underside-mark-1",
+      "vertices": 80,
+      "triangles": 156,
+      "triangleEdges": 234,
+      "euler": 2,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 5.804488567240317e-05,
+      "minTriangleArea": 1.5588455196322168e-05,
+      "materials": {
+        "contact": 156
+      },
+      "predictedFloat32PositionSHA256": "b719c8cec9d1ae2d207d78acc84a3acf012eac1cfc9e1d38954050a23962e6db"
+    },
+    {
+      "name": "underside-mark-2",
+      "vertices": 80,
+      "triangles": 156,
+      "triangleEdges": 234,
+      "euler": 2,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 5.804488567240351e-05,
+      "minTriangleArea": 1.5588455196322432e-05,
+      "materials": {
+        "contact": 156
+      },
+      "predictedFloat32PositionSHA256": "11f45d78e4e5277ac51be1524878c4680ce9819bab8ed47550aede80334f538f"
+    },
+    {
+      "name": "underside-mark-3",
+      "vertices": 80,
+      "triangles": 156,
+      "triangleEdges": 234,
+      "euler": 2,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 5.804488567240323e-05,
+      "minTriangleArea": 1.5588455196322432e-05,
+      "materials": {
+        "contact": 156
+      },
+      "predictedFloat32PositionSHA256": "52abe259965b77b2f7520c4f3fd48012e06616dbe89a3fde0cab60cafe37b27d"
+    },
+    {
+      "name": "underside-mark-4",
+      "vertices": 80,
+      "triangles": 156,
+      "triangleEdges": 234,
+      "euler": 2,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 4.020849471489257e-05,
+      "minTriangleArea": 1.5588455939922946e-05,
+      "materials": {
+        "contact": 156
+      },
+      "predictedFloat32PositionSHA256": "d6ddccdf5ba7bb80d8ac31218558b1fdd7ef4cf676f745ecf53c8e1763d3a1d4"
+    },
+    {
+      "name": "underside-mark-5",
+      "vertices": 80,
+      "triangles": 156,
+      "triangleEdges": 234,
+      "euler": 2,
+      "components": 1,
+      "boundaryEdges": 0,
+      "positiveSignedVolume": 4.02084947148928e-05,
+      "minTriangleArea": 1.5588455939922946e-05,
+      "materials": {
+        "contact": 156
+      },
+      "predictedFloat32PositionSHA256": "0f78d74951358755f3c1b164d4b553f7429f37fbd3ee168af561a8bc3234d0cc"
+    }
+  ],
+  "limits": "Declaredoverlaps/geometricinterfaces checked, not exhaustiveintersections/collisionfreeassembly/lacingmechanics/physicalsewing/last/pair/bodyfit/rig/motion. Float32packing is independent predictedinput check, not actualGPUarray/readback proof. No renderedimage yet. Fresh stable actualCPUcritic/rootgate requiredbeforeseparateGPUadmission.",
+  "deadline_utc": "2026-10-19T14:13:55.357882+00:00"
+}

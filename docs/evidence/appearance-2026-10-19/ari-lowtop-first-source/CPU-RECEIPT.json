@@ -1,0 +1,685 @@
+{
+  "schema": "independent-ari-lowtop-actual-cpu-review-v1",
+  "verdict": "A finite saved CPU/data/export packet; conditional A worth one separate fixed six-view GPU gate, no appearance or direct execution admission",
+  "pending_edits": false,
+  "deadline_utc": "2026-10-19T14:13:55.357882+00:00",
+  "audits": [
+    {
+      "scope": "records",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\nleaf=Path('docs/evidence/appearance-2026-10-19/ari-lowtop-first-source');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['CPU-ADMISSION.json','TOOL-CPU.json','CPU-RESULT.json']:\n p=leaf/name;b=p.read_bytes();print('\\nFILE',p.resolve(),'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest());print(b.decode())\nm=json.loads((leaf/'model.json').read_text());print('MODEL_KEYS',list(m));print('MESH_PART_KEYS',list(m['parts'][0]));print('PART_NAMES_COUNTS',[(p['name'],len(p['positions']),len(p['triangles'])) for p in m['parts']]);print('MODEL_NONPARTS',json.dumps({k:v for k,v in m.items() if k!='parts'},indent=2))\nPY",
+      "chunk_id": "301a0b",
+      "exit_code": 0,
+      "tool_wall_seconds": 8.5e-06,
+      "identity_line": "PID 15191 UTC 2026-10-19T13:27:09.559458+00:00"
+    },
+    {
+      "scope": "geometry",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nfrom collections import defaultdict,Counter\nimport json,hashlib,math,struct,os,datetime\nleaf=Path('docs/evidence/appearance-2026-10-19/ari-lowtop-first-source');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\ndef load(name):return json.loads((leaf/name).read_text(),parse_constant=lambda x:(_ for _ in ()).throw(ValueError(x)))\nsha=lambda b:hashlib.sha256(b).hexdigest();a=load('CPU-ADMISSION.json');r=load('CPU-RESULT.json');t=load('TOOL-CPU.json');m=load('model.json');d=load('design.json')\nassert len(a['pins'])==34 and len({x['path'] for x in a['pins']})==34\nfor x in a['pins']:\n raw=Path(x['path']).read_bytes();assert len(raw)==x['bytes'] and sha(raw)==x['sha256'],x['path']\nassert t['result']['exit_code']==0 and 'session_id' not in t['result'] and json.loads(t['result']['output'])==r\nassert t['command']==' '.join(a['argv_prefix']+[sha((leaf/'CPU-ADMISSION.json').read_bytes())])\nassert r['admission_sha256']==sha((leaf/'CPU-ADMISSION.json').read_bytes()) and r['status']=='complete' and r['checkedElapsedMs']<10000\nassert datetime.datetime.fromisoformat(a['admitted_utc'])<datetime.datetime.fromisoformat(r['started_utc'])<datetime.datetime.fromisoformat(r['completed_utc'])<datetime.datetime.fromisoformat(a['expires_utc'])\nfor x in r['outputs']:\n raw=Path(x['path']).read_bytes();assert len(raw)==x['bytes'] and sha(raw)==x['sha256']\nassert m['frame']==d['frame'] and m['materials']==d['materials'] and m['scope']==d['scope']\nsub=lambda a,b:tuple(x-y for x,y in zip(a,b));cross=lambda a,b:(a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]);dot=lambda a,b:sum(x*y for x,y in zip(a,b))\nsummaries=[];maxerr=0.;allminf32=math.inf;expected_faces={};allvertices=[];offset=1\nfor part,rs in zip(m['parts'],r['parts'],strict=True):\n name=part['name'];ps=part['positions'];ts=part['triangles'];n=len(ps);edges=defaultdict(list);adj=[set() for _ in ts];links=[[] for _ in ps];used=set();areas=[];volterms=[];f32=[];seen=set()\n assert name==rs['name'] and name not in expected_faces\n for q in ps:\n  assert type(q) is list and len(q)==3 and all(type(x) in (int,float) and math.isfinite(x) and abs(x)<4 for x in q)\n  fq=tuple(struct.unpack('<f',struct.pack('<f',x))[0] for x in q);f32.append(fq);maxerr=max(maxerr,*[abs(x-y) for x,y in zip(q,fq)])\n for fi,tr in enumerate(ts):\n  ids=tr['v'];assert type(ids)is list and len(ids)==3 and all(type(x)is int and 0<=x<n for x in ids) and len(set(ids))==3 and tr['material'] in m['materials']\n  canonical=tuple(sorted(ids));assert canonical not in seen;seen.add(canonical);used.update(ids)\n  aa,bb,cc=(ps[i] for i in ids);area=math.hypot(*cross(sub(bb,aa),sub(cc,aa)))/2;assert math.isfinite(area) and area>1e-12;areas.append(area);volterms.append(dot(aa,cross(bb,cc))/6)\n  fa,fb,fc=(f32[i] for i in ids);farea=math.hypot(*cross(sub(fb,fa),sub(fc,fa)))/2;assert math.isfinite(farea) and farea>1e-12;allminf32=min(allminf32,farea)\n  for i,j in ((0,1),(1,2),(2,0)):\n   u,v=ids[i],ids[j];edges[tuple(sorted((u,v)))].append((fi,u,v))\n  for v,u,w in ((ids[0],ids[1],ids[2]),(ids[1],ids[2],ids[0]),(ids[2],ids[0],ids[1])):links[v].append((u,w))\n assert used==set(range(n))\n for rows in edges.values():\n  assert len(rows)==2 and rows[0][1:]==rows[1][1:][::-1];x,y=rows[0][0],rows[1][0];adj[x].add(y);adj[y].add(x)\n reached={0};todo=[0]\n while todo:\n  for v in adj[todo.pop()]:\n   if v not in reached:reached.add(v);todo.append(v)\n assert len(reached)==len(ts)\n for ls in links:\n  graph=defaultdict(set);degree=Counter()\n  for u,v in ls:graph[u].add(v);graph[v].add(u);degree[u]+=1;degree[v]+=1\n  assert set(degree.values())=={2};seenlink={next(iter(graph))};todo=list(seenlink)\n  while todo:\n   for v in graph[todo.pop()]:\n    if v not in seenlink:seenlink.add(v);todo.append(v)\n  assert len(seenlink)==len(graph)\n chi=n-len(edges)+len(ts);volume=math.fsum(volterms);assert volume>1e-10 and chi==2-2*rs['declaredGenus']\n st=part['statistics'];assert st=={k:v for k,v in rs.items() if k!='name'}\n assert rs['vertices']==n and rs['triangles']==len(ts) and rs['components']==1 and rs['boundaryEdges']==0 and rs['euler']==chi\n assert math.isclose(volume,rs['positiveSignedVolume'],rel_tol=1e-10,abs_tol=1e-14) and math.isclose(min(areas),rs['minTriangleArea'],rel_tol=1e-10,abs_tol=1e-14)\n assert rs['edges']==len(edges)-(len(ts)-rs['polygons'])\n summaries.append({'name':name,'V':n,'T':len(ts),'triangularEdges':len(edges),'Euler':chi,'volume':volume,'minimumArea':min(areas),'closedOrientedVertexLinks':True,'materialTriangles':dict(Counter(x['material'] for x in ts))})\n expected_faces[name]=[(tuple(i+offset for i in tr['v']),tr['material']) for tr in ts];allvertices+=ps;offset+=n\nassert len(summaries)==25 and len(allvertices)==4190 and sum(x['T'] for x in summaries)==8364 and r['counts']=={'parts':25,'vertices':4190,'triangles':8364}\nobjects={};ovs=[];current=None;material=None\nfor line in (leaf/'model.obj').read_text().splitlines():\n if not line or line.startswith('#'):continue\n q=line.split();key=q[0]\n if key=='mtllib':assert q==['mtllib','model.mtl']\n elif key=='o':current=q[1];assert current not in objects;objects[current]=[];material=None\n elif key=='v':assert len(q)==4;ovs.append([float(x) for x in q[1:]])\n elif key=='usemtl':material=q[1];assert material in m['materials']\n elif key=='f':assert len(q)==4 and all('/' not in x for x in q[1:]);objects[current].append((tuple(int(x) for x in q[1:]),material))\n else:raise AssertionError('Unexpected OBJ token '+key)\nassert ovs==allvertices and objects==expected_faces\nmtls={};current=None\nfor line in (leaf/'model.mtl').read_text().splitlines():\n if not line:continue\n q=line.split()\n if q[0]=='newmtl':current=q[1];assert current not in mtls;mtls[current]={}\n else:assert q[0] not in mtls[current];mtls[current][q[0]]=[float(x) for x in q[1:]]\nassert list(mtls)==list(m['materials'])\nfor name,mat in m['materials'].items():\n c=mat['colour'][1:];assert mtls[name]=={'Kd':[int(c[i:i+2],16)/255 for i in (0,2,4)],'Ka':[0.,0.,0.],'Ks':[0.,0.,0.],'d':[1.],'illum':[1.]}\nprint(json.dumps({'all34pins_exact':True,'tool_JSON_equal':True,'command_time_admission_exact':True,'summary':summaries,'allV':4190,'allT':8364,'OBJ_fullidentity':True,'MTL_all8':True,'float32prediction_all_nonzero':True,'maxFloat32coordinateError':maxerr,'minFloat32triangleArea':allminf32,'scope':'Saved immutable data only; no builder/import/replay/GPU/actualnormal reconstruction; computed triangle geometry solely audits returned values.'},indent=2))\nPY",
+      "chunk_id": "44611c",
+      "exit_code": 0,
+      "tool_wall_seconds": 6e-06,
+      "identity_line": "PID 17464 UTC 2026-10-19T13:28:25.170433+00:00",
+      "output": {
+        "all34pins_exact": true,
+        "tool_JSON_equal": true,
+        "command_time_admission_exact": true,
+        "summary": [
+          {
+            "name": "contact-edge",
+            "V": 130,
+            "T": 256,
+            "triangularEdges": 384,
+            "Euler": 2,
+            "volume": 0.1041719754721641,
+            "minimumArea": 0.0009087393201642195,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "contact": 256
+            }
+          },
+          {
+            "name": "unstriped-sidewall",
+            "V": 130,
+            "T": 256,
+            "triangularEdges": 384,
+            "Euler": 2,
+            "volume": 0.39064490802061536,
+            "minimumArea": 0.0034077724506158228,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "sole": 256
+            }
+          },
+          {
+            "name": "footbed",
+            "V": 130,
+            "T": 256,
+            "triangularEdges": 384,
+            "Euler": 2,
+            "volume": 0.049502522744015405,
+            "minimumArea": 0.00044069837397037425,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "footbed": 256
+            }
+          },
+          {
+            "name": "upper-and-lining",
+            "V": 896,
+            "T": 1792,
+            "triangularEdges": 2688,
+            "Euler": 0,
+            "volume": 0.03647182253304008,
+            "minimumArea": 0.0003038123469916238,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "upper": 896,
+              "lining": 896
+            }
+          },
+          {
+            "name": "padded-tongue",
+            "V": 98,
+            "T": 192,
+            "triangularEdges": 288,
+            "Euler": 2,
+            "volume": 0.026175938705822646,
+            "minimumArea": 0.0004679651182535945,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "upper": 144,
+              "lining": 48
+            }
+          },
+          {
+            "name": "medial-perforated-stay",
+            "V": 136,
+            "T": 288,
+            "triangularEdges": 432,
+            "Euler": -8,
+            "volume": 0.0021931322028892466,
+            "minimumArea": 0.00010613396200309616,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "upper": 208,
+              "guide": 80
+            }
+          },
+          {
+            "name": "lateral-perforated-stay",
+            "V": 136,
+            "T": 288,
+            "triangularEdges": 432,
+            "Euler": -8,
+            "volume": 0.002193132202889277,
+            "minimumArea": 0.00010613396200309616,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "upper": 208,
+              "guide": 80
+            }
+          },
+          {
+            "name": "medial-guide-1",
+            "V": 96,
+            "T": 192,
+            "triangularEdges": 288,
+            "Euler": 0,
+            "volume": 5.5995637663292804e-06,
+            "minimumArea": 1.2163897052558405e-05,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "guide": 192
+            }
+          },
+          {
+            "name": "medial-guide-2",
+            "V": 96,
+            "T": 192,
+            "triangularEdges": 288,
+            "Euler": 0,
+            "volume": 5.599563729353755e-06,
+            "minimumArea": 1.2616687842541431e-05,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "guide": 192
+            }
+          },
+          {
+            "name": "medial-guide-3",
+            "V": 96,
+            "T": 192,
+            "triangularEdges": 288,
+            "Euler": 0,
+            "volume": 5.5995636983570015e-06,
+            "minimumArea": 1.2933931860327437e-05,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "guide": 192
+            }
+          },
+          {
+            "name": "medial-guide-4",
+            "V": 96,
+            "T": 192,
+            "triangularEdges": 288,
+            "Euler": 0,
+            "volume": 5.599563731602776e-06,
+            "minimumArea": 1.3198715299870511e-05,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "guide": 192
+            }
+          },
+          {
+            "name": "medial-guide-5",
+            "V": 96,
+            "T": 192,
+            "triangularEdges": 288,
+            "Euler": 0,
+            "volume": 5.5995643599338e-06,
+            "minimumArea": 1.3895511235911415e-05,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "guide": 192
+            }
+          },
+          {
+            "name": "lateral-guide-1",
+            "V": 96,
+            "T": 192,
+            "triangularEdges": 288,
+            "Euler": 0,
+            "volume": 5.59956376631581e-06,
+            "minimumArea": 1.2163897052558405e-05,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "guide": 192
+            }
+          },
+          {
+            "name": "lateral-guide-2",
+            "V": 96,
+            "T": 192,
+            "triangularEdges": 288,
+            "Euler": 0,
+            "volume": 5.5995637293299504e-06,
+            "minimumArea": 1.2616687842541431e-05,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "guide": 192
+            }
+          },
+          {
+            "name": "lateral-guide-3",
+            "V": 96,
+            "T": 192,
+            "triangularEdges": 288,
+            "Euler": 0,
+            "volume": 5.599563698357044e-06,
+            "minimumArea": 1.2933931860327437e-05,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "guide": 192
+            }
+          },
+          {
+            "name": "lateral-guide-4",
+            "V": 96,
+            "T": 192,
+            "triangularEdges": 288,
+            "Euler": 0,
+            "volume": 5.599563731602396e-06,
+            "minimumArea": 1.3198715299870511e-05,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "guide": 192
+            }
+          },
+          {
+            "name": "lateral-guide-5",
+            "V": 96,
+            "T": 192,
+            "triangularEdges": 288,
+            "Euler": 0,
+            "volume": 5.5995643599365395e-06,
+            "minimumArea": 1.3895511235911415e-05,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "guide": 192
+            }
+          },
+          {
+            "name": "continuous-five-pair-lace",
+            "V": 1050,
+            "T": 2096,
+            "triangularEdges": 3144,
+            "Euler": 2,
+            "volume": 0.0023446586343557826,
+            "minimumArea": 5.091168509055493e-05,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "lace": 2096
+            }
+          },
+          {
+            "name": "heel-counter",
+            "V": 68,
+            "T": 132,
+            "triangularEdges": 198,
+            "Euler": 2,
+            "volume": 0.003184535925126892,
+            "minimumArea": 0.00022427515977749559,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "upper": 132
+            }
+          },
+          {
+            "name": "central-back-join",
+            "V": 56,
+            "T": 108,
+            "triangularEdges": 162,
+            "Euler": 2,
+            "volume": 3.5370011505195514e-05,
+            "minimumArea": 2.1217620769756718e-05,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "seam": 108
+            }
+          },
+          {
+            "name": "underside-mark-1",
+            "V": 80,
+            "T": 156,
+            "triangularEdges": 234,
+            "Euler": 2,
+            "volume": 5.804488567240318e-05,
+            "minimumArea": 1.5588455196322168e-05,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "contact": 156
+            }
+          },
+          {
+            "name": "underside-mark-2",
+            "V": 80,
+            "T": 156,
+            "triangularEdges": 234,
+            "Euler": 2,
+            "volume": 5.804488567240356e-05,
+            "minimumArea": 1.5588455196322432e-05,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "contact": 156
+            }
+          },
+          {
+            "name": "underside-mark-3",
+            "V": 80,
+            "T": 156,
+            "triangularEdges": 234,
+            "Euler": 2,
+            "volume": 5.8044885672403223e-05,
+            "minimumArea": 1.5588455196322432e-05,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "contact": 156
+            }
+          },
+          {
+            "name": "underside-mark-4",
+            "V": 80,
+            "T": 156,
+            "triangularEdges": 234,
+            "Euler": 2,
+            "volume": 4.020849471489258e-05,
+            "minimumArea": 1.5588455939922946e-05,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "contact": 156
+            }
+          },
+          {
+            "name": "underside-mark-5",
+            "V": 80,
+            "T": 156,
+            "triangularEdges": 234,
+            "Euler": 2,
+            "volume": 4.0208494714892775e-05,
+            "minimumArea": 1.5588455939922946e-05,
+            "closedOrientedVertexLinks": true,
+            "materialTriangles": {
+              "contact": 156
+            }
+          }
+        ],
+        "allV": 4190,
+        "allT": 8364,
+        "OBJ_fullidentity": true,
+        "MTL_all8": true,
+        "float32prediction_all_nonzero": true,
+        "maxFloat32coordinateError": 5.957592774663567e-08,
+        "minFloat32triangleArea": 1.2163895941864781e-05,
+        "scope": "Saved immutable data only; no builder/import/replay/GPU/actualnormal reconstruction; computed triangle geometry solely audits returned values."
+      }
+    },
+    {
+      "scope": "interfaces",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nfrom collections import defaultdict,Counter\nimport json,math,os,datetime\nleaf=Path('docs/evidence/appearance-2026-10-19/ari-lowtop-first-source');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nm=json.loads((leaf/'model.json').read_text());p={x['name']:x for x in m['parts']};d=json.loads((leaf/'design.json').read_text())\nlevel=lambda part,y:{tuple(v) for v in p[part]['positions'] if v[1]==y}\nassert level('contact-edge',.04)==level('unstriped-sidewall',.04) and len(level('contact-edge',.04))==65\nupperlow=level('upper-and-lining',.19);solecap=level('unstriped-sidewall',.19);assert len(upperlow)==64 and solecap-upperlow=={(0,.19,0)}\ninnerlow=level('upper-and-lining',.205);bedcap=level('footbed',.205);assert len(innerlow)==64 and bedcap-innerlow=={(0,.205,0)}\nassert {v[1] for v in p['footbed']['positions']}=={.185,.205}\nupper=p['upper-and-lining'];counts=Counter();collaredges=Counter()\nfor t in upper['triangles']:\n ids=t['v'];outside=[x%128<64 for x in ids];ks={x//128 for x in ids}\n if all(outside):assert t['material']=='upper';counts['outer']+=1\n elif not any(outside):assert t['material']=='lining';counts['inner']+=1\n else:\n  assert len(ks)==1 and next(iter(ks)) in {0,6}\n  if ks=={6}:\n   assert t['material']=='lining';counts['collar']+=1;res=set(x%64 for x in ids);assert len(res)==2;aa,bb=sorted(res);assert (bb-aa)%64 in {1,63};collaredges[tuple(sorted(res))]+=1\n  else:assert t['material']=='upper';counts['lowerReturn']+=1\nassert counts=={'outer':768,'inner':768,'collar':128,'lowerReturn':128} and len(collaredges)==64 and set(collaredges.values())=={2}\n# Reduce only saved tube ring vertices to their existing centreline for aperture association.\nlace=p['continuous-five-pair-lace'];assert len(lace['positions'])==1050\ncentres=[tuple(sum(lace['positions'][8*i+j][k] for j in range(8))/8 for k in range(3)) for i in range(131)]\ndef inside_xz(point,loop):\n x,z=point;hit=False\n for a,b in zip(loop,loop[1:]+loop[:1]):\n  if (a[2]>z)!=(b[2]>z) and x<(b[0]-a[0])*(z-a[2])/(b[2]-a[2])+a[0]:hit=not hit\n return hit\nports=[]\nfor side in ['medial','lateral']:\n part=p[side+'-perforated-stay'];faces=[t for t in part['triangles'] if t['material']=='guide'];e=defaultdict(list)\n for i,t in enumerate(faces):\n  vs=t['v']\n  for u,v in zip(vs,vs[1:]+vs[:1]):e[tuple(sorted((u,v)))].append(i)\n adj=[set() for _ in faces]\n for fs in e.values():\n  if len(fs)==2:adj[fs[0]].add(fs[1]);adj[fs[1]].add(fs[0])\n unseen=set(range(len(faces)));components=[]\n while unseen:\n  st=next(iter(unseen));seen={st};todo=[st]\n  while todo:\n   for v in adj[todo.pop()]:\n    if v not in seen:seen.add(v);todo.append(v)\n  unseen-=seen;components.append(seen)\n assert len(components)==5 and all(len(c)==16 for c in components)\n for comp in components:\n  ce=defaultdict(int)\n  for i in comp:\n   vs=faces[i]['v']\n   for u,v in zip(vs,vs[1:]+vs[:1]):ce[tuple(sorted((u,v)))]+=1\n  graph=defaultdict(set)\n  for (u,v),n in ce.items():\n   if n==1:graph[u].add(v);graph[v].add(u)\n  assert len(graph)==16 and all(len(v)==2 for v in graph.values());unseen=set(graph);loops=[]\n  while unseen:\n   first=next(iter(unseen));seq=[first];prev=None;cur=first\n   while True:\n    opts=graph[cur]-({prev} if prev is not None else set());nxt=min(opts)\n    if nxt==first:break\n    assert nxt not in seq;seq.append(nxt);prev,cur=cur,nxt\n   unseen-=set(seq);assert len(seq)==8;loops.append([part['positions'][i] for i in seq])\n  assert len(loops)==2;z0=sum(v[2] for v in loops[0])/8;row=min(range(5),key=lambda k:abs(d['laces']['rowZ'][k]-z0));assert abs(d['laces']['rowZ'][row]-z0)<1e-9\n  hits=[c for c in centres if abs(c[2]-z0)<1e-8 and inside_xz((c[0],c[2]),loops[0])];assert len(hits)>=3\n  assert min(c[1] for c in hits)<min(v[1] for loop in loops for v in loop) and max(c[1] for c in hits)>max(v[1] for loop in loops for v in loop)\n  ports.append({'side':side,'row':row+1,'holeGuideTriangles':len(comp),'twoBoundaryLoops':2,'loopVertices':8,'savedCentrelineSpansAperture':True})\nassert len(ports)==10 and len({(v['side'],v['row']) for v in ports})==10\nfor name in ['heel-counter','central-back-join']:\n assert max(v[2] for v in p[name]['positions'])<0\nfor i in range(1,6):\n ys=[v[1] for v in p['underside-mark-'+str(i)]['positions']];assert min(ys)<0<max(ys)<.04\nprint(json.dumps({'sole_shared65_point_interface':True,'upper_to_sole_rim64_plus_only_capcentre':True,'lining_to_footbed_rim64_plus_only_capcentre':True,'footbed_y':[.185,.205],'upper_triangle_classes':dict(counts),'no_crossentry_top_cap':True,'ten_actual_guide_apertures':ports,'counter_and_seam_rear':True,'five_underside_parts_cross_contact_surface':True,'limits':'Saved-data reductions only; centreline projection/spanning is not radius-clearance/collision-free cord/physical threading; rear location not fullcontact proof; no builder replay or geometry output construction.'},indent=2))\nPY",
+      "chunk_id": "7cbc0d",
+      "exit_code": 0,
+      "tool_wall_seconds": 6.5e-06,
+      "identity_line": "PID 20558 UTC 2026-10-19T13:30:03.598702+00:00",
+      "output": {
+        "sole_shared65_point_interface": true,
+        "upper_to_sole_rim64_plus_only_capcentre": true,
+        "lining_to_footbed_rim64_plus_only_capcentre": true,
+        "footbed_y": [
+          0.185,
+          0.205
+        ],
+        "upper_triangle_classes": {
+          "outer": 768,
+          "inner": 768,
+          "collar": 128,
+          "lowerReturn": 128
+        },
+        "no_crossentry_top_cap": true,
+        "ten_actual_guide_apertures": [
+          {
+            "side": "medial",
+            "row": 1,
+            "holeGuideTriangles": 16,
+            "twoBoundaryLoops": 2,
+            "loopVertices": 8,
+            "savedCentrelineSpansAperture": true
+          },
+          {
+            "side": "medial",
+            "row": 2,
+            "holeGuideTriangles": 16,
+            "twoBoundaryLoops": 2,
+            "loopVertices": 8,
+            "savedCentrelineSpansAperture": true
+          },
+          {
+            "side": "medial",
+            "row": 3,
+            "holeGuideTriangles": 16,
+            "twoBoundaryLoops": 2,
+            "loopVertices": 8,
+            "savedCentrelineSpansAperture": true
+          },
+          {
+            "side": "medial",
+            "row": 4,
+            "holeGuideTriangles": 16,
+            "twoBoundaryLoops": 2,
+            "loopVertices": 8,
+            "savedCentrelineSpansAperture": true
+          },
+          {
+            "side": "medial",
+            "row": 5,
+            "holeGuideTriangles": 16,
+            "twoBoundaryLoops": 2,
+            "loopVertices": 8,
+            "savedCentrelineSpansAperture": true
+          },
+          {
+            "side": "lateral",
+            "row": 1,
+            "holeGuideTriangles": 16,
+            "twoBoundaryLoops": 2,
+            "loopVertices": 8,
+            "savedCentrelineSpansAperture": true
+          },
+          {
+            "side": "lateral",
+            "row": 2,
+            "holeGuideTriangles": 16,
+            "twoBoundaryLoops": 2,
+            "loopVertices": 8,
+            "savedCentrelineSpansAperture": true
+          },
+          {
+            "side": "lateral",
+            "row": 3,
+            "holeGuideTriangles": 16,
+            "twoBoundaryLoops": 2,
+            "loopVertices": 8,
+            "savedCentrelineSpansAperture": true
+          },
+          {
+            "side": "lateral",
+            "row": 4,
+            "holeGuideTriangles": 16,
+            "twoBoundaryLoops": 2,
+            "loopVertices": 8,
+            "savedCentrelineSpansAperture": true
+          },
+          {
+            "side": "lateral",
+            "row": 5,
+            "holeGuideTriangles": 16,
+            "twoBoundaryLoops": 2,
+            "loopVertices": 8,
+            "savedCentrelineSpansAperture": true
+          }
+        ],
+        "counter_and_seam_rear": true,
+        "five_underside_parts_cross_contact_surface": true,
+        "limits": "Saved-data reductions only; centreline projection/spanning is not radius-clearance/collision-free cord/physical threading; rear location not fullcontact proof; no builder replay or geometry output construction."
+      }
+    },
+    {
+      "scope": "supplemental",
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['ROOT-CPU.json','ROOT-SOURCE.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest()); print(b.decode())\nprint('ABSENCES',{n:not (p/n).exists() for n in ['GPU-ADMISSION.json','BROWSER-RESULT.json','first.jpg']})\nPY",
+      "chunk_id": "f0fb49",
+      "exit_code": 0,
+      "tool_wall_seconds": 6.792e-06,
+      "identity_line": "PID 24512 UTC 2026-10-19T13:32:08.243169+00:00"
+    }
+  ],
+  "read_scopes": {
+    "actual_records": "Full CPU-ADMISSION.json, TOOL-CPU.json, CPU-RESULT.json; strict complete model.json and design.json parsing; every OBJ and MTL line independently compared. Whole supplemental ROOT-CPU and ROOT-SOURCE read after own numerical/interface audits.",
+    "source_reuse": "Complete prior SOURCE-REVIEW/RECEIPT source/API/image scopes reused with fresh admission pin equality; no repeated target invocation. Whole build194/viewer80/HTML13/BRIEF21/SOURCE29/design22/API12 source lines were previously read; source pair exact pinned here.",
+    "geometry": "All 25 parts,4190 positions,8364 triangles. Per triangle type/range/material/finite/unique-face/area; all triangular edges paired oppositely; every part face-connected, all vertex links one cycle, positive signed volume and declared Euler. Original polygon edge counts only algebraically crosschecked, not reconstructed raw polygon output.",
+    "interfaces": "Exact saved coordinate-level and 64-rim/65-cap-centre sets; upper material/loft/collar classifications; both five-aperture stays; projected saved lace-centreline spanning for ten apertures; rear placement and underside Y-crossing. Not exhaustive intersection/clearance/physical contact validation.",
+    "exports": "Every OBJ vertex and face/global index/object/material identity; complete eight MTL declarations and values.",
+    "images": "No new 3D image exists/viewed. Prior exact 2D first.jpg whole original-detail witness reused only as unregistered artist role reference.",
+    "pins": "All 34 unique CPU-ADMISSION paths hashed, exact. Direct current bindings recorded below; prior nested source scopes remain in SOURCE-RECEIPT, not recursively re-audited."
+  },
+  "tolerances": {
+    "geometry_cutoffs": "finite abs(coord)<4; area>1e-12; positive signed volume>1e-10, unchanged",
+    "js_python_stat_comparison": {
+      "relative": 1e-10,
+      "absolute": 1e-14,
+      "purpose": "summation-order comparison only, not geometry acceptance relaxation"
+    },
+    "saved_ring_association": {
+      "row_mean_Z": 1e-09,
+      "lace_ring_mean_Z": 1e-08,
+      "purpose": "9-decimal saved centroid/row association only; does not widen holes or prove radius clearance"
+    }
+  },
+  "actual_entry": {
+    "tool_chunk": "fdf92d",
+    "tool_exit": 0,
+    "continuing_session": false,
+    "pid": 4919,
+    "node": "v26.9.0",
+    "started_utc": "2026-10-19T13:21:38.344Z",
+    "completed_utc": "2026-10-19T13:21:38.364Z",
+    "checked_elapsed_ms": 20.458667,
+    "RSS_sample_bytes": 76234752,
+    "pipe_scope": "Tool exposes combined decoded output object only; no separate stderr byte identity claimed.",
+    "clock_scope": "Post-import checked elapsed, source UTC endpoints and tool wall metadata are distinct limited observations; no startup/OS/native CPU timing or peak-memory claim."
+  },
+  "actionable_findings": [],
+  "errors_or_corrections": [
+    {
+      "scope": "supplemental root observer only",
+      "witness": "ROOT-CPU.retained_audit_reader_error records 6f0aec/exit1 expected all capped-level vertices=64; d4ffec separates 64 rim plus centre. No candidate/source change or replay.",
+      "own_check": "7cbc0d independently proves complete65-point sole joint and64-point upper/lining rims with only the legitimate slab centre extra.",
+      "alternatives": [
+        "Correct read-only audit to declared rim/cap semantics; retains useful accurate qualification without source changes.",
+        "Withhold data qualification pending independent audit; preserves uncertainty but delays an already valid component."
+      ],
+      "own_failures": "Independent data/interface audits exit0. Receipt writer later had annotation-vs-pin equality error, separately recorded below."
+    },
+    {
+      "scope": "critic receipt collection only, before any writes",
+      "witness": "627b16 and6a22c1/exit1, both before any review writes: PREFLIGHT's extra verified_rows/unique_paths annotations made whole-row equality fail despite exact path/bytes/SHA. 25058e/exit0/PID27415/13:33:40.196733UTC identified annotations; attempted string replacement then matched embedded historical command text rather than live writer, repeating the same reader assertion.",
+      "correction": "Fresh writer compares only explicit identity fields. Original manifest annotations remain unchanged; no target/data/source change or relaxation.",
+      "alternatives": [
+        "Compare only explicit identity fields and retain annotations separately; selected, corrects the reader schema.",
+        "Withhold handoff pending a separate pin verifier; conservative but delays a source-exact packet."
+      ],
+      "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('docs/evidence/appearance-2026-10-19/ari-lowtop-first-source');a=json.loads((p/'CPU-ADMISSION.json').read_text())\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor r in a['pins']:\n b=Path(r['path']).read_bytes(); observed={'path':r['path'],'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\n if observed!=r: print('ROW',r,'OBSERVED',observed,'EXTRAS',set(r)-set(observed))\nprint('OUTPUT_ABSENCE',[(n,not(p/n).exists())for n in ['CPU-REVIEW.md','CPU-RECEIPT.json']])\nPY",
+      "job": {
+        "chunk_id": "25058e",
+        "exit_code": 0
+      }
+    }
+  ],
+  "limitations": [
+    "Closed indexed components and positive signed volumes do not prove absence of self/component intersections or a unioned physical shoe.",
+    "Centreline projection/spanning is not cord radius clearance, physical threading, bend collision, manufacturing or surface-contact proof.",
+    "Float32 numbers are independent predictions, not actual uploaded bytes, renderer normals, shader/GPU or pixels.",
+    "128MiB old-space flag is not a total-V8-heap/RSS cap;10s checks are cooperative after imports, not hard startup/wall/all-I/O guarantee; memory sample is not peak.",
+    "No appearance, measured last, anatomical pairing, physical layering/fit, rig/morph/motion, runtime or AAA credit.",
+    "Original source/data/first-CPU packet unchanged; no repair/rebuild/replay permitted."
+  ],
+  "next": {
+    "worth": "A bounded separate six-view GPU packet worthwhile to decide actual artist usefulness; B defer to real foot/body owner avoids GPU but leaves it undecided.",
+    "mandatory": "Parent full stable-pair verification/freeze, current exact served-source and runtime binding, separate fresh GPU admission, fixed views/materials/model/caps/lifetime and later independent whole-image decision.",
+    "not_admitted": "No GPU action by this critic receipt; no new renderer/material/geometry/view/parameter/retake rescue.",
+    "absence_snapshot": {
+      "job": "f0fb49",
+      "utc": "2026-10-19T13:32:08.243169+00:00",
+      "absent": [
+        "GPU-ADMISSION.json",
+        "BROWSER-RESULT.json",
+        "first.jpg"
+      ],
+      "scope": "Selected exact leaf paths only, not process or global absence census."
+    }
+  },
+  "forbidden_actions_not_taken": [
+    "Target/helper/module import or evaluation",
+    "Builder/Node replay",
+    "Asset reconstruction/export writes",
+    "New browser/GPU/native/render/capture/network/reference action",
+    "Edits to source,actual data,old evidence,product,checklist or board"
+  ],
+  "owned_files": [
+    "CPU-REVIEW.md",
+    "CPU-RECEIPT.json"
+  ],
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/CPU-ADMISSION.json",
+      "bytes": 8946,
+      "sha256": "978f52a76c3f41c94de24dc04f17793407a9ac6ee81f6b84e106f44cf86cfcb8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/TOOL-CPU.json",
+      "bytes": 8628,
+      "sha256": "06462597952620de6c25e5daedb316c4af2b1046705e82fbf84c162643cb446b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/CPU-RESULT.json",
+      "bytes": 9934,
+      "sha256": "d42193086ff61dfacd40c571bff50df1ed755556d5fe1753afada14b3d552aab"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/model.json",
+      "bytes": 471315,
+      "sha256": "a2a5b82a50acfe3398e8db9c78004c1a05fa4f6109e33b37db1f1edc9ddddf52"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/model.obj",
+      "bytes": 287612,
+      "sha256": "f239597a1c43b2987fc3a2cceeda7dc7e5e3e51f184545dca130bd4cee647b93"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/model.mtl",
+      "bytes": 834,
+      "sha256": "e0c312ff834dc3221ecde61e576dd05130c0eb32c532e3eeec3b59296209b3c1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/ROOT-CPU.json",
+      "bytes": 13616,
+      "sha256": "6bfcde77f98f18f601ebdbb9877b6a923c6a60569ef78dd4ce6f060481f3344c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/ROOT-SOURCE.json",
+      "bytes": 982,
+      "sha256": "803bee8d676bb03d5a91cca8343c107e0c2a6fa048101bb2599b9ac6797edf5a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/SOURCE-REVIEW.md",
+      "bytes": 4371,
+      "sha256": "734078947b2cdaa123222cad945a20ef2679b1a76dfef8af01deaf1028250991"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/SOURCE-RECEIPT.json",
+      "bytes": 18784,
+      "sha256": "8247fa0e6d532b1830a462e4cd3c490d0a8b03270bed734c01f547fe2190af29"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/PREFLIGHT.json",
+      "bytes": 7823,
+      "sha256": "0f6f9abec3341c72ead1395cf78317cfdf1d75425aaecb71e093d703453cb09c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/BRIEF.md",
+      "bytes": 6598,
+      "sha256": "9ba4a725e6e7dfa01f5a23fd5630ecc7210bc12c3ca5732d2e4c5cf09f8dce9e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/SOURCE.md",
+      "bytes": 8346,
+      "sha256": "49ad40113b0529a2c848e0a91036deb209c60bff9cc155fb24dbe05edffe99db"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/design.json",
+      "bytes": 2068,
+      "sha256": "afb35f54dbc664f26cdaf962831b39956cb481d3378c974a185892b6f31758fe"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/build.mjs",
+      "bytes": 16347,
+      "sha256": "9e669c8a457f14483ee547f2e5c1825c0c7a7457fe7dc3933e9e60ac72bcdea3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/viewer.mjs",
+      "bytes": 8329,
+      "sha256": "0b10b5b03cafcbe149113126342288bc59a5c876ab096d85ce237e0659cfe84e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/index.html",
+      "bytes": 2239,
+      "sha256": "f68462b2180843b9fedd26fe29cdba67e48516928f067977e0ac145ad9c8951f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/API-SCOPE.md",
+      "bytes": 3150,
+      "sha256": "b460310a355a7f69cbfe78a235c1efe84d488a5791e56fa436e541d9179c0367"
+    }
+  ],
+  "admission_manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/CPU-ADMISSION.json",
+    "verified_rows": 34,
+    "all_exact": true
+  },
+  "collected_utc": "2026-10-19T13:34:15.998219+00:00",
+  "collection_pid": 28493,
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/CPU-REVIEW.md",
+    "bytes": 4010,
+    "sha256": "4799f54bcc1ee0670bd567dbc9c3c685350bff80fc4374f718ccc3d066f64760"
+  }
+}

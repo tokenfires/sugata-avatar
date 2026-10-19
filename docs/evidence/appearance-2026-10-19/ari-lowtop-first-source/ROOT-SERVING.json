@@ -1,0 +1,47 @@
+{
+  "schema": "root-ari-serving-source-binding-v1",
+  "utc": "2026-10-19T13:34:14.846973+00:00",
+  "pid": 28437,
+  "decision": "A limited source-serving identity only; actualCPUcritic stillpending, GPU notadmitted",
+  "rows": [
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/viewer.mjs",
+      "bytes": 41370,
+      "sha256": "b38009fdb78cf6190fe9de05dc7b0465435cf4120b4997b333d94feade42d2f1",
+      "local_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/viewer.mjs",
+      "local_sha256": "0b10b5b03cafcbe149113126342288bc59a5c876ab096d85ce237e0659cfe84e",
+      "binding": "full authored body identical after single import rewrite and terminal sourceMappingURL"
+    },
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/index.html",
+      "bytes": 2239,
+      "sha256": "f68462b2180843b9fedd26fe29cdba67e48516928f067977e0ac145ad9c8951f",
+      "local_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/index.html",
+      "local_sha256": "f68462b2180843b9fedd26fe29cdba67e48516928f067977e0ac145ad9c8951f",
+      "binding": "exact full raw bytes"
+    },
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/model.json",
+      "bytes": 471315,
+      "sha256": "a2a5b82a50acfe3398e8db9c78004c1a05fa4f6109e33b37db1f1edc9ddddf52",
+      "local_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/model.json",
+      "local_sha256": "a2a5b82a50acfe3398e8db9c78004c1a05fa4f6109e33b37db1f1edc9ddddf52",
+      "binding": "exact full raw bytes"
+    },
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/../ari-sneaker-artist/shoe.svg",
+      "bytes": 20445,
+      "sha256": "3931b4f1875257888ca6003ff106a36d7dd81db83adbccaed0299be64fc0e377",
+      "local_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/shoe.svg",
+      "local_sha256": "3931b4f1875257888ca6003ff106a36d7dd81db83adbccaed0299be64fc0e377",
+      "binding": "exact full raw bytes"
+    }
+  ],
+  "runtime_record": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/SERVING-RUNTIME.json",
+    "bytes": 1802,
+    "sha256": "e97ea9e03c7adac69f1f44b76760fac475f2406585909a7dde916dd63879ef96"
+  },
+  "actual_API_scope": "Root f1fdd6 reads selected served current geometry/groups/normals/bounds/camera and renderer sizing/disposal matching installed primary API ownership. Full authored viewer80lines recovered5318fb; HTML/BRIEF firstroles8708f4, whole SOURCE/API-SCOPE4f9320. No assertion whole compiledlibrary reviewed or compilerhistory cryptographicallyproved. No module evaluation/targettab/GPU.",
+  "limits": "Source/data serving, selected runtime API and raw module identity only; rendered shape/normal/material/interface readability still unknown."
+}

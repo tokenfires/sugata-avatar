@@ -1,0 +1,217 @@
+{
+  "schema": "independent-ari-lowtop-first-3d-source-worth-v1",
+  "verdict": "A complete inert source/workload preparation only",
+  "pending_edits": false,
+  "effort_stop": "75minutes from future rootworthacceptance through first-image decision/checkpoint; no actual start/deadline or entry admitted by this worth",
+  "commands": [
+    {
+      "chunk_id": "c2d465",
+      "pid": 55283,
+      "utc": "2026-10-19T12:54:59.076603+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\nleaf=Path('docs/evidence/appearance-2026-10-19/ari-lowtop-first-source');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nprint('FILES',sorted(p.name for p in leaf.iterdir() if p.is_file()))\nfor name in ['PLAN.md','WORTH-INPUTS.json']:\n p=leaf/name;b=p.read_bytes();print('\\nFILE',p.resolve(),'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest())\n for n,line in enumerate(b.decode().splitlines(),1):print(f'{n}: {line}')\nPY",
+      "scope": "Whole6296-bytePLAN and2774-byte11-row worthmanifest"
+    },
+    {
+      "chunk_id": "44d5f2",
+      "pid": 55664,
+      "utc": "2026-10-19T12:55:12.736524+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\nbase=Path('docs/evidence/appearance-2026-10-19/ari-sneaker-artist');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['ARTIST-HANDOFF.md','README.md','BRIEF.md','REFERENCES.md']:\n p=base/name;b=p.read_bytes();print('\\nFILE',p.resolve(),'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest())\n for n,line in enumerate(b.decode().splitlines(),1):print(f'{n}: {line}')\nPY",
+      "scope": "Whole accepted character-shoe ARTIST-HANDOFF/README/BRIEF/REFERENCES"
+    },
+    {
+      "chunk_id": "93464d",
+      "pid": 56899,
+      "utc": "2026-10-19T12:55:53.249251+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\nleaf=Path('docs/evidence/appearance-2026-10-19/ari-lowtop-first-source');p=leaf/'WORTH-INPUTS.json';raw=p.read_bytes();m=json.loads(raw);print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nassert len(m['pins'])==11 and len({x['path'] for x in m['pins']})==11\nfor row in m['pins']:\n b=Path(row['path']).read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256'],row['path']\nprint('ALL11PINS_EXACT',len(raw),hashlib.sha256(raw).hexdigest())\nfor name,lo,hi in [('docs/PRODUCT-ROADMAP.md',131,138),('docs/PROJECT-CHECKLIST.md',46,61)]:\n lines=Path(name).read_text().splitlines();print('SCOPE',name,lo,hi)\n for n in range(lo,hi+1):print(f'{n}: {lines[n-1]}')\nc=json.loads(Path('docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/ROOT-CLOSE.json').read_text());print('MARA_CLOSURE_NONPIN_METADATA',json.dumps({k:v for k,v in c.items() if k!='pins'},indent=2))\nPY",
+      "scope": "All11pins andmanifesthash; roadmap131–138/checklist46–61; MaraROOTCLOSEnonpinmetadata only"
+    }
+  ],
+  "visual_read": {
+    "tool": "view_image",
+    "detail": "original",
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/first.jpg",
+    "bytes": 235475,
+    "sha256": "60c9a3337eaa51ced70496718dc7d88c65a378aae13dbb848173cf0b09be27ce",
+    "size": [
+      1280,
+      1969
+    ],
+    "scope": "Whole unchanged accepted actual sheet, all7shoeareas and embedded original character context, no fresh capture/crop/edit/zoom or registered measurement",
+    "regions": [
+      [
+        120,
+        320,
+        305,
+        655
+      ],
+      [
+        405,
+        360,
+        803,
+        725
+      ],
+      [
+        442,
+        882,
+        634,
+        1006
+      ],
+      [
+        130,
+        837,
+        298,
+        1100
+      ]
+    ]
+  },
+  "read_scopes": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/PLAN.md",
+      "scope": "Whole19lines"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/WORTH-INPUTS.json",
+      "scope": "Whole63lines/11pins independently rawhashed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md",
+      "scope": "Whole13lines"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/README.md",
+      "scope": "Whole27lines"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/BRIEF.md",
+      "scope": "Whole29lines, old fixed times are historical sourceepoch only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/REFERENCES.md",
+      "scope": "Whole11lines, source roleboundaries only; no new makerimage/primarypage read"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/shoe.svg",
+      "scope": "Raw size/SHA only; no new XML/vector reconstruction or full177nodeaudit claimed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/design.json",
+      "scope": "Raw size/SHA only; no new registry/tree evaluation"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "scope": "131–138, prior Phase1 scope retained after freshrawpin"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "scope": "46–61 only this gate; freshwholefilehash, existing22/10baseline"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/ROOT-CLOSE.json",
+      "scope": "Nonpinmetadata/closurelimits only, rawwholehash; no recursive44closurepin audit or new Maraimageview"
+    }
+  ],
+  "actionable_findings": [],
+  "worth_witness": {
+    "source": "ARTIST-HANDOFF5/7/13; BRIEF3/7/11–13; wholeacceptedactualsheet",
+    "reason": "Exterior/entry/lace/soleintent is visible but3Ddepth/frame/lining relationships expressly unowned. New consistent editable surface is distinct from a2Dvariant or old nativefoot/fit rescue.",
+    "alternatives": [
+      {
+        "choice": "Prepare one standalone original3Dartist source",
+        "tradeoff": "Editable depth for laterDCC/sculptwork, risk of schematic/unfitted orphanblockout"
+      },
+      {
+        "choice": "Defer until nativeAri foot/body owner",
+        "tradeoff": "Stronger fit/attachment context andlessblockoutwork, accepted design remains2D-only"
+      }
+    ]
+  },
+  "future_contract_conditions": [
+    "Singleanatomical-left frame/newproportions andexplicit authoredreconciliation ofindependent2Dviews; no registeredreconstruction/measurement claim.",
+    "All shell/entry/lining/footbed/tongue/laces/sole/counter geometry and componentconnections/gaps/materials/export/groups must beowned.",
+    "Actualgeometric continuity must be declared even though physicalsewing/lining/manufacturing remains unqualified.",
+    "Full exactsource/workload/count/output/time/memory/Nodeargv gate beforeONECPUentry; actualCPU/data independentlyqualified beforeseparateGPUgate.",
+    "One fixed6viewpacket/onewholecapture, source/actualfailurecloses withoutrepair/shape/shader/material/capture/numericalsuccessor; no oldboot/nativefoot/last/body/supervisor reuse.",
+    "75minutes starts onlyatfutureacceptedworth, no refreshedclock/retry; anytechnicalquery separatelybounded, no currentreference need."
+  ],
+  "limits": [
+    "No source/builder authoring, import/evaluation, newmesh/geometry construction, CPU/test/GPU/native/browser/capture/network/imagegen by critic.",
+    "No measuredlast/anatomicalpair/bodyfit/physicalmanufacturing/liningbehavior/grip/rig/motion/performance/default/runtime/AAAqualification.",
+    "Source drawing/capturebudgets closed; new editable source is not a waiver for oldfoot/native/coupledfield/constructor/collector/capture methods.",
+    "PriorMaraB andunviewednativePNGs unchanged; originalassets/defaults/constructorHOLD/22scoped10broad/fullroadmap preserved."
+  ],
+  "next": "Root independently whole-reads/verifies stable worthpair before any inertsourcepreparation. New fullsource gate may still refuse; this worthadmits no entry, render, delivery or checklistedit.",
+  "input_manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/WORTH-INPUTS.json",
+    "bytes": 2774,
+    "sha256": "b0df8858c12ad8315e6742098c395cd0a3ccc9a556ecb6d24b029176d816cf67",
+    "verified_rows": 11,
+    "unique_paths": 11
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/PLAN.md",
+      "bytes": 6296,
+      "sha256": "0692566f0ed60cac7f04edd74d7fa8e21b3dc49e773c7e9f72c1c16ace9ac18a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md",
+      "bytes": 2527,
+      "sha256": "4c24433a6562c2f0c363ca99ba7776dbaa3a65fdcb86484b9d99cd9d7667224d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/README.md",
+      "bytes": 5436,
+      "sha256": "f8ec7e192ae6624f701d40dff42cdc65bdcdeb590aa0e96aff919735c3ebbed7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/first.jpg",
+      "bytes": 235475,
+      "sha256": "60c9a3337eaa51ced70496718dc7d88c65a378aae13dbb848173cf0b09be27ce"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/shoe.svg",
+      "bytes": 20445,
+      "sha256": "3931b4f1875257888ca6003ff106a36d7dd81db83adbccaed0299be64fc0e377"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/design.json",
+      "bytes": 187765,
+      "sha256": "fd242916ecfb995d9b721bf257da3064589ed36289353beac038353472e332d6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/REFERENCES.md",
+      "bytes": 3026,
+      "sha256": "57916892d4e699762d32a789807754561ec23899cdd7c0b6a449d0591523a599"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/BRIEF.md",
+      "bytes": 6388,
+      "sha256": "5b54f615fbb179cb5428ccf6a0b90c27035605c34a723400a443a23e85f22923"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/ROOT-CLOSE.json",
+      "bytes": 12534,
+      "sha256": "c5d0a633080015c2b9e7d9b977799403e596e26095dd941e1162ecee14ab7922"
+    }
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/WORTH.md",
+    "bytes": 3729,
+    "sha256": "54f793ffbb964e049c1da83dcce5b16f98d9a1e74584c9dc3e338d93a51e1b97"
+  },
+  "collected_utc": "2026-10-19T12:57:25.442063+00:00",
+  "collection_pid": 59672
+}

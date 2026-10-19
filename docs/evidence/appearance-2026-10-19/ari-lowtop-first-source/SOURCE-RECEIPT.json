@@ -1,0 +1,346 @@
+{
+  "schema": "independent-ari-lowtop-complete-source-preflight-v1",
+  "verdict": "A exact first CPU builder only after root gate; GPU not admitted",
+  "pending_edits": false,
+  "deadline_utc": "2026-10-19T14:13:55.357882+00:00",
+  "commands": [
+    {
+      "chunk_id": "cdfd3a",
+      "pid": 93479,
+      "utc": "2026-10-19T13:15:41.643123+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\nleaf=Path('docs/evidence/appearance-2026-10-19/ari-lowtop-first-source');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['BRIEF.md','SOURCE.md','design.json','API-SCOPE.md','PREFLIGHT.json']:\n p=leaf/name;b=p.read_bytes();print('\\nFILE',p.resolve(),'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest())\n for n,line in enumerate(b.decode().splitlines(),1):print(f'{n}: {line}')\nPY",
+      "scope": "WholeBRIEF/SOURCE/design/API-SCOPE/PREFLIGHT"
+    },
+    {
+      "chunk_id": "bc2f46",
+      "pid": 93661,
+      "utc": "2026-10-19T13:15:46.900958+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime,os\nleaf=Path('docs/evidence/appearance-2026-10-19/ari-lowtop-first-source');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\np=leaf/'build.mjs';b=p.read_bytes();print('FILE',p.resolve(),'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest())\nfor n,line in enumerate(b.decode().splitlines(),1):print(f'{n}: {line}')\nPY",
+      "scope": "Whole194-line16347-bytebuilder; no import/evaluation"
+    },
+    {
+      "chunk_id": "e62036",
+      "pid": 95474,
+      "utc": "2026-10-19T13:16:47.143554+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime,os\nleaf=Path('docs/evidence/appearance-2026-10-19/ari-lowtop-first-source');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['viewer.mjs','index.html']:\n p=leaf/name;b=p.read_bytes();print('\\nFILE',p.resolve(),'BYTES',len(b),'SHA',hashlib.sha256(b).hexdigest())\n for n,line in enumerate(b.decode().splitlines(),1):print(f'{n}: {line}')\nPY",
+      "scope": "Whole80-lineviewer and13-lineHTML"
+    },
+    {
+      "chunk_id": "9ea265",
+      "pid": 98421,
+      "utc": "2026-10-19T13:18:23.910488+00:00",
+      "exit_code": 0,
+      "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime,stat\nleaf=Path('docs/evidence/appearance-2026-10-19/ari-lowtop-first-source');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat());raw=(leaf/'PREFLIGHT.json').read_bytes();d=json.loads(raw)\nassert len(d['pins'])==30 and len({r['path'] for r in d['pins']})==30\nfor r in d['pins']:\n b=Path(r['path']).read_bytes();assert len(b)==r['bytes'] and hashlib.sha256(b).hexdigest()==r['sha256'],r['path']\nprint('ALL30PINS_EXACT','NODEMODE',oct(stat.S_IMODE(Path(d['prospective_invocation'][0]).stat().st_mode)))\nprint('ABSENCES',{name:not(leaf/name).exists() for name in ['CPU-ADMISSION.json','CPU-RESULT.json','model.json','model.obj','model.mtl','GPU-ADMISSION.json','first.jpg','first.png']})\nfor name,ranges in [('node_modules/three/src/core/BufferGeometry.js',[(230,251),(293,300),(335,345),(1005,1110),(1472,1480)]),('node_modules/three/src/math/Box3.js',[(155,161),(224,230),(303,383)]),('node_modules/three/src/cameras/OrthographicCamera.js',[(29,116),(195,240)]),('node_modules/three/src/renderers/WebGLRenderer.js',[(65,110),(365,409),(595,605),(628,680),(1074,1125)])]:\n p=Path(name);b=p.read_bytes();lines=b.decode().splitlines();print('\\nFILE',p.resolve(),len(b),hashlib.sha256(b).hexdigest())\n for lo,hi in ranges:\n  print('SCOPE',lo,hi)\n  for n in range(lo,hi+1):print(f'{n}: {lines[n-1]}')\nPY",
+      "scope": "All30pins, binarymode, outputabsence snapshot andselectedexactinstalledAPItext"
+    }
+  ],
+  "read_scopes": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/BRIEF.md",
+      "scope": "Whole21lines"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/SOURCE.md",
+      "scope": "Whole29lines"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/design.json",
+      "scope": "Whole22lines"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/API-SCOPE.md",
+      "scope": "Whole12lines, rootscopeclaims not substituted for actualselectedreads"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/PREFLIGHT.json",
+      "scope": "Whole176lines, all30rawpins independentlyverified"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/build.mjs",
+      "scope": "Whole194lines, allconstruction/qualification/export/admission/errorpaths"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/viewer.mjs",
+      "scope": "Whole80lines, asyncguards/atomicphase/materials/groups/cameras/caps/cleanup"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/index.html",
+      "scope": "Whole13lines/staticlayout/links/acceptedSVGassociation"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferGeometry.js",
+      "scope": "230–251,293–300,335–345,1005–1110,1472–1480; computeVertexNormals fullfunction, normalizeNormals start only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Box3.js",
+      "scope": "155–161,224–230,303–383 only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/cameras/OrthographicCamera.js",
+      "scope": "29–116 and195–240 only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js",
+      "scope": "65–110,365–409,595–605,628–680,1074–1125 only"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/renderer-reference.json",
+      "scope": "Exactrawpin verified; prior sourcegate selected Materialmethods2361–2384/2391–2412 reused, no newretrieval/wholepageclaim"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+      "scope": "Rawsize/SHA/mode0555 only, notexecuted"
+    },
+    {
+      "path": "AcceptedAri artist handoff/README/BRIEF/REFERENCES andactualfirstsheet",
+      "scope": "Priorworth wholetext/actualwholeimage scopes reused afterfresh30manifest exactpins"
+    },
+    {
+      "path": "Remaining30manifestrows",
+      "scope": "Freshrawsize/SHA only unless explicitprior/current readscope"
+    }
+  ],
+  "prior_actual_image_witness": {
+    "tool": "view_image",
+    "detail": "original",
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/first.jpg",
+    "bytes": 235475,
+    "sha256": "60c9a3337eaa51ced70496718dc7d88c65a378aae13dbb848173cf0b09be27ce",
+    "scope": "Whole1280×1969 accepted2Dsheet actuallyviewed inworth44d5f2-stage; currentexactpinverified. No3Dcandidateimageexists/reviewed."
+  },
+  "source_witnesses": {
+    "entry": "build9–16,190–194 admission/pins/existingoutput checks/softtime/exclusiveexports",
+    "complete_surface": "build44–62 upper/lining/base/footbed;64–105 tongue/stays/rims;124–159continuouslace/counter/seam/underside",
+    "limited_qualification": "build162–185 finite/triangle/edge/faceorientation/connectivity/Eulervolume/countchecks",
+    "exports": "build186–194 OBJoffset/material/object/MTL/JSON/receipt",
+    "GPU_future": "viewer19–33 asyncguardedinputs;35–73 synchronousowner/renderencodephase;12–18/75–79cleanup/record;54–68framefrusta"
+  },
+  "actionable_findings": [],
+  "prospective_CPU": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+      "--max-old-space-size=128",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/build.mjs",
+      "<exactfutureCPU-ADMISSIONsha>"
+    ],
+    "calls": 1,
+    "imports": "OnlyNodefs/path/crypto/url; no target/Three/native/worker/child imports",
+    "caps": {
+      "vertices": 8192,
+      "triangles": 16000,
+      "parts": 28,
+      "declared_parts": 25,
+      "json_bytes": 2097152,
+      "obj_bytes": 2097152,
+      "mtl_bytes": 8192,
+      "checked_elapsed_ms": 10000,
+      "node_old_space_MiB": 128
+    },
+    "limits": "Post-static-import cooperative elapsed checks, not hardOS/startup/blockedI/O bound; oldspace notwholeRSS; one actualmemorysample notpeak. Partialfiles preserved; rootactualexit/stdout/session/outputinventory owed."
+  },
+  "prospective_GPU_scope": "No admission here. OnlyafteractualCPU/dataA andfreshrootgate:one6x570×340packet,16MiBPNGs+oneunchangedwholecapture2MiB/18MiBtotal; source/API/frame/ownedphase inspected only. Actualarrayconversion/grouping/draws/PNGloads/cleanup/appearance unqualified.",
+  "absence_snapshot": {
+    "utc": "2026-10-19T13:18:23.910488+00:00",
+    "absent": [
+      "CPU-ADMISSION.json",
+      "CPU-RESULT.json",
+      "model.json",
+      "model.obj",
+      "model.mtl",
+      "GPU-ADMISSION.json",
+      "first.jpg",
+      "first.png"
+    ],
+    "scope": "Historicalsourcegate observation, not a promiseaboutlaterfiles"
+  },
+  "alternatives": [
+    {
+      "choice": "Root-gatedsoleCPU builder entry",
+      "tradeoff": "Producescheckableeditabledepthnow, schematic/unfittedcomponentrisk; actualdataandimagescanrefuse"
+    },
+    {
+      "choice": "WithholduntilnativeArifoot/bodyowner",
+      "tradeoff": "Strongerfitcontext/noorphanblockout, no immediate3Dartistdepth"
+    }
+  ],
+  "errors_or_corrections": [
+    "Rootcombinedviewerprintwasreportedlyclipped; criticwholeviewerread e62036 independentlycomplete. No currentcriticreadererror, parser/test/syntax invocation or source mutation."
+  ],
+  "limits": [
+    "Criticread/hash/staticreasoning only; no builder/helper/sourceimport/evaluation, syntaxcheck, array/trig/geometryconstruction, fixture, CPU/Node/GPU/browser/native/network/capture.",
+    "Noactualoutput/topology/selfintersection/collisionfreeassembly/physicalmanufacture/lining/last/pair/fit claim from sourceA.",
+    "No generalmalformedinput/security/OSretirement/physicaldriver/privateconstructorfailure qualification.",
+    "No actualshader/material/Float32renderednormal/wholelibrary/bundlerhistory/appearance/performance/AAA/default/board/checklistcredit.",
+    "Accepted2Ddrawing/capturebudget,olderclosures/Mara6unviewednativePNGs,22scoped10broad/fullroadmap/constructorHOLD remain."
+  ],
+  "next": "Rootindependentlywhole-reads/verifiesstablepairandfreshadmission/exactargvbeforeONECPUentry. Root+criticactualwholedata/exportgatebeforeanyGPU. Anyrefusal/unknown/cap/failure/deadline closeswithoutrepair/replay; no automaticdelivery.",
+  "manifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/PREFLIGHT.json",
+    "bytes": 7823,
+    "sha256": "0f6f9abec3341c72ead1395cf78317cfdf1d75425aaecb71e093d703453cb09c",
+    "verified_rows": 30,
+    "unique_paths": 30
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/PLAN.md",
+      "bytes": 6296,
+      "sha256": "0692566f0ed60cac7f04edd74d7fa8e21b3dc49e773c7e9f72c1c16ace9ac18a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/ARTIST-HANDOFF.md",
+      "bytes": 2527,
+      "sha256": "4c24433a6562c2f0c363ca99ba7776dbaa3a65fdcb86484b9d99cd9d7667224d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/README.md",
+      "bytes": 5436,
+      "sha256": "f8ec7e192ae6624f701d40dff42cdc65bdcdeb590aa0e96aff919735c3ebbed7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/first.jpg",
+      "bytes": 235475,
+      "sha256": "60c9a3337eaa51ced70496718dc7d88c65a378aae13dbb848173cf0b09be27ce"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/shoe.svg",
+      "bytes": 20445,
+      "sha256": "3931b4f1875257888ca6003ff106a36d7dd81db83adbccaed0299be64fc0e377"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/design.json",
+      "bytes": 187765,
+      "sha256": "fd242916ecfb995d9b721bf257da3064589ed36289353beac038353472e332d6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/REFERENCES.md",
+      "bytes": 3026,
+      "sha256": "57916892d4e699762d32a789807754561ec23899cdd7c0b6a449d0591523a599"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-sneaker-artist/BRIEF.md",
+      "bytes": 6388,
+      "sha256": "5b54f615fbb179cb5428ccf6a0b90c27035605c34a723400a443a23e85f22923"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 7487,
+      "sha256": "e6e797127cc24c1e4bea80608f06fbda8eb0c26858c9841fc21326f4166ad9d4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-groom-orientation-contract/ROOT-CLOSE.json",
+      "bytes": 12534,
+      "sha256": "c5d0a633080015c2b9e7d9b977799403e596e26095dd941e1162ecee14ab7922"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/WORTH-INPUTS.json",
+      "bytes": 2774,
+      "sha256": "b0df8858c12ad8315e6742098c395cd0a3ccc9a556ecb6d24b029176d816cf67"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/WORTH.md",
+      "bytes": 3729,
+      "sha256": "54f793ffbb964e049c1da83dcce5b16f98d9a1e74584c9dc3e338d93a51e1b97"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/WORTH-RECEIPT.json",
+      "bytes": 11767,
+      "sha256": "17083aa342968b63d2e58d44747abb52dea2e15bf1b544ca625ba848269fe958"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/ROOT-WORTH.json",
+      "bytes": 1472,
+      "sha256": "985b0e9bd97af96649e2dd2e1048645a72b67f7791d3ae5c70239e7d2d645662"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/design.json",
+      "bytes": 2068,
+      "sha256": "afb35f54dbc664f26cdaf962831b39956cb481d3378c974a185892b6f31758fe"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/build.mjs",
+      "bytes": 16347,
+      "sha256": "9e669c8a457f14483ee547f2e5c1825c0c7a7457fe7dc3933e9e60ac72bcdea3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/viewer.mjs",
+      "bytes": 8329,
+      "sha256": "0b10b5b03cafcbe149113126342288bc59a5c876ab096d85ce237e0659cfe84e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/index.html",
+      "bytes": 2239,
+      "sha256": "f68462b2180843b9fedd26fe29cdba67e48516928f067977e0ac145ad9c8951f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/BRIEF.md",
+      "bytes": 6598,
+      "sha256": "9ba4a725e6e7dfa01f5a23fd5630ecc7210bc12c3ca5732d2e4c5cf09f8dce9e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/SOURCE.md",
+      "bytes": 8346,
+      "sha256": "49ad40113b0529a2c848e0a91036deb209c60bff9cc155fb24dbe05edffe99db"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/API-SCOPE.md",
+      "bytes": 3150,
+      "sha256": "b460310a355a7f69cbfe78a235c1efe84d488a5791e56fa436e541d9179c0367"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/node/26.9.0/bin/node",
+      "bytes": 132848,
+      "sha256": "91ed66b8cd139609427a3e9d93518dd3b0d5407c737fc9a265bfd991ec623d8a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/core/BufferGeometry.js",
+      "bytes": 34470,
+      "sha256": "be1b8ad6ce3e502904fd989f5b6690d8fedcbadb74508aec99fc87dfd567e8c7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/math/Box3.js",
+      "bytes": 21469,
+      "sha256": "382b33a3b235b3f5a37a8949d8f8a9efdf056c62ce5ed79692b54944a80487e1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/cameras/OrthographicCamera.js",
+      "bytes": 5806,
+      "sha256": "5525c2365774222ee96c4e4303d0257a4b16739e1e69769977c0a739b4f3fd54"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/src/renderers/WebGLRenderer.js",
+      "bytes": 108498,
+      "sha256": "867948b57a6abb84d4cfd7619b38ea14fbb2c100c1b6f78d59de2383662ab7a0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-surface-material/renderer-reference.json",
+      "bytes": 334898,
+      "sha256": "9faa6c684b935f2265608f8717ccb94e8825f01d07f5d87f14bf99f2559c8d56"
+    }
+  ],
+  "result": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/ari-lowtop-first-source/SOURCE-REVIEW.md",
+    "bytes": 4371,
+    "sha256": "734078947b2cdaa123222cad945a20ef2679b1a76dfef8af01deaf1028250991"
+  },
+  "collected_utc": "2026-10-19T13:20:39.330324+00:00",
+  "collection_pid": 3073
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "ari-unitless-left-lowtop-controls-v1",
+  "frame": {"up": "+Y", "toe": "+Z", "medial": "-X", "lateral": "+X", "units": "original artist units; no measured last or foot registration"},
+  "outline": {"halfLength": 1.5, "heelHalfWidth": 0.36, "forefootAdditionalWidth": 0.24, "forefootCentreZ": 0.45, "forefootSpread": 0.95, "medialWidthFactor": 1.035, "medialArchInset": 0.055, "archCentreZ": -0.3, "archSpread": 0.45, "sinExponent": 0.65, "cosExponent": 0.72},
+  "sole": {"contactY": 0, "edgeTopY": 0.04, "topY": 0.19, "footbedY": 0.205, "footbedThickness": 0.02},
+  "entry": {"centreZ": -0.25, "halfLength": 1.1, "halfWidth": 0.32, "backHeight": 0.66, "frontDrop": 0.13, "liningXFactor": 0.96, "liningZFactor": 0.99, "liningTopDrop": 0.018},
+  "resolution": {"ring": 64, "upperSteps": 6, "tubeSides": 8, "guideMajor": 16, "guideMinor": 6},
+  "laces": {"rowZ": [0.5, 0.3, 0.1, -0.1, -0.3], "stayInnerU": -0.07, "stayOuterU": 0.02, "guideU": -0.025, "holeRadius": 0.022, "stayThickness": 0.014, "guideMinorRadius": 0.004, "cordRadius": 0.012, "aboveOffset": 0.048, "belowOffset": -0.028},
+  "tongue": {"frontZ": 1.0, "rearZ": -0.65, "halfWidth": 0.235, "underGuideDrop": 0.065, "padding": 0.032, "rearRise": 0.14},
+  "materials": {
+    "upper": {"colour": "#e7e3d7", "roughness": 0.82},
+    "lining": {"colour": "#b6b8b1", "roughness": 0.94},
+    "footbed": {"colour": "#c8c8bd", "roughness": 0.92},
+    "sole": {"colour": "#d9d5c7", "roughness": 0.9},
+    "contact": {"colour": "#8d8d83", "roughness": 0.95},
+    "lace": {"colour": "#f0ede3", "roughness": 0.9},
+    "guide": {"colour": "#aaa99e", "roughness": 0.7},
+    "seam": {"colour": "#c4c1b6", "roughness": 0.93}
+  },
+  "limits": {"vertices": 8192, "triangles": 16000, "parts": 28, "jsonBytes": 2097152, "objBytes": 2097152, "mtlBytes": 8192, "checkElapsedMs": 10000, "nodeOldSpaceMiB": 128},
+  "scope": "One original editable artist blockout. Physical pattern, material behaviour, lacing mechanics, manufacturing, anatomical pairing, foot/body fit, rig/morph/motion and runtime/AAA unqualified."
+}
