@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-19T10:12:56.211390+00:00",
+  "pid": 97151,
+  "executable": {
+    "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+    "bytes": 34640,
+    "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+  },
+  "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "presence": {
+    "waitid": true,
+    "P_PID": true,
+    "WEXITED": true,
+    "WNOHANG": true,
+    "WNOWAIT": true
+  },
+  "all_present": true,
+  "scope": "One no-child offline stdlib presence/identity check only. No waitid call, subprocess/native/model/API job or signal. Presence is not semantic/ownership proof.",
+  "decision": "PROCEED_TO_BOUNDED_PRIMARY_SEMANTICS_SOURCE_PREPARATION_ONLY"
+}

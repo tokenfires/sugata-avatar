@@ -1,0 +1,134 @@
+{
+  "stable_utc": "2026-10-19T10:12:21.608233+00:00",
+  "pid": 97081,
+  "verdict": "A_ONE_CAPABILITY_GATED_BOUNDED_PREPARATION_ONLY",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "bytes": 21578,
+      "sha256": "11090297b509ac217415887bd2d2e363c64b50c4f87dc1e45306a3af4da18d3f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/ROOT-CLOSE.json",
+      "bytes": 6734,
+      "sha256": "d641c1df7489b4770f7418c33899f89327ad28a8295251051c6dd61f0746a7c9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/SOURCE-REVIEW.md",
+      "bytes": 3644,
+      "sha256": "70a91265b987e2ab37d46ac2470f4da9c2070985a83086994c95ffb13dbca0d6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/SOURCE-RECEIPT.json",
+      "bytes": 13093,
+      "sha256": "b519cbf876fdc97f971d4b07a5b4490fbb922c6267de68b8e1547c00ed5fac2d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/ROOT-SOURCE.json",
+      "bytes": 1807,
+      "sha256": "ab80661868399c092c906f9aa4d7fea972e8063979c89a8226c7bb30e8e5ce77"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/launch_study.py",
+      "bytes": 6591,
+      "sha256": "b7f52c99f56bf6d6f8b328fa794bedc0d397a3ec489277997f30ca3563b06ba9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/render_study.py",
+      "bytes": 10889,
+      "sha256": "a1a49718987ce13395e7cb6f1ea332bbcd3fc30390ea429e231303f3ab623158"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/CONTRACT.json",
+      "bytes": 9237,
+      "sha256": "ffc19766cd98973801aca1188bc7a6df4510e20b9eb9824e3630f51dac49089d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/SOURCE-PREPARATION.json",
+      "bytes": 4399,
+      "sha256": "d9c87e134d7a19527224b708e9ee1a175f84bc9f4c10c50874c7609deb16e9ce"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/PLAN.json",
+      "bytes": 6345,
+      "sha256": "dfba2b7b1feaa7f070c25d9f22a9677fc1324da77c259c29bc3b7d26324abf32"
+    }
+  ],
+  "verified_plan_rows": 9,
+  "read_scopes": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/PLAN.json",
+      "scope": "whole6345byte JSON, all nine rows and all capabilities/effort/deadline/no-fallback boundaries"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/ROOT-CLOSE.json",
+      "scope": "whole6734byte JSON; nested source metadata read as historical closure, not independently recursively rehashed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/ROOT-SOURCE.json",
+      "scope": "whole1807byte JSON, prior independently confirmed B and no actual native claims"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-diffuse-native/SOURCE-REVIEW.md",
+      "scope": "whole3644byte independent source verdict reread"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "scope": "whole-file hash; selected lines1-27 only"
+    },
+    {
+      "group": "launch_study.py/render_study.py/CONTRACT.json/SOURCE-PREPARATION.json/SOURCE-RECEIPT.json",
+      "scope": "Whole-file byte identities verified. Reuse immediately preceding complete launcher132lines/render194lines/contract204lines/preparation84lines source review at unchanged pins; no new target/API/model semantics inquiry."
+    }
+  ],
+  "jobs": [
+    {
+      "chunk_id": "8bb73d",
+      "exit_code": 0,
+      "pid": 96962,
+      "utc": "2026-10-19T10:11:13.257662+00:00",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\np=Path('docs/evidence/appearance-2026-10-19/mara-native-retirement/PLAN.json');b=p.read_bytes()\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat());print('PLAN',len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY"
+    },
+    {
+      "chunk_id": "870cd4",
+      "exit_code": 0,
+      "pid": 97000,
+      "utc": "2026-10-19T10:11:34.325792+00:00",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\nR=Path('/Users/robault/GitHub/sugata-avatar');P=R/'docs/evidence/appearance-2026-10-19/mara-native-retirement'\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nplan=json.loads((P/'PLAN.json').read_bytes())\nfor r in plan['pins']:\n p=R/r['path'];b=p.read_bytes();a={'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()};assert a['bytes']==r['bytes'] and a['sha256']==r['sha256'];print('VERIFIED',json.dumps(a))\nfor rel in ['docs/evidence/appearance-2026-10-19/mara-diffuse-native/ROOT-CLOSE.json','docs/evidence/appearance-2026-10-19/mara-diffuse-native/ROOT-SOURCE.json','docs/evidence/appearance-2026-10-19/mara-diffuse-native/SOURCE-REVIEW.md']:\n print('FULL',rel)\n print((R/rel).read_text())\nprint('RESUME1_27')\nfor i,l in enumerate((R/'docs/RESUME-2026-10-18.md').read_text().splitlines()[:27],1):print(f'{i}: {l}')\nprint('OUTPUT_PRESENCE',json.dumps({n:(P/n).exists() for n in ['WORTH.md','WORTH-RECEIPT.json']}))\nPY"
+    }
+  ],
+  "source_witnesses": [
+    "Closed launch_study.py:102-105 unbounded post-KILL wait",
+    "Closed launch_study.py:107-123 post-leader numeric group signal",
+    "Closed launch_study.py:95-127 incomplete cleanup/evidence containment",
+    "ROOT-SOURCE.json independent actual-source confirmation; no execution"
+  ],
+  "actionable_new_findings": [],
+  "conditional_adequacy": "No installed waitid/P_PID/WEXITED/WNOHANG/WNOWAIT presence or semantics was tested by critic. Presence alone is not ownership qualification. The specified missing-capability stop is mandatory; if present all reservation/finite-wait/error/evidence responsibilities need a fresh complete source/workload/root gate.",
+  "alternatives": [
+    {
+      "choice": "One explicit offline capability gate then finite reservation/evidence source preparation only if present",
+      "tradeoff": "Directly addresses a demonstrated owner gap and may enable useful fixed mapped images; may still refuse; no generic infrastructure scope."
+    },
+    {
+      "choice": "Retain source-only atlas and defer native material study",
+      "tradeoff": "No further supervision engineering; actual mapped utility remains unknown."
+    }
+  ],
+  "admitted_scope": "Preparation only after independent root worth approval; one no-child stdlib capability/identity check first. If any required capability missing: immediate stop, no fallback/guardian/harness. If present: <=2exact primary pages, <=35minutes/2MiBtext/32768programmebytes, absolute11:10UTC or earlier effort stop. No patch/execution of the old closed packet.",
+  "deadlines_utc": {
+    "worth": "2026-10-19T10:30:00Z",
+    "root_worth": "2026-10-19T10:35:00Z",
+    "preparation_absolute_stop": "2026-10-19T11:10:00Z",
+    "checkpoint": "2026-10-19T11:30:00Z"
+  },
+  "retained_errors": [],
+  "preservation": "No target/child/native/model/API/capability invocation, import/evaluation, network/browser/image/capture/source or existing evidence modification. Original closed B exact, renderer/study settings unchanged; all22scoped10broad/fullAAA/closures/HOLD preserved.",
+  "output": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/WORTH.md",
+    "bytes": 3060,
+    "sha256": "82acfadc675bf3d7a13a2d9316a49c8ef7f28643c82cb0da4f20173c5991fbb8"
+  },
+  "receipt_self_binding": "External readback supplies receipt SHA, avoiding circular binding."
+}

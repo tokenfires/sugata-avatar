@@ -1,0 +1,15 @@
+# Native retirement successor: worth
+
+**A — bounded preparation only, beginning with the one specified offline capability check.** This earns no launcher, child, native or model execution. It is worthwhile only as a short route to the already justified diffuse comparison, not as a general supervision framework.
+
+The actual source blocker is specific: closed launch_study.py:102–105 can reach an unbounded wait; :107–123 signals a numeric group after possible direct-child reap; :95–127 can leave final evidence unwritten after a cleanup exception. My complete source review and ROOT-SOURCE independently preserve those facts. The original native packet is closed, unrun and unchanged. No real hang, reused PID or lost process is alleged.
+
+The proposed question targets the missing reservation rather than changing the rendering problem. If the installed runtime exposes the stated nonreaping interface and its exact semantics can be owned, it may permit the child identity to remain reserved through finite group retirement. **Capability and adequacy are presently unverified.** A successful hasattr check alone cannot prove OS behavior, nonreaping ownership, descendant retirement, bounded error handling or trustworthy final evidence. Those remain a full fresh source/workload/root gate.
+
+Preferred alternative: perform only the specified executable/version and waitid/P_PID/WEXITED/WNOHANG/WNOWAIT presence check after root worth approval. Missing capability ends immediately. Only if present, use at most two exact primary pages and prepare one finite positive-reservation contract, keeping all wait/signal/evidence errors independent and truthful unknown/uncollected states. No poll/wait reap before retirement, no post-reap numeric signaling, no unbounded retirement or final-evidence claim. This could unblock a consequential mapped-image decision but may still close without a native trial.
+
+Alternative: retain the exact source-only atlas and defer native work until a complete Mara form/material master is supplied. That has no supervisor engineering cost, but the actual texture's mapped registration/readability remains unknown. This is preferable if the nominated capability or ownership proof fails; do not replace it with a guardian, alternative API hunt, synthetic harness or another repair cycle.
+
+I accept the35minute/2MiBtext/32KiBprogramme preparation bounds, with the earlier absolute11:10UTC stop, and unchanged renderer/study settings and assets. Worth A does not supersede the old B or admit copying/executing its launcher. Any fresh successor must receive complete independent source review before a separately admitted single native attempt. Current22scoped/10broad/fullAAA/closures/HOLD remain; no checklist or appearance credit.
+
+All nine pinned inputs and PLAN identity verify. Only current pinned prose and unchanged prior whole-source observations were used. No capability probe, additional API/source inquiry, target/child/native/model invocation, image, network or source modification occurred. Pending edits: false.

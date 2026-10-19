@@ -1,0 +1,30 @@
+{
+  "utc": "2026-10-19T10:18:19.905848+00:00",
+  "pid": 97781,
+  "state": "CORRECTION_SCOPE_NO_PROBE_REPLAY",
+  "supersedes": "No-child/no-subprocess claims for c784a1 in CAPABILITY.json, SEMANTICS.json, SOURCE-PREPARATION.json and surrounding prose. Originals retained exact.",
+  "actual_probe": "The c784a1script called platform.platform() in fresh isolated Python3.14.7. Static exact installed stdlib source shows platform->uname_result.processor->_Processor.from_subprocess->uname -p, plus architecture(sys.executable)->_syscmd_file->file. Therefore it invoked incidental read-only system helper paths; no child PID/argv/tool result record was separately retained. Do not claim no-child or exact per-helper actual identity. The root tool script completed exit0.",
+  "still_valid": "hasattr results all5present and executable/version data are actual. No waitid or signal test, native Blender/model/API/render/save/capture or synthetic fixture was invoked. This correction is not another capability probe or launcher repair.",
+  "source_reads": [
+    "f6a45c selected _Processor/uname_result/uname/platform exactlocal definitions, read-only ASTtext",
+    "This job selected architecture/_syscmd_file ASTtext only, no functions invoked"
+  ],
+  "source_pin": {
+    "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/platform.py",
+    "bytes": 49128,
+    "sha256": "240eba74565cd0dc4f99f182f7afc32bbea0593016ddb34165b529b5bcb6be0a"
+  },
+  "selected_definitions": {
+    "_syscmd_file": {
+      "first_line": 732,
+      "last_line": 764,
+      "source": "def _syscmd_file(target, default=''):\n\n    \"\"\" Interface to the system's file command.\n\n        The function uses the -b option of the file command to have it\n        omit the filename in its output. Follow the symlinks. It returns\n        default in case the command should fail.\n\n    \"\"\"\n    if sys.platform in {'dos', 'win32', 'win16', 'ios', 'tvos', 'watchos'}:\n        # XXX Others too ?\n        return default\n\n    try:\n        import subprocess\n    except ImportError:\n        return default\n    target = _follow_symlinks(target)\n    # \"file\" output is locale dependent: force the usage of the C locale\n    # to get deterministic behavior.\n    env = dict(os.environ, LC_ALL='C')\n    try:\n        # -b: do not prepend filenames to output lines (brief mode)\n        output = subprocess.check_output(['file', '-b', target],\n                                         stderr=subprocess.DEVNULL,\n                                         env=env)\n    except (OSError, subprocess.CalledProcessError):\n        return default\n    if not output:\n        return default\n    # With the C locale, the output should be mostly ASCII-compatible.\n    # Decode from Latin-1 to prevent Unicode decode error.\n    return output.decode('latin-1')"
+    },
+    "architecture": {
+      "first_line": 776,
+      "last_line": 851,
+      "source": "def architecture(executable=sys.executable, bits='', linkage=''):\n\n    \"\"\" Queries the given executable (defaults to the Python interpreter\n        binary) for various architecture information.\n\n        Returns a tuple (bits, linkage) which contains information about\n        the bit architecture and the linkage format used for the\n        executable. Both values are returned as strings.\n\n        Values that cannot be determined are returned as given by the\n        parameter presets. If bits is given as '', the sizeof(pointer)\n        (or sizeof(long) on Python version < 1.5.2) is used as\n        indicator for the supported pointer size.\n\n        The function relies on the system's \"file\" command to do the\n        actual work. This is available on most if not all Unix\n        platforms. On some non-Unix platforms where the \"file\" command\n        does not exist and the executable is set to the Python interpreter\n        binary defaults from _default_architecture are used.\n\n    \"\"\"\n    # Use the sizeof(pointer) as default number of bits if nothing\n    # else is given as default.\n    if not bits:\n        import struct\n        size = struct.calcsize('P')\n        bits = str(size * 8) + 'bit'\n\n    # Get data from the 'file' system command\n    if executable:\n        fileout = _syscmd_file(executable, '')\n    else:\n        fileout = ''\n\n    if not fileout and \\\n       executable == sys.executable:\n        # \"file\" command did not return anything; we'll try to provide\n        # some sensible defaults then...\n        if sys.platform in _default_architecture:\n            b, l = _default_architecture[sys.platform]\n            if b:\n                bits = b\n            if l:\n                linkage = l\n        return bits, linkage\n\n    if 'executable' not in fileout and 'shared object' not in fileout:\n        # Format not supported\n        return bits, linkage\n\n    # Bits\n    if '32-bit' in fileout:\n        bits = '32bit'\n    elif '64-bit' in fileout:\n        bits = '64bit'\n\n    # Linkage\n    if 'ELF' in fileout:\n        linkage = 'ELF'\n    elif 'Mach-O' in fileout:\n        linkage = \"Mach-O\"\n    elif 'PE' in fileout:\n        # E.g. Windows uses this format\n        if 'Windows' in fileout:\n            linkage = 'WindowsPE'\n        else:\n            linkage = 'PE'\n    elif 'COFF' in fileout:\n        linkage = 'COFF'\n    elif 'MS-DOS' in fileout:\n        linkage = 'MSDOS'\n    else:\n        # XXX the A.OUT format also falls under this class...\n        pass\n\n    return bits, linkage"
+    }
+  },
+  "limitations": "Generic platform description exceeded the stipulated no-child preparation scope. Root stops further preparation, retains failed scope claim and requests critic assessment before any admission. No new model or caller/source patch; no probe rerun. Exact helperPIDs not recoverable from this completed tool record."
+}

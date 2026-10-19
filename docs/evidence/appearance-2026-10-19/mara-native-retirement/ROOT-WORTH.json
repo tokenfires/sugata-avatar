@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-19T10:12:49.563277+00:00",
+  "pid": 97136,
+  "state": "A_ONE_NO_CHILD_CAPABILITY_CHECK_THEN_CONDITIONAL_PREPARATION",
+  "whole_handoff": "740c8c/exit0 fullpair independently read",
+  "verified_rows": 11,
+  "scope": "One exact offline stdlib identity and waitid/P_PID/WEXITED/WNOHANG/WNOWAIT presence check. Any missing stops immediately no fallback, docs, source, guardian, harness or native job. If all present, bounded semantics/source preparation still needs complete fresh review, not invocation. Prior B untouched.",
+  "stop_utc": "2026-10-19T10:47:49.563277+00:00",
+  "pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-retirement/PLAN.json",
+      "bytes": 6345,
+      "sha256": "dfba2b7b1feaa7f070c25d9f22a9677fc1324da77c259c29bc3b7d26324abf32"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-retirement/WORTH.md",
+      "bytes": 3060,
+      "sha256": "82acfadc675bf3d7a13a2d9316a49c8ef7f28643c82cb0da4f20173c5991fbb8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-native-retirement/WORTH-RECEIPT.json",
+      "bytes": 8197,
+      "sha256": "ccf7e584f85b6d39cd94b2afdbd9c1fe90ee2966e3d42aa4dd2c1280e8984c99"
+    }
+  ]
+}

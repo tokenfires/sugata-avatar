@@ -1,0 +1,11 @@
+{
+  "utc": "2026-10-19T10:14:27.604600+00:00",
+  "pid": 97314,
+  "scope": "Selected exact nonreaping/wait semantics only; no actual child wait or test.",
+  "local_capability": "c784a1/PID97151/all five symbols present in Python3.14.7/macOS27.0.1",
+  "primary_jobs": "2live Firecrawl fixedpages/maxAge0/status200/2reportedcredits, saved PRIMARY1/2; no more primary fetches admitted",
+  "read_job": "605cd0 selected waitid/P_PID/WNOHANG/WNOWAIT and specific waitpid semantics. Python page current3.14.8docs versus installed3.14.7explicit; selected waitid API availability says macOS since3.13, not installedruntime validation. POSIX waitid retains waitable state underWNOWAIT.",
+  "inference_and_limits": "A directchild remains unwaited-for underWNOWAIT; source must prevent any other reaper/SIGCHLDignore and obtain current child/PGID identity before signaling. This is source/doco reasoning, not exercised Darwin behavior. No status/API alone proves all descendant identity or hard kernel/syscall timing. Unknown ownership must withhold signals/qualification.",
+  "semantic_text_bytes": 332609,
+  "render_source": "New isolated renderer is an exact byte copy of closed inert render_study.py, unchanged shader/UV/frame/light/sample settings. Fresh complete source review still owed."
+}

@@ -1,0 +1,10 @@
+{
+  "state": "POST_JOB_LITERAL_COMMAND_RECOVERY_NOT_PRE_ADMISSION_PIN_DO_NOT_REPLAY",
+  "tool": "exec_command",
+  "chunk_id": "c784a1",
+  "exit_code": 0,
+  "pid": 97151,
+  "observed_utc": "2026-10-19T10:12:56.211390+00:00",
+  "command": "python3 -I -B - <<'PY'\nfrom pathlib import Path\nimport os,sys,platform,json,hashlib,datetime\nP=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement');required=['waitid','P_PID','WEXITED','WNOHANG','WNOWAIT'];exe=Path(sys.executable).resolve();data=exe.read_bytes();present={k:hasattr(os,k) for k in required};d={'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'executable':{'path':str(exe),'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest()},'python':sys.version,'platform':platform.platform(),'presence':present,'all_present':all(present.values()),'scope':'One no-child offline stdlib presence/identity check only. No waitid call, subprocess/native/model/API job or signal. Presence is not semantic/ownership proof.','decision':'PROCEED_TO_BOUNDED_PRIMARY_SEMANTICS_SOURCE_PREPARATION_ONLY' if all(present.values()) else 'STOP_MISSING_CAPABILITY_NO_FALLBACK'}\nwith (P/'CAPABILITY.json').open('x') as f:json.dump(d,f,indent=2);f.write('\\n')\nprint(json.dumps(d,indent=2));print('OUTPUT',len((P/'CAPABILITY.json').read_bytes()),hashlib.sha256((P/'CAPABILITY.json').read_bytes()).hexdigest())\nPY",
+  "correction": "The no-child wording in actual command/output is false as explained in PROBE-SCOPE-CORRECTION.json; preserved literal rather than rewritten history. Helpers not separately PID/exec pinned. No waitid/native/model/render study ran."
+}
