@@ -1,0 +1,11 @@
+# Ari expression-intent worth receipt
+
+Independent/rootA for one separately complete first-image brief ONLY. Actual unchanged whole1536x1024 original Ari supplies calm/pleasant face and identity/outfit, not quiet-determination comparison. Checklist leaves humanmeaning open. New consumer is original illustration discussion; no native/rest/master/control/squint/brow/tease/rig/pose/runtime repair or qualification. All prior closures remain.
+
+Root firstsource/handoff+boundedmatchinglines2a23b0/08:27:23UTC, originalhash/headera2c3d0/08:33:38UTC, wholeoriginalview thenrootinitial70a97a/PID(actualJSON)/08:34:53 before independentseal08:39:32/PID25490. Root whole8844B9fe286 then verification2026-10-20T08:41:05.653277+00:00/PID25745 checks7freshpins, immutable692c118e...0dccf and ordering. FullROOT-RESULT/initial/WORTH bind exact inputs/alternatives/viewchronology. Worth closes before08:42:23UTC.
+
+Declaredari-regex overmatched artist/material; literalwordfilter applies only savedmatchedrows, no furthersearch/universalabsence. Exact233746B/c22c8cc2...e772c WINDOWsnapshot retained beforeintentionalrecoveryupdates, opaque/hashonlyto critic; no wholewindowsemanticread claim. Wholechecklist and originalhandoff, one unchangedwholeoriginalPNG2193053B/6f1bdb34...a259d onlyimage. No linked source/arrays/controlrecipe/network/browser/capture/newimage/codegeneration.
+
+Nextbrief must own exactsoleoriginalreference, matchedtwo-portrait framing/identity/outfit, output/resources/failure and firstactualimage gates. Use anotherreviewer not told current expectedpair at initial unlabelledreading; latercomparedeclaredintents. Subjectiveartistcritique, notscientific/humanvalidation or calibratedcontrol. No currentgeneration/source/programme/constructor/runtimecuework. AorBfirstoutput closes withno retake/edit/crop/relabel/style/pose/parameterrescue.
+
+All original/default/accepted/frozen/ignored/October10/unrelatedassets/fullroadmap23scoped10broad/userclosures/material-volumeHOLD preserved. Bootstudy remains limitedconstruction withwire-like lacereturns/facetedhardware, nofinish/fit/AAA. No liveownedtarget/pendingcriticedit, same ACTIVE10minute recovery/reviewserver. No push/publish/purchase/install/model/subscription/resetcredit/otherproject. Human steering wins.
