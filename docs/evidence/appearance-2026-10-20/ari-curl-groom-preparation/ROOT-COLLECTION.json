@@ -1,0 +1,85 @@
+{
+  "utc": "2026-10-20T09:55:51.808160+00:00",
+  "pid": 41063,
+  "commandToolChunk": "70f745",
+  "toolExit": 0,
+  "returnedSessionID": null,
+  "sessionReason": "Completed in initial one-second tty call; no session ID returned or invented",
+  "wrapperPID": 40708,
+  "childPID": 40709,
+  "reaped": true,
+  "actualNamedPIDsAbsent": true,
+  "elapsedSeconds": 0.903288583009271,
+  "peakCombinedRSSBytes": 333266944,
+  "outputBytes": 13082376,
+  "files": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-curl-groom-preparation/output/CHECKS.json",
+      "bytes": 46621,
+      "sha256": "4b2c24415d73f155b2ad7fe5002567160a59db314ed43dcf09c6228b197d2ecf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-curl-groom-preparation/output/STATUS.json",
+      "bytes": 4348,
+      "sha256": "6a1507f66dac27ab96b112ef33731d4aabbaed4e73bc17db1d9fe6a2b55a604d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-curl-groom-preparation/output/curves.json",
+      "bytes": 802094,
+      "sha256": "2bb83ef67bcfc37119fcf9a4f43c51b9ad33a60bd7cdeb518585f3687f49d9ed"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-curl-groom-preparation/output/first-packet.png",
+      "bytes": 218071,
+      "sha256": "c5ba68327313f7c82f9bd5a6891795ca91919501045d5d5485c7f880943c036c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-curl-groom-preparation/output/groom.obj",
+      "bytes": 4354067,
+      "sha256": "e3d3a1b035c48b9938af5b24396b7c62473d3641cbc135963f1512b9cbaf6329"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-curl-groom-preparation/output/materials.mtl",
+      "bytes": 11780,
+      "sha256": "503d033b6bee770f097c9a5ced571ed2b5621aaa00e27698bb277e37940b962e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-curl-groom-preparation/output/mesh.json",
+      "bytes": 7645395,
+      "sha256": "a92e057d781bb40d32a4c265a1c7d0a87406cab5af3a0f14bda7dd82e351cbe7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-curl-groom-preparation/RUN-STATUS.json",
+      "bytes": 1540,
+      "sha256": "6dcc00786e373572b5b9d093ab3c957d5d698899996947c1fce9d3947da63a9e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-curl-groom-preparation/stdout.log",
+      "bytes": 201,
+      "sha256": "472525e23c8c211b0db539762410ca33f8870807820c60ad7b5e8c513e982b55"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-curl-groom-preparation/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "counts": {
+    "parts": 137,
+    "vertices": 42874,
+    "triangles": 85200,
+    "curls": 135
+  },
+  "pngDimensions": [
+    1440,
+    1120
+  ],
+  "sourceLockExact": true,
+  "allRuntimePinsExact": true,
+  "objSamePositionsAndTriangles": true,
+  "all135CurvesHave37GuideCurveRadiusSamples": true,
+  "wholeChecksRead": "c03628 complete compact JSON after7636da truncated",
+  "collectionInspectionCorrection": "c1c265 used nonexistent curvePoints key;93c4a9 actual schema is points; corrected only inspection, no source or output changed/reran",
+  "appearance": "UNQUALIFIED pending root whole first-image view and independent critic",
+  "noSecondSourceRun": true
+}

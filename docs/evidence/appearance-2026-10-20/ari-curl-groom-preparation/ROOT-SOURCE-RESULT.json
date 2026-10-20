@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-20T09:54:30.637831+00:00",
+  "pid": 40692,
+  "verdict": "A_EXACT_FIRST_INVOCATION_ONLY",
+  "sourceReviewBytes": 19700,
+  "sourceReviewSHA256": "eed673248b702dec6bb5392c97ca3f62a40144b0dece6f11f35bcbedbbc21956",
+  "canonicalOpinionSHA256": "b291b99965ac6a7a5257cf769addcedaf286953f3faa8672110517246af305e5",
+  "actualFilePinsVerified": 17,
+  "runtimeResolvedVerified": 13,
+  "rootInitialPrecedesCritic": true,
+  "rootWholeReviewRead": "7d5b03",
+  "rootReReadContractAndLock": "b106af",
+  "prelaunchAbsent": [
+    "RUN-STATUS.json",
+    "stdout.log",
+    "stderr.log",
+    "output"
+  ],
+  "exactOwnedCommandsLive": [],
+  "sourceStillUnexecuted": true,
+  "oneFirstCommand": "/opt/homebrew/opt/python@3.14/bin/python3.14 /Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-curl-groom-preparation/run-once.py",
+  "noRetryOrRepair": true,
+  "materialVolume": "HOLD"
+}

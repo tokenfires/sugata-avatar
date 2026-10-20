@@ -1,0 +1,59 @@
+{
+  "UTC": "2026-10-20T09:54:35.718124+00:00",
+  "wrapperPID": 40708,
+  "state": "collected-unqualified",
+  "exit": 0,
+  "limits": {
+    "main_seconds": 50,
+    "total_seconds": 60,
+    "rss_bytes": 536870912,
+    "output_bytes": 25165824,
+    "file_bytes": 16777216,
+    "log_bytes": 262144
+  },
+  "elapsedSeconds": 0.903288583009271,
+  "peakCombinedRSSBytes": 333266944,
+  "childIdentity": {
+    "pid": 40709,
+    "processGroup": 40709,
+    "expectedExecutable": "/Users/robault/.brv-cli/bin/node",
+    "expectedArgument": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-curl-groom-preparation/build.mjs",
+    "bornUTC": "2026-10-20T09:54:34.864930+00:00",
+    "parentWrapperPID": 40708
+  },
+  "childExit": 0,
+  "reaped": true,
+  "events": [],
+  "files": [
+    {
+      "name": "curves.json",
+      "bytes": 802094
+    },
+    {
+      "name": "mesh.json",
+      "bytes": 7645395
+    },
+    {
+      "name": "materials.mtl",
+      "bytes": 11780
+    },
+    {
+      "name": "groom.obj",
+      "bytes": 4354067
+    },
+    {
+      "name": "CHECKS.json",
+      "bytes": 46621
+    },
+    {
+      "name": "first-packet.png",
+      "bytes": 218071
+    },
+    {
+      "name": "STATUS.json",
+      "bytes": 4348
+    }
+  ],
+  "sourceLockSHA256": "255f7b555a5ae1d41f9ddc7bacc6ab4aabc3283c721a4910361e1b2393572472",
+  "limitsNote": "Partial/output images always unqualified. Root must collect actual tool session, verify exact output and whole-view first image with critic. Unknown cleanup/status is failure, not success."
+}

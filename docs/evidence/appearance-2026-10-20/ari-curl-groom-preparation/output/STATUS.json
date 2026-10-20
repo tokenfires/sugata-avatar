@@ -1,0 +1,190 @@
+{
+  "utc": "2026-10-20T09:54:35.544Z",
+  "state": "first-output-unqualified",
+  "pid": 40709,
+  "sourceLockSHA256": "255f7b555a5ae1d41f9ddc7bacc6ab4aabc3283c721a4910361e1b2393572472",
+  "buildSHA256": "fcd87a91d928c25a0fc70c11456bcb7f6a0f18bfb55a8f778542a0c2a2fd14a5",
+  "counts": {
+    "parts": 137,
+    "vertices": 42874,
+    "triangles": 85200,
+    "curls": 135
+  },
+  "png": {
+    "width": 1440,
+    "height": 1120,
+    "projectionChecks": [
+      {
+        "name": "FRONT +Z",
+        "bounds": {
+          "minX": 197.99040394980744,
+          "maxX": 523.0325683981032,
+          "minY": 73.17608457531838,
+          "maxY": 487.9
+        },
+        "within": true
+      },
+      {
+        "name": "RIGHT SIDE +X",
+        "bounds": {
+          "minX": 190.21932587627091,
+          "maxX": 550.4028194335934,
+          "minY": 73.17608457531838,
+          "maxY": 487.9
+        },
+        "within": true
+      },
+      {
+        "name": "REAR -Z",
+        "bounds": {
+          "minX": 196.96743160189686,
+          "maxX": 522.0095960501926,
+          "minY": 73.17608457531838,
+          "maxY": 487.9
+        },
+        "within": true
+      },
+      {
+        "name": "TOP +Y FRONT DOWN",
+        "bounds": {
+          "minX": 197.99040394980744,
+          "maxX": 523.0325683981032,
+          "minY": 89.59718056640656,
+          "maxY": 449.7806741237291
+        },
+        "within": true
+      }
+    ],
+    "views": [
+      {
+        "name": "FRONT +Z",
+        "forward": [
+          0,
+          0,
+          1
+        ],
+        "upRef": [
+          0,
+          1,
+          0
+        ],
+        "target": [
+          0,
+          0.0125,
+          0
+        ],
+        "scale": 1080,
+        "offset": [
+          0,
+          0
+        ],
+        "lighting": "fixed camera-relative inspection key, not physical lighting proof"
+      },
+      {
+        "name": "RIGHT SIDE +X",
+        "forward": [
+          1,
+          0,
+          0
+        ],
+        "upRef": [
+          0,
+          1,
+          0
+        ],
+        "target": [
+          0,
+          0.0125,
+          0
+        ],
+        "scale": 1080,
+        "offset": [
+          720,
+          0
+        ],
+        "lighting": "fixed camera-relative inspection key, not physical lighting proof"
+      },
+      {
+        "name": "REAR -Z",
+        "forward": [
+          0,
+          0,
+          -1
+        ],
+        "upRef": [
+          0,
+          1,
+          0
+        ],
+        "target": [
+          0,
+          0.0125,
+          0
+        ],
+        "scale": 1080,
+        "offset": [
+          0,
+          560
+        ],
+        "lighting": "fixed camera-relative inspection key, not physical lighting proof"
+      },
+      {
+        "name": "TOP +Y FRONT DOWN",
+        "forward": [
+          0,
+          1,
+          0
+        ],
+        "upRef": [
+          0,
+          0,
+          -1
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "scale": 1080,
+        "offset": [
+          720,
+          560
+        ],
+        "lighting": "fixed camera-relative inspection key, not physical lighting proof"
+      }
+    ]
+  },
+  "files": [
+    {
+      "name": "CHECKS.json",
+      "bytes": 46621,
+      "sha256": "4b2c24415d73f155b2ad7fe5002567160a59db314ed43dcf09c6228b197d2ecf"
+    },
+    {
+      "name": "mesh.json",
+      "bytes": 7645395,
+      "sha256": "a92e057d781bb40d32a4c265a1c7d0a87406cab5af3a0f14bda7dd82e351cbe7"
+    },
+    {
+      "name": "curves.json",
+      "bytes": 802094,
+      "sha256": "2bb83ef67bcfc37119fcf9a4f43c51b9ad33a60bd7cdeb518585f3687f49d9ed"
+    },
+    {
+      "name": "groom.obj",
+      "bytes": 4354067,
+      "sha256": "e3d3a1b035c48b9938af5b24396b7c62473d3641cbc135963f1512b9cbaf6329"
+    },
+    {
+      "name": "materials.mtl",
+      "bytes": 11780,
+      "sha256": "503d033b6bee770f097c9a5ced571ed2b5621aaa00e27698bb277e37940b962e"
+    },
+    {
+      "name": "first-packet.png",
+      "bytes": 218071,
+      "sha256": "c5ba68327313f7c82f9bd5a6891795ca91919501045d5d5485c7f880943c036c"
+    }
+  ],
+  "limits": "Finite component topology and sampled source/root/vertex observations only. No all-face head clearance, self/inter-clump collision, physical fibres/packing, actual Ari roots, anatomical ear/face fit, skinning or motion. Root and clump overlap intentional/unqualified."
+}
