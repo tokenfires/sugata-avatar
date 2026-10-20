@@ -1,0 +1,142 @@
+{
+  "source": "REFERENCE-RAW.json response.structuredContent.markdown",
+  "lines": [
+    {
+      "line": 16,
+      "text": "## Abstract"
+    },
+    {
+      "line": 17,
+      "text": ""
+    },
+    {
+      "line": 18,
+      "text": "Recent yarn-based simulation techniques permit realistic and efficient dynamic"
+    },
+    {
+      "line": 19,
+      "text": "simulation of knitted clothing, but producing the required yarn-level models remains a"
+    },
+    {
+      "line": 20,
+      "text": "challenge. The lack of practical modeling techniques significantly limits the diversity"
+    },
+    {
+      "line": 21,
+      "text": "and complexity of knitted garments that can be simulated. We propose a new modeling"
+    },
+    {
+      "line": 22,
+      "text": "technique that builds yarn-level models of complex knitted garments for virtual"
+    },
+    {
+      "line": 23,
+      "text": "characters. We start with a polygonal model that represents the large-scale surface of"
+    },
+    {
+      "line": 24,
+      "text": "the knitted cloth. Using this mesh as an input, our interactive modeling tool produces a"
+    },
+    {
+      "line": 25,
+      "text": "finer mesh representing the layout of stitches in the garment, which we call the"
+    },
+    {
+      "line": 26,
+      "text": "_stitch mesh_. By manipulating this mesh and assigning stitch types to its faces,"
+    },
+    {
+      "line": 27,
+      "text": "the user can replicate a variety of complicated knitting patterns. The curve model"
+    },
+    {
+      "line": 28,
+      "text": "representing the yarn is generated from the stitch mesh, then the final shape is"
+    },
+    {
+      "line": 29,
+      "text": "computed by a yarn-level physical simulation that locally relaxes the yarn into"
+    },
+    {
+      "line": 30,
+      "text": "realistic shape while preserving global shape of the garment and avoiding \\`\\`yarn"
+    },
+    {
+      "line": 31,
+      "text": "pull-through,'' thereby producing valid yarn geometry suitable for dynamic"
+    },
+    {
+      "line": 32,
+      "text": "simulation. Using our system, we can efficiently create yarn-level models of knitted"
+    },
+    {
+      "line": 33,
+      "text": "clothing with a rich variety of patterns that would be completely impractical to model"
+    },
+    {
+      "line": 34,
+      "text": "using traditional techniques. We show a variety of example knitting patterns and"
+    },
+    {
+      "line": 35,
+      "text": "full-scale garments produced using our system."
+    },
+    {
+      "line": 36,
+      "text": ""
+    },
+    {
+      "line": 44,
+      "text": "**Stages of our knitted garment modeling**"
+    },
+    {
+      "line": 45,
+      "text": "**system:** (a) We begin our interactive modeling process with a"
+    },
+    {
+      "line": 46,
+      "text": "polygonal mesh that specifies the global shape of the cloth model;"
+    },
+    {
+      "line": 47,
+      "text": "(b) using this polygonal mesh we produce a high-resolution"
+    },
+    {
+      "line": 48,
+      "text": "\\\\emph{stitch mesh} that serves as a canvas-like abstraction of the"
+    },
+    {
+      "line": 49,
+      "text": "yarn model; (c) then, we specify the desired knitting pattern over"
+    },
+    {
+      "line": 50,
+      "text": "the stitch mesh's surface. (d) Following the interactive modeling"
+    },
+    {
+      "line": 51,
+      "text": "process, the model goes through offline relaxation, beginning with a"
+    },
+    {
+      "line": 52,
+      "text": "mesh-based relaxation that moves the stitch mesh to the subdivision"
+    },
+    {
+      "line": 53,
+      "text": "surface of the input model and slides its vertices over this surface"
+    },
+    {
+      "line": 54,
+      "text": "based on the topology of the knitting pattern; finally, (e) we"
+    },
+    {
+      "line": 55,
+      "text": "generate the yarn curves and (f) use a physically based relaxation"
+    },
+    {
+      "line": 56,
+      "text": "process at the yarn level to compute the final realistic shape."
+    }
+  ],
+  "scope": "Only page abstract/stages distinction, no linked PDF/image/code/data or physical/implementation qualification. Initial tool display also surfaced same-page related-publication metadata; no linked content read."
+}

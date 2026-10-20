@@ -1,0 +1,234 @@
+{
+  "schema": "knit-yarn-geometry-independent-worth-v1",
+  "collectionUTC": "2026-10-20T01:38:42.816777+00:00",
+  "collectionPID": 66591,
+  "verdict": "A_PREPARE_EXACT_SPECIMEN_CONTRACT_ONLY",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8644,
+      "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2175,
+      "sha256": "f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-cancellation-contract/README.md",
+      "bytes": 7261,
+      "sha256": "7c5a4da03f5a05f5dd64c5082e83c7561118c9bdfe7cba5ab425415ff96e1123"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+      "bytes": 2023441,
+      "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-cancellation-contract/first.jpg",
+      "bytes": 100427,
+      "sha256": "a521ca28ae636be6a81f303fca639e4aee67d56b522fef1a32facbd68fcc6e6c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/PLAN.md",
+      "bytes": 3929,
+      "sha256": "40b717c82716717857cb5bd200054a69925289256662cad0aa5cd10fcfe27da0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/REFERENCE-RAW.json",
+      "bytes": 29853,
+      "sha256": "77ef38f68f3e184dbe050a16d71c538715148caeb9e6ded2cc4f1f4fa8714815"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/REFERENCE-EXCERPT.json",
+      "bytes": 4224,
+      "sha256": "bd1b0bccc36c7871b8f4745d53d787f4a8cbed892e761c3226e2192daca86a40"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/LOCATOR.json",
+      "bytes": 430,
+      "sha256": "582f4051f90b15cb0e42e462db37d64add3db2858582ffae022150ac0ae252e5"
+    }
+  ],
+  "manifest": {
+    "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/INPUTS.json",
+    "bytes": 1911,
+    "sha256": "e8c7d9c5e25d28c0421a294db4ebcb9a35cb006ac29ad4042e055a9f8dfc5766"
+  },
+  "rootFirst": {
+    "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/ROOT-FIRST.json",
+    "bytes": 4822,
+    "sha256": "5ee60853683dd6e0fda0b4f74eed1c282ca5f2b0a3d00894cb17c3ba9365f671"
+  },
+  "review": {
+    "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/WORTH.md",
+    "bytes": 4867,
+    "sha256": "1f2cf982c6cb7d7f6e2d096d13bff43b46d21faba3b68528dc11c9662306c5d9"
+  },
+  "receiptSelfBinding": "Exact bytes/hash returned by separate complete stable readback; no circular self hash.",
+  "independence": {
+    "ownSeal": "ca25fd/exit0/PID63712/2026-10-20T01:37:10.997367+00:00",
+    "rootOpinionFirstRead": "b85850/exit0/PID64093/2026-10-20T01:37:23.259160+00:00",
+    "rootEarlierSeal": "ROOT-FIRST.utc2026-10-20T01:32:57.453525+00:00/PID55991",
+    "comparison": "Both A solely for a complete separate exact specimen contract; no construction/appearance/physics/garment admission."
+  },
+  "coverage": {
+    "wholeDocuments": [
+      "PLAN.md",
+      "INPUTS.json",
+      "knit-character-turnaround/ARTIST-HANDOFF.md",
+      "knit-cancellation-contract/README.md",
+      "REFERENCE-EXCERPT.json",
+      "LOCATOR.json",
+      "ROOT-FIRST.json only after own seal"
+    ],
+    "twoReceiptBytes": 9436,
+    "checklistScope": "Current8644-byte/6c660cb4 pin verified only; previous exact checklist semantic review reused, no whole checklist reread.",
+    "primaryScope": "REFERENCE-RAW byte-pinned and parsed, request/status/metadata/feedback plus exactly34 excerpt rows16–36 and44–56 only; other returned markdown/content not a full-article semantic read. No linked image/PDF/code/assets followed.",
+    "locatorScope": "430-byte metadata says earlier selection had9rows; no new query, no literal nine-row recount or old ledger semantic read; etch/fetch incidental matches ignored.",
+    "actualWholeViews": [
+      {
+        "tool": "view_image",
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+        "requestedDetail": "original",
+        "returnedDetail": "original",
+        "priorMetadataJob": "6270c3",
+        "priorMetadataUTC": "2026-10-20T01:35:59.653064+00:00",
+        "backendPID": "not exposed"
+      },
+      {
+        "tool": "view_image",
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-cancellation-contract/first.jpg",
+        "requestedDetail": "original",
+        "returnedDetail": "original",
+        "priorMetadataJob": "6270c3",
+        "priorMetadataUTC": "2026-10-20T01:35:59.653064+00:00",
+        "backendPID": "not exposed"
+      }
+    ],
+    "viewTiming": "Both local original-detail views after6270c3/01:35:59.653064UTC and before own sealca25fd/01:37:10.997367UTC. Image-backend exact PID/UTC unexposed.",
+    "newImageViews": 2,
+    "notViewed": "No other local image, six old native Mara PNGs, paper figure/PDF or old six native knit views."
+  },
+  "checks": {
+    "currentInputRows": 9,
+    "allCurrentHashesMatch": true,
+    "selectedPrimaryRows": 34,
+    "rowsExactlyMatchSavedMarkdown": true,
+    "primaryURL": "https://www.cemyuksel.com/research/stitchmeshes/",
+    "requestMaxAge": 0,
+    "requestTimeoutMilliseconds": 30000,
+    "primaryHTTP": 200,
+    "reportedCredits": 1,
+    "feedbackRefund": 0,
+    "acceptedCharacterDimensions": [
+      1536,
+      1024
+    ],
+    "oldWholeComparisonDimensions": [
+      1280,
+      1618
+    ],
+    "imageByteCapsEach": 8388608,
+    "maxDimensionCapEach": 8192,
+    "twoReceiptCombinedCap": 24576,
+    "actualTwoReceiptCombined": 9436
+  },
+  "actualIndependentDecision": {
+    "verdict": "A_PREPARE_EXACT_SPECIMEN_CONTRACT_ONLY",
+    "worth": "Yes, preparing one small standalone editable yarn-loop geometry source contract is worthwhile. No construction or runtime admission follows.",
+    "sourceAndImageReasoning": "The accepted character shows fine, calm fabric at whole-figure scale and its handoff explicitly leaves editable/native/3D/knit physics open. The old normal-field whole comparison shows repeated V-like marks with dense granular/dark side and sleeve treatment; its README rejects that complete appearance and explicitly leaves physical yarn/thickness unowned without diagnosing a unique shader defect. A new bounded centerline/solid-loop/joins/interloop source responsibility is distinct from adjusting that old normal field, garment mesh, mapping, camera or material. The primary page's saved abstract/stages separates global cloth, stitch layout, yarn curves and physical relaxation, supporting that distinction only.",
+    "conditions": "The next inert contract must own exact centerlines/joins, interloop relations, radius/contact/open ends/periodicity/units/specimen bounds, editable actual geometry, output/resource/failure duties and independent numeric/whole-image qualification. It must have a usable specimen question, not claim to cure the old image or deliver a garment, physics/PBR/performance/AAA. No unspecified optimizer, old field/UV/material/loft/control rescue or closed constructor is admitted.",
+    "findings": [],
+    "alternatives": [
+      {
+        "choice": "Prepare one exact small isolated yarn-geometry artist-source contract, preserving all old artifacts.",
+        "tradeoff": "May produce an editable fabric building block with inspectable depth/loop relations; preparation may expose an unowned contact/resource duty and must stop before construction."
+      },
+      {
+        "choice": "Defer until a real coupled garment/material consumer owns the full source and rendering decision.",
+        "tradeoff": "Avoids another isolated prerequisite and speculative work; actual yarn structure remains unowned and the old field's partial cue is not a usable replacement."
+      }
+    ],
+    "limits": "Individual worth judgment, not source geometry feasibility, physics, old failure diagnosis, artifact appearance, implementation/API or constructor admission. Exactly two permitted whole images, two whole receipts and34savedprimaryrows; no further source, query, PDF, code, image or runtime work."
+  },
+  "worthWitnesses": [
+    {
+      "source": "knit-character-turnaround/ARTIST-HANDOFF paragraphs2–4 and accepted wholefirst torso/sleeves approxx198–466/y155–456",
+      "effect": "Useful clothed/fabric illustration remains distinct from an editable 3D yarn model; source/knit-physics duty remains open."
+    },
+    {
+      "source": "knit-cancellation-contract/README first/thirdparagraphs and What work establishes; old first.jpg right-frontx720–1145/y380–595 and obliquex905–1050/y850–1015",
+      "effect": "PartialVcue/dense dark pattern is a retained failed whole-appearance study, not a uniquely diagnosed shader bug or proof that 3D geometry cures it."
+    },
+    {
+      "source": "REFERENCE-EXCERPT rows23–31/44–56",
+      "effect": "Separate cloth/stitch/yarn/relaxation responsibilities support a new-source distinction only, not this method or physical correctness."
+    }
+  ],
+  "findings": [],
+  "alternatives": [
+    {
+      "choice": "Prepare one exact small isolated yarn-geometry artist-source contract, preserving all old artifacts.",
+      "tradeoff": "May produce an editable fabric building block with inspectable depth/loop relations; preparation may expose an unowned contact/resource duty and must stop before construction."
+    },
+    {
+      "choice": "Defer until a real coupled garment/material consumer owns the full source and rendering decision.",
+      "tradeoff": "Avoids another isolated prerequisite and speculative work; actual yarn structure remains unowned and the old field's partial cue is not a usable replacement."
+    }
+  ],
+  "mandatoryLaterContract": "The next inert contract must own exact centerlines/joins, interloop relations, radius/contact/open ends/periodicity/units/specimen bounds, editable actual geometry, output/resource/failure duties and independent numeric/whole-image qualification. It must have a usable specimen question, not claim to cure the old image or deliver a garment, physics/PBR/performance/AAA. No unspecified optimizer, old field/UV/material/loft/control rescue or closed constructor is admitted.",
+  "errors": [],
+  "limits": [
+    "Worth/preparation only; root independent whole-read/fresh verification required before new contract.",
+    "No construction, source geometry, optimizer, target/check/import/evaluation, fixture, renderer/browser/native/GPU, generation/capture or online retrieval.",
+    "No prior shader/field/map/UV/material/loft/control/camera/observer repair or old constructor reopening.",
+    "No physics/PBR/performance/garment/bodyfit/native/rig/motion/default/AAA or old failure-cause qualification.",
+    "Original/accepted/default/frozen/ignored/unrelated assets, all old closures, 23scoped10broad fullroadmap and Ari material-volumeHOLD preserved."
+  ],
+  "deadlineUTC": "2026-10-20T01:50:00Z",
+  "jobs": [
+    {
+      "name": "yarn_worth_initial",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth');print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['PLAN.md','INPUTS.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "f28a8a",
+      "exit_code": 0,
+      "wall_time_seconds": 5.166e-06,
+      "output_utf8bytes": 6087,
+      "output_sha256": "80c0b5306d84bcdc6ae9b4d94a05452ec7f47893a81f797b59be6d80db65a24f",
+      "first_output_line": "UTC 2026-10-20T01:35:35.579033+00:00 PID 60822"
+    },
+    {
+      "name": "yarn_worth_sources",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib,struct\nr=Path('/Users/robault/GitHub/sugata-avatar');d=r/'docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth';print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\ndef pin(p):\n b=p.read_bytes();return {'path':str(p.relative_to(r)),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nm=json.loads((d/'INPUTS.json').read_text())\nfor z in m['pins']:\n p=r/z['path'];assert p.is_file() and not p.is_symlink() and pin(p)==z\nprint('NINE_BINDINGS_PASS',len(m['pins']),'MANIFEST',json.dumps(pin(d/'INPUTS.json')))\nfor path in [m['pins'][1]['path'],m['pins'][2]['path'],m['pins'][7]['path'],m['pins'][8]['path']]:\n p=r/path;print('\\nFILE',json.dumps(pin(p)));print(p.read_text())\nraw=json.loads((d/'REFERENCE-RAW.json').read_text())\ndef compact(x,path='root'):\n if isinstance(x,dict):return {k:compact(v,path+'.'+k) for k,v in x.items()}\n if isinstance(x,list):return [compact(v,path+'[]') for v in x]\n if isinstance(x,str) and len(x)>1500:return {'unprintedString':path,'utf8bytes':len(x.encode()),'sha256':hashlib.sha256(x.encode()).hexdigest()}\n return x\nprint('SAVED_PRIMARY_REQUEST_STATUS_METADATA',json.dumps(compact(raw),ensure_ascii=False,indent=2))\nfor idx in [3,4]:\n p=r/m['pins'][idx]['path'];b=p.read_bytes()\n if b[:8]==b'\\x89PNG\\r\\n\\x1a\\n':dims=struct.unpack('>II',b[16:24]);fmt='PNG'\n else:\n  assert b[:2]==b'\\xff\\xd8';i=2;dims=None;fmt='JPEG'\n  while i<len(b):\n   if b[i]!=255:i+=1;continue\n   while b[i]==255:i+=1\n   marker=b[i];i+=1\n   if marker in [0xd8,0xd9] or 0xd0<=marker<=0xd7:continue\n   n=struct.unpack('>H',b[i:i+2])[0]\n   if marker in [0xc0,0xc1,0xc2,0xc3,0xc5,0xc6,0xc7,0xc9,0xca,0xcb,0xcd,0xce,0xcf]:\n    h,w=struct.unpack('>HH',b[i+3:i+7]);dims=(w,h);break\n   i+=n\n assert dims and max(dims)<=8192 and len(b)<=8388608\n print('IMAGE_HEADER',str(p.relative_to(r)),fmt,dims)\nPY",
+      "chunk_id": "6270c3",
+      "exit_code": 0,
+      "wall_time_seconds": 7.084e-06,
+      "output_utf8bytes": 17113,
+      "output_sha256": "1496fd89976aa9227dae0a5eb2911839c804d826f56f05ebe14b214fbc5386ce",
+      "first_output_line": "UTC 2026-10-20T01:35:59.653064+00:00 PID 61562"
+    },
+    {
+      "name": "yarn_worth_seal",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth');print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\na=json.loads((p/'REFERENCE-EXCERPT.json').read_text());raw=json.loads((p/'REFERENCE-RAW.json').read_text());lines=raw['response']['structuredContent']['markdown'].splitlines();assert len(a['lines'])==34\nfor z in a['lines']:assert lines[z['line']-1]==z['text']\nassert [z['line'] for z in a['lines']]==list(range(16,37))+list(range(44,57));print('EXACT_PRIMARY_EXCERPT_PASS34 rows16–36/44–56; request/statusmetadata previously inspected')\nprint('INDEPENDENT_WORTH_SEAL',\"{\\\"verdict\\\":\\\"A_PREPARE_EXACT_SPECIMEN_CONTRACT_ONLY\\\",\\\"worth\\\":\\\"Yes, preparing one small standalone editable yarn-loop geometry source contract is worthwhile. No construction or runtime admission follows.\\\",\\\"sourceAndImageReasoning\\\":\\\"The accepted character shows fine, calm fabric at whole-figure scale and its handoff explicitly leaves editable/native/3D/knit physics open. The old normal-field whole comparison shows repeated V-like marks with dense granular/dark side and sleeve treatment; its README rejects that complete appearance and explicitly leaves physical yarn/thickness unowned without diagnosing a unique shader defect. A new bounded centerline/solid-loop/joins/interloop source responsibility is distinct from adjusting that old normal field, garment mesh, mapping, camera or material. The primary page's saved abstract/stages separates global cloth, stitch layout, yarn curves and physical relaxation, supporting that distinction only.\\\",\\\"conditions\\\":\\\"The next inert contract must own exact centerlines/joins, interloop relations, radius/contact/open ends/periodicity/units/specimen bounds, editable actual geometry, output/resource/failure duties and independent numeric/whole-image qualification. It must have a usable specimen question, not claim to cure the old image or deliver a garment, physics/PBR/performance/AAA. No unspecified optimizer, old field/UV/material/loft/control rescue or closed constructor is admitted.\\\",\\\"findings\\\":[],\\\"alternatives\\\":[{\\\"choice\\\":\\\"Prepare one exact small isolated yarn-geometry artist-source contract, preserving all old artifacts.\\\",\\\"tradeoff\\\":\\\"May produce an editable fabric building block with inspectable depth/loop relations; preparation may expose an unowned contact/resource duty and must stop before construction.\\\"},{\\\"choice\\\":\\\"Defer until a real coupled garment/material consumer owns the full source and rendering decision.\\\",\\\"tradeoff\\\":\\\"Avoids another isolated prerequisite and speculative work; actual yarn structure remains unowned and the old field's partial cue is not a usable replacement.\\\"}],\\\"limits\\\":\\\"Individual worth judgment, not source geometry feasibility, physics, old failure diagnosis, artifact appearance, implementation/API or constructor admission. Exactly two permitted whole images, two whole receipts and34savedprimaryrows; no further source, query, PDF, code, image or runtime work.\\\"}\")\nPY",
+      "chunk_id": "ca25fd",
+      "exit_code": 0,
+      "wall_time_seconds": 6.25e-06,
+      "output_utf8bytes": 2526,
+      "output_sha256": "634df2bcab64801754b9ad633ef212531edc538db65c8f7c0e49991db04fe2ac",
+      "first_output_line": "UTC 2026-10-20T01:37:10.997367+00:00 PID 63712"
+    },
+    {
+      "name": "yarn_worth_compare",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/ROOT-FIRST.json');b=p.read_bytes();print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid());print('FILE',p.name,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "b85850",
+      "exit_code": 0,
+      "wall_time_seconds": 7.833e-06,
+      "output_utf8bytes": 4974,
+      "output_sha256": "7aa7aa2a2ef54e1c6cee0aafe838b7201160eac6657d1afca17fedc192bf4528",
+      "first_output_line": "UTC 2026-10-20T01:37:23.259160+00:00 PID 64093"
+    }
+  ],
+  "collectionOperation": "Exclusive xb writes only WORTH.md and CRITIC-RECEIPT.json after current nine-pin verification."
+}

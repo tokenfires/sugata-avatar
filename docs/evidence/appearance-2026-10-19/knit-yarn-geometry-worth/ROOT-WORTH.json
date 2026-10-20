@@ -1,0 +1,146 @@
+{
+  "schema": "knit-yarn-geometry-root-worth-v1",
+  "decision": "A: prepare one separate exact standalone yarn-source contract only",
+  "rootAgreement": "I independently inspected both whole originals and the two complete receipts. The accepted sheet has a calm fine surface and organized ribs; the rejected candidate has dense V marks and dark oblique detail. That contrast leaves actual yarn structure unowned but does not diagnose a shader defect or promise a geometry cure.",
+  "primaryLimit": "The single current author page separates cloth shape, stitch layout, yarn curves and physical relaxation. Its saved 34 rows support a representation distinction only; figures, paper, code and data remain unviewed.",
+  "alternatives": [
+    {
+      "choice": "Prepare one finite editable yarn-source specimen contract.",
+      "tradeoff": "Potentially inspectable loop depth and joins; complete contact, output, rendering and resource duties may still stop it before construction."
+    },
+    {
+      "choice": "Defer until a complete garment/material consumer is selected.",
+      "tradeoff": "Avoid isolated microgeometry work; actual yarn structure remains open."
+    }
+  ],
+  "wholeStableHandoff": {
+    "command": "cat docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/WORTH.md\ncat docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/CRITIC-RECEIPT.json",
+    "chunk_id": "bd6c02",
+    "exit_code": 0,
+    "original_token_count": 5914,
+    "coverage": "Whole 4867-byte WORTH.md and 18788-byte receipt; returned 5914 tokens without truncation."
+  },
+  "independentVerification": {
+    "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os,tomllib\np=Path('docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth')\ndef pin(path):\n b=Path(path).read_bytes();return {'path':str(path),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nc=json.loads((p/'CRITIC-RECEIPT.json').read_text()); assert c['pending_edits'] is False and not c['errors']\nrows=c['inputs']+[c['manifest'],c['rootFirst'],c['review']]\nfor x in rows: assert pin(x['path'])==x,x['path']\nassert c['independence']['ownSeal'].split('/')[3] < c['independence']['rootOpinionFirstRead'].split('/')[3]\nassert sum(x['bytes'] for x in c['inputs'][1:3])==9436\nassert (p/'WORTH.md').stat().st_size==4867 and (p/'CRITIC-RECEIPT.json').stat().st_size==18788\ncfg=Path('/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml'); a=tomllib.loads(cfg.read_text())\nprint(json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'freshBindings':rows+[pin(p/'CRITIC-RECEIPT.json'),pin(p/'TOOL-ROOT.json')],'verifiedBindings':len(rows)+2,'criticIndependence':c['independence'],'automation':{'file':pin(cfg),'status':a.get('status'),'rrule':a.get('rrule'),'threadId':a.get('thread_id'),'scope':'Saved configuration only; no mutation or delivery proof.'},'targetJobs':[]},indent=2))\nPY",
+    "result": {
+      "chunk_id": "c3a9d1",
+      "wall_time_seconds": 7.417e-06,
+      "exit_code": 0,
+      "original_token_count": 962,
+      "output": "{\n  \"utc\": \"2026-10-20T01:39:48.734111+00:00\",\n  \"pid\": 68603,\n  \"freshBindings\": [\n    {\n      \"path\": \"docs/PROJECT-CHECKLIST.md\",\n      \"bytes\": 8644,\n      \"sha256\": \"6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md\",\n      \"bytes\": 2175,\n      \"sha256\": \"f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-cancellation-contract/README.md\",\n      \"bytes\": 7261,\n      \"sha256\": \"7c5a4da03f5a05f5dd64c5082e83c7561118c9bdfe7cba5ab425415ff96e1123\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png\",\n      \"bytes\": 2023441,\n      \"sha256\": \"dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-cancellation-contract/first.jpg\",\n      \"bytes\": 100427,\n      \"sha256\": \"a521ca28ae636be6a81f303fca639e4aee67d56b522fef1a32facbd68fcc6e6c\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/PLAN.md\",\n      \"bytes\": 3929,\n      \"sha256\": \"40b717c82716717857cb5bd200054a69925289256662cad0aa5cd10fcfe27da0\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/REFERENCE-RAW.json\",\n      \"bytes\": 29853,\n      \"sha256\": \"77ef38f68f3e184dbe050a16d71c538715148caeb9e6ded2cc4f1f4fa8714815\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/REFERENCE-EXCERPT.json\",\n      \"bytes\": 4224,\n      \"sha256\": \"bd1b0bccc36c7871b8f4745d53d787f4a8cbed892e761c3226e2192daca86a40\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/LOCATOR.json\",\n      \"bytes\": 430,\n      \"sha256\": \"582f4051f90b15cb0e42e462db37d64add3db2858582ffae022150ac0ae252e5\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/INPUTS.json\",\n      \"bytes\": 1911,\n      \"sha256\": \"e8c7d9c5e25d28c0421a294db4ebcb9a35cb006ac29ad4042e055a9f8dfc5766\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/ROOT-FIRST.json\",\n      \"bytes\": 4822,\n      \"sha256\": \"5ee60853683dd6e0fda0b4f74eed1c282ca5f2b0a3d00894cb17c3ba9365f671\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/WORTH.md\",\n      \"bytes\": 4867,\n      \"sha256\": \"1f2cf982c6cb7d7f6e2d096d13bff43b46d21faba3b68528dc11c9662306c5d9\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/CRITIC-RECEIPT.json\",\n      \"bytes\": 18788,\n      \"sha256\": \"4108d1f4e6f4eefdc6d4c5842cae04ca1192ed5e52506f7032b4a7bf6b2c3735\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/TOOL-ROOT.json\",\n      \"bytes\": 61073,\n      \"sha256\": \"7d5c5ba430719957038ec2dabbc4d7d426cf9d157e75fcf9fbc8b74530eb6f38\"\n    }\n  ],\n  \"verifiedBindings\": 14,\n  \"criticIndependence\": {\n    \"ownSeal\": \"ca25fd/exit0/PID63712/2026-10-20T01:37:10.997367+00:00\",\n    \"rootOpinionFirstRead\": \"b85850/exit0/PID64093/2026-10-20T01:37:23.259160+00:00\",\n    \"rootEarlierSeal\": \"ROOT-FIRST.utc2026-10-20T01:32:57.453525+00:00/PID55991\",\n    \"comparison\": \"Both A solely for a complete separate exact specimen contract; no construction/appearance/physics/garment admission.\"\n  },\n  \"automation\": {\n    \"file\": {\n      \"path\": \"/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml\",\n      \"bytes\": 3344,\n      \"sha256\": \"9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a\"\n    },\n    \"status\": \"ACTIVE\",\n    \"rrule\": \"FREQ=MINUTELY;INTERVAL=10\",\n    \"threadId\": null,\n    \"scope\": \"Saved configuration only; no mutation or delivery proof.\"\n  },\n  \"targetJobs\": []\n}\n"
+    },
+    "checks": {
+      "utc": "2026-10-20T01:39:48.734111+00:00",
+      "pid": 68603,
+      "freshBindings": [
+        {
+          "path": "docs/PROJECT-CHECKLIST.md",
+          "bytes": 8644,
+          "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md",
+          "bytes": 2175,
+          "sha256": "f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-cancellation-contract/README.md",
+          "bytes": 7261,
+          "sha256": "7c5a4da03f5a05f5dd64c5082e83c7561118c9bdfe7cba5ab425415ff96e1123"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+          "bytes": 2023441,
+          "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-cancellation-contract/first.jpg",
+          "bytes": 100427,
+          "sha256": "a521ca28ae636be6a81f303fca639e4aee67d56b522fef1a32facbd68fcc6e6c"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/PLAN.md",
+          "bytes": 3929,
+          "sha256": "40b717c82716717857cb5bd200054a69925289256662cad0aa5cd10fcfe27da0"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/REFERENCE-RAW.json",
+          "bytes": 29853,
+          "sha256": "77ef38f68f3e184dbe050a16d71c538715148caeb9e6ded2cc4f1f4fa8714815"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/REFERENCE-EXCERPT.json",
+          "bytes": 4224,
+          "sha256": "bd1b0bccc36c7871b8f4745d53d787f4a8cbed892e761c3226e2192daca86a40"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/LOCATOR.json",
+          "bytes": 430,
+          "sha256": "582f4051f90b15cb0e42e462db37d64add3db2858582ffae022150ac0ae252e5"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/INPUTS.json",
+          "bytes": 1911,
+          "sha256": "e8c7d9c5e25d28c0421a294db4ebcb9a35cb006ac29ad4042e055a9f8dfc5766"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/ROOT-FIRST.json",
+          "bytes": 4822,
+          "sha256": "5ee60853683dd6e0fda0b4f74eed1c282ca5f2b0a3d00894cb17c3ba9365f671"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/WORTH.md",
+          "bytes": 4867,
+          "sha256": "1f2cf982c6cb7d7f6e2d096d13bff43b46d21faba3b68528dc11c9662306c5d9"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/CRITIC-RECEIPT.json",
+          "bytes": 18788,
+          "sha256": "4108d1f4e6f4eefdc6d4c5842cae04ca1192ed5e52506f7032b4a7bf6b2c3735"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/TOOL-ROOT.json",
+          "bytes": 61073,
+          "sha256": "7d5c5ba430719957038ec2dabbc4d7d426cf9d157e75fcf9fbc8b74530eb6f38"
+        }
+      ],
+      "verifiedBindings": 14,
+      "criticIndependence": {
+        "ownSeal": "ca25fd/exit0/PID63712/2026-10-20T01:37:10.997367+00:00",
+        "rootOpinionFirstRead": "b85850/exit0/PID64093/2026-10-20T01:37:23.259160+00:00",
+        "rootEarlierSeal": "ROOT-FIRST.utc2026-10-20T01:32:57.453525+00:00/PID55991",
+        "comparison": "Both A solely for a complete separate exact specimen contract; no construction/appearance/physics/garment admission."
+      },
+      "automation": {
+        "file": {
+          "path": "/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml",
+          "bytes": 3344,
+          "sha256": "9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a"
+        },
+        "status": "ACTIVE",
+        "rrule": "FREQ=MINUTELY;INTERVAL=10",
+        "threadId": null,
+        "scope": "Saved configuration only; no mutation or delivery proof."
+      },
+      "targetJobs": []
+    }
+  },
+  "stableFiles": "TOOL-ROOT remains exact at its verified hash. Critic pending_edits=false, source and original images unchanged.",
+  "timing": "PLAN was written at 01:29:48 before its rounded 01:30 start. The nine-row locator was earlier source-selection metadata, transparently recorded; no preregistration claim. Review and close occur before 01:50.",
+  "restrictions": "No constructor/source geometry, algorithm, optimizer, CPU target/test, native/GPU/browser, generation, linked PDF/image/code, old material/field/mapping/UV/camera/loft/control/observer or renamed repair. Ari material-volume HOLD remains. Full AAA roadmap and 23 scoped/10 broad checklist remain unchanged.",
+  "next": "Separately declare a bounded exact specimen/source/workload contract-preparation slice, with complete duties and an independent/root source gate before any constructor. This worth A is not construction admission.",
+  "liveOwnedTargets": [],
+  "pendingCriticEdits": false,
+  "checkpointPriorPins": {
+    "WORK-WINDOW-2026-10-18.md": {
+      "bytes": 178195,
+      "sha256": "615e0f908d4188c8b5c9e5a24558e09e0fdcd799f6cf0302c4a5c4b6a7cfebb5"
+    },
+    "RESUME-2026-10-18.md": {
+      "bytes": 153131,
+      "sha256": "4000e00194a3293f9c741410e60f992f9ab196286fe1b579bc0e82af3a531daf"
+    }
+  },
+  "writtenUTC": "2026-10-20T01:40:29.463230+00:00",
+  "writerPID": 69893
+}
