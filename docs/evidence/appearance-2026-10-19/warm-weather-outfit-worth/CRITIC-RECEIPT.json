@@ -1,0 +1,241 @@
+{
+  "schema": "warm-weather-outfit-independent-worth-v1",
+  "collectionUTC": "2026-10-20T02:08:12.755740+00:00",
+  "collectionPID": 3657,
+  "verdict": "A_PREPARE_EXACT_SEASONAL_OUTFIT_CONTRACT_ONLY",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/PLAN.md",
+      "bytes": 3743,
+      "sha256": "e8fa4372a0d9002d98aec08613fdaeb17b6a81be518474b06e3729ff3ac568b6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/LOCAL-INPUTS.json",
+      "bytes": 2441,
+      "sha256": "b13e5ff9b967faaa3192a8e3e5b68d95f3527e78046362f5138ba8fcff7487a2"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8644,
+      "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 4214,
+      "sha256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2175,
+      "sha256": "f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-tee-artist/README.md",
+      "bytes": 1904,
+      "sha256": "9a5ddfa2ee7459bee584b20170e8b6ba9323d626904078564d2eac09ca19878e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+      "bytes": 2023441,
+      "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0"
+    }
+  ],
+  "manifest": "LOCAL-INPUTS is an exact input row; no separate unprovided manifest is inferred. ROOT-FIRST lists the same nine independently inspected/pinned files.",
+  "rootFirst": {
+    "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/ROOT-FIRST.json",
+    "bytes": 4331,
+    "sha256": "68402a732a2ea8db6a7b876f94f170189f45e73b7b16ebddf44ac48b8c49022f"
+  },
+  "review": {
+    "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/WORTH.md",
+    "bytes": 4334,
+    "sha256": "ebe380650ac500bba93d9820c8dde17f3f1885cfb8331c84a09a8ec03683c929"
+  },
+  "receiptSelfBinding": "Separate whole stable readback returns exact receipt bytes/hash; no circular embedded self hash.",
+  "coverage": {
+    "wholeCurrentDocuments": [
+      "PLAN.md",
+      "LOCAL-INPUTS.json",
+      "KNIT-CHARACTER-TARGET-2026-10-04.md4214B",
+      "knit-character-turnaround/ARTIST-HANDOFF.md2175B",
+      "ari-tee-artist/README.md1904B",
+      "ROOT-FIRST.json only after own seal"
+    ],
+    "threeWholeReceiptBytes": 8293,
+    "twoOriginalReceiptBytes": 6389,
+    "reusedSemanticSources": "Current PRODUCT-ROADMAP32741B/b63372b0 and PROJECT-CHECKLIST8644B/6c660cb4 whole reads from preceding worth reused at fresh same hashes; no new whole main-doc read.",
+    "existingLocatorScope": "Exactly two literal rows686/688 read from LOCAL-INPUTS. sourceAtHEAD606384e4 and historical ledger pin are reported selection metadata; no Git/current ledger semantic read, rerun, new query or globalabsence inference.",
+    "actualWholeViews": [
+      {
+        "tool": "view_image",
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+        "requestedDetail": "original",
+        "returnedDetail": "original",
+        "priorMetadataJob": "b65c34",
+        "priorMetadataUTC": "2026-10-20T02:04:46.411103+00:00",
+        "backendPID": "not exposed"
+      },
+      {
+        "tool": "view_image",
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+        "requestedDetail": "original",
+        "returnedDetail": "original",
+        "priorMetadataJob": "b65c34",
+        "priorMetadataUTC": "2026-10-20T02:04:46.411103+00:00",
+        "backendPID": "not exposed"
+      }
+    ],
+    "viewTiming": "Both original-detail views afterb65c34/02:04:46.411103UTC and before own sealdb5535/02:06:07.345689UTC; exact backend PID/UTC unexposed.",
+    "imageCount": 2,
+    "otherImageOrLinkedTraversal": 0
+  },
+  "independence": {
+    "ownSeal": "db5535/exit0/PID3226/2026-10-20T02:06:07.345689+00:00",
+    "rootContentFirstRead": "fd4f0d/exit0/PID3314/2026-10-20T02:06:27.952026+00:00",
+    "rootEarlierSeal": "ROOT-FIRST.utc2026-10-20T02:03:11.417265+00:00/PID2621",
+    "comparison": "Both A for exact separate outfit/source/output contract preparation only; no generation/reference/current qualification."
+  },
+  "checks": {
+    "currentPins": 9,
+    "allCurrentHashesMatch": true,
+    "imageDimensionsBoth": [
+      1536,
+      1024
+    ],
+    "maxAllowedDimension": 8192,
+    "imageByteCapEach": 8388608,
+    "receiptCombinedBytes": 8293,
+    "newOnlinePages": 0,
+    "newTargets": 0
+  },
+  "actualIndependentDecision": {
+    "verdict": "A_PREPARE_EXACT_SEASONAL_OUTFIT_CONTRACT_ONLY",
+    "worth": "Yes. One complete warm-weather outfit comparison on the same retained fictional character warrants a separately reviewed exact brief/source/output contract. No generation or reference retrieval is admitted by this worth A.",
+    "sourceAndImageReasoning": "Both actual whole images retain the pale-blue long-sleeve crew knit, charcoal generous long trousers and brown ankle boots; the supplementary plate adds profile/rear of that same outfit, not a seasonal clothing alternative. The original target and handoff deliberately leave runtime/editable/fit duties open. A complete visible seasonal top-bottom-footwear composition would support a specific wardrobe comparison while keeping the face/groom/body intent stable. This is different from Ari's closed hidden tee choice, whose README explicitly had no jacket-off consumer; it neither supplies an Ari sleeve/neck/hem retry nor changes the accepted knit material.",
+    "conditions": "The next exact brief must own a genuinely complete seasonal clothing silhouette/palette/material-language and requested whole-view comparison, with qualitative original character continuity, actual visual criteria and managed output/failure limits. It must not become another sweater texture/normal/yarn repair, standalone hidden tee/detail variant, new native/demographic identity or implied physical cooling/fit/rig/runtime/starter acceptance. Root must independently verify before preparation; any later source/image call needs its own gate.",
+    "alternatives": [
+      {
+        "choice": "Prepare one exact complete seasonal outfit artist contract on this same character.",
+        "tradeoff": "Adds a useful visible wardrobe alternative and coordination decision; it remains an illustration without editable/native depth or supported mix-and-match proof."
+      },
+      {
+        "choice": "Defer until a real coupled body/garment or runtime wardrobe consumer owns source and fit.",
+        "tradeoff": "Avoids more isolated illustration and concentrates implementation effort; leaves no explicit seasonal wardrobe comparison for this character."
+      }
+    ],
+    "findings": [],
+    "limits": "Only the two permitted whole images and three nominated receipts; current checklist/roadmap semantic read reused at identical verified pins. Two retained locator rows alone, no current/history ledger read or absence claim. No online, image generation, source construction, target/browser/native/GPU or oldmethod reopening."
+  },
+  "worthWitnesses": [
+    {
+      "source": "Original wholeconcept sweater approxx210–495/y157–470 with longtrousers/boots; supplemental wholefront/profile/rear same outfit",
+      "effect": "Two complementary views of one existing design, no seasonal alternative in these two sources; provides same-character comparison anchor rather than a defect."
+    },
+    {
+      "source": "KNIT-CHARACTER-TARGET opening/What target clarifies/What still needsauthoring; currenthandoffparagraphs2–4",
+      "effect": "Qualitative clothing artist intent can support new outfit discussion, while editable/native/physicalfit/motion remain open."
+    },
+    {
+      "source": "ari-tee-artist/README paragraphs2–3; exact retainedLOCALrows686/688",
+      "effect": "Closed hiddenparts lacked immediateconsumer; this complete visible seasonal outfit has a differentconsumer and cannot serve an Ari tee retry."
+    },
+    {
+      "source": "Previously whole-read roadmap Representativebuilds/Immediateworkorder3 and currentchecklist53–56",
+      "effect": "Phase1completeoutfit/representative design work is in scope; art does not qualify native starter or later phasegates."
+    }
+  ],
+  "findings": [],
+  "alternatives": [
+    {
+      "choice": "Prepare one exact complete seasonal outfit artist contract on this same character.",
+      "tradeoff": "Adds a useful visible wardrobe alternative and coordination decision; it remains an illustration without editable/native depth or supported mix-and-match proof."
+    },
+    {
+      "choice": "Defer until a real coupled body/garment or runtime wardrobe consumer owns source and fit.",
+      "tradeoff": "Avoids more isolated illustration and concentrates implementation effort; leaves no explicit seasonal wardrobe comparison for this character."
+    }
+  ],
+  "next": "Only root-verified preparation of one exact complete seasonal outfit brief/source/output contract. Any later reference or managed image entry needs a separate complete gate.",
+  "observerProvenance": [
+    {
+      "owner": "root pre-seal bookkeeping",
+      "reportedJobs": [
+        "a7bed7",
+        "aa64a0"
+      ],
+      "scope": "Parent reports initial Path/string error before any write; corrected routine retained same duties. No actual target/source/visual retry. Exact error text not independently reopened."
+    }
+  ],
+  "errors": [],
+  "limits": [
+    "No new identity/demographic certification, physical climate/cooling/fabric claim, editable/native/3D garment, fit/rig/motion/performance/runtime/AAA or complete starter acceptance.",
+    "No online/imagegen/capture/sourceconstruction/code/test/import/eval/browser/native/GPU/geometry/target action or oldmethod reopening by critic.",
+    "Old hidden Ari tee, rejected knit normalfield/yarn source, geometry/native observer/import UI and other closed methods remain exact.",
+    "All assets/defaults/fullroadmap/checklist23scoped10broad/Ari material-volumeHOLD preserved."
+  ],
+  "deadlineUTC": "2026-10-20T02:21:06.288775Z",
+  "jobs": [
+    {
+      "name": "warm_worth_initial",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth');print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['PLAN.md','LOCAL-INPUTS.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "ebaf6d",
+      "exit_code": 0,
+      "wall_time_seconds": 7.708e-06,
+      "output_utf8bytes": 6436,
+      "output_sha256": "af5530d1928f25dd581d18511084f15dc9e5b8329f42191e6317fa16bb004850",
+      "first_output_line": "UTC 2026-10-20T02:03:55.554328+00:00 PID 2832"
+    },
+    {
+      "name": "warm_worth_sources",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport datetime,os,hashlib\nr=Path('/Users/robault/GitHub/sugata-avatar');print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor rel in ['docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md','docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md','docs/evidence/appearance-2026-10-19/ari-tee-artist/README.md']:\n p=r/rel;b=p.read_bytes();print('\\nFILE',rel,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "11e592",
+      "exit_code": 0,
+      "wall_time_seconds": 1.3375e-05,
+      "output_utf8bytes": 8800,
+      "output_sha256": "7232126981c1acc5484f219cd7b17b581b511ecbd276ecdb9e54a1fb5c9b7a16",
+      "first_output_line": "UTC 2026-10-20T02:04:13.973096+00:00 PID 2895"
+    },
+    {
+      "name": "warm_worth_verify",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,struct,datetime,os\nr=Path('/Users/robault/GitHub/sugata-avatar');d=r/'docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth';print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\ndef pin(p):\n b=p.read_bytes();return {'path':str(p.relative_to(r)),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nx=json.loads((d/'LOCAL-INPUTS.json').read_text())\nfor z in x['wholeReceiptPins']:assert pin(r/z['path'])==z\nexpected={'docs/PROJECT-CHECKLIST.md':(8644,'6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6'),'docs/PRODUCT-ROADMAP.md':(32741,'b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264')}\nfor rel,(n,h) in expected.items():a=pin(r/rel);assert a['bytes']==n and a['sha256']==h\nrels=['docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/PLAN.md','docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/LOCAL-INPUTS.json','docs/PROJECT-CHECKLIST.md','docs/PRODUCT-ROADMAP.md','docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md','docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md','docs/evidence/appearance-2026-10-19/ari-tee-artist/README.md','docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png','docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png']\nrows=[]\nfor rel in rels:\n p=r/rel;assert p.is_file() and not p.is_symlink();rows.append(pin(p))\n if rel.endswith('.png'):\n  b=p.read_bytes();assert b[:8]==b'\\x89PNG\\r\\n\\x1a\\n';dims=struct.unpack('>II',b[16:24]);assert dims==(1536,1024) and max(dims)<=8192 and len(b)<=8388608;print('IMAGE_HEADER',rel,'dimensions',dims)\nprint('NINE_CURRENT_BINDINGS',json.dumps(rows,separators=(',',':')))\nprint('LOCATOR_SCOPE two literal retained rows686/688 read only from LOCAL-INPUTS; no ledger read/rerun/no globalabsence inference')\nPY",
+      "chunk_id": "b65c34",
+      "exit_code": 0,
+      "wall_time_seconds": 7.792e-06,
+      "output_utf8bytes": 1858,
+      "output_sha256": "89080c31f51e8c7a1777d533686fd7122496cc746c372b41f20112095f0bc5fe",
+      "first_output_line": "UTC 2026-10-20T02:04:46.411103+00:00 PID 3007"
+    },
+    {
+      "name": "warm_worth_seal",
+      "command": "python3 - <<'PY'\nimport datetime,os\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nprint('INDEPENDENT_WORTH_SEAL',\"{\\\"verdict\\\":\\\"A_PREPARE_EXACT_SEASONAL_OUTFIT_CONTRACT_ONLY\\\",\\\"worth\\\":\\\"Yes. One complete warm-weather outfit comparison on the same retained fictional character warrants a separately reviewed exact brief/source/output contract. No generation or reference retrieval is admitted by this worth A.\\\",\\\"sourceAndImageReasoning\\\":\\\"Both actual whole images retain the pale-blue long-sleeve crew knit, charcoal generous long trousers and brown ankle boots; the supplementary plate adds profile/rear of that same outfit, not a seasonal clothing alternative. The original target and handoff deliberately leave runtime/editable/fit duties open. A complete visible seasonal top-bottom-footwear composition would support a specific wardrobe comparison while keeping the face/groom/body intent stable. This is different from Ari's closed hidden tee choice, whose README explicitly had no jacket-off consumer; it neither supplies an Ari sleeve/neck/hem retry nor changes the accepted knit material.\\\",\\\"conditions\\\":\\\"The next exact brief must own a genuinely complete seasonal clothing silhouette/palette/material-language and requested whole-view comparison, with qualitative original character continuity, actual visual criteria and managed output/failure limits. It must not become another sweater texture/normal/yarn repair, standalone hidden tee/detail variant, new native/demographic identity or implied physical cooling/fit/rig/runtime/starter acceptance. Root must independently verify before preparation; any later source/image call needs its own gate.\\\",\\\"alternatives\\\":[{\\\"choice\\\":\\\"Prepare one exact complete seasonal outfit artist contract on this same character.\\\",\\\"tradeoff\\\":\\\"Adds a useful visible wardrobe alternative and coordination decision; it remains an illustration without editable/native depth or supported mix-and-match proof.\\\"},{\\\"choice\\\":\\\"Defer until a real coupled body/garment or runtime wardrobe consumer owns source and fit.\\\",\\\"tradeoff\\\":\\\"Avoids more isolated illustration and concentrates implementation effort; leaves no explicit seasonal wardrobe comparison for this character.\\\"}],\\\"findings\\\":[],\\\"limits\\\":\\\"Only the two permitted whole images and three nominated receipts; current checklist/roadmap semantic read reused at identical verified pins. Two retained locator rows alone, no current/history ledger read or absence claim. No online, image generation, source construction, target/browser/native/GPU or oldmethod reopening.\\\"}\")\nPY",
+      "chunk_id": "db5535",
+      "exit_code": 0,
+      "wall_time_seconds": 8.166e-06,
+      "output_utf8bytes": 2502,
+      "output_sha256": "569aaf7a5c618133a9726d7a8fecc77873faa1a49c04a599d2987c807116f3b9",
+      "first_output_line": "UTC 2026-10-20T02:06:07.345689+00:00 PID 3226"
+    },
+    {
+      "name": "warm_worth_compare",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport datetime,os,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/ROOT-FIRST.json');b=p.read_bytes();print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid());print('FILE',p.name,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "fd4f0d",
+      "exit_code": 0,
+      "wall_time_seconds": 7.875e-06,
+      "output_utf8bytes": 4482,
+      "output_sha256": "d0f278a2303bab0077df2ad434285264603c2bf4d6a02fd7cde472e54ab99f11",
+      "first_output_line": "UTC 2026-10-20T02:06:27.952026+00:00 PID 3314"
+    }
+  ],
+  "collectionOperation": "Exclusive xb writes only WORTH.md and CRITIC-RECEIPT.json after fresh current nine bindings."
+}

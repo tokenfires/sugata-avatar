@@ -1,0 +1,100 @@
+{
+  "wholeHandoff": {
+    "command": "cat docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/WORTH.md\ncat docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/CRITIC-RECEIPT.json",
+    "chunk_id": "5c807b",
+    "exit_code": 0,
+    "tokens": 5768,
+    "scope": "Whole4334B review and18737B receipt,5768tokens untruncated."
+  },
+  "decision": "A for one exact separate seasonal outfit brief/source/output contract only",
+  "rootReason": "Both actual whole images show one long-sleeve knit/long-trouser/ankle-boot design. A visible complete seasonal outfit on the same fictional person supplies an immediate wardrobe comparison consumer. The Ari hidden tee refusal remains exact and unrelated to this new complete consumer. No original image is defective or replaced.",
+  "next": "Prepare a separately bounded complete original outfit/source/managed-output contract; independent/root source review before any image call.",
+  "liveOwnedTargets": [],
+  "pendingCriticEdits": false,
+  "freshBindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/PLAN.md",
+      "bytes": 3743,
+      "sha256": "e8fa4372a0d9002d98aec08613fdaeb17b6a81be518474b06e3729ff3ac568b6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/LOCAL-INPUTS.json",
+      "bytes": 2441,
+      "sha256": "b13e5ff9b967faaa3192a8e3e5b68d95f3527e78046362f5138ba8fcff7487a2"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8644,
+      "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 4214,
+      "sha256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2175,
+      "sha256": "f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-tee-artist/README.md",
+      "bytes": 1904,
+      "sha256": "9a5ddfa2ee7459bee584b20170e8b6ba9323d626904078564d2eac09ca19878e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+      "bytes": 2023441,
+      "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/ROOT-FIRST.json",
+      "bytes": 4331,
+      "sha256": "68402a732a2ea8db6a7b876f94f170189f45e73b7b16ebddf44ac48b8c49022f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/WORTH.md",
+      "bytes": 4334,
+      "sha256": "ebe380650ac500bba93d9820c8dde17f3f1885cfb8331c84a09a8ec03683c929"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/CRITIC-RECEIPT.json",
+      "bytes": 18737,
+      "sha256": "126c8f4abe182fdfbb88ee191362d05b2013647b859c42560b2d8e956c0d574e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/TOOL-ROOT.json",
+      "bytes": 15999,
+      "sha256": "d5c4546c98e7d645b366dc82e58221855195f3a37f680a0f72b38ca0c1798a6c"
+    }
+  ],
+  "independence": {
+    "ownSeal": "db5535/exit0/PID3226/2026-10-20T02:06:07.345689+00:00",
+    "rootContentFirstRead": "fd4f0d/exit0/PID3314/2026-10-20T02:06:27.952026+00:00",
+    "rootEarlierSeal": "ROOT-FIRST.utc2026-10-20T02:03:11.417265+00:00/PID2621",
+    "comparison": "Both A for exact separate outfit/source/output contract preparation only; no generation/reference/current qualification."
+  },
+  "locatorResolution": {
+    "sourceAtHEAD": {
+      "head": "606384e4ef81a7d7375f392ff8b3dcfe5a47b444",
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 181315,
+      "sha256": "7cbd872b6fbedcf8c69b47df417d057e9c68ce567cb3f36dd66536e2469342ce"
+    },
+    "literalRowsVerified": 2,
+    "scope": "Exact historicalGit606384e4 after this intentional checkpoint-prefix change; no new query/globalabsence claim."
+  },
+  "utc": "2026-10-20T02:09:58.184045+00:00",
+  "pid": 4066,
+  "limits": "Two whole originals; three complete receipts8293B; nine source bindings. No new brief, online source, image generation, target or runtime work. Earlier Path/string bookkeeping failure occurred before first-decision write and was corrected without changing duties. All old closures/assets/AriHOLD/fullroadmap/checklist23/10 remain."
+}
