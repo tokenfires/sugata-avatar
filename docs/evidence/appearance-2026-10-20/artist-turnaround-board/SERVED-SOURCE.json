@@ -1,0 +1,41 @@
+{
+  "observedUTC": "2026-10-20T14:39:50.049839+00:00",
+  "checks": [
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/artist-turnaround-board/candidate.html",
+      "status": 200,
+      "bytes": 22349,
+      "sha256": "9fd140d9c6aaffffbb0bbcffe3d9d3f4572e16301de634ef92650d09a9cd3170",
+      "exactLocalBody": true
+    },
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/first.png",
+      "status": 200,
+      "bytes": 1969289,
+      "sha256": "a7019a47790a0a27155e2425c02f7d3d1c7b3157d24a541caa5509e75d72c82d",
+      "exactLocalBody": true
+    },
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround/first.png",
+      "status": 200,
+      "bytes": 1991838,
+      "sha256": "32d3a7b9037408fee44ff588c42d5225771a6885d6d911b1352fe76258fc6daa",
+      "exactLocalBody": true
+    },
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/ARTIST-HANDOFF.md",
+      "status": 200,
+      "bytes": 2631,
+      "sha256": "9d967edd7bdce0f9ff543540473f34c5859d500619beb9051014e3a37581ebc1",
+      "exactLocalBody": true
+    },
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-body-turnaround/ARTIST-HANDOFF.md",
+      "status": 200,
+      "bytes": 2092,
+      "sha256": "1ecfdc33f35a4631a0942fc20eaa144844372802edfe36764e365e569efd8358",
+      "exactLocalBody": true
+    }
+  ],
+  "browserOrScreenshot": false
+}

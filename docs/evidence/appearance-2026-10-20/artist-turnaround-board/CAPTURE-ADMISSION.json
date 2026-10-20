@@ -1,0 +1,55 @@
+{
+  "allowRun": true,
+  "sealedUTC": "2026-10-20T14:34:54.866592+00:00",
+  "beforeUTC": "2026-10-20T14:45:00+00:00",
+  "maxObservationCleanupSeconds": 360,
+  "decision": "A_EXACT_STATIC_TAB_OBSERVATIONS_ONLY",
+  "sourceImageReview": {
+    "bytes": 6876,
+    "sha256": "89e385e532271419c46dd7905398097cb1678b46416bec7a8131c55827eb9069",
+    "canonicalOpinionSHA256": "c235a6591e6a43dd4b4326ccc26a665a01eb5fd7c076c98231bfdc0ff9708640",
+    "wholeRootRead": "1e107e",
+    "allSevenBindingsPass": true
+  },
+  "rootActualSourceImageOpinion": "ROOT-SOURCE-IMAGE-INITIAL.json, sealed before critic opinion read; independently agrees actual whole images match captions and limits",
+  "freshParent21AndSupplement2PinsPass": true,
+  "resource": {
+    "pagesFree": 2717551,
+    "pageBytes": 16384,
+    "freeBytes": 44524355584,
+    "minimumFreeBytes": 1073741824,
+    "raw": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                  2717551.\nPages active:                                1779665.\nPages inactive:                              1833557.\nPages speculative:                             57261.\nPages throttled:                                   0.\nPages wired down:                             336246.\nPages purgeable:                               43029.\n\"Translation faults\":                     1635596827.\nPages copy-on-write:                       295948631.\nPages zero filled:                        2073794379.\nPages reactivated:                          11125280.\nPages purged:                               10924790.\nFile-backed pages:                           1589044.\nAnonymous pages:                             2081439.\nPages stored in compressor:                  1686660.\nPages occupied by compressor:                1587136.\nDecompressions:                             51909327.\nCompressions:                               87117002.\nPageins:                                    55874250.\nPageouts:                                       9686.\nSwapins:                                     7654942.\nSwapouts:                                   15752086.\nPages tagged:                                 209556.\nPages tagged resident:                        198807.\nPages tagged compressed:                       10749.\nPages tag-storage:                            262144.\nPages tag-storage holding tags:                 8242.\nPages tag-storage free:                         7538.\nPages tag-storage non-tag pageable:           246240.\nPages tag-storage non-tag wired:                   8.\nBytes of compressed tags:                    1420672.\nTagged compressions:                          424960.\nTagged decompressions:                        332649.\n"
+  },
+  "candidateURL": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/artist-turnaround-board/candidate.html",
+  "candidateSHA256": "9fd140d9c6aaffffbb0bbcffe3d9d3f4572e16301de634ef92650d09a9cd3170",
+  "sequence": [
+    {
+      "file": "desktop.jpg",
+      "viewport": [
+        1280,
+        900
+      ],
+      "anchor": "turnarounds"
+    },
+    {
+      "file": "narrow-olive.jpg",
+      "viewport": [
+        390,
+        844
+      ],
+      "anchor": "turnaround-olive"
+    },
+    {
+      "file": "narrow-mara.jpg",
+      "viewport": [
+        390,
+        844
+      ],
+      "anchor": "turnaround-mara"
+    }
+  ],
+  "maxJPEGBytes": 8388608,
+  "maxRasterBytes": 20971520,
+  "canonicalBoardAdmitted": false,
+  "pending_edits": false
+}
