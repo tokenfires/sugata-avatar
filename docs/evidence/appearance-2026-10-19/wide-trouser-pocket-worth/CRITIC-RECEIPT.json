@@ -1,0 +1,189 @@
+{
+  "schema": 1,
+  "worthDecision": {
+    "schema": 1,
+    "sealedUTC": "2026-10-20T05:52:07.888317+00:00",
+    "sealPID": 96800,
+    "verdict": "B",
+    "prepareExactNextInertProposalWorthwhile": false,
+    "basis": "The exact retained-source waist/fly/pocket addition is another refinement of the known missing features covered by the original RESULT next-worth B, without a new concrete authoring input or the separately required complete coupled-source responsibility. Being distinct from Ari does not resolve this original packet boundary.",
+    "findingIds": [
+      "F1"
+    ],
+    "noCurrentRootOpinionReadBeforeSeal": true,
+    "actualImage": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/triptych-first.jpg",
+      "bytes": 46998,
+      "sha256": "459c0f23d5d46be2c9e1421d132979044cca159f444c12d270b6e50cfe1ef13f"
+    },
+    "noGeometryDefectOrUniversalGarmentBanClaim": true,
+    "nextPermitted": "Close this nomination unchanged before preparation. No renamed waist/fly/pocket or old-source/camera/renderer successor; no constructor admission."
+  },
+  "worthDecisionCanonicalSha256": "ec5c49599faa864991527b42f4618f72b91c20bc4d069d40508fc5244b0be7e8",
+  "independentReviewPrefix": {
+    "bytes": 5563,
+    "sha256": "ff660ac0a2450e12fd8ccaa568a51fc2e068a9bfd804c060c9eb1edf1d7dc586"
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/research/WIDE-TROUSER-DESIGN-2026-10-04.md",
+      "bytes": 2401,
+      "sha256": "20c9cf52a00099e63badeb6be800e69403efed2446c823b8d8e256a4adc8de20"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/README.md",
+      "bytes": 1832,
+      "sha256": "da5e9c2fca0bdba39ab2e5cf25179c1476fc515ff04357669267f363235bb463"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/RESULT.md",
+      "bytes": 3096,
+      "sha256": "715adf582e32aceacaf59917a97eb64ae89b29115d7a8c6882f4191c9b934a3e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/triptych-first.jpg",
+      "bytes": 46998,
+      "sha256": "459c0f23d5d46be2c9e1421d132979044cca159f444c12d270b6e50cfe1ef13f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 9124,
+      "sha256": "df08da32f45a07a5503cd184418d2e2e7194f96a4bbdfecf32e513c96dbbe527"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source/README.md",
+      "bytes": 3795,
+      "sha256": "a05ce6b73ff4a4053b52e0f552d60a9c1b079bebe2c295d4ec20f2a7d0d2058c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wide-trouser-pocket-worth/PLAN.md",
+      "bytes": 3413,
+      "sha256": "c38f0f03518dc3d2d5a3dc7f70c4176d9bb40fc6c837c2885d288858ece9cb17"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wide-trouser-pocket-worth/READS.json",
+      "bytes": 20538,
+      "sha256": "c900a7b6b401094986cacb5486458d397b6310b6769e8e3e961adb92453ae3ca"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wide-trouser-pocket-worth/INPUTS.json",
+      "bytes": 2231,
+      "sha256": "1b18c783bbe1b9f77c50fe35ecc5a5f011cd002044f7acd62ae14a6a899ba6a0"
+    }
+  ],
+  "coverage": {
+    "wholeText": [
+      "PLAN.md",
+      "INPUTS.json",
+      "READS.json",
+      "WIDE-TROUSER-DESIGN-2026-10-04.md",
+      "trouser-artist-source/README.md",
+      "trouser-artist-source/RESULT.md",
+      "PROJECT-CHECKLIST.md",
+      "overshirt-finish-3d-source/README.md"
+    ],
+    "actualImages": [
+      {
+        "tool": "tools.view_image",
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/trouser-artist-source/triptych-first.jpg",
+        "detail": "original",
+        "whole": true,
+        "viewCount": 1,
+        "displayedDimensions": [
+          1280,
+          868
+        ],
+        "afterUTC": "2026-10-20T05:50:59.194678+00:00",
+        "beforeIndependentSeal": true,
+        "noCropOrEdit": true,
+        "exactTimestampOrPID": "not exposed; bounded by preceding pin read and following seal"
+      }
+    ],
+    "semanticLinkedTraversal": false,
+    "arrayBuilderModelReadOrEvaluation": false,
+    "newSearchOrInventory": false,
+    "rootOpinionBeforeSeal": false
+  },
+  "operations": [
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\nb=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wide-trouser-pocket-worth')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['PLAN.md','INPUTS.json','READS.json']:\n p=b/name;v=p.read_bytes();print('WHOLE',name,len(v),hashlib.sha256(v).hexdigest());print(v.decode())\nPY",
+      "chunk": "10f7f4",
+      "exit_code": 0,
+      "pid": 96520,
+      "utc": "2026-10-20T05:50:47.802028+00:00",
+      "outputBytes": 26492,
+      "outputSha256": "43ebd3915e45112d31e74b14d1328ba17f08723ba2f4369dcb4a0fe467808617"
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\nb=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wide-trouser-pocket-worth');m=json.loads((b/'INPUTS.json').read_text())\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor p in m['pins']:\n q=Path(p['path']);v=q.read_bytes();assert len(v)==p['bytes'] and hashlib.sha256(v).hexdigest()==p['sha256'];print('PIN_EXACT',len(v),p['sha256'],p['path'])\nfor p in m['pins']:\n q=Path(p['path'])\n if q.name in ['PLAN.md','READS.json','triptych-first.jpg']:continue\n print('WHOLE_NUMBERED',str(q))\n for i,s in enumerate(q.read_text().splitlines(),1):print(str(i)+': '+s)\nprint('ALL_8_PINS_EXACT',len(m['pins']))\nPY",
+      "chunk": "ae2e80",
+      "exit_code": 0,
+      "pid": 96553,
+      "utc": "2026-10-20T05:50:59.194678+00:00",
+      "outputBytes": 22708,
+      "outputSha256": "40ff3ccc2b2d66902792e4a3ed215914c4afff7af47cbb4dc7beec0fc57752f1"
+    }
+  ],
+  "errors": [],
+  "limits": {
+    "hardStopUTC": "2026-10-20T06:08:54.680524+00:00",
+    "allowedWrites": [
+      "WORTH.md",
+      "CRITIC-RECEIPT.json"
+    ],
+    "leafHardCaps": {
+      "files": 8,
+      "bytes": 393216
+    },
+    "firstBCloses": true,
+    "noRenamedWaistFlyPocketOrOldSourceCameraRendererSuccessor": true,
+    "noTargetOrPreparationAdmission": true,
+    "allOldClosuresHoldsAssetsAnd23_10Preserved": true
+  },
+  "rootComparison": {
+    "status": "complete after durable independent seals",
+    "input": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wide-trouser-pocket-worth/ROOT-FIRST.json",
+      "bytes": 2152,
+      "sha256": "6636e2651c162c86ae2b1afc8d399cea58eef2d09e9975f30026fc1e858363b1"
+    },
+    "rootSealUTC": "2026-10-20T05:50:18.663771+00:00",
+    "rootVerdict": "B",
+    "agreement": "Known unfinished roles do not make the same retained-source adjustment a new creative contract; no geometry/appearance defect or universal garment ban.",
+    "independentDecisionAndPrefixUnchanged": true,
+    "rootReadCommand": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wide-trouser-pocket-worth/ROOT-FIRST.json');v=p.read_bytes();print('WHOLE','PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'BYTES',len(v),'SHA256',hashlib.sha256(v).hexdigest());print(v.decode())\nPY",
+    "rootReadJob": {
+      "chunk": "3ed633",
+      "exit_code": 0,
+      "pid": 96872,
+      "utc": "2026-10-20T05:52:28.549922+00:00"
+    },
+    "independentSealJob": {
+      "chunk": "834f6f",
+      "exit_code": 0,
+      "pid": 96800,
+      "sealedUTC": "2026-10-20T05:52:07.888317+00:00",
+      "bothDurableUTC": "2026-10-20T05:52:07.889159+00:00"
+    }
+  },
+  "collection": {
+    "pid": 96800,
+    "utc": "2026-10-20T05:52:07.888317+00:00",
+    "verifiedRows": 9
+  },
+  "pending_edits": false,
+  "reviewBinding": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/wide-trouser-pocket-worth/WORTH.md",
+    "bytes": 6385,
+    "sha256": "d61ab321018e9c70626ff84cc3ef1dbac1a7edae0cdd50cb5acafe6e66c92de0"
+  },
+  "finalCollection": {
+    "utc": "2026-10-20T05:52:54.535284+00:00",
+    "pid": 96951,
+    "verifiedBindings": 10,
+    "allPinsExact": true,
+    "independentDecisionCanonicalSha256": "ec5c49599faa864991527b42f4618f72b91c20bc4d069d40508fc5244b0be7e8",
+    "independentPrefixExact": true,
+    "pending_edits": false
+  }
+}
