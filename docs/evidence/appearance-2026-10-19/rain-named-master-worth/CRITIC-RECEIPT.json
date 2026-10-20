@@ -1,0 +1,155 @@
+{
+  "schema": 1,
+  "worthDecision": {
+    "schema": 1,
+    "sealedUTC": "2026-10-20T05:57:39.725237+00:00",
+    "sealPID": 97876,
+    "verdict": "B",
+    "soleExactPrimaryPageReadWorthwhile": false,
+    "basis": "The project need is real, but this packet supplies another unread name/URL and corrected invocation recipe for the same facial-master discovery consumer after Snow closed unresolved with no alternate-name/options successor. No concrete Rain-specific authoring responsibility or observed property distinguishes this from that fallback.",
+    "noCurrentRootOpinionReadBeforeSeal": true,
+    "findingIds": [
+      "F1"
+    ],
+    "noRainAvailabilityLicenseRigSourceOrSuitabilityClaim": true,
+    "noUniversalExternalCharacterBan": true,
+    "next": "Close before querying. No name/URL/provider/options or generic-master successor under this nomination; no download/source/native/adoption admission."
+  },
+  "worthDecisionCanonicalSha256": "7cfa0d5e6f5f32c98376ae41ea98251485e8fc5e9a152ed7f5fd27e5727d5503",
+  "independentReviewPrefix": {
+    "bytes": 5431,
+    "sha256": "b39c4ad98bbc6b4b0fcf4890440405ec1add4ed6c52b0fbcd0ee1535580557f2"
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-head-master-worth/README.md",
+      "bytes": 1304,
+      "sha256": "be48a9f1ce718900f6f470c839284127ab56e1f44ce43ad20d1ab19e3650cd2c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/snow-named-source-worth/README.md",
+      "bytes": 1567,
+      "sha256": "2bca1ad3f8399bca5156de5d650361ae9937e8ca500c2e1adc6015ef88281382"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 9124,
+      "sha256": "df08da32f45a07a5503cd184418d2e2e7194f96a4bbdfecf32e513c96dbbe527"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/rain-named-master-worth/PLAN.md",
+      "bytes": 3929,
+      "sha256": "0b2779c56728081921e437227b3c08bcc950175d3cc6cdaf5cd0fed25800cdb9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/rain-named-master-worth/READS.json",
+      "bytes": 4482,
+      "sha256": "40f7ca6cd4d5b399abf40cc5c3fb5bcf98344547ac291275e83826c0ffea5d28"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/rain-named-master-worth/INPUTS.json",
+      "bytes": 1401,
+      "sha256": "edfaa55f58b4675b3c7672358f9d1f3ba091833685aeb5730579f8fbfa211ee7"
+    }
+  ],
+  "coverage": {
+    "wholeThisNomination": [
+      "PLAN.md",
+      "READS.json",
+      "INPUTS.json",
+      "mara-head-master-worth/README.md",
+      "snow-named-source-worth/README.md"
+    ],
+    "sameByteChecklistSemanticReuse": {
+      "ownReadJob": "ae2e80",
+      "pid": 96553,
+      "utc": "2026-10-20T05:50:59.194678+00:00",
+      "bytes": 9124,
+      "sha256": "df08da32f45a07a5503cd184418d2e2e7194f96a4bbdfecf32e513c96dbbe527"
+    },
+    "imageViews": 0,
+    "networkOrLinkedTraversal": 0,
+    "sourceModelGeometryOrTargetReads": 0,
+    "rootOpinionBeforeSeal": false
+  },
+  "operations": [
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\nb=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/rain-named-master-worth')\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PLAN.md','READS.json','INPUTS.json']:\n p=b/n;v=p.read_bytes();print('WHOLE',n,len(v),hashlib.sha256(v).hexdigest());print(v.decode())\nPY",
+      "chunk": "e1d3cb",
+      "exit_code": 0,
+      "pid": 97669,
+      "utc": "2026-10-20T05:56:22.382596+00:00",
+      "outputBytes": 10121,
+      "outputSha256": "31681e7210a5ef71fac1ecc621e6649d4deac92568c5b27fabca03b7e342a332"
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\nb=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/rain-named-master-worth');m=json.loads((b/'INPUTS.json').read_text());print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor x in m['pins']:\n p=Path(x['path']);v=p.read_bytes();assert len(v)==x['bytes'] and hashlib.sha256(v).hexdigest()==x['sha256'];print('PIN_EXACT',len(v),x['sha256'],str(p))\nfor x in m['pins'][:2]:\n p=Path(x['path']);print('WHOLE_NUMBERED',str(p))\n for i,s in enumerate(p.read_text().splitlines(),1):print(str(i)+': '+s)\nprint('CHECKLIST_SEMANTICS_REUSED','Own whole ae2e80/PID96553/2026-10-20T05:50:59.194678UTC at current exact9124B/df08da32f45a07a5503cd184418d2e2e7194f96a4bbdfecf32e513c96dbbe527')\nPY",
+      "chunk": "c462c0",
+      "exit_code": 0,
+      "pid": 97737,
+      "utc": "2026-10-20T05:56:43.596840+00:00",
+      "outputBytes": 4261,
+      "outputSha256": "6f88a94764c43497269bb3f123b15069837ef70100ee753e497d8a3f21c9820c"
+    }
+  ],
+  "errors": [],
+  "limits": {
+    "hardStopUTC": "2026-10-20T06:13:16.183508+00:00",
+    "onlyWrites": [
+      "WORTH.md",
+      "CRITIC-RECEIPT.json"
+    ],
+    "leafMaxFiles": 8,
+    "leafMaxBytes": 393216,
+    "noQueryOrSourceAdmission": true,
+    "allOldClosuresHoldsAssetsAnd23_10Preserved": true
+  },
+  "collection": {
+    "utc": "2026-10-20T05:57:39.725237+00:00",
+    "pid": 97876,
+    "verifiedPinsIncludingManifest": 6
+  },
+  "rootComparison": {
+    "status": "complete after both durable independent seals",
+    "input": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/rain-named-master-worth/ROOT-FIRST.json",
+      "bytes": 2262,
+      "sha256": "cfe8f6d7e933056a732f8e2a2731c8a1badb8ca0a44fedfff6c36050f6df3375"
+    },
+    "rootSealUTC": "2026-10-20T05:56:00.003758+00:00",
+    "rootVerdict": "A",
+    "criticVerdict": "B",
+    "disagreement": "Root regards the separately gated literal named lead as enough concrete source value; critic regards unchanged consumer and unread name/options substitution as insufficient distinction after Snow closure. Both withhold Rain facts/adoption/source/native/appearance qualification.",
+    "independentDecisionAndPrefixUnchanged": true,
+    "noManufacturedAgreement": true,
+    "rootReadCommand": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/rain-named-master-worth/ROOT-FIRST.json');v=p.read_bytes();print('WHOLE','PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'BYTES',len(v),'SHA256',hashlib.sha256(v).hexdigest());print(v.decode())\nPY",
+    "rootReadJob": {
+      "chunk": "2e36ac",
+      "exit_code": 0,
+      "pid": 97903,
+      "utc": "2026-10-20T05:57:53.641512+00:00"
+    },
+    "independentSealJob": {
+      "chunk": "f32e60",
+      "exit_code": 0,
+      "pid": 97876,
+      "sealedUTC": "2026-10-20T05:57:39.725237+00:00",
+      "bothDurableUTC": "2026-10-20T05:57:39.726003+00:00"
+    }
+  },
+  "pending_edits": false,
+  "reviewBinding": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/rain-named-master-worth/WORTH.md",
+    "bytes": 6565,
+    "sha256": "e438729e2b5a7d976298f235a1e22688bfd6f081c253fa09d4aba44d2bc54ed5"
+  },
+  "finalCollection": {
+    "utc": "2026-10-20T05:58:22.074326+00:00",
+    "pid": 97950,
+    "verifiedBindings": 7,
+    "allPinsExact": true,
+    "decisionCanonicalSha256": "7cfa0d5e6f5f32c98376ae41ea98251485e8fc5e9a152ed7f5fd27e5727d5503",
+    "independentPrefixExact": true,
+    "pending_edits": false
+  }
+}
