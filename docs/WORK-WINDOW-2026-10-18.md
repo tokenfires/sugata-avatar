@@ -1,6 +1,6 @@
 # Sugata — current work window
 
-**Current bounded activity (October 20):** [Complete acknowledgment-nod preparation](evidence/appearance-2026-10-20/acknowledgment-nod/README.md) is unexecuted under two independent complete source/workload reviews. No syntax/test/import/browser/capture or default/API promotion has run. Root must verify both stable handoffs before any separate CPU admission; actual CPU gate precedes a separate native gate. Source deadline14:12UTC/latestnative14:30/rootcheckpoint15:00UTC. Prior closures below remain.
+**Latest bounded receipt (October 20):** [Acknowledgment-nod source refusal](evidence/appearance-2026-10-20/acknowledgment-nod/RESULT.md). Both critics and root now agree B/HOLD: the direct browser PID was saved too late for promised recovery, and final receipt/accounting errors could contradict or suppress terminal evidence. The original static A and later disclosed reconciliation are preserved. No syntax/test/import/browser/capture or default/API promotion ran. This exact nomination stops unrun; no correction, CPU proof, native trial or successor is admitted. Prior closures below remain.
 
 Updated October 20, 2026. Read this page, the [current checkpoint and selected closure index](RESUME-2026-10-18.md), and the latest linked receipt before acting. Older prospective instructions are historical; they do not admit a new job.
 
@@ -16,13 +16,15 @@ The sole Ari garment-volume trial stopped UNKNOWN at tie/cut-vector ownership; i
 
 The main status map now points to the actual result. All 33 checklist entries remain unchanged: 23 checked scoped deliverables and 10 open broad goals. [Project checklist](PROJECT-CHECKLIST.md) · [Selected design studies](CURRENT-DESIGN-GATES.md) · [Full roadmap](PRODUCT-ROADMAP.md).
 
-No successor experiment is selected. No owned target or capture is running; volume reviews are complete. Next work needs a genuinely different useful authoring responsibility and a fresh worth decision, not a renamed closed method. Check the selected closure index and exact historical receipt before nominating a consumed lead.
+The optional acknowledgment-nod candidate is also isolated and untested after its source refusal above; no gesture quality was observed. No successor experiment is selected. No owned target or capture is running; both nod reviews and their reconciliation are complete. Next work needs a genuinely different useful authoring responsibility and a fresh worth decision, not a renamed closed method. Check the selected closure index and exact historical receipt before nominating a consumed lead.
 
 ## Preservation and operations
 
 Preserve accepted/default assets, original references, frozen evidence, ignored source buffers, the nine October 10 Ari volume-owner revision records, and unrelated worktrees. Keep unqualified candidates isolated. Preserve the full AAA character, expression, wardrobe, representation, coupled fit, motion, performance, VTuber and Mii ambitions and phase order. Use existing allowance and granted credits only; no purchases, subscription/model changes, reset-credit redemption, push, publication or other-project resume. If capacity is unavailable, checkpoint without aggressive retries.
 
 Existing automation `advance-sugata-avatar-visual-quality` was read back ACTIVE every ten minutes at 13:05:24 UTC October 20. It is recovery, not permission to rerun a consumed job. Future wake/mobile delivery is unverified. The retained review server at http://127.0.0.1:5173 returned exact HTTP 200 for the gate, actual result and original guide at that observation. [Operational receipt](evidence/appearance-2026-10-20/material-volume-constructor-preparation/OPERATIONAL-CHECK.json).
+
+The14:07:30UTC nod checkpoint rechecked those three exact HTTP responses and found the saved automation bytes unchanged from that app API epoch. No settings or server were changed; no target/capture is awaiting collection. [Checkpoint operations and limits](evidence/appearance-2026-10-20/acknowledgment-nod/CHECKPOINT-OPERATIONS.json).
 
 ## Full history and latest receipt
 

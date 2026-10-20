@@ -1,0 +1,64 @@
+{
+  "observedUTC": "2026-10-20T14:03:42.973862+00:00",
+  "pid": 11168,
+  "reviews": {
+    "SOURCE-REVIEW.md": {
+      "path": "docs/evidence/appearance-2026-10-20/acknowledgment-nod/SOURCE-REVIEW.md",
+      "bytes": 16767,
+      "sha256": "e6f436337ce272f0b14a20a8e68fd1906e9bac974b55efe33e70f9106d4f3c02",
+      "canonicalOpinionSHA256": "e939de267fbbc13dbe276275c7923091a44128daedecf2c29362276cbf5163c2"
+    },
+    "WORKLOAD-REVIEW.md": {
+      "path": "docs/evidence/appearance-2026-10-20/acknowledgment-nod/WORKLOAD-REVIEW.md",
+      "bytes": 18897,
+      "sha256": "dc4a82ea61c289927337c54b8453f51cfab80a45df28c760574584ab15679032",
+      "canonicalOpinionSHA256": "bed47989f4e9bb503a41193d964a1080f0cf6c8f6402c50625c29826353685f5"
+    }
+  },
+  "groups": {
+    "SOURCE-HANDOFF.json": {
+      "manifest": {
+        "path": "docs/evidence/appearance-2026-10-20/acknowledgment-nod/SOURCE-HANDOFF.json",
+        "bytes": 3244,
+        "sha256": "72d3f0f79cb632b048e56a00da3bf76697b5b42680adc9b29c4cc6711220a0b6"
+      },
+      "count": 11,
+      "totalBytes": 268520,
+      "allMatch": true,
+      "canonicalPinListSHA256": "190c151a77661028dd84478f82fdc0cb7556c50a4f00ff911609a8562efc8a38"
+    },
+    "RUNTIME-PREFLIGHT.json": {
+      "manifest": {
+        "path": "docs/evidence/appearance-2026-10-20/acknowledgment-nod/RUNTIME-PREFLIGHT.json",
+        "bytes": 3234,
+        "sha256": "1832bc08990b8df8bb254c20093b31a2b5da835a36e803edfd27eacbc3002c93"
+      },
+      "count": 8,
+      "totalBytes": 120721872,
+      "allMatch": true,
+      "canonicalPinListSHA256": "67ba7320448d76fdae58e73b27357837582c4b96f3a6a0889fe1f25647e0d583"
+    },
+    "SOURCE-INPUTS.json": {
+      "manifest": {
+        "path": "docs/evidence/appearance-2026-10-20/acknowledgment-nod/SOURCE-INPUTS.json",
+        "bytes": 211227,
+        "sha256": "74a38ea8d712280be9484d4d42b754fd98f7b5eeef877af23250409ff270bf0f"
+      },
+      "count": 1122,
+      "totalBytes": 295259785,
+      "allMatch": true,
+      "canonicalPinListSHA256": "6d27a4ea462315da5ca68fb7ccdbec84ac19706c94094ac10f07b833d94d8a97"
+    }
+  },
+  "targetAbsences": {
+    "CPU-ADMISSION.json": true,
+    "CPU-ADMISSION.used": true,
+    "NATIVE-ADMISSION.json": true,
+    "NATIVE-ADMISSION.used": true,
+    "native-001": true
+  },
+  "wallSeconds": 0.19883354200283065,
+  "CPUSeconds": 0.223872,
+  "maxRSSBytes": 22921216,
+  "semantics": "Opaque1MiB stream byte checks, review JSON parsing and known-path absence only; no target import/evaluation/syntax/test/build/native/browser/encoder execution."
+}

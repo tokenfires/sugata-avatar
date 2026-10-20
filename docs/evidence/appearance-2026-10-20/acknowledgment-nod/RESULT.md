@@ -1,0 +1,38 @@
+# Acknowledgment nod — source refusal, unrun
+
+The isolated nod candidate is preserved, **B/HOLD before execution**. The first complete source nomination stops here under its declared first-source-failure/no-correction rule. No syntax check, target import, selftest, build, browser, capture or encoder trial ran. No actual nod, clothed motion, appearance, human meaning, performance, API/default promotion or roadmap completion qualified. This result supersedes the prospective [README](README.md), without changing its original bytes.
+
+## Intended improvement and bounded question
+
+An explicitly invoked short head down-and-return action for the current clothed g050 casual/ecru/neutral/bob02 look, independently owned from attention/gaze/idle/smile. The question was whether the first actual temporal packet could show a readable nod and clean return to existing ownership. [Plan and stop](PLAN.md) · [Complete source/workload contract](SOURCE-CONTRACT.md). Preparation was worthwhile; source acceptance and actual evidence were separate gates.
+
+Five new files total31,699bytes: the head-only action, fourteen meaningful real-owner synthetic-rig cases, isolated HTML/JS study, and a direct bundled Playwright/video collector. Exact bytes are in [SOURCE-HANDOFF.json](SOURCE-HANDOFF.json). They remain unchanged at source checkpoint3c7b20d4. The study is not linked from the main UI or exported as a supported API.
+
+## Independent reviews and root decision
+
+[SOURCE-REVIEW.md](SOURCE-REVIEW.md) returned static A and worth doing one separately admitted CPU proof; [WORKLOAD-REVIEW.md](WORKLOAD-REVIEW.md) returned B/HOLD for two literal collector defects. Root independently read the whole stable reviews and actual collector and agrees with the blockers:
+
+1. Collector40 saves only Node ownership;44 acquires the actual browser PID, but the next durable report is62 after connection, navigation and readiness. An abrupt Node interruption in that interval would leave root without the already-returned browser PID for its promised recovery. This is a post-handle gap, distinct from the documented unknown startup interval.
+2. Collector106 can save A to the first receipt and then fail the second without demoting the earlier saved success. The unguarded final output accounting107 can also throw before compact stdout111 and explicit exitCode112. An uncaught error would be refusal evidence, but does not meet the declared independent terminal-summary contract.
+
+These are static source witnesses, not observed browser, storage, platform or motion failures. Both findings include explanations and two alternatives with tradeoffs in the workload review. Root chooses preserving the exact packet inert; a source correction or another observer is not admitted by this closure. The action's usefulness and the supported public video API route are not disproved. Actual CPU and temporal evidence remain missing.
+
+[Root source decision](ROOT-SOURCE.json) supersedes the earlier conditional [ROOT-SOURCE-INITIAL.json](ROOT-SOURCE-INITIAL.json). [Fresh byte/opinion verification](ROOT-VERIFICATION.json) passed all11direct bindings(268,520B),1,122source pins(295,259,785B) and8runtime pins(120,721,872B). Opaque hashes do not establish complete OS/driver provenance or source semantics.
+
+The first critic subsequently [reconciled its original A](RECONCILIATION.md) to B after reading the exact blockers. Root's B preference was exposed before that reconciliation; it is not claimed as a blind third review. The original A remains unchanged. Root whole-read30ed63 and [fresh five-binding/canonical check](ROOT-RECONCILIATION.json) independently verified the final handoff:6,927B/SHA256`1680a6f6e9e1f79a4e5186b6db41fca22984c778bb5bfee8aabd2d122e268ef5`, opinion`4c1ca7ff1b4c889de18f7d3868f7240bdd55b5573e9ed791c76d69c73cdb1239`. Neither critic recommends another experiment under this exact contract.
+
+## Exact inputs, jobs and limits
+
+- Worth: WORTH.md8,773B/SHA256`d70b971d86964baf8c12bf97ca987e1081b8ac55416053d082e9dcaf0a608a7b`; root worth admitted preparation only. SOURCE-CONTRACT.md7,954B/`6f28bd765c9efa4c9f787681e2ba404761cd94408cc4e801884841715bfbb135`.
+- Quality source review16,767B/`e6f436337ce272f0b14a20a8e68fd1906e9bac974b55efe33e70f9106d4f3c02`, canonical opinion`e939de267fbbc13dbe276275c7923091a44128daedecf2c29362276cbf5163c2`. Workload review18,897B/`dc4a82ea61c289927337c54b8453f51cfab80a45df28c760574584ab15679032`, canonical decision`bed47989f4e9bb503a41193d964a1080f0cf6c8f6402c50625c29826353685f5`.
+- Root whole new-source reads a23ad0/44b4cf; whole workload d1d7f0; whole quality25ec42; exact workload findings and complete numbered collector a99ee1. Combined951d07 display clipped; it is not claimed as a complete review read.25ec42/a99ee1 independently returned untruncated. Gaze bind-frame helper cc2713 independently established the normalized cached quaternion, without execution.
+- Root metadata-only `python3` heredoc job8aaf3e/PID11168, normal0, observed14:03:42.973862UTC: first fenced review JSON parsed and canonical sorted-key compact UTF-8/no-LF SHA checked; each current manifest pin streamed in1MiB chunks and runtime resolved paths checked; declared admission/fuse/native-output paths tested absent. ROOT-VERIFICATION.json records exact input hashes, counts, totals,0.199s audit wall time and22,921,216B audit maxRSS. These are audit measurements, not target measurements. No target process/session was launched or awaits collection.
+- Existing Node and FFmpeg `--version` metadata jobs bdbd01/672c44 returned normal0. Bundled Playwright1.62.1/types and installed browser revision1234 declarations were source inputs; the browser executable was not run. No installation/fallback/version hunt occurred.
+- Online inputs: one BML primary search returned zero; its literal wiki read returned404; no BML/nod example or amplitude fact was obtained. One official Playwright video page returned200 and supported recordVideo/context.close/saveAs. [Saved responses and source limits](SOURCE-CONTRACT.md). Two gross scrape credits, one automatic feedback refund; no purchase or reset-credit redemption.
+- The planned CPU command and native command in SOURCE-CONTRACT.md were **not dispatched**. No CPU/NATIVE admission/fuse or native-001 exists at root verification. Source deadline14:12UTC, latest possible native start14:30UTC and rootcheckpoint15:00UTC were ceilings, not reasons to continue after source B. No trial allowance was consumed.
+
+## Recovery
+
+Preserve all candidate bytes, references, reviews, original/frozen/default/accepted/ignored assets, nine October10 records and unrelated worktrees. The existing review server and ten-minute recovery remain retained; no automation change was made by this source result. A heartbeat does not admit a repair, CPU test or native run. No successor is selected. Any later genuinely different useful responsibility needs its own evidence, explicit bounded contract, independent worth/source/workload decision and root verification. All broad character/expression/wardrobe/representation/coupled-fit/motion/performance/VTuber/Mii goals remain open within the existing roadmap and phase order.
+
+Final read-only check0b140d at14:07:30UTC found exactHTTP200/local bytes for the retained design gate, garment-volume result and original guide. The saved automation remains byte-identical to the13:05:24 app API ACTIVE/every-ten-minute readback; future wake/mobile delivery is untested. [Exact operational receipt](CHECKPOINT-OPERATIONS.json). No new server/browser was spawned. Diff check2c3374 passed; metadata check547fc3 confirmed unchanged complete checkpoint histories, full roadmap and23checked/10open checklist. No product checkmark was added.

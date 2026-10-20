@@ -1,0 +1,20 @@
+{
+  "decision": "B_SOURCE_HOLD_UNRUN",
+  "scope": "Exact first acknowledgment-nod source/collector nomination; no CPU or native admission",
+  "supersedes": "ROOT-SOURCE-INITIAL.json conditional A, which preceded both stable independent source decisions",
+  "rootWholeReads": ["a23ad0", "44b4cf", "d1d7f0", "25ec42", "a99ee1"],
+  "freshVerification": {"job": "8aaf3e", "pid": 11168, "observedUTC": "2026-10-20T14:03:42.973862+00:00", "record": "ROOT-VERIFICATION.json"},
+  "rootFindings": [
+    {"id": "F1", "witness": "tools/critic/acknowledgment-nod.mjs:40-62", "judgment": "Agree. The actual direct browser PID is acquired at44 but is only in memory until save at62 after long page/readiness work. Root could collect an actual yielded Node session, yet its declared post-interruption known-browser recovery has no durable returned PID during this interval. Normal finally cleanup does not cover abrupt Node termination. This is narrower than the disclosed pre-handle launch uncertainty; no universal crash-proof storage or process-tree guarantee is required."},
+    {"id": "F2", "witness": "tools/critic/acknowledgment-nod.mjs:103-112", "judgment": "Agree. A successful A report at106 can survive a later terminal write failure without demotion. The unguarded totalBytes call at107 can throw before stdout111 and explicit exitCode112. An uncaught nonzero exit would warrant refusal, but does not implement the promised independent compact terminal channel. No storage failure or native run actually occurred."}
+  ],
+  "actionAssessment": "The whole unexecuted action/page/14-case proof and actual frame-owner source support a plausible isolated head-only implementation. Static A from quality_critic establishes no actual CPU result, clothed motion, perception, performance or default/API suitability.",
+  "alternatives": [
+    {"choice": "Preserve this exact nomination inert", "tradeoff": "No demonstrated gesture improvement, but honors its first-source-failure/no-correction stop and avoids the identified ownership/evidence gaps."},
+    {"choice": "Consider a genuinely different explicit responsibility only after this closure and a fresh independent worth decision", "tradeoff": "Could advance another open goal, but consumes new review/work and cannot silently repair, rename or replay this collector or any earlier closed recipe."}
+  ],
+  "chosen": "Preserve inert; no source change, correction, test, capture, probe, retry or successor admitted by this result.",
+  "targetExecuted": false,
+  "knownOwnedTargetOrCapture": false,
+  "pending_edits": false
+}
