@@ -2,6 +2,8 @@
 
 Updated October 20, 2026. **Customization is usable; complete character quality is still in progress.** Checked items describe the supported features or artist deliverables below, within their recorded review limits.
 
+[Recent studies and open design work](CURRENT-DESIGN-GATES.md) explains three selected stopped approaches and what each leaves open.
+
 ## Usable now
 
 - [x] Switch between two accepted bob haircuts while retaining applied outfit settings. [Hair chooser evidence](evidence/nonhair-2026-10-03/hair-cut/README.md)

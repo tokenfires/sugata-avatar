@@ -1,0 +1,37 @@
+{
+  "utc": "2026-10-20T10:24:24.174297+00:00",
+  "pid": 48093,
+  "automationID": "advance-sugata-avatar-visual-quality",
+  "automationSavedStatus": "ACTIVE",
+  "automationSavedRRule": "FREQ=MINUTELY;INTERVAL=10",
+  "automationConfigBytes": 3344,
+  "automationConfigSHA256": "9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a",
+  "automationChanged": false,
+  "futureDeliveryUntested": true,
+  "reviewServerFiles": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/CURRENT-DESIGN-GATES.md",
+      "bytes": 4083,
+      "sha256": "8d8fb31820f52a6ffddd62f3ff2f144b52fc764009446004da1d34a2f22a2d8d",
+      "HTTP": 200,
+      "servedExact": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 9599,
+      "sha256": "29491d08ad8ef4264204e0249e84e7997d9e5ad0558b866099e622e78b5766fc",
+      "HTTP": 200,
+      "servedExact": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 19252,
+      "sha256": "780b63375e9d4f6d4c5582b93660b939042eed9f1a337586fb9d5507c1ab8804",
+      "HTTP": 200,
+      "servedExact": true
+    }
+  ],
+  "exactOldOwnedCommandsLive": [],
+  "noNewNativeGPUOrBrowserCapture": true,
+  "newMapOnlySourceDocumentQualification": true
+}
