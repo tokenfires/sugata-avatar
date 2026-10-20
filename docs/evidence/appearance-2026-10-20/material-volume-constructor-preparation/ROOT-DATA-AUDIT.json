@@ -1,0 +1,88 @@
+{
+  "utc": "2026-10-20T12:52:11.926580+00:00",
+  "elapsed": 0.3460283750027884,
+  "worker_status": "UNKNOWN",
+  "worker_reason": "tie cut-vector ownership",
+  "outer_exit": 2,
+  "collection_status": "FAILED_OR_REFUSED",
+  "collection_reason": "RuntimeError: leader PID identity changed",
+  "process_reaped": true,
+  "known_pids_externally_absent": [
+    772,
+    775,
+    776,
+    777,
+    780,
+    781,
+    786,
+    789,
+    790,
+    791,
+    792,
+    794,
+    795,
+    796,
+    797,
+    808,
+    809,
+    811,
+    812,
+    815,
+    816,
+    817,
+    821,
+    822,
+    824
+  ],
+  "retirement_command": [
+    "/bin/ps",
+    "-p",
+    "772,775,776,777,780,781,786,789,790,791,792,794,795,796,797,808,809,811,812,815,816,817,821,822,824",
+    "-o",
+    "pid=,ppid=,pgid=,lstart=,comm="
+  ],
+  "retirement_exit": 1,
+  "outputs": 10,
+  "output_bytes": 4927632,
+  "all_recorded_hashes_match": true,
+  "all_output_files_readonly": true,
+  "metric_accepted_prefix_rows": 12857,
+  "metric_accepted_range_records": 55042,
+  "reported_including_failed_range_records": 55054,
+  "first_gid": 0,
+  "last_accepted_gid": 12856,
+  "last_accepted_indexes": [
+    0,
+    62,
+    84
+  ],
+  "last_accepted_q64": [
+    -0.6056432479865634,
+    0.14520724707267618,
+    0.6698225543848366
+  ],
+  "ray_columns": [
+    13390,
+    29252,
+    9230
+  ],
+  "ambiguous_ray_columns": [
+    0,
+    0,
+    0
+  ],
+  "proper_ray_hits": 33188,
+  "decompressed_bytes": {
+    "metric": 30293513,
+    "rays": 4684780
+  },
+  "observed_combined_peak_rss_bytes": 325730304,
+  "observed_supervisor_elapsed": 5.361731042008614,
+  "complete_field": false,
+  "mesh_or_parent_outputs_exist": false,
+  "qualification": "Internal saved-prefix and collection consistency only, no full-field/source-index/region/physical/image qualification",
+  "missing_failed_native_tuple": true,
+  "no_diagnosis_of_identity_mismatch": true,
+  "no_new_native_query": true,
+  "no_retry": true
+}

@@ -1,0 +1,184 @@
+{
+  "status": "FAILED_OR_REFUSED",
+  "utc": "2026-10-20T12:49:15.824948+00:00",
+  "supervisor_pid": 772,
+  "supervisor_pgid": 772,
+  "limits": {
+    "worker_wall_seconds": 900,
+    "total_wall_seconds": 1200,
+    "sampled_rss_bytes": 4294967296,
+    "sampled_output_bytes": 2147483648,
+    "poll_seconds": 0.25,
+    "term_grace_seconds": 3,
+    "kill_grace_seconds": 3
+  },
+  "admission_sha256": "28e5147d32da0762d50cebdbe5a8d2a3efe5a18ddb7c25d30ef5721423fe7305",
+  "warning": "Sampled RSS/output limits may overshoot; parent death is not cleanup proof",
+  "command": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--factory-startup",
+    "--disable-autoexec",
+    "--python-exit-code",
+    "2",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/constructor.py",
+    "--",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/trial-001"
+  ],
+  "spawn_environment": {
+    "HOME": "/Users/robault",
+    "USER": "robault",
+    "LOGNAME": "robault",
+    "PATH": "/usr/bin:/bin",
+    "LC_ALL": "C",
+    "TMPDIR": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/trial-001/runtime/tmp",
+    "PYTHONNOUSERSITE": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "BLENDER_USER_CONFIG": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/trial-001/runtime/config",
+    "BLENDER_USER_SCRIPTS": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/trial-001/runtime/scripts",
+    "BLENDER_USER_DATAFILES": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/trial-001/runtime/datafiles",
+    "BLENDER_USER_EXTENSIONS": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/trial-001/runtime/extensions"
+  },
+  "worker_pid": 775,
+  "expected_pgid": 775,
+  "worker_started_utc": "2026-10-20T12:49:15.828532+00:00",
+  "worker_returncode": 2,
+  "leader_identity": {
+    "pid": 775,
+    "ppid": 772,
+    "pgid": 775,
+    "birth": "Tue Oct 20 05:49:15 2026",
+    "rss_bytes": 131072,
+    "command": "/Applications/Blender.app/Contents/MacOS/Blender"
+  },
+  "sampled_utc": "2026-10-20T12:49:20.654332+00:00",
+  "elapsed": 5.361731042008614,
+  "peak_owned_rss_bytes": 325730304,
+  "peak_output_bytes": 4924886,
+  "members": [
+    {
+      "pid": 775,
+      "ppid": 772,
+      "pgid": 775,
+      "birth": "Tue Oct 20 05:49:15 2026",
+      "rss_bytes": 295895040,
+      "command": "/Applications/Blender.app/Contents/MacOS/Blender"
+    }
+  ],
+  "output_files": [
+    {
+      "name": "metric-000.jsonl.gz",
+      "bytes": 3960760
+    },
+    {
+      "name": "owner.json",
+      "bytes": 3401
+    },
+    {
+      "name": "process-observers.jsonl",
+      "bytes": 9252
+    },
+    {
+      "name": "rays.jsonl.gz",
+      "bytes": 943051
+    },
+    {
+      "name": "source-chain.json",
+      "bytes": 158
+    },
+    {
+      "name": "stage.json",
+      "bytes": 160
+    },
+    {
+      "name": "stderr.log",
+      "bytes": 0
+    },
+    {
+      "name": "stdout.log",
+      "bytes": 64
+    },
+    {
+      "name": "worker-result.json",
+      "bytes": 267
+    }
+  ],
+  "reason": "RuntimeError: leader PID identity changed",
+  "remaining_group_members": [],
+  "completed_utc": "2026-10-20T12:49:21.063222+00:00",
+  "reaped": true,
+  "cleanup": [],
+  "appearance": "UNKNOWN",
+  "physical": "UNKNOWN",
+  "last_process_observer": {
+    "pid": 824,
+    "command": [
+      "/bin/ps",
+      "-axo",
+      "pid=,ppid=,pgid=,lstart=,rss=,comm="
+    ],
+    "started_utc": "2026-10-20T12:49:21.040133+00:00",
+    "reaped": true,
+    "returncode": 0,
+    "sampled_identity": {
+      "pid": 824,
+      "ppid": 772,
+      "pgid": 772,
+      "birth": "Tue Oct 20 05:49:21 2026",
+      "rss_bytes": 1835008,
+      "command": "/bin/ps"
+    },
+    "completed_utc": "2026-10-20T12:49:21.060305+00:00"
+  },
+  "process_observer_count": 23,
+  "artifact_hashes_complete": true,
+  "artifact_collection": "COMPLETE",
+  "artifact_hash_deadline_monotonic": 150632.760244333,
+  "final_outputs": [
+    {
+      "name": "metric-000.jsonl.gz",
+      "bytes": 3960760,
+      "sha256": "6023feb9b16065250d8b4a66b91a686f5572375c68a9d2725297f1613fbabbf9"
+    },
+    {
+      "name": "process-observers.jsonl",
+      "bytes": 11822,
+      "sha256": "931d2beff4ab56de8b3e5bfe25bd05b2590901ad8a92f4360f5b1ffd41e9dbd6"
+    },
+    {
+      "name": "rays.jsonl.gz",
+      "bytes": 943051,
+      "sha256": "f46c7a6d2dc5cf05afa52911f9e05f4031fb37c834813beac7930581106e0d2e"
+    },
+    {
+      "name": "source-chain.json",
+      "bytes": 158,
+      "sha256": "783880727f77c1673941b9676ee0680c3e0ebe659b7b59b82f298b065ca18b4e"
+    },
+    {
+      "name": "stage.json",
+      "bytes": 160,
+      "sha256": "a9de4fa8e6f06357d2234a408f4e52b4e0e2fa970464103bdb9125f634e163e5"
+    },
+    {
+      "name": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "stdout.log",
+      "bytes": 64,
+      "sha256": "9e969a5cccbfa0e8b0e786d4c93d2e7b967ebc306d65329ed79a65d7fd1ddb3f"
+    },
+    {
+      "name": "worker-result.json",
+      "bytes": 267,
+      "sha256": "45b1c92aa29bb95a5b54c0bea355fc0fdf4bf3cd8adadb2271fbea7965db7885"
+    }
+  ],
+  "final_output_bytes_before_collection": 4924886,
+  "projected_final_output_bytes": 4927546
+}
