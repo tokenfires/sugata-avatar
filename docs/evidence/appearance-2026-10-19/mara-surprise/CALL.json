@@ -1,0 +1,35 @@
+{
+  "schema": "mara-surprise-actual-managed-return-v1",
+  "tool": "image_gen__imagegen",
+  "started": {
+    "current_time": "2026-10-20 01:06:52 UTC"
+  },
+  "finished": {
+    "current_time": "2026-10-20 01:07:23 UTC"
+  },
+  "reportedFunctionCellWallSeconds": 31.4,
+  "actualArgs": {
+    "prompt": "Create one high-quality fictional character artist expression plate, opaque landscape 1536 by 1024 pixels, with two equally large matched face-and-shoulders portraits, left A and right B, separated by a narrow plain gutter. Use the attached Mara character sheet as the sole visual reference for her individual face, mature natural skin texture, warm brown skin, silver jaw-length side-parted bob with softly curved ends, brown eyes, caramel knitted cardigan and ivory crew-neck tee. This is a newly authored expression study, not a retouch of the original and not a technical face scan.\n\nBoth portraits: same quiet grey studio background, soft diffuse light, eye-level nearly frontal head direction, gaze to the viewer, scale and shoulder position. Show all the hair above and at both sides with comfortable margins, complete jaw and neck, and upper cardigan/tee. Make the two portraits clearly recognizable as the same fictional character. Preserve her visible outer-eye lines, lower-lid folds, cheek and mouth texture and natural face proportions; avoid smoothing or beautifying away those characteristics. Keep the silver bob's length, side part and silhouette consistent. Keep hands, props, other people and whole-body gestures out of the plate.\n\nA is her familiar calm, pleasantly attentive conversational baseline: relaxed brows and eyelids, soft closed lips with a very slight warm upward turn as in the source. It is not a clinical neutral-rest or action-unit-zero diagram.\n\nB is a distinct but MILD SURPRISE, as if she has just heard one unexpected interesting detail: both brows raised moderately with a smooth open curve, without pinching them together; eyes a little wider yet soft and unstrained; a modest relaxed jaw drop and a small softly rounded opening between relaxed lips. Make the change from A readily visible at this plate size. Keep the mature facial texture and identity cues. It should read as a quiet 'oh!' rather than fear, alarm, a startled flinch, screaming, worry, anger, seduction, teasing, laughter or broad delight. No clenched teeth, tense horizontally stretched lips, exaggerated white-rimmed eyes or cartoon shock. Natural moderate expression, with no dramatic head or shoulder pose change.\n\nRender in the same realistic artist-reference spirit as the supplied illustration. Original expressive choices and qualitative character continuity only; no anatomy reconstruction, physical measurement, morph/control calibration or registered geometry. Place only a small unobtrusive A beneath the left portrait and B beneath the right. No emotion words, diagrams, arrows, brands, captions or extra inset faces. Return this one complete plate.",
+    "referenced_image_paths": [
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png"
+    ],
+    "transparent_background": false
+  },
+  "outputHint": "Generated images are saved to /Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c as /Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-f962c21b-1ae4-4ea4-b99b-7290bdf58c99.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "actualReturnedNativePath": "/Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-f962c21b-1ae4-4ea4-b99b-7290bdf58c99.png",
+  "resultKeys": [
+    "image_url",
+    "output_hint"
+  ],
+  "imageURL": {
+    "prefix": "data:image/png;base64,",
+    "characters": 3669418,
+    "fullReturn": "Retained in tool history and functions store, not printed or duplicated as base64. Actual native PNG is original evidence."
+  },
+  "error": null,
+  "callCount": 1,
+  "scope": "Returned one image, no edit/retry/crop/retake. Backend PID/memory/model/cost/physical worker state unexposed; reported cell wall is not performance qualification.",
+  "collectionUTC": "2026-10-20T01:08:48.643988+00:00",
+  "collectionPID": 10541,
+  "admissionPath": "ADMISSION.json"
+}

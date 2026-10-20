@@ -1,0 +1,139 @@
+{
+  "schema": "mara-surprise-external-prequalification-inventory-v1",
+  "utc": "2026-10-20T01:08:48.643988+00:00",
+  "pid": 10541,
+  "decision": "A_INVENTORY_ONLY_NOT_IMAGE_APPEARANCE",
+  "entries": [
+    {
+      "name": "ADMISSION.json",
+      "bytes": 11390,
+      "sha256": "02040fac65c51898bb54bdc718abc291ca0370223fc65998611890742e47575b"
+    },
+    {
+      "name": "BRIEF.md",
+      "bytes": 4695,
+      "sha256": "57fd2322a1270cae9db97bfacc3a4f3b3ef6ffcee26c06301f0763649e37f50d"
+    },
+    {
+      "name": "CALL-CONTRACT.json",
+      "bytes": 1613,
+      "sha256": "a4a9f05e296249aaa8979e232127f177242c3e32188a60758afa3d5e3330eec5"
+    },
+    {
+      "name": "CALL-START.json",
+      "bytes": 733,
+      "sha256": "62a17cb40eb41d38ac8c94d8651506063bb5e78d98430b03d4765999b3905683"
+    },
+    {
+      "name": "CALL.json",
+      "bytes": 4512,
+      "sha256": "9465e49f545673b277b5d40573fc77bed837cf9c73dc459a502c661565dd1f17"
+    },
+    {
+      "name": "CRITIC-SOURCE-RECEIPT.json",
+      "bytes": 16668,
+      "sha256": "565b15ad0919fbe19658df29f7ea5235dcbdafca7a5a6bed3d739a3754716441"
+    },
+    {
+      "name": "FINAL-INPUTS.json",
+      "bytes": 3469,
+      "sha256": "f73efdd87756c93c06cd686e83dd35f781e36c7493fbd6143a00fcb521b3d804"
+    },
+    {
+      "name": "INPUTS.json",
+      "bytes": 3064,
+      "sha256": "01d06649a8b06fb5208820638c6880448532186f55af3e066896dae5c57f1c64"
+    },
+    {
+      "name": "PLAN.md",
+      "bytes": 5121,
+      "sha256": "b3e01243fca85f0a7354262fdfa3ffb3ddac02494b128cb04b74be584109601b"
+    },
+    {
+      "name": "PROMPT.txt",
+      "bytes": 2673,
+      "sha256": "e2d08e83dff266a015b5a7b33205a60feffd150953f9af8427ce1cb1714f5e2e"
+    },
+    {
+      "name": "REFERENCE-EXCERPT.md",
+      "bytes": 519,
+      "sha256": "a7811e54036c212fe21525359d23f91505589dedf2b1baf8cd7de0f8f60ead78"
+    },
+    {
+      "name": "REFERENCE-RAW.json",
+      "bytes": 20677,
+      "sha256": "bcc780f9898d7358e66bdb3d9a789ed77136b99ec8ffca1951fe650a8fef200a"
+    },
+    {
+      "name": "REFERENCES.md",
+      "bytes": 1564,
+      "sha256": "0b8b0853d982d7620f4c308669dfdd9dd7e019ec960b075076a07b21229a3c59"
+    },
+    {
+      "name": "ROOT-CALL-FIRST.json",
+      "bytes": 3977,
+      "sha256": "1c8574a8ea930f17deb6e4d76761360ffd2a29d8388db67286aa74577f9236f3"
+    },
+    {
+      "name": "ROOT-FIRST.json",
+      "bytes": 4331,
+      "sha256": "a6ba473780bf0f854794020be61692227aa4093a0476d5eea62094572893ef4f"
+    },
+    {
+      "name": "ROOT-SOURCE.json",
+      "bytes": 6933,
+      "sha256": "9e411d1e6a86e6c412de5e5a0787fc90cb4aff6e886353001ef07df669491084"
+    },
+    {
+      "name": "SOURCE-README.md",
+      "bytes": 1232,
+      "sha256": "fe81b58457ecc903f35b382c03142cf764ab335e423bd1bbdb61a0900d6fd655"
+    },
+    {
+      "name": "SOURCE-REVIEW.md",
+      "bytes": 4008,
+      "sha256": "f99bb36d13f27afd11aa0577d8d64ef3f7c20558943f0b8434074845fc14e80f"
+    },
+    {
+      "name": "SOURCE-ROOT-CLOSE.json",
+      "bytes": 57058,
+      "sha256": "86b346cf4ba2c1c013a3ef54c1dc8a051cfb03f76a6e76322f3c5b297076343a"
+    },
+    {
+      "name": "SOURCE-SAVE-NOTE.json",
+      "bytes": 76595,
+      "sha256": "8a96d8d77616290e741d4e0a75280f6db3f42f926757091ee1f58514a4e70705"
+    },
+    {
+      "name": "TOOL-ARGS.json",
+      "bytes": 2895,
+      "sha256": "59e56ff5db29cd260a7fa51ebb3a586c2ed130fee3d9efea0093ee5038fdd322"
+    },
+    {
+      "name": "first.png",
+      "bytes": 2752047,
+      "sha256": "b8ddff7d0a33a4bb441af620a6da31ee86626fbe840a2ad804f82babbdff9ade"
+    }
+  ],
+  "nativeOriginal": {
+    "path": "/Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-f962c21b-1ae4-4ea4-b99b-7290bdf58c99.png",
+    "bytes": 2752047,
+    "sha256": "b8ddff7d0a33a4bb441af620a6da31ee86626fbe840a2ad804f82babbdff9ade",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "projectCopyExact": true
+  },
+  "filesBeforeSelf": 22,
+  "totalBytesBeforeSelf": 2985774,
+  "selfBinding": "Self omitted to avoid circular hash; outer result independently reports selfbytes/hash/fullcount/fulltotal before semantic qualification.",
+  "caps": {
+    "regularNonsymlinkFiles": 36,
+    "totalBytes": 31457280,
+    "solePNGBytes": 20971520,
+    "metadataBytesEach": 524288,
+    "referenceWrapperBytes": 262144
+  },
+  "scope": "No cleanup/deletion/rewrite/crop/retake. Exact returnedoriginal and exclusivebytecopy preserved. No actualimagequalification yet."
+}

@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-20T01:06:28.427778+00:00",
+  "pid": 6123,
+  "status": "EXCLUSIVE_ONE_CALL_START_INTENT_PENDING_ACTUAL_TOOL_STATE",
+  "tool": "image_gen__imagegen",
+  "admission": {
+    "path": "docs/evidence/appearance-2026-10-19/mara-surprise/ADMISSION.json",
+    "bytes": 11390,
+    "sha256": "02040fac65c51898bb54bdc718abc291ca0370223fc65998611890742e47575b"
+  },
+  "arguments": {
+    "path": "docs/evidence/appearance-2026-10-19/mara-surprise/TOOL-ARGS.json",
+    "bytes": 2895,
+    "sha256": "59e56ff5db29cd260a7fa51ebb3a586c2ed130fee3d9efea0093ee5038fdd322"
+  },
+  "warning": "Presence prevents automatic duplicate dispatch after outage/unknown. Inspect actual tool history/state; no guessed output or directory search."
+}

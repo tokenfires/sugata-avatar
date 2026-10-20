@@ -1,5 +1,14 @@
 # Sugata work window — October 18, 2026
 
+## October 20, 01:15 UTC — Mara expression first plate retained at artist scope
+
+The unchanged first1536×1024 plate supplies Acalm/pleasant and Bmildinterested-surprise portraits, with qualitative face/texture/silverbob/clothingcontinuity andcompleteheadframing. Root andcritic independentlywhole-view original/newPNG andagree atartist-meaning scope. [First plate](evidence/appearance-2026-10-19/mara-surprise/first.png) · [Actual-image review](evidence/appearance-2026-10-19/mara-surprise/IMAGE-REVIEW.md) · [Root verification](evidence/appearance-2026-10-19/mara-surprise/ROOT-IMAGE.json).
+
+Onebuiltin call01:06:52→01:07:23,25freshsourcebindings/06f5a1precededentry; actualreturneddefaultPNG2752047B/SHAb8ddff7d0a33a4bb441af620a6da31ee86626fbe840a2ad804f82babbdff9ade bytecopied7a04fe/01:08:48afterheader/hashchecks. External22members+self23/2990178B inventory precededformalimagejudgment. Stable4428B review/21195Breceipt wholly read23314e; fresh33bindings/22members/marker-args-deadlines/nativecopy/fourCRCs pass. Pre-entry74f356eagerpin bookkeeping failedbeforeanywrite/call, thensequentialsame25checks; no targetretry. Managedbackendmodel/PID/memory/cost/physicalworkerstateunexposed;31.4scellwall isnotperformance.
+
+NextA: narrowtruthfulartist-handoff and existingMarachecklistrowdiscoverysupplement, independentlyreviewedbeforecanonicaldelivery. No moregraphics/retakes/relabels/alternateemotions/renamedsuccessors. This isnot neutralrest/AU/native/head/groom/body/editablefacialmaster/rig/morph/3D/motion/fit/runtime/default/demographic/AAAqualification. AllsixoldMara nativePNGsunviewed. No livetarget orpendingcriticedit. Allpriorclosures/HOLD/accepted/default/original/frozen/ignored/unrelatedwork/fullroadmap/checklist23scoped10broadpreserved. SameVite/ACTIVEtenminuterecoveryretained; humancheck-in/pausewins. No push/publication/capacity/model/reset-credit/otherproject.
+
+
 ## October 20, 01:05 UTC — Mara expression source A; one fresh-admitted first plate next
 
 Complete calm/pleasant-to-mild-surprise artist source passes independent and root review. Stable4008B review/16668Breceipt wholly readf98a9f; fresh21bindings, actual2672Bprompt/terminalLF relation, exact17finalsourcepins and8savedprimaryrows pass. Initial drafting phrases are transparently superseded byCALL-CONTRACT without changing frozeninitialbytes. [Source receipt](evidence/appearance-2026-10-19/mara-surprise/SOURCE-README.md) · [Root verification](evidence/appearance-2026-10-19/mara-surprise/ROOT-SOURCE.json).
