@@ -1,0 +1,12 @@
+{
+  "recordedUTC": "2026-10-20T14:23:11.792582+00:00",
+  "browserSelection": "cua.getState then cua.getBrowser({id:3}); no tab opened",
+  "documentation": "cua.rewriteDocumentation; targeted missing browser typed reference, viewport.documentation, agent.documentation.get(screenshots/local-web-development)",
+  "ordinaryArtifactProbe": {
+    "module": "node:fs/promises",
+    "write": "writeFile(local-artifact-probe.txt,61byte literal,{flag:wx})",
+    "read": "readFile(...,utf8) exact=true",
+    "browserOpened": false
+  },
+  "scope": "API/storage preparation only, no target/browser/screenshot/image view"
+}

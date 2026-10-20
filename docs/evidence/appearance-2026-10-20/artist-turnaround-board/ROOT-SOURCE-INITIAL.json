@@ -1,0 +1,30 @@
+{
+  "sealedUTC": "2026-10-20T14:25:28.894220+00:00",
+  "decision": "A_SOURCE_CONDITIONAL_ONLY",
+  "currentIndependentSourceOpinionsRead": false,
+  "wholeReads": [
+    "e89f1a",
+    "aad46d",
+    "660be6"
+  ],
+  "all21BindingsPass": true,
+  "wholeCandidateBytes": 22349,
+  "exactBaselineRestoredByRemovingOnlyNewSectionAndNavLink": true,
+  "uniqueIDs": 23,
+  "allFragmentTargetsExist": true,
+  "imageElements": 12,
+  "addedImageElements": 2,
+  "newCSSOrJS": false,
+  "rootAssessment": "Exact unchanged original image URLs, full aspect ratio, concrete captions and visible unregistered/fit-motion limits. Supported public tab screenshot/close and temporary viewport APIs plus observed ordinary local file write/read form a plausible static route. Actual source images and first page frames remain owed.",
+  "alternatives": [
+    {
+      "choice": "Capture this exact static comparison after both independent/root source gates",
+      "tradeoff": "Can qualify useful discovery at fixed layouts with three bounded real observations; adds page height."
+    },
+    {
+      "choice": "Retain existing board and handoff links",
+      "tradeoff": "Avoids layout/capture work but leaves these side/rear pictures less discoverable."
+    }
+  ],
+  "targetAdmitted": false
+}

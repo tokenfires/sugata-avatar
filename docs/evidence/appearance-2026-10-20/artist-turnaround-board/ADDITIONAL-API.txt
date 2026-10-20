@@ -1,0 +1,28 @@
+# Exact additional returned CUA documentation
+
+Provenance: already-returned cua_repl call titled "Read documented screenshot file saving and fixed viewport cleanup", wall0.0079s. The actual call emitted the saved browser reference84–155, then boardViewport.documentation(), then agent.documentation.get("screenshots"). Below are the latter two exact returned documentation bodies, copied verbatim from that result. This file does not claim a new API call, runtime test or independently queried source.
+
+# Browser Capability: viewport
+Browser viewport override control. Do not set the viewport during normal browser setup; most tasks should use the existing/default viewport. Use `set()` only when the user asks for specific dimensions, asks to test a responsive breakpoint or device size, or the task cannot be answered correctly without a specific viewport. Do not resize the browser just to make a screenshot larger, prettier, or fit more content. Use the default viewport, a normal screenshot, or a full-page screenshot instead. If you set a temporary viewport, call `reset()` before finishing unless the user asked to keep that viewport.
+
+```ts
+const capability = await browser.capabilities.get("viewport");
+
+interface ViewportSize {
+  height: number;
+  width: number;
+}
+
+interface ViewportBrowserCapability {
+  reset(): Promise<void>; // Clear the explicit viewport override and return to default browser sizing.
+  set(options: ViewportSize): Promise<void>; // Apply an explicit browser viewport override.
+}
+```
+# Screenshots
+* Browser screenshots are JPEG: use `.jpg` and `image/jpeg`.
+* If you take a screenshot that the user should see, include the image inline in your Markdown response using Markdown image syntax so the image renders, rather than as a bare link:
+  ```md
+  ![screenshot](IMAGE_LINK)
+  ```
+* IMPORTANT: If the user has asked you to take screenshots, you MUST include them as part of your final markdown response.
+* If the user has asked you to test a website as part of development, you should take screenshots at key moments and include them in your final response.

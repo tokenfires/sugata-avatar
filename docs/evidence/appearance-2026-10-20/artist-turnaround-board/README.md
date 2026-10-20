@@ -1,0 +1,11 @@
+# Two retained turnarounds on the artist board — prepared, not adopted
+
+Independent worth and both complete source/workload reviews support the exact candidate. Root whole-read and fresh25-binding/canonical checks passed. The actual source-image match is being reviewed before a separate browser admission. No target tab/screenshot or canonical-board edit has occurred.
+
+The existing board already displays the knitwear turnaround. The candidate adds only the accepted olive-overshirt and Mara complete outfit sheets, their handoffs/limits and one navigation anchor. Original cards, seasonal comparison, mesh drafts, CSS, image bytes, fullroadmap and23checked/10open checklist remain.
+
+[Plan](PLAN.md) · [Source inputs](INPUTS.json) · [Worth](WORTH.md) · [Complete candidate/source handoff](COMPLETE-HANDOFF.json) · [Exact source](candidate.html) · [Patch](CANDIDATE.patch) · [Static capture/collection contract](CAPTURE-CONTRACT.md) · [Previously returned API supplement](SOURCE-SUPPLEMENT.json) · [Source critic](SOURCE-REVIEW.md) · [Workload critic](WORKLOAD-REVIEW.md) · [Root source verification](ROOT-SOURCE.json).
+
+Preparation jobs e89f1a/3623e8/06fbc2, worth b5e667/7d146c; candidate dd41ad; complete contract84b67b; root whole aad46d/660be6, source proof c6f689, supplemental returned-doc copy d2c6c8; whole handoffs cabfba/f933f6 and fresh source gate b4e71b. Ordinary local artifact-write/read proof is61bytes in local-artifact-probe.txt; current browser API was read without opening a tab. Exact source/contract hashes and actual resource limits are in the linked records. No code/test/native/avatar/encoder program was executed.
+
+If admitted: exactly one hidden temporary static tab, desktop1280x900 and two distinct narrow390x844 article views, first JPEGs unchanged; reset viewport, close exact owned tab and check its ID absent. Actual originals and first page images must be independently/root reviewed before copying exact reviewed bytes to the main board. No retake/crop/layout or capture rescue. Latest entry14:45UTC, observation/cleanup<=6minutes, final checkpoint15:10:22UTC. Old nod, geometry, import and observer closures stay closed. Ten-minute recovery/server/human-pause boundaries remain; no settings/purchase/push/publication/other-project changes.

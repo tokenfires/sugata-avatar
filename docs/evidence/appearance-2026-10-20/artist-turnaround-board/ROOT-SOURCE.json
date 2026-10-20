@@ -1,0 +1,38 @@
+{
+  "sealedUTC": "2026-10-20T14:30:50.386406+00:00",
+  "decision": "A_SOURCE_AND_SOURCE_IMAGE_VIEWS_ONLY",
+  "wholeIndependentHandoffReads": [
+    "cabfba",
+    "f933f6"
+  ],
+  "reviews": [
+    {
+      "path": "docs/evidence/appearance-2026-10-20/artist-turnaround-board/SOURCE-REVIEW.md",
+      "bytes": 14530,
+      "sha256": "cbf0c2f1495c4607e3593fe9dcfe68018043a7201d8a589ffe866241dee33320",
+      "canonicalOpinionSHA256": "5210e5cef16d28acf37f2a3c794a4732dae8cc8e8d3ee10467415ae7dd6774ed"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-20/artist-turnaround-board/WORKLOAD-REVIEW.md",
+      "bytes": 18257,
+      "sha256": "da998f87ecba36aef8a964c1bb0e4290545f5400211ca6784b7cfa122f4dba20",
+      "canonicalOpinionSHA256": "e7c6e5eae553c08a5975bc52d0c61b5f043c9addca0debd55d6b9a9d0071d0dd"
+    }
+  ],
+  "all25DistinctSourceBindingsFreshPass": true,
+  "rootWholeCandidateAndContractReads": [
+    "aad46d",
+    "660be6"
+  ],
+  "rootSourceProofJob": "c6f689",
+  "resource": {
+    "pagesFree": 2726078,
+    "pageBytes": 16384,
+    "freeBytes": 44664061952,
+    "minimum": 1073741824,
+    "raw": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                  2726078.\nPages active:                                1785787.\nPages inactive:                              1832451.\nPages speculative:                             57255.\nPages throttled:                                   0.\nPages wired down:                             322720.\nPages purgeable:                               51821.\n\"Translation faults\":                     1635104160.\nPages copy-on-write:                       295904263.\nPages zero filled:                        2072994512.\nPages reactivated:                          11124683.\nPages purged:                               10924560.\nFile-backed pages:                           1588197.\nAnonymous pages:                             2087296.\nPages stored in compressor:                  1686660.\nPages occupied by compressor:                1587125.\nDecompressions:                             51908802.\nCompressions:                               87117002.\nPageins:                                    55872686.\nPageouts:                                       9686.\nSwapins:                                     7654515.\nSwapouts:                                   15752086.\nPages tagged:                                 209490.\nPages tagged resident:                        198741.\nPages tagged compressed:                       10749.\nPages tag-storage:                            262144.\nPages tag-storage holding tags:                 8242.\nPages tag-storage free:                         7556.\nPages tag-storage non-tag pageable:           246222.\nPages tag-storage non-tag wired:                   8.\nBytes of compressed tags:                    1420672.\nTagged compressions:                          424960.\nTagged decompressions:                        332649.\n"
+  },
+  "permittedNext": "Root and critic each view exactly the two nominated original PNGs. Separate root browser admission only after actual source-image match and fresh input/resource gate.",
+  "browserAdmitted": false,
+  "rootAgreement": "Two unchanged complete sheets, actual artifact write/read, documented screenshot/viewport/close methods and fixed scoped observations are proportionate; independent static A is not appearance evidence."
+}

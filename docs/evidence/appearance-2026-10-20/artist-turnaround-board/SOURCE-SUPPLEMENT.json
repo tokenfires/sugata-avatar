@@ -1,0 +1,22 @@
+{
+  "sealedUTC": "2026-10-20T14:26:14.079732+00:00",
+  "parentHandoff": {
+    "path": "docs/evidence/appearance-2026-10-20/artist-turnaround-board/COMPLETE-HANDOFF.json",
+    "bytes": 4646,
+    "sha256": "4ce2ef30dcf95488e5b7b09c817e6a21ec0e6d636f4a465068c3cc224a25f0d0"
+  },
+  "extraBindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-20/artist-turnaround-board/ADDITIONAL-API.txt",
+      "bytes": 2095,
+      "sha256": "721316674bd906c41470836aef453de0da5b1edadd15ade3d158535381d7aed5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-20/artist-turnaround-board/RESOURCE-NOTE.json",
+      "bytes": 703,
+      "sha256": "c08ced8d5b9ee927ab1693bc9bd32d6700ef9d80b0c5d9b32513c07699b29a58"
+    }
+  ],
+  "sourceCandidateOrContractChanged": false,
+  "scope": "Supply exact previously returned supplemental documentation and explicit resource estimate/snapshot before source seal; no new CUA/API/target/image call."
+}

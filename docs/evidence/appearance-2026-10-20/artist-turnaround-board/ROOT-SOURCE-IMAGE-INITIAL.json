@@ -1,0 +1,32 @@
+{
+  "sealedUTC": "2026-10-20T14:32:52.417255+00:00",
+  "decision": "A_SOURCE_IMAGES_MATCH_CARD_SCOPE",
+  "criticCurrentImageOpinionRead": false,
+  "tool": "view_image(detail=original) on each exact existing PNG, one full image each; no crop/transform/file rewrite",
+  "witnesses": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/first.png",
+      "observation": "Three complete full-height figures in front/page-left profile/rear; open olive overshirt, ivory tee, sandstone trousers and complete brown boots. Side and rear expose clothed depth, curved shirt hem, rear trouser pockets and boot balance. Front stance/head tilt differ illustratively; this is not a registered anatomical master.",
+      "bytes": 1969289,
+      "sha256": "a7019a47790a0a27155e2425c02f7d3d1c7b3157d24a541caa5509e75d72c82d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-body-turnaround/first.png",
+      "observation": "Three complete full-height figures, explicitly Front/Profile/Rear; silver bob, caramel cardigan with front pockets and plain rear, ivory tee, plum skirt, lower legs and full oxblood shoes. Profile and rear show cardigan/skirt hem interval and clothed middle/seat. No physical-fit, identity or 3D reconstruction acceptance follows.",
+      "bytes": 1991838,
+      "sha256": "32d3a7b9037408fee44ff588c42d5225771a6885d6d911b1352fe76258fc6daa"
+    }
+  ],
+  "rootAssessment": "The two existing complete sheets support the literal new card descriptions and qualitative comparison. Their already-authored rear relationships and unregistered limits remain visible/linked. No new actionable art defect identified for this display responsibility.",
+  "alternatives": [
+    {
+      "choice": "Continue to the exact fixed static page observations after critic match and fresh browser gate",
+      "tradeoff": "Can qualify useful display of these actual references; costs one owned temporary tab and three fixed frames."
+    },
+    {
+      "choice": "Keep only handoff links",
+      "tradeoff": "Preserves original board height but loses immediate visual comparison."
+    }
+  ],
+  "browserAdmitted": false
+}

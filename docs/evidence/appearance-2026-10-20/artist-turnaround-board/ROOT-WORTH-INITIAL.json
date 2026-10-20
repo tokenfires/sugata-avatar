@@ -1,0 +1,16 @@
+{
+  "decision": "A_CONDITIONAL_PREPARATION_ONLY",
+  "reason": "The exact current board omits two reviewed whole-character turnarounds with useful profile/rear garment choices; adding their unchanged pictures alongside limits would improve author review without a new asset or runtime claim.",
+  "alternatives": [
+    {
+      "choice": "Add only the two missing supplemental cards in one section",
+      "tradeoff": "Direct comparison and evidence access, at the cost of a longer board."
+    },
+    {
+      "choice": "Keep handoff/checklist links only",
+      "tradeoff": "Avoids more page height, but requires separate navigation for complete outfit views."
+    }
+  ],
+  "targetAdmitted": false,
+  "currentCriticOpinionRead": false
+}

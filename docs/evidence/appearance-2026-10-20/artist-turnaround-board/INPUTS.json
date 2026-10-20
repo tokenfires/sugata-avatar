@@ -1,0 +1,61 @@
+{
+  "sealedUTC": "2026-10-20T14:10:52.607194+00:00",
+  "plan": {
+    "path": "docs/evidence/appearance-2026-10-20/artist-turnaround-board/PLAN.md",
+    "bytes": 3738,
+    "sha256": "3837693fec54946170b0012274a4d67bf79bed27006fca3e7d9a47172af262d1"
+  },
+  "pins": [
+    {
+      "path": "docs/ARTIST-WARDROBE.html",
+      "bytes": 19252,
+      "sha256": "780b63375e9d4f6d4c5582b93660b939042eed9f1a337586fb9d5507c1ab8804"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2175,
+      "sha256": "f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2631,
+      "sha256": "9d967edd7bdce0f9ff543540473f34c5859d500619beb9051014e3a37581ebc1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-body-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2092,
+      "sha256": "1ecfdc33f35a4631a0942fc20eaa144844372802edfe36764e365e569efd8358"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+      "bytes": 2023441,
+      "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/first.png",
+      "bytes": 1969289,
+      "sha256": "a7019a47790a0a27155e2425c02f7d3d1c7b3157d24a541caa5509e75d72c82d",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-body-turnaround/first.png",
+      "bytes": 1991838,
+      "sha256": "32d3a7b9037408fee44ff588c42d5225771a6885d6d911b1352fe76258fc6daa",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    }
+  ],
+  "worthBeforeUTC": "2026-10-20T14:30:22+00:00",
+  "checkpointBeforeUTC": "2026-10-20T15:10:22+00:00",
+  "semantics": "Whole four source documents read; PNGs only opaque hashes/header metadata before worth, no image viewing or execution.",
+  "startRecordScope": "START.json binds the original pre-inventory plan; this INPUTS.json binds the narrowed post-inventory nomination before critic dispatch."
+}
