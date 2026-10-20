@@ -1,0 +1,114 @@
+{
+  "utc": "2026-10-19T23:56:52.904965+00:00",
+  "pid": 70997,
+  "parent": "653da9594eed0d00dbad4d179d231e3a1414574d",
+  "pins": [
+    {
+      "path": "packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad",
+      "lines": 74
+    },
+    {
+      "path": "packages/testbed/src/showcase-collection.mjs",
+      "bytes": 8721,
+      "sha256": "dcc014cdce1d176acf790bccd693d4c90e2f891d590e67d6329d681c6f181f86",
+      "lines": 141
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 21951,
+      "sha256": "dbda8923ece4cca7509b28a3b1fcee07b7068c78338f64a29fd45f996079fabc",
+      "lines": 86
+    },
+    {
+      "path": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941",
+      "lines": 97
+    },
+    {
+      "path": "packages/testbed/src/showcase-colours.mjs",
+      "bytes": 1896,
+      "sha256": "8c084259b3325e6c7ed871d5849423879c06360ebfe722e0c8556ea4a81a9e0a",
+      "lines": 36
+    },
+    {
+      "path": "packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409",
+      "lines": 37
+    },
+    {
+      "path": "packages/core/src/wardrobe/WardrobeStyleOptions.js",
+      "bytes": 1933,
+      "sha256": "23076d5efb5d8575b2db806d074f3efe5090f5dd83d844322e4ab9e4699636f5",
+      "lines": 32
+    },
+    {
+      "path": "packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 968,
+      "sha256": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407",
+      "lines": 20
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59",
+      "lines": 509
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-worth/ROOT-WORTH.json",
+      "bytes": 6638,
+      "sha256": "bba1f87a16b685263f197a60c1762f098a3184e2973aea4accd4c4c2caba6267",
+      "lines": 132
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/PLAN.md",
+      "bytes": 4524,
+      "sha256": "381aa0f8edb8742caf5621d40e2cc12f9988d63a52a6fc0a9f66e4008a812a51",
+      "lines": 15
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/METHOD.md",
+      "bytes": 11900,
+      "sha256": "45e3f41ddc49ee6f44a7ea2f28264450df18dc1647bfff4a20500c0ea2156e03",
+      "lines": 43
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/REFERENCE-RAW.json",
+      "bytes": 286993,
+      "sha256": "42d8f9c1396da9c55b01e4bd68e838b20f638d3f3d5d35dbbb1087e0d9b5cb50",
+      "lines": 64
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/REFERENCE-EXCERPT.txt",
+      "bytes": 3315,
+      "sha256": "5ba9071b9a99e8a49e3391b0b31ea85b973a5f7b9898bd721b349ac32bf16262",
+      "lines": 54
+    }
+  ],
+  "sourceScope": {
+    "newWholeFiles": 8,
+    "newWholeLines": 623,
+    "hostReuseRanges": [
+      [
+        70,
+        125
+      ],
+      [
+        390,
+        418
+      ],
+      [
+        457,
+        509
+      ]
+    ],
+    "hostReuseLines": 138,
+    "sourceCap": 2400,
+    "hostCap": 150
+  },
+  "runtime": "8fe042/exit0: nodev24.13.1 /Users/robault/.brv-cli/bin/node; package.json whole24lines; no AGENTS found in applicable ancestors",
+  "noEntries": "No code/test/fixture/import/page/navigation/render/screenshot/target. CUA metadata only, no existing tab claimed or altered. One primary scrape; feedback refund0."
+}

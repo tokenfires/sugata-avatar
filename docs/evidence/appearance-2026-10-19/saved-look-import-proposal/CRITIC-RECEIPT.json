@@ -1,0 +1,246 @@
+{
+  "schema": "critic-method-review-v1",
+  "collectionUTC": "2026-10-20T00:00:03.611938+00:00",
+  "collectionPID": 77278,
+  "decision": "A_PREPARE_ISOLATED_CANDIDATE_CONTROLLER_SELFTEST_CPU_HELPER_ONLY",
+  "deadlineUTC": "2026-10-20T00:23:00Z",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 8721,
+      "sha256": "dcc014cdce1d176acf790bccd693d4c90e2f891d590e67d6329d681c6f181f86"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.html",
+      "bytes": 21951,
+      "sha256": "dbda8923ece4cca7509b28a3b1fcee07b7068c78338f64a29fd45f996079fabc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-colours.mjs",
+      "bytes": 1896,
+      "sha256": "8c084259b3325e6c7ed871d5849423879c06360ebfe722e0c8556ea4a81a9e0a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeStyleOptions.js",
+      "bytes": 1933,
+      "sha256": "23076d5efb5d8575b2db806d074f3efe5090f5dd83d844322e4ab9e4699636f5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 968,
+      "sha256": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-worth/ROOT-WORTH.json",
+      "bytes": 6638,
+      "sha256": "bba1f87a16b685263f197a60c1762f098a3184e2973aea4accd4c4c2caba6267"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/PLAN.md",
+      "bytes": 4524,
+      "sha256": "381aa0f8edb8742caf5621d40e2cc12f9988d63a52a6fc0a9f66e4008a812a51"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/METHOD.md",
+      "bytes": 11900,
+      "sha256": "45e3f41ddc49ee6f44a7ea2f28264450df18dc1647bfff4a20500c0ea2156e03"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/REFERENCE-RAW.json",
+      "bytes": 286993,
+      "sha256": "42d8f9c1396da9c55b01e4bd68e838b20f638d3f3d5d35dbbb1087e0d9b5cb50"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/REFERENCE-EXCERPT.txt",
+      "bytes": 3315,
+      "sha256": "5ba9071b9a99e8a49e3391b0b31ea85b973a5f7b9898bd721b349ac32bf16262"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/BROWSER-METADATA.md",
+      "bytes": 1731,
+      "sha256": "6e43ac41d7315d79fbedbd18918d8aafa9706122ace03a7a26ec6021b73eb4f0"
+    }
+  ],
+  "manifestSelf": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/INPUTS.json",
+    "bytes": 3909,
+    "sha256": "160211620fe9eefae57dc07a5dfb722000195d9babb6b648aaf53d281a7c8741"
+  },
+  "rootFirst": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/ROOT-FIRST.json",
+    "bytes": 1811,
+    "sha256": "5dc27551d9475db6dfb8ae460bfc65a8933bea90e06eeb7a830a285b1a2822ec"
+  },
+  "review": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/METHOD-REVIEW.md",
+    "bytes": 5544,
+    "sha256": "c7289f99fdf43750a3183cbe38a39d5675c9cba872afc7093b53784d9f5da276"
+  },
+  "sourceScope": {
+    "wholeNewOwners": 8,
+    "wholeNewOwnerLines": 523,
+    "hostRanges": [
+      [
+        70,
+        125
+      ],
+      [
+        390,
+        418
+      ],
+      [
+        457,
+        509
+      ]
+    ],
+    "hostLines": 138,
+    "priorEvidence": "Prior whole three-source host/backup/export worth review reused; current host exact SHA unchanged. No additional semantic source, inventory, locator, test or image.",
+    "reference": "Whole saved 54-line excerpt equals raw structuredContent.markdown rows1203–1256. Raw args/result metadata/feedback inspected; other full document sections not semantically read.",
+    "browser": "Whole BROWSER-METADATA documentation receipt only; no CUA call or browser target by critic."
+  },
+  "independence": {
+    "sealJob": "831295",
+    "exit": 0,
+    "pid": 75022,
+    "utc": "2026-10-19T23:58:52.973577+00:00",
+    "order": "Independent decision printed before reading ROOT-FIRST in same command. Root separately sealed23:56:52.917237UTC/PID70997. Agreement on A preparation-only."
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "witness": "METHOD.md CPU paragraph: --max-old-space-size=128 described as V8 heap limit",
+      "effect": "Only old space is limited; total V8 heap/RSS/startup/peak remain unqualified. Frozen method not edited.",
+      "selectedScope": "Later candidate/helper/admission must use v8OldSpaceLimitMiB=128 and sampled RSS512MiB with explicit limits, no hard total/peak claim.",
+      "alternatives": [
+        {
+          "choice": "Prepare same bounded helper with accurate old-space and sampled-RSS scope",
+          "tradeoff": "No new infrastructure, weaker non-hard process-memory guarantee."
+        },
+        {
+          "choice": "Withhold CPU admission until separately owned hard whole-process limiter",
+          "tradeoff": "Stronger guarantee requires additional unadmitted infrastructure; no such work now."
+        }
+      ]
+    }
+  ],
+  "laterGateObligations": [
+    "Whole literal candidate/controller/selftest/helper and dependency/runtime/source pins before any entry.",
+    "Owned cancellation settlement even absent abort events; late callback isolation and immediate precommit guard; completed synchronous commit cannot be cancelled retroactively.",
+    "Default savedImport=1 isolation, generic-enable ordering, persisted page cancellation and terminal disposal.",
+    "Truthful committed-versus-failed UI status, fresh storage append and explicitly non-atomic cross-process check.",
+    "Actual same-owner assertions within40cases; exact positive child collection/stream/output/retirement ownership; old-space and sample limits only.",
+    "CPU A is not UI admission; exact later20-call/180s FileChooser/viewport/screenshot plan and fresh root UI gate; first unknown closes."
+  ],
+  "notQualified": [
+    "actual implementation",
+    "any CPU proof",
+    "FileReader/browser implementation",
+    "actual native chooser",
+    "rendered UI/accessibility",
+    "all-interleaving storage atomicity",
+    "attention/orbit/motion equality",
+    "physical child/browser/GPU retirement",
+    "whole-process memory/peak/performance",
+    "avatar appearance or broad roadmap quality"
+  ],
+  "tools": [
+    {
+      "name": "initial",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal')\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['PLAN.md','METHOD.md','INPUTS.json']:\n b=(p/n).read_bytes(); print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest()); print(b.decode())\nPY",
+      "chunk_id": "808c77",
+      "exit_code": 0,
+      "wall_time_seconds": 8.5e-06,
+      "original_token_count": 5171,
+      "outputBytes": 20681,
+      "outputSHA256": "b296838a8892a535b722124e115df0a21a2f8696c4a431c5c2804b55f4b119d9",
+      "firstLine": "UTC 2026-10-19T23:57:33.340576+00:00 PID 72346"
+    },
+    {
+      "name": "owners_a",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\nroot=Path('/Users/robault/GitHub/sugata-avatar')\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in [\"packages/testbed/src/showcase-settings.mjs\",\"packages/testbed/src/showcase-collection.mjs\",\"packages/testbed/src/showcase-presets.mjs\",\"packages/testbed/src/showcase-colours.mjs\"]:\n data=(root/n).read_bytes(); print('\\nFILE',n,'BYTES',len(data),'SHA256',hashlib.sha256(data).hexdigest())\n for i,l in enumerate(data.decode().splitlines(),1): print(f'{i}: {l}')\nPY",
+      "chunk_id": "153ee9",
+      "exit_code": 0,
+      "wall_time_seconds": 8.542e-06,
+      "original_token_count": 6479,
+      "outputBytes": 25913,
+      "outputSHA256": "c04639bafc88e5a228ca78dca289d3c711ae87e8c043bd2feebb27ccf8ee8ace",
+      "firstLine": "UTC 2026-10-19T23:57:46.889905+00:00 PID 72894"
+    },
+    {
+      "name": "owners_b",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\nroot=Path('/Users/robault/GitHub/sugata-avatar')\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in [\"packages/testbed/src/showcase.html\",\"packages/core/src/material/HairColourOptions.js\",\"packages/core/src/wardrobe/WardrobeStyleOptions.js\",\"packages/testbed/src/viewer-scenes.mjs\"]:\n data=(root/n).read_bytes(); print('\\nFILE',n,'BYTES',len(data),'SHA256',hashlib.sha256(data).hexdigest())\n for i,l in enumerate(data.decode().splitlines(),1): print(f'{i}: {l}')\nPY",
+      "chunk_id": "5d8c3d",
+      "exit_code": 0,
+      "wall_time_seconds": 7.834e-06,
+      "original_token_count": 6998,
+      "outputBytes": 27989,
+      "outputSHA256": "4ac23e84aca5c0edf16ad24fa3fcf0f1d1b637973c756eb3f67a69c950e9085b",
+      "firstLine": "UTC 2026-10-19T23:57:46.889897+00:00 PID 72895"
+    },
+    {
+      "name": "host_reference",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\nr=Path('/Users/robault/GitHub/sugata-avatar'); p=r/'docs/evidence/appearance-2026-10-19/saved-look-import-proposal'\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\ns=r/'packages/testbed/src/showcase.js'; b=s.read_bytes(); lines=b.decode().splitlines(); print('FILE',s,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest())\nfor a,z in [(70,125),(390,418),(457,509)]:\n print('RANGE',a,z)\n for n in range(a,z+1): print(f'{n}: {lines[n-1]}')\nfor n in ['REFERENCE-EXCERPT.txt','BROWSER-METADATA.md']:\n b=(p/n).read_bytes(); print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest()); print(b.decode())\nb=(p/'REFERENCE-RAW.json').read_bytes(); d=json.loads(b); print('RAW-PIN',len(b),hashlib.sha256(b).hexdigest())\ndef shape(v,path='',depth=0):\n if depth>2: return\n if isinstance(v,dict):\n  for k,x in v.items():\n   q=path+'/'+k\n   if isinstance(x,(dict,list)): print('SHAPE',q,type(x).__name__,len(x)); shape(x,q,depth+1)\n   elif isinstance(x,str) and len(x)>250: print('SHAPE',q,'str',len(x))\n   else: print('VALUE',q,x)\n elif isinstance(v,list):\n  for i,x in enumerate(v[:3]): shape(x,path+'/'+str(i),depth+1)\nshape(d)\nPY",
+      "chunk_id": "0b7fb6",
+      "exit_code": 0,
+      "wall_time_seconds": 5.292e-06,
+      "original_token_count": 4323,
+      "outputBytes": 17291,
+      "outputSHA256": "7dd9aa51c24edabbfdfd17f42fc5f6ce7fbf1432025fcbc8fa2d963c4af0c8f1",
+      "firstLine": "UTC 2026-10-19T23:58:09.745935+00:00 PID 73607"
+    },
+    {
+      "name": "bindings",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\nroot=Path('/Users/robault/GitHub/sugata-avatar'); p=root/'docs/evidence/appearance-2026-10-19/saved-look-import-proposal'\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nm=json.loads((p/'INPUTS.json').read_bytes()); checks=[]\nfor x in m['pins']:\n b=(root/x['path']).read_bytes(); y={'path':x['path'],'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'match':len(b)==x['bytes'] and hashlib.sha256(b).hexdigest()==x['sha256']}; assert y['match']; checks.append(y)\nprint('ALL_INPUT_PINS',json.dumps(checks,separators=(',',':')))\nb=(p/'INPUTS.json').read_bytes(); print('MANIFEST_SELF',len(b),hashlib.sha256(b).hexdigest())\nd=json.loads((p/'REFERENCE-RAW.json').read_bytes()); md=d['result']['structuredContent']['markdown'].splitlines(); print('REFERENCE_METADATA',json.dumps(d['result']['structuredContent']['metadata'],ensure_ascii=False))\nexcerpt=(p/'REFERENCE-EXCERPT.txt').read_text().splitlines(); count=0\nfor line in excerpt:\n if ':' not in line: continue\n prefix,text=line.split(':',1)\n if prefix.isdigit():\n  n=int(prefix); assert md[n-1]==text.removeprefix(' '),(n,md[n-1],text); count+=1\nprint('EXCERPT_EXACT_RAW_LINES',count)\nb=(root/'docs/evidence/appearance-2026-10-19/saved-look-import-worth/ROOT-WORTH.json').read_bytes(); print('ROOT_WORTH',len(b),hashlib.sha256(b).hexdigest()); print(b.decode())\nPY",
+      "chunk_id": "7d50a9",
+      "exit_code": 0,
+      "wall_time_seconds": 5.875e-06,
+      "original_token_count": 2534,
+      "outputBytes": 10133,
+      "outputSHA256": "58b07ab9ca8af5a5a3ef22f3f77beee92612af18741d2f163c36569bd8a77f13",
+      "firstLine": "UTC 2026-10-19T23:58:28.439313+00:00 PID 74203"
+    },
+    {
+      "name": "seal_compare",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime,os,json\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal')\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nprint('INDEPENDENT_SEAL',json.dumps({'verdict':'A_PREPARE_ISOLATED_CANDIDATE_CONTROLLER_SELFTEST_CPU_HELPER_ONLY','reason':'Actual owners support selection-to-configuration canonicalization then fresh append; terminal token and explicit cancellation settlement, unchanged default guard, finite real-owner CPU assertions and separately admitted rendered UI witnesses are a useful bounded next preparation. No runtime admission.','finding':'METHOD CPU paragraph labels --max-old-space-size=128 as V8 heap limit. Exact future source/admission must say old-space limit; total heap/RSS/startup/peak remain unqualified.','conditions':['Complete literal candidate/helper/test/import/runtime/output source gate before any entry.','CPU success cannot admit UI without separate current-source/runtime/UI workload gate.','No storage atomicity, universal browser, attention/motion, appearance or physical termination claim.'],'pending_edits':False}))\nb=(p/'ROOT-FIRST.json').read_bytes(); print('ROOT_FIRST',len(b),hashlib.sha256(b).hexdigest()); print(b.decode())\nPY",
+      "chunk_id": "831295",
+      "exit_code": 0,
+      "wall_time_seconds": 1.0625e-05,
+      "original_token_count": 718,
+      "outputBytes": 2869,
+      "outputSHA256": "10015a7fe01dccf883f67a77e5a0ac5fdd162db9662221ec54f2bec21522bd7a",
+      "firstLine": "UTC 2026-10-19T23:58:52.973577+00:00 PID 75022"
+    }
+  ],
+  "readerCorrections": [
+    {
+      "kind": "display truncation only",
+      "witness": "Combined Promise.allSettled outer output was truncated at13843tokens although each nested source output was complete.",
+      "recovery": "Printed stored proposal_owners_a_job and proposal_owners_b_job separately, complete6479/6998token outputs; no source refetch or expanded semantic scope.",
+      "targetEffect": "None."
+    }
+  ],
+  "rootCountCorrection": "Initial623 estimate corrected to actual523 before critic review; initial records preserved by root.",
+  "noActions": "No candidate/code/test/fixture/import/evaluation/browser/native/GPU/capture/image/network/collection/canonical change. Only this exclusive review pair written.",
+  "pending_edits": false,
+  "receiptPreparedUTC": "2026-10-20T00:00:03.616100+00:00"
+}

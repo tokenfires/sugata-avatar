@@ -1,0 +1,137 @@
+{
+  "utc": "2026-10-20T00:01:46.734142+00:00",
+  "pid": 80608,
+  "parent": "653da9594eed0d00dbad4d179d231e3a1414574d",
+  "pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/BROWSER-METADATA.md",
+      "bytes": 1731,
+      "sha256": "6e43ac41d7315d79fbedbd18918d8aafa9706122ace03a7a26ec6021b73eb4f0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/CHECKPOINT-NOTE.md",
+      "bytes": 1689,
+      "sha256": "977b741c42063eb658b1f249a3be3ed85700c5e00823fd33109b0e10a3cecf34"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/CRITIC-RECEIPT.json",
+      "bytes": 16367,
+      "sha256": "075ec20d544736db5f0b35744f209fcbac6ccd4cb21778a3c3ce038aa7a6d3be"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/INPUTS.json",
+      "bytes": 3909,
+      "sha256": "160211620fe9eefae57dc07a5dfb722000195d9babb6b648aaf53d281a7c8741"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/INPUTS.json.initial.txt",
+      "bytes": 3674,
+      "sha256": "9f080b86f30d9273612337dcdef885557ba5a8cc5940c509b052f6ca6f72c92e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/JOBS.json",
+      "bytes": 95367,
+      "sha256": "21edb626ec8e82f3af0f11f0ffac459bf20a94b4487273c194a8111b952c9845"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/METHOD-REVIEW.md",
+      "bytes": 5544,
+      "sha256": "c7289f99fdf43750a3183cbe38a39d5675c9cba872afc7093b53784d9f5da276"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/METHOD.md",
+      "bytes": 11900,
+      "sha256": "45e3f41ddc49ee6f44a7ea2f28264450df18dc1647bfff4a20500c0ea2156e03"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/PLAN.md",
+      "bytes": 4524,
+      "sha256": "381aa0f8edb8742caf5621d40e2cc12f9988d63a52a6fc0a9f66e4008a812a51"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/README.md",
+      "bytes": 3708,
+      "sha256": "fda510a65893eac8422c1d22fe5758b67f123764f3b0a11fc20e297364a0ce9f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/REFERENCE-EXCERPT.txt",
+      "bytes": 3315,
+      "sha256": "5ba9071b9a99e8a49e3391b0b31ea85b973a5f7b9898bd721b349ac32bf16262"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/REFERENCE-RAW.json",
+      "bytes": 286993,
+      "sha256": "42d8f9c1396da9c55b01e4bd68e838b20f638d3f3d5d35dbbb1087e0d9b5cb50"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/ROOT-FIRST.json",
+      "bytes": 1811,
+      "sha256": "5dc27551d9475db6dfb8ae460bfc65a8933bea90e06eeb7a830a285b1a2822ec"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/ROOT-FIRST.json.initial.txt",
+      "bytes": 1669,
+      "sha256": "313a4b8f132057fbcee2e85fefce4fc750885d4979e1ca188203dd113c8c51a0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/ROOT-METHOD.json",
+      "bytes": 6832,
+      "sha256": "9b52ee5b780b2b9a9c7b482bf94352714f842c3a0478360c2b7aa319add86840"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/WHITESPACE.md",
+      "bytes": 444,
+      "sha256": "99424238dc3c719c735683b5f2726b5a845520e550c89295c76a5c6e5643425e"
+    }
+  ],
+  "checkpointBaselines": {
+    "docs/WORK-WINDOW-2026-10-18.md": {
+      "bytes": 161162,
+      "sha256": "44b97e54c28c124519697faee4ade14a4a80a502aa299fae7785513d4ce03e63"
+    },
+    "docs/RESUME-2026-10-18.md": {
+      "bytes": 136098,
+      "sha256": "9bd18045aa9e71509f0fd2583bd495e27139e54296e5577cf23f365dc763ad62"
+    }
+  },
+  "checkpointNew": [
+    {
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 162852,
+      "sha256": "59b73ed621498245707850fc9809c702bcf42a4acf3aecc3df3cdf755e44aeb7"
+    },
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 137788,
+      "sha256": "a849c85cf8003533ee82254d04534a07d6d8d19f8805ba19671db836e35f4458"
+    }
+  ],
+  "decision": "A inert guarded preparation only; no target entry",
+  "next": "declare exact preparation bounds; complete literal candidate/helper/test source gate beforeCPU; separate UI gate afterCPU A",
+  "whitespaceException": {
+    "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/REFERENCE-EXCERPT.txt",
+    "exactRows": [
+      2,
+      5,
+      7,
+      10,
+      12,
+      15,
+      19,
+      21,
+      24,
+      29,
+      33,
+      37,
+      39,
+      41,
+      44,
+      45,
+      47,
+      48,
+      52,
+      54
+    ],
+    "reason": "Frozen line-prefix blank-content spaces, raw54row correspondence alreadyverified; no other exception."
+  }
+}

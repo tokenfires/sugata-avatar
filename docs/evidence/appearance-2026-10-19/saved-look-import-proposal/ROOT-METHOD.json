@@ -1,0 +1,119 @@
+{
+  "utc": "2026-10-20T00:00:57.613316+00:00",
+  "pid": 79058,
+  "decision": "A for inert isolated candidate/controller/selftest/helper preparation only. No CPU/UI/fixture/target admission.",
+  "wholeHandoff": "0e8e3d/exit0/untruncated5544B+16367B",
+  "currentBindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 8721,
+      "sha256": "dcc014cdce1d176acf790bccd693d4c90e2f891d590e67d6329d681c6f181f86"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.html",
+      "bytes": 21951,
+      "sha256": "dbda8923ece4cca7509b28a3b1fcee07b7068c78338f64a29fd45f996079fabc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-colours.mjs",
+      "bytes": 1896,
+      "sha256": "8c084259b3325e6c7ed871d5849423879c06360ebfe722e0c8556ea4a81a9e0a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeStyleOptions.js",
+      "bytes": 1933,
+      "sha256": "23076d5efb5d8575b2db806d074f3efe5090f5dd83d844322e4ab9e4699636f5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 968,
+      "sha256": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js",
+      "bytes": 36058,
+      "sha256": "0ec4bc812ac9d6375c68021a4ed205b226db227da75aefec9ff7b5f2050ffb59"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-worth/ROOT-WORTH.json",
+      "bytes": 6638,
+      "sha256": "bba1f87a16b685263f197a60c1762f098a3184e2973aea4accd4c4c2caba6267"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/PLAN.md",
+      "bytes": 4524,
+      "sha256": "381aa0f8edb8742caf5621d40e2cc12f9988d63a52a6fc0a9f66e4008a812a51"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/METHOD.md",
+      "bytes": 11900,
+      "sha256": "45e3f41ddc49ee6f44a7ea2f28264450df18dc1647bfff4a20500c0ea2156e03"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/REFERENCE-RAW.json",
+      "bytes": 286993,
+      "sha256": "42d8f9c1396da9c55b01e4bd68e838b20f638d3f3d5d35dbbb1087e0d9b5cb50"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/REFERENCE-EXCERPT.txt",
+      "bytes": 3315,
+      "sha256": "5ba9071b9a99e8a49e3391b0b31ea85b973a5f7b9898bd721b349ac32bf16262"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/BROWSER-METADATA.md",
+      "bytes": 1731,
+      "sha256": "6e43ac41d7315d79fbedbd18918d8aafa9706122ace03a7a26ec6021b73eb4f0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/INPUTS.json",
+      "bytes": 3909,
+      "sha256": "160211620fe9eefae57dc07a5dfb722000195d9babb6b648aaf53d281a7c8741"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/ROOT-FIRST.json",
+      "bytes": 1811,
+      "sha256": "5dc27551d9475db6dfb8ae460bfc65a8933bea90e06eeb7a830a285b1a2822ec"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/METHOD-REVIEW.md",
+      "bytes": 5544,
+      "sha256": "c7289f99fdf43750a3183cbe38a39d5675c9cba872afc7093b53784d9f5da276"
+    }
+  ],
+  "criticReceiptSHA256": "075ec20d544736db5f0b35744f209fcbac6ccd4cb21778a3c3ce038aa7a6d3be",
+  "independentReason": "Root independently read eight whole owners523lines and old host138lines; actual settings returns selection, options reconstructs supported configuration, real add canonicalizes and reads latest collection. Independent critic exact witnesses agree. Token/settled abort plus availability-before-synchronous-add can own only new ingress without avatar dependencies. Guarded mount keeps candidate controls inactive by default; default module import must also be guarded. Later literal code gate must verify these responsibilities, no behavior inferred from method.",
+  "findingF1": {
+    "witness": "METHOD CPU paragraph labels --max-old-space-size128 as V8 heap; current runtime metadata c1e509/exit0 says max size of old space, separately lists max-heap-size.",
+    "verified": "Old-space-only128MiB; not total heap/RSS. Existing METHOD frozen; later helper/CPU admission must state accurate scope and explicit observation threshold512MiB with sampled/postflight limits, no hard process peak guarantee.",
+    "alternatives": [
+      "Prepare helper with truthful old-space/sample constraints, lower infrastructure cost and weaker whole-process bound",
+      "Withhold CPU admission pending separately owned hard process limiter, stronger guarantee with unadmitted infrastructure cost"
+    ]
+  },
+  "reference": "54excerpt rows rechecked exact; root separately read raw622\u2013643 Blob.text UTF-8 and655\u2013690 textStream context, no extra retrieval. Critic54row scope narrower and truthful. W3C200 metadata supports algorithm design only.",
+  "conditions": [
+    "Whole literal controller/UI/test/helper/integration delta and dependency/runtime gates before any CPU entry",
+    "Positive child collection and bounded timeout/output/memory-observation handling on every exit; no unbounded wait",
+    "Separate exact20call/180s CUA session admission only after CPU A; screenshot writer/actualfile/path/storage effects must be concrete then",
+    "No source/CPU/UI failure repair/rerun or renamed successor",
+    "No default promotion or broad checklist/appearance/fit/performance from proposal A"
+  ],
+  "next": "Prepare exact guarded candidate and tests/helper under fresh declared preparation bounds, then stop at complete source gate.",
+  "noEntries": true,
+  "pendingCriticEdits": false
+}
