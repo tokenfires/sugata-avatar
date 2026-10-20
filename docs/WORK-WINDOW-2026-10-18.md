@@ -1,5 +1,13 @@
 # Sugata work window — October 18, 2026
 
+## October20, 04:47 UTC — material proposal stopped by the latest closure audit
+
+Independent/root B closes this nomination before programme preparation. The later actual mapped-diffuse attempt and same-question artifact-review closure control; changing supervision alone does not create a new artistic responsibility. Earlier worth A remains conditional history. [Exact audit and receipt](evidence/appearance-2026-10-19/mara-material-tool-owned-contract/README.md).
+
+Root whole-read stable5151B/17476B critic pair54be61/7876ff and independently verified16bindings, immutable82df17ff...a993b, prefix/seal-order and historical checkpoint in65feac/PID80261/04:46:07UTC. The initial Mara-prefix inventory omission was corrected transparently through exact later checkpoint links before any code. No programme/helper/model/binary/texture/image/native/API/probe/render/capture followed; all six older PNGs remain unviewed/unqualified. No retry, alternate wrapper/limiter/probe, retake, image relabel or constructor is admitted. No pending owned job or critic edit.
+
+All accepted/original/frozen/ignored/unrelated assets, nine historical October10 files, old closures, material-volume HOLD, full roadmap/phase order and23scoped/10broad remain unchanged. SameACTIVE10minute recovery and review server retained. Next genuinely different responsibility requires fresh worth; hard stop05:34:25UTC preserved. Human steering wins.
+
 ## October20, 04:33 UTC — tool-owned material proposal worth preparing
 
 Independent/rootA permits complete inert new fixed-material source/tool-owned-foreground/resource/terminal/failure-evidence contract preparation only. A supplied command-session/completion boundary is distinct from the refused authored numeric-PID/group/wait observer; no Sharp-to-Blender safety inference, native proof or automatic old-duty waiver. [Exact worth receipt](evidence/appearance-2026-10-19/mara-material-tool-owned-worth/README.md).

@@ -1,0 +1,328 @@
+{
+  "schema": 1,
+  "review": "SOURCE-REVIEW.md",
+  "sourceDecision": {
+    "schema": 1,
+    "sealedUTC": "2026-10-20T04:42:22.029808+00:00",
+    "verdict": "B",
+    "stage": "early source and latest-closure audit",
+    "worthProceedingToProgrammePreparation": false,
+    "reason": "The same fixed mapped-material consumer was already attempted and closed; the subsequent mapped-artifact review also closed the same surface-reference question. A new tool ownership boundary does not establish a different consumer or override those later closures.",
+    "earlierWorthA": "Preserved as conditional preparation-only history; the mandatory latest-closure audit now stops this nomination.",
+    "nextUnderThisNomination": "None; close before programme, primary, model, native or image work.",
+    "findingIds": [
+      "F1"
+    ],
+    "targetOrAppearanceFailureClaim": false,
+    "humanAuthorizationClaim": false
+  },
+  "sourceDecisionCanonicalSha256": "82df17ff56e3c61675bc0cbd306adf379162800cf61c1af02bdb6bf0a92a993b",
+  "independentReviewPrefix": {
+    "bytes": 4259,
+    "sha256": "7d291da2c7020f2680c2a479bf9421610998cdafc47a4e013977941ebc56d99d"
+  },
+  "collection": {
+    "pid": 72719,
+    "utc": "2026-10-20T04:42:22.029808+00:00"
+  },
+  "inputManifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-contract/AUDIT-INPUTS.json",
+    "bytes": 3573,
+    "sha256": "56851a1843a918d241f444ee6f97187d8308c5fe6fb831807cdef1ce21fb3ba8"
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/README.md",
+      "bytes": 4476,
+      "sha256": "a75d60b87af0fbb8e40f3d027afcb1989c67b379a789884f24e7215d994edb3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/README.md",
+      "bytes": 3955,
+      "sha256": "08a239bf34929797e3ad0aede7319b4b4b86437d1393e52c9dfa73896287a0ae"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/README.md",
+      "bytes": 3680,
+      "sha256": "445f46f96cf39b7f957c20e3c2300657f385f9a8c0198a560ab08f74782e5a2c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/SOURCE-REVIEW.md",
+      "bytes": 3261,
+      "sha256": "5cdd6bc0a1c7a2faf95ca9fdc2151f173fa742a37ece379ff76390493dc6790e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW.md",
+      "bytes": 3405,
+      "sha256": "687ab7c57d062a018bd4e2fdffd0de7b97ae96a993abbb684545d931c7be09bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/README.md",
+      "bytes": 5577,
+      "sha256": "a55e8b0b48c8a7dce76feb0f34773cfa5a1b45c4680fc685e9f73ae060399364"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-artifact-review/README.md",
+      "bytes": 1031,
+      "sha256": "606e53f961d3fac55f29d68783c3a0124c80b41d35a6b1c7ce47838d0a02e1ea"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-worth/ROOT-WORTH.json",
+      "bytes": 30908,
+      "sha256": "73349bf46d535b03da93a1b4dbb4a6aa574221afb4965ab5e8b903983451735a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8886,
+      "sha256": "8081b2052d17f95064c298213f4df54e5c3b3211c4ecbc2c0e8c0a28973995ab"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-contract/PLAN.md",
+      "bytes": 4426,
+      "sha256": "86fa0c7d7908d434dd287757ca4ef27aa51af49a0bcf3dd8f039ad7c76389b5b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-contract/CHECKPOINT-SCOPES.txt",
+      "bytes": 24697,
+      "sha256": "0cb75dd45149b94e162cb6db958824108966d859963f501c85fd53475282b747"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-contract/AUDIT-STOP.md",
+      "bytes": 2944,
+      "sha256": "952fb1376210e9667f42c8197e6529c2e2f7239fb434df88c9c69aee010149d5"
+    }
+  ],
+  "semanticCoverage": {
+    "whole": [
+      "PLAN.md",
+      "AUDIT-INPUTS.json",
+      "CHECKPOINT-SCOPES.txt (historical610–710)",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/README.md",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/README.md",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/README.md",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/SOURCE-REVIEW.md",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW.md",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/README.md",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-artifact-review/README.md"
+    ],
+    "opaqueBeforeSeal": [
+      "AUDIT-STOP.md (whole-read only after seal)"
+    ],
+    "metadataAndSameByteReuse": [
+      "mara-material-tool-owned-worth/ROOT-WORTH.json",
+      "docs/PROJECT-CHECKLIST.md",
+      "docs/PRODUCT-ROADMAP.md"
+    ],
+    "notReadBeforeSeal": [
+      "ROOT-FIRST.json contents",
+      "AUDIT-STOP.md contents",
+      "TOOL-PREPARATION root opinion embeds"
+    ],
+    "afterSealWhole": [
+      "ROOT-FIRST.json",
+      "AUDIT-STOP.md"
+    ]
+  },
+  "operations": {
+    "commands": [
+      "python3 - <<'PY'\nfrom pathlib import Path\nimport datetime,os,hashlib\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-contract');print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['PLAN.md','AUDIT-INPUTS.json']:\n p=leaf/n;b=p.read_bytes();print('FILE',str(p),'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-contract');m=json.loads((leaf/'AUDIT-INPUTS.json').read_bytes());print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor row in m['pins']:\n p=Path(row['path']);b=p.read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256'];print('PIN_PASS',row['path'],len(b),row['sha256'])\nfor row in m['pins'][:7]:\n p=Path(row['path']);print('\\nWHOLE',str(p));print(p.read_text())\nPY",
+      "python3 - <<'PY'\nfrom pathlib import Path\nimport datetime,os,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-contract/CHECKPOINT-SCOPES.txt');b=p.read_bytes();print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid(),'FILE',str(p),'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-contract/CHECKPOINT-SCOPES.txt')\nb=p.read_bytes(); s=b.decode().splitlines()\nprint('pid',os.getpid(),'utc',datetime.datetime.now(datetime.timezone.utc).isoformat(),'bytes',len(b),'sha256',hashlib.sha256(b).hexdigest())\nfor x in s:\n    try:n=int(x.split(':',1)[0])\n    except ValueError:continue\n    if 641<=n<=669:print(x)\nPY",
+      "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json,subprocess\nroot=Path('/Users/robault/GitHub/sugata-avatar');leaf=root/'docs/evidence/appearance-2026-10-19/mara-material-tool-owned-contract'\nm=json.loads((leaf/'AUDIT-INPUTS.json').read_bytes())\nprint('pid',os.getpid(),'utc',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor rel,words in [ ('PLAN.md',['First audit','same','closure','stop']),('../mapped-diffuse-first-study/README.md',['No present','six PNG','unviewed','supervisor','same']),('../mapped-diffuse-artifact-review/README.md',['same','No further','Worth','relabel']) ]:\n p=leaf/rel\n print('WITNESS',str(p))\n for i,s in enumerate(p.read_text().splitlines(),1):\n  if any(w.lower() in s.lower() for w in words):print(str(i)+':'+s)\nprint('manifest',len((leaf/'AUDIT-INPUTS.json').read_bytes()),hashlib.sha256((leaf/'AUDIT-INPUTS.json').read_bytes()).hexdigest())\nfor row in m['pins']:\n p=Path(row['path']);b=p.read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256']\nprint('all13currentpins_exact',len(m['pins']))\np=m['historicalCheckpoint'];print('checkpoint_manifest_fields',p)\nPY"
+    ],
+    "returns": [
+      {
+        "commandIndex": 0,
+        "chunkId": "0623b6",
+        "exitCode": 0,
+        "wallTimeSeconds": 7.208e-06,
+        "outputBytes": 8462,
+        "outputSha256": "805ea7a5c3e6d37ca961aaf580c315fdaacaa2cf82dbb26b93219152a2c8a6d5",
+        "pid": 64855,
+        "utc": "2026-10-20T04:38:17.885732+00:00"
+      },
+      {
+        "commandIndex": 1,
+        "chunkId": "041946",
+        "exitCode": 0,
+        "wallTimeSeconds": 7.5e-06,
+        "outputBytes": 28617,
+        "outputSha256": "670f295e2fad84d5233f3c1eada9c8d3f0823336ff4c953186d9a80c94e739d3",
+        "pid": 65591,
+        "utc": "2026-10-20T04:38:41.729649+00:00"
+      },
+      {
+        "commandIndex": 2,
+        "chunkId": "105ee2",
+        "exitCode": 0,
+        "wallTimeSeconds": 7.417e-06,
+        "outputBytes": 24962,
+        "outputSha256": "fcc3bb7dfc5e99b6fefdbe8ba2e0c247fa3bd482b1fc55a0d2689b6be374c1ba",
+        "pid": 65590,
+        "utc": "2026-10-20T04:38:41.729158+00:00"
+      },
+      {
+        "commandIndex": 3,
+        "chunkId": "ef716c",
+        "exitCode": 0,
+        "wallTimeSeconds": 9.708e-06,
+        "outputBytes": 7811,
+        "outputSha256": "f4c1a3f4c43ace96a194890dfdde37507c7d821f7919c35c06c9849ec0c87509",
+        "pid": 69735,
+        "utc": "2026-10-20T04:40:49.526899+00:00"
+      },
+      {
+        "commandIndex": 4,
+        "chunkId": "a2d9f0",
+        "exitCode": 0,
+        "wallTimeSeconds": 7.375e-06,
+        "outputBytes": 7569,
+        "outputSha256": "04ebb8b392951e4be67ce3aacbbb22a91e8ee4f643d56caa0f9b5454fbc357de",
+        "pid": 71197,
+        "utc": "2026-10-20T04:41:35.575509+00:00"
+      }
+    ],
+    "displayCorrection": "105ee2 checkpoint display internally clipped643–667; same frozen641–669 recovered in ef716c before seal. No input changed or target rerun.",
+    "sourceErrors": [],
+    "targetInvocations": 0,
+    "imagesOrPngBytesViewed": 0
+  },
+  "limits": {
+    "deadlineUTC": "2026-10-20T05:34:25.211098+00:00",
+    "onlyAllowedWrites": [
+      "SOURCE-REVIEW.md",
+      "CRITIC-SOURCE-RECEIPT.json"
+    ],
+    "noProgrammeOrNativeAdmission": true,
+    "oldSixPngsUnopened": true,
+    "allOldClosuresAndHoldPreserved": true
+  },
+  "rootComparison": {
+    "status": "B agrees; independent decision unchanged",
+    "rootOpinion": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-contract/ROOT-FIRST.json",
+      "bytes": 5802,
+      "sha256": "3e62d01edc24e4be4362b71eab673c9ad46e1e7d4d206083728102799d1cf9e5"
+    },
+    "auditStop": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-contract/AUDIT-STOP.md",
+      "bytes": 2944,
+      "sha256": "952fb1376210e9667f42c8197e6529c2e2f7239fb434df88c9c69aee010149d5"
+    },
+    "rootSealUTC": "2026-10-20T04:37:17.738710+00:00",
+    "ownReadUTC": "2026-10-20T04:42:32.594362+00:00",
+    "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-contract')\nprint('pid',os.getpid(),'utc',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['ROOT-FIRST.json','AUDIT-STOP.md']:\n p=leaf/name;b=p.read_bytes();print('WHOLE',name,'bytes',len(b),'sha256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+    "return": {
+      "chunkId": "75e10d",
+      "exitCode": 0,
+      "wallTimeSeconds": 9e-06,
+      "outputBytes": 9003,
+      "outputSha256": "ef61fad7404ba20513ea1701eb7778c43911650eec8ff37c6c009e615580dbf5",
+      "pid": 73045,
+      "utc": "2026-10-20T04:42:32.594362+00:00"
+    },
+    "comparison": "Earlier Mara-prefix recovery omitted mapped-diffuse names; the bounded latest-closure audit resolves the historical unrun statement without reopening any target.",
+    "independentObjectUnchanged": true,
+    "independentReviewPrefixUnchanged": true
+  },
+  "pending_edits": false,
+  "independentSealJob": {
+    "chunkId": "007622",
+    "pid": 72719,
+    "bothDurableUTC": "2026-10-20T04:42:22.030698+00:00"
+  },
+  "reviewBinding": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-contract/SOURCE-REVIEW.md",
+    "bytes": 5151,
+    "sha256": "7b80a3be669bfd9ce73cfcb4c05d31f769762f1cf552653856ec1a06b54270b6"
+  },
+  "freshBindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-contract/AUDIT-INPUTS.json",
+      "bytes": 3573,
+      "sha256": "56851a1843a918d241f444ee6f97187d8308c5fe6fb831807cdef1ce21fb3ba8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/README.md",
+      "bytes": 4476,
+      "sha256": "a75d60b87af0fbb8e40f3d027afcb1989c67b379a789884f24e7215d994edb3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/README.md",
+      "bytes": 3955,
+      "sha256": "08a239bf34929797e3ad0aede7319b4b4b86437d1393e52c9dfa73896287a0ae"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-named-material/README.md",
+      "bytes": 3680,
+      "sha256": "445f46f96cf39b7f957c20e3c2300657f385f9a8c0198a560ab08f74782e5a2c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-retirement/SOURCE-REVIEW.md",
+      "bytes": 3261,
+      "sha256": "5cdd6bc0a1c7a2faf95ca9fdc2151f173fa742a37ece379ff76390493dc6790e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW.md",
+      "bytes": 3405,
+      "sha256": "687ab7c57d062a018bd4e2fdffd0de7b97ae96a993abbb684545d931c7be09bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-first-study/README.md",
+      "bytes": 5577,
+      "sha256": "a55e8b0b48c8a7dce76feb0f34773cfa5a1b45c4680fc685e9f73ae060399364"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mapped-diffuse-artifact-review/README.md",
+      "bytes": 1031,
+      "sha256": "606e53f961d3fac55f29d68783c3a0124c80b41d35a6b1c7ce47838d0a02e1ea"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-worth/ROOT-WORTH.json",
+      "bytes": 30908,
+      "sha256": "73349bf46d535b03da93a1b4dbb4a6aa574221afb4965ab5e8b903983451735a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8886,
+      "sha256": "8081b2052d17f95064c298213f4df54e5c3b3211c4ecbc2c0e8c0a28973995ab"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-contract/PLAN.md",
+      "bytes": 4426,
+      "sha256": "86fa0c7d7908d434dd287757ca4ef27aa51af49a0bcf3dd8f039ad7c76389b5b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-contract/CHECKPOINT-SCOPES.txt",
+      "bytes": 24697,
+      "sha256": "0cb75dd45149b94e162cb6db958824108966d859963f501c85fd53475282b747"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-contract/AUDIT-STOP.md",
+      "bytes": 2944,
+      "sha256": "952fb1376210e9667f42c8197e6529c2e2f7239fb434df88c9c69aee010149d5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-material-tool-owned-contract/ROOT-FIRST.json",
+      "bytes": 5802,
+      "sha256": "3e62d01edc24e4be4362b71eab673c9ad46e1e7d4d206083728102799d1cf9e5"
+    }
+  ],
+  "finalCollection": {
+    "pid": 75003,
+    "utc": "2026-10-20T04:43:32.440995+00:00",
+    "currentBindingsExact": 15,
+    "pending_edits": false
+  }
+}
