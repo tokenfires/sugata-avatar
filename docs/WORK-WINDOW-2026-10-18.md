@@ -1,5 +1,11 @@
 # Sugata work window — October 18, 2026
 
+## October20, 03:59 UTC — complete overshirt finishing source approved, preview pending
+
+One new original editable SVG owns full front/back context, upper/under collar and stand, inside-facing turn/finish, and slit-cuff overlap/buttonhole-over-button intent. Stable independent source8109B/18814B pair wholly readfde9b0/221e97; root763fc7/PID88788/03:59:17UTC verifies18bindings/immutable8e6b1d0e...280c28/prefix/seal-before-root-access. Source/observational resource A only; actual compatibility/output/appearance unqualified. Exact source/refs/resources/limits in [complete contract](evidence/appearance-2026-10-19/overshirt-finish-design/DESIGN.md) and ROOT-SOURCE.json.
+
+Prospective hard address-space/Python wrapper recipe was transparently retired before source review; final sole ordinary CPU job uses direct owned tool session, actual natural exit0<20s/peak<=1GiB, no hard OS/universal-stall claim. One official search/two HTTP200 primary pages;4reportedgrosscredits/automaticfeedbackrefund1, no capacity/redemption claim. No renderer import/probe/run/output yet. Next fresh exact admission, one unchanged preview, then root/independent whole-image review; no rerender/repair onB. All old closures/AriHOLD/fullroadmap/accepted/default/original/frozen/ignored/unrelated/main/checklist23/10 retained; sameACTIVE10minute/server. Stop04:33:47.162902UTC, humansteeringwins.
+
 ## October20, 03:49 UTC — overshirt finishing intent worth preparing
 
 Independent/root A identifies a genuinely new artist decision: explicit collar underside/turnback, facing return and slit-cuff overlap/closure in whole garment context. Existing coarse facing/cuff/stand/leaf roles are acknowledged. This is complete new design/source/installed CPU-vector-render contract preparation only, not drawing or repair/rerender of the closed mesh. [Worth receipt](evidence/appearance-2026-10-19/overshirt-finish-worth/README.md).

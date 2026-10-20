@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100">
+  <title>Olive overshirt — finishing intent</title>
+  <desc>Original editable fictional artist design: front and back context, upper and underside collar, inside facing return and opened slit cuff with overlap closure. Unitless design, not a pattern or physical construction proof.</desc>
+  <style>
+    text{font-family:Arial,sans-serif;fill:#26352f} .title{font-size:38px;font-weight:700} .sub{font-size:21px;fill:#58665c}
+    .heading{font-size:25px;font-weight:700} .label{font-size:20px} .small{font-size:18px;fill:#58665c} .micro{font-size:16px;fill:#58665c}
+    .panel{fill:#fffdf8;stroke:#d9d9ce;stroke-width:1.5} .outer{fill:#6c765b;stroke:#344634;stroke-width:2.5;stroke-linejoin:round}
+    .inside{fill:#d4c7aa;stroke:#5a6450;stroke-width:2} .edge{fill:none;stroke:#344634;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .stitch{fill:none;stroke:#ede4cf;stroke-width:1.6;stroke-dasharray:4 4} .fold{fill:none;stroke:#b17b33;stroke-width:2;stroke-dasharray:8 5}
+    .lead{fill:none;stroke:#788675;stroke-width:1.5} .button{fill:#ddd1b8;stroke:#344634;stroke-width:1.6} .hole{fill:none;stroke:#29392b;stroke-width:3;stroke-linecap:round}
+    .tag{fill:#263e32} .tagtext{font-size:18px;font-weight:700;fill:#fffdf8;text-anchor:middle}
+  </style>
+  <rect width="1600" height="1100" fill="#f0f1e9"/>
+  <text x="42" y="60" class="title">OLIVE OVERSHIRT / FINISHING INTENT</text>
+  <text x="44" y="98" class="sub">Relaxed, open front. Original interior choices for future character and wardrobe authorship.</text>
+  <text x="1556" y="99" text-anchor="end" class="small">01 / ARTIST SOURCE</text>
+  <rect x="40" y="134" width="650" height="804" rx="12" class="panel"/>
+  <rect x="712" y="134" width="848" height="298" rx="12" class="panel"/>
+  <rect x="712" y="454" width="394" height="484" rx="12" class="panel"/>
+  <rect x="1128" y="454" width="432" height="484" rx="12" class="panel"/>
+  <text x="64" y="177" class="heading">THE GARMENT</text>
+  <text x="64" y="207" class="small">Same exterior intent; details enlarged at right.</text>
+  <g id="front-context" transform="translate(74 258)">
+    <title>Complete front context with pointed collar, open facing edges and wrist cuffs</title>
+    <path id="front-left" class="outer" d="M114 19 L75 35 L56 50 L5 234 L40 247 L89 112 L87 389 Q123 404 145 391 L145 71 L133 46 Z"/>
+    <path id="front-right" class="outer" d="M174 19 L213 35 L232 50 L283 234 L248 247 L199 112 L201 389 Q165 404 151 391 L151 71 L163 46 Z"/>
+    <path id="front-left-facing" class="inside" d="M134 61 L145 71 L145 391 L134 394 Z"/>
+    <path id="front-right-facing" class="inside" d="M162 61 L151 71 L151 391 L162 394 Z"/>
+    <path id="front-stand" class="inside" d="M114 19 Q144 38 174 19 L171 35 Q144 53 117 35 Z"/>
+    <path id="front-leaf-left" class="outer" d="M114 19 L134 43 L145 71 L112 94 L94 53 Z"/>
+    <path id="front-leaf-right" class="outer" d="M174 19 L154 43 L151 71 L180 94 L194 53 Z"/>
+    <path id="front-left-cuff" class="outer" d="M5 234 L40 247 L33 269 L-2 256 Z"/>
+    <path id="front-right-cuff" class="outer" d="M283 234 L248 247 L255 269 L290 256 Z"/>
+    <path class="stitch" d="M139 113 L139 383 M157 113 L157 383 M92 382 Q118 393 137 385 M160 385 Q179 393 196 382 M6 252 L31 261 M259 261 L283 252"/>
+    <path class="edge" d="M70 62 Q85 75 89 112 M218 62 Q203 75 199 112"/>
+    <circle cx="139" cy="144" r="3" class="button"/><circle cx="139" cy="199" r="3" class="button"/><circle cx="139" cy="254" r="3" class="button"/><circle cx="139" cy="309" r="3" class="button"/><circle cx="139" cy="364" r="3" class="button"/>
+    <path class="hole" d="M154 141 L159 141 M154 196 L159 196 M154 251 L159 251 M154 306 L159 306 M154 361 L159 361"/>
+    <circle cx="26" cy="257" r="3" class="button"/><circle cx="264" cy="257" r="3" class="button"/>
+    <text x="144" y="443" text-anchor="middle" class="label">FRONT / OPEN</text>
+  </g>
+  <g id="back-context" transform="translate(388 258)">
+    <title>Complete back context with yoke, shallow centre pleat and cuffs</title>
+    <path id="back-whole" class="outer" d="M103 19 L71 35 L56 50 L5 234 L40 247 L89 112 L87 389 Q139 409 191 389 L189 112 L238 247 L273 234 L222 50 L207 35 L175 19 Q139 36 103 19 Z"/>
+    <path id="back-collar" class="outer" d="M103 19 Q139 37 175 19 L190 58 Q139 79 88 58 Z"/>
+    <path id="back-yoke" class="edge" d="M87 93 Q139 108 191 93"/>
+    <path id="back-pleat" class="edge" d="M133 105 L130 250 M145 105 L148 250"/>
+    <path class="stitch" d="M90 99 Q139 114 188 99 M94 383 Q139 398 184 383"/>
+    <path id="back-left-cuff" class="outer" d="M5 234 L40 247 L33 269 L-2 256 Z"/>
+    <path id="back-right-cuff" class="outer" d="M273 234 L238 247 L245 269 L280 256 Z"/>
+    <text x="139" y="443" text-anchor="middle" class="label">BACK</text>
+  </g>
+  <g id="context-key">
+    <circle cx="102" cy="775" r="15" class="tag"/><text x="102" y="782" class="tagtext">A</text>
+    <text x="129" y="782" class="label">Pointed leaf over a low stand</text>
+    <circle cx="102" cy="824" r="15" class="tag"/><text x="102" y="831" class="tagtext">B</text>
+    <text x="129" y="831" class="label">Facing turns to the inside edge</text>
+    <circle cx="102" cy="873" r="15" class="tag"/><text x="102" y="880" class="tagtext">C</text>
+    <text x="129" y="880" class="label">A slit lets each cuff open</text>
+  </g>
+  <g id="collar-finishing">
+    <circle cx="747" cy="174" r="15" class="tag"/><text x="747" y="181" class="tagtext">A</text>
+    <text x="776" y="182" class="heading">COLLAR / UPPER + UNDERSIDE</text>
+    <text x="741" y="214" class="small">Separated to explain the layers; they are not flat patterns.</text>
+    <path id="collar-upper-leaf" class="outer" d="M771 260 L841 233 Q1001 279 1161 233 L1231 260 L1180 315 L1104 280 Q1001 310 898 280 L822 315 Z"/>
+    <path id="collar-upper-fold" class="fold" d="M843 242 Q1001 286 1159 242"/>
+    <path id="collar-stand" class="inside" d="M860 320 Q1001 347 1142 320 L1135 346 Q1001 371 867 346 Z"/>
+    <path id="collar-under-leaf" class="inside" d="M794 369 L843 350 Q1001 391 1159 350 L1208 369 L1177 403 L1104 376 Q1001 400 898 376 L825 403 Z"/>
+    <path class="stitch" d="M784 260 L825 302 L899 270 Q1001 300 1103 270 L1177 302 L1218 260"/>
+    <path class="lead" d="M1249 259 L1283 259 M1165 334 L1283 334 M1225 384 L1283 384"/>
+    <text x="1298" y="266" class="label">Upper leaf</text>
+    <text x="1298" y="338" class="label">Low stand</text>
+    <text x="1298" y="388" class="label">Undercollar</text>
+  </g>
+  <g id="inside-facing-finishing">
+    <circle cx="747" cy="493" r="15" class="tag"/><text x="747" y="500" class="tagtext">B</text>
+    <text x="776" y="501" class="heading">INSIDE EDGE</text>
+    <text x="738" y="534" class="small">One front opened outward.</text>
+    <path id="inside-front-field" class="outer" d="M748 566 L943 566 L971 849 L748 849 Z"/>
+    <path id="facing-return" class="inside" d="M943 566 L1008 566 L1035 849 L971 849 Z"/>
+    <path id="front-edge-turn" class="fold" d="M997 573 L1023 840"/>
+    <path id="facing-inner-finish" class="edge" d="M949 577 L976 839"/>
+    <path class="stitch" d="M957 579 L984 837"/>
+    <circle cx="994" cy="610" r="7" class="button"/><path class="edge" d="M991 607 L997 613 M997 607 L991 613"/>
+    <circle cx="1001" cy="684" r="7" class="button"/><path class="edge" d="M998 681 L1004 687 M1004 681 L998 687"/>
+    <circle cx="1008" cy="758" r="7" class="button"/><path class="edge" d="M1005 755 L1011 761 M1011 755 L1005 761"/>
+    <text x="770" y="619" class="label">Body</text>
+    <text x="770" y="649" class="small">reverse</text>
+    <path class="lead" d="M839 695 L925 695 L956 721"/>
+    <text x="770" y="690" class="small">Inner finish</text>
+    <text x="738" y="884" class="small">Sand return = inside-facing intent.</text>
+    <text x="738" y="911" class="small">Ochre dash = turned front edge.</text>
+  </g>
+  <g id="cuff-finishing">
+    <circle cx="1163" cy="493" r="15" class="tag"/><text x="1163" y="500" class="tagtext">C</text>
+    <text x="1192" y="501" class="heading">SLIT + CUFF</text>
+    <text x="1154" y="534" class="small">Opened / outside facing us</text>
+    <path id="sleeve-slit-body" class="outer" d="M1194 559 L1456 559 L1473 735 L1373 735 L1342 617 L1312 735 L1177 735 Z"/>
+    <path id="slit-underlap" class="inside" d="M1342 617 L1384 735 L1410 735 L1372 618 Z"/>
+    <path id="slit-overlap" class="outer" d="M1342 617 L1312 735 L1285 735 L1311 617 Z"/>
+    <path class="stitch" d="M1305 627 L1283 724 M1380 630 L1417 725"/>
+    <path id="cuff-open-band" class="outer" d="M1177 741 L1500 741 L1500 792 L1177 792 Z"/>
+    <path id="cuff-underlap-tail" class="inside" d="M1470 741 L1520 741 L1520 792 L1470 792 Z"/>
+    <circle id="cuff-button" cx="1495" cy="766" r="8" class="button"/>
+    <path id="cuff-buttonhole" class="hole" d="M1190 766 L1217 766"/>
+    <path class="stitch" d="M1185 747 L1460 747 M1185 785 L1460 785"/>
+    <text x="1174" y="824" class="small">Hole end laps over button end.</text>
+    <g id="cuff-closed-intent">
+      <path class="outer" d="M1206 851 Q1329 836 1452 851 L1452 899 Q1329 884 1206 899 Z"/>
+      <path class="edge" d="M1325 843 L1325 891"/>
+      <path class="hole" d="M1339 867 L1366 867"/><circle cx="1353" cy="867" r="7" class="button"/>
+      <text x="1470" y="878" class="micro">closed</text>
+    </g>
+  </g>
+  <path d="M42 970 H1558" stroke="#c2c9bd"/>
+  <rect x="47" y="994" width="28" height="18" rx="3" fill="#6c765b"/><text x="89" y="1011" class="small">Olive exterior</text>
+  <rect x="279" y="994" width="28" height="18" rx="3" fill="#d4c7aa"/><text x="321" y="1011" class="small">Inside / underside</text>
+  <path d="M562 1003 H606" class="fold"/><text x="619" y="1011" class="small">Fold / turn</text>
+  <text x="42" y="1060" class="small">Original fictional finishing choices • Editable unitless design • Not a sewing pattern, fitted garment or finished 3D asset.</text>
+</svg>
