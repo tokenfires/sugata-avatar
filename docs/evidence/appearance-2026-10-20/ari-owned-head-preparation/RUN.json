@@ -1,0 +1,69 @@
+{
+  "wrapperPID": 82500,
+  "wrapperBirthUTC": "2026-10-20T11:22:32.596828+00:00",
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-I",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/head.py"
+  ],
+  "sourceLockSHA256": "8a20a92abf48dc0effbd828f59cd7b617db9951cb06b931de8cbbd16478f6e45",
+  "admissionSHA256": "874dfff919b109a30bd98db89c64f26d008b57509906bf80879aa2ed276b020f",
+  "status": "COLLECTED_UNQUALIFIED",
+  "childPID": 82503,
+  "childPGID": 82503,
+  "reaped": true,
+  "sampledRSSMaxBytes": 65716224,
+  "events": [],
+  "limits": {
+    "mainSeconds": 45.0,
+    "totalSeconds": 70.0,
+    "sampledChildRSSBytes": 402653184,
+    "aggregateOutputBytes": 16777216,
+    "cpuSeconds": [
+      40,
+      42
+    ],
+    "perFileBytes": 12582912,
+    "memoryLimitIsSampledNotKernelEnforced": true
+  },
+  "statusNotAFailurePathOrRepresentativePerformanceQualification": true,
+  "childBirthUTC": "2026-10-20T11:22:32.598865+00:00",
+  "returncode": 0,
+  "childCollectedUTC": "2026-10-20T11:22:35.004203+00:00",
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/output/CHECKS.json",
+      "bytes": 1774,
+      "sha256": "463e77bd153f4fc5db62ce0327b6709c1fc410d2d8806b2dfd8ffb6e76200590"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/output/OUTPUTS.json",
+      "bytes": 582,
+      "sha256": "3d53b18b47517777d120e901c16ed38bdac870c45644d44916a4728a5cdd2d33"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/output/first-head.png",
+      "bytes": 212066,
+      "sha256": "bf3f13772c9187db0351133077d3f7a12dab49803a9d6eac0ada93490e313b13"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/output/head.landmarks.json",
+      "bytes": 50151,
+      "sha256": "c1bff683c4cf0dd610221ab241b1af45c03d1ff7b9cec507e97274c0a6e06630"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/output/head.mesh.json",
+      "bytes": 1857500,
+      "sha256": "ebcb0112176d7651dd5de2f8dac2f27ccb1a2d13eb7170e5bb1a3159a76b879c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/output/head.obj",
+      "bytes": 1396590,
+      "sha256": "2f3170ffd1d9985161e1b9cae1bf71dba54ada56a7806361b5df5e9bf6b3f6cd"
+    }
+  ],
+  "outputBytes": 3518663,
+  "failure": null,
+  "wrapperCollectionUTC": "2026-10-20T11:22:35.005924+00:00",
+  "elapsedSeconds": 2.410800332989311
+}

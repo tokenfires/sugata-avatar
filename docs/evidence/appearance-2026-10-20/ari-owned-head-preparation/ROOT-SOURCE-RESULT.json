@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-20T11:22:24.128167+00:00",
+  "pid": 82258,
+  "admitFirstInvocation": true,
+  "latestStartUTC": "2026-10-20T11:24:24.128167+00:00",
+  "sourceLockSHA256": "8a20a92abf48dc0effbd828f59cd7b617db9951cb06b931de8cbbd16478f6e45",
+  "wholeIndependentReviewRead": "5d0806;15005B complete/untruncated",
+  "reviewSHA256": "a47df98f26a2adfe46c52625110c0f7586139740fa23c44fd67d3211541d385c",
+  "canonicalOpinionSHA256": "cbba2c075e67ade637d820850057145205176bb55640e1266fb6f33973381221",
+  "allFourteenDocumentAndSourceBindingsPlusInterpreterVerified": true,
+  "rootInitialPrecedesIndependentSeal": true,
+  "criticREADMEPrimingDisclosedNoBlindClaim": true,
+  "firstCommand": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-I",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/run-once.py"
+  ],
+  "scope": "Exactly one original first-party head construction+data checks+fixed fourview software render; all outcomes remain isolated/unqualified. No retry/rescue.",
+  "activeRootCollection": "Root owns returned tool session or initial completion, reads actual RUN workerPID/PGID, collects actual reaped status and known process identities. Supervisor termination alone NEVER establishes worker retirement. Pause/error requires explicit live worker collection or truthful unresolved checkpoint, never signal stale/reused/unknown identities.",
+  "limits": "45s main/70s ordinary polled supervisor controls;40/42CPU12MiBperfile16MiBoutputs384MiBsampled directchild RSS. Polling not externally guaranteed hard wall, excludes wrapper/ps/caches/combined peak; no successful failure-path testing claimed.",
+  "prelaunchOutputsFuseRunLogsAbsent": true,
+  "noOtherOwnedWorkloadOrCapture": true,
+  "noConstructorEvaluationBeforeThisAdmission": true,
+  "materialVolume": "HOLD"
+}

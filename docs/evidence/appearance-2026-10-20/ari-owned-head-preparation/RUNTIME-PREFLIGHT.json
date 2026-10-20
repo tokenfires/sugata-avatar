@@ -1,0 +1,51 @@
+{
+  "utc": "2026-10-20T11:14:41.827533+00:00",
+  "pid": 73603,
+  "interpreter": {
+    "requestedPath": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "resolvedPath": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+    "bytes": 34640,
+    "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634",
+    "version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "platform": "darwin",
+    "machine": "arm64"
+  },
+  "programs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/head.py",
+      "bytes": 24514,
+      "sha256": "39f6fe37913fc0ab41d42b07371ed5fd066518876093a8c3628b1b2b45d07ef7",
+      "astParsedWithoutImportOrEvaluation": true,
+      "imports": [
+        "array",
+        "hashlib",
+        "json",
+        "math",
+        "pathlib",
+        "struct",
+        "zlib"
+      ]
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/run-once.py",
+      "bytes": 7273,
+      "sha256": "d1ae38e353c2988c833143b4213145d298fb8e1c78d08b66cd0f8db45e3dc130",
+      "astParsedWithoutImportOrEvaluation": true,
+      "imports": [
+        "datetime",
+        "hashlib",
+        "json",
+        "os",
+        "pathlib",
+        "resource",
+        "signal",
+        "subprocess",
+        "sys",
+        "time"
+      ]
+    }
+  ],
+  "constructorImportedOrEvaluated": false,
+  "geometryOrImageGenerated": false,
+  "outputFuseRunLogsAbsent": true
+}

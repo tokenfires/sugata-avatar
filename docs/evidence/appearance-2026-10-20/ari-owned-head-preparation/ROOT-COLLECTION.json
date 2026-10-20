@@ -1,0 +1,156 @@
+{
+  "utc": "2026-10-20T11:23:21.762151+00:00",
+  "pid": 83641,
+  "actualLaunchTool": "ec467e session95511",
+  "actualSessionCollection": "94dc5b exit0",
+  "runRead": "e8072b",
+  "source12PinsAnd6OutputsAnd5ManifestPinsVerified": true,
+  "actualParts": [
+    {
+      "part": "head_face_cranium_jaw_neck",
+      "vertices": 11323,
+      "triangles": 22464,
+      "edges": 33788,
+      "boundaries": 3,
+      "boundaryEdges": 184,
+      "euler": -1,
+      "minSquaredFaceCross": 1.752860151978038e-07,
+      "connectedDirectedEdgesFinite": true
+    },
+    {
+      "part": "eye_negative_x",
+      "vertices": 762,
+      "triangles": 1520,
+      "edges": 2280,
+      "boundaries": 0,
+      "boundaryEdges": 0,
+      "euler": 2,
+      "minSquaredFaceCross": 1.2316536492731652e-08,
+      "connectedDirectedEdgesFinite": true
+    },
+    {
+      "part": "eye_positive_x",
+      "vertices": 762,
+      "triangles": 1520,
+      "edges": 2280,
+      "boundaries": 0,
+      "boundaryEdges": 0,
+      "euler": 2,
+      "minSquaredFaceCross": 1.2316536492731652e-08,
+      "connectedDirectedEdgesFinite": true
+    },
+    {
+      "part": "ear_negative_x",
+      "vertices": 770,
+      "triangles": 1536,
+      "edges": 2304,
+      "boundaries": 0,
+      "boundaryEdges": 0,
+      "euler": 2,
+      "minSquaredFaceCross": 2.8664506010128905e-09,
+      "connectedDirectedEdgesFinite": true
+    },
+    {
+      "part": "ear_positive_x",
+      "vertices": 770,
+      "triangles": 1536,
+      "edges": 2304,
+      "boundaries": 0,
+      "boundaryEdges": 0,
+      "euler": 2,
+      "minSquaredFaceCross": 2.8664506010128905e-09,
+      "connectedDirectedEdgesFinite": true
+    }
+  ],
+  "exactJSONOBJPositionsTrianglesAndPartNames": true,
+  "namedHeadLandmarksRegionsLoopsVerified": true,
+  "png": {
+    "bytes": 212066,
+    "sha256": "bf3f13772c9187db0351133077d3f7a12dab49803a9d6eac0ada93490e313b13",
+    "dimensions": [
+      1440,
+      1440
+    ],
+    "chunks": [
+      "IHDR",
+      "IDAT",
+      "IEND"
+    ],
+    "allCRCsAndRawScanlineLengthsVerified": true
+  },
+  "actualWorkerOutputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/output/CHECKS.json",
+      "bytes": 1774,
+      "sha256": "463e77bd153f4fc5db62ce0327b6709c1fc410d2d8806b2dfd8ffb6e76200590"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/output/OUTPUTS.json",
+      "bytes": 582,
+      "sha256": "3d53b18b47517777d120e901c16ed38bdac870c45644d44916a4728a5cdd2d33"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/output/first-head.png",
+      "bytes": 212066,
+      "sha256": "bf3f13772c9187db0351133077d3f7a12dab49803a9d6eac0ada93490e313b13"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/output/head.landmarks.json",
+      "bytes": 50151,
+      "sha256": "c1bff683c4cf0dd610221ab241b1af45c03d1ff7b9cec507e97274c0a6e06630"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/output/head.mesh.json",
+      "bytes": 1857500,
+      "sha256": "ebcb0112176d7651dd5de2f8dac2f27ccb1a2d13eb7170e5bb1a3159a76b879c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/output/head.obj",
+      "bytes": 1396590,
+      "sha256": "2f3170ffd1d9985161e1b9cae1bf71dba54ada56a7806361b5df5e9bf6b3f6cd"
+    }
+  ],
+  "logsAndStatus": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/stdout.log",
+      "bytes": 724,
+      "sha256": "1864d428f1d63723d5a1e4d37fdf3f074eaa9c9cd408ecae1f16a3ae798fc822"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/RUN.json",
+      "bytes": 2781,
+      "sha256": "2fe56bbcf80a379363c723f1620a7841d8b883951efe0c24189a008e0cca3490"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/FUSE",
+      "bytes": 33,
+      "sha256": "6f9672aad99648478604b9f648b399950ae8e1be7838bc80f6dd4047e6257c9a"
+    }
+  ],
+  "actualPIDsAbsent": [
+    {
+      "role": "wrapperPID",
+      "pid": 82500,
+      "psExit": 1,
+      "psOutput": "",
+      "observedAbsent": true
+    },
+    {
+      "role": "childPID",
+      "pid": 82503,
+      "psExit": 1,
+      "psOutput": "",
+      "observedAbsent": true
+    }
+  ],
+  "elapsedSeconds": 2.410800332989311,
+  "sampledDirectChildRSSMaxBytes": 65716224,
+  "exactPeakCombinedMemoryUnknown": true,
+  "sourceRunDataNotAppearanceQualification": true,
+  "ownedJobCollectedNoLiveCapture": true
+}

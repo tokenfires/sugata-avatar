@@ -1,0 +1,89 @@
+{
+  "utc": "2026-10-20T11:15:46.040157+00:00",
+  "pid": 75030,
+  "interpreter": {
+    "requestedPath": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "resolvedPath": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+    "bytes": 34640,
+    "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634",
+    "version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "platform": "darwin",
+    "machine": "arm64"
+  },
+  "files": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/head.py",
+      "bytes": 24514,
+      "sha256": "39f6fe37913fc0ab41d42b07371ed5fd066518876093a8c3628b1b2b45d07ef7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/run-once.py",
+      "bytes": 7273,
+      "sha256": "d1ae38e353c2988c833143b4213145d298fb8e1c78d08b66cd0f8db45e3dc130"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/PREPARATION-PLAN.md",
+      "bytes": 2841,
+      "sha256": "d5b74ea0809c05fe9d938022a943741bc9d3365bcdd2786feded232f6b3a3705"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/DESIGN.md",
+      "bytes": 5226,
+      "sha256": "f2421e1a1b6a6a0338009258f290db02bb897c5b2f1acc811b0bc6d97c89e7de"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/CONTRACT.md",
+      "bytes": 6443,
+      "sha256": "d67b38155cbf9ccdeb2fb8a7d20fe0d5ae6ee003c53cef338d2f55659a58a063"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/RUNTIME-PREFLIGHT.json",
+      "bytes": 1595,
+      "sha256": "93b32d43dbf97e3cbb73df400edf007f4b65f61ef3e532aba158b8df877f3943"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/REFERENCE-SCOPE.md",
+      "bytes": 1036,
+      "sha256": "08e56a339a320696ad1c7b179711b98ca85be60c24af147073c3369311d9ad8d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-preparation/UTILITY-PROVENANCE.md",
+      "bytes": 1119,
+      "sha256": "497b8e7df696c825e2a980fb051a8727c81f72aa47f9a2d5bb681b2ba5248af7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-worth/ROOT-RESULT.json",
+      "bytes": 1048,
+      "sha256": "bdbc4d0af1c98c148d3871e240db64e02c46e4aca3002bf0414fa7e5e5ec9be8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/ari-owned-head-worth/WORTH.md",
+      "bytes": 8283,
+      "sha256": "2ae4c5d3dc280e6522f9725db2d98122d1f203ff7c81ec80a71a837a05e7a818"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/concept-v1.png",
+      "bytes": 2193053,
+      "sha256": "6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-07/larger-frame-character/ARTIST-HANDOFF.md",
+      "bytes": 2270,
+      "sha256": "3a5b0493387b14d164455996e2ab3840d02e10341220f0282968d3720878899c"
+    }
+  ],
+  "executionAdmitted": false,
+  "predicted": {
+    "parts": 5,
+    "vertices": 14387,
+    "triangles": 28576,
+    "headBoundaryLoops": 3,
+    "headBoundaryEdges": 184,
+    "image": [
+      1440,
+      1440
+    ],
+    "workerFiles": 6
+  },
+  "noSourceEvaluation": true
+}
