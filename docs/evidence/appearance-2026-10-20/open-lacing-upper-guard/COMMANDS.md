@@ -19,3 +19,5 @@ Proposed FIRST command, NOT YET RUN:
 ```
 
 Use one root exec terminal, yield1000ms, bounded output, record actual returned job/session and wrapper/child identities after they exist. SOURCE-LOCK lists all exactruntime inputs/fullSHA/size/resolvedpaths. Freshcompletecritic gate + root whole handoff verification + absence/liveness preflight required. Root external collection contract is CONTRACT.md, not this command's mere presence. No image/result/performance/physicalfit/AAA credit. All controls/defaults/originals/fullroadmap/holds preserved. No further guard cycle after an incomplete gate.
+
+Recovery log retention: a463b9 confirms the repository's .gitignore:5 blanket*.log excluded only this new run's stdout/stderr from11f18506. Preserve the two owned evidence logs explicitly,652B/458f347c...91be and0B/e3b0c442...b855 already pinned by DELIVERY-CHECK. No foreign log, cache or ignored source buffer is added/modified. This is recovery bookkeeping, not a new run.
