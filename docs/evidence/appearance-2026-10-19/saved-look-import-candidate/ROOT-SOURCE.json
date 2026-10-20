@@ -1,0 +1,125 @@
+{
+  "utc": "2026-10-20T00:14:19.234468+00:00",
+  "pid": 5010,
+  "decision": "A_SOURCE_ONLY: sole CPU helper may receive separate fresh root admission after recoverable source save. No UI/default promotion.",
+  "wholeStableHandoff": "17d7c2/exit0/untruncated6129B review+18849B receipt",
+  "verifiedBindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-look-import.mjs",
+      "bytes": 7141,
+      "sha256": "21179398521697c3da99b2e0f3079deeb715a9355724ba67930312a751fdcd7b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-look-import.selftest.mjs",
+      "bytes": 13052,
+      "sha256": "932b0ad993066b1c43ea12b852b2e495479c56e080efff4fbbbb480fe7ee866a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/critic/saved-look-import-cpu.py",
+      "bytes": 7795,
+      "sha256": "51c3cc7bfa0ca736a6dd314996abe86502a0bc78df95d7476a3a5b0826552859"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js",
+      "bytes": 36902,
+      "sha256": "f733c831a7a120893d1edd311593a0620de32086ca4261789512175758ea900b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.html",
+      "bytes": 23443,
+      "sha256": "07450126f76c9f3c73257b10a55a0d5fa2db2211335783213365d70f4314ce3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 8721,
+      "sha256": "dcc014cdce1d176acf790bccd693d4c90e2f891d590e67d6329d681c6f181f86"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-colours.mjs",
+      "bytes": 1896,
+      "sha256": "8c084259b3325e6c7ed871d5849423879c06360ebfe722e0c8556ea4a81a9e0a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeStyleOptions.js",
+      "bytes": 1933,
+      "sha256": "23076d5efb5d8575b2db806d074f3efe5090f5dd83d844322e4ab9e4699636f5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 968,
+      "sha256": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/PLAN.md",
+      "bytes": 3467,
+      "sha256": "19ffd2db91bb5c734d3bfbba87cf0725470ee8c2b075a3422968040778517ef3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/ROOT-METHOD.json",
+      "bytes": 6832,
+      "sha256": "9b52ee5b780b2b9a9c7b482bf94352714f842c3a0478360c2b7aa319add86840"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/SOURCE-INPUTS.json",
+      "bytes": 3570,
+      "sha256": "847649ef863f7315aed0c1b31d92a04c5da63e5cabb1dfe2c8087e9c1c284bde"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/INTEGRATION-DIFF.json",
+      "bytes": 13331,
+      "sha256": "b417e14210a2f5e728a4d77939ec642dec192dbdf6c47d0db3e827bdb97da92d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/ROOT-FIRST.json",
+      "bytes": 2703,
+      "sha256": "edb0253ad3854add33a3f5e3ac3f7c3ccfb246e459eb119b88ef3b753b2ac2d8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/SOURCE-REVIEW.md",
+      "bytes": 6129,
+      "sha256": "1eff0b7ba56e653e3facd55c7e12b0a18bb9d3cd33134a1260bf6e189f360e05"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/POSTFLIGHT-CONTRACT.md",
+      "bytes": 1019,
+      "sha256": "f9524264df59c79faf9ca723202088917f654d5e658d44057936613fc8b07501"
+    }
+  ],
+  "criticReceiptSHA256": "1f0df23f0abf55efe4914beb360278a5327fb007a34fdb723e3a0804efc7afb7",
+  "sourceVerification": "Root actual4520cf wholecontroller/helper, e13645 wholeselftest+complete integrationdelta, union with previous whole exact07b0008f baseline host/HTML. Critic whole1080lines independently verifies same complete source/delta/current14pins. Fresh actual diff equality now checked.",
+  "independentReason": "Owned error settlement and generation/disposal/availability guard immediately before synchronous real SavedLooks.add preserve scoped append semantics. Idempotent cleanup and only own-active release; own UI clears only new form after persistence, list refresh failure remains saved. Dynamic import guarded; loader failure hides nativeform; existing pagehide cancel precedes persisted earlyreturn. Real-owner fakeinput assertions meaningful; no actual browser/native ownership inferred.",
+  "findingF1": {
+    "witness": "helper94\u201398 and148partial outputs; own report only stream sizes not completepacket",
+    "duty": "POSTFLIGHT-CONTRACT1019/f9524264 owned by root BEFORE admission: inventory4allowedregularnonsymlink immediatefiles/caps, preservepartials; wholeactualoutputs/pins/assertions/positiveNode+allmonitor collection before acceptance. Source/helperunchanged.",
+    "alternatives": [
+      "One unchanged CPUrun plus bounded independent rootinventory, usefulevidenceat externalduty cost",
+      "Withholdexecutionand retainunqualifiedcandidate,no runtimeexposure/no actualassertion evidence"
+    ]
+  },
+  "runtimeLimits": "Node24.13.1 old-space128MiB only; PSsampledRSS512MiB/refusal1MiBstreams maymissbursts;10sobservedwindow/2sTERM+2sKILLwaits; no hard RSS/peak/physicalretirement guarantee. No group/platform/waitid/browser.",
+  "admissionRequirements": [
+    "Exact currentmanifest/helper/dependencies/critic/root/postflight and sourcecommit fresh pins",
+    "CPUmarker+used+cpu-rundir absent, no liveownedjob; root creates atmostone120sdispatchwindow CPU-admission only",
+    "Run exactly reviewed Python helper with prescribedcpu-runpath, collectsame job/PIDs onyield; no extrasyntax/probe/test",
+    "Full rootpostflightprotocol beforequalifying; firstB/unknown closeswithoutrepair/rerun",
+    "CPU A stillnotUIgate ordefaultpromotion"
+  ],
+  "noTargetEntry": true,
+  "pendingCriticEdits": false,
+  "next": "Save exact candidate source locally, then separately declare/admit soleCPU under exactcurrentpins+postflightduty."
+}

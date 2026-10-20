@@ -1,0 +1,275 @@
+{
+  "schema": "critic-literal-source-review-v1",
+  "collectionUTC": "2026-10-20T00:12:26.779352+00:00",
+  "collectionPID": 1367,
+  "decision": "A_SOURCE_ONLY_ONE_UNCHANGED_CPU_HELPER_CONDITIONAL_ROOT_POSTFLIGHT_PROTOCOL",
+  "deadlineUTC": "2026-10-20T00:23:00Z",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-look-import.mjs",
+      "bytes": 7141,
+      "sha256": "21179398521697c3da99b2e0f3079deeb715a9355724ba67930312a751fdcd7b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-look-import.selftest.mjs",
+      "bytes": 13052,
+      "sha256": "932b0ad993066b1c43ea12b852b2e495479c56e080efff4fbbbb480fe7ee866a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/critic/saved-look-import-cpu.py",
+      "bytes": 7795,
+      "sha256": "51c3cc7bfa0ca736a6dd314996abe86502a0bc78df95d7476a3a5b0826552859"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js",
+      "bytes": 36902,
+      "sha256": "f733c831a7a120893d1edd311593a0620de32086ca4261789512175758ea900b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.html",
+      "bytes": 23443,
+      "sha256": "07450126f76c9f3c73257b10a55a0d5fa2db2211335783213365d70f4314ce3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 8721,
+      "sha256": "dcc014cdce1d176acf790bccd693d4c90e2f891d590e67d6329d681c6f181f86"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-colours.mjs",
+      "bytes": 1896,
+      "sha256": "8c084259b3325e6c7ed871d5849423879c06360ebfe722e0c8556ea4a81a9e0a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeStyleOptions.js",
+      "bytes": 1933,
+      "sha256": "23076d5efb5d8575b2db806d074f3efe5090f5dd83d844322e4ab9e4699636f5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 968,
+      "sha256": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/PLAN.md",
+      "bytes": 3467,
+      "sha256": "19ffd2db91bb5c734d3bfbba87cf0725470ee8c2b075a3422968040778517ef3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/ROOT-METHOD.json",
+      "bytes": 6832,
+      "sha256": "9b52ee5b780b2b9a9c7b482bf94352714f842c3a0478360c2b7aa319add86840"
+    }
+  ],
+  "manifestSelf": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/SOURCE-INPUTS.json",
+    "bytes": 3570,
+    "sha256": "847649ef863f7315aed0c1b31d92a04c5da63e5cabb1dfe2c8087e9c1c284bde"
+  },
+  "integrationDiff": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/INTEGRATION-DIFF.json",
+    "bytes": 13331,
+    "sha256": "b417e14210a2f5e728a4d77939ec642dec192dbdf6c47d0db3e827bdb97da92d"
+  },
+  "rootFirst": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/ROOT-FIRST.json",
+    "bytes": 2703,
+    "sha256": "edb0253ad3854add33a3f5e3ac3f7c3ccfb246e459eb119b88ef3b753b2ac2d8"
+  },
+  "review": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/SOURCE-REVIEW.md",
+    "bytes": 6129,
+    "sha256": "1eff0b7ba56e653e3facd55c7e12b0a18bb9d3cd33134a1260bf6e189f360e05"
+  },
+  "independence": {
+    "job": "da59a9",
+    "exit": 0,
+    "pid": 98313,
+    "utc": "2026-10-20T00:10:59.887313+00:00",
+    "order": "Printed independent A conditional on external inventory before reading ROOT-FIRST; source verdict unchanged after root accepted inventory duty.",
+    "rootSeparateSealUTC": "2026-10-20T00:08:35.723705+00:00"
+  },
+  "coverage": {
+    "implementationWholeLines": 1080,
+    "wholeFiles": {
+      "controller": 123,
+      "selftest": 179,
+      "helper": 157,
+      "host": 527,
+      "HTML": 94
+    },
+    "dependencyReuse": "Seven same-byte pure dependency owners wholly read in prior proposal; all seven current SHA and size independently reverified among14current rows. No further source/inventory/reference/image/API query.",
+    "diff": "Complete decoded saved diff equals actual git diff parent07b0008f for exact host/HTML,13059B/SHAa8f4145d3e90081469eba70eaecb9b3a49d5662994dca30ee91425e076f56563.",
+    "declaredCases": 34,
+    "caseCountScope": "Static reading29fixed plus five-item loop, not execution or result."
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "sourceWitness": "tools/critic/saved-look-import-cpu.py94–98,138–151: partial stream/runtime-start/RUN writes and no exhaustive directory enumeration",
+      "effect": "Generated partial bytes can outlive an unsuccessful write without full report inventory; no actual run/loss asserted.",
+      "alternatives": [
+        {
+          "choice": "Unchanged helper plus externally owned bounded inventory on either exit/unknown",
+          "tradeoff": "Preserves frozen source but requires independent root evidence duty before output acceptance."
+        },
+        {
+          "choice": "Withhold this CPU run, retain unqualified candidate",
+          "tradeoff": "No new runtime exposure, no actual consumer protocol evidence."
+        }
+      ],
+      "acceptedRootDutyVerbatim": "I accept that external root post-entry duty, with no source repair: on either exit/unknown, before root parses output for qualification, inventory only cpu-run immediate children; max4regular nonsymlink files, allowed stdout.log/stderr.log/runtime-start.json/RUN.json, no subdirectories, each stream<=1MiB and each JSON<=256KiB, total<=2.5MiB. Preserve every partial/unexpected file. Inventory refusal stops qualification/UI and the nomination, no retry. Only minimal bounded runtime-start/tool PID metadata may be read for required owned-job cleanup, never acceptance. Helper's A_CPU_ONLY is provisional until this root inventory, whole outputs/actual assertions and positive owned child+monitor collection independently verified. Please bind this duty verbatim in your conditional source A; ROOT will record concrete POSTFLIGHT contract before any CPU admission. No code changes or target entered.",
+      "admissionCondition": "Root must save concrete POSTFLIGHT protocol before CPU admission. A_CPU_ONLY provisional until inventory, whole actual assertions/status/current pins and positive owned Node+monitor collection. No repair/retry."
+    }
+  ],
+  "sourceConclusions": [
+    "Cancellation always rejects owned pending Promise without depending on abort event; token/active/disposal/availability check immediately before real synchronous add.",
+    "Real settings/options/SavedLooks assertions with explicit finite fake reader/storage/scheduler; no shadow schema or DOM/browser proof.",
+    "Postcommit saved status distinct from list refresh failure; no implicit Open/current preview dependency.",
+    "Flag-only dynamic import, hidden scoped markup, fieldset refresh ordering and BFCache cancel/terminal dispose are actual source; not actual integration proof.",
+    "Source-manifest/allowRun/expiry/exclusive directory+used marker; fixed argv; Node+ps monitor Popen handles; bounded waits and explicit unknown.",
+    "Old-space128MiB, sampled512MiB RSS and sampled output refusal only; no hard whole-memory/peak/physical retirement guarantee."
+  ],
+  "notQualified": [
+    "actual CPU/proof success",
+    "actual native FileReader or DOM/BFCache",
+    "browser UI/chooser/readiness/accessibility/appearance",
+    "default feature promotion",
+    "all-interleaving cross-process storage atomicity",
+    "whole-process memory/peak/startup/performance",
+    "physical GPU/OS retirement guarantees"
+  ],
+  "readerNotes": [
+    {
+      "witness": "Initial INTEGRATION-DIFF.txt optional existence check was false; no read occurred.",
+      "correction": "Root supplied exact INTEGRATION-DIFF.json filename/hash; no inventory or filename hunt."
+    }
+  ],
+  "tools": [
+    {
+      "name": "initial",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate')\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['PLAN.md','SOURCE-INPUTS.json','INTEGRATION-DIFF.txt']:\n f=p/n\n if not f.exists() and n=='INTEGRATION-DIFF.txt': continue\n b=f.read_bytes(); print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest()); print(b.decode())\nPY",
+      "chunk_id": "656fbb",
+      "exit_code": 0,
+      "wall_time_seconds": 8.042e-06,
+      "original_token_count": 1823,
+      "outputBytes": 7291,
+      "outputSHA256": "7d1e3a5a12f557549b04e661d6650891775e99aaac911874c191570ba3780a37",
+      "firstLine": "UTC 2026-10-20T00:08:54.498456+00:00 PID 94345"
+    },
+    {
+      "name": "controller_helper",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\nr=Path('/Users/robault/GitHub/sugata-avatar')\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['packages/testbed/src/showcase-look-import.mjs','tools/critic/saved-look-import-cpu.py']:\n b=(r/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest())\n for i,l in enumerate(b.decode().splitlines(),1):print(f'{i}: {l}')\nPY",
+      "chunk_id": "abb0c6",
+      "exit_code": 0,
+      "wall_time_seconds": 8.917e-06,
+      "original_token_count": 4108,
+      "outputBytes": 16429,
+      "outputSHA256": "bbe54148c8d1b6e36eebcb3cb172e8663c5d899a9f4e15174546c7e25e96b2fa",
+      "firstLine": "UTC 2026-10-20T00:09:08.763247+00:00 PID 94780"
+    },
+    {
+      "name": "test",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime,os\nr=Path('/Users/robault/GitHub/sugata-avatar')\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nn='packages/testbed/src/showcase-look-import.selftest.mjs'; b=(r/n).read_bytes(); print('FILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest())\nfor i,l in enumerate(b.decode().splitlines(),1):print(f'{i}: {l}')\nPY",
+      "chunk_id": "71005a",
+      "exit_code": 0,
+      "wall_time_seconds": 7.416e-06,
+      "original_token_count": 3508,
+      "outputBytes": 14030,
+      "outputSHA256": "cfb05c4919581a0b1f17b101d33621a7669c067bde53c34bf70ce7330d77c199",
+      "firstLine": "UTC 2026-10-20T00:09:29.711551+00:00 PID 95463"
+    },
+    {
+      "name": "host1",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime,os\nr=Path('/Users/robault/GitHub/sugata-avatar'); n='packages/testbed/src/showcase.js'; b=(r/n).read_bytes(); lines=b.decode().splitlines()\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid());print('FILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest(),'RANGE',1,270)\nfor i in range(1,271):print(f'{i}: {lines[i-1]}')\nPY",
+      "chunk_id": "9f247e",
+      "exit_code": 0,
+      "wall_time_seconds": 6e-06,
+      "original_token_count": 5428,
+      "outputBytes": 21711,
+      "outputSHA256": "e4763610b9cd28e14ef5d67b780dde34d79197ce710639f394c4b9ffe59d314e",
+      "firstLine": "UTC 2026-10-20T00:09:36.833261+00:00 PID 95709"
+    },
+    {
+      "name": "host2_diff",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime,os,json\nr=Path('/Users/robault/GitHub/sugata-avatar'); n='packages/testbed/src/showcase.js'; b=(r/n).read_bytes(); lines=b.decode().splitlines()\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid());print('FILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest(),'RANGE',271,527)\nfor i in range(271,528):print(f'{i}: {lines[i-1]}')\np=r/'docs/evidence/appearance-2026-10-19/saved-look-import-candidate'; b=(p/'INTEGRATION-DIFF.json').read_bytes(); print('\\nINTEGRATION-DIFF',len(b),hashlib.sha256(b).hexdigest()); d=json.loads(b)\nfor k,v in d.items():print('FIELD',k,v)\nPY",
+      "chunk_id": "4b0613",
+      "exit_code": 0,
+      "wall_time_seconds": 8.5e-06,
+      "original_token_count": 7826,
+      "outputBytes": 31304,
+      "outputSHA256": "63c895eeb51be92eb7f4a4509f104d4060c6ca1d273021c3057eba046e31ddec",
+      "firstLine": "UTC 2026-10-20T00:09:42.757224+00:00 PID 95862"
+    },
+    {
+      "name": "html_bindings",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime,os,json\nr=Path('/Users/robault/GitHub/sugata-avatar'); n='packages/testbed/src/showcase.html'; b=(r/n).read_bytes()\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid());print('FILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest())\nfor i,l in enumerate(b.decode().splitlines(),1):print(f'{i}: {l}')\np=r/'docs/evidence/appearance-2026-10-19/saved-look-import-candidate'; m=json.loads((p/'SOURCE-INPUTS.json').read_bytes())\nfor x in m['pins']:\n b=(r/x['path']).read_bytes(); assert len(b)==x['bytes'] and hashlib.sha256(b).hexdigest()==x['sha256'];print('PIN_PASS',x['path'],len(b),x['sha256'])\nb=(p/'SOURCE-INPUTS.json').read_bytes();print('MANIFEST_SELF',len(b),hashlib.sha256(b).hexdigest())\nPY",
+      "chunk_id": "1f63b9",
+      "exit_code": 0,
+      "wall_time_seconds": 7.334e-06,
+      "original_token_count": 6461,
+      "outputBytes": 25842,
+      "outputSHA256": "71edf86d23484c425721fc73554ee6a07ee659894367812068c2cff903db7c7e",
+      "firstLine": "UTC 2026-10-20T00:10:11.215207+00:00 PID 96725"
+    },
+    {
+      "name": "seal_compare",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json,subprocess\nr=Path('/Users/robault/GitHub/sugata-avatar'); p=r/'docs/evidence/appearance-2026-10-19/saved-look-import-candidate'\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nd=json.loads((p/'INTEGRATION-DIFF.json').read_bytes())\na=subprocess.run(['git','diff',d['parent'],'--','packages/testbed/src/showcase.html','packages/testbed/src/showcase.js'],cwd=r,check=True,capture_output=True).stdout.decode(); assert a==d['exactGitDiff']; print('ACTUAL_GIT_DIFF_EQUALS_SAVED',len(a.encode()),hashlib.sha256(a.encode()).hexdigest())\nprint('INDEPENDENT_SEAL',json.dumps({'decision':'A_SOURCE_ONLY_CONDITIONAL_ROOT_EXTERNAL_OUTPUT_INVENTORY','scope':'One separately root-admitted unchanged CPU helper entry only, no UI or default promotion.','reason':'Whole actual1080implementation lines and full integration delta agree with canonical append/cancel/token/late-state ownership and bounded fake-input real-owner assertions. Helper owns Node and numeric ps Popen handles and bounded waits, exact manifest/one-shot/deadline, old-space-only128MiB and sampled512RSS/output limits.','finding':'Helper does not enumerate all partial outputs after write/receipt failure. Root must own bounded full cpu-run inventory on either collected exit/unknown; otherwise withhold entry. Alternative frozen-source correction is not admitted.','unqualified':['actual proof success','FileReader/DOM/BFCache integration','actual browser/readiness/appearance','hard total heap/RSS/peak','physical retirement guarantee'],'pending_edits':False}))\nb=(p/'ROOT-FIRST.json').read_bytes();print('ROOT_FIRST',len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "da59a9",
+      "exit_code": 0,
+      "wall_time_seconds": 6.75e-06,
+      "original_token_count": 979,
+      "outputBytes": 3913,
+      "outputSHA256": "dec64801d0b27b243ac68823f218a36c8988ac37f4ce88e93acb21ffacdc93fe",
+      "firstLine": "UTC 2026-10-20T00:10:59.887313+00:00 PID 98313"
+    },
+    {
+      "name": "postflight",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/POSTFLIGHT-CONTRACT.md'); b=p.read_bytes()\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid());print('FILE',p,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest()); print(b.decode()); assert len(b)==1019 and hashlib.sha256(b).hexdigest()=='f9524264df59c79faf9ca723202088917f654d5e658d44057936613fc8b07501'\nPY",
+      "chunk_id": "4dfdec",
+      "exit_code": 0,
+      "wall_time_seconds": 6.583e-06,
+      "original_token_count": 320,
+      "outputBytes": 1277,
+      "firstLine": "UTC 2026-10-20T00:12:36.252918+00:00 PID 1745"
+    }
+  ],
+  "pending_edits": false,
+  "noActions": "No source edit, syntaxcheck/import/evaluation/test/fixture/CPU helper/Node/ps probe/browser/native/GPU/reference/network/image/canonical/storage action; only exclusive critic pair written.",
+  "receiptPreparedUTC": "2026-10-20T00:12:26.781386+00:00",
+  "postflightContract": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/POSTFLIGHT-CONTRACT.md",
+    "bytes": 1019,
+    "sha256": "f9524264df59c79faf9ca723202088917f654d5e658d44057936613fc8b07501"
+  },
+  "preStableSupplement": {
+    "utc": "2026-10-20T00:12:51.991246+00:00",
+    "pid": 2203,
+    "reason": "Root supplied the concrete supplemental postflight duty after initial own-pair collection and before stable readback. Read only that duty and bind it; no source or verdict change.",
+    "initialOwnReview": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/SOURCE-REVIEW.md",
+      "bytes": 5878,
+      "sha256": "89ef6f908694b0dc3e67176a9d04fb1c91f8dcbd3849db9651f10e842a9669d9"
+    },
+    "initialOwnReceipt": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CRITIC-RECEIPT.json",
+      "bytes": 16935,
+      "sha256": "5bfed2ef5c02072bbcb85466ef6d50faa1fcb407fe23c6c650913e84891645fc"
+    }
+  }
+}

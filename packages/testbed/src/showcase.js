@@ -89,6 +89,7 @@ if (outfitSuggestions) {
     document.getElementById('open-settings').after(view);
 }
 let collectionBlocked = true, collectionCount = 0, renameDraft = null, renameFocusId = null;
+let savedLookImport = null;
 const renameDialog = document.getElementById('rename-look-dialog');
 function renameFeedback(message) {
     const error = document.getElementById('rename-look-error'); error.textContent = message; error.hidden = !message;
@@ -108,6 +109,7 @@ function updateCollectionControls() {
     document.getElementById('rename-look-save').disabled = !collectionAvailable() || !renameDraft || renameDraft.stale;
     document.getElementById('rename-look-retry').hidden = !collectionBlocked;
     document.getElementById('rename-look-retry').disabled = busy || savingImage || failed || !avatar || avatar.disposed;
+    savedLookImport?.refresh();
 }
 function enableControls() {
     for (const control of document.querySelectorAll('fieldset, [data-angle], #reset-view, #pause, #save-image, #save, #copy, #open-settings, #view-settings')) control.disabled = busy || savingImage || failed;
@@ -413,6 +415,22 @@ addEventListener('storage', event => {
 });
 renderCollection();
 
+// The import controls remain a review candidate until actual UI qualification.
+if (params.get('savedImport') === '1') {
+    const panel = document.getElementById('saved-look-import');
+    try {
+        const { mountSavedLookImport } = await import('./showcase-look-import.mjs');
+        savedLookImport = mountSavedLookImport(panel, {
+            savedLooks, available: collectionAvailable, onSaved: () => renderCollection()
+        });
+    } catch {
+        panel.hidden = false;
+        panel.querySelector('form').hidden = true;
+        const error = panel.querySelector('[data-import-error]');
+        error.textContent = 'Import is unavailable. Your saved looks and current view were kept.'; error.hidden = false;
+    }
+}
+
 try {
     selected = resolveShowcaseSelection(params);
     avatar = await Avatar.create({canvas, ...optionsForShowcase(selected), autoStart: false});
@@ -495,7 +513,7 @@ try {
 } catch (error) { showFailure(error); }
 
 document.addEventListener('visibilitychange', () => { previousTime = null; });
-addEventListener('pagehide', event => { cancelAnimationFrame(frame); releaseAttention({immediate: true}); for (const url of downloadUrls) revokeDownload(url); if (event.persisted) return; outfitSuggestions?.dispose(); attention?.dispose(); controls?.dispose(); avatar?.dispose(); });
+addEventListener('pagehide', event => { cancelAnimationFrame(frame); releaseAttention({immediate: true}); for (const url of downloadUrls) revokeDownload(url); savedLookImport?.cancel(); if (event.persisted) return; savedLookImport?.dispose(); outfitSuggestions?.dispose(); attention?.dispose(); controls?.dispose(); avatar?.dispose(); });
 addEventListener('pageshow', event => {
     if (!event.persisted || !avatar || avatar.disposed || failed) return;
     renderCollection();

@@ -1,0 +1,107 @@
+{
+  "utc": "2026-10-20T00:08:35.702064+00:00",
+  "pid": 93710,
+  "parent": "07b0008f8f8360660dc58eb184568f57c9f87930",
+  "pins": [
+    {
+      "path": "packages/testbed/src/showcase-look-import.mjs",
+      "bytes": 7141,
+      "sha256": "21179398521697c3da99b2e0f3079deeb715a9355724ba67930312a751fdcd7b",
+      "lines": 123
+    },
+    {
+      "path": "packages/testbed/src/showcase-look-import.selftest.mjs",
+      "bytes": 13052,
+      "sha256": "932b0ad993066b1c43ea12b852b2e495479c56e080efff4fbbbb480fe7ee866a",
+      "lines": 179
+    },
+    {
+      "path": "tools/critic/saved-look-import-cpu.py",
+      "bytes": 7795,
+      "sha256": "51c3cc7bfa0ca736a6dd314996abe86502a0bc78df95d7476a3a5b0826552859",
+      "lines": 157
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 36902,
+      "sha256": "f733c831a7a120893d1edd311593a0620de32086ca4261789512175758ea900b",
+      "lines": 527
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 23443,
+      "sha256": "07450126f76c9f3c73257b10a55a0d5fa2db2211335783213365d70f4314ce3a",
+      "lines": 94
+    },
+    {
+      "path": "packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad",
+      "lines": 74
+    },
+    {
+      "path": "packages/testbed/src/showcase-collection.mjs",
+      "bytes": 8721,
+      "sha256": "dcc014cdce1d176acf790bccd693d4c90e2f891d590e67d6329d681c6f181f86",
+      "lines": 141
+    },
+    {
+      "path": "packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941",
+      "lines": 97
+    },
+    {
+      "path": "packages/testbed/src/showcase-colours.mjs",
+      "bytes": 1896,
+      "sha256": "8c084259b3325e6c7ed871d5849423879c06360ebfe722e0c8556ea4a81a9e0a",
+      "lines": 36
+    },
+    {
+      "path": "packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409",
+      "lines": 37
+    },
+    {
+      "path": "packages/core/src/wardrobe/WardrobeStyleOptions.js",
+      "bytes": 1933,
+      "sha256": "23076d5efb5d8575b2db806d074f3efe5090f5dd83d844322e4ab9e4699636f5",
+      "lines": 32
+    },
+    {
+      "path": "packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 968,
+      "sha256": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407",
+      "lines": 20
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-candidate/PLAN.md",
+      "bytes": 3467,
+      "sha256": "19ffd2db91bb5c734d3bfbba87cf0725470ee8c2b075a3422968040778517ef3",
+      "lines": 11
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/ROOT-METHOD.json",
+      "bytes": 6832,
+      "sha256": "9b52ee5b780b2b9a9c7b482bf94352714f842c3a0478360c2b7aa319add86840",
+      "lines": 119
+    }
+  ],
+  "sourceBounds": {
+    "implementationFiles": 5,
+    "wholeImplementationLines": 1080,
+    "cap": 1800
+  },
+  "runtime": {
+    "node": "/Users/robault/.brv-cli/bin/node",
+    "nodeVersionWitness": "8fe042: v24.13.1",
+    "python": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "pythonVersion": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "ps": "/bin/ps",
+    "oldSpaceMiB": 128,
+    "sampledRSSRefusalMiB": 512,
+    "hardRSSPeakLimit": null
+  },
+  "noEntries": "Inert sources only, no Node/helper/test/fixture/browser/target. CPU admission marker and output dir absent."
+}
