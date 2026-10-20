@@ -1,0 +1,60 @@
+{
+  "wholeHandoff": {
+    "command": "cat docs/evidence/appearance-2026-10-19/vtuber-character-worth/WORTH.md\ncat docs/evidence/appearance-2026-10-19/vtuber-character-worth/CRITIC-RECEIPT.json",
+    "chunk_id": "04a6d0",
+    "exit_code": 0,
+    "tokens": 4089,
+    "scope": "Whole stable3427B review and12927B receipt,4089tokens untruncated."
+  },
+  "decision": "B: defer this Phase2 nomination; no external reference or artist brief",
+  "rootReason": "Actual Phase2 and Immediate-work-order clauses require earned Phase1 gates. Scoped artist assets do not satisfy those gates. The entire later VTuber/Mii ambition remains.",
+  "next": "Close only this nomination. A different Phase1 character/wardrobe responsibility needs a new worth decision.",
+  "liveOwnedTargets": [],
+  "pendingCriticEdits": false,
+  "freshBindings": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/vtuber-character-worth/PLAN.md",
+      "bytes": 3754,
+      "sha256": "4f7bfab978d89b916332b154b5ae66836da7fc4f57228a0e24ac9f5011b1dfd2"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8644,
+      "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/vtuber-character-worth/ROOT-FIRST.json",
+      "bytes": 2280,
+      "sha256": "93b3200a48dd1f8e5cc5514273f47305249832f4bf339b8a9e3a4a1b7c1fb00e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/vtuber-character-worth/WORTH.md",
+      "bytes": 3427,
+      "sha256": "20a7a832b55061571afdb63f1daf0ccada93218aaddbbf51edfa7ee7110ef371"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/vtuber-character-worth/CRITIC-RECEIPT.json",
+      "bytes": 12927,
+      "sha256": "f93b50ee4ba096b73b8f7ae0a71da112e56c71a55a60e154806425f0a66cbed8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/vtuber-character-worth/TOOL-ROOT.json",
+      "bytes": 10311,
+      "sha256": "0f61668cac736ec8225308957b1bbeca2f7ebcd117d489ad5dd7b85c19ba401a"
+    }
+  ],
+  "independence": {
+    "ownSeal": "eab8e3/exit0/PID99282/2026-10-20T01:56:31.321323+00:00",
+    "rootContentFirstRead": "674de8/exit0/PID99700/2026-10-20T01:56:45.339685+00:00",
+    "rootEarlierSeal": "ROOT-FIRST.utc2026-10-20T01:55:10.434922+00:00/PID96876",
+    "comparison": "Both B on phaseordering; not style/source/tool feasibility."
+  },
+  "utc": "2026-10-20T01:59:59.559996+00:00",
+  "pid": 1992,
+  "limits": "No reference call, figure/image, brief, generation, source construction or target. Initial read was truncated; separate complete e9bdf9 and independent acfcea cover the same32741B source. Locator exit1 means no matching headings, not no history. Draft times corrected before investigation/seals."
+}

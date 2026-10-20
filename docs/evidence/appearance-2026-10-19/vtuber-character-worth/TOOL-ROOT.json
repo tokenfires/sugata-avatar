@@ -1,0 +1,70 @@
+{
+  "records": [
+    {
+      "name": "plan",
+      "command": "python3 - <<'PY'\nimport pathlib,hashlib,datetime,os\np=pathlib.Path('docs/evidence/appearance-2026-10-19/vtuber-character-worth');p.mkdir(exist_ok=False)\ns=\"# Worth check: original stylized VTuber character direction\\n\\nStart: 2026-10-20 01:57 UTC. Stop: 02:17 UTC without extension.\\nRecovery HEAD: 2d2b6d736ebb53aa464e0f9f2b8725f2d6be31e1. No live target or pending critic edit is recorded. The yarn-source nomination is closed and will not be retried.\\n\\nUsable improvement nomination: one original artist-owned stylized adult character direction for the VTuber branch, with deliberate proportions, coherent face/groom/outfit and useful front/three-quarter/portrait discussion views. This would be an isolated artist brief and later first plate, not a runtime avatar or a new version of an accepted character.\\n\\nBounded question: is a separate stylized character reference a useful missing roadmap responsibility, rather than another realistic portrait, an old Mii/VTuber recipe under a new name, or a claim that illustration establishes rigging/motion/performance? Decide A only for preparing one exact original artist brief and managed-image/output contract; B/unknown stops the nomination before a brief, generation or source construction.\\n\\nInput budget: read current PRODUCT-ROADMAP.md whole if <=64KiB, current checklist already whole-read during recovery, and a single headings-only locator over WORK-WINDOW-2026-10-18.md for prior VTuber/stylized nominations (at most16 matching headings). If an actual prior closure is selected, read only its directly named receipt <=16KiB before deciding whether this would violate it; no broader ledger/source/archive hunt. If the bounded selection is ambiguous or cannot settle closure, stop unknown rather than rename an old responsibility.\\n\\nOne current primary page only: https://vroid.com/en/studio via live Firecrawl main markdown, maxAge0, timeout30s. Inspect up to80 relevant returned text lines/12KiB about editing character proportions/materials and model/export scope. No linked page, search, dataset, code, asset, download or API/tool install. Returned image URLs are unviewed unless the page tool itself exposes actual pixels; do not claim image-example evidence from URLs. This source may clarify authoring versus runtime responsibilities; it does not prove our design or implementation.\\n\\nThe worth decision can use the actual repository source/checklist and primary text; no assumed source-image authority. A later generation brief must supply a complete original visual language and exact appearance criteria, independent critique and root verification. No generation or new image in this worth stage. No old realistic-character/groom/gesture/face/geometry/material/renderer/native-observer recipe is reopened; no Mii or expression-pair successor is admitted.\\n\\nRoot seals its first decision before critic opinion. The existing independent quality critic reads the same exact selected sources, gives actual source witnesses, explanation and two alternatives/tradeoffs, and answers whether the exact next brief is worth doing. Root whole-reads the stable handoff, freshly verifies inputs and reasoning before proceeding.\\n\\nPreserve accepted/default/original/frozen/ignored assets, all prior closed methods, Ari material-volume constructor HOLD and the complete AAA character/expression/wardrobe/representation/coupled-fit/motion/performance/VTuber/Mii roadmap. No checklist completion or runtime/representation/physical/fit/rig/motion/performance qualification. Root serializes captures; none is planned here.\\n\\nSave a concise receipt with exact inputs/tool arguments/jobs/hashes/outputs/limits/decision/next action. Keep the same review server and ten-minute ACTIVE recovery, never duplicate a job or timer. Human check-in/pause wins. No push, publication, purchase, install, subscription/model/reset-credit change or other project work.\\n\"\nq=p/'PLAN.md';q.write_text(s)\nprint(datetime.datetime.now(datetime.timezone.utc).isoformat(),os.getpid(),len(q.read_bytes()),hashlib.sha256(q.read_bytes()).hexdigest())\nPY",
+      "result": {
+        "chunk_id": "912c5f",
+        "wall_time_seconds": 7.75e-06,
+        "exit_code": 0,
+        "original_token_count": 28,
+        "outputBytes": 109,
+        "outputSHA256": "741af0da45f42f132f880ee65316ebb28b931f20dafe82efee8d6ec362465e73",
+        "outputScope": "Exact source/output hash; current file hashes and independent receipts retain semantic witnesses."
+      }
+    },
+    {
+      "name": "planClockCorrection",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,datetime,os\np=Path('docs/evidence/appearance-2026-10-19/vtuber-character-worth/PLAN.md');b=p.read_bytes();s=b.decode();assert hashlib.sha256(b).hexdigest()=='24f4a2edeb300447bc71bfe8c7f31e7bd74591a98edb3de6c24ab017688bb945';s=s.replace('Start: 2026-10-20 01:57 UTC. Stop: 02:17 UTC without extension.','Start: 2026-10-20 01:53:35 UTC (preparation). Stop: 02:13:35 UTC without extension.');p.write_text(s)\nprint(json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'note':'Corrected draft clock estimates before source inspection, critic dispatch or any input seal. No target or reference call occurred.','currentBytes':p.stat().st_size,'currentSHA256':hashlib.sha256(p.read_bytes()).hexdigest()},indent=2))\nPY",
+      "result": {
+        "chunk_id": "de359f",
+        "wall_time_seconds": 7.583e-06,
+        "exit_code": 0,
+        "original_token_count": 80,
+        "outputBytes": 319,
+        "outputSHA256": "879eb4fbedd010279283c2aa7973046788d34e1d7949c8bfc43fa42525ff143d",
+        "outputScope": "Exact source/output hash; current file hashes and independent receipts retain semantic witnesses."
+      }
+    },
+    {
+      "name": "initialLocalReadAndLocator",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\np=Path('docs/PRODUCT-ROADMAP.md');b=p.read_bytes();assert len(b)<=65536;print('ROADMAP_BYTES',len(b));print(b.decode())\nPY\nrg -n -i -m 16 '^##.*(vtuber|stylized)' docs/WORK-WINDOW-2026-10-18.md",
+      "result": {
+        "chunk_id": "912490",
+        "wall_time_seconds": 6.583e-06,
+        "exit_code": 1,
+        "original_token_count": 8191,
+        "outputBytes": 24107,
+        "outputSHA256": "fcac5cbfb17d8601065f60a7cbe3bfede830dbd0c80cc081ba1d604fef581296",
+        "outputScope": "Exact source/output hash; current file hashes and independent receipts retain semantic witnesses."
+      }
+    },
+    {
+      "name": "completeRoadmapRecovery",
+      "command": "cat docs/PRODUCT-ROADMAP.md",
+      "result": {
+        "chunk_id": "e9bdf9",
+        "wall_time_seconds": 1.0917e-05,
+        "exit_code": 0,
+        "original_token_count": 8186,
+        "outputBytes": 32741,
+        "outputSHA256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+        "outputScope": "Exact source/output hash; current file hashes and independent receipts retain semantic witnesses."
+      }
+    },
+    {
+      "name": "rootFirst",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\nx=json.loads(\"{\\\"utc\\\":null,\\\"decision\\\":\\\"B: do not start the stylized VTuber nomination before Phase 1 gates\\\",\\\"reason\\\":\\\"The current complete roadmap's Phase 2 paragraph explicitly schedules stylized polygonal development after the Phase 1 foundation earns its gates. Immediate work order 4 repeats that ordering. The current checklist still has ten broad open Phase 1/style goals; checked artist references are scoped deliverables, not earned foundation gates.\\\",\\\"witnesses\\\":[\\\"PRODUCT-ROADMAP Phase 2: first paragraph\\\",\\\"PRODUCT-ROADMAP Immediate work order: item 4\\\",\\\"PROJECT-CHECKLIST Outstanding: broad goals remain unchecked\\\"],\\\"alternatives\\\":[{\\\"choice\\\":\\\"Keep VTuber and Mii goals deferred; advance a distinct Phase 1 character or wardrobe responsibility.\\\",\\\"tradeoff\\\":\\\"Maintains the intended phase order and concentrates current evidence; no new stylized target now.\\\"},{\\\"choice\\\":\\\"Wait for explicit phase-gate acceptance before nominating any stylized reference.\\\",\\\"tradeoff\\\":\\\"Keeps the full later ambition, but postpones exploratory style art.\\\"}],\\\"scope\\\":\\\"No online reference can change this local phase ordering. No Firecrawl/page/image/generation/source/runtime/native/GPU action. The external page budget is unused; do not fetch it. No prior VTuber heading was returned by the one exact headings locator; this is not proof of global history absence. Initial roadmap output was truncated and is not a whole read; e9bdf9 recovered the complete unchanged32741-byte file.\\\",\\\"next\\\":\\\"Independent worth review; documentary closure only for this nomination. Then consider a genuinely different Phase 1 responsibility.\\\"}\")\np=Path('docs/evidence/appearance-2026-10-19/vtuber-character-worth');x['utc']=datetime.datetime.now(datetime.timezone.utc).isoformat();x['pid']=os.getpid()\nx['pins']=[]\nfor q in [p/'PLAN.md',Path('docs/PROJECT-CHECKLIST.md'),Path('docs/PRODUCT-ROADMAP.md')]:\n b=q.read_bytes();x['pins'].append({'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})\nq=p/'ROOT-FIRST.json';q.write_text(json.dumps(x,indent=2)+'\\n');print(json.dumps({'utc':x['utc'],'pid':os.getpid(),'rootFirst':{'bytes':q.stat().st_size,'sha256':hashlib.sha256(q.read_bytes()).hexdigest()},'inputs':x['pins']},indent=2))\nPY",
+      "result": {
+        "chunk_id": "f8604f",
+        "wall_time_seconds": 5.958e-06,
+        "exit_code": 0,
+        "original_token_count": 181,
+        "outputBytes": 724,
+        "outputSHA256": "bca5aedcad51878849a118f46807be5b8378e3fa69285b442b706aa1fa26f0fe",
+        "outputScope": "Exact source/output hash; current file hashes and independent receipts retain semantic witnesses."
+      }
+    }
+  ],
+  "limits": "No network, figure, image, generation, source construction or runtime target. Initial combined result exit1 is the no-match headings locator; its roadmap print was truncated. Complete e9bdf9 recovered the exact current file. Corrected draft times before any source inspection, seal or critic dispatch."
+}

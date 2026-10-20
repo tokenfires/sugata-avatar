@@ -1,0 +1,175 @@
+{
+  "schema": "vtuber-character-independent-worth-v1",
+  "collectionUTC": "2026-10-20T01:58:02.833897+00:00",
+  "collectionPID": 1775,
+  "verdict": "B_DEFER_PHASE2_PREPARATION",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/vtuber-character-worth/PLAN.md",
+      "bytes": 3754,
+      "sha256": "4f7bfab978d89b916332b154b5ae66836da7fc4f57228a0e24ac9f5011b1dfd2"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8644,
+      "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    }
+  ],
+  "rootFirst": {
+    "path": "docs/evidence/appearance-2026-10-19/vtuber-character-worth/ROOT-FIRST.json",
+    "bytes": 2280,
+    "sha256": "93b3200a48dd1f8e5cc5514273f47305249832f4bf339b8a9e3a4a1b7c1fb00e"
+  },
+  "review": {
+    "path": "docs/evidence/appearance-2026-10-19/vtuber-character-worth/WORTH.md",
+    "bytes": 3427,
+    "sha256": "20a7a832b55061571afdb63f1daf0ccada93218aaddbbf51edfa7ee7110ef371"
+  },
+  "receiptSelfBinding": "Separate complete stable readback returns exact bytes/hash; no circular embedded self hash.",
+  "coverage": {
+    "wholeDocuments": [
+      "current PLAN.md3754B",
+      "current PROJECT-CHECKLIST.md8644B",
+      "complete PRODUCT-ROADMAP.md32741B",
+      "ROOT-FIRST.json only after independent seal"
+    ],
+    "roadmapRead": "acfcea/exit0/PID98197/2026-10-20T01:55:56.169063+00:00; max_output_tokens16000, actual8235tokens, complete untruncated output",
+    "semanticLineWitnesses": {
+      "PRODUCT-ROADMAP.md": [
+        48,
+        123,
+        125,
+        136
+      ],
+      "PROJECT-CHECKLIST.md": [
+        3,
+        52,
+        59,
+        60
+      ]
+    },
+    "historyLocator": "Only parent-reported existing headings-only command/no-match considered as limited selection metadata; no WORK-WINDOW read/query or old receipt selection by critic. No history absence inference.",
+    "externalReference": "Unused. Local explicit phase order settles B before optionalVRoid page; no online claim."
+  },
+  "independence": {
+    "ownSeal": "eab8e3/exit0/PID99282/2026-10-20T01:56:31.321323+00:00",
+    "rootContentFirstRead": "674de8/exit0/PID99700/2026-10-20T01:56:45.339685+00:00",
+    "rootEarlierSeal": "ROOT-FIRST.utc2026-10-20T01:55:10.434922+00:00/PID96876",
+    "comparison": "Both B on phaseordering; not style/source/tool feasibility."
+  },
+  "actualIndependentDecision": {
+    "verdict": "B_DEFER_PHASE2_PREPARATION",
+    "reason": "The complete current roadmap explicitly orders development of VTuber-style characters after Phase1foundation gates and requires remaining Phase1character quality followed by a full representative-build performance pass before stylized phases against acceptance evidence. The current checklist explicitly says complete quality remains in progress, retains all10 broad goals open including character quality and representative performance, and its23 checked items are scoped features/artist deliverables. A new Phase2stylized direction/brief now would advance that deferred branch without the required gate evidence; calling it artist-only does not supply an ordering exception.",
+    "next": "Close this nomination before the optional VRoid read, artist brief, source construction or generation. No next experiment under this exact nomination is worthwhile now. Retain the VTuber ambition and return to a separately justified Phase1responsibility without inventing a replacement task here.",
+    "alternatives": [
+      {
+        "choice": "Defer the new VTuber direction until explicit Phase1quality and representative-performance acceptance evidence satisfies the roadmap.",
+        "tradeoff": "Preserves ordered foundations and avoids premature branching; stylized art/design work waits."
+      },
+      {
+        "choice": "Seek a separately explicit product-priority decision to permit a preliminary Phase2artist study before those gates.",
+        "tradeoff": "Could establish visual language earlier, but changes sequencing and uses effort before foundations; no such reordering is authorized by this plan, and none is requested or inferred here."
+      }
+    ],
+    "limits": "A phasing/value refusal, not a visual/style/source/tool feasibility failure or absence claim. No online/image/reference/target inspection is needed to settle it; the single headings-only history locator's no-match cannot prove history absent. No constructor, implementation, performance or appearance credit."
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "witness": "PRODUCT-ROADMAP123–125/136/48 and PROJECT-CHECKLIST3/52/59/60",
+      "effect": "Phase2VTuber preparation would precede required earned Phase1foundation/representative-performance gates. Scoped checked artist references and an artist-only claim do not supply an exception.",
+      "alternatives": [
+        {
+          "choice": "Defer the new VTuber direction until explicit Phase1quality and representative-performance acceptance evidence satisfies the roadmap.",
+          "tradeoff": "Preserves ordered foundations and avoids premature branching; stylized art/design work waits."
+        },
+        {
+          "choice": "Seek a separately explicit product-priority decision to permit a preliminary Phase2artist study before those gates.",
+          "tradeoff": "Could establish visual language earlier, but changes sequencing and uses effort before foundations; no such reordering is authorized by this plan, and none is requested or inferred here."
+        }
+      ]
+    }
+  ],
+  "checks": {
+    "sourcePins": 3,
+    "wholeRoadmapBytes": 32741,
+    "wholeRoadmapCapBytes": 65536,
+    "roadmapOutputTokenAllowance": 16000,
+    "actualRoadmapOutputTokens": 8235,
+    "checkedCount": 23,
+    "openBroadCount": 10,
+    "newOnlinePages": 0,
+    "newImages": 0,
+    "newTargets": 0
+  },
+  "observerProvenance": [
+    {
+      "owner": "root preparation/read recovery",
+      "scope": "Parent reports draft clock estimates corrected before investigation/seals and initial912490 roadmap display truncated; e9bdf9 recovered complete same bytes. Critic does not count912490 as whole evidence and made its own complete read."
+    },
+    {
+      "owner": "root retained locator",
+      "command": "rg -n -i -m16 '^##.*(vtuber|stylized)' docs/WORK-WINDOW-2026-10-18.md",
+      "reportedExit": 1,
+      "scope": "Headings-only/no matches, not universal absence; no rerun."
+    }
+  ],
+  "errors": [],
+  "next": "Documentary closure only; no optional page/brief/generation or next implementation under this nomination. A genuinely different Phase1nomination would require its own worth, not admitted here.",
+  "limits": [
+    "Phaseorder/value refusal, not actual image/style/geometry/tool failure or globalpriorhistoryabsence.",
+    "No network/reference/image/source construction/code/test/import/eval/target/browser/native/GPU/capture/generation or source/default mutation.",
+    "No VTuber/Mii/representation/rig/motion/performance/AAA completion or roadmap scope reduction.",
+    "All old closures/assets/fullroadmap/checklist23scoped10broad/Ari material-volumeHOLD preserved."
+  ],
+  "deadlineUTC": "2026-10-20T02:13:35Z",
+  "jobs": [
+    {
+      "name": "vtuber_worth_initial",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\nr=Path('/Users/robault/GitHub/sugata-avatar');print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor p in [r/'docs/evidence/appearance-2026-10-19/vtuber-character-worth/PLAN.md',r/'docs/PROJECT-CHECKLIST.md']:\n b=p.read_bytes();print('\\nFILE',str(p.relative_to(r)),'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "f11306",
+      "exit_code": 0,
+      "wall_time_seconds": 7.833e-06,
+      "output_utf8bytes": 12718,
+      "output_sha256": "354f0d66f5bf03866a7a24a88374fe50a59cdde5e4591744589f6f15140a37ab",
+      "first_output_line": "UTC 2026-10-20T01:55:42.564562+00:00 PID 97825"
+    },
+    {
+      "name": "vtuber_worth_roadmap",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md');b=p.read_bytes();assert len(b)<=65536;print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid());print('FILE',str(p),'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "acfcea",
+      "exit_code": 0,
+      "wall_time_seconds": 7.958e-06,
+      "output_utf8bytes": 32938,
+      "output_sha256": "c044b932f534d777e22615adf37c30b61691f96b35295483f97e9482130eb2e3",
+      "first_output_line": "UTC 2026-10-20T01:55:56.169063+00:00 PID 98197"
+    },
+    {
+      "name": "vtuber_worth_seal",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport datetime,os,hashlib\nr=Path('/Users/robault/GitHub/sugata-avatar');print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor rel,selected in [('docs/PRODUCT-ROADMAP.md',['## Phase 2','Develop the stylized polygonal interpretation','## Immediate work order','4. Continue the remaining Phase 1','| Performance |']),('docs/PROJECT-CHECKLIST.md',['Updated October','- [ ] Convincing hair','- [ ] Representative performance','- [ ] VTuber-style'])]:\n p=r/rel;b=p.read_bytes();print('BOUND',rel,len(b),hashlib.sha256(b).hexdigest())\n for i,line in enumerate(b.decode().splitlines(),1):\n  if any(line.startswith(t) for t in selected):print(str(i)+': '+line)\nprint('INDEPENDENT_WORTH_SEAL',\"{\\\"verdict\\\":\\\"B_DEFER_PHASE2_PREPARATION\\\",\\\"reason\\\":\\\"The complete current roadmap explicitly orders development of VTuber-style characters after Phase1foundation gates and requires remaining Phase1character quality followed by a full representative-build performance pass before stylized phases against acceptance evidence. The current checklist explicitly says complete quality remains in progress, retains all10 broad goals open including character quality and representative performance, and its23 checked items are scoped features/artist deliverables. A new Phase2stylized direction/brief now would advance that deferred branch without the required gate evidence; calling it artist-only does not supply an ordering exception.\\\",\\\"next\\\":\\\"Close this nomination before the optional VRoid read, artist brief, source construction or generation. No next experiment under this exact nomination is worthwhile now. Retain the VTuber ambition and return to a separately justified Phase1responsibility without inventing a replacement task here.\\\",\\\"alternatives\\\":[{\\\"choice\\\":\\\"Defer the new VTuber direction until explicit Phase1quality and representative-performance acceptance evidence satisfies the roadmap.\\\",\\\"tradeoff\\\":\\\"Preserves ordered foundations and avoids premature branching; stylized art/design work waits.\\\"},{\\\"choice\\\":\\\"Seek a separately explicit product-priority decision to permit a preliminary Phase2artist study before those gates.\\\",\\\"tradeoff\\\":\\\"Could establish visual language earlier, but changes sequencing and uses effort before foundations; no such reordering is authorized by this plan, and none is requested or inferred here.\\\"}],\\\"limits\\\":\\\"A phasing/value refusal, not a visual/style/source/tool feasibility failure or absence claim. No online/image/reference/target inspection is needed to settle it; the single headings-only history locator's no-match cannot prove history absent. No constructor, implementation, performance or appearance credit.\\\"}\")\nPY",
+      "chunk_id": "eab8e3",
+      "exit_code": 0,
+      "wall_time_seconds": 1.2625e-05,
+      "output_utf8bytes": 3786,
+      "output_sha256": "5852ae569a15c41595ff81bdc48f59b2b785ff7f107f8ce2a5b0c32dd60cd9dd",
+      "first_output_line": "UTC 2026-10-20T01:56:31.321323+00:00 PID 99282"
+    },
+    {
+      "name": "vtuber_worth_compare",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport datetime,os,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/vtuber-character-worth/ROOT-FIRST.json');b=p.read_bytes();print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid());print('FILE',p.name,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "674de8",
+      "exit_code": 0,
+      "wall_time_seconds": 8.292e-06,
+      "output_utf8bytes": 2432,
+      "output_sha256": "3602364002a2b7c213e543eb7fef64c6e2d1d74daf69daabf26981256db00877",
+      "first_output_line": "UTC 2026-10-20T01:56:45.339685+00:00 PID 99700"
+    }
+  ],
+  "collectionOperation": "Exclusive xb writes only WORTH.md and CRITIC-RECEIPT.json after fresh exact source pins."
+}
