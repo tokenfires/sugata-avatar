@@ -1,0 +1,38 @@
+{
+  "utc": "2026-10-20T06:29:48.662738+00:00",
+  "pid": 3782,
+  "verdict": "B",
+  "rootWholeRead": "523793 exit0 full 5604-byte critic handoff",
+  "rootSourcesWholeRead": "5fcd89 exit0 all three text records with line numbers",
+  "verifiedBindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/coupled-surface-responsibility-worth/PLAN.md",
+      "bytes": 2283,
+      "sha256": "d6cbaa9f98a104aba46b855486bcc63c643d8929ece4e94dc7b17d4b859a8965"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/original-surface-ledger/README.md",
+      "bytes": 1655,
+      "sha256": "6731d7e9c0f588d6bfbf3e292dd6f90d2ec57f5094cd653df18a69768991da3b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/sweater-coverage-owned/README.md",
+      "bytes": 2577,
+      "sha256": "27b05b8e2dee3181821a8a6094da7117da0b681c8d74dbcb4d92ce2b571df8ec"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/source-envelope-builder/README.md",
+      "bytes": 2096,
+      "sha256": "b2177df0e45805f7978dc523a13a8905c16dc3104e48286a41d56d61cb47c8f1"
+    }
+  ],
+  "critic": {
+    "bytes": 5604,
+    "sha256": "9febb755769e10175ba4cec56496da0b902e6f62555bc8db5ca458b42bac33fe",
+    "decisionSHA256": "868ac5e4c9c468f070a7e5c508924a908757eadc2e2d370be8dde439bb6d938b"
+  },
+  "rootIndependentBeforeCritic": true,
+  "sourceWitnessesVerified": "ledger 9-11; coverage 5-11; builder 3,10,12",
+  "decision": "No concrete new surface/enclosure mechanism supplied by this bounded text packet. No construction, linked read or successor admitted. Broader garment goal remains open.",
+  "scope": "Read-only source text and literal receipt checks; no arrays, geometry, image, library/API/network/native/browser/GPU work or owned target."
+}
