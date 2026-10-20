@@ -1,0 +1,118 @@
+{
+  "sealedUTC": "2026-10-20T06:48:33.326398+00:00",
+  "pid": 6803,
+  "verdict": "A actual page display, pending independent review",
+  "actualWholePageScreenshotsViewedByRoot": [
+    "desktop.jpg",
+    "mobile.jpg"
+  ],
+  "witness": "Desktop1280x1000 shows both entire original sheets side by side with complete heads/feet, readable captions, explicit independent-illustration limits and source links. Mobile390x844 viewport produces a1352.72px stacked section: complete sheets, wrapping text, no horizontal overflow; vertical scrolling is needed. The mobile JPEG captures the whole section directly in the browser. Small garment detail remains available through original-image links.",
+  "keyboardWitness": {
+    "focus": {
+      "href": "/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+      "tag": "A",
+      "text": "Open complete original image \u2197",
+      "visible": true
+    },
+    "hash": "#seasonal",
+    "overflow": false,
+    "sectionTop": -0.109375,
+    "utc": "2026-10-20T06:46:05.439Z",
+    "viewport": {
+      "height": 1000,
+      "width": 1280
+    }
+  },
+  "alternatives": [
+    {
+      "option": "Deliver this exact existing-style comparison section",
+      "tradeoff": "Makes the retained complete outfits easy to compare; adds page height and mobile scrolling."
+    },
+    {
+      "option": "Keep only separate handoff/checklist links",
+      "tradeoff": "Shorter board but requires readers to assemble comparison elsewhere."
+    }
+  ],
+  "noNewQualityClaim": "No new artist image, measured body, equivalent turnaround angles, 3D/fit/motion/runtime/starter or AAA acceptance. Existing four character/four draft content unchanged.",
+  "metadataCorrection": {
+    "failedCheck": "da04fb exit1 asserted a PNG signature before writing ROOT-PAGE-INITIAL; tool screenshot output was actually JPEG. No page/image failure or second capture.",
+    "observedEncoding": "dc43e7 exit0 file identifies baseline JPEG1280x1000 and390x1373. Corrected only filename suffixes, byte-for-byte preserved.",
+    "renames": [
+      {
+        "from": "docs/evidence/appearance-2026-10-19/seasonal-board-comparison/desktop.png",
+        "to": "docs/evidence/appearance-2026-10-19/seasonal-board-comparison/desktop.jpg",
+        "bytes": 133424,
+        "sha256": "de5070e8d27e1404d70c9334d49ffd6d055bdd48a32125038788cdb3ec51c4b9",
+        "sameBytes": true
+      },
+      {
+        "from": "docs/evidence/appearance-2026-10-19/seasonal-board-comparison/mobile.png",
+        "to": "docs/evidence/appearance-2026-10-19/seasonal-board-comparison/mobile.jpg",
+        "bytes": 77836,
+        "sha256": "7f77eeaf1d017636f9b65341194f2a33a0af3c994b3d54a4123de22f2d5c645a",
+        "sameBytes": true
+      }
+    ]
+  },
+  "cleanup": {
+    "utc": "2026-10-20T06:47:23.759Z",
+    "temporaryViewportReset": true,
+    "ownedTabClosed": "16",
+    "remainingTabIds": [
+      "1",
+      "2",
+      "3"
+    ],
+    "ownedTabAbsent": true
+  },
+  "inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/seasonal-board-comparison/candidate.html",
+      "bytes": 18825,
+      "sha256": "906e0f844a6db7bb28b5c83b342d05b14d744ec5b14a3f4367b2c74827004131"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/seasonal-board-comparison/BASELINE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/seasonal-board-comparison/SOURCE.json",
+      "bytes": 3502,
+      "sha256": "d0b3f09a6a65aa07809cc4caec675d89c4f35e308855872f660a3d6732779f44"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/seasonal-board-comparison/SOURCE-REVIEW.md",
+      "bytes": 9336,
+      "sha256": "d9525f0b7d496280b5d77e5a1e69f2e068f484edd3ba2e6fd31760ededda27f3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/seasonal-board-comparison/ROOT-ADMISSION.json",
+      "bytes": 957,
+      "sha256": "c701e143516711b66afeeba3ef530b4905b2bdfd31b9b728fd02020814fa9f89"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/seasonal-board-comparison/OBSERVATIONS.json",
+      "bytes": 2588,
+      "sha256": "96480a9e797e38e48f62c23f6f23f967f0946cd3a5462425569a060100924d9b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/seasonal-board-comparison/desktop.jpg",
+      "bytes": 133424,
+      "sha256": "de5070e8d27e1404d70c9334d49ffd6d055bdd48a32125038788cdb3ec51c4b9",
+      "dimensions": [
+        1280,
+        1000
+      ]
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/seasonal-board-comparison/mobile.jpg",
+      "bytes": 77836,
+      "sha256": "7f77eeaf1d017636f9b65341194f2a33a0af3c994b3d54a4123de22f2d5c645a",
+      "dimensions": [
+        390,
+        1373
+      ]
+    }
+  ]
+}

@@ -1,10 +1,12 @@
 # Sugata work window — October 18, 2026
 
-## Seasonal board comparison — source review in progress (2026-10-20T06:41:59.802271+00:00)
+## Seasonal board comparison — actual page review pending (2026-10-20T06:50:50.432022+00:00)
 
-Fresh independent/root worth A supports one isolated static comparison of the retained knitwear and warm-weather artist sheets. Canonical board remains unchanged. Candidate18825B/SHA906e0f844a6db7bb28b5c83b342d05b14d744ec5b14a3f4367b2c74827004131; all original images/handoffs remain exact. SOURCE.json owns the one static desktop/mobile review and07:20:28UTC hard stop. Local HTTP200 returns exact candidate bytes without injected scripts; root literal check8c6f3d finds17unique IDs, ten original images and49resolved local link occurrences.
+Independent/root worthA and sourceA pass for the exact isolated18825B/906e0f84...4131 candidate; canonical board remains original16062B/7ce463b3...4118. Root5a5b45/PID6023 verifies whole9336B independent source handoff/all11pins and admits the single static review. Actual tab16 desktop1280x1000 and mobile390x844 observations are complete. Both entire sheets and captions read clearly; root initial actual-pageA sealed06:48:33UTC before quality critic handoff. [Plan/source/evidence directory](evidence/appearance-2026-10-19/seasonal-board-comparison/PLAN.md).
 
-[Bounded plan and source](evidence/appearance-2026-10-19/seasonal-board-comparison/PLAN.md). Existing fresh_source_critic is actively reviewing the source/workload; do not duplicate. No browser/capture or owned runtime target yet. Root must read/verify handoff, then serialize the one two-layout review if worthwhile; quality_critic will inspect actual retained page captures before canonical application. No new art, graphic repair, garment source/geometry/native work or accepted/default asset change; full roadmap/material-volumeHOLD/all prior closures remain. Ten-minute recovery and review server retained. Human steering wins.
+One desktop native JPEG133424B/de5070e8...c4b9 and one mobile whole-section JPEG77836B/7f77eeaf...45a retained unchanged. Tool output was JPEG despite initially chosen.png names; metadata assertion/refusal and same-byte suffix correction are explicit in ROOT-PAGE-INITIAL, without retake or page/source change. OBSERVATIONS records keyboard Enter/Tab focus-visible and no horizontal overflow, mobile vertical scrolling, viewport reset and owned tab16 closed; original tabs1–3 remain. Existing quality_critic actively whole-reviews both exact page images/source; do not duplicate or read root opinion before sealing.
+
+No live owned runtime target or pending capture. Root must whole-read/verify PAGE-REVIEW before exact canonical application; hard stop07:20:28UTC. No new art, source/geometry/material/native recipe, accepted/default/frozen/ignored/original asset change or quality/checklist credit. Fullroadmap/allclosures/material-volumeHOLD remain. Same retained ten-minute recovery/reviewserver. Human steering wins.
 
 ## October 20, 06:30 UTC — bounded original-surface nomination closed
 
