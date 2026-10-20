@@ -1,0 +1,18 @@
+{
+  "verifiedUTC": "2026-10-20T08:07:38.376676+00:00",
+  "pid": 20175,
+  "verdict": "B_EXACT_INVOCATION_REFUSED_BEFORE_EXECUTION",
+  "wholeHandoff": "87e6a5",
+  "handoffBytes": 16714,
+  "handoffSHA256": "a53bda5be2d1a36b1d8e4ef832fdd8e47251c5eb65e6f54529163c6ff5f3c9d0",
+  "opinionSHA256": "abd3ab832e27cf142a895e67d25fd596140c0284e1c46f15d1e0499ba461a093",
+  "fifteenInputPinsAndSixRuntimePinsExact": true,
+  "rootInitialUTC": "2026-10-20T08:02:02.442777+00:00",
+  "criticSealUTC": "2026-10-20T08:06:02.617671+00:00",
+  "rootIndependentNotes": "ROOT-SOURCE-NOTES.md written08:04:04UTC before critic seal, full source reads341abf/c1ab6d/39dedb; same bounded-observer/preflight/cleanup responsibilities identified independently",
+  "decision": "Do not invoke the frozen run-once.py. Preserve complete inert source/preflight and reference. Geometry/clearance/appearance remain wholly unexecuted and unqualified.",
+  "noNewSourceOrGeometryExecuted": true,
+  "noPendingCriticEdits": true,
+  "next": "Only a separately worth-reviewed pre-execution guard-completion contract may be considered; no geometry/view/threshold/source change, rerun or automatic constructor follows.",
+  "materialVolume": "HOLD"
+}

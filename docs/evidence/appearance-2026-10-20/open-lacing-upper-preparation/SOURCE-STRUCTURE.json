@@ -1,0 +1,547 @@
+{
+  "readUTC": "2026-10-20T07:46:26.365227+00:00",
+  "pid": 16667,
+  "source": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/export/mesh.json",
+  "bytes": 760165,
+  "sha256": "798002bbe3c6e05d90a156d99403ff22066c0c38a8150410ebb47fde7713a0c5",
+  "topKeys": [
+    "title",
+    "units",
+    "axes",
+    "positions",
+    "vertex_labels",
+    "triangles",
+    "face_parts",
+    "parts",
+    "pair",
+    "nominal_interface",
+    "contact_intent",
+    "limits"
+  ],
+  "axes": {
+    "X": "lateral",
+    "Y": "up",
+    "Z": "toe-forward"
+  },
+  "units": "unitless",
+  "arrayLengths": {
+    "positions": 2720,
+    "vertex_labels": 2720,
+    "triangles": 5288,
+    "face_parts": 5288
+  },
+  "parts": [
+    {
+      "id": "left.upper",
+      "role": "upper_shell",
+      "side": "left",
+      "visible": true,
+      "color": "#825734",
+      "vertices": 514,
+      "faces": 1024,
+      "interfaceKeys": [
+        "outer_bottom",
+        "inner_floor",
+        "rim_outer",
+        "rim_inner",
+        "outer_section_rings",
+        "inner_section_rings"
+      ]
+    },
+    {
+      "id": "left.nominal",
+      "role": "fictional_reference",
+      "side": "left",
+      "visible": false,
+      "color": "#a0b5ad",
+      "vertices": 258,
+      "faces": 512,
+      "interfaceKeys": [
+        "lower",
+        "upper",
+        "section_rings"
+      ]
+    },
+    {
+      "id": "left.sole",
+      "role": "sole",
+      "side": "left",
+      "visible": true,
+      "color": "#3b3028",
+      "vertices": 66,
+      "faces": 128,
+      "interfaceKeys": [
+        "lower",
+        "upper"
+      ]
+    },
+    {
+      "id": "left.heel",
+      "role": "heel",
+      "side": "left",
+      "visible": true,
+      "color": "#49382c",
+      "vertices": 66,
+      "faces": 128,
+      "interfaceKeys": [
+        "lower",
+        "upper",
+        "section_rings"
+      ]
+    },
+    {
+      "id": "left.tongue",
+      "role": "tongue_front_facing",
+      "side": "left",
+      "visible": true,
+      "color": "#64432f",
+      "vertices": 26,
+      "faces": 48,
+      "interfaceKeys": [
+        "lower",
+        "upper"
+      ]
+    },
+    {
+      "id": "left.rear_strip",
+      "role": "rear_strip",
+      "side": "left",
+      "visible": true,
+      "color": "#563924",
+      "vertices": 30,
+      "faces": 56,
+      "interfaceKeys": [
+        "lower",
+        "upper"
+      ]
+    },
+    {
+      "id": "left.counter",
+      "role": "counter",
+      "side": "left",
+      "visible": true,
+      "color": "#946344",
+      "vertices": 136,
+      "faces": 268,
+      "interfaceKeys": [
+        "lower",
+        "upper"
+      ]
+    },
+    {
+      "id": "left.lace.0.0",
+      "role": "lace",
+      "side": "left",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "left.lace.0.1",
+      "role": "lace",
+      "side": "left",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "left.lace.1.0",
+      "role": "lace",
+      "side": "left",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "left.lace.1.1",
+      "role": "lace",
+      "side": "left",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "left.lace.2.0",
+      "role": "lace",
+      "side": "left",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "left.lace.2.1",
+      "role": "lace",
+      "side": "left",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "left.lace.3.0",
+      "role": "lace",
+      "side": "left",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "left.lace.3.1",
+      "role": "lace",
+      "side": "left",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "left.lace.4.0",
+      "role": "lace",
+      "side": "left",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "left.lace.4.1",
+      "role": "lace",
+      "side": "left",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "left.lace.5.0",
+      "role": "lace",
+      "side": "left",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "left.lace.5.1",
+      "role": "lace",
+      "side": "left",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "right.upper",
+      "role": "upper_shell",
+      "side": "right",
+      "visible": true,
+      "color": "#825734",
+      "vertices": 514,
+      "faces": 1024,
+      "interfaceKeys": [
+        "outer_bottom",
+        "inner_floor",
+        "rim_outer",
+        "rim_inner",
+        "outer_section_rings",
+        "inner_section_rings"
+      ]
+    },
+    {
+      "id": "right.nominal",
+      "role": "fictional_reference",
+      "side": "right",
+      "visible": false,
+      "color": "#a0b5ad",
+      "vertices": 258,
+      "faces": 512,
+      "interfaceKeys": [
+        "lower",
+        "upper",
+        "section_rings"
+      ]
+    },
+    {
+      "id": "right.sole",
+      "role": "sole",
+      "side": "right",
+      "visible": true,
+      "color": "#3b3028",
+      "vertices": 66,
+      "faces": 128,
+      "interfaceKeys": [
+        "lower",
+        "upper"
+      ]
+    },
+    {
+      "id": "right.heel",
+      "role": "heel",
+      "side": "right",
+      "visible": true,
+      "color": "#49382c",
+      "vertices": 66,
+      "faces": 128,
+      "interfaceKeys": [
+        "lower",
+        "upper",
+        "section_rings"
+      ]
+    },
+    {
+      "id": "right.tongue",
+      "role": "tongue_front_facing",
+      "side": "right",
+      "visible": true,
+      "color": "#64432f",
+      "vertices": 26,
+      "faces": 48,
+      "interfaceKeys": [
+        "lower",
+        "upper"
+      ]
+    },
+    {
+      "id": "right.rear_strip",
+      "role": "rear_strip",
+      "side": "right",
+      "visible": true,
+      "color": "#563924",
+      "vertices": 30,
+      "faces": 56,
+      "interfaceKeys": [
+        "lower",
+        "upper"
+      ]
+    },
+    {
+      "id": "right.counter",
+      "role": "counter",
+      "side": "right",
+      "visible": true,
+      "color": "#946344",
+      "vertices": 136,
+      "faces": 268,
+      "interfaceKeys": [
+        "lower",
+        "upper"
+      ]
+    },
+    {
+      "id": "right.lace.0.0",
+      "role": "lace",
+      "side": "right",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "right.lace.0.1",
+      "role": "lace",
+      "side": "right",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "right.lace.1.0",
+      "role": "lace",
+      "side": "right",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "right.lace.1.1",
+      "role": "lace",
+      "side": "right",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "right.lace.2.0",
+      "role": "lace",
+      "side": "right",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "right.lace.2.1",
+      "role": "lace",
+      "side": "right",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "right.lace.3.0",
+      "role": "lace",
+      "side": "right",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "right.lace.3.1",
+      "role": "lace",
+      "side": "right",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "right.lace.4.0",
+      "role": "lace",
+      "side": "right",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "right.lace.4.1",
+      "role": "lace",
+      "side": "right",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "right.lace.5.0",
+      "role": "lace",
+      "side": "right",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    },
+    {
+      "id": "right.lace.5.1",
+      "role": "lace",
+      "side": "right",
+      "visible": true,
+      "color": "#c6a17f",
+      "vertices": 22,
+      "faces": 40,
+      "interfaceKeys": []
+    }
+  ],
+  "retainedIds": [
+    "left.nominal",
+    "left.sole",
+    "left.heel"
+  ],
+  "pair": {
+    "left_vertex_count": 1360,
+    "left_face_count": 2644,
+    "left_offset_x": -0.62,
+    "right": "Reflect final left X and reverse each triangle"
+  },
+  "nominalInterface": {
+    "role": "fictional_reference",
+    "sections_left_local": [
+      [
+        0.205,
+        0.3124,
+        -0.47000000000000003,
+        1.22
+      ],
+      [
+        0.22,
+        0.33,
+        -0.48000000000000004,
+        1.21
+      ],
+      [
+        0.36,
+        0.3212,
+        -0.47000000000000003,
+        1.0999999999999999
+      ],
+      [
+        0.52,
+        0.26839999999999997,
+        -0.45000000000000007,
+        0.84
+      ],
+      [
+        0.69,
+        0.19800000000000004,
+        -0.43000000000000005,
+        0.32000000000000006
+      ],
+      [
+        0.84,
+        0.16720000000000002,
+        -0.42000000000000004,
+        0.12
+      ],
+      [
+        1.01,
+        0.1716,
+        -0.41000000000000003,
+        0.12999999999999998
+      ],
+      [
+        1.29,
+        0.1804,
+        -0.39,
+        0.15
+      ]
+    ],
+    "responsibility": "Complete fictional foot/ankle envelope; upper cavity and floor authored independently; top continues toY1.29 above rimY1.20. No anatomical or continuous enclosure qualification."
+  },
+  "contactIntent": [
+    "Upper bottom and sole upper useY.14, separate closed components, no Boolean union.",
+    "Heel topY.105 overlaps rear sole bottomY.10 by.005 as artist seating intent.",
+    "Tongue/front facing, counter and rear strip are separate closed overlays on the continuous upper.",
+    "Lace cylinders cross as decorative separate components; their crossings overlap intentionally."
+  ],
+  "limits": [
+    "Original fictional unitless choices; no image dimensions or human-foot source recovered",
+    "Coarse artist source, no physical last/fit/material-finish/rig/morph/pose/motion/AAA qualification",
+    "Closed per-part topology is not general self-intersection, inter-part contact or continuous cavity/enclosure proof"
+  ],
+  "noGeometryArithmetic": true,
+  "priorOutput": "c731d7 overprinted nested interface lists and was truncated; no whole-output readback claim; this is a compact structural summary only"
+}
