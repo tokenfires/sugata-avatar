@@ -1,5 +1,7 @@
 # Sugata product direction
 
+**Current recovery and status:** Start with the [latest resume checkpoint](RESUME-2026-10-18.md) and [work-window receipts](WORK-WINDOW-2026-10-18.md) for current decisions, recorded jobs and restart instructions. The dated milestones and pauses below retain their historical scope.
+
 **October 2 work window active:** Robert authorized continuing until his check-in with a ten-minute recovery heartbeat, independent quality criticism, root verification, and online references. [Saved colour recipes](evidence/appearance-2026-10-02/saved-colours/README.md) now distinguish customized looks before Open with actual desktop/mobile review and unchanged saved values. See [current progress](PROGRESS-2026-10-02.md) and [the new work window](WORK-WINDOW-2026-10-02.md). Earlier completed-window pauses below remain historical.
 
 October 2 also adds [direct saved-entry JSON download](evidence/appearance-2026-10-02/saved-export/README.md): keep a portable supported recipe without replacing the active preview. Actual files, stale/removed refusals, downloaded-file reopening and complete desktop/mobile lists are independently reviewed. The bounded [joint local hair method plan](evidence/appearance-2026-10-02/root-coverage/METHOD-DECISION.md) stopped before construction because its continuous atlas mapping and useful shape target were undeclared. Broader front backing/hairline/part/guide authoring remains the next design direction; no UV/topology/runtime release has been silently chosen.

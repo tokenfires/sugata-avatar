@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-20T06:09:18.108110+00:00",
+  "pid": 99472,
+  "pins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/roadmap-recovery-entry/PLAN.md",
+      "bytes": 3535,
+      "sha256": "f26147b5d24360cade95192af3639f89f63bbb1fa3fb4f24425006e7c86e8fc5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/roadmap-recovery-entry/CHANGE.patch",
+      "bytes": 928,
+      "sha256": "37a3f0d20c625c98cc4a6b84fafde7e187fdda57b0035ea36672eed86de18383"
+    }
+  ],
+  "linkTitlePrefixes": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "prefixBytes": 48,
+      "prefixSHA256": "2f9c56c6aa2086ddcb8d4c13923c310eb5bef4aeb60974954b79a181de1d23fd",
+      "title": "# Sugata resume checkpoint \u2014 October 18, 2026",
+      "scope": "Regular file and immutable title prefix only; dynamic remainder deliberately not a binding or semantic input."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "prefixBytes": 42,
+      "prefixSHA256": "326c4b36791c39ae1468743380817238e55699b5c97c633e2d56f7418bfc95fa",
+      "title": "# Sugata work window \u2014 October 18, 2026",
+      "scope": "Regular file and immutable title prefix only; dynamic remainder deliberately not a binding or semantic input."
+    }
+  ],
+  "proposedPrefix": "**Current recovery and status:** Start with the [latest resume checkpoint](RESUME-2026-10-18.md) and [work-window receipts](WORK-WINDOW-2026-10-18.md) for current decisions, recorded jobs and restart instructions. The dated milestones and pauses below retain their historical scope.",
+  "prefixInsertionBytes": 284,
+  "sourceWholeRootRead": "2e54ce full32741B/b633...; no current recovery entry links present"
+}

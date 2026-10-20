@@ -1,0 +1,227 @@
+{
+  "schema": "roadmap-recovery-independent-worth-source-v1",
+  "startedAtUTC": "2026-10-20T06:09:55+00:00",
+  "deadlineUTC": "2026-10-20T06:29:18.108110+00:00",
+  "opinion": {
+    "sealedAtUTC": "2026-10-20T06:12:20.361712+00:00",
+    "worthDecision": "A",
+    "sourceDecision": "A",
+    "scope": "Combined worth and complete literal-source review for exactly the frozen284byte documentation insertion only. No canonical application by this critic. Root gate and separately collected/checkpointed cadence closure must precede root application.",
+    "exactPrefix": "**Current recovery and status:** Start with the [latest resume checkpoint](RESUME-2026-10-18.md) and [work-window receipts](WORK-WINDOW-2026-10-18.md) for current decisions, recorded jobs and restart instructions. The dated milestones and pauses below retain their historical scope.",
+    "exactInsertionUTF8Suffix": "two LF bytes after paragraph",
+    "insertionBytes": 284,
+    "insertionSHA256": "ae96a78a7f96d4ca8f26bdbbbf094875dfa64dd2dcebeeea990c3e6d7a75c8f9",
+    "reason": "The whole current roadmap begins with a dated October2active-work-window paragraph and retains historical completed/paused September records, while neither current October18recovery link occurs anywhere in its32741bytes. The exact insertion gives readers the designated current checkpoint/work-window entry before that historical record, without copying a changing status/job/timer/date assertion. Both relative targets are regular files with exact declared title prefixes. An in-memory literal reconstruction inserts only the frozen paragraph/blank line after the unchanged title; removing those284bytes exactly restores the original whole hash and its complete remaining body. This is a useful, small reversible navigation improvement with no feature/quality/count milestone.",
+    "findings": [
+      {
+        "finding": "The roadmap lacks a direct current recovery entry while its first status paragraph is historically dated.",
+        "literalSourceWitnesses": [
+          "PRODUCT-ROADMAP whole file starts with # Sugata product direction then **October 2 work window active:**, followed later by September30daytime-completed, September29overnight-completed and historical September26paused records.",
+          "The complete original bytes contain neither RESUME-2026-10-18.md nor WORK-WINDOW-2026-10-18.md. PLAN identifies those two canonical files as current recovery/navigation inputs.",
+          "CHANGE.patch adds exactly the frozen Current recovery and status paragraph with those two relative links, then says the dated milestones/pauses retain historical scope. The remaining source is byte-identical in the in-memory candidate."
+        ],
+        "explanation": "A reader can locate current decisions/restart records immediately without treating a dated milestone as the latest operational checkpoint. The proposed language routes to mutable records rather than duplicating their changing claims. Old status history, acceptance limits and full ambitions remain inspectable exactly as written. No target-body content beyond titles or live authorization/status was independently read or certified here.",
+        "alternatives": [
+          {
+            "choice": "Apply only the exact frozen insertion after root source/worth verification and completed local cadence checkpoint.",
+            "tradeoff": "Adds the current recovery entry with only284new bytes and preserves every old roadmap byte; link bodies stay mutable and their current claims must continue to be interpreted at the canonical records."
+          },
+          {
+            "choice": "Stop B/unknown and leave the roadmap byte-identical with no alternate wording or links under this nomination.",
+            "tradeoff": "Avoids any roadmap mutation and historical-pin migration, while leaving readers to discover the two current recovery records elsewhere."
+          }
+        ]
+      }
+    ],
+    "literalChecks": {
+      "originalBytes": 32741,
+      "originalSHA256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "patchBytes": 928,
+      "patchSHA256": "37a3f0d20c625c98cc4a6b84fafde7e187fdda57b0035ea36672eed86de18383",
+      "addLines": 2,
+      "deleteLines": 0,
+      "changedFileCount": 1,
+      "insertionAt": "Immediately after # Sugata product direction plus existing blank line",
+      "candidateInMemoryBytes": 33025,
+      "candidateInMemorySHA256": "0331c4bbacd01218a6da58bb9f4ca466426f42f2332c5ab293d46c4dc0da91bc",
+      "bodySuffixByteIdentical": true,
+      "removeInsertionRestoresWholeOriginal": true,
+      "candidateFileWritten": false,
+      "canonicalRoadmapUnchanged": true
+    },
+    "rootApplicationDuties": [
+      "Whole-read/fresh-verify this stable critic pair, exact PLAN/CHANGE/INPUTS/roadmap and the two regular/title-prefix bindings before the sole apply.",
+      "Collect/checkpoint the unrelated cadence worth closure locally first. This critic did not read that packet or mutable recovery bodies and does not certify that sequencing step complete.",
+      "Record/resolve an explicit prechange Git commit for the32741byte/b633roadmap and verify historical frozen source pins against it after insertion. No frozen receipt/source pin rewrite. No Git history was inspected by this critic.",
+      "After exact application, verify final33025byte/0331c4candidate, delete only284byte insertion to restore original32741byte/b633source, both links resolve, and no other canonical product/checklist/board/roadmap edit.",
+      "Any input/prefix/source mismatch or failed sequencing/recovery duty stops application under this exact nomination; no alternate copy, wording or links."
+    ],
+    "coverageLimits": [
+      "Whole current32741byte roadmap was read in two complete complementary bounded outputs, not reused or inferred from top lines.",
+      "Only PLAN/CHANGE/INPUTS/roadmap semantic input and target first48/42bytes/regular-file metadata were read. No mutable target remainder or linked artifact.",
+      "Title/existence bindings establish navigation targets, not the live correctness of every mutable target claim. Current-target designation follows task/PLAN; no new status or cadence assertion is copied.",
+      "No typography/render/appearance gate, tests or numerical harness was used; only ordinary text/pin/link-prefix checks.",
+      "The exact plan is assistant-authored under standing task authorization; no new human permission request or separate exact-plan approval claim."
+    ],
+    "preservation": "All original body/Phase1thenVTuberthenMii/full AAA/character/expression/representation/wardrobe/coupled-fit/motion/performance goals and historical scopes remain exact. Current23checked10broad and every accepted/default/original/frozen/ignored/unrelated/October10asset, old closure and material-volumeHOLD remain. No image/native/browser/model/network/target or canonical application by this review. Existing timer/server untouched and not live-verified.",
+    "nextAction": "Root whole-read/fresh-verify and finish the separate cadence checkpoint, then may apply only this exact insertion and perform declared literal postchecks before checkpointing.",
+    "rootOpinionReadBeforeSeal": false
+  },
+  "opinionCanonicalHash": "6e28aa3beb57d90706e796b94086476f9d92f7ec953b494de6e0f422f98a268a",
+  "canonicalization": "UTF8 json.dumps(opinion,sort_keys=True,separators=(comma,colon),ensure_ascii=False), no terminalLF",
+  "sourcePins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+      "freshMatch": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/roadmap-recovery-entry/PLAN.md",
+      "bytes": 3535,
+      "sha256": "f26147b5d24360cade95192af3639f89f63bbb1fa3fb4f24425006e7c86e8fc5",
+      "freshMatch": true
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/roadmap-recovery-entry/CHANGE.patch",
+      "bytes": 928,
+      "sha256": "37a3f0d20c625c98cc4a6b84fafde7e187fdda57b0035ea36672eed86de18383",
+      "freshMatch": true
+    }
+  ],
+  "inputsPin": {
+    "path": "docs/evidence/appearance-2026-10-19/roadmap-recovery-entry/INPUTS.json",
+    "bytes": 2019,
+    "sha256": "1992d7311bf7cdab1edf26962f92e8dfc49c4572ea37fa816226fd2b6a1c40b6"
+  },
+  "linkTitlePrefixBindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/RESUME-2026-10-18.md",
+      "prefixBytes": 48,
+      "prefixSHA256": "2f9c56c6aa2086ddcb8d4c13923c310eb5bef4aeb60974954b79a181de1d23fd",
+      "title": "# Sugata resume checkpoint — October 18, 2026",
+      "scope": "Regular file and immutable title prefix only; dynamic remainder deliberately not a binding or semantic input."
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/WORK-WINDOW-2026-10-18.md",
+      "prefixBytes": 42,
+      "prefixSHA256": "326c4b36791c39ae1468743380817238e55699b5c97c633e2d56f7418bfc95fa",
+      "title": "# Sugata work window — October 18, 2026",
+      "scope": "Regular file and immutable title prefix only; dynamic remainder deliberately not a binding or semantic input."
+    }
+  ],
+  "commands": [
+    {
+      "command": "cat docs/evidence/appearance-2026-10-19/roadmap-recovery-entry/PLAN.md docs/evidence/appearance-2026-10-19/roadmap-recovery-entry/CHANGE.patch docs/evidence/appearance-2026-10-19/roadmap-recovery-entry/INPUTS.json",
+      "chunk_id": "5547c4",
+      "exit_code": 0,
+      "result": "Complete exact plan/patch/input manifest untruncated."
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nb=Path('docs/PRODUCT-ROADMAP.md').read_bytes();assert len(b)<=65536;print('ROADMAP_WHOLE_PART1_BYTES_0_16999');print(b[:17000].decode())\nPY",
+      "chunk_id": "95f286",
+      "exit_code": 0,
+      "result": "Whole roadmap bytes0-16999 emitted without truncation."
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nb=Path('docs/PRODUCT-ROADMAP.md').read_bytes();assert len(b)<=65536;print('ROADMAP_WHOLE_PART2_BYTES_17000_EOF');print(b[17000:].decode())\nPY",
+      "chunk_id": "869f07",
+      "exit_code": 0,
+      "result": "Whole roadmap bytes17000-EOF emitted without truncation."
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime\np=Path('docs/evidence/appearance-2026-10-19/roadmap-recovery-entry/ROOT-FIRST.json');b=p.read_bytes();print('ROOT_FIRST_READ_AT',datetime.datetime.now(datetime.timezone.utc).isoformat());print('ROOT_FIRST_PIN',len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "cf94f9",
+      "exit_code": 0,
+      "result": "First whole root opinion strictly after independent durable combined seal and whole own initial pair readback."
+    }
+  ],
+  "literalCheckCommand": {
+    "chunk_id": "74eca4",
+    "exit_code": 0,
+    "result": "All source/INPUTS pins; only first48/42bytes regular title bindings; literal2add0delete284byte insert; in-memory33025byte candidate0331c4; exact restored original/suffix; no file write.",
+    "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,stat,datetime\nleaf=Path('docs/evidence/appearance-2026-10-19/roadmap-recovery-entry');ib=(leaf/'INPUTS.json').read_bytes();m=json.loads(ib);print('INPUTS_PIN',len(ib),hashlib.sha256(ib).hexdigest())\nfor e in m['pins']:\n b=Path(e['path']).read_bytes();h=hashlib.sha256(b).hexdigest();assert len(b)==e['bytes'] and h==e['sha256'];print('FRESH_PIN',e['path'],len(b),h)\nfor e in m['linkTitlePrefixes']:\n p=Path(e['path']);s=p.lstat();assert stat.S_ISREG(s.st_mode)\n with p.open('rb') as f:b=f.read(e['prefixBytes'])\n assert len(b)==e['prefixBytes'] and hashlib.sha256(b).hexdigest()==e['prefixSHA256'];assert b.splitlines()[0].decode()==e['title'];print('LINK_TITLE_ONLY',json.dumps({'path':e['path'],'regularFile':True,'prefixBytesRead':len(b),'prefixSHA256':hashlib.sha256(b).hexdigest(),'prefixText':b.decode(),'titleMatch':True}))\noriginal=Path('docs/PRODUCT-ROADMAP.md').read_bytes();patch=(leaf/'CHANGE.patch').read_text();lines=patch.splitlines(keepends=True);adds=[x[1:] for x in lines if x.startswith('+') and not x.startswith('+++')];assert len(adds)==2 and not any(x.startswith('-') and not x.startswith('---') for x in lines);insert=''.join(adds).encode();assert insert==m['proposedPrefix'].encode()+b'\\n\\n';assert len(insert)==m['prefixInsertionBytes']==284 and len(insert)<=512\nassert patch.count('*** Update File:')==1 and '*** Update File: docs/PRODUCT-ROADMAP.md\\n' in patch\nheader=b'# Sugata product direction\\n\\n';assert original.startswith(header);candidate=header+insert+original[len(header):];restored=candidate[:len(header)]+candidate[len(header)+len(insert):];assert restored==original\nassert b'RESUME-2026-10-18.md' not in original and b'WORK-WINDOW-2026-10-18.md' not in original\nprint('EXACT_TEXT_CHECK',json.dumps({'canonicalFileUnchanged':True,'insertionBytes':len(insert),'insertionSHA256':hashlib.sha256(insert).hexdigest(),'candidateInMemoryBytes':len(candidate),'candidateInMemorySHA256':hashlib.sha256(candidate).hexdigest(),'removeInsertionRestoresOriginalBytesSHA':hashlib.sha256(restored).hexdigest(),'bodySuffixByteIdentical':candidate[len(header)+len(insert):]==original[len(header):],'linksAbsentInOriginalWholeFile':True,'noCandidateFileWritten':True}))\nfiles=[p for p in leaf.rglob('*') if p.is_file()];print('LEAF',len(files),sum(p.stat().st_size for p in files));print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nPY"
+  },
+  "jobs": {
+    "canonicalApplication": 0,
+    "otherCanonicalOrMutableBodyEdits": 0,
+    "networkImageNativeBrowserSourceModelTarget": 0,
+    "testsOrNumericalHarness": 0,
+    "ordinaryTextPinLinkPrefixChecks": true,
+    "PTYBackgroundSession": null,
+    "allShellCommandsSynchronousCompleted": true,
+    "recordedInputPID": 99472,
+    "cadenceCheckpointOrGitResolutionInspected": false
+  },
+  "prewriteLeafInventory": {
+    "regularFiles": 4,
+    "bytes": 7997
+  },
+  "caps": {
+    "regularFiles": 8,
+    "metadataBytes": 393216,
+    "insertionBytes": 512,
+    "roadmapReadBytes": 65536
+  },
+  "writtenOnly": [
+    "REVIEW.md",
+    "CRITIC-RECEIPT.json"
+  ],
+  "chronology": [
+    {
+      "atUTC": "2026-10-20T06:09:55+00:00",
+      "event": "Independent combined worth/source review starts; root opinion unread."
+    },
+    {
+      "atUTC": "2026-10-20T06:12:20.361712+00:00",
+      "event": "Immutable opinion/exact prefix and canonical hash written into both new files before root opinion; whole initial readback follows."
+    },
+    {
+      "atUTC": "2026-10-20T06:12:20.361712+00:00",
+      "event": "Independent immutable combined A/A opinion/prefix sealed in chunk98f35f exit0; root opinion unread."
+    },
+    {
+      "event": "Whole own initial pair readback completed chunkc9a349 exit0 before root opinion."
+    },
+    {
+      "atUTC": "2026-10-20T06:12:42.730369+00:00",
+      "event": "First root opinion whole-read completed chunkcf94f9 exit0 after independent seal/readback."
+    },
+    {
+      "atUTC": "2026-10-20T06:13:25.753517+00:00",
+      "event": "Comparison and exact command/job/pin bookkeeping finalized; immutable opinion/prefix hash unchanged; canonical roadmap remains unapplied by critic."
+    }
+  ],
+  "rootComparison": {
+    "status": "complete",
+    "firstReadUTC": "2026-10-20T06:12:42.730369+00:00",
+    "chunk_id": "cf94f9",
+    "path": "docs/evidence/appearance-2026-10-19/roadmap-recovery-entry/ROOT-FIRST.json",
+    "bytes": 1515,
+    "sha256": "f9227f8b5113003ac941d20ee118b948ca0d50c810d3c2503480fb6f2c8a5e8a",
+    "rootSealedUTC": "2026-10-20T06:09:18.108110+00:00",
+    "agreement": "Both combined worthA/sourceA for exact reversible current-recovery prefix. Both distinguish title/existence navigation bindings from dynamic status validation, retain historical body/ambitions and withhold apply until independent/rootgate plus cadence checkpoint and prechangeGit resolution.",
+    "disagreements": [],
+    "opinionChanged": false,
+    "noOtherRootOpinionRead": true
+  },
+  "pending_edits": false,
+  "initialSealPins": [
+    {
+      "path": "REVIEW.md",
+      "bytes": 8426,
+      "sha256": "6fa98966d0fa455be04040f1da105c2995e65b80f74025eb1195367bbf8e8712"
+    },
+    {
+      "path": "CRITIC-RECEIPT.json",
+      "bytes": 11755,
+      "sha256": "d4ff421862f879bc448e74a0df97150161bdfe64f7ecefa6e729e36d6884c6fb"
+    }
+  ],
+  "finalReviewPin": {
+    "path": "docs/evidence/appearance-2026-10-19/roadmap-recovery-entry/REVIEW.md",
+    "bytes": 9187,
+    "sha256": "3c0370f9c5b83d3024be2cb5959273a8e5612016125ad034c1d6ccf574b2e9c0"
+  },
+  "finalPairHashProtocol": "After final receipt write, wholly emit both own files in complete bounded outputs, then verify stable pair hashes, immutable opinion/prefix equality/canonical hash, all source/INPUTS/root pins, both regular-file exact title prefixes and leaf cap. Announce final receipt hash/readbackIDs in final response without circular self-hash embedding."
+}
