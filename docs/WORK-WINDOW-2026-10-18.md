@@ -1,5 +1,13 @@
 # Sugata work window — October 18, 2026
 
+## Complete inert material-volume draft under source review (2026-10-20T12:25:40.705261+00:00)
+
+[Current preparation](evidence/appearance-2026-10-20/material-volume-constructor-preparation/README.md): constructor.py44918B/SHA7f96e5a6… and run_once.py14814B/SHA4b035b6b… authored, unexecuted. AST-only51cb63; SOURCE-HANDOFF binds13 exact inputs/texts at12:22:13UTC. No source payload re-audit, native/getter/ray/grid/field/tet/mesh/export/image or trial/admission exists. Full unchanged October10 contract remains authoritative.
+
+Independent choice A6d43f4e… only permits completing inert source. Root wholef3c8d0 and current ROOT-CHOICES-VERIFICATION check canonical/preserved exact original text/current13pins. The added lossless sharding/accurate limits are separately in the full source gate. First proposed job is expressly no-image technical only; no physical/appearance/default/roadmap credit. Root initial HOLD identifies terminal evidence, runtime footprint and positive retirement duties before any trial.
+
+Two live nonduplicated source critics: fresh_source_critic writes SOURCE-REVIEW.md; quality_critic writes WORKLOAD-REVIEW.md, both whole source/workload, no target execution. Root must whole-read and verify both handoffs. One coherent static correction may be considered before13:15UTC; source/root checkpoint13:30UTC remains fixed. No worker/capture is owned. Full roadmap/phaseorder/all closures/HOLD/default-accepted-original-frozen-ignored-October10-unrelated assets, same10minute recovery/server and human steering preserved. Do not mistake source preparation or heartbeat for constructor admission.
+
 ## Material-volume input/runtime preflight complete; inert implementation next (2026-10-20T12:08:21.107914+00:00)
 
 [Current preparation receipt](evidence/appearance-2026-10-20/material-volume-constructor-preparation/README.md). FreshworthA0ad913 remains preparation only; constructor HOLD. Exact9normativefiles unchanged.58984c pins seven contract sources plus frozen inspection/API; b85bb2/491f36 whole docs read. The old inspection lacked archive-owner fields, so root preserved initial plan and clarified only unique exact-name metadata binding across two pinned ZIPcentraldirectories before payload.22487e supplies that binding; no source/metric/label change or guessed alternate member.

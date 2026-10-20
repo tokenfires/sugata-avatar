@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-20T12:25:40.704910+00:00",
+  "pid": 96166,
+  "choices_whole_read_job": "f3c8d0",
+  "choices_sha256": "6d43f4e0d2fa11133a49171e0a20c1b460fb407cd2ffd97c0a590352bd3deda0",
+  "canonical": "eb923b576ed015f6baf3d3ff3eb7a04174d5d00a2ea4aa33c7307a71eb75eb71",
+  "choices_bindings": [
+    {
+      "original": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/PREPARATION-PLAN.md",
+      "verified_bytes_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/PREPARATION-PLAN.md",
+      "bytes": 8609,
+      "sha256": "3e3b35a3295e237d4d1d05d61d1cb0afcf011b718f2ed45bc0d2c2dd2145c6a8"
+    },
+    {
+      "original": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/IMPLEMENTATION.md",
+      "verified_bytes_path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/IMPLEMENTATION.choices-reviewed.md",
+      "bytes": 5463,
+      "sha256": "c59b4ba7eadae3ca287d0f5527c6d7eab48561ad938c5c417dd31e4505fb7e7f"
+    }
+  ],
+  "current_handoff_pins_verified": 13,
+  "decision": "A complete inert choices only; full-source HOLD",
+  "target_evaluation": false
+}
