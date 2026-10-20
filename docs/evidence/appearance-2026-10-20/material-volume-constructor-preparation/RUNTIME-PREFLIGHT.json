@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-20T12:04:30.916541+00:00",
+  "pid": 92240,
+  "blender": {
+    "requestedPath": "/Applications/Blender.app/Contents/MacOS/Blender",
+    "resolvedPath": "/Applications/Blender.app/Contents/MacOS/Blender",
+    "bytes": 182900560,
+    "sha256": "f5c1f2a0c0bca3389ec772d355242b700975ea84e66cbb3f5257a7bce8e5adeb",
+    "actualVersionReadTool": "b20391 initial completion exit0/no yielded session",
+    "version": "5.2.2 LTS",
+    "buildHash": "d13f752e3b9c",
+    "buildDate": "2026-09-15",
+    "buildPlatform": "Darwin",
+    "matchesFixedContractVersion": true,
+    "nativeAPINotExercised": true
+  },
+  "supervisorPython": {
+    "resolvedPath": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+    "bytes": 34640,
+    "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634",
+    "version": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "platform": "darwin",
+    "machine": "arm64"
+  },
+  "physicalMemoryBytes": 137438953472,
+  "freeMemoryOrOtherWorkloadHeadroomNotMeasured": true,
+  "noConstructorSceneGettersOrGPUJob": true,
+  "frozenBVHPrimary": "491f36 whole exact prior5.2primary body; API signatures documented not empirically exercised. No new network call needed for unchanged pinned5.2.2 target."
+}

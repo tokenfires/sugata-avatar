@@ -1,5 +1,21 @@
 # Sugata work window — October 18, 2026
 
+## Material-volume input/runtime preflight complete; inert implementation next (2026-10-20T12:08:21.107914+00:00)
+
+[Current preparation receipt](evidence/appearance-2026-10-20/material-volume-constructor-preparation/README.md). FreshworthA0ad913 remains preparation only; constructor HOLD. Exact9normativefiles unchanged.58984c pins seven contract sources plus frozen inspection/API; b85bb2/491f36 whole docs read. The old inspection lacked archive-owner fields, so root preserved initial plan and clarified only unique exact-name metadata binding across two pinned ZIPcentraldirectories before payload.22487e supplies that binding; no source/metric/label change or guessed alternate member.
+
+a1f0cb decodes only four declared member bodies515400B with exact dtype/shape/rawSHA/CRC, finites/index ranges and disjoint4221+4221 IDs;0.0076355s/28,606,464B observedmaxRSS. Unused payloads opaque; no targetcode/BVH/getter/grid/field/tet/mesh/image. Blender --version b20391 is collected and matches5.2.2LTS; ef2ed3 pins executable f5c1f2a0...5adeb/Python3.14.7. Frozen officialAPI evidence reused, no new query or dynamicAPI/renderer probe. No claimed actual4GiB workload/memory feasibility.
+
+Next complete inert implementation and all resource/output/UNKNOWN/failure/parent/image/collection ownership by13:15UTC, independent source/root checkpoint13:30UTC; otherwise recoverable HOLD unrun. Proposed15min/20min/4GiBsampled/2GiBoutputs are not admitted. No constructor source exists yet at this header. All critics collected/no ownedtarget/capture. Full roadmap/phaseorder/oldclosures/HOLD/assets/timer/server/humansteering preserved; root must keep actual future source gate separate from this preflight.
+
+## Complete material-volume preparation admitted; constructor remains HOLD (2026-10-20T12:00:33.086119+00:00)
+
+Fresh [worth receipt](evidence/appearance-2026-10-20/material-volume-constructor-worth/README.md): independentA11:51:31UTC; root whole11455B e4b8a9 and0ad913/11:57:03UTC verifies11freshpins/canonical6813c297...b367/order/nineunchangedtrackedfiles. Complete constructor AND runtime/memory/output/failure/collection preparation is worthwhile; no execution, feasibility or geometry success follows. The exact source17528B/974c1cbd...a7fcf is still prospective.
+
+[New preparation plan](evidence/appearance-2026-10-20/material-volume-constructor-preparation/PREPARATION-PLAN.md) separately bounds necessary exact documentary/archive-four-member/runtime-version preflight until12:20UTC, then complete inert literal programme/workload source by13:15UTC and independent source/root checkpoint13:30UTC. No native getter/ray/source target, grid/field/tet allocation, constructor, render or image launch. If prerequisites/complete ownership/budgets cannot be supplied, preserve unrun at HOLD; no fixed parameter/owner/UNKNOWN/oldrecipe substitutions. Proposed15min/20min/4GiBsampledRSS/2GiBoutput are planning ceilings only, not admitted allocations or guarantees. Fresh complete source/workload/root gate still precedes any first trial.
+
+All current critics collected/no ownedjob/capture. Paper inquiry is closed04f9bc9b without a paper/figure; head trial remains actualimageB44a1d1bf. Full roadmap/phaseorder/all oldclosures/accepted-default-original-frozen-ignored-October10-unrelated assets and same10min recovery/server/humansteering preserved. Do not duplicate or launch prospective source from a heartbeat.
+
 ## Paper check closed; material-volume worth review active (2026-10-20T11:50:21.772139+00:00)
 
 The [named paper check](evidence/appearance-2026-10-20/facial-control-cage-reference-worth/README.md) is deferred. Its one request returned generic HTML and a parser warning, so no paper/figure, control-cage conclusion or new head source was obtained. Root whole-read6931B criticd41bc9 and independently verified7pins+manifest/canonical18fe9768...3c51/order/ignoredread-onlybody. No conditional PDF open/screenshot, retry, mirror or search occurred. Reported1credit and timely1credit feedback refund; no purchase/reset redemption. The first head source remains closed44a1d1bf after actual appearance B.
