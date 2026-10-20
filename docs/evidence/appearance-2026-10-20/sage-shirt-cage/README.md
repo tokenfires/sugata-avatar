@@ -1,6 +1,6 @@
 # Original sage shirt cage — unrun source preparation
 
-Independent/root [worth decision](../sage-shirt-cage-worth/WORTH.md) permits complete inert preparation only. Literal cage, builder, fixed viewer and documented first-view ownership sources are prepared. Complete independent source/workload review is pending; ROOT-SOURCE-FIRST is an independent initial source opinion, not a target admission.
+Independent/root [worth decision](../sage-shirt-cage-worth/WORTH.md) and [complete source/workload review](SOURCE-REVIEW.md) support one first CPU trial after fresh root admission. Root independently inspected the whole handoff and verified all34 bindings/canonical opinion at16:08:28UTC ([root gate](ROOT-SOURCE.json),8137a2). Source checkpoint remains unrun; native needs separate saved-data A and fresh root admission.
 
 [Complete source/workload/limits](CONTRACT.md) · [33source bindings](SOURCE-INPUTS.json) · [Literal editable control data](cage.json) · [First-view ownership protocol](NATIVE-PROTOCOL.md) · [Inert preparation receipts](PREPARATION.md). The prior accepted2D artist source remains unchanged.
 

@@ -1,0 +1,202 @@
+{
+  "at": "2026-10-20T16:08:28.301027+00:00",
+  "pid": 48706,
+  "verdict": "A_COMPLETE_SOURCE_WORKLOAD_ONE_CPU_ONLY",
+  "wholeReviewReadCommand": "fb4903",
+  "independentRootInitial": "ROOT-SOURCE-FIRST.json / 295887",
+  "review": {
+    "bytes": 16492,
+    "sha256": "d31cbf306ffe1bb389cb57f1bcc467f5fe49d05824dacc21eeee48b70472f371",
+    "canonicalOpinionSHA256": "3392f21ed67cf81516c770a51a66329c47e92cf50e024b64b86e2edaa8ae0afe"
+  },
+  "freshPinsVerified": [
+    {
+      "bytes": 28086,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/BROWSER-API.txt",
+      "sha256": "28859637dd7dfdfa2a542fdc337c2033fb443d26ec256af4c179ac95c7c428ab"
+    },
+    {
+      "bytes": 2021,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/CAPACITY.json",
+      "sha256": "0ba2c27cd499fe4f5a040fac3440cecfd8a25bd38b2cfed6a46521aadcf31d4d"
+    },
+    {
+      "bytes": 11321,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/CONTRACT.md",
+      "sha256": "6536116789a0e3cc517be04cd7004c7206355c323e0a6c93a338b18a8caf79a6"
+    },
+    {
+      "bytes": 8414,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/INERT-CHECKS.json",
+      "sha256": "419e6c93a0a758336ad3fc2d7ebb9313b02a03fa26cf6b87490c7b149a865918"
+    },
+    {
+      "bytes": 6887,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/NATIVE-CALLS.js.txt",
+      "sha256": "515073f749906804c756699848d688f11125ebe0df1d3ccc04bea5ff510cabcf"
+    },
+    {
+      "bytes": 5796,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/NATIVE-PROTOCOL.md",
+      "sha256": "5553e539b5cef8c39ca1bdb2718551aefee148a089a73df4cd2d92e6095e171a"
+    },
+    {
+      "bytes": 2044,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/PREPARATION.md",
+      "sha256": "2fb05692f214a60b484e6582524852cdd22d1196d90145431438319a42306e3e"
+    },
+    {
+      "bytes": 1177,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/RUNTIME.json",
+      "sha256": "e01496bb74e60e041aecf42159b5f07e2333dea70f76caee6c4af018b2a0fa86"
+    },
+    {
+      "bytes": 6820,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/THREE-API-SECTIONS.txt",
+      "sha256": "98f5a212e4e458ec985bc64b5523469244fc4910941a0528cdf6852b63f45081"
+    },
+    {
+      "bytes": 350533,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/THREE-DOCS.json",
+      "sha256": "db11226312c08cf193c324d29bade0f2a29488ac71751748cb346470edbdccc5"
+    },
+    {
+      "bytes": 12064,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/build.cjs",
+      "sha256": "04bbb34f4c9879a94279992456a5b3f4e548e32c663643433533b8a79ba685d8"
+    },
+    {
+      "bytes": 8950,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/cage.json",
+      "sha256": "6685b9e75f139ae6d0ecd3bde5c62b7a3bd5c5b33600903f26f0310e7f65dfca"
+    },
+    {
+      "bytes": 2288,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/index.html",
+      "sha256": "f0e548e28aac8372b9fdad78488b7bebd3410047034a32c5ebe9c580c82f84d1"
+    },
+    {
+      "bytes": 5370,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/viewer.js",
+      "sha256": "9a63a7760ac10e11ee0009784d0317a87366c2315199ba1ef0524cae75aa79d6"
+    },
+    {
+      "bytes": 5424,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage-worth/PLAN.md",
+      "sha256": "ecea39aa67ef66877ec482858c81e3321bc222a6555f2b79e7aabedf29382d1a"
+    },
+    {
+      "bytes": 1390,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage-worth/INPUTS.json",
+      "sha256": "2852f59c3bef02db020733a757e9275a58192938f3eeddcaa6ccff957b727638"
+    },
+    {
+      "bytes": 9061,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage-worth/WORTH.md",
+      "sha256": "42ec18d6062b346eac916f39b7c2f3c0c44319e5637decbac12ef70ea63c6153"
+    },
+    {
+      "bytes": 682,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage-worth/ROOT-WORTH.json",
+      "sha256": "dba4f00347069cb6308bd01773529cd70b0f80d1331aedf607a1a3d4dd0e9f6d"
+    },
+    {
+      "bytes": 39170,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage-worth/REFERENCE.json",
+      "sha256": "5c451d507847f5a11defe4ecfff347734ccc94adfffc49cb8ef805117bd39958"
+    },
+    {
+      "bytes": 2195,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/ARTIST-HANDOFF.md",
+      "sha256": "964b2164b202070308c24ed604e1d24779072af87b65cc69cb2a57c3efb99126"
+    },
+    {
+      "bytes": 11011,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/shirt.svg",
+      "sha256": "af38e75fa68d19eb90a8edf50df6640f73631e205ec82df405b93db1eebfb701"
+    },
+    {
+      "bytes": 256705,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/shirt.png",
+      "sha256": "59d4f7d51aa5ebb330c3fcb816cff32378ac84657ef80df1854f90b2c34c124c"
+    },
+    {
+      "bytes": 2553,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/README.md",
+      "sha256": "23f66a7a8c2781b476016630b70950cd873f7216200ec8d5dcd2c72185f6e451"
+    },
+    {
+      "bytes": 5367,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-loafer-first-volume/README.md",
+      "sha256": "4b64a9ccc9baa49bca76e742bfc070f14bb331bf9d2cd5ae9d4c230eb7e54902"
+    },
+    {
+      "bytes": 5919,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/RESULT.md",
+      "sha256": "c18a70eff7362b0fd21d52970ee983a246c0245da0fbe616e47b8709d9e39dd0"
+    },
+    {
+      "bytes": 3826,
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/package.json",
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    },
+    {
+      "bytes": 650153,
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/build/three.module.js",
+      "sha256": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7"
+    },
+    {
+      "bytes": 1443056,
+      "path": "/Users/robault/GitHub/sugata-avatar/node_modules/three/build/three.core.js",
+      "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
+    },
+    {
+      "bytes": 3698,
+      "path": "/Users/robault/GitHub/sugata-avatar/vite.config.js",
+      "sha256": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d"
+    },
+    {
+      "bytes": 121304480,
+      "path": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "sha256": "613be50c90e83aa8da58dd9ed393d0b39914a3b8ef4123fe817b46c2679cebe2"
+    },
+    {
+      "bytes": 2095,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/artist-turnaround-board/ADDITIONAL-API.txt",
+      "sha256": "721316674bd906c41470836aef453de0da5b1edadd15ade3d158535381d7aed5"
+    },
+    {
+      "bytes": 9628,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "sha256": "c50bd3b2e4f3d3089b1cc098a89f46a2aedb658b952b63a78594f0e48aef3af2"
+    },
+    {
+      "bytes": 33025,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "sha256": "0331c4bbacd01218a6da58bb9f4ca466426f42f2332c5ab293d46c4dc0da91bc"
+    },
+    {
+      "bytes": 7859,
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/SOURCE-INPUTS.json",
+      "sha256": "1d6729f1cd25ccfca9e20d66fa02e151ca851213b1a22e08bd4045b73d301c37"
+    }
+  ],
+  "independence": "Root blind source opinion sealed before reading current critic. Current whole review agrees on literal connected source, inherited feature provenance and shared OBJ indices, bounded direct foreground CPU ownership, and conditional native lifecycle. Critic claims static support only; actual data/image remain unqualified.",
+  "witnesses": [
+    "build.cjs 105-143: finite fresh full-pin admission and exclusive fsynced consumed marker before cage evaluation; exclusive four-output trial; exact stages and actual stdout required.",
+    "build.cjs 23-90/124-141: topology/Float32 gates and original-face feature lineage; shared main OBJ vertex positions preserve cross-material connectivity. These require actual data verification.",
+    "NATIVE-CALLS.js.txt + NATIVE-PROTOCOL.md: owned blank-tab identity saved before target navigation, separately admitted first JPEG, scoped collection and explicit physical-retirement limits."
+  ],
+  "alternatives": [
+    {
+      "choice": "Admit one exact CPU trial after fresh resource floor",
+      "tradeoff": "Tests whole connected source ownership at modest bounded work; any B/unknown stops without repair."
+    },
+    {
+      "choice": "Defer unrun",
+      "tradeoff": "Avoids provisional geometry workload but leaves connected artist depth unowned."
+    }
+  ],
+  "decision": "One CPU trial is worth doing; no native admission follows automatically. Source gate met before16:20UTC.",
+  "stop": "Any substantive runtime/data B/unknown, capacity shortfall, uncollected session or deadline16:35UTC. No correction or replay."
+}
