@@ -1,0 +1,7 @@
+# Low-top volume nomination closed before preparation
+
+Root and independent critic agree B: the proposed editable3D upper/entry/tongue/sole responsibility is already owned by the completed [first low-top study](../../appearance-2026-10-19/ari-lowtop-first-source/README.md), whose actual appearance and particular analytic component method were refused. No genuinely different method or consumer was proposed. This is a duplicate nomination decision, not a new shoe appearance verdict or universal3D impossibility.
+
+PLAN947e9a precedes the bounded19-row locator76e6d6 at exact Git e01af5a5/252416B/SHA123395d9...7761. Sole complete receipt31bc55:5285B/SHAe7d8f1f8...8404; zeroimages/otherreceipts. Root initial91d47a10:07:11UTC precedes independent seal10:08:55UTC. Whole WORTH6572B/SHA067f59aa...e2c2 was read a810e7; ROOT-RESULT records fresh4pins/opaqueGit/all19rows/canonicalcf8ad0f2...387/order. Concrete source witness and two alternatives/tradeoffs are in [WORTH](WORTH.md).
+
+Selected: stop before preparation. Defer genuinely distinct foot/last/material/fit/motion ownership until separately justified; none is nominated here. No online reference, new source/geometry/arrays/import/builder/render/capture or parameter/shape/material/observer/renderer rescue. Original2Dtarget/failed3D/accepted/default/frozen/ignored/October10/unrelated assets/fullroadmap/allclosures/material-volumeHOLD remain. Same reviewserver/10minute recovery retained; human steering wins.
