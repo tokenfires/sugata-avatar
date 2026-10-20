@@ -17,6 +17,6 @@ This is a **selected map of three studies**, not a complete history. It adds no 
 3. Before execution, complete the source and workload contract, independent review and root verification. Source ownership and finite numerical checks support the decision; actual rendered images qualify appearance.
 4. Preserve the original failed evidence and accepted/default assets. If the fixed first attempt fails, stop that method instead of adjusting parameters, materials, framing or the observer to manufacture a pass.
 
-The prospective material-volume constructor remains **HOLD** until its own fresh worth decision, complete source/workload preflight and root verification. This map selects no new constructor or image task and grants no exception to a recorded closure.
+The [Ari garment-volume trial](evidence/appearance-2026-10-20/material-volume-constructor-preparation/RESULT.md) stopped at an unresolved ownership conflict before producing a mesh. Its exact field/construction method is **closed**; no complete field, garment mesh, finishing parent or image qualified. The broader coupled-garment goal remains open. This map selects no successor constructor or image task and grants no exception to a recorded closure.
 
 All ten broad checklist goals remain open, including complete characters, outfits and layering, coupled body/garment fit, representative starters, meaningful expression and action, fitting agent suggestions, performance, VTuber and Mii work. A rejected recipe is a specific boundary within that ambition, not completion or abandonment of the goal.

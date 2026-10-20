@@ -1,0 +1,34 @@
+{
+  "utc": "2026-10-20T13:01:01.807785+00:00",
+  "whole_reads": [
+    "2de75f",
+    "c30c70"
+  ],
+  "reviews": [
+    {
+      "name": "RESULT-REVIEW.md",
+      "bytes": 17430,
+      "sha256": "4ccd748dddc829131ea1c89aa88de00105e057d02f912aa2ea0d74bd93a54df1",
+      "canonical": "52028de877aa86d101c3adf0b96d2331b3b4ce4ee4bc68b980825cdc9657a733",
+      "bindings": 21,
+      "pending_edits": false
+    },
+    {
+      "name": "DATA-REVIEW.md",
+      "bytes": 19695,
+      "sha256": "b63b4082be715243c1642a1c9b731d02f76add8438bf509a7a6bde9349db9964",
+      "canonical": "2b274b7349dd97ed2f5d59a85d585012ef63b232f4284f5b93952aba45a4cef7",
+      "bindings": 22,
+      "pending_edits": false
+    }
+  ],
+  "root_initial_precedes_both_reviews": true,
+  "root_independent_saved_data_audit": "6b11f2",
+  "post_run_all61_inputs_unchanged": "b0153a",
+  "decision": "B / UNKNOWN; exact full-field reported-tie/cut-vector method closed",
+  "no_full_field_or_mesh_or_image": true,
+  "one_trial_only": true,
+  "source_guard_native_diagnostic_repair_or_rerun_admitted": false,
+  "map_reconciliation_conditional_read_worth": true,
+  "pending_edits": false
+}

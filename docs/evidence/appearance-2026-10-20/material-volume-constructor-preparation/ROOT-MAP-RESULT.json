@@ -1,0 +1,48 @@
+{
+  "sealedUTC": "2026-10-20T13:09:58.037043+00:00",
+  "rootDecision": "A_DOCUMENTARY_RECONCILIATION_ONLY",
+  "criticFile": {
+    "path": "docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/MAP-REVIEW.md",
+    "bytes": 7267,
+    "sha256": "6e17ce6ba10a3a355e7f366db9129ea8393af8efd7559265f32bd69e210d713d",
+    "canonicalOpinionSHA256": "63d58c5c684f94c7c3517e469eeb5b6831d359b949e437cea951bc6c78734cc8",
+    "freshBindingsVerified": 10
+  },
+  "rootChecks": {
+    "CURRENT-DESIGN-GATES.md": {
+      "changedLines": [
+        20
+      ],
+      "allOtherLinesByteIdentical": true,
+      "headingsUnchanged": true
+    },
+    "PROJECT-CHECKLIST.md": {
+      "changedLines": [
+        5
+      ],
+      "allOtherLinesByteIdentical": true,
+      "headingsUnchanged": true
+    }
+  },
+  "checkboxes": {
+    "exactTextAndOrderPreserved": true,
+    "checked": 23,
+    "open": 10
+  },
+  "entireOutstandingSuffixPreserved": true,
+  "allThreeStudyRowsPreserved": true,
+  "directResultLinkResolves": true,
+  "rootAssessment": "The only edits accurately replace stale prospective wording with the actual failed trial and point to the sealed result. No feature, appearance, fit, numerical or default qualification is added. Exact field/construction method is closed; broader goals remain open.",
+  "alternatives": [
+    {
+      "choice": "Retain exact two-line correction",
+      "tradeoff": "Makes the consumed trial and closure discoverable without adding completion credit."
+    },
+    {
+      "choice": "Leave closure in isolated leaf only",
+      "tradeoff": "Avoids canonical edits but retains misleading prospective wording."
+    }
+  ],
+  "newExperimentAdmitted": false,
+  "pending_edits": false
+}

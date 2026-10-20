@@ -2,7 +2,7 @@
 
 Updated October 20, 2026. **Customization is usable; complete character quality is still in progress.** Checked items describe the supported features or artist deliverables below, within their recorded review limits.
 
-[Recent studies and open design work](CURRENT-DESIGN-GATES.md) explains three selected stopped approaches and what each leaves open.
+[Recent studies and open design work](CURRENT-DESIGN-GATES.md) explains three selected stopped approaches, the latest garment-volume trial and what remains open.
 
 ## Usable now
 

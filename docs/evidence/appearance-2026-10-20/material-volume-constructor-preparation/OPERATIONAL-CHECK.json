@@ -1,0 +1,37 @@
+{
+  "recordedUTC": "2026-10-20T13:10:47.103365+00:00",
+  "observationUTC": "2026-10-20T13:05:24+00:00",
+  "job": "20e627",
+  "automation": {
+    "id": "advance-sugata-avatar-visual-quality",
+    "appAPIViewSuccessful": true,
+    "status": "ACTIVE",
+    "recurrence": "FREQ=MINUTELY;INTERVAL=10",
+    "savedFileBytes": 3344,
+    "savedFileSHA256": "9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a",
+    "changed": false,
+    "futureDeliveryVerified": false
+  },
+  "reviewServer": {
+    "baseURL": "http://127.0.0.1:5173",
+    "exactHTTP200": [
+      {
+        "path": "docs/CURRENT-DESIGN-GATES.md",
+        "bytes": 4284,
+        "sha256": "34146facdb9e034251abccadce6c3fb8c491f2343b0753c36e08d64b6dd86621"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/RESULT.md",
+        "bytes": 5919,
+        "sha256": "c18a70eff7362b0fd21d52970ee983a246c0245da0fbe616e47b8709d9e39dd0"
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-02/front-design/guide-target-review.html",
+        "bytes": 3877,
+        "sha256": "3ecfedc92fca2f7341328cde9796b483199680ee7206a0c1baf7e1c2f44806d2"
+      }
+    ],
+    "newServerOrCaptureSpawned": false
+  },
+  "limits": "Recorded observations only; no future wake, mobile delivery, universal descendant or physical resource retirement claim."
+}
