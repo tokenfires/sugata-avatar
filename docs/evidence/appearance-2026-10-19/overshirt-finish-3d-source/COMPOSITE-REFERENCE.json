@@ -1,0 +1,83 @@
+{
+  "tool": "mcp__codex_apps__firecrawl_firecrawl_scrape",
+  "request": {
+    "url": "https://sharp.pixelplumbing.com/api-composite/",
+    "formats": [
+      "markdown"
+    ],
+    "onlyMainContent": true,
+    "maxAge": 0,
+    "timeout": 30000,
+    "removeBase64Images": true
+  },
+  "before": {
+    "current_time": "2026-10-20 05:17:31 UTC"
+  },
+  "after": {
+    "current_time": "2026-10-20 05:17:33 UTC"
+  },
+  "response": {
+    "markdown": "[Skip to content](https://sharp.pixelplumbing.com/api-composite/#_top)\n\n# Compositing images\n\n## composite\n\n[Section titled “composite”](https://sharp.pixelplumbing.com/api-composite/#composite)\n\n> composite(images) ⇒ `Sharp`\n\nComposite image(s) over the processed (resized, extracted etc.) image.\n\nThe images to composite must be the same size or smaller than the processed image.\nIf both `top` and `left` options are provided, they take precedence over `gravity`.\n\nOther operations in the same processing pipeline (e.g. resize, rotate, flip,\nflop, extract) will always be applied to the input image before composition.\n\nThe `blend` option can be one of `clear`, `source`, `over`, `in`, `out`, `atop`,\n`dest`, `dest-over`, `dest-in`, `dest-out`, `dest-atop`,\n`xor`, `add`, `saturate`, `multiply`, `screen`, `overlay`, `darken`, `lighten`,\n`colour-dodge`, `color-dodge`, `colour-burn`,`color-burn`,\n`hard-light`, `soft-light`, `difference`, `exclusion`.\n\nMore information about blend modes can be found at\n[https://www.libvips.org/API/current/enum.BlendMode.html](https://www.libvips.org/API/current/enum.BlendMode.html)\nand [https://www.cairographics.org/operators/](https://www.cairographics.org/operators/)\n\n**Throws**:\n\n- `Error` Invalid parameters\n\n**Since**: 0.22.0\n\n| Param | Type | Default | Description |\n| --- | --- | --- | --- |\n| images | `Array.<Object>` |  | Ordered list of images to composite |\n| \\[images\\[\\].input\\] | `Buffer` \\| `String` |  | Buffer containing image data, String containing the path to an image file, or Create object (see below) |\n| \\[images\\[\\].input.create\\] | `Object` |  | describes a blank overlay to be created. |\n| \\[images\\[\\].input.create.width\\] | `Number` |  |  |\n| \\[images\\[\\].input.create.height\\] | `Number` |  |  |\n| \\[images\\[\\].input.create.channels\\] | `Number` |  | 3-4 |\n| \\[images\\[\\].input.create.background\\] | `String` \\| `Object` |  | parsed by the [color](https://www.npmjs.org/package/color) module to extract values for red, green, blue and alpha. |\n| \\[images\\[\\].input.text\\] | `Object` |  | describes a new text image to be created. |\n| \\[images\\[\\].input.text.text\\] | `string` |  | text to render as a UTF-8 string. It can contain Pango markup, for example `<i>Le</i>Monde`. |\n| \\[images\\[\\].input.text.font\\] | `string` |  | font name to render with. |\n| \\[images\\[\\].input.text.fontfile\\] | `string` |  | absolute filesystem path to a font file that can be used by `font`. |\n| \\[images\\[\\].input.text.width\\] | `number` | `0` | integral number of pixels to word-wrap at. Lines of text wider than this will be broken at word boundaries. |\n| \\[images\\[\\].input.text.height\\] | `number` | `0` | integral number of pixels high. When defined, `dpi` will be ignored and the text will automatically fit the pixel resolution defined by `width` and `height`. Will be ignored if `width` is not specified or set to 0. |\n| \\[images\\[\\].input.text.align\\] | `string` | `\"'left'\"` | text alignment (`'left'`, `'centre'`, `'center'`, `'right'`). |\n| \\[images\\[\\].input.text.justify\\] | `boolean` | `false` | set this to true to apply justification to the text. |\n| \\[images\\[\\].input.text.dpi\\] | `number` | `72` | the resolution (size) at which to render the text. Does not take effect if `height` is specified. |\n| \\[images\\[\\].input.text.rgba\\] | `boolean` | `false` | set this to true to enable RGBA output. This is useful for colour emoji rendering, or support for Pango markup features like `<span foreground=\"red\">Red!</span>`. |\n| \\[images\\[\\].input.text.spacing\\] | `number` | `0` | text line height in points. Will use the font line height if none is specified. |\n| \\[images\\[\\].autoOrient\\] | `Boolean` | `false` | set to true to use EXIF orientation data, if present, to orient the image. |\n| \\[images\\[\\].blend\\] | `String` | `'over'` | how to blend this image with the image below. |\n| \\[images\\[\\].gravity\\] | `String` | `'centre'` | gravity at which to place the overlay. |\n| \\[images\\[\\].top\\] | `Number` |  | the pixel offset from the top edge, an integer between -100000000 and 100000000. |\n| \\[images\\[\\].left\\] | `Number` |  | the pixel offset from the left edge, an integer between -100000000 and 100000000. |\n| \\[images\\[\\].tile\\] | `Boolean` | `false` | set to true to repeat the overlay image across the entire image with the given `gravity`. |\n| \\[images\\[\\].premultiplied\\] | `Boolean` | `false` | set to true to avoid premultiplying the image below. Equivalent to the `--premultiplied` vips option. |\n| \\[images\\[\\].density\\] | `Number` | `72` | number representing the DPI for vector overlay image. |\n| \\[images\\[\\].raw\\] | `Object` |  | describes overlay when using raw pixel data. |\n| \\[images\\[\\].raw.width\\] | `Number` |  |  |\n| \\[images\\[\\].raw.height\\] | `Number` |  |  |\n| \\[images\\[\\].raw.channels\\] | `Number` |  |  |\n| \\[images\\[\\].animated\\] | `boolean` | `false` | Set to `true` to read all frames/pages of an animated image. |\n| \\[images\\[\\].failOn\\] | `string` | `\"'warning'\"` | @see [constructor parameters](https://sharp.pixelplumbing.com/api-constructor/) |\n| \\[images\\[\\].limitInputPixels\\] | `number` \\| `boolean` | `268402689` | @see [constructor parameters](https://sharp.pixelplumbing.com/api-constructor/) |\n| \\[images\\[\\].limitInputChannels\\] | `number` \\| `boolean` | `5` | @see [constructor parameters](https://sharp.pixelplumbing.com/api-constructor/) |\n\n**Example**\n\n```\nawait sharp(background)\n\n  .composite([\\\n\\\n    { input: layer1, gravity: 'northwest' },\\\n\\\n    { input: layer2, gravity: 'southeast' },\\\n\\\n  ])\n\n  .toFile('combined.png');\n```\n\n**Example**\n\n```\nconst output = await sharp('input.gif', { animated: true })\n\n  .composite([\\\n\\\n    { input: 'overlay.png', tile: true, blend: 'saturate' }\\\n\\\n  ])\n\n  .toBuffer();\n```\n\n**Example**\n\n```\nsharp('input.png')\n\n  .rotate(180)\n\n  .resize(300)\n\n  .flatten( { background: '#ff6600' } )\n\n  .composite([{ input: 'overlay.png', gravity: 'southeast' }])\n\n  .sharpen()\n\n  .withMetadata()\n\n  .webp( { quality: 90 } )\n\n  .toBuffer()\n\n  .then(function(outputBuffer) {\n\n    // outputBuffer contains upside down, 300px wide, alpha channel flattened\n\n    // onto orange background, composited with overlay.png with SE gravity,\n\n    // sharpened, with metadata, 90% quality WebP image data. Phew!\n\n  });\n```",
+    "metadata": {
+      "og:url": "https://sharp.pixelplumbing.com/api-composite/",
+      "ogUrl": "https://sharp.pixelplumbing.com/api-composite/",
+      "og:description": "High performance Node.js image processing. The fastest module to resize JPEG, PNG, WebP and TIFF images.",
+      "og:site_name": "sharp",
+      "title": "Compositing images | sharp",
+      "ogSiteName": "sharp",
+      "og:locale": "en",
+      "og:title": "Compositing images",
+      "description": "High performance Node.js image processing. The fastest module to resize JPEG, PNG, WebP and TIFF images.",
+      "og:type": "article",
+      "generator": [
+        "Astro v7.3.5",
+        "Starlight v0.42.4"
+      ],
+      "ogLocale": "en",
+      "twitter:card": "summary_large_image",
+      "viewport": "width=device-width, initial-scale=1",
+      "language": "en",
+      "ogDescription": "High performance Node.js image processing. The fastest module to resize JPEG, PNG, WebP and TIFF images.",
+      "ogTitle": "Compositing images",
+      "favicon": "https://sharp.pixelplumbing.com/favicon.svg",
+      "scrapeId": "01a157be-505c-714a-a18d-1b7c1df188fb",
+      "sourceURL": "https://sharp.pixelplumbing.com/api-composite/",
+      "url": "https://sharp.pixelplumbing.com/api-composite/",
+      "statusCode": 200,
+      "contentType": "text/html; charset=utf-8",
+      "timezone": "America/New_York",
+      "proxyUsed": "basic",
+      "indexId": "4c636005-1d0f-421e-a058-dfa5305b9594",
+      "creditsUsed": 1,
+      "concurrencyLimited": false
+    }
+  },
+  "isError": false,
+  "normalization": "structuredContent retained; duplicate MCP text mirror omitted.",
+  "feedback": {
+    "request": {
+      "endpoint": "scrape",
+      "jobId": "01a157be-505c-714a-a18d-1b7c1df188fb",
+      "rating": "good",
+      "url": "https://sharp.pixelplumbing.com/api-composite/",
+      "note": "Official composite input position/size semantics for generated label-only SVG over a bounded raw CPU geometry raster; no runtime proof inferred."
+    },
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"success\": true,\n  \"feedbackId\": \"01a157be-5823-74c8-ab6e-79c741a6f5ef\",\n  \"creditsRefunded\": 0,\n  \"creditsRefundedToday\": 4,\n  \"dailyRefundCap\": 50\n}"
+        }
+      ],
+      "structuredContent": {
+        "success": true,
+        "feedbackId": "01a157be-5823-74c8-ab6e-79c741a6f5ef",
+        "creditsRefunded": 0,
+        "creditsRefundedToday": 4,
+        "dailyRefundCap": 50
+      },
+      "isError": false
+    }
+  },
+  "localPreparationNote": "An attempted same-patch Delete+Add of REFERENCES.json was rejected by apply_patch before any file change. Original raw-constructor reference stays exact; this second independent reference is saved separately. No external retrieval retry or target work."
+}
