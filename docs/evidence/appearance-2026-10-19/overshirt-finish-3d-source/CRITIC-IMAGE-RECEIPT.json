@@ -1,0 +1,409 @@
+{
+  "schema": 1,
+  "review": "IMAGE.md",
+  "imageDecision": {
+    "schema": 1,
+    "sealedUTC": "2026-10-20T05:41:47.971804+00:00",
+    "sealPID": 90821,
+    "verdict": "B",
+    "fullArtistAppearanceQualified": false,
+    "basis": "Blocking actual-image uncertainty in the required readable slot/button relationship; complete body/return/slit cues and successful data/job records do not substitute for that full appearance gate.",
+    "actionableFindingIds": [
+      "F1"
+    ],
+    "inputOutputIntegrity": "A within independently checked bindings/status/inventory/PNG scope; complete model-topology audit is attributed to POST-JOB, not repeated here.",
+    "exactImage": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-result/finish.png",
+      "bytes": 180684,
+      "sha256": "52790eb41d0619cfab4e4b52342f3e44ae225bc7848ae76bdc17353966c0d7a7"
+    },
+    "noRootImageOpinionReadBeforeSeal": true,
+    "nextUnderThisMethod": "None. Preserve this sole image/model packet unchanged and unqualified for the full artist brief; no repair/retake/relabel/source/renderer/camera/probe or successor.",
+    "noMissingGeometryOrCollisionClaim": true
+  },
+  "imageDecisionCanonicalSha256": "f9cf02df0f1dab59a27fcfd0e836927040eb3c4c96abc688de8aecad83f169f9",
+  "independentReviewPrefix": {
+    "bytes": 6636,
+    "sha256": "15c8f5efae4da6a66b00b2f767c8312e5b20d2f0ad1478897d231498ee9d24c9"
+  },
+  "collection": {
+    "pid": 90821,
+    "utc": "2026-10-20T05:41:47.971804+00:00"
+  },
+  "directInputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source/JOB.json",
+      "bytes": 14585,
+      "sha256": "e4c6af8f5fdaed94eb2c26f32d4ce71de77da8e04e30ceaaa2a85a7f05d9e15c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source/ADMISSION.json",
+      "bytes": 7236,
+      "sha256": "0fa184f6b757cdb7d5e4c428b1a4e95cc3e570d638e30c6ae4d88409bfe96a23"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source/POST-JOB.json",
+      "bytes": 11024,
+      "sha256": "d78a01bf8feab0aee5fa202d4f96947e3d0f63dd5af184a1a31cb80b6bdd0223"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-result/CLAIM.json",
+      "bytes": 175,
+      "sha256": "d2a22e36701b713b7a230cf263cc075be4323baad45a1735eb05e19870fce504"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-result/finish.mtl",
+      "bytes": 264,
+      "sha256": "4a5836587d1da31dfc6585e58a335581c5aa8e23dcca2696349202627fc38e33"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-result/finish.obj",
+      "bytes": 59035,
+      "sha256": "3269b3448c1d6c75e6b5440835969c97fb60e3d8f9d71438d46bf15e36e967d2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-result/finish.png",
+      "bytes": 180684,
+      "sha256": "52790eb41d0619cfab4e4b52342f3e44ae225bc7848ae76bdc17353966c0d7a7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-result/mesh.json",
+      "bytes": 303868,
+      "sha256": "9bf1085ff346555642ad0f93981a90f1d8537de851d0293d29a185ab0339b16a"
+    }
+  ],
+  "admissionPins": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/export/mesh.json",
+      "bytes": 30694,
+      "sha256": "bac92957a37762cc8c2b5b472ed9946f2b3c13882c38cd716f58b393faab86db"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/export/overshirt.obj",
+      "bytes": 11321,
+      "sha256": "368844a36162638e7453c57849a64acfcb2b6eb79bbf7a22692d3f56af19a868"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/build.py",
+      "bytes": 8223,
+      "sha256": "cbaa652042008d835c531abb8e7514ec727a41d7bba126ac91d5f23fca048423"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/README.md",
+      "bytes": 2553,
+      "sha256": "23f66a7a8c2781b476016630b70950cd873f7216200ec8d5dcd2c72185f6e451"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/RESULT.md",
+      "bytes": 3375,
+      "sha256": "aa37460c6f1cb119a8680f887799b0235cebe7104345db8601b2c07f512961ae"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/finish.svg",
+      "bytes": 10031,
+      "sha256": "aadbec90ae8a238cf48a08fbaaf65e535740132ae65a1b088656ea8fb6ca78a2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/finish.png",
+      "bytes": 231333,
+      "sha256": "a4249823eafa85770bb6645a804c63cfd7766381f42999e6e299faad3b35e556"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/README.md",
+      "bytes": 2699,
+      "sha256": "f3fc49dc74f9de19de0cf54d2b4259e99f5655280139977081a67ee7b5834ac1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/render.cjs",
+      "bytes": 3425,
+      "sha256": "ddd8a51395e5399670d7423e7925f3255faf4d04e4ea758506c999582f197e6c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/JOB.json",
+      "bytes": 12068,
+      "sha256": "96fa1fb84896b186178d9001d00405bc305c25ea4d29e927c580add857998abc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-worth/WORTH.md",
+      "bytes": 6726,
+      "sha256": "ce99042609ffbaebe6df5cded8497c87700badbec1d699b8f85c0c48772fa48c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-worth/CRITIC-RECEIPT.json",
+      "bytes": 13049,
+      "sha256": "7db5adad0a8e3edba5fbcbed7963f313373e58ec0705ab37f50dc92cc5721faa"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 9124,
+      "sha256": "df08da32f45a07a5503cd184418d2e2e7194f96a4bbdfecf32e513c96dbbe527"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "bytes": 121304480,
+      "sha256": "613be50c90e83aa8da58dd9ed393d0b39914a3b8ef4123fe817b46c2679cebe2"
+    },
+    {
+      "path": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp/package.json",
+      "bytes": 8115,
+      "sha256": "ad4a2535d72eb638053a38867b1abf43c328cd1c1dbae5cf4172d498365a8b97"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source/COMPOSITE-REFERENCE.json",
+      "bytes": 9825,
+      "sha256": "10fd67e2ffefb2c08f56f2127e28e6cdfa528932b76f70e5c42fa0e365f05aae"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source/DESIGN.md",
+      "bytes": 12044,
+      "sha256": "46b589e2c3a2ab0a9dbabd1d90dbc8b0b1f23331b82edf9260304b388defca30"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source/PLAN.md",
+      "bytes": 4853,
+      "sha256": "bb043247957a50c3bd44f6c7cdb80dd9e54bec4a168a625943f760bfa6e68939"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source/PREPARATION.json",
+      "bytes": 67069,
+      "sha256": "1d4f87e95d57dc2ce67eab9a4078de4e5b1f6ef6efe1382a0531d3a26b3e093a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source/REFERENCES.json",
+      "bytes": 17418,
+      "sha256": "4e591d4cab86808ffc8362b471da6d9e4cce145c9602f9f2aaaeeddf051da98c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source/run.cjs",
+      "bytes": 24627,
+      "sha256": "1c4b3d5b3fbcc9f60272bc163e1ae2295f02c18ed066333f30e03556dd870802"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source/INPUTS.json",
+      "bytes": 5644,
+      "sha256": "7c732b3de34b07db9aeb394b91c6b8e7d0f332451563d783ed4528c044fb06b9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source/ROOT-FIRST.json",
+      "bytes": 3182,
+      "sha256": "eb5dd46a4e220423d5b4268fc8ae92a384f3b2f2a8f6f2add85407a3b4750641"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source/SOURCE.md",
+      "bytes": 10704,
+      "sha256": "c656eac75d4f13b0de99ea19fe51d11c41970c6240907834b9bde57e955cabba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source/CRITIC-SOURCE-RECEIPT.json",
+      "bytes": 25596,
+      "sha256": "fe5ccc8a11ecd6f76382a099795505e326016f93e46a7c15bb2d98c020b8ce7b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source/ROOT-SOURCE.json",
+      "bytes": 52084,
+      "sha256": "509d12804cbd3f8937119dd56f74a588c45333f66715976c79be0fbb445b74f4"
+    }
+  ],
+  "coverage": {
+    "whole": [
+      "JOB.json",
+      "ADMISSION.json",
+      "POST-JOB.json",
+      "one actual whole finish.png original detail"
+    ],
+    "sameByteReused": [
+      "Complete DESIGN/run.cjs/source pair and limits",
+      "Prior whole old triptych and accepted2D sheet at fresh admission pins"
+    ],
+    "modelTopology": "Root POST-JOB assertions attributed; no critic model parse/reconstruction or numerical harness.",
+    "notReadBeforeSeal": [
+      "ROOT-IMAGE.json/current root image opinion"
+    ]
+  },
+  "operations": {
+    "commands": [
+      "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['JOB.json','ADMISSION.json','POST-JOB.json']:\n b=(leaf/name).read_bytes();print('WHOLE',name,len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib,stat,struct,zlib\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source');out=leaf.parent/'overshirt-finish-3d-result'\ndef sha(b):return hashlib.sha256(b).hexdigest()\na=json.loads((leaf/'ADMISSION.json').read_bytes());post=json.loads((leaf/'POST-JOB.json').read_bytes());job=json.loads((leaf/'JOB.json').read_bytes());result=job['soleJob']['result'];report=json.loads(result['output']);assert result['exit_code']==0 and not result.get('session_id');assert result==post['actualToolExit'] and post['admissionPins']==a['pins'];assert len(a['pins'])==27\nfor p in a['pins']:\n b=Path(p['path']).read_bytes();assert len(b)==p['bytes'] and sha(b)==p['sha256']\nactual=[]\nfor p in sorted(out.iterdir()):\n s=p.lstat();assert stat.S_ISREG(s.st_mode) and not stat.S_ISLNK(s.st_mode);b=p.read_bytes();actual.append({'path':str(p),'file':p.name,'bytes':len(b),'sha256':sha(b),'mode':oct(stat.S_IMODE(s.st_mode))})\nassert actual==post['inventory'] and {x['file']for x in actual}=={'CLAIM.json','mesh.json','finish.obj','finish.mtl','finish.png'}\nclaim=json.loads((out/'CLAIM.json').read_bytes());assert claim==post['claim'] and claim['pid']==report['pid']==81913 and claim['source']=='1c4b3d5b3fbcc9f60272bc163e1ae2295f02c18ed066333f30e03556dd870802'\nassert report['elapsedMS']<30000 and report['maxRSSKiB']<=1048576 and report['warnings']==[];assert report['node']=='v24.19.0' and report['sharp']=='0.35.5'\nfor x in report['outputs']:\n b=(out/x['file']).read_bytes();assert len(b)==x['bytes'] and sha(b)==x['sha256']\nb=(out/'finish.png').read_bytes();assert b[:8]==bytes([137,80,78,71,13,10,26,10]);pos=8;chunks=[]\nwhile pos<len(b):\n n=struct.unpack('>I',b[pos:pos+4])[0];tag=b[pos+4:pos+8];data=b[pos+8:pos+8+n];crc=struct.unpack('>I',b[pos+8+n:pos+12+n])[0];assert zlib.crc32(tag+data)&0xffffffff==crc;chunks.append(tag.decode());pos+=n+12\n if tag==b'IHDR':ihdr=struct.unpack('>IIBBBBB',data)\n if tag==b'IEND':assert n==0 and pos==len(b);break\nassert ihdr==(1800,1400,8,6,0,0,0) and chunks[-1]=='IEND';assert ihdr==tuple(post['png']['ihdr'])\nprint(json.dumps({'pid':os.getpid(),'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'all27AdmissionPinsExact':True,'wholeJobPostToolEquality':True,'actualResultInventory':actual,'totalResultBytes':sum(x['bytes']for x in actual),'claimExact':True,'naturalExit':0,'sessionIdAbsent':True,'observed':{'elapsedMS':report['elapsedMS'],'maxRSSKiB':report['maxRSSKiB'],'notHardOrPerformanceProof':True},'PNG':{'bytes':len(b),'sha256':sha(b),'ihdr':ihdr,'allCRCsIEND':True,'chunkCount':len(chunks),'noPixelDecodeOrViewYet':True},'noModelParseOrNumericalReconstruction':True},indent=2))\nPY"
+    ],
+    "returns": [
+      {
+        "chunkId": "b3e8e3",
+        "exitCode": 0,
+        "wallTimeSeconds": 6.917e-06,
+        "pid": 85599,
+        "utc": "2026-10-20T05:38:53.237903+00:00",
+        "outputBytes": 33163,
+        "outputSha256": "0e3aa216a05ebbb118f4029687ffec486cfee9d3a38c4d21c1c4d623f4b73631"
+      },
+      {
+        "chunkId": "154355",
+        "exitCode": 0,
+        "wallTimeSeconds": 7.75e-06,
+        "pid": 86543,
+        "utc": "2026-10-20T05:39:24.448726+00:00",
+        "outputBytes": 2188,
+        "outputSha256": "89ec30da237e24a94bc12ff3b12ea32dfb88ee2acd122313efd31e810210fa07"
+      }
+    ],
+    "actualView": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-result/finish.png",
+      "detail": "original",
+      "displayedDimensions": [
+        1800,
+        1400
+      ],
+      "afterUTC": "2026-10-20T05:39:24.448726+00:00",
+      "beforeSeal": true,
+      "viewCount": 1,
+      "whole": true,
+      "cropOrEdit": false,
+      "tool": "tools.view_image",
+      "backendPIDAndExactTimestamp": "not exposed; view after154355 and before both seals",
+      "input": {
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-result/finish.png",
+        "bytes": 180684,
+        "sha256": "52790eb41d0619cfab4e4b52342f3e44ae225bc7848ae76bdc17353966c0d7a7"
+      }
+    },
+    "independentIntegrity": {
+      "pid": 86543,
+      "utc": "2026-10-20T05:39:24.448726+00:00",
+      "all27AdmissionPinsExact": true,
+      "wholeJobPostToolEquality": true,
+      "actualResultInventory": [
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-result/CLAIM.json",
+          "file": "CLAIM.json",
+          "bytes": 175,
+          "sha256": "d2a22e36701b713b7a230cf263cc075be4323baad45a1735eb05e19870fce504",
+          "mode": "0o644"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-result/finish.mtl",
+          "file": "finish.mtl",
+          "bytes": 264,
+          "sha256": "4a5836587d1da31dfc6585e58a335581c5aa8e23dcca2696349202627fc38e33",
+          "mode": "0o644"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-result/finish.obj",
+          "file": "finish.obj",
+          "bytes": 59035,
+          "sha256": "3269b3448c1d6c75e6b5440835969c97fb60e3d8f9d71438d46bf15e36e967d2",
+          "mode": "0o644"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-result/finish.png",
+          "file": "finish.png",
+          "bytes": 180684,
+          "sha256": "52790eb41d0619cfab4e4b52342f3e44ae225bc7848ae76bdc17353966c0d7a7",
+          "mode": "0o644"
+        },
+        {
+          "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-result/mesh.json",
+          "file": "mesh.json",
+          "bytes": 303868,
+          "sha256": "9bf1085ff346555642ad0f93981a90f1d8537de851d0293d29a185ab0339b16a",
+          "mode": "0o644"
+        }
+      ],
+      "totalResultBytes": 544026,
+      "claimExact": true,
+      "naturalExit": 0,
+      "sessionIdAbsent": true,
+      "observed": {
+        "elapsedMS": 359,
+        "maxRSSKiB": 135792,
+        "notHardOrPerformanceProof": true
+      },
+      "PNG": {
+        "bytes": 180684,
+        "sha256": "52790eb41d0619cfab4e4b52342f3e44ae225bc7848ae76bdc17353966c0d7a7",
+        "ihdr": [
+          1800,
+          1400,
+          8,
+          6,
+          0,
+          0,
+          0
+        ],
+        "allCRCsIEND": true,
+        "chunkCount": 26,
+        "noPixelDecodeOrViewYet": true
+      },
+      "noModelParseOrNumericalReconstruction": true
+    },
+    "errors": [],
+    "targetReruns": 0,
+    "newImagesOrCaptures": 0,
+    "sourceOrGeometryChanges": 0
+  },
+  "limits": {
+    "hardStopUTC": "2026-10-20T06:05:16.502091+00:00",
+    "onlyAllowedWrites": [
+      "IMAGE.md",
+      "CRITIC-IMAGE-RECEIPT.json"
+    ],
+    "solePacketConsumed": true,
+    "noRepairOrRetakeOrRelabelOrSuccessor": true,
+    "noPhysicalFitNativeRuntimeOrAAAQualification": true,
+    "allOldClosuresAndHoldPreserved": true
+  },
+  "rootComparison": {
+    "status": "complete after both durable independent seals",
+    "rootInput": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source/ROOT-IMAGE.json",
+      "bytes": 21649,
+      "sha256": "bab9ebe5b11417bd12272ab42aa29b9cdaf0dfadce1326ec49b0b1a30efe5509"
+    },
+    "firstAccessUTC": "2026-10-20T05:42:08.668988+00:00",
+    "readJob": {
+      "chunk": "084abb",
+      "pid": 91404,
+      "exit_code": 0,
+      "wholeBytes": 21649
+    },
+    "rootInitialSealUTC": "2026-10-20 05:38:26 UTC",
+    "rootVerdict": "B",
+    "agreement": "Same separate slot/button visual legibility refusal, with useful body/collar/inside/V-slit positives and source/data integrity retained. No geometry absence/collision/platform/physical-fit claim.",
+    "independentDecisionUnchanged": true,
+    "noCurrentSuccessor": true,
+    "operations": {
+      "rootRead": {
+        "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source/ROOT-IMAGE.json');b=p.read_bytes();print('WHOLE','pid',os.getpid(),'utc',datetime.datetime.now(datetime.timezone.utc).isoformat(),'bytes',len(b),'sha256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+        "chunk": "084abb",
+        "exit_code": 0,
+        "outputChars": 21783
+      },
+      "resumeRead": {
+        "command": "python3 - <<'PY'\nimport pathlib,json,hashlib,os,datetime\np=pathlib.Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source')\nr=(p/'IMAGE.md').read_bytes(); q=json.loads((p/'CRITIC-IMAGE-RECEIPT.json').read_text()); z=(p/'ROOT-IMAGE.json').read_bytes()\nprint(json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'review':{'bytes':len(r),'sha256':hashlib.sha256(r).hexdigest()},'receiptKeys':list(q),'decision':q['imageDecision'],'prefix':q.get('independentReviewPrefix'),'comparison':q.get('rootComparison'),'direct':q.get('directInputs'),'admissionPinsCount':len(q.get('admissionPins',[])),'root':{'bytes':len(z),'sha256':hashlib.sha256(z).hexdigest()},'reviewTail':r.decode()[-1400:]},ensure_ascii=False,indent=2))\nPY",
+        "chunk": "7a9e97",
+        "exit_code": 0,
+        "outputChars": 5397
+      }
+    }
+  },
+  "pending_edits": false,
+  "reviewBinding": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-3d-source/IMAGE.md",
+    "bytes": 7687,
+    "sha256": "f78e64513cafa92eaafa0f34211b3fb09490f7d5ae3bc0a5f93149873bc8c205"
+  },
+  "finalCollection": {
+    "utc": "2026-10-20T05:45:06.135019+00:00",
+    "pid": 95220,
+    "verifiedRows": 36,
+    "uniquePaths": 36,
+    "decisionCanonicalSha256": "f9cf02df0f1dab59a27fcfd0e836927040eb3c4c96abc688de8aecad83f169f9",
+    "independentPrefixExact": true,
+    "rootReadAfterBothDurable": true,
+    "noNewImageView": true,
+    "pending_edits": false
+  }
+}

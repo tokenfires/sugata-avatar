@@ -1,5 +1,13 @@
 # Sugata work window — October 18, 2026
 
+## October20, 05:47 UTC — overshirt3D first image closed at independent/root B
+
+One exact CPU study is complete and retained unqualified, not promoted. Actual626V1256T/3component model and180684B/1800x1400PNG52790eb4...c0d7a7 pass finite output integrity;359ms/135792KiB are observations only. Root initialB05:38:26 and independentB05:41:47 before rootaccess agree: separate slot/button relationship is not visually legible despite clear body/collar/return/Vslit/lap/button. This is no geometry absence/collision/platform/fit claim. [Complete exact receipt and retained outputs](evidence/appearance-2026-10-19/overshirt-finish-3d-source/README.md).
+
+Root whole-read stable7687B/21224B pair0c66a8/2cf3a6;d6a977/PID95406/05:46:03UTC verifies37bindings plus receipt/immutablef9cf02df...169f9/prefix/order against actual wholeimage. Initial rootbytes preserved atd120f6aec; currentROOT-IMAGE adds documentary comparison only. One source/job/image allowance consumed, no source/value/geometry/material/renderer/camera/observer/probe/crop/retake/relabel repair or successor. No live ownedtarget or pendingcriticedit. Close before06:05:16.502091UTC noextension.
+
+Accepted2Dfinishing intent/coarseoriginal remain useful; all defaults/accepted/original/frozen/ignored/unrelated/October10assets/mainboard/checklist23checked10broad/fullroadmap/phaseorder/oldclosures/material-volumeHOLD unchanged. 659f5d/PID86869/05:39:35UTC observes same3344B/9b859344...c9a ACTIVEevery10 configuration and Vite870/HTTP200; future delivery untested. Next genuinely different responsibility needs fresh independent worth, not an automatic finishing successor. Human check-in/pause wins; no push/publish/purchase/install/model/subscription/resetcredit/otherproject work.
+
 ## October20, 05:39 UTC — sole3D overshirt output retained, root image B pending critic
 
 Sourcecheckpointfbac6a4f precedes exclusive87ca24/PID81759/05:36:50UTC admission. Sole81657c naturalexit0/PID81913 at05:36:55UTC,359ms/observed135792KiB/no warnings; no native/GPU/browser/capture. Five exact resultfiles retained in overshirt-finish-3d-result, solePNG180684B/52790eb4...c0d7a7/1800x1400. Rootb36e7d/PID83603/05:37:50UTC independently verifies27pins/allactualfiles/PNGCRCs/IEND/OBJJSON/groupassociation/626V1256T/3components/closedopposededges/cycliclinks. Numbers support integrity only.
