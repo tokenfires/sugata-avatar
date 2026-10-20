@@ -1,0 +1,110 @@
+{
+  "utc": "2026-10-20T00:41:45.812387+00:00",
+  "pid": 58080,
+  "decision": "A_ONE_SEPARATE_EXACT_ARTIST_DETAIL_BRIEF_PREPARATION_ONLY",
+  "freshBindings": 8,
+  "preclosePins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/CRITIC-RECEIPT.json",
+      "bytes": 11309,
+      "sha256": "1011727a55124e4ec7b3b6a6e4bfa97841fdc9144a721713bf3efbee49af132c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/INPUTS.json",
+      "bytes": 1069,
+      "sha256": "0ad870f2481a21225e341f62048de768f89526baff7c2955f758469fee42d532"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/JOBS.md",
+      "bytes": 1484,
+      "sha256": "01cd55a044c463b5526ba463c77c678079397eabb14787b1adc9c7516c1cca7f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/PLAN.md",
+      "bytes": 3048,
+      "sha256": "cbbb5cb5fb2378294eb8d228e96c222646c8bfe64b18456e85c299e308e6c30b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/README.md",
+      "bytes": 1084,
+      "sha256": "fc40965bf341b3493f5806e6914388f2a9a2021ba06f546f0dd871b9d989e4a5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/ROOT-FIRST.json",
+      "bytes": 3298,
+      "sha256": "f37515664476ac0b0c75ff3d3f3f1ff9a296d20deb7ff5b584940e489dd85359"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/ROOT-TOOLS.json",
+      "bytes": 12776,
+      "sha256": "b8e632bd38201255cbde260895f0e4727732b731eb0134b4267c7a146874f6d9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/ROOT-WORTH.json",
+      "bytes": 4815,
+      "sha256": "601edc3b2c0f2611e89da8a2c65f58e84b0157641e625995dae6c126dc2a1ce3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/WORTH.md",
+      "bytes": 3521,
+      "sha256": "da1c2702ba8fe0f00d373acb9dd0cd02c8248233827fef15495dc11bd88178ab"
+    },
+    {
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 169246,
+      "sha256": "8ba6fbe69e8365fcd9f22428b4406586a13fb5ee8e8be41e306e8a1c27e494de"
+    },
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 144182,
+      "sha256": "ae92d3eb2a656b9ef0d60d54e11c72f0e2402f660efea6de63d7a198903bea02"
+    }
+  ],
+  "ownedPaths": [
+    "docs/RESUME-2026-10-18.md",
+    "docs/WORK-WINDOW-2026-10-18.md",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/CRITIC-RECEIPT.json",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/INPUTS.json",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/JOBS.md",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/PLAN.md",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/README.md",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/ROOT-CLOSE.json",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/ROOT-FIRST.json",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/ROOT-TOOLS.json",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/ROOT-WORTH.json",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/WORTH.md"
+  ],
+  "exactSaveCommands": [
+    [
+      "git",
+      "add",
+      "--",
+      "docs/RESUME-2026-10-18.md",
+      "docs/WORK-WINDOW-2026-10-18.md",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/CRITIC-RECEIPT.json",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/INPUTS.json",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/JOBS.md",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/PLAN.md",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/README.md",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/ROOT-CLOSE.json",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/ROOT-FIRST.json",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/ROOT-TOOLS.json",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/ROOT-WORTH.json",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/WORTH.md"
+    ],
+    [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    [
+      "git",
+      "commit",
+      "-m",
+      "docs: retain overshirt detail worth decision"
+    ]
+  ],
+  "postCommitDuty": "Verify every exact owned commit blob against current bytes, all8sourcebindings, clean status; print actual Git identity. No circular receipt selfhash or futureGitidentity binding.",
+  "targetJobs": "None, no pending critic edits"
+}

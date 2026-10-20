@@ -1,5 +1,14 @@
 # Sugata work window — October 18, 2026
 
+## October 20, 00:41 UTC — olive overshirt hidden-detail brief worth A
+
+Root and critic independently view the retained complete outfit original and agree one separate artist-detail brief is worthwhile: explicit inside front/closure return, collar-stand join and open cuff, preserving existing exterior buttons/collar/slit/cuff cues. Two exact receipts5184B plus current checklist and one original image only; old blockout image/mesh was not re-examined. [Worth receipt](evidence/appearance-2026-10-19/masculine-overshirt-details-worth/README.md) · [Root verification](evidence/appearance-2026-10-19/masculine-overshirt-details-worth/ROOT-WORTH.json).
+
+Whole stable3521B WORTH/11309B critic receipt6a96c7; fresh8bindings and literal documentary claims pass. Root first precedes critic; critic actual source/image seal precedes root opinion read. Preparation-only A: no brief/reference/prompt/generation/code/test/browser/native/GPU or old geometry/source/material/camera/capture repair. No live target or pending critic edits.
+
+Next: one exact separately gated artist brief/reference/managed-image/output contract. New hidden choices are original art, not sewing/pattern/physical dimensions/clearance/fit/body/rig/motion/AAA qualification. Checklist23scoped/10broad, full roadmap, all old closures/constructor HOLD and accepted/default/original/frozen/ignored/unrelated work remain. Import UI method stays closed unrun atd1f21ab0; 34CPU cases retained. Same Vite/ACTIVE ten-minute recovery retained; human check-in/pause wins. No push/publication/capacity/model/reset-credit/other project.
+
+
 ## October 20, 00:36 UTC — import browser method closed unrun
 
 The sole 34-case import CPU result remains valid; the guarded candidate is retained. Root and critic close the exact real-UI method before entry because its required CUA artifact writer/readback contract is unqualified. No page, fixture, chooser, fs probe, screenshot or collection change occurred. This is a bounded tool-contract unknown, not a global filesystem impossibility, product defect or actual policy/browser failure. [Method receipt](evidence/appearance-2026-10-19/saved-look-import-ui-method/README.md) · [Root verification](evidence/appearance-2026-10-19/saved-look-import-ui-method/ROOT-METHOD.json).

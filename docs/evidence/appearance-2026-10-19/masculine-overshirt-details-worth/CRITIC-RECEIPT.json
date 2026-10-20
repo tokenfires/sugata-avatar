@@ -1,0 +1,166 @@
+{
+  "schema": "critic-artist-detail-worth-v1",
+  "collectionUTC": "2026-10-20T00:40:14.479456+00:00",
+  "collectionPID": 55291,
+  "decision": "A_ONE_SEPARATE_EXACT_ARTIST_DETAIL_BRIEF_PREPARATION_ONLY",
+  "deadlineUTC": "2026-10-20T00:50:00Z",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8469,
+      "sha256": "51eff8f457e413fe78449f1273d53a2ae996b0f0f4482d0f6283c016ef533ae3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2631,
+      "sha256": "9d967edd7bdce0f9ff543540473f34c5859d500619beb9051014e3a37581ebc1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/README.md",
+      "bytes": 2553,
+      "sha256": "23f66a7a8c2781b476016630b70950cd873f7216200ec8d5dcd2c72185f6e451"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/first.png",
+      "bytes": 1969289,
+      "sha256": "a7019a47790a0a27155e2425c02f7d3d1c7b3157d24a541caa5509e75d72c82d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/PLAN.md",
+      "bytes": 3048,
+      "sha256": "cbbb5cb5fb2378294eb8d228e96c222646c8bfe64b18456e85c299e308e6c30b"
+    }
+  ],
+  "manifestSelf": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/INPUTS.json",
+    "bytes": 1069,
+    "sha256": "0ad870f2481a21225e341f62048de768f89526baff7c2955f758469fee42d532"
+  },
+  "rootFirst": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/ROOT-FIRST.json",
+    "bytes": 3298,
+    "sha256": "f37515664476ac0b0c75ff3d3f3f1ff9a296d20deb7ff5b584940e489dd85359"
+  },
+  "review": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/WORTH.md",
+    "bytes": 3521,
+    "sha256": "da1c2702ba8fe0f00d373acb9dd0cd02c8248233827fef15495dc11bd88178ab"
+  },
+  "independence": {
+    "job": "b77f67",
+    "exit": 0,
+    "pid": 53757,
+    "utc": "2026-10-20T00:39:23.249623+00:00",
+    "order": "Printed own actual whole-image/source decision before reading ROOT-FIRST. Root separate seal00:37:45.699738/PID50658."
+  },
+  "coverage": {
+    "wholeText": [
+      "PLAN.md",
+      "INPUTS.json",
+      "currentPROJECT-CHECKLIST.md",
+      "masculine-clothed-turnaround/ARTIST-HANDOFF.md",
+      "overshirt-first-view/README.md"
+    ],
+    "receiptCombinedBytes": 5184,
+    "receiptCapBytes": 24576,
+    "actualWholeImages": 1,
+    "soleImage": {
+      "tool": "view_image",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/first.png",
+      "requestedDetail": "original",
+      "returnedDetail": "original",
+      "priorMetadataJob": "a1e05c",
+      "priorMetadataUTC": "2026-10-20T00:38:22.999643+00:00",
+      "backendPID": "not exposed",
+      "imageBytes": 1969289,
+      "imageSHA256": "a7019a47790a0a27155e2425c02f7d3d1c7b3157d24a541caa5509e75d72c82d",
+      "nativeDimensions": [
+        1536,
+        1024
+      ],
+      "scope": "One whole original-detail view, no crop/rescale/edit/extra image. Tool image backend PID and exact image-call UTC not exposed; bracketed after source pin job00:38:22.999643 and before own seal00:39:23.249623UTC."
+    },
+    "linkedFileTraversal": false,
+    "blockoutScope": "Exact receipt only, no mesh/builder/native/viewer/old image opened."
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "sourceWitness": [
+        "PROJECT-CHECKLIST24: collar/cuff finish open;28 unregisteredclothedreference;63 substantialartist/wardrobecomparison",
+        "ARTIST-HANDOFF7/11: outfit middle/hem/back discussion and no pattern/native3D/measuredconstruction",
+        "overshirt-first-viewREADME3: weak cuff separation/unfinishedconformity;9 topology-onlystandleaf/wrists;17 fixedmethodclosed"
+      ],
+      "imageWitness": [
+        "Frontcollar263–360/142–205 and closurebands287–310/205–493,354–382/196–499 already show exterior/button intent, not a laid-open insidefacing return.",
+        "Profilecollar723–815/135–205 and rear1196–1268/131–162 showouterneck outline.",
+        "Profilecuff696–757/462–502 and rear-rightpageslit/buttons1345–1382/416–504 show existingcuff/overlap cues, to preserve ratherthanclaimabsent."
+      ],
+      "coordinateScope": "Approximate original1536x1024 pixels observed in whole image, not crop or measured registration.",
+      "effect": "Selected sources do not already deliver explicit inside/open facing-neck-cuff relationships. One new artist brief may remove that bounded authoring ambiguity; no global absence or accepted-image defect inferred.",
+      "alternatives": [
+        {
+          "choice": "Prepare one consolidated exact detail brief preserving allvisible exteriorcues and explicitlyoriginal hiddenchoices",
+          "tradeoff": "Inspectable authoringdecision, but speculativeinterior and laterfirstimagefailure risk."
+        },
+        {
+          "choice": "Defer untilcoupled garment/artist owner",
+          "tradeoff": "No extra2Dreference, facing/neck/cufffinish remainsunresolved."
+        }
+      ]
+    }
+  ],
+  "laterGateDuties": [
+    "Exact inside/outside/orientation/closure ownership and coherent visiblecuecontinuity",
+    "New hiddenchoices explicitlyoriginalart, no reconstruction/manufacturing authority",
+    "Complete separate source/reference/managed-image/outputmethod gate before any generation",
+    "No oldblockout/source/material/camera/renderer/capture repair or renamedvariation"
+  ],
+  "unqualified": [
+    "physicalsewing/patterns",
+    "minimumlayerclearance",
+    "physicalfolds/fit/body/rig/motion",
+    "native3Dconstructor",
+    "finishedappearance/AAA",
+    "actualbrief/source/prompt/reference/generation/outputnow"
+  ],
+  "tools": [
+    {
+      "name": "initial",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime,json\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth')\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['PLAN.md','INPUTS.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "f08a0f",
+      "exit_code": 0,
+      "wall_time_seconds": 5.709e-06,
+      "original_token_count": 1091,
+      "outputBytes": 4364,
+      "outputSHA256": "c60d8a08276a7a5153581273a34b4c3c79a0f47603d9e31e197f9c5ca1dcfeaa",
+      "firstLine": "UTC 2026-10-20T00:38:12.224071+00:00 PID 51572"
+    },
+    {
+      "name": "sources",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os,struct\nr=Path('/Users/robault/GitHub/sugata-avatar');p=r/'docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth';print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid());m=json.loads((p/'INPUTS.json').read_bytes())\nfor x in m['pins']:\n b=(r/x['path']).read_bytes();assert len(b)==x['bytes'] and hashlib.sha256(b).hexdigest()==x['sha256'];print('PIN_PASS',x['path'],len(b),x['sha256'])\nfor name in ['docs/PROJECT-CHECKLIST.md','docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/ARTIST-HANDOFF.md','docs/evidence/appearance-2026-10-05/overshirt-first-view/README.md']:\n b=(r/name).read_bytes();print('\\nWHOLE_FILE',name)\n for i,l in enumerate(b.decode().splitlines(),1):print(f'{i}: {l}')\nb=(r/m['pins'][3]['path']).read_bytes();assert b[:8]==b'\\x89PNG\\r\\n\\x1a\\n';print('IMAGE_HEADER',struct.unpack('>IIBBBBB',b[16:29]));print('INPUTS_SELF',len((p/'INPUTS.json').read_bytes()),hashlib.sha256((p/'INPUTS.json').read_bytes()).hexdigest())\nPY",
+      "chunk_id": "a1e05c",
+      "exit_code": 0,
+      "wall_time_seconds": 8.5e-06,
+      "original_token_count": 3777,
+      "outputBytes": 15107,
+      "outputSHA256": "0f806c2779438ddb43490e7e5ddd38ba9520e927f3943f46ba99cff4b4a0f1ff",
+      "firstLine": "UTC 2026-10-20T00:38:22.999643+00:00 PID 51895"
+    },
+    {
+      "name": "seal_compare",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth');print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nprint('INDEPENDENT_SEAL',json.dumps({'decision':'A_ONE_SEPARATE_EXACT_ARTIST_DETAIL_BRIEF_PREPARATION_ONLY','pixelWitnesses':['Whole1536x1024 front collar around263–360/142–205 and narrow front closure bands around287–310/205–493 and354–382/196–499 show exterior/button intent, not a declared inside-facing return.','Profile collar around723–815/135–205 and rear collar around1196–1268/131–162 show outer neck/collar silhouette but not an opened interior neck join.','Profile cuff around696–757/462–502 and rear right-page slit/button area around1345–1382/416–504 already show cuff/overlap cues; new brief must preserve them and own open/inside relationships, not falsely call closure absent.'],'sourceWitnesses':['Checklist24 explicitly collar/cuff finish open;28 currentwholeclothedartistref unregistered;63 asks useful artist/wardrobe comparison.','Clothedhandoff7/11 supplies outfitspace/hem/back choices, no garmentpattern/native3D or measured construction authority.','BlockoutREADME3 weak cuff separation/finished conformity open,9 sevenpointstandleaf and wristboundaries support topology only,17 fixedmethod closed.'],'worthReason':'One exact consolidated detail brief can select currently unowned facing/neck/open-cuff relationship as original artist choices beside retained exterior. This is more specific than another whole-outfit view and cannot qualify physical construction.','alternatives':['Prepare one separately source-gated brief using unchanged exterior cues, gaining explicit hidden artist relationships with extra authorship and later image-failure risk.','Defer details until a coupled garment/artist owner, avoiding another2Dreference but retaining unresolved facing/neck/cuff finish.'],'scope':'No brief/prompt/reference/generation/oldblockout repair or source/runtime/fit admission.','pending_edits':False}))\nb=(p/'ROOT-FIRST.json').read_bytes();print('ROOT_FIRST',len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "b77f67",
+      "exit_code": 0,
+      "wall_time_seconds": 8.334e-06,
+      "original_token_count": 1333,
+      "outputBytes": 5329,
+      "outputSHA256": "ea2044201e7c77f2593858ff298a4a8515753d40b336f6fd18efc1919f3ff40c",
+      "firstLine": "UTC 2026-10-20T00:39:23.249623+00:00 PID 53757"
+    }
+  ],
+  "errors": [],
+  "pending_edits": false,
+  "noActions": "No referred-file traversal, extraimage/reference/sourcehunt/generation/browser/native/GPU/code/test/oldblockoutrepair/canonical/otherchat action. Only this exclusive critic pair written.",
+  "receiptPreparedUTC": "2026-10-20T00:40:14.481091+00:00"
+}

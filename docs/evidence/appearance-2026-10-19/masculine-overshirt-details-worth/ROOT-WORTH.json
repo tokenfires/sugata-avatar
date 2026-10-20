@@ -1,0 +1,72 @@
+{
+  "schema": "root-artist-detail-worth-v1",
+  "utc": "2026-10-20T00:41:45.812387+00:00",
+  "pid": 58080,
+  "sourceHEAD": "d1f21ab005ad1430aa1bed2024892cf01cb6a1bf",
+  "decision": "A_ONE_SEPARATE_EXACT_ARTIST_DETAIL_BRIEF_PREPARATION_ONLY",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8469,
+      "sha256": "51eff8f457e413fe78449f1273d53a2ae996b0f0f4482d0f6283c016ef533ae3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2631,
+      "sha256": "9d967edd7bdce0f9ff543540473f34c5859d500619beb9051014e3a37581ebc1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/README.md",
+      "bytes": 2553,
+      "sha256": "23f66a7a8c2781b476016630b70950cd873f7216200ec8d5dcd2c72185f6e451"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-clothed-turnaround/first.png",
+      "bytes": 1969289,
+      "sha256": "a7019a47790a0a27155e2425c02f7d3d1c7b3157d24a541caa5509e75d72c82d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/PLAN.md",
+      "bytes": 3048,
+      "sha256": "cbbb5cb5fb2378294eb8d228e96c222646c8bfe64b18456e85c299e308e6c30b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/INPUTS.json",
+      "bytes": 1069,
+      "sha256": "0ad870f2481a21225e341f62048de768f89526baff7c2955f758469fee42d532"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/ROOT-FIRST.json",
+      "bytes": 3298,
+      "sha256": "f37515664476ac0b0c75ff3d3f3f1ff9a296d20deb7ff5b584940e489dd85359"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/WORTH.md",
+      "bytes": 3521,
+      "sha256": "da1c2702ba8fe0f00d373acb9dd0cd02c8248233827fef15495dc11bd88178ab"
+    }
+  ],
+  "criticReceipt": {
+    "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/CRITIC-RECEIPT.json",
+    "bytes": 11309,
+    "sha256": "1011727a55124e4ec7b3b6a6e4bfa97841fdc9144a721713bf3efbee49af132c"
+  },
+  "wholeRead": "6a96c7/exit0/3753tokens: complete stable3521B worth and11309B receipt; fresh8bindings checked here",
+  "ownVisualWitness": "Root independently viewed whole1536x1024 first.png at original detail before sealed ROOT-FIRST. Front/profile narrow closure edges and worn cuff/neck outline exist. No opened inside-facing/stand or open cuff relationship is displayed. Approximate critic pixel regions agree qualitatively with that whole-image observation; no pixel registration/measurement claimed.",
+  "reasoningVerification": "Actual exterior already supplies buttons/cuff/slit and collar cues; critic correctly requires preserving them. Checklist24 keeps collar/cuff finish open, old receipt9 topology only and17 closes fixed method. The separate new responsibility is original hidden artist intent, not missing exterior or a defect/global absence. Neither side freshly opened the old mesh or old image.",
+  "alternatives": [
+    {
+      "choice": "Prepare one consolidated exact detail brief preserving allvisible exteriorcues and explicitlyoriginal hiddenchoices",
+      "tradeoff": "Inspectable authoringdecision, but speculativeinterior and laterfirstimagefailure risk."
+    },
+    {
+      "choice": "Defer untilcoupled garment/artist owner",
+      "tradeoff": "No extra2Dreference, facing/neck/cufffinish remainsunresolved."
+    }
+  ],
+  "independence": "Root first sealeded4ee1 before receiving critic reasoning; critic actual source/image seal b77f67 before reading ROOT-FIRST. Separate preparation-only decisions agree.",
+  "next": "Prepare one bounded exact detail brief/reference/managed-image/output method. Fresh independent complete source review and root admission before any generation.",
+  "limits": "One actual whole image and two receipts5184B plus current checklist. No referred traversal, online retrieval, prompt/brief/generation/old blockout/source/runtime edit or capture here. No sewing/pattern/physical dimensions/layer-clearance/folding/fit/body/rig/motion/AAA qualification.",
+  "preservation": "All default/accepted/original/frozen/ignored assets, unrelated worktrees, old closures and material-volume constructor HOLD. Checklist23scoped/10broad and complete roadmap unchanged.",
+  "liveJobs": "None; critic complete with no pending edits. Same Vite and ACTIVE ten-minute recovery retained at previous readback, no new service/config mutation."
+}
