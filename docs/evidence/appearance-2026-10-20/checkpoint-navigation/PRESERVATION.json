@@ -1,0 +1,53 @@
+{
+  "sealedUTC": "2026-10-20T13:20:59.963490+00:00",
+  "archives": [
+    {
+      "original": "docs/WORK-WINDOW-2026-10-18.md",
+      "archive": "docs/WORK-WINDOW-2026-10-18-HISTORY-2026-10-20.md",
+      "bytes": 292436,
+      "sha256": "8a1a2826ec21e252db49dee2120df48cbc1b8eadf5c6d40bd025f7c2287bf94c",
+      "equalBeforeReplacement": true,
+      "relativeDirectoryUnchanged": true
+    },
+    {
+      "original": "docs/RESUME-2026-10-18.md",
+      "archive": "docs/RESUME-2026-10-18-HISTORY-2026-10-20.md",
+      "bytes": 267372,
+      "sha256": "42c31079afb55811b3c735fafc1b930aa5060908efd0d443a8ff1d2ed37d708d",
+      "equalBeforeReplacement": true,
+      "relativeDirectoryUnchanged": true
+    }
+  ],
+  "currentCanonicalPagesStillOriginal": true,
+  "candidates": [
+    {
+      "target": "docs/WORK-WINDOW-2026-10-18.md",
+      "candidate": "docs/evidence/appearance-2026-10-20/checkpoint-navigation/candidate-WORK-WINDOW-2026-10-18.md",
+      "bytes": 4250,
+      "sha256": "ab4d82d6ed2ff69046fa83deb31c775e11f4a9213ad8970b93c99b47eb7ec167"
+    },
+    {
+      "target": "docs/RESUME-2026-10-18.md",
+      "candidate": "docs/evidence/appearance-2026-10-20/checkpoint-navigation/candidate-RESUME-2026-10-18.md",
+      "bytes": 6075,
+      "sha256": "1c7233506e1783e0976752d63915b1e2a20d934b61608df1a196d99a5be6f760"
+    }
+  ],
+  "reverseFragmentReferenceCheck": {
+    "commands": [
+      "rg -n -l exact two current filenames with .md# in docs Markdown/HTML",
+      "git grep -lE exact two current filenames with .md#"
+    ],
+    "jobs": [
+      "42b902",
+      "340435"
+    ],
+    "exitCodes": [
+      1,
+      1
+    ],
+    "matches": 0,
+    "scope": "Literal references in the stated current docs/tracked-file searches; no external/untracked/URL-encoded reference absence claim."
+  },
+  "limits": "Whole historical files are opaque-copied and byte/hash-compared, not semantically reread. Relative directory is preserved. README link is a planned final receipt."
+}

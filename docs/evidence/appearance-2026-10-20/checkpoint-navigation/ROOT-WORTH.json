@@ -1,0 +1,18 @@
+{
+  "sealedUTC": "2026-10-20T13:19:29.929926+00:00",
+  "decision": "A_PREPARATION_ONLY",
+  "wholeReadJob": "736dda",
+  "criticBytes": 6375,
+  "criticSHA256": "90b973e7c358812fe3953d5e8c85ff2382d937a165dce0732088378b3e809b16",
+  "canonicalOpinionSHA256": "f8079576d71cf2bdd622425f862a5cee0870ec864659922c98189b1998cccd89",
+  "freshBindingsVerified": 4,
+  "rootAssessment": "The first current closure is immediately followed by historical active/admitted headers, and consumed expression/import decisions are deeper. Full exact history copies plus compact current candidates are useful; no historical-content absence inference is needed.",
+  "rootAdmits": "Create exclusive same-directory byte-identical history copies and <=8KiB candidate current pages in this leaf, exact diff/link/preservation proof only. Do not replace current canonical pages before independent complete review and root verification.",
+  "alternatives": [
+    "Compact pages with exact history: two archive paths and careful link verification, easier latest-state recovery.",
+    "Keep large pages: no path move, but stale prospective instructions and recovery burden persist."
+  ],
+  "targetTrialAdmitted": false,
+  "deadlineUTC": "2026-10-20T13:30:00+00:00",
+  "pending_edits": false
+}

@@ -1,0 +1,20 @@
+{
+  "sealedUTC": "2026-10-20T13:13:36.148689+00:00",
+  "rootInitial": "A_NAVIGATION_ONLY",
+  "basis": "Nearly560KB of cumulative live recovery headers contain historical prospective instructions alongside exact later closures. Current recovery rediscovered consumed expression/import leads. Two compact entrypoints with exact same-directory historical copies preserve evidence while making the current refusal and selected closures discoverable.",
+  "witnessFile": "ROOT-WITNESSES.txt",
+  "witnessBytes": 6105,
+  "witnessSHA256": "891ed24b400b74428152b7ca11da18a56eaca3cc76065d3776c96ba667830d23",
+  "alternatives": [
+    {
+      "choice": "Compact live entrypoints and retain exact history",
+      "tradeoff": "Adds two snapshot paths; greatly improves finding latest state and stops rediscovery."
+    },
+    {
+      "choice": "Keep current cumulative files",
+      "tradeoff": "No new paths, but over half a megabyte of interleaved historical instructions remains the default recovery input."
+    }
+  ],
+  "scope": "No geometry/source/appearance/feature/default/checklist/roadmap/automation changes. No successor nominated. Full history bytes must be verified before rewriting.",
+  "pending_edits": false
+}

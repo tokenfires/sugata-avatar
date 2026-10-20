@@ -1,0 +1,33 @@
+# Sugata — current resume checkpoint
+
+Updated October 20, 2026. Start with the [current work window](WORK-WINDOW-2026-10-18.md). This concise checkpoint supersedes historical active/admitted headers; a heartbeat does not admit a constructor or reopen a stopped recipe.
+
+## Latest completed slice
+
+The single Ari garment-volume run is collected. It returned worker UNKNOWN (`tie cut-vector ownership`) and a separate supervisor FAILED_OR_REFUSED (`leader PID identity changed`). Saved prefix records are internally consistent; they are not a complete field. No garment mesh, finishing parent, image or fit/appearance/default result qualified. The missing failed native tuple and process row prevent a cause diagnosis. Both independent result critics and root close this exact method without repair, probe, retuning, smaller grid, guard/observer/source rescue or rerun. [Actual result, exact command, jobs, hashes and limits](evidence/appearance-2026-10-20/material-volume-constructor-preparation/RESULT.md).
+
+Independent review and root verification accepted a two-line status correction linking the actual refusal. The checklist remains 23 checked scoped items and 10 open broad outcomes, with identical text/order and full phase order. No artist, feature or numerical completion was added. [Map correction receipt](evidence/appearance-2026-10-20/material-volume-constructor-preparation/MAP-RESULT.md). Source epochs/admission/actual output were checkpointed in cec03e79, 43227f85, 1c5f529a and b498f14d; reviewed result/status closure in 9ff91402. Nothing was pushed.
+
+No successor is nominated. The actual run session is collected; known recorded PIDs were absent at saved observations, with no universal-descendant or physical-retirement claim. No owned target/capture or uncollected target session remains. Latest human steering wins; the current work window contains the check-in and pause procedure.
+
+## Selected consumed leads — consult before proposing work
+
+This is a navigation index, not an exhaustive history or a global ban on these goals. A different explicit contract needs evidence and a fresh independent worth/source/workload/root gate; a changed label alone is insufficient.
+
+- **Material volume:** the actual reported-tie/cut-vector field recipe is closed UNKNOWN; no whole field or mesh. Use the actual result above, not the frozen pre-run README as an unattempted job.
+- **Original Ari head:** the section-and-relief construction's first image was rejected for stepped/banded form, detached-looking eye whites and serrated lips. No image/source/shape/renderer rescue. [Actual head result](evidence/appearance-2026-10-20/ari-owned-head-preparation/RESULT.md).
+- **Ari expression comparison:** the first calm-attention/determination pair did not establish the intended contrast; no prompt/style/pose/retake/relabel rescue. [Actual expression receipt](evidence/appearance-2026-10-20/ari-expression-pair/README.md).
+- **Another Mara emotion pair:** the concern nomination was deferred before a named face/motion authoring consumer; accepted Mara art is not defective. [Worth closure](evidence/appearance-2026-10-19/mara-concern-worth/README.md).
+- **Saved-look import:** the flag-guarded candidate passed 34 CPU cases, but its exact UI method closed unrun because the required artifact-writer/readback contract was unqualified. This is not a product defect or global browser/filesystem impossibility. Keep the candidate isolated; do not promote or replay the old method. [CPU receipt](evidence/appearance-2026-10-19/saved-look-import-candidate/CPU-README.md) · [UI method closure](evidence/appearance-2026-10-19/saved-look-import-ui-method/README.md).
+- **Ari curls, first low-top and Mara offered-palm inquiry:** these selected exact methods stopped at their documented visual or input gates. [Study map and individual receipts](CURRENT-DESIGN-GATES.md).
+- **Older geometry, capture and source routes:** preserve September 30's closed one-ring front proxy, local foundation offset/weight/mask tuning and repeated capture-epoch searches; October 2's rejected seven-card fixed-root/fixed-width mesh-follow construction; and later recorded loft/control/search/native-observer/acquisition closures. The exact MetaHuman and Geri reference inquiries also stopped without a qualified source handoff. Consult the full histories for the applicable exact receipt; do not infer a global capability limit. For September recovery, use the September 30 day report and pose-aware fit proposal, not older static-pass headlines.
+
+## Open goals and retained review
+
+Customization and retained artist/source deliverables are available within their stated limits. Complete characters and convincing moving hair/skin, finished clothing and layering, coupled body/garment fit, representative starters, meaningful expression/gaze/gesture, fitting agent suggestions, measured performance, VTuber and Mii work remain open. [Project checklist](PROJECT-CHECKLIST.md) · [Full roadmap and phase order](PRODUCT-ROADMAP.md) · [Selected wardrobe board](ARTIST-WARDROBE.html).
+
+The existing ten-minute recovery was ACTIVE at app API readback 13:05:24 UTC October 20; no settings were changed and future delivery is unverified. The retained server is http://127.0.0.1:5173. Exact HTTP checks and their limits are in the [operational receipt](evidence/appearance-2026-10-20/material-volume-constructor-preparation/OPERATIONAL-CHECK.json). Preserve all accepted/default/original/frozen/ignored assets, nine October 10 records and unrelated worktrees. No purchase, model/subscription/reset-credit change, push, publish or other-project work.
+
+## Exact history and navigation receipt
+
+[Complete previous resume bytes](RESUME-2026-10-18-HISTORY-2026-10-20.md) and [previous work-window bytes](WORK-WINDOW-2026-10-18-HISTORY-2026-10-20.md) remain unchanged in the same directory. Historical “next” paragraphs are historical, subject to newer closures and human steering. [Navigation receipt and byte-preservation proof](evidence/appearance-2026-10-20/checkpoint-navigation/README.md).
