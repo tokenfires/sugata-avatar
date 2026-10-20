@@ -1,0 +1,134 @@
+{
+  "schema": "root-ui-method-close-v1",
+  "utc": "2026-10-20T00:35:36.347584+00:00",
+  "pid": 46617,
+  "decision": "B_METHOD_CLOSED_UNRUN",
+  "sourceHEAD": "3472e92e0e00c20a6b890cdb38cd40bc6b24a477",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/vite.config.js",
+      "bytes": 3698,
+      "sha256": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js",
+      "bytes": 36902,
+      "sha256": "f733c831a7a120893d1edd311593a0620de32086ca4261789512175758ea900b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.html",
+      "bytes": 23443,
+      "sha256": "07450126f76c9f3c73257b10a55a0d5fa2db2211335783213365d70f4314ce3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-look-import.mjs",
+      "bytes": 7141,
+      "sha256": "21179398521697c3da99b2e0f3079deeb715a9355724ba67930312a751fdcd7b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/ROOT-CPU.json",
+      "bytes": 9462,
+      "sha256": "b7e19b7452a53e3605c273894242c6540c8e3f88ef88c8158cb899918c3f2f08"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CPU-ROOT-CLOSE.json",
+      "bytes": 7785,
+      "sha256": "a417d36e4a92c90bc02bf863fab092e799ebedb57f6a0956eaa408dbbc8e4562"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/SOURCE-INPUTS.json",
+      "bytes": 3570,
+      "sha256": "847649ef863f7315aed0c1b31d92a04c5da63e5cabb1dfe2c8087e9c1c284bde"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/BROWSER-METADATA.md",
+      "bytes": 1731,
+      "sha256": "6e43ac41d7315d79fbedbd18918d8aafa9706122ace03a7a26ec6021b73eb4f0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/PLAN.md",
+      "bytes": 4455,
+      "sha256": "579410d953174b8ba5f327c97f5df69bd60a7803d2b792d1df18aae4b2637bf8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/METHOD.md",
+      "bytes": 11636,
+      "sha256": "63f0797293c9392c743e22aeb76b9608967f2a1ad8bb542a11dba4c87aa1324e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/INPUTS.json",
+      "bytes": 3098,
+      "sha256": "704aa7b8fbd04cdff56d813f0d9b05eb9ca29b4c387ff4763d8cce372c2424af"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/RETAINED-DECLARATIONS.md",
+      "bytes": 2412,
+      "sha256": "b8a3bc5d339dc8a32e68356cfea880a9e0f340d37cc13154456c53604b503163"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/ROOT-FIRST.json",
+      "bytes": 1530,
+      "sha256": "d8537b7717f964a713200f287ef929749959c6e772e02c8aedf86027a7aef6ae"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/ROOT-WRITER-FIRST.json",
+      "bytes": 1338,
+      "sha256": "2c685c67b728a3eb13a91a848aab96d11d50c9d4b248660db057810c085a99a5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/UI-METHOD-REVIEW.md",
+      "bytes": 4404,
+      "sha256": "f1ada33efba44e94cb8d6979c8702f11560fe36ae278ff0877c993b619f3e2c6"
+    }
+  ],
+  "criticReceipt": {
+    "path": "docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/CRITIC-RECEIPT.json",
+    "bytes": 13270,
+    "sha256": "31cb7485139eb472f0fef3e4433fcd61305ed788fe9436304f5dbd4f69a24127"
+  },
+  "wholeRead": {
+    "prior": "ba4872/exit0, complete stable pair 4432tokens",
+    "recovery": "341783/exit0 whole PLAN/METHOD/review; e6d1f9/exit0 whole critic receipt, 3883tokens untruncated",
+    "freshVerification": "e6d1f9/exit0/PID44674/2026-10-20T00:34:36.536134UTC: 15current bindings, six literal earlier host locators and no ui-run entry"
+  },
+  "independentReasoning": {
+    "witness": "METHOD Exact local data and artifact ownership expressly requires importing node:fs/promises and readFile/writeFile in CUA. Current CUA tool permits only described APIs. Retained selected documentation describes Uint8Array screenshots and download/path/chooser but supplies no permitted artifact filesystem writer/readback contract.",
+    "effect": "The required immutable image/data packet cannot be established under this exact admitted method. Do not probe it to infer authority.",
+    "limits": "Bounded tool-contract unknown; not proof of global runtime impossibility, source/consumer defect, failed browser/capture, actual policy rejection, or general standard-Node ban. No new user approval is needed for this no-entry decision.",
+    "sourceScope": "170/350 lines: whole69line Vite,95host lines and six retained locators; two project files only. Recovery filename inventory unintentionally included sibling repository AGENTS paths but no sibling source content was opened or used; it supplied no method/source decision. No budget expansion or new method probe.",
+    "alternatives": [
+      {
+        "choice": "Freeze exact method unrun and retain private CPU-qualified candidate",
+        "tradeoff": "Preserves tested source/protocol evidence without runtime exposure; real native-reader/rendered-control duties stay open."
+      },
+      {
+        "choice": "Defer new import UI and use existing Open JSON→Save/backup workflows",
+        "tradeoff": "Avoid additional browser/artifact responsibility; accepts preview interruption or full restore."
+      }
+    ],
+    "decision": "Choose freeze-unrun alternative. Preserve guarded source and CPU A; no native-reader, UI/default/appearance promotion.",
+    "independence": "Initial root A at00:26 preserved; root writer UNKNOWN00:29 preserved. Critic sealed07fb67 before reading root opinions, but after root gap communication; do not claim blind-to-all-root-messages independence."
+  },
+  "retained": "34actual real-owner CPU cases with fake reader/timer/storage; candidate source and normal baseline unchanged. Startup RSS/window are not peak/performance; oldspace128MiB is not totalheap/RSS.",
+  "closed": "This exact writer/probe/source-hunt/URL/observer/capture/fixture method, repairs/retries/renamed successors. No further experiment under this nomination is worthwhile.",
+  "next": "Choose a distinct roadmap responsibility through fresh independent worth. A new authoritative permitted contract would require a genuinely new explicit nomination, not recovery or heartbeat admission.",
+  "noEntries": [
+    "No UI tab or actual page evaluation",
+    "No fixture/real chooser/native FileReader",
+    "No fs import/probe or screenshot",
+    "No user collection, clipboard, avatar or configuration write",
+    "No source/test/CPU replay/default promotion"
+  ],
+  "preservation": "Accepted/default/original/frozen/ignored work and unrelated worktrees; all prior closures, constructor HOLD, full AAA/expression/wardrobe/representation/coupled-fit/motion/performance/VTuber/Mii roadmap; checklist23scoped/10broad unchanged.",
+  "services": {
+    "path": "docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/SERVICES.json",
+    "bytes": 1173,
+    "sha256": "da595f179c1cc26ff5d3c5bac5a7bbeb13099769c6570cc0c36829674190e4fc"
+  },
+  "toolLog": {
+    "path": "docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/TOOL-LOG.json",
+    "bytes": 95961,
+    "sha256": "1a0c40359a26d7bdd0c54161d70a4da112b6de42f3501a11c20723e04ebf05b7"
+  },
+  "pendingEdits": false
+}

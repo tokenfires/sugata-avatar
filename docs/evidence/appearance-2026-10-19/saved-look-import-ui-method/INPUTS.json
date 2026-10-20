@@ -1,0 +1,87 @@
+{
+  "utc": "2026-10-20T00:26:33.823846+00:00",
+  "pid": 28678,
+  "pins": [
+    {
+      "path": "vite.config.js",
+      "bytes": 3698,
+      "sha256": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d"
+    },
+    {
+      "path": "packages/testbed/src/showcase.js",
+      "bytes": 36902,
+      "sha256": "f733c831a7a120893d1edd311593a0620de32086ca4261789512175758ea900b"
+    },
+    {
+      "path": "packages/testbed/src/showcase.html",
+      "bytes": 23443,
+      "sha256": "07450126f76c9f3c73257b10a55a0d5fa2db2211335783213365d70f4314ce3a"
+    },
+    {
+      "path": "packages/testbed/src/showcase-look-import.mjs",
+      "bytes": 7141,
+      "sha256": "21179398521697c3da99b2e0f3079deeb715a9355724ba67930312a751fdcd7b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-candidate/ROOT-CPU.json",
+      "bytes": 9462,
+      "sha256": "b7e19b7452a53e3605c273894242c6540c8e3f88ef88c8158cb899918c3f2f08"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CPU-ROOT-CLOSE.json",
+      "bytes": 7785,
+      "sha256": "a417d36e4a92c90bc02bf863fab092e799ebedb57f6a0956eaa408dbbc8e4562"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-candidate/SOURCE-INPUTS.json",
+      "bytes": 3570,
+      "sha256": "847649ef863f7315aed0c1b31d92a04c5da63e5cabb1dfe2c8087e9c1c284bde"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-proposal/BROWSER-METADATA.md",
+      "bytes": 1731,
+      "sha256": "6e43ac41d7315d79fbedbd18918d8aafa9706122ace03a7a26ec6021b73eb4f0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/PLAN.md",
+      "bytes": 4455,
+      "sha256": "579410d953174b8ba5f327c97f5df69bd60a7803d2b792d1df18aae4b2637bf8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/METHOD.md",
+      "bytes": 11636,
+      "sha256": "63f0797293c9392c743e22aeb76b9608967f2a1ad8bb542a11dba4c87aa1324e"
+    }
+  ],
+  "sourceScope": {
+    "files": 2,
+    "wholeVite": 69,
+    "hostLocators": 6,
+    "hostRanges": [
+      [
+        151,
+        178
+      ],
+      [
+        285,
+        320
+      ],
+      [
+        358,
+        388
+      ]
+    ],
+    "hostLines": 95,
+    "total": 170,
+    "cap": 350
+  },
+  "browserReuse": "Existing IAB3 documented chooser/download/path/DOM/screenshot/viewport/localdevelopment contracts; no newbrowsercall in this proposal.",
+  "head": {
+    "chunk_id": "414a83",
+    "wall_time_seconds": 8.167e-06,
+    "exit_code": 0,
+    "original_token_count": 90,
+    "output": "{\"utc\": \"2026-10-20T00:24:05.244568+00:00\", \"pid\": 23901, \"url\": \"http://127.0.0.1:5173/src/showcase.html?savedImport=1\", \"sourceDerivation\": \"vite.config.js:9 root packages/testbed; actualfile src/showcase.html\", \"status\": 200, \"contentType\": \"text/html\", \"redirectsFollowed\": 0, \"bodyRead\": false, \"scope\": \"availability only, no browser/GPU/appearance\"}\n"
+  },
+  "noEntry": "No newfixtures/page/chooser/capture/evaluation/test/sourcechange or target."
+}

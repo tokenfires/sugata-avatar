@@ -1,0 +1,26 @@
+{
+  "schema": "retained-services-readback-v1",
+  "observedUTC": "2026-10-20T00:30:30.996084+00:00",
+  "job": "1e3a89",
+  "exit": 0,
+  "pid": 36662,
+  "automation": {
+    "path": "/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml",
+    "bytes": 3344,
+    "sha256": "9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a",
+    "status": "ACTIVE",
+    "cadenceMinutes": 10,
+    "targetThread": "01a0ff57-d720-7db2-923f-9e3e0521216c",
+    "appAPIView": "00:30:23 returned rendered automation card without structured state; saved-file readback supplies inspected state, not a new configuration mutation",
+    "delivery": "Future scheduler/mobile delivery unverified"
+  },
+  "reviewServer": {
+    "job": "414a83",
+    "utc": "2026-10-20T00:24:05.244568+00:00",
+    "method": "HEAD only; source-derived endpoint; 3second/no redirects",
+    "status": 200,
+    "contentType": "text/html",
+    "scope": "Availability only; no page/body/render/capture or server restart"
+  },
+  "ownedWork": "No target tab/fixture/capture/native/GPU/live helper; critic completed/no pending edits. Prior CPU Node6535 and ps6536 positively collected."
+}

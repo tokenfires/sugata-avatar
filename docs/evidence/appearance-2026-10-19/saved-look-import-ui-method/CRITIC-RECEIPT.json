@@ -1,0 +1,211 @@
+{
+  "schema": "critic-ui-method-review-v1",
+  "collectionUTC": "2026-10-20T00:30:48.837179+00:00",
+  "collectionPID": 37193,
+  "decision": "B_METHOD_UNRUN_UNQUALIFIED_ARTIFACT_WRITER",
+  "deadlineUTC": "2026-10-20T00:42:00Z",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/vite.config.js",
+      "bytes": 3698,
+      "sha256": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js",
+      "bytes": 36902,
+      "sha256": "f733c831a7a120893d1edd311593a0620de32086ca4261789512175758ea900b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.html",
+      "bytes": 23443,
+      "sha256": "07450126f76c9f3c73257b10a55a0d5fa2db2211335783213365d70f4314ce3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-look-import.mjs",
+      "bytes": 7141,
+      "sha256": "21179398521697c3da99b2e0f3079deeb715a9355724ba67930312a751fdcd7b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/ROOT-CPU.json",
+      "bytes": 9462,
+      "sha256": "b7e19b7452a53e3605c273894242c6540c8e3f88ef88c8158cb899918c3f2f08"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CPU-ROOT-CLOSE.json",
+      "bytes": 7785,
+      "sha256": "a417d36e4a92c90bc02bf863fab092e799ebedb57f6a0956eaa408dbbc8e4562"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/SOURCE-INPUTS.json",
+      "bytes": 3570,
+      "sha256": "847649ef863f7315aed0c1b31d92a04c5da63e5cabb1dfe2c8087e9c1c284bde"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/BROWSER-METADATA.md",
+      "bytes": 1731,
+      "sha256": "6e43ac41d7315d79fbedbd18918d8aafa9706122ace03a7a26ec6021b73eb4f0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/PLAN.md",
+      "bytes": 4455,
+      "sha256": "579410d953174b8ba5f327c97f5df69bd60a7803d2b792d1df18aae4b2637bf8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/METHOD.md",
+      "bytes": 11636,
+      "sha256": "63f0797293c9392c743e22aeb76b9608967f2a1ad8bb542a11dba4c87aa1324e"
+    }
+  ],
+  "manifestSelf": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/INPUTS.json",
+    "bytes": 3098,
+    "sha256": "704aa7b8fbd04cdff56d813f0d9b05eb9ca29b4c387ff4763d8cce372c2424af"
+  },
+  "retainedDeclarations": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/RETAINED-DECLARATIONS.md",
+    "bytes": 2412,
+    "sha256": "b8a3bc5d339dc8a32e68356cfea880a9e0f340d37cc13154456c53604b503163"
+  },
+  "rootInitial": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/ROOT-FIRST.json",
+    "bytes": 1530,
+    "sha256": "d8537b7717f964a713200f287ef929749959c6e772e02c8aedf86027a7aef6ae"
+  },
+  "rootWriter": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/ROOT-WRITER-FIRST.json",
+    "bytes": 1338,
+    "sha256": "2c685c67b728a3eb13a91a848aab96d11d50c9d4b248660db057810c085a99a5"
+  },
+  "review": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/UI-METHOD-REVIEW.md",
+    "bytes": 4404,
+    "sha256": "f1ada33efba44e94cb8d6979c8702f11560fe36ae278ff0877c993b619f3e2c6"
+  },
+  "coverage": {
+    "wholeProjectFiles": [
+      "vite.config.js69lines"
+    ],
+    "hostRanges": [
+      [
+        151,
+        178
+      ],
+      [
+        285,
+        320
+      ],
+      [
+        358,
+        388
+      ]
+    ],
+    "hostLines": 95,
+    "existingLocatorRows": [
+      108,
+      297,
+      303,
+      311,
+      366,
+      373
+    ],
+    "conservativeTotal": 170,
+    "cap": 350,
+    "reuse": "Same-byte CPU-qualified controller/host/HTML/dependencies and existing IAB capability documentation; current source pins verified. No new source/filename/browser/API/online/image inventory."
+  },
+  "independence": {
+    "job": "07fb67",
+    "exit": 0,
+    "pid": 35523,
+    "utc": "2026-10-20T00:29:56.838391+00:00",
+    "order": "Independent final decision printed before opening either sealed root opinion. Critic requested missing declarations before supplemental response; root communicated writer gap before this seal. No blind-before-all-root-messages claim.",
+    "comparison": "Initial root A preserved at00:26:33; revised writer UNKNOWN/no-entry at00:29:01 agrees with bounded tool-contract gap."
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "methodWitness": "METHOD.md Exact local data and artifact ownership: import node:fs/promises in CUA, readFile returned download path, writeFile screenshot/download with wx",
+      "toolContractWitness": "Current mcp__cua_repl tool entry: Use only APIs described in the tool instructions or returned documentation. RETAINED-DECLARATIONS exact saved download/path/chooser/screenshot metadata provides no artifact filesystem I/O/support permission declaration.",
+      "effect": "Required immutable artifact packet and whole-image/data readback remain unqualified. Does not establish global runtime lack of filesystem I/O or actual target failure.",
+      "alternatives": [
+        {
+          "choice": "Freeze exact method unrun and retain private CPU-qualified candidate",
+          "tradeoff": "Preserves tested source/protocol evidence without runtime exposure; real native-reader/rendered-control duties stay open."
+        },
+        {
+          "choice": "Defer new import UI and use existing Open JSON→Save/backup workflows",
+          "tradeoff": "Avoid additional browser/artifact responsibility; accepts preview interruption or full restore."
+        }
+      ],
+      "scopeStop": "No alternate writer/probe/source hunt/URL/observer/capture/fixture repair, retry or renamed successor."
+    }
+  ],
+  "sourceJudgments": [
+    "Vite root establishes sole endpoint; saved HEAD200 availability only, not new fetch/renderer proof.",
+    "Three chosen real JSON downloads avoid Copy clipboard mutation; actual download/path declarations are present.",
+    "Four fixture recipe/one retained entry and fixed observations are concrete but no entry admitted.",
+    "Existing names/descriptions/actions are DOM witnesses; hidden old record values not independently downloaded, rely on unchanged owner and CPU scope.",
+    "20calls/180s dispatch/cleanup/packet limits and root inventory cannot supply unsupported writer authority."
+  ],
+  "retainedQualifications": [
+    "34fixed real-owner CPU cases with fake reader/timer/storage A",
+    "guarded candidate source only"
+  ],
+  "unqualified": [
+    "artifact writer/readback authority on this CUA surface",
+    "actual FileReader/DOM/localStorage/chooser/UI/readability",
+    "actual browser policy outcome",
+    "default promotion",
+    "avatar appearance/fit/performance/AAA",
+    "physical browser/GPU termination"
+  ],
+  "tools": [
+    {
+      "name": "initial",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-ui-method')\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['PLAN.md','METHOD.md','INPUTS.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "6c2d8b",
+      "exit_code": 0,
+      "wall_time_seconds": 7.75e-06,
+      "original_token_count": 4885,
+      "outputBytes": 19537,
+      "outputSHA256": "8c5c772db27fd517482b1871e703a1a9faae5e43a22576ca099f98011ea00eb4",
+      "firstLine": "UTC 2026-10-20T00:27:08.711292+00:00 PID 29931"
+    },
+    {
+      "name": "sources_bindings",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime,json\nr=Path('/Users/robault/GitHub/sugata-avatar');p=r/'docs/evidence/appearance-2026-10-19/saved-look-import-ui-method';print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nb=(r/'vite.config.js').read_bytes();print('\\nFILE vite.config.js',len(b),hashlib.sha256(b).hexdigest())\nfor i,l in enumerate(b.decode().splitlines(),1):print(f'{i}: {l}')\nb=(r/'packages/testbed/src/showcase.js').read_bytes();lines=b.decode().splitlines();print('\\nHOST_PIN',len(b),hashlib.sha256(b).hexdigest())\nfor a,z in [(151,178),(285,320),(358,388)]:\n print('RANGE',a,z)\n for i in range(a,z+1):print(f'{i}: {lines[i-1]}')\nm=json.loads((p/'INPUTS.json').read_bytes())\nfor x in m['pins']:\n b=(r/x['path']).read_bytes();assert len(b)==x['bytes'] and hashlib.sha256(b).hexdigest()==x['sha256'];print('PIN_PASS',x['path'])\nb=(p/'INPUTS.json').read_bytes();print('MANIFEST_SELF',len(b),hashlib.sha256(b).hexdigest())\nPY",
+      "chunk_id": "712763",
+      "exit_code": 0,
+      "wall_time_seconds": 8.208e-06,
+      "original_token_count": 2777,
+      "outputBytes": 11107,
+      "outputSHA256": "09d3429eec333723d4013c443f3eb17db41c02c05e4b2efcb8c00be4c9cedbf3",
+      "firstLine": "UTC 2026-10-20T00:27:22.211951+00:00 PID 30378"
+    },
+    {
+      "name": "declarations",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-ui-method/RETAINED-DECLARATIONS.md');b=p.read_bytes();print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid());print('FILE',p,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode());assert len(b)==2412 and hashlib.sha256(b).hexdigest()=='b8a3bc5d339dc8a32e68356cfea880a9e0f340d37cc13154456c53604b503163'\nPY",
+      "chunk_id": "11d360",
+      "exit_code": 0,
+      "wall_time_seconds": 1.0292e-05,
+      "original_token_count": 669,
+      "outputBytes": 2673,
+      "outputSHA256": "69b2b4a3147ce171d2037b58953539f6ce3df5df0935c8a372fe011a2a173967",
+      "firstLine": "UTC 2026-10-20T00:29:35.068533+00:00 PID 34825"
+    },
+    {
+      "name": "seal_compare",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-ui-method');root=Path('/Users/robault/GitHub/sugata-avatar');print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nlines=(root/'packages/testbed/src/showcase.js').read_text().splitlines();doc=(p/'RETAINED-DECLARATIONS.md').read_text();n=0\nfor l in doc.splitlines():\n if ':' not in l:continue\n prefix,t=l.split(':',1)\n if prefix.isdigit() and int(prefix) in [108,297,303,311,366,373]:assert lines[int(prefix)-1]==t.removeprefix(' ');n+=1\nassert n==6;print('EXACT_EXISTING_HOST_LOCATORS',n)\nprint('INDEPENDENT_SEAL',json.dumps({'decision':'B_METHOD_UNRUN_UNQUALIFIED_ARTIFACT_WRITER','reason':'METHOD explicitly requires fs import/readFile/writeFile in CUA runtime, but selected tool contract permits documented APIs only and retained declarations settle download/path without a permitted artifact filesystem writer/readback declaration. Local source usability and availability do not close this required ownership gap.','scope':'Close exact UI method unchanged/unrun; retain34-case CPU A and guarded candidate, no default or appearance promotion.','alternatives':['Freeze exact method unrun and retain private CPU-qualified candidate for its source/protocol evidence; no native-read/rendered-control claim.','Defer new import UI and use existing Open JSON→Save workflow, avoiding this extra browser/artifact duty at cost of preview interruption; no alternative writer/transport or current repair.'],'independence':'Critic raised missing retained declarations before root supplemental response. Root communicated writer gap before this seal; final reason derives from literal METHOD and tool contract, before reading either sealed root opinion. No blind-before-all-root-messages claim.','pending_edits':False}))\nfor name in ['ROOT-FIRST.json','ROOT-WRITER-FIRST.json']:\n b=(p/name).read_bytes();print('ROOT_OPINION',name,len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "07fb67",
+      "exit_code": 0,
+      "wall_time_seconds": 7e-06,
+      "original_token_count": 1093,
+      "outputBytes": 4370,
+      "outputSHA256": "d789f3b806def13b625ef74273e6d43e10d3014d6da841335db6e333a167497e",
+      "firstLine": "UTC 2026-10-20T00:29:56.838391+00:00 PID 35523"
+    }
+  ],
+  "errors": [],
+  "pending_edits": false,
+  "noActions": "Only exclusive review pair written. No source/fixture/test/import/evaluation/browser/API/head refresh/chooser/artifact fs probe/screenshot/network/native/GPU/storage/canonical action.",
+  "receiptPreparedUTC": "2026-10-20T00:30:48.840402+00:00"
+}
