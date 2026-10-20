@@ -1,4 +1,20 @@
-# Open-lacing boot — first invocation admitted, not yet run
+# Open-lacing boot — isolated construction study retained
+
+## Final limited retention (2026-10-20T08:32:43.697203+00:00)
+
+[Illustrated comparison](review.html) and [editable artist handoff](ARTIST-HANDOFF.md) preserve exact firstpacket/source and original paired baseline. Independent IMAGE-REVIEW9218B/529b0978...92924 sealed08:26:43UTC/PID23423 after actualwholeimage, rootwholeea345b then3f84b2/PID23980/08:30:36UTC verifies9fresh pins/immutable620fc7ac...e7357/order. RootinitialB remains exact: conspicuous projecting polygonal laces/faceted rims prompted a finishing concern. Root reconciles fixed brief and accepts ONLYconstructionreadability; no naturalcloth/physicalfastener/fit/leather/rig/motion/runtime/AAA or finishedlook credit. No source/image/threshold change followed the disagreement. See IMAGE-ROOT-INITIAL and IMAGE-ROOT-RESULT for exact witness/alternatives/reconsideration.
+
+Delivery checkf059d9/08:31:33UTC verifies12staticlinks/HTTP200 exact3828Bpage75a5d6e6...61adf, outputprovenance/counts, original62548Bbaseline plus mainboard/checklist/roadmap exact unchanged. Pagecaption/linkmarkup only, no newbrowserpage/image/capture or layoutclaim. OBJreferencevisibilitylimit explicit. Fullsource/runtime/actualoutputhashes in SOURCE-LOCK, source/imageadmissions, ROOT-COLLECTION and DELIVERY-CHECK.
+
+This constructor/observation closes afterONE48d2a4 run. No secondinvocation/guardcycle/route/curve/offset/value/material/renderer/camera/observer/crop/retake repair follows. All originals/accepted/default/frozen/ignored/October10/unrelated assets,23scoped/10broadmilestones/fullroadmap/userclosures/material-volumeHOLD remain. Current10minute recovery ACTIVE observed08:04:35UTC, reviewserverHTTP200 nowretained; no ownedtarget/pendingcriticedit. Next separate bounded nomination: Ari expression-intent artistpair worth only, from its PLAN/currenthandoff/declaredclosureselection/originalimage; no imagegeneration or runtimecuework admitted. Human steering wins.
+
+## Historical first build and admission receipts
+
+Single actual first invocation48d2a4 at08:20:21UTC finished0 during the initial1000ms yielded terminal call, no live sessionID. Wrapper22449/Nodegroup22450,1.102208625s/165560320B peakcombinedRSS, noevents, child0/reapedtrue. Rootwholecollectioncf0cd4/PID22524/08:20:52UTC confirms both namedPID rows absent, hashes6actualfiles1819629B and reconciles wrapper/child records. ROOT-COLLECTION.json owns exact files/fullhashes/limits. No external signal, second invocation, syntax trial, native/GPU/browsercapture or retake. Original frozenwrapper remains unrun.
+
+Declared finite checks pass:18parts3894V7812T,12ports/12directionalvisits, upperEuler-22; minimumlace/obstacle distance.00607308 versus required.005,34939newtrianglepairs tested with1164declaredportwallcontactpair exemptions. These predicates retain every stated fit/contact/embeddedness/manufacturing limit and do not qualify appearance. Root whole-viewed the exact first1440x1040PNG332150B/e317e86f...56f68 atoriginaldetail; separate independent actual-image review pending. Candidate remains isolated, no broadmilestone.
+
+The following admission receipt predates that one actual build; no pending invocation remains:
 
 Independent/rootA for the exact first bound workload only, with root live-session ownership. Whole handoff16466Bc8e5a8, root whole wrapper8478d9; fresh root verification2026-10-20T08:20:06.921860+00:00/PID22392 checks14review/6runtimepins, full geometry/tools copy equality, canonical506c5e8d...5709c and initial-before-independent order. Exact fuse/output absent and no live matching owned target. Source/rootresult owns full command/preflight. No new geometry has executed and no image/data/fit/performance/AAA credit exists.
 

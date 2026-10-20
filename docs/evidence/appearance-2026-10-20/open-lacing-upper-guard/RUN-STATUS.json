@@ -1,0 +1,55 @@
+{
+  "UTC": "2026-10-20T08:20:22.176537+00:00",
+  "wrapperPID": 22449,
+  "state": "collected-unqualified",
+  "exit": 0,
+  "limits": {
+    "main_seconds": 50,
+    "total_seconds": 60,
+    "rss_bytes": 536870912,
+    "output_bytes": 16777216,
+    "file_bytes": 8388608,
+    "log_bytes": 262144
+  },
+  "elapsedSeconds": 1.1022086250013672,
+  "peakCombinedRSSBytes": 165560320,
+  "childIdentity": {
+    "pid": 22450,
+    "processGroup": 22450,
+    "expectedExecutable": "/Users/robault/.brv-cli/bin/node",
+    "expectedArgument": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/open-lacing-upper-guard/build.mjs",
+    "bornUTC": "2026-10-20T08:20:21.117667+00:00",
+    "parentWrapperPID": 22449
+  },
+  "childExit": 0,
+  "reaped": true,
+  "events": [],
+  "files": [
+    {
+      "name": "mesh.json",
+      "bytes": 1196607
+    },
+    {
+      "name": "materials.mtl",
+      "bytes": 1615
+    },
+    {
+      "name": "CHECKS.json",
+      "bytes": 8435
+    },
+    {
+      "name": "boot.obj",
+      "bytes": 279920
+    },
+    {
+      "name": "first-packet.png",
+      "bytes": 332150
+    },
+    {
+      "name": "STATUS.json",
+      "bytes": 902
+    }
+  ],
+  "sourceLockSHA256": "1d81a38b9733a0facb0fdf2c9ad26bbbdfe3748969082378d004ba4aa8a0328e",
+  "limitsNote": "Partial/output images always unqualified. Root must collect actual tool session, verify exact output and whole-view first image with critic. Unknown cleanup/status is failure, not success."
+}

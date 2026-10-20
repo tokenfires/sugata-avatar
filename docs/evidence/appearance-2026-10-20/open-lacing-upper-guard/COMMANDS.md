@@ -1,4 +1,12 @@
-# Exact command and input receipt — no invocation yet
+# Exact command and input receipt
+
+## Actual first invocation and collection
+
+The exact proposed command below ran ONCE in terminal job48d2a4 at08:20:21UTC, finished0 in initial yielded call (no running session returned). Wrapper22449/childgroup22450, elapsed1.102208625s/165560320B combinedpeakRSS. Rootcollectioncf0cd4/PID22524/08:20:52UTC whole-reads actual RUN/childSTATUS/CHECKS, reconciles6files1819629B/fullSHA, confirms no namedPIDrows. No second call, rootsignal, live target or retake. ROOT-COLLECTION.json is authoritative exact result; actual firstPNG remains unqualified pending independent/root image review.
+
+Prelaunch firstmetadataread3e4dc5 failedUTF8 decode on foreign process metadata, no admission or target; sameps request with replacementdecodeab4135 preserved exactASCII ownedidentities and verified14review/6runtimepins/equality/absence/no livetarget beforecommit522221da. This was no source/observer/provider/value/camera change or workload failure.
+
+## Historical inert preparation and proposed command
 
 Inert worth plan/rootinitial17244308:08:58UTC; independent WORTH5278B whole root4e55e2, verified0b191b/PID21034/08:13:12UTC all4pins/canonical1e3d872f...718d/order. One20minute completion allowed until08:33:12UTC, original preparation09:00UTC; no run implied. Previous sourcepreparation/fullsource refusal committed5b230218, preserved byte-for-byte.
 

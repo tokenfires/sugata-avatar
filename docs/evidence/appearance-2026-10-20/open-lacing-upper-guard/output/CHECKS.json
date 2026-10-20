@@ -1,0 +1,299 @@
+{
+  "UTC": "2026-10-20T08:20:21.459Z",
+  "retained": [
+    {
+      "id": "left.nominal",
+      "vertices": 258,
+      "faces": 512,
+      "sourceSHA256": "798002bbe3c6e05d90a156d99403ff22066c0c38a8150410ebb47fde7713a0c5"
+    },
+    {
+      "id": "left.sole",
+      "vertices": 66,
+      "faces": 128,
+      "sourceSHA256": "798002bbe3c6e05d90a156d99403ff22066c0c38a8150410ebb47fde7713a0c5"
+    },
+    {
+      "id": "left.heel",
+      "vertices": 66,
+      "faces": 128,
+      "sourceSHA256": "798002bbe3c6e05d90a156d99403ff22066c0c38a8150410ebb47fde7713a0c5"
+    }
+  ],
+  "integrity": {
+    "pass": true,
+    "failures": [],
+    "parts": [
+      {
+        "id": "left.nominal",
+        "vertices": 258,
+        "faces": 512,
+        "edges": 768,
+        "euler": 2,
+        "badEdges": 0,
+        "badFans": 0,
+        "isolated": 0,
+        "faceComponentsConnected": true,
+        "minArea": 0.0005102257563497777,
+        "signedVolume": 0.39172416667654064
+      },
+      {
+        "id": "left.sole",
+        "vertices": 66,
+        "faces": 128,
+        "edges": 192,
+        "euler": 2,
+        "badEdges": 0,
+        "badFans": 0,
+        "isolated": 0,
+        "faceComponentsConnected": true,
+        "minArea": 0.0015399969487571335,
+        "signedVolume": 0.08294138533722056
+      },
+      {
+        "id": "left.heel",
+        "vertices": 66,
+        "faces": 128,
+        "edges": 192,
+        "euler": 2,
+        "badEdges": 0,
+        "badFans": 0,
+        "isolated": 0,
+        "faceComponentsConnected": true,
+        "minArea": 0.0020778797086322682,
+        "signedVolume": 0.015453494506264117
+      },
+      {
+        "id": "new.upper",
+        "vertices": 1430,
+        "faces": 2904,
+        "edges": 4356,
+        "euler": -22,
+        "badEdges": 0,
+        "badFans": 0,
+        "isolated": 0,
+        "faceComponentsConnected": true,
+        "minArea": 0.00024216834809201194,
+        "signedVolume": 0.1194643086866852
+      },
+      {
+        "id": "new.eyelet.port.6.3",
+        "vertices": 48,
+        "faces": 96,
+        "edges": 144,
+        "euler": 0,
+        "badEdges": 0,
+        "badFans": 0,
+        "isolated": 0,
+        "faceComponentsConnected": true,
+        "minArea": 0.00018166865258225143,
+        "signedVolume": 0.00020648595801973905
+      },
+      {
+        "id": "new.eyelet.port.9.3",
+        "vertices": 48,
+        "faces": 96,
+        "edges": 144,
+        "euler": 0,
+        "badEdges": 0,
+        "badFans": 0,
+        "isolated": 0,
+        "faceComponentsConnected": true,
+        "minArea": 0.00020304797560002048,
+        "signedVolume": 0.0002068365075913559
+      },
+      {
+        "id": "new.eyelet.port.6.4",
+        "vertices": 48,
+        "faces": 96,
+        "edges": 144,
+        "euler": 0,
+        "badEdges": 0,
+        "badFans": 0,
+        "isolated": 0,
+        "faceComponentsConnected": true,
+        "minArea": 0.00009482001192468462,
+        "signedVolume": 0.00016098698745342744
+      },
+      {
+        "id": "new.eyelet.port.9.4",
+        "vertices": 48,
+        "faces": 96,
+        "edges": 144,
+        "euler": 0,
+        "badEdges": 0,
+        "badFans": 0,
+        "isolated": 0,
+        "faceComponentsConnected": true,
+        "minArea": 0.00011566738320375519,
+        "signedVolume": 0.00016130549586731465
+      },
+      {
+        "id": "new.eyelet.port.6.5",
+        "vertices": 48,
+        "faces": 96,
+        "edges": 144,
+        "euler": 0,
+        "badEdges": 0,
+        "badFans": 0,
+        "isolated": 0,
+        "faceComponentsConnected": true,
+        "minArea": 0.00010311732317619735,
+        "signedVolume": 0.00011327860224245517
+      },
+      {
+        "id": "new.eyelet.port.9.5",
+        "vertices": 48,
+        "faces": 96,
+        "edges": 144,
+        "euler": 0,
+        "badEdges": 0,
+        "badFans": 0,
+        "isolated": 0,
+        "faceComponentsConnected": true,
+        "minArea": 0.00011789971240350928,
+        "signedVolume": 0.00011341231842773797
+      },
+      {
+        "id": "new.eyelet.port.6.6",
+        "vertices": 48,
+        "faces": 96,
+        "edges": 144,
+        "euler": 0,
+        "badEdges": 0,
+        "badFans": 0,
+        "isolated": 0,
+        "faceComponentsConnected": true,
+        "minArea": 0.00006573440434693676,
+        "signedVolume": 0.00009231012369398836
+      },
+      {
+        "id": "new.eyelet.port.9.6",
+        "vertices": 48,
+        "faces": 96,
+        "edges": 144,
+        "euler": 0,
+        "badEdges": 0,
+        "badFans": 0,
+        "isolated": 0,
+        "faceComponentsConnected": true,
+        "minArea": 0.0000644286466992916,
+        "signedVolume": 0.00009221730515623438
+      },
+      {
+        "id": "new.eyelet.port.6.7",
+        "vertices": 48,
+        "faces": 96,
+        "edges": 144,
+        "euler": 0,
+        "badEdges": 0,
+        "badFans": 0,
+        "isolated": 0,
+        "faceComponentsConnected": true,
+        "minArea": 0.00008339577528567914,
+        "signedVolume": 0.00009261139492783871
+      },
+      {
+        "id": "new.eyelet.port.9.7",
+        "vertices": 48,
+        "faces": 96,
+        "edges": 144,
+        "euler": 0,
+        "badEdges": 0,
+        "badFans": 0,
+        "isolated": 0,
+        "faceComponentsConnected": true,
+        "minArea": 0.00008203847639508056,
+        "signedVolume": 0.00009260467613038522
+      },
+      {
+        "id": "new.eyelet.port.6.8",
+        "vertices": 48,
+        "faces": 96,
+        "edges": 144,
+        "euler": 0,
+        "badEdges": 0,
+        "badFans": 0,
+        "isolated": 0,
+        "faceComponentsConnected": true,
+        "minArea": 0.00008468593954327716,
+        "signedVolume": 0.00009356343469814307
+      },
+      {
+        "id": "new.eyelet.port.9.8",
+        "vertices": 48,
+        "faces": 96,
+        "edges": 144,
+        "euler": 0,
+        "badEdges": 0,
+        "badFans": 0,
+        "isolated": 0,
+        "faceComponentsConnected": true,
+        "minArea": 0.00008229167910498003,
+        "signedVolume": 0.00009354951391976581
+      },
+      {
+        "id": "new.tongue",
+        "vertices": 48,
+        "faces": 92,
+        "edges": 138,
+        "euler": 2,
+        "badEdges": 0,
+        "badFans": 0,
+        "isolated": 0,
+        "faceComponentsConnected": true,
+        "minArea": 0.00009000000000000009,
+        "signedVolume": 0.00182249999999999
+      },
+      {
+        "id": "new.lace",
+        "vertices": 1450,
+        "faces": 2896,
+        "edges": 4344,
+        "euler": 2,
+        "badEdges": 0,
+        "badFans": 0,
+        "isolated": 0,
+        "faceComponentsConnected": true,
+        "minArea": 0.000007159456159513678,
+        "signedVolume": 0.0003235695458464705
+      }
+    ],
+    "limits": "Closed opposed edges, connected cyclic vertex links, nondegenerate faces and positive orientation only; not general all-surface embeddedness or fit."
+  },
+  "laceCheck": {
+    "pass": true,
+    "minimumObstacleDistance": 0.006073082756586778,
+    "requiredObstacleDistance": 0.004999999999999999,
+    "witness": {
+      "segment": 39,
+      "part": "new.tongue",
+      "face": 4841
+    },
+    "comparisons": 713,
+    "minimumNonlocalRouteDistance": 0.04324887576626772,
+    "selfPair": [
+      89,
+      121
+    ],
+    "requiredNonlocalDistance": 0.0095,
+    "limits": "Exact straight-segment/triangle capsule and separated route segment distances with floating arithmetic; adjacent three segments excluded from self-distance, local bend tube embeddedness and all non-lace inter-part relationships unproved. No physical-fastener/fit proof."
+  },
+  "crossings": {
+    "pass": true,
+    "tested": 34939,
+    "declaredPortWallContactPairsExempt": 1164,
+    "witnesses": [],
+    "limits": "Proper triangle-interior crossings and coplanar positive-area overlap on all new parts. Shared-index same-part neighbors and exact declared metal-barrel/upper-port-wall contact pairs excluded. General tangent/coincident-boundary clearance and retained sole/heel/reference intersection/fit not proved."
+  },
+  "partCount": 18,
+  "vertices": 3894,
+  "triangles": 7812,
+  "ports": 12,
+  "visits": 12,
+  "limits": [
+    "Original unitless artist source, not an anatomical or continuous fit model",
+    "Finite lace capsules vs visible material/hardware/tongue and route self-separation only; no complete all-surface intersection/manufacturing proof",
+    "No finished leather/strength/secure knot/rig/motion/AAA qualification"
+  ]
+}
