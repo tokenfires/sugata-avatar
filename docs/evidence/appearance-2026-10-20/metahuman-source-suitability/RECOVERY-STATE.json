@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-20T10:58:56.205061+00:00",
+  "pid": 53904,
+  "actualReadbackChunk": "b69816",
+  "automationAPIView": "Rendered existing automation card, no error, no mutation",
+  "savedAutomation": {
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "bytes": 3344,
+    "sha256": "9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a"
+  },
+  "futureDeliveryUntested": true,
+  "reviewServerRetained": true,
+  "exactHTTP200": [
+    "docs/CURRENT-DESIGN-GATES.md",
+    "docs/PROJECT-CHECKLIST.md",
+    "docs/evidence/appearance-2026-10-02/front-design/guide-target-review.html"
+  ],
+  "noOwnedJobOrCapture": true,
+  "allCriticsCollected": true
+}

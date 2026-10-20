@@ -1,0 +1,51 @@
+{
+  "utc": "2026-10-20T10:50:41.290689+00:00",
+  "pid": 52725,
+  "verdict": "DEFER_NAMED_SOURCE_ADOPTION",
+  "completeTwoSourceBodiesRead": true,
+  "sourceBufferPaths": [
+    "/tmp/sugata-metahuman-source-01a158ea-cd89-720a-aff5-19a8d84661b0/README.returned.md",
+    "/tmp/sugata-metahuman-source-01a158ea-cd89-720a-aff5-19a8d84661b0/LICENSE.returned.md"
+  ],
+  "firstReadScope": "Complete21432B returnedofficialrepo page, livefetchrequested/basic/status200, noimage/codeexecution.",
+  "secondReadScope": "Complete10207B returnedexactdirectLICENSEdocument, livefetchrequested/basic/status200.",
+  "findings": [
+    {
+      "id": "F1",
+      "witness": "README ImportantNote/ExternalSoftwareDependencies/EnvironmentSetup and ExampleDNAfiles sections in complete unchangedbuffer; not localprobe/samplecontents.",
+      "explanation": "Namedversion/toolchain requirements do not establish a ready Mac source workflow under this packet; compilation and actual data/interface ownership remain unexercised. Macimpossibility/localtoolabsence is not inferred.",
+      "alternatives": [
+        {
+          "action": "Selected: defer actualsource use and retain exact documentedcandidate/limits",
+          "tradeoff": "Avoids assumingcompatibility; supplies no new editablehead now."
+        },
+        {
+          "action": "Later separately assess a fully scoped licensedsource/toolchain workload",
+          "tradeoff": "Could establish actualcompatibility, but has broader build/data/source obligations and is not admitted here."
+        }
+      ]
+    },
+    {
+      "id": "F2",
+      "witness": "LICENSE sections1and2 in completeunchangedsecondbuffer; externalECLA hyperlinknotfollowed.",
+      "explanation": "Publishedrepo conditions do not themselves establish permission for this browser runtime; no superseding-terms or universalcurrentMetaHumanrights conclusion.",
+      "alternatives": [
+        {
+          "action": "Selected: defer adoption with permissions unresolved",
+          "tradeoff": "Keeps currentruntime/source boundary; no vendor asset imported."
+        },
+        {
+          "action": "Require explicit applicablepermissions and actualasset scope before any later useproposal",
+          "tradeoff": "May settle future suitability, but requires new evidence and no licenseacceptance/engine switch/sourcehunt is authorized now."
+        }
+      ]
+    }
+  ],
+  "noThirdPageOrFallback": true,
+  "optionalMediaRetired": true,
+  "noAssetCodeBinaryModelDownloadOrBuildOrLocalProbe": true,
+  "independentCurrentResultOpinionUnread": true,
+  "reportedPageCreditsTotal": 2,
+  "noCapacityPurchaseOrResetRedemption": true,
+  "materialVolume": "HOLD"
+}

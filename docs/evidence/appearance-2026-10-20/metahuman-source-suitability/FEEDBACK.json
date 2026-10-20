@@ -1,0 +1,27 @@
+{
+  "recordedUTC": "2026-10-20T10:52:40.432209+00:00",
+  "pid": 53009,
+  "results": [
+    {
+      "jobId": "01a158ea-cd89-720a-aff5-19a8d84661b0",
+      "endpoint": "scrape",
+      "rating": "good",
+      "success": false,
+      "status": 409,
+      "feedbackErrorCode": "FEEDBACK_WINDOW_EXPIRED",
+      "retryable": false,
+      "retried": false
+    },
+    {
+      "jobId": "01a158ed-5b3d-715d-8528-cd93e9c12f56",
+      "endpoint": "scrape",
+      "rating": "good",
+      "success": false,
+      "status": 409,
+      "feedbackErrorCode": "FEEDBACK_WINDOW_EXPIRED",
+      "retryable": false,
+      "retried": false
+    }
+  ],
+  "note": "Provider120secondfeedbackwindowelapsed; no retry or refund claimed. Retrievals succeeded; totalreportedcredits2, no resetredemption/purchase."
+}
