@@ -1,0 +1,187 @@
+{
+  "schema": 1,
+  "worthDecision": {
+    "schema": 1,
+    "sealedUTC": "2026-10-20T06:07:50.521864+00:00",
+    "sealPID": 99259,
+    "verdict": "B",
+    "completeInertCadenceProposalWorthwhileNow": false,
+    "basis": "The callback metric differs from the retained stepped pilot, but no concrete live responsiveness issue or current device/budget decision is witnessed to trigger its conditional next action. Preparation now is marginal diagnostic infrastructure ahead of the named character/outfit work and representative-build performance order.",
+    "noCurrentRootOpinionReadBeforeSeal": true,
+    "findingIds": [
+      "F1"
+    ],
+    "noObservedRuntimeFaultOrSafetyFailureClaim": true,
+    "noUniversalPerformanceOrInstrumentationBan": true,
+    "next": "Retain the existing pilot and close this nomination before sampler/source/UI preparation; no renamed profiler/sampler/observer/native/quality-toggle successor."
+  },
+  "worthDecisionCanonicalSha256": "5beff0c5092739e89ca1d5e04e196a23909c09a18c94f190c77fa2c1380a99ea",
+  "independentReviewPrefix": {
+    "bytes": 5939,
+    "sha256": "754cc6e43f2f75690928d518e2d04559b80e9e745813cebc550aeb95255b821b"
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 9124,
+      "sha256": "df08da32f45a07a5503cd184418d2e2e7194f96a4bbdfecf32e513c96dbbe527"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/package.json",
+      "bytes": 789,
+      "sha256": "d4d274d275043e7e3c6ec79e2a3f2ebeb861ac5073251df9867b8d882f7b12c8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.html",
+      "bytes": 23443,
+      "sha256": "07450126f76c9f3c73257b10a55a0d5fa2db2211335783213365d70f4314ce3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/review-performance/PILOT-RESULT.md",
+      "bytes": 5388,
+      "sha256": "81cee685b3751087f80a23f3ebb09eeae753c3b060ed862ba690bb46a9953834"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/frame-cadence-review-worth/PLAN.md",
+      "bytes": 5204,
+      "sha256": "7a7a655502944ae2b37fe68f6de64afc758c7cb07857cd6d9547c4e99a683e3b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/frame-cadence-review-worth/READS.json",
+      "bytes": 67752,
+      "sha256": "959cc4da83653b37662c12759f19cb0d24f5e186a05c948fc9e0bc628fc983f7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/frame-cadence-review-worth/INPUTS.json",
+      "bytes": 1726,
+      "sha256": "cbc243cda8308ee159d99fc4288c7176f777cb498d832b9d3afcf055f03e193d"
+    }
+  ],
+  "coverage": {
+    "wholeCurrentTexts": [
+      "PLAN.md",
+      "INPUTS.json",
+      "PRODUCT-ROADMAP.md",
+      "package.json",
+      "packages/testbed/src/showcase.html",
+      "PILOT-RESULT.md"
+    ],
+    "READS": "Complete logical coverage: all metadata/commands/small outputs read; two large outputs matched losslessly to full separately read roadmap/HTML, including HTML prefix/suffix. Pilot body independently matched current pin. No clipped output reused as whole.",
+    "sameByteChecklistReuse": {
+      "job": "ae2e80",
+      "pid": 96553,
+      "utc": "2026-10-20T05:50:59.194678+00:00",
+      "bytes": 9124,
+      "sha256": "df08da32f45a07a5503cd184418d2e2e7194f96a4bbdfecf32e513c96dbbe527"
+    },
+    "images": 0,
+    "newSourceTraversalOrSearchOrInventory": 0,
+    "programBrowserNativeGPUProbe": 0,
+    "rootOpinionBeforeSeal": false
+  },
+  "operations": [
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,os,datetime\nb=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/frame-cadence-review-worth');print('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor n in ['PLAN.md','INPUTS.json']:\n v=(b/n).read_bytes();print('WHOLE',n,len(v),hashlib.sha256(v).hexdigest());print(v.decode())\nv=(b/'READS.json').read_bytes();q=json.loads(v);print('READS_SHAPE',len(v),hashlib.sha256(v).hexdigest())\nfor k,x in q.items():\n if isinstance(x,list):print('FIELD',k,'items',len(x),[(i,list(z) if isinstance(z,dict) else type(z).__name__) for i,z in enumerate(x)])\n else:print('FIELD',k,json.dumps(x,ensure_ascii=False))\nPY",
+      "chunk": "a27c34",
+      "exit_code": 0,
+      "pid": 99008,
+      "utc": "2026-10-20T06:05:47.456118+00:00",
+      "outputBytes": 14256,
+      "outputSha256": "47fc3cf9f468dc91d0f139940799b78658c8b7771605df8d4b0889331265f567"
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\nb=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/frame-cadence-review-worth');m=json.loads((b/'INPUTS.json').read_text());q=json.loads((b/'READS.json').read_text());sources={}\nfor x in m['pins']:\n p=Path(x['path']);v=p.read_bytes();assert len(v)==x['bytes'] and hashlib.sha256(v).hexdigest()==x['sha256'];sources[str(p)]=v\nprint('PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'ALL_7_PINS_EXACT')\ndef walk(x,path='$'):\n if isinstance(x,dict):\n  y={}\n  for k,v in x.items():\n   if k=='output' and isinstance(v,str) and len(v)>10000:\n    matches=[p for p,z in sources.items() if p.endswith(('/PRODUCT-ROADMAP.md','/showcase.html')) and z.decode() in v]\n    assert len(matches)==1,(path,len(v));y[k]={'duplicateWholeSourceBody':matches[0],'outputChars':len(v),'outputSHA256':hashlib.sha256(v.encode()).hexdigest(),'wholeBodyWillBeReadSeparately':True}\n   else:y[k]=walk(v,path+'.'+k)\n  return y\n if isinstance(x,list):return [walk(z,path+'['+str(i)+']') for i,z in enumerate(x)]\n return x\nprint(json.dumps(walk(q),indent=2,ensure_ascii=False))\nfor p,v in sources.items():\n if p.endswith('/package.json'):\n  print('WHOLE_ROOT_PACKAGE',len(v),hashlib.sha256(v).hexdigest());print(v.decode())\nPY",
+      "chunk": "4db183",
+      "exit_code": 0,
+      "pid": 99107,
+      "utc": "2026-10-20T06:06:19.773611+00:00",
+      "outputBytes": 12063,
+      "outputSha256": "be97248511e6be0703e65f4ea4d4a49dccf4917ac5f567664fda9024beee0b23"
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md');v=p.read_bytes();print('WHOLE_NUMBERED','PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'BYTES',len(v),'SHA256',hashlib.sha256(v).hexdigest())\nfor i,s in enumerate(v.decode().splitlines(),1):print(str(i)+': '+s)\nPY",
+      "chunk": "d2285e",
+      "exit_code": 0,
+      "pid": 99133,
+      "utc": "2026-10-20T06:06:34.924560+00:00",
+      "outputBytes": 33519,
+      "outputSha256": "23061fad22550bcbfea50ffa7b2af5ef85ef99b6bd11f83ea356fee23f38a1ef"
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,os,datetime\nb=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/frame-cadence-review-worth');p=Path('/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.html');v=p.read_bytes();q=json.loads((b/'READS.json').read_text());saved=q['pathRecovery'][2]['result']['output'];body=v.decode();assert body in saved;pre,post=saved.split(body,1)\nprint('WHOLE_NUMBERED','PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'BYTES',len(v),'SHA256',hashlib.sha256(v).hexdigest());print('READS_HTML_DUPLICATE_PREFIX',repr(pre),'SUFFIX',repr(post))\nfor i,s in enumerate(body.splitlines(),1):print(str(i)+': '+s)\npilot=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-09-26/review-performance/PILOT-RESULT.md').read_text();assert pilot in q['priorPilot']['result']['output'];print('WHOLE_PILOT_BODY_ALREADY_READ_IN_READS_EXACT',hashlib.sha256(pilot.encode()).hexdigest())\nPY",
+      "chunk": "f483c0",
+      "exit_code": 0,
+      "pid": 99150,
+      "utc": "2026-10-20T06:06:45.281405+00:00",
+      "outputBytes": 24241,
+      "outputSha256": "6fc868051edb318a056f7058ed836ab1586fd1f521d7b4de60cea88705e9bed9"
+    }
+  ],
+  "errors": {
+    "own": [],
+    "retainedPrior": "2c573a path assertion before text; exact metadata/filename-only recovery before worth seals, not target failure."
+  },
+  "limits": {
+    "hardStopUTC": "2026-10-20T06:20:29.283618+00:00",
+    "writes": [
+      "WORTH.md",
+      "CRITIC-RECEIPT.json"
+    ],
+    "leafMaxFiles": 8,
+    "leafMaxBytes": 393216,
+    "noSamplerSourceOrUIAdmission": true,
+    "noRenamedProfilerSamplerObserverNativeQualityToggleSuccessor": true,
+    "allOldClosuresHoldsDefaultAssetsAnd23_10Preserved": true
+  },
+  "collection": {
+    "utc": "2026-10-20T06:07:50.521864+00:00",
+    "pid": 99259,
+    "verifiedBindings": 8
+  },
+  "rootComparison": {
+    "status": "complete after both durable independent seals",
+    "input": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/frame-cadence-review-worth/ROOT-FIRST.json",
+      "bytes": 2449,
+      "sha256": "1ccc9c2dfcbf68e9eb74f6fb6f1524a3ab6b0380ac5a9780fe05a431017e17f0"
+    },
+    "rootSealUTC": "2026-10-20T06:05:13.308121+00:00",
+    "rootVerdict": "B",
+    "agreement": "No concrete live responsiveness or representative-budget consumer now; cadence differs from stepped pilot but is conditional, not automatic follow-up. Value/priority refusal, no runtime/platform/appearance fault or universal measurement ban.",
+    "independentDecisionAndPrefixUnchanged": true,
+    "rootReadCommand": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/frame-cadence-review-worth/ROOT-FIRST.json');v=p.read_bytes();print('WHOLE','PID',os.getpid(),'UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'BYTES',len(v),'SHA256',hashlib.sha256(v).hexdigest());print(v.decode())\nPY",
+    "rootReadJob": {
+      "chunk": "a8cc65",
+      "exit_code": 0,
+      "pid": 99311,
+      "utc": "2026-10-20T06:08:06.969438+00:00"
+    },
+    "independentSealJob": {
+      "chunk": "aa798c",
+      "exit_code": 0,
+      "pid": 99259,
+      "sealedUTC": "2026-10-20T06:07:50.521864+00:00",
+      "bothDurableUTC": "2026-10-20T06:07:50.522687+00:00"
+    }
+  },
+  "pending_edits": false,
+  "reviewBinding": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/frame-cadence-review-worth/WORTH.md",
+    "bytes": 6756,
+    "sha256": "dcb81b8dde819005308d061de782d7ce25b50f74e45c8a8aebf3c2826c718915"
+  },
+  "finalCollection": {
+    "utc": "2026-10-20T06:08:30.664872+00:00",
+    "pid": 99389,
+    "verifiedBindings": 9,
+    "allPinsExact": true,
+    "decisionCanonicalSha256": "5beff0c5092739e89ca1d5e04e196a23909c09a18c94f190c77fa2c1380a99ea",
+    "independentPrefixExact": true,
+    "pending_edits": false
+  }
+}
