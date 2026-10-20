@@ -1,0 +1,61 @@
+{
+  "schema": "mara-surprise-documentary-delivery-inputs-v1",
+  "pins": [
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8469,
+      "sha256": "51eff8f457e413fe78449f1273d53a2ae996b0f0f4482d0f6283c016ef533ae3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/first.png",
+      "bytes": 2752047,
+      "sha256": "b8ddff7d0a33a4bb441af620a6da31ee86626fbe840a2ad804f82babbdff9ade"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/ROOT-IMAGE.json",
+      "bytes": 66348,
+      "sha256": "97ae914e6f2df6aee20735aee1556322237afb855e99f9628e01c2a325542798"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/IMAGE-REVIEW.md",
+      "bytes": 4428,
+      "sha256": "bfba0eb8cb7f7260dbc0da2408837a5a0db24e0fbbdca76aa031ed12b786317e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/CRITIC-IMAGE-RECEIPT.json",
+      "bytes": 21195,
+      "sha256": "8017002047d4f438d75e058f603b948cc54462df9e81bc80d402f0a3f6e444d8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/DELIVERY-PLAN.md",
+      "bytes": 2152,
+      "sha256": "a29bb3ae431dc13eb2d946492b3228b230f74eaa9df360ca0008b49fc2149009"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/BASELINE-PROJECT-CHECKLIST.md",
+      "bytes": 8469,
+      "sha256": "51eff8f457e413fe78449f1273d53a2ae996b0f0f4482d0f6283c016ef533ae3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/PROJECT-CHECKLIST.proposed.md",
+      "bytes": 8644,
+      "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/ARTIST-HANDOFF.md",
+      "bytes": 1891,
+      "sha256": "71d2ce836dba3de48370df689463c17a12c8686c667a0b0a706972447e75f8c1"
+    }
+  ],
+  "rootFirstPin": {
+    "path": "docs/evidence/appearance-2026-10-19/mara-surprise/ROOT-DELIVERY-FIRST.json",
+    "bytes": 3253,
+    "sha256": "cff8e62ed4227a8c7481dbf4ab474435960602031d07ea008c5e3b1cf8e1a490"
+  },
+  "packetCountClarification": "This opinion-free manifest adds one preparation file not counted in the initial projection35. Actual33now + criticpair2 + finalroot1 =36, within unchanged36file/30MiB cap. No additional artifact or target admitted."
+}

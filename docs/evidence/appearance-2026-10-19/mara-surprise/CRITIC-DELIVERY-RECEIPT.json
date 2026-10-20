@@ -1,0 +1,240 @@
+{
+  "schema": "mara-surprise-independent-documentary-delivery-v1",
+  "collectionUTC": "2026-10-20T01:21:11.050968+00:00",
+  "collectionPID": 33887,
+  "verdict": "A_DOCUMENTARY_DELIVERY_ONLY",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8469,
+      "sha256": "51eff8f457e413fe78449f1273d53a2ae996b0f0f4482d0f6283c016ef533ae3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/first.png",
+      "bytes": 2752047,
+      "sha256": "b8ddff7d0a33a4bb441af620a6da31ee86626fbe840a2ad804f82babbdff9ade"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/ROOT-IMAGE.json",
+      "bytes": 66348,
+      "sha256": "97ae914e6f2df6aee20735aee1556322237afb855e99f9628e01c2a325542798"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/IMAGE-REVIEW.md",
+      "bytes": 4428,
+      "sha256": "bfba0eb8cb7f7260dbc0da2408837a5a0db24e0fbbdca76aa031ed12b786317e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/CRITIC-IMAGE-RECEIPT.json",
+      "bytes": 21195,
+      "sha256": "8017002047d4f438d75e058f603b948cc54462df9e81bc80d402f0a3f6e444d8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/DELIVERY-PLAN.md",
+      "bytes": 2152,
+      "sha256": "a29bb3ae431dc13eb2d946492b3228b230f74eaa9df360ca0008b49fc2149009"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/BASELINE-PROJECT-CHECKLIST.md",
+      "bytes": 8469,
+      "sha256": "51eff8f457e413fe78449f1273d53a2ae996b0f0f4482d0f6283c016ef533ae3"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/PROJECT-CHECKLIST.proposed.md",
+      "bytes": 8644,
+      "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/ARTIST-HANDOFF.md",
+      "bytes": 1891,
+      "sha256": "71d2ce836dba3de48370df689463c17a12c8686c667a0b0a706972447e75f8c1"
+    }
+  ],
+  "manifest": {
+    "path": "docs/evidence/appearance-2026-10-19/mara-surprise/DELIVERY-INPUTS.json",
+    "bytes": 2563,
+    "sha256": "d4d4fa72fe18df9beabb73ddd0f5037f5c654e779c15a11ac1529503c43b0f49"
+  },
+  "rootFirst": {
+    "path": "docs/evidence/appearance-2026-10-19/mara-surprise/ROOT-DELIVERY-FIRST.json",
+    "bytes": 3253,
+    "sha256": "cff8e62ed4227a8c7481dbf4ab474435960602031d07ea008c5e3b1cf8e1a490"
+  },
+  "knownAdditionalLinkTargets": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/PROMPT.txt",
+      "bytes": 2673,
+      "sha256": "e2d08e83dff266a015b5a7b33205a60feffd150953f9af8427ce1cb1714f5e2e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/REFERENCES.md",
+      "bytes": 1564,
+      "sha256": "0b8b0853d982d7620f4c308669dfdd9dd7e019ec960b075076a07b21229a3c59"
+    }
+  ],
+  "review": {
+    "path": "docs/evidence/appearance-2026-10-19/mara-surprise/DELIVERY-REVIEW.md",
+    "bytes": 3812,
+    "sha256": "78d094a91da314638570ea1addd5e23bd01db01ba2f96a125c0f10eaffeb0055"
+  },
+  "receiptSelfBinding": "Independent complete readback returns exact self bytes/hash; no recursive self hash.",
+  "independence": {
+    "ownSeal": "3ed8a0/exit0/PID30920/2026-10-20T01:19:35.408469+00:00",
+    "rootFirstHashOnly": "02f096 before own seal",
+    "rootFirstContentRead": "ffa5c4/exit0/PID31221/2026-10-20T01:19:45.271141+00:00",
+    "comparison": "Both A for exact handoff and existing row only; no new qualification."
+  },
+  "coverage": {
+    "wholeDocuments": [
+      "DELIVERY-PLAN.md",
+      "DELIVERY-INPUTS.json",
+      "ARTIST-HANDOFF.md",
+      "BASELINE-PROJECT-CHECKLIST.md",
+      "PROJECT-CHECKLIST.proposed.md",
+      "current docs/PROJECT-CHECKLIST.md once",
+      "ROOT-DELIVERY-FIRST.json after own seal"
+    ],
+    "boundedRootImageFields": [
+      "schema",
+      "utc",
+      "pid",
+      "decision",
+      "scope",
+      "next",
+      "actualImage",
+      "criticReceipt",
+      "wholeRead"
+    ],
+    "reusedActualImageQualification": "Exact original/first whole views and independent seal543cc7 from prior IMAGE pair, matched current pins; no new image view.",
+    "links": "Only six handoff links and the new row30 link resolved by metadata/hash to known files; no linked article/source content or old unchanged checklist links traversed.",
+    "boundedPacketMetadata": "33 immediate known-leaf entries counted/type-sized solely for unchanged36-file/30MiB cap; no other directory or filename search."
+  },
+  "checks": {
+    "directDeliveryPins": 10,
+    "changedChecklistLinesOneBased": [
+      30
+    ],
+    "allOtherChecklistBytesExact": true,
+    "completeOutstandingSuffixExact": true,
+    "checkedBeforeAfter": [
+      23,
+      23
+    ],
+    "uncheckedBeforeAfter": [
+      10,
+      10
+    ],
+    "usableRowsUnchanged": 7,
+    "canonicalStillBaselineBytes": 8469,
+    "proposalBytes": 8644,
+    "handoffLinks": 6,
+    "newCanonicalBaseLinks": 1,
+    "currentFilesBeforePair": 33,
+    "currentBytesBeforePair": 3118473,
+    "filesAfterPair": 35,
+    "reservedFinalRootFile": 1,
+    "hardFilesCap": 36,
+    "hardBytesCap": 31457280,
+    "noOtherNewArtifactSlot": true
+  },
+  "independentDecision": {
+    "verdict": "A_DOCUMENTARY_DELIVERY_ONLY",
+    "worth": "Yes: the exact existing Mara artist row gains a useful direct expression-pair handoff without a new checked item or broad quality promotion. Root must still fresh-verify/CAS the unchanged canonical baseline before its one-row adoption.",
+    "reasoning": "All ten current delivery pins and manifest selfpin pass. Full handoff accurately attributes two subjective readings and distinguishes calm/pleasant from rest calibration. It describes the actual retained visual cue/continuity/framing and one unchanged output at exact image pin, without master/native/rig/3D/fit/runtime/AAA completion. Baseline equals current canonical; only line30 differs, all other bytes and complete Outstanding suffix are exact;23 checked/10 open and seven Usable rows unchanged. Six leaf handoff links plus the one newly added canonical-base link resolve to known byte-pinned files. Opinion-free manifest explicitly corrects35projection to actual33+criticpair2+finalroot1=36, preserving the hard cap.",
+    "findings": [],
+    "limits": "No canonical adoption or graphics by critic. Exact previous whole-image A reused; no new views/source traversal. Root controls one exact row adoption and checkpoint notes after independent review; no additional artifact/target."
+  },
+  "findings": [],
+  "resolvedCountClarification": {
+    "witness": "DELIVERY-PLAN final paragraph initialprojection35; DELIVERY-INPUTS.packetCountClarification actual33+pair2+finalroot1=36",
+    "effect": "Hard cap preserved with finalroot only; original projection stays historical.",
+    "alternatives": [
+      {
+        "choice": "Use explicit frozen manifest clarification and final cap checks.",
+        "tradeoff": "Preserves exact prior plan and bounds; consumers must read clarification."
+      },
+      {
+        "choice": "Rewrite/rebind the old projection.",
+        "tradeoff": "Would simplify prose but alter already reviewed preparation bytes; unnecessary and not done."
+      }
+    ]
+  },
+  "alternatives": [
+    {
+      "choice": "Root fresh verification/CAS then exact one-row supplement and handoff retention.",
+      "tradeoff": "Makes useful artist pair discoverable, without changing broad acceptance."
+    },
+    {
+      "choice": "Keep canonical unchanged and evidence-only retention.",
+      "tradeoff": "No list expansion; existing useful artist comparison remains harder to find."
+    }
+  ],
+  "limits": [
+    "Documentary judgment only; no canonical adoption by critic.",
+    "No additional image/source/reference/browser/native/GPU/capture/generation/test/code action.",
+    "No neutral-rest/master/AU/morph/rig/native/3D/fit/motion/runtime/default/performance/demographic/AAA completion.",
+    "All prior closures/HOLD/assets/defaults/fullroadmap and six old unviewed Mara PNGs remain.",
+    "Root owns final CAS/copy/checkpoint/save; only final root record fits remaining leaf slot."
+  ],
+  "errors": [],
+  "deadlineUTC": "2026-10-20T01:30:00Z",
+  "jobs": [
+    {
+      "name": "surprise_delivery_initial",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-surprise')\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['DELIVERY-PLAN.md','DELIVERY-INPUTS.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "d25e14",
+      "exit_code": 0,
+      "wall_time_seconds": 6.708e-06,
+      "output_utf8bytes": 4980,
+      "output_sha256": "90709da47c9107588318097f5346d529035813b060beb5d4ff3b3b34ecbbe694",
+      "first_output_line": "UTC 2026-10-20T01:18:26.178808+00:00 PID 28799"
+    },
+    {
+      "name": "surprise_delivery_sources",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\nr=Path('/Users/robault/GitHub/sugata-avatar');d=r/'docs/evidence/appearance-2026-10-19/mara-surprise';print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor p in [d/'ARTIST-HANDOFF.md',d/'BASELINE-PROJECT-CHECKLIST.md',d/'PROJECT-CHECKLIST.proposed.md',r/'docs/PROJECT-CHECKLIST.md']:\n b=p.read_bytes();print('\\nFILE',str(p.relative_to(r)),'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nx=json.loads((d/'ROOT-IMAGE.json').read_text());print('ROOT_IMAGE_BOUNDED_FIELDS',json.dumps({k:v for k,v in x.items() if k in ['schema','utc','pid','decision','scope','actualImageReasoning','next','criticImageReview','criticImageReceipt','image']},ensure_ascii=False,indent=2));print('ROOT_IMAGE_KEYS',list(x))\nPY",
+      "chunk_id": "8ce78d",
+      "exit_code": 0,
+      "wall_time_seconds": 5.75e-06,
+      "output_utf8bytes": 29227,
+      "output_sha256": "fdbe760fe7f6e2ffc8536b25429d259f98f33328758e0851a7cd8e368bfcf2cc",
+      "first_output_line": "UTC 2026-10-20T01:18:43.048773+00:00 PID 29332"
+    },
+    {
+      "name": "surprise_delivery_verify",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib,re\nr=Path('/Users/robault/GitHub/sugata-avatar');d=r/'docs/evidence/appearance-2026-10-19/mara-surprise';print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\ndef pin(p):\n b=p.read_bytes();return {'path':str(p.relative_to(r)),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nm=json.loads((d/'DELIVERY-INPUTS.json').read_text())\nfor z in m['pins']:\n p=r/z['path'];assert p.is_file() and not p.is_symlink() and pin(p)==z\np=r/m['rootFirstPin']['path'];assert pin(p)==m['rootFirstPin'];print('ROOT_FIRST_HASH_ONLY',json.dumps(m['rootFirstPin']))\nb=(d/'BASELINE-PROJECT-CHECKLIST.md').read_bytes();p=(d/'PROJECT-CHECKLIST.proposed.md').read_bytes();assert (r/'docs/PROJECT-CHECKLIST.md').read_bytes()==b\nbl=b.splitlines(keepends=True);pl=p.splitlines(keepends=True);assert len(bl)==len(pl);changed=[i+1 for i,(x,y) in enumerate(zip(bl,pl)) if x!=y];assert changed==[30];assert b''.join(bl[:29]+bl[30:])==b''.join(pl[:29]+pl[30:]);assert b.split(b'## Outstanding',1)[1]==p.split(b'## Outstanding',1)[1]\nassert b.count(b'- [x] ')==p.count(b'- [x] ')==23 and b.count(b'- [ ] ')==p.count(b'- [ ] ')==10\nprint('CHECKLIST_CAS_BASELINE_EXACT; changed_lines',changed,'allotherbytes exact; Outstandingsuffix exact; checked23/open10; Usable7 exact')\nprint('OLD_ROW30',bl[29].decode().rstrip());print('NEW_ROW30',pl[29].decode().rstrip())\nlinks=[]\nfor url in re.findall(r'\\[[^\\]]+\\]\\(([^)]+)\\)',(d/'ARTIST-HANDOFF.md').read_text()):\n q=(d/url).resolve();assert q.is_file() and not q.is_symlink();links.append({'from':'leaf/ARTIST-HANDOFF.md','href':url,'target':pin(q)})\nnew=[u for u in re.findall(r'\\[[^\\]]+\\]\\(([^)]+)\\)',pl[29].decode()) if u not in re.findall(r'\\[[^\\]]+\\]\\(([^)]+)\\)',bl[29].decode())]\nassert new==['evidence/appearance-2026-10-19/mara-surprise/ARTIST-HANDOFF.md']\nfor url in new:\n q=(r/'docs'/url).resolve();assert q==d/'ARTIST-HANDOFF.md';links.append({'from':'docs/PROJECT-CHECKLIST.md row30','href':url,'target':pin(q)})\nprint('NEW_AND_HANDOFF_LINKS',json.dumps(links,separators=(',',':')))\nfiles=list(d.iterdir());assert len(files)==33 and all(q.is_file() and not q.is_symlink() for q in files);total=sum(q.stat().st_size for q in files);assert total<30*1024*1024;assert len(files)+2+1==36\nprint('BOUNDED_CURRENT_PACKET',len(files),'regular_nonsymlink_files',total,'bytes; pluscritic2/finalroot1=36; no source/image view')\nx=json.loads((d/'ROOT-IMAGE.json').read_text());print('REUSED_ROOT_IMAGE_BINDINGS',json.dumps({k:x[k] for k in ['actualImage','criticReceipt','wholeRead']},ensure_ascii=False))\nprint('TEN_MANIFEST_BINDINGS_PASS',len(m['pins']),'MANIFEST',json.dumps(pin(d/'DELIVERY-INPUTS.json')))\nPY",
+      "chunk_id": "02f096",
+      "exit_code": 0,
+      "wall_time_seconds": 6.875e-06,
+      "output_utf8bytes": 4243,
+      "output_sha256": "e800f9399ece07374bf178170233cdb21b09a29f6420214008e9b37c478cb533",
+      "first_output_line": "UTC 2026-10-20T01:19:15.535484+00:00 PID 30271"
+    },
+    {
+      "name": "surprise_delivery_seal",
+      "command": "python3 - <<'PY'\nimport datetime,os\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nprint(\"{\\\"verdict\\\":\\\"A_DOCUMENTARY_DELIVERY_ONLY\\\",\\\"worth\\\":\\\"Yes: the exact existing Mara artist row gains a useful direct expression-pair handoff without a new checked item or broad quality promotion. Root must still fresh-verify/CAS the unchanged canonical baseline before its one-row adoption.\\\",\\\"reasoning\\\":\\\"All ten current delivery pins and manifest selfpin pass. Full handoff accurately attributes two subjective readings and distinguishes calm/pleasant from rest calibration. It describes the actual retained visual cue/continuity/framing and one unchanged output at exact image pin, without master/native/rig/3D/fit/runtime/AAA completion. Baseline equals current canonical; only line30 differs, all other bytes and complete Outstanding suffix are exact;23 checked/10 open and seven Usable rows unchanged. Six leaf handoff links plus the one newly added canonical-base link resolve to known byte-pinned files. Opinion-free manifest explicitly corrects35projection to actual33+criticpair2+finalroot1=36, preserving the hard cap.\\\",\\\"findings\\\":[],\\\"limits\\\":\\\"No canonical adoption or graphics by critic. Exact previous whole-image A reused; no new views/source traversal. Root controls one exact row adoption and checkpoint notes after independent review; no additional artifact/target.\\\"}\")\nPY",
+      "chunk_id": "3ed8a0",
+      "exit_code": 0,
+      "wall_time_seconds": 5.083e-06,
+      "output_utf8bytes": 1326,
+      "output_sha256": "cb3c61a8395e2860af0e8d41abe6594dd228659a925242275f3f6e7427aeecf4",
+      "first_output_line": "UTC 2026-10-20T01:19:35.408469+00:00 PID 30920"
+    },
+    {
+      "name": "surprise_delivery_compare",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-surprise/ROOT-DELIVERY-FIRST.json');b=p.read_bytes();print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid());print('FILE',p.name,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "ffa5c4",
+      "exit_code": 0,
+      "wall_time_seconds": 1.2917e-05,
+      "output_utf8bytes": 3414,
+      "output_sha256": "4c827aca21d91919ef59aeed5891bb4227ed82a4015ed17f26d3fbbb1952c96c",
+      "first_output_line": "UTC 2026-10-20T01:19:45.271141+00:00 PID 31221"
+    }
+  ],
+  "collectionOperation": "Exclusive xb writes only DELIVERY-REVIEW.md and CRITIC-DELIVERY-RECEIPT.json after fresh exact input and canonical-baseline checks."
+}

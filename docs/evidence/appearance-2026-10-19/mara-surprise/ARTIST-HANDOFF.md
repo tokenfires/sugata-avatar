@@ -1,0 +1,9 @@
+# Mara: calm and mildly surprised
+
+[Open the complete expression pair](first.png). A shows a calm, pleasantly attentive face; B offers a mild, interested surprise—a quiet “oh!”. Root and the independent critic each inspected both this whole first plate and the [unchanged original Mara sheet](../../appearance-2026-10-05/mature-feminine-character-target/concept-v1.png), and separately agreed on those readings.
+
+Use the pair to discuss the change from relaxed brows and closed, gently upturned lips to curved lifted brows, softly more open eyes and a small relaxed mouth opening. The warm brown face, visible eye/lid/cheek/mouth texture, silver side-parted bob and caramel cardigan/ivory tee remain qualitatively recognizable. Both complete heads, jaws and necks are visible at a similar scale in quiet grey portraits. The small A/B letters do not name the emotions.
+
+These are newly authored artist illustrations, with individual visual readings rather than universal observer agreement. A is calm/pleasant, not a calibrated neutral-rest face. The portraits are not registered geometry or an editable face, head, groom, material/UV, morph or expression rig. Native controls, moving expression, body fit, runtime and finished AAA character quality remain open. Existing head/groom/gesture/source methods and all six older unviewed Mara native PNGs are untouched.
+
+Made with one built-in image-generation call using only the original character illustration as its visual reference. The unchanged first output is1536×1024,2752047B/SHA b8ddff7d0a33a4bb441af620a6da31ee86626fbe840a2ad804f82babbdff9ade; no edit, crop, regeneration, retake or relabel. The original generated file and exact project copy are preserved. [Exact prompt](PROMPT.txt) · [Primary-text reference scope](REFERENCES.md) · [Independent image review](IMAGE-REVIEW.md) · [Root image verification](ROOT-IMAGE.json).
