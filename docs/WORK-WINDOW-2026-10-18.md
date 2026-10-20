@@ -1,5 +1,11 @@
 # Sugata work window — October 18, 2026
 
+## October20, 04:51 UTC — finishing sheet discoverable from the checklist
+
+A new narrow catalogue contract adds only the exact238-byte artist-intent sentence/link to the existing overshirt row. Earlier isolated-delivery scope remains historical and unchanged. The original blockout finishing/fit-open clause, seven usable-feature rows,23checked/10outstanding and all other checklist bytes remain exact. [Change and evidence](evidence/appearance-2026-10-19/overshirt-checklist-link/README.md).
+
+Independent/rootA; root whole-read stable5345B/16467B pair0b8693/e7d835 and661cee/PID89055/04:50:29UTC verified12bindings/immutable54984d4a...b5b84/prefix/seal-order before the sole literal append, resolved links and reversible diff. Checklist now9124B/df08da32...be527. This is discovery maintenance only: no new quality/fit/3D/AAA credit or artist-source/pixel/board/roadmap change, new view/render/capture/native/GPU/browser/network/source programme or live owned job. All old closures, HOLD and full roadmap/phase order remain; sameACTIVE10minute/server retained. This responsibility is complete; next substantive slice needs fresh worth. Human steering wins.
+
 ## October20, 04:47 UTC — material proposal stopped by the latest closure audit
 
 Independent/root B closes this nomination before programme preparation. The later actual mapped-diffuse attempt and same-question artifact-review closure control; changing supervision alone does not create a new artistic responsibility. Earlier worth A remains conditional history. [Exact audit and receipt](evidence/appearance-2026-10-19/mara-material-tool-owned-contract/README.md).
