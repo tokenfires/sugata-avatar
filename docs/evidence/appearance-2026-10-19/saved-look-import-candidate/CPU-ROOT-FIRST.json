@@ -1,0 +1,49 @@
+{
+  "utc": "2026-10-20T00:16:11.387327+00:00",
+  "pid": 8581,
+  "decision": "A_CPU_ONLY:34actual real-owner fake-input assertions pass, all4actualoutputs root inventoried/whole-read, child and monitor positively collected; no UI/defaultpromotion. Critic independentresult stillpending.",
+  "inputsSHA256": "2ccde68df696e95f20ae02902fd470c99d5c98211c5dd060f371c586fa668d97",
+  "sourceBindingsVerified": 14,
+  "packet": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-candidate/cpu-run/RUN.json",
+      "name": "RUN.json",
+      "regularNoSymlink": true,
+      "bytes": 1353,
+      "sha256": "b7f69a47633546452e242797ca2bca55469f80c9a53f320819b2c8036a3f3c29"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-candidate/cpu-run/runtime-start.json",
+      "name": "runtime-start.json",
+      "regularNoSymlink": true,
+      "bytes": 590,
+      "sha256": "df5cf17841af31809124973dad57de4bc8146848708cb523689f9e052f46ac35"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-candidate/cpu-run/stderr.log",
+      "name": "stderr.log",
+      "regularNoSymlink": true,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-candidate/cpu-run/stdout.log",
+      "name": "stdout.log",
+      "regularNoSymlink": true,
+      "bytes": 3130,
+      "sha256": "de12d0d0ac157b1c685a75aeab70a18795e6e11f78da373d84d65f2e744b1ad2"
+    }
+  ],
+  "reason": "Pinned actual selftest prints case success only after awaited assertions, sequential34matchstatic source loop+calls, fixed Nodeargv/exit0/empty stderr. Actualassertions exercise canonical mixed/original/UTF8/bounds/preserve/fail/cancel/lateownership against real settings/options/SavedLooks; no shadowdataowner. StartupUNKNOWN snapshot reconciles finalcollected. Externalinventoryduty satisfied beforesemanticqualification.",
+  "independentLimits": [
+    "Fake reader/timer/storage only; no real browserFileReader/DOM/BFCache/localStorage/UI/accessibility/appearance proof",
+    "Single sample901120B is startup observation, not representative or peak memory;0.057169sobservedwindow is not a performance benchmark",
+    "Old-space128MiB only; sampled512RSS/1MiBstream thresholds not hardwholeprocesslimits",
+    "No UI or defaultpromotion; existingcrossprocessCAS limitation unchanged"
+  ],
+  "nextWorth": "A for one separately exact actual FileChooser/UI workload proposal and source/method admission, to answer real file-read/renderedcontrol questions left by CPU. No actual UI entry from CPU A.",
+  "alternatives": [
+    "Prepare exact bounded actual UI session, gains native-reader/consumer/readability witness at browser-workload/storageappend cost",
+    "Retain guarded unqualified candidate with existingOpen\u2192Save behavior, avoids browserworkload but no finished feature"
+  ]
+}

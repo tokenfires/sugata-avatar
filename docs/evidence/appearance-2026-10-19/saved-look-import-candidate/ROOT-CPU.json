@@ -1,0 +1,191 @@
+{
+  "utc": "2026-10-20T00:21:04.658882+00:00",
+  "pid": 17935,
+  "decision": "A_FIXED_CPU_ONLY: actual34assertioncases pass; nextA one separate exactUI methodproposal only. No UI entry/defaultpromotion.",
+  "wholeStableHandoff": "9fcc22/exit0/untruncated4351B+22307B",
+  "verifiedBindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/cpu-run/RUN.json",
+      "bytes": 1353,
+      "sha256": "b7f69a47633546452e242797ca2bca55469f80c9a53f320819b2c8036a3f3c29"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/cpu-run/runtime-start.json",
+      "bytes": 590,
+      "sha256": "df5cf17841af31809124973dad57de4bc8146848708cb523689f9e052f46ac35"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/cpu-run/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/cpu-run/stdout.log",
+      "bytes": 3130,
+      "sha256": "de12d0d0ac157b1c685a75aeab70a18795e6e11f78da373d84d65f2e744b1ad2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/OUTPUT-INVENTORY.json",
+      "bytes": 1325,
+      "sha256": "332ca90a5cfab4b2dfff9acaa6cc9925e02193803b7481611e93352f40b47989"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CPU-PLAN.md",
+      "bytes": 3640,
+      "sha256": "eab6e922b415d0f97624d97bd4c28fd6d31ae90cd808f1ca7ca9b62fda574af8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CPU-ADMISSION.json",
+      "bytes": 810,
+      "sha256": "c20e4c1007572413fbd04bb80de2c16a7e850ac29a01873e7db34136e9a4593c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CPU-ADMISSION.used",
+      "bytes": 33,
+      "sha256": "57719fd7c592b2784213ac77e3a637f4e9575a926df17b68f797e8ac11b28004"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/SOURCE-INPUTS.json",
+      "bytes": 3570,
+      "sha256": "847649ef863f7315aed0c1b31d92a04c5da63e5cabb1dfe2c8087e9c1c284bde"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/POSTFLIGHT-CONTRACT.md",
+      "bytes": 1019,
+      "sha256": "f9524264df59c79faf9ca723202088917f654d5e658d44057936613fc8b07501"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/SOURCE-REVIEW.md",
+      "bytes": 6129,
+      "sha256": "1eff0b7ba56e653e3facd55c7e12b0a18bb9d3cd33134a1260bf6e189f360e05"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CRITIC-RECEIPT.json",
+      "bytes": 18849,
+      "sha256": "1f0df23f0abf55efe4914beb360278a5327fb007a34fdb723e3a0804efc7afb7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/ROOT-SOURCE.json",
+      "bytes": 7102,
+      "sha256": "a76b4a27086070aa1033b6e2a63cfe875b14653b42ad4a0fd7093dbc6c1ab0c1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-look-import.mjs",
+      "bytes": 7141,
+      "sha256": "21179398521697c3da99b2e0f3079deeb715a9355724ba67930312a751fdcd7b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-look-import.selftest.mjs",
+      "bytes": 13052,
+      "sha256": "932b0ad993066b1c43ea12b852b2e495479c56e080efff4fbbbb480fe7ee866a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/critic/saved-look-import-cpu.py",
+      "bytes": 7795,
+      "sha256": "51c3cc7bfa0ca736a6dd314996abe86502a0bc78df95d7476a3a5b0826552859"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js",
+      "bytes": 36902,
+      "sha256": "f733c831a7a120893d1edd311593a0620de32086ca4261789512175758ea900b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.html",
+      "bytes": 23443,
+      "sha256": "07450126f76c9f3c73257b10a55a0d5fa2db2211335783213365d70f4314ce3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 8721,
+      "sha256": "dcc014cdce1d176acf790bccd693d4c90e2f891d590e67d6329d681c6f181f86"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-colours.mjs",
+      "bytes": 1896,
+      "sha256": "8c084259b3325e6c7ed871d5849423879c06360ebfe722e0c8556ea4a81a9e0a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeStyleOptions.js",
+      "bytes": 1933,
+      "sha256": "23076d5efb5d8575b2db806d074f3efe5090f5dd83d844322e4ab9e4699636f5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 968,
+      "sha256": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/PLAN.md",
+      "bytes": 3467,
+      "sha256": "19ffd2db91bb5c734d3bfbba87cf0725470ee8c2b075a3422968040778517ef3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/ROOT-METHOD.json",
+      "bytes": 6832,
+      "sha256": "9b52ee5b780b2b9a9c7b482bf94352714f842c3a0478360c2b7aa319add86840"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CPU-INPUTS.json",
+      "bytes": 6213,
+      "sha256": "2ccde68df696e95f20ae02902fd470c99d5c98211c5dd060f371c586fa668d97"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CPU-EXEC.json",
+      "bytes": 11312,
+      "sha256": "8da4504bae09d171678a9219956eed54894524301b8dd220780678bf5a58b089"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CPU-ROOT-FIRST.json",
+      "bytes": 2943,
+      "sha256": "620b51b4e6b83ff9485517287d44a88d564bad3747b4e301813623712f35dc1e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CPU-REVIEW.md",
+      "bytes": 4351,
+      "sha256": "ded9f00a36054cc6350e088eaa028073e504335eb0f7b9d1d42c630b9f674d1b"
+    }
+  ],
+  "criticReceiptSHA256": "b897e206ef732feedc805c497abf75e741ce7107338c3d261249cfcbe6b7d4e3",
+  "independentReason": "Root whole53e0a2 packet after independentbf6e41 boundedexternalinventory, firstfb820f beforecriticseal. Current31bindings+exactfourfilecaps5073B +rawtool/RUN/admission/inventoryequality +34sequentialrows/summary/empty stderr/positiveNode6535 and ps6536 reverified. Pinned sourceassertions awaited beforeprint; criticactualcase/sourcewitnesses agree. No titlealone or independentcanonicalobjectdump credit.",
+  "actual": {
+    "job": "1a877a/exit0/no session",
+    "supervisorPID": 6534,
+    "nodePID": 6535,
+    "monitorPID": 6536,
+    "start": "2026-10-20T00:15:06.677046+00:00",
+    "end": "2026-10-20T00:15:06.734659+00:00",
+    "allCollected": true,
+    "cases": 34,
+    "packetBytes": 5073,
+    "sourceCommit": "64c9a8f4f405c5ed7303425fdc725f77d879ed32"
+  },
+  "limits": [
+    "Only fake reader/timer/storage; realsettings/options/SavedLooks. No nativeFileReader/DOM/BFCache/localStorage/chooser/UI proof",
+    "Observed0.057169375s is notperformance; single901120BstartupRSSsample is notpeak/representativememory",
+    "Old-space128MiB only, sampledRSS512MiB/outputcapsnot hardwholeprocessbound",
+    "No actualdeadline/faultterminationpathqualification orphysicalGPU/OSguarantee",
+    "No UI/defaultpromotion/fullroadmapcompletion"
+  ],
+  "alternatives": [
+    "One separately exactactualUI proposal can own native filechooser/read/status/layout/preview-preservation witnesses with boundedbrowser/storageappendcost",
+    "Retain guardedCPU-qualifiedcandidate and existingOpen\u2192Save workflow, no browsercost/unqualifiednewUI"
+  ],
+  "next": "One bounded exact actualUI source/method proposal, freshcritic/rootadmission beforebrowserentry",
+  "pendingCriticEdits": false,
+  "liveOwnedTarget": false
+}

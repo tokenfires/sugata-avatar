@@ -1,0 +1,556 @@
+{
+  "schema": "critic-fixed-cpu-result-v1",
+  "collectionUTC": "2026-10-20T00:19:18.058449+00:00",
+  "collectionPID": 14623,
+  "decision": "A_FIXED_CPU_PROTOCOL_ONLY",
+  "nextWorth": "A_ONE_SEPARATE_EXACT_ACTUAL_UI_METHOD_PROPOSAL_ONLY_NO_ENTRY",
+  "deadlineUTC": "2026-10-20T00:25:00Z",
+  "directInputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/cpu-run/RUN.json",
+      "bytes": 1353,
+      "sha256": "b7f69a47633546452e242797ca2bca55469f80c9a53f320819b2c8036a3f3c29"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/cpu-run/runtime-start.json",
+      "bytes": 590,
+      "sha256": "df5cf17841af31809124973dad57de4bc8146848708cb523689f9e052f46ac35"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/cpu-run/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/cpu-run/stdout.log",
+      "bytes": 3130,
+      "sha256": "de12d0d0ac157b1c685a75aeab70a18795e6e11f78da373d84d65f2e744b1ad2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/OUTPUT-INVENTORY.json",
+      "bytes": 1325,
+      "sha256": "332ca90a5cfab4b2dfff9acaa6cc9925e02193803b7481611e93352f40b47989"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CPU-PLAN.md",
+      "bytes": 3640,
+      "sha256": "eab6e922b415d0f97624d97bd4c28fd6d31ae90cd808f1ca7ca9b62fda574af8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CPU-ADMISSION.json",
+      "bytes": 810,
+      "sha256": "c20e4c1007572413fbd04bb80de2c16a7e850ac29a01873e7db34136e9a4593c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CPU-ADMISSION.used",
+      "bytes": 33,
+      "sha256": "57719fd7c592b2784213ac77e3a637f4e9575a926df17b68f797e8ac11b28004"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/SOURCE-INPUTS.json",
+      "bytes": 3570,
+      "sha256": "847649ef863f7315aed0c1b31d92a04c5da63e5cabb1dfe2c8087e9c1c284bde"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/POSTFLIGHT-CONTRACT.md",
+      "bytes": 1019,
+      "sha256": "f9524264df59c79faf9ca723202088917f654d5e658d44057936613fc8b07501"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/SOURCE-REVIEW.md",
+      "bytes": 6129,
+      "sha256": "1eff0b7ba56e653e3facd55c7e12b0a18bb9d3cd33134a1260bf6e189f360e05"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CRITIC-RECEIPT.json",
+      "bytes": 18849,
+      "sha256": "1f0df23f0abf55efe4914beb360278a5327fb007a34fdb723e3a0804efc7afb7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/ROOT-SOURCE.json",
+      "bytes": 7102,
+      "sha256": "a76b4a27086070aa1033b6e2a63cfe875b14653b42ad4a0fd7093dbc6c1ab0c1"
+    }
+  ],
+  "nestedSourceBindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-look-import.mjs",
+      "bytes": 7141,
+      "sha256": "21179398521697c3da99b2e0f3079deeb715a9355724ba67930312a751fdcd7b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-look-import.selftest.mjs",
+      "bytes": 13052,
+      "sha256": "932b0ad993066b1c43ea12b852b2e495479c56e080efff4fbbbb480fe7ee866a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/tools/critic/saved-look-import-cpu.py",
+      "bytes": 7795,
+      "sha256": "51c3cc7bfa0ca736a6dd314996abe86502a0bc78df95d7476a3a5b0826552859"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.js",
+      "bytes": 36902,
+      "sha256": "f733c831a7a120893d1edd311593a0620de32086ca4261789512175758ea900b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase.html",
+      "bytes": 23443,
+      "sha256": "07450126f76c9f3c73257b10a55a0d5fa2db2211335783213365d70f4314ce3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-collection.mjs",
+      "bytes": 8721,
+      "sha256": "dcc014cdce1d176acf790bccd693d4c90e2f891d590e67d6329d681c6f181f86"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-presets.mjs",
+      "bytes": 8690,
+      "sha256": "07e8773e74c0fb6b0a61427445759a83b68a7b0e5df44ad5a743181fb8f86941"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-colours.mjs",
+      "bytes": 1896,
+      "sha256": "8c084259b3325e6c7ed871d5849423879c06360ebfe722e0c8556ea4a81a9e0a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/material/HairColourOptions.js",
+      "bytes": 1897,
+      "sha256": "900685719e611bcb8056d35c8f9ad68d6dc8e263bc5a93abea2cab391d820409"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/core/src/wardrobe/WardrobeStyleOptions.js",
+      "bytes": 1933,
+      "sha256": "23076d5efb5d8575b2db806d074f3efe5090f5dd83d844322e4ab9e4699636f5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/viewer-scenes.mjs",
+      "bytes": 968,
+      "sha256": "2bdbea123cf516bc4dc41dcf0347d80cdaab46bc1dbe799f7574dc484a3bc407"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/PLAN.md",
+      "bytes": 3467,
+      "sha256": "19ffd2db91bb5c734d3bfbba87cf0725470ee8c2b075a3422968040778517ef3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-proposal/ROOT-METHOD.json",
+      "bytes": 6832,
+      "sha256": "9b52ee5b780b2b9a9c7b482bf94352714f842c3a0478360c2b7aa319add86840"
+    }
+  ],
+  "manifestSelf": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CPU-INPUTS.json",
+    "bytes": 6213,
+    "sha256": "2ccde68df696e95f20ae02902fd470c99d5c98211c5dd060f371c586fa668d97"
+  },
+  "rawToolSupplement": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CPU-EXEC.json",
+    "bytes": 11312,
+    "sha256": "8da4504bae09d171678a9219956eed54894524301b8dd220780678bf5a58b089"
+  },
+  "rootFirst": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CPU-ROOT-FIRST.json",
+    "bytes": 2943,
+    "sha256": "620b51b4e6b83ff9485517287d44a88d564bad3747b4e301813623712f35dc1e"
+  },
+  "review": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate/CPU-REVIEW.md",
+    "bytes": 4351,
+    "sha256": "ded9f00a36054cc6350e088eaa028073e504335eb0f7b9d1d42c630b9f674d1b"
+  },
+  "coverage": "Whole four actual outputs, CPU plan/manifest/inventory/admission/used/raw tool;13direct14nested pins refreshed; same previously whole-read implementation/helper/test/UI sources reused without imports/reruns. Only exact cpu-run four-entry protocol inventory repeated read-only.",
+  "independence": {
+    "job": "b3b956",
+    "exit": 0,
+    "pid": 12046,
+    "utc": "2026-10-20T00:17:52.123625+00:00",
+    "order": "Printed independently verified A before reading CPU-ROOT-FIRST. Root separate seal00:16:11.387327/PID8581."
+  },
+  "actualChecks": {
+    "wholeOutputBytes": 5073,
+    "fourRequiredRegularNoSymlink": true,
+    "externalInventoryBeforeRootSemanticQualification": "bf6e41/exit0/PID6990/2026-10-20T00:15:21.009673+00:00",
+    "independentFourEntryCheck": "4af41a/exit0/PID10696/00:17:13.069428UTC",
+    "helperTool": "1a877a/exit0/no session",
+    "supervisorPID": 6534,
+    "childPID": 6535,
+    "childCollected": true,
+    "childExit": 0,
+    "monitorPID": 6536,
+    "monitorCollected": true,
+    "monitorExit": 0,
+    "errors": [],
+    "actualArgv": [
+      "/Users/robault/.brv-cli/bin/node",
+      "--max-old-space-size=128",
+      "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-look-import.selftest.mjs"
+    ],
+    "dispatchAgeSeconds": 4.79039,
+    "toolReturnedReportEqualsSavedRUN": true,
+    "rawAdmissionEqualsSavedAdmission": true,
+    "rawInventoryEqualsSavedInventory": true,
+    "summaryEqualsRUN": true,
+    "actualCases": 34,
+    "stderrBytes": 0,
+    "sourcePrintOrder": "selftest50–52 awaits assertions before logging each success",
+    "sourceCaseAssertionRanges": [
+      {
+        "case": 1,
+        "sourceLines": [
+          55,
+          60
+        ],
+        "passed": true
+      },
+      {
+        "case": 2,
+        "sourceLines": [
+          61,
+          64
+        ],
+        "passed": true
+      },
+      {
+        "case": 3,
+        "sourceLines": [
+          65,
+          68
+        ],
+        "passed": true
+      },
+      {
+        "case": 4,
+        "sourceLines": [
+          69,
+          75
+        ],
+        "passed": true
+      },
+      {
+        "case": 5,
+        "sourceLines": [
+          69,
+          75
+        ],
+        "passed": true
+      },
+      {
+        "case": 6,
+        "sourceLines": [
+          69,
+          75
+        ],
+        "passed": true
+      },
+      {
+        "case": 7,
+        "sourceLines": [
+          69,
+          75
+        ],
+        "passed": true
+      },
+      {
+        "case": 8,
+        "sourceLines": [
+          69,
+          75
+        ],
+        "passed": true
+      },
+      {
+        "case": 9,
+        "sourceLines": [
+          76,
+          79
+        ],
+        "passed": true
+      },
+      {
+        "case": 10,
+        "sourceLines": [
+          80,
+          83
+        ],
+        "passed": true
+      },
+      {
+        "case": 11,
+        "sourceLines": [
+          84,
+          86
+        ],
+        "passed": true
+      },
+      {
+        "case": 12,
+        "sourceLines": [
+          87,
+          90
+        ],
+        "passed": true
+      },
+      {
+        "case": 13,
+        "sourceLines": [
+          91,
+          94
+        ],
+        "passed": true
+      },
+      {
+        "case": 14,
+        "sourceLines": [
+          95,
+          97
+        ],
+        "passed": true
+      },
+      {
+        "case": 15,
+        "sourceLines": [
+          98,
+          100
+        ],
+        "passed": true
+      },
+      {
+        "case": 16,
+        "sourceLines": [
+          101,
+          104
+        ],
+        "passed": true
+      },
+      {
+        "case": 17,
+        "sourceLines": [
+          105,
+          107
+        ],
+        "passed": true
+      },
+      {
+        "case": 18,
+        "sourceLines": [
+          108,
+          110
+        ],
+        "passed": true
+      },
+      {
+        "case": 19,
+        "sourceLines": [
+          111,
+          113
+        ],
+        "passed": true
+      },
+      {
+        "case": 20,
+        "sourceLines": [
+          114,
+          117
+        ],
+        "passed": true
+      },
+      {
+        "case": 21,
+        "sourceLines": [
+          118,
+          121
+        ],
+        "passed": true
+      },
+      {
+        "case": 22,
+        "sourceLines": [
+          122,
+          127
+        ],
+        "passed": true
+      },
+      {
+        "case": 23,
+        "sourceLines": [
+          128,
+          131
+        ],
+        "passed": true
+      },
+      {
+        "case": 24,
+        "sourceLines": [
+          132,
+          136
+        ],
+        "passed": true
+      },
+      {
+        "case": 25,
+        "sourceLines": [
+          137,
+          141
+        ],
+        "passed": true
+      },
+      {
+        "case": 26,
+        "sourceLines": [
+          142,
+          145
+        ],
+        "passed": true
+      },
+      {
+        "case": 27,
+        "sourceLines": [
+          146,
+          149
+        ],
+        "passed": true
+      },
+      {
+        "case": 28,
+        "sourceLines": [
+          150,
+          154
+        ],
+        "passed": true
+      },
+      {
+        "case": 29,
+        "sourceLines": [
+          155,
+          158
+        ],
+        "passed": true
+      },
+      {
+        "case": 30,
+        "sourceLines": [
+          159,
+          161
+        ],
+        "passed": true
+      },
+      {
+        "case": 31,
+        "sourceLines": [
+          162,
+          164
+        ],
+        "passed": true
+      },
+      {
+        "case": 32,
+        "sourceLines": [
+          165,
+          168
+        ],
+        "passed": true
+      },
+      {
+        "case": 33,
+        "sourceLines": [
+          169,
+          174
+        ],
+        "passed": true
+      },
+      {
+        "case": 34,
+        "sourceLines": [
+          175,
+          178
+        ],
+        "passed": true
+      }
+    ],
+    "caseScope": "Real settings/options/SavedLooks with fake reader/timer/storage. Deep-equality/raw-write assertions pass in fixed source; no independent persisted canonical value output, native read or DOM proof.",
+    "oldSpaceMiB": 128,
+    "hardTotalHeapOrRSSLimit": null,
+    "startupRSSSampleBytes": 901120,
+    "observedChildWindowSeconds": 0.057169375009834766,
+    "samplingScope": "One early sample only, no peak/end-to-end/performance claim."
+  },
+  "findings": [],
+  "sourceEvidenceCondition": "PriorF1 external inventory condition satisfied for actual packet; no partial/extra or cap issue, all files preserved. No runtime failure/repair/replay.",
+  "alternatives": [
+    {
+      "choice": "Prepare exact separately gated real FileChooser/UI workload",
+      "tradeoff": "Answers native read/rendered consumer questions with bounded browser/storage-append duty; no entry from CPU A."
+    },
+    {
+      "choice": "Retain guarded CPU-qualified candidate only",
+      "tradeoff": "Avoid browser work; existing Open JSON→Save remains available but new UI is unqualified."
+    }
+  ],
+  "unqualified": [
+    "native FileReader",
+    "real localStorage",
+    "DOM/pagehide/BFCache integration",
+    "browser chooser/layout/accessibility/readability",
+    "unchanged live avatar/URL/attention/motion",
+    "default promotion",
+    "all-interleaving atomicity",
+    "peak memory/performance",
+    "actual timeout/termination/fault paths",
+    "physical GPU/browser release",
+    "avatar appearance/broad roadmap quality"
+  ],
+  "tools": [
+    {
+      "name": "initial",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate')\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['CPU-PLAN.md','CPU-INPUTS.json','OUTPUT-INVENTORY.json','cpu-run/stdout.log','cpu-run/stderr.log','cpu-run/runtime-start.json','cpu-run/RUN.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "b159f4",
+      "exit_code": 0,
+      "wall_time_seconds": 7.917e-06,
+      "original_token_count": 4264,
+      "outputBytes": 17055,
+      "outputSHA256": "9328bc8cd358e531e107f286f67494d4916d820e76d41549e0674a272874e4b5",
+      "firstLine": "UTC 2026-10-20T00:16:29.979710+00:00 PID 9216"
+    },
+    {
+      "name": "admission_bindings",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime,stat\nr=Path('/Users/robault/GitHub/sugata-avatar'); p=r/'docs/evidence/appearance-2026-10-19/saved-look-import-candidate'\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['CPU-ADMISSION.json','CPU-ADMISSION.used','CPU-EXEC.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nm=json.loads((p/'CPU-INPUTS.json').read_bytes())\nfor group in ['pins','nestedSourceBindings']:\n for x in m[group]:\n  b=(r/x['path']).read_bytes();assert len(b)==x['bytes'] and hashlib.sha256(b).hexdigest()==x['sha256'];print('PIN_PASS',group,x['path'])\nitems=list((p/'cpu-run').iterdir());assert len(items)==4; names={'stdout.log','stderr.log','runtime-start.json','RUN.json'};assert {f.name for f in items}==names; total=0\nfor f in items:\n s=f.lstat();assert stat.S_ISREG(s.st_mode) and not f.is_symlink();limit=1048576 if f.suffix=='.log' else 262144;assert s.st_size<=limit;total+=s.st_size\nassert total<=2621440;print('INDEPENDENT_EXACT_FOUR_ENTRY_INVENTORY',len(items),total)\nPY",
+      "chunk_id": "4af41a",
+      "exit_code": 0,
+      "wall_time_seconds": 8.125e-06,
+      "original_token_count": 3731,
+      "outputBytes": 14921,
+      "outputSHA256": "88ccf903883b7910f2b87a86789103a351b8b37893a47bff4fa613b6a114bf48",
+      "firstLine": "UTC 2026-10-20T00:17:13.069428+00:00 PID 10696"
+    },
+    {
+      "name": "seal_compare",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,datetime,os,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/saved-look-import-candidate');print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\na=json.loads((p/'CPU-ADMISSION.json').read_bytes());used=datetime.datetime.fromisoformat((p/'CPU-ADMISSION.used').read_text().strip());start=json.loads((p/'cpu-run/runtime-start.json').read_bytes());run=json.loads((p/'cpu-run/RUN.json').read_bytes());ex=json.loads((p/'CPU-EXEC.json').read_bytes());rows=[json.loads(x) for x in (p/'cpu-run/stdout.log').read_text().splitlines()];cases,summary=rows[:-1],rows[-1]\nassert datetime.datetime.fromisoformat(a['utc'])<=used<datetime.datetime.fromisoformat(a['dispatchBeforeUTC']);assert run['start']==start['start'];assert datetime.datetime.fromisoformat(run['start'])>=used\nassert json.loads(ex['result']['output'])==run and ex['result']['exit_code']==0 and 'session_id' not in ex['result']\nassert json.loads(ex['admissionResult']['output'])==a and ex['admissionResult']['exit_code']==0\nassert json.loads(ex['inventoryResult']['output'])==json.loads((p/'OUTPUT-INVENTORY.json').read_bytes()) and ex['inventoryResult']['exit_code']==0\nassert (p/'cpu-run/stderr.log').stat().st_size==0\nassert len(cases)==34 and summary=={'passed':34,'limit':40,'storage':'fake only','reader':'fake only','owners':'real settings/options/SavedLooks'}==run['assertions']\nassert [x['case'] for x in cases]==list(range(1,35)) and all(x['passed'] is True for x in cases)\nassert run['childCollected'] is True and run['childExit']==0 and run['childPID']==6535 and run['supervisorPID']==6534 and run['errors']==[]\nassert run['monitors']==[{'pid':6536,'targetPID':6535,'start':'2026-10-20T00:15:06.680298+00:00','exit':0,'collected':True,'end':'2026-10-20T00:15:06.681368+00:00'}]\nassert run['argv']==start['argv']==['/Users/robault/.brv-cli/bin/node','--max-old-space-size=128','/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-look-import.selftest.mjs']\nassert run['streamBytes']=={'stdout.log':3130,'stderr.log':0} and run['observedChildWindowSeconds']<10\nranges=[[55,60],[61,64],[65,68],[69,75],[69,75],[69,75],[69,75],[69,75],[76,79],[80,83],[84,86],[87,90],[91,94],[95,97],[98,100],[101,104],[105,107],[108,110],[111,113],[114,117],[118,121],[122,127],[128,131],[132,136],[137,141],[142,145],[146,149],[150,154],[155,158],[159,161],[162,164],[165,168],[169,174],[175,178]];assert len(ranges)==34\nprint('ALL34_CASE_TO_ASSERTION_RANGES',json.dumps([{'case':x['case'],'name':x['name'],'sourceLines':v,'passed':True} for x,v in zip(cases,ranges)],separators=(',',':')))\nprint('DISPATCH_AGE_SECONDS',(used-datetime.datetime.fromisoformat(a['utc'])).total_seconds())\nprint('INDEPENDENT_SEAL',json.dumps({'decision':'A_FIXED_CPU_PROTOCOL_ONLY','nextWorth':'A for one separate exact actual-UI method proposal, no UI entry.','reason':'All34 outcomes follow unchanged real-owner assertions and match summary; actual tool/admission/used/inventory/run records bind; Node6535+ps6536 positively collected; no reported error; all four outputs within bounds.','limits':['Fake reader/timer/storage only','No DOM/native FileReader/BFCache/chooser/default or appearance proof','Single early RSS sample and observed0.057s window are not peak memory or performance','No retirement fault path exercised','No replay or implementation change'],'pending_edits':False}))\nb=(p/'CPU-ROOT-FIRST.json').read_bytes();print('ROOT_FIRST',len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "b3b956",
+      "exit_code": 0,
+      "wall_time_seconds": 1.625e-05,
+      "original_token_count": 1904,
+      "outputBytes": 7615,
+      "outputSHA256": "7100490521db87e5b7f43a9a6c1373643f66040e933fdd3f4764371ea271ca49",
+      "firstLine": "UTC 2026-10-20T00:17:52.123625+00:00 PID 12046"
+    }
+  ],
+  "errors": [
+    {
+      "job": "070743",
+      "exit": 1,
+      "kind": "Critic receipt-reader Python SyntaxError before execution or file write",
+      "cause": "Raw CPU-EXEC historical admission command contains triple quotes that collided with the reader payload delimiter.",
+      "correction": "Same evidence serialized as a quoted Python string; no target/source/pair mutation from failed command.",
+      "pid": "not exposed; parse failed before PID print"
+    }
+  ],
+  "pending_edits": false,
+  "noActions": "No source change/test/fixture/import/evaluation/helper replay/CPU/browser/chooser/capture/reference/network/native/GPU/storage or canonical change; only current exclusive review pair written.",
+  "receiptPreparedUTC": "2026-10-20T00:19:18.063566+00:00"
+}

@@ -1,0 +1,50 @@
+{
+  "start": "2026-10-20T00:15:06.677046+00:00",
+  "supervisorPID": 6534,
+  "decision": "A_CPU_ONLY",
+  "childPID": 6535,
+  "childCollected": true,
+  "v8OldSpaceLimitMiB": 128,
+  "hardTotalHeapOrRSSLimit": null,
+  "sampledRSSRefusalBytes": 536870912,
+  "rssSamples": [
+    {
+      "utc": "2026-10-20T00:15:06.681379+00:00",
+      "bytes": 901120
+    }
+  ],
+  "monitors": [
+    {
+      "pid": 6536,
+      "targetPID": 6535,
+      "start": "2026-10-20T00:15:06.680298+00:00",
+      "exit": 0,
+      "collected": true,
+      "end": "2026-10-20T00:15:06.681368+00:00"
+    }
+  ],
+  "errors": [],
+  "childWallLimitSeconds": 10,
+  "stopWaitSecondsPerSignal": 2,
+  "perStreamRefusalBytes": 1048576,
+  "argv": [
+    "/Users/robault/.brv-cli/bin/node",
+    "--max-old-space-size=128",
+    "/Users/robault/GitHub/sugata-avatar/packages/testbed/src/showcase-look-import.selftest.mjs"
+  ],
+  "childExit": 0,
+  "observedChildWindowSeconds": 0.057169375009834766,
+  "assertions": {
+    "passed": 34,
+    "limit": 40,
+    "storage": "fake only",
+    "reader": "fake only",
+    "owners": "real settings/options/SavedLooks"
+  },
+  "end": "2026-10-20T00:15:06.734659+00:00",
+  "streamBytes": {
+    "stdout.log": 3130,
+    "stderr.log": 0
+  },
+  "limits": "Old-space only; RSS/output sampling may miss bursts. No hard process peak, browser, GPU or appearance guarantee."
+}

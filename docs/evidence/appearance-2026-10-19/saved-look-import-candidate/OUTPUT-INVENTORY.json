@@ -1,0 +1,39 @@
+{
+  "utc": "2026-10-20T00:15:21.009673+00:00",
+  "pid": 6990,
+  "decision": "A_INVENTORY_ONLY",
+  "semanticOutputsParsed": false,
+  "rows": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-candidate/cpu-run/RUN.json",
+      "name": "RUN.json",
+      "regularNoSymlink": true,
+      "bytes": 1353,
+      "sha256": "b7f69a47633546452e242797ca2bca55469f80c9a53f320819b2c8036a3f3c29"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-candidate/cpu-run/runtime-start.json",
+      "name": "runtime-start.json",
+      "regularNoSymlink": true,
+      "bytes": 590,
+      "sha256": "df5cf17841af31809124973dad57de4bc8146848708cb523689f9e052f46ac35"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-candidate/cpu-run/stderr.log",
+      "name": "stderr.log",
+      "regularNoSymlink": true,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/saved-look-import-candidate/cpu-run/stdout.log",
+      "name": "stdout.log",
+      "regularNoSymlink": true,
+      "bytes": 3130,
+      "sha256": "de12d0d0ac157b1c685a75aeab70a18795e6e11f78da373d84d65f2e744b1ad2"
+    }
+  ],
+  "totalBytes": 5073,
+  "errors": [],
+  "preservedAll": true
+}
