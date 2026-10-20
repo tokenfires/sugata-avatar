@@ -1,0 +1,129 @@
+{
+  "utc": "2026-10-20T00:49:32.422479+00:00",
+  "pid": 73040,
+  "decision": "B_SOURCE_UNRUN",
+  "freshBindings": 7,
+  "preclosePins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/CRITIC-RECEIPT.json",
+      "bytes": 8181,
+      "sha256": "f4868b61e7fcf89016beed7936b45e8ca0c42e42efae1f2d38ef63cf8a29c7eb"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/INPUTS.json",
+      "bytes": 922,
+      "sha256": "91f93fcb7d8698bb618706b29d71bd538388b878d4a522e94d1575c84251dc03"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/JOBS.md",
+      "bytes": 1340,
+      "sha256": "f7701ebf09d2d62d14e56eb6d9075058cdaf95b1ef3d55ed6ed6d1016b387ebe"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/PLAN.md",
+      "bytes": 4602,
+      "sha256": "aa93841a0cd4fbb2cdddc18011bc8de817289c28c5fdadc285748accbdd815f7"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/README.md",
+      "bytes": 1089,
+      "sha256": "acd8956ab968a39066801f3da326c7317c75cd19b9ee0429b3c1e5275609f503"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/ROOT-FIRST.json",
+      "bytes": 2370,
+      "sha256": "8b0705698683efdb679c039dbb77197be229f95a0531732a470d754aa9bda630"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/ROOT-SOURCE.json",
+      "bytes": 4485,
+      "sha256": "446c0134c48eb3a7f100293e59be15d0f384f27744479ad1662cf60ac753a3c6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/ROOT-TOOLS.json",
+      "bytes": 23110,
+      "sha256": "923c75515f6d0625e78bc9130203bd01a6b16f4ca4f2464863f5354b741e155a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/SEARCH.json",
+      "bytes": 7480,
+      "sha256": "bd6a1d7333727eb50cd4e892b71e9f274c87505f20612ccf1650ec2326904743"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/SERVICES.json",
+      "bytes": 536,
+      "sha256": "133813ecd644c6f6462de5dfd7300efa441111951c5c1abe4d5dde84dd364273"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/SOURCE-REVIEW.md",
+      "bytes": 2677,
+      "sha256": "94234d6ef809aeae16708298a22319933f3e92659aa83c5c76bddf3ab818ba89"
+    },
+    {
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 170820,
+      "sha256": "b700e47e4ad84b5665fe53c90122945dd75c9e9de2c93d1096a20b6656198991"
+    },
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 145756,
+      "sha256": "9dbe005430625d9c6bdf82a7ca3294242a38f4d0119755fc7eb91d31eb252826"
+    }
+  ],
+  "ownedPaths": [
+    "docs/RESUME-2026-10-18.md",
+    "docs/WORK-WINDOW-2026-10-18.md",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/CRITIC-RECEIPT.json",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/INPUTS.json",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/JOBS.md",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/PLAN.md",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/README.md",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/ROOT-CLOSE.json",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/ROOT-FIRST.json",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/ROOT-SOURCE.json",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/ROOT-TOOLS.json",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/SEARCH.json",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/SERVICES.json",
+    "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/SOURCE-REVIEW.md"
+  ],
+  "retainedUntrackedMaraWorthPaths": [
+    "docs/evidence/appearance-2026-10-19/mara-surprise-worth/CLOSURE-EXCERPT.json",
+    "docs/evidence/appearance-2026-10-19/mara-surprise-worth/INPUTS.json",
+    "docs/evidence/appearance-2026-10-19/mara-surprise-worth/PLAN.md",
+    "docs/evidence/appearance-2026-10-19/mara-surprise-worth/ROOT-FIRST.json"
+  ],
+  "exactSaveCommands": [
+    [
+      "git",
+      "add",
+      "--",
+      "docs/RESUME-2026-10-18.md",
+      "docs/WORK-WINDOW-2026-10-18.md",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/CRITIC-RECEIPT.json",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/INPUTS.json",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/JOBS.md",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/PLAN.md",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/README.md",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/ROOT-CLOSE.json",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/ROOT-FIRST.json",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/ROOT-SOURCE.json",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/ROOT-TOOLS.json",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/SEARCH.json",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/SERVICES.json",
+      "docs/evidence/appearance-2026-10-19/masculine-overshirt-details/SOURCE-REVIEW.md"
+    ],
+    [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    [
+      "git",
+      "commit",
+      "-m",
+      "docs: checkpoint overshirt reference stop"
+    ]
+  ],
+  "postCommitDuty": "Exact owned Git blobs and all7pins match; only named separate Mara worth notes remain untracked; no circular future hash."
+}

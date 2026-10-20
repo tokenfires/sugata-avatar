@@ -1,0 +1,55 @@
+{
+  "schema": "overshirt-detail-primary-search-v1",
+  "args": {
+    "query": "site:propercloth.com/reference shirt sleeve placket cuff button construction",
+    "includeDomains": [
+      "propercloth.com"
+    ],
+    "limit": 2,
+    "sources": [
+      "web"
+    ],
+    "domainTools": false
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"success\":true,\"data\":{\"web\":[],\"tools\":[{\"provider\":\"curated-design\",\"capability\":\"web-design-inspiration/list_filters\",\"description\":\"To pick a `category` for list_sites or a `slug` for list_shelf_sites, or to show what the gallery can be filtered by.\"},{\"provider\":\"allbirds-com\",\"capability\":\"products/details\",\"description\":\"Read substantive product design, materials, sustainability and care sections. Unsupported layouts fail closed.\"}]},\"creditsUsed\":0,\"id\":\"01a156c3-29c1-770d-a5e3-92a6d39cd2fd\",\"agent_hints\":[\"No web results were returned. If the task is still unresolved, use firecrawl_search again with {\\\"query\\\":\\\"<broader or alternative query>\\\",\\\"sources\\\":[\\\"web\\\"]}.\"]}"
+      }
+    ],
+    "structuredContent": {
+      "success": true,
+      "data": {
+        "web": [],
+        "tools": [
+          {
+            "provider": "curated-design",
+            "capability": "web-design-inspiration/list_filters",
+            "description": "To pick a `category` for list_sites or a `slug` for list_shelf_sites, or to show what the gallery can be filtered by."
+          },
+          {
+            "provider": "allbirds-com",
+            "capability": "products/details",
+            "description": "Read substantive product design, materials, sustainability and care sections. Unsupported layouts fail closed."
+          }
+        ]
+      },
+      "id": "01a156c3-29c1-770d-a5e3-92a6d39cd2fd",
+      "creditsUsed": 0,
+      "agent_hints": [
+        "No web results were returned. If the task is still unresolved, use firecrawl_search again with {\"query\":\"<broader or alternative query>\",\"sources\":[\"web\"]}."
+      ]
+    },
+    "isError": false
+  },
+  "sourcePlanCommand": "python3 - <<'PY'\nfrom pathlib import Path\nimport datetime,os\np=Path('docs/evidence/appearance-2026-10-19/masculine-overshirt-details');p.mkdir(exist_ok=False)\n(p/'PLAN.md').write_text('''# One original overshirt-detail sheet: complete source proposal\n\nStart2026-10-20 00:43UTC; stop01:00UTC, no extension. Worth979f759b permits preparing this source contract only. SourceA plus exact local checkpoint and fresh root admission are required before one managed image call; this document never starts it.\n\nUsable improvement: one inspectable artist sheet of the retained olive overshirt's hidden facing/neck/open-cuff relationships, preserving visible silhouette, collar, chest pocket, button and slit/cuff cues. Bounded research question: can one coherent sheet make the inside/outside closure and seam ownership readable without contradicting those accepted exterior cues? Actual first image decides; no dimensions, garment pattern, reconstruction, 3D, physical layer clearance, sewing or wearable-fit claim.\n\nInputs reuse5worthpins and stableWORTH/ROOT-WORTH/criticreceipt/ROOT-FIRST at exactcurrentbytes. Root and critic already separately viewed whole first.png original1536\u00d71024 at00:37/00:38; same-byte reference reuse only, no second sourceimage. Two earlier exact receipts5184B and checklist samebytes. No linked originalportrait, oldmesh/builder/image, source hunt or other asset. No body/head/groom/geometry/native/capture method successor.\n\nNew reference budget: one Firecrawl web-only query, limit2, constrained propercloth.com primary manufacturer documentation, for cuff/placket construction vocabulary; choose one officialresult and live-scrape once(maxAge0), timeout\u226430s, onlymainmarkdown. Raw wrapper\u2264256KiB, chosen semantic excerpt\u226480lines/8KiB. No additionalsearch/page/image/screenshot/browser/remoteimage-download/CLI fallback. Existing currentJ.Crew text-only broadtwill/collar/layering source may be cited as already retained, not re-fetched. All new hidden design remains original; source text cannot establish image correspondence. If tool/reference unavailable or scope unknown, close sourceproposal without generation; one feedback each is optional bookkeeping, not new content retrieval. No purchase/capacity/redemption.\n\nPrepare exact brief/prompt, one-reference imagegen arguments, pins, source/workload/output/collection contract and source firstopinion. Built-inimagegen preferred and sole allowedimagegeneration method; noCLI/alternatemodel/remotequeue. Atmostonecall/firstoutput underseparatefreshrootadmission; no edit/crop/rescale/regenerate/retake. Model/PID/memory/hardcancellation/precisecreditcostunexposed. Initialcall/waits120s functionyield with actualstate retained, \u226415minute dispatch/recoverywallwindow. Pending/unknownneverduplicate; ifdeadline/capacityfailure checkpoint andcollectonlyknownreturnedoutput. This is a dispatch/collectionrefusalbound, notphysicalhardcancellation.\n\nOne sole rasterreference: actualfirst.png1969289B/a7019a47790a0a27155e2425c02f7d3d1c7b3157d24a541caa5509e75d72c82d. Requestopaque1536\u00d71024landscape artistplate, four readable panels; model maychooseoutputsize soactualdimensions/headermustbeobserved. Nativegeneratedoutput remains untouchedinitsdefaultdirectory, recordactualreturnedpath/statebeforecopying. Exclusivelycopyatmostone actualPNG to first.png,\u226420MiB, dimensions1024\u20134096each, no rewrite/transcode/crop. Unknown/multiple/nonPNG/oversizeoutputpreservedbutunqualified; neverremove. Up to16newregularboundednotes/JSON/prompt/receipt files\u2264512KiBeach plus firstPNG\u226420MiB, sourcewrapper\u2264256KiB included; no collection sweep or unexpected-file deletion. Wholepacketimmediateinventorybeforesemanticqualification.\n\nRootaloneoperatesmanagedgeneration/collection. Independentlyinspectwholefirstoutputandreference, sealownopinionbeforecritic seesit. Critic independentlyviewsoriginals/wholeactualdataandsealsbeforecomparison; everyactionablefindingactualimage/sourcewitness/explanation/twoalternatives. Rootwhole-readstablehandoff, freshpins andactualreasoningbeforeartistretention. FirstB/unknownstopswithoutrepair/retake/relabel/renamedpartsortransport/capture successor. A supportsartistintentonly; laterdiscovery/checklistdeliveryneedsitsowntruthfulsourcecheck. No source/runtime/default/fit/rig/motion/performance/AAAqualification.\n\nPreserve all accepted/default/original/frozen/ignored work and unrelatedworktrees, materialvolumeconstructorHOLD/everypriorclosedrecipe, fullroadmap/checklist23scoped/10broad. No liveownedjob; existingVite/sameACTIVEten-minuteheartbeatretained. Humancheck-in/pausewins; collect/stopownedwork,checkpoint,retainserver,pauseautomationAPI/readback onexplicitpause. No push/publication/install/purchase/capacity/model/subscription/reset-credit/otherprojectwork.\n''')\nprint('SOURCE_PLAN',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nPY",
+  "sourcePlanResult": {
+    "chunk_id": "642c10",
+    "wall_time_seconds": 6.208e-06,
+    "exit_code": 0,
+    "original_token_count": 14,
+    "output": "SOURCE_PLAN 2026-10-20T00:43:11.008167+00:00 PID 60709\n"
+  },
+  "scope": "One successful query returned zero web sources. No follow-up query/page/image/reference or generation. Search is not evidence of global source absence or tool outage."
+}

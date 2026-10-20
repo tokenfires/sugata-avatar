@@ -1,0 +1,128 @@
+{
+  "schema": "critic-artist-source-selection-stop-v1",
+  "collectionUTC": "2026-10-20T00:45:55.444492+00:00",
+  "collectionPID": 66005,
+  "decision": "B_REQUIRED_PRIMARY_SELECTION_UNSATISFIED_GENERATION_UNRUN",
+  "deadlineUTC": "2026-10-20T01:00:00Z",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-overshirt-details/PLAN.md",
+      "bytes": 4602,
+      "sha256": "aa93841a0cd4fbb2cdddc18011bc8de817289c28c5fdadc285748accbdd815f7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-overshirt-details/SEARCH.json",
+      "bytes": 7480,
+      "sha256": "bd6a1d7333727eb50cd4e892b71e9f274c87505f20612ccf1650ec2326904743"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/ROOT-WORTH.json",
+      "bytes": 4815,
+      "sha256": "601edc3b2c0f2611e89da8a2c65f58e84b0157641e625995dae6c126dc2a1ce3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth/WORTH.md",
+      "bytes": 3521,
+      "sha256": "da1c2702ba8fe0f00d373acb9dd0cd02c8248233827fef15495dc11bd88178ab"
+    }
+  ],
+  "manifestSelf": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-overshirt-details/INPUTS.json",
+    "bytes": 922,
+    "sha256": "91f93fcb7d8698bb618706b29d71bd538388b878d4a522e94d1575c84251dc03"
+  },
+  "rootFirst": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-overshirt-details/ROOT-FIRST.json",
+    "bytes": 2370,
+    "sha256": "8b0705698683efdb679c039dbb77197be229f95a0531732a470d754aa9bda630"
+  },
+  "review": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-overshirt-details/SOURCE-REVIEW.md",
+    "bytes": 2677,
+    "sha256": "94234d6ef809aeae16708298a22319933f3e92659aa83c5c76bddf3ab818ba89"
+  },
+  "coverage": "Whole PLAN/SEARCH/INPUTS and same-byte bound ROOT-WORTH/WORTH documents only; four exact pins, no referred-file or image traversal, no source/browser/reference/target call.",
+  "independence": {
+    "job": "7549da",
+    "exit": 0,
+    "pid": 64619,
+    "utc": "2026-10-20T00:45:12.389532+00:00",
+    "order": "Independent B printed before ROOT-FIRST contents were opened; root separate00:44:19.876339/PID62798."
+  },
+  "actualQuery": {
+    "query": "site:propercloth.com/reference shirt sleeve placket cuff button construction",
+    "includeDomains": [
+      "propercloth.com"
+    ],
+    "limit": 2,
+    "sources": [
+      "web"
+    ],
+    "domainTools": false,
+    "success": true,
+    "isError": false,
+    "web": [],
+    "creditsUsed": 0,
+    "searchId": "01a156c3-29c1-770d-a5e3-92a6d39cd2fd",
+    "textEqualsStructuredContent": true,
+    "scope": "One root query occurred; no critic network/request/refetch. No live official page can be selected from this empty result under fixed contract."
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "literalWitness": [
+        "PLAN reference paragraph: one propercloth-only web query limit2, choose one official result and live-scrape once; unavailable/unknown reference closes sourceproposal without generation.",
+        "SEARCH actual success:true/isError:false/data.web:[]/creditsUsed:0, no chosen web source."
+      ],
+      "effect": "Mandatory source selection remains unqualified; generation not admitted. Search hints/tool suggestions cannot override fixed one-query contract.",
+      "alternatives": [
+        {
+          "choice": "Preserve exact source-selection stop and prior worth/accepted exterior",
+          "tradeoff": "No invented reference authority/repeated retrieval; no new detail sheet delivered."
+        },
+        {
+          "choice": "Defer hidden details to a later coupled garment/artist owner",
+          "tradeoff": "Avoid extra speculative2Ddetail; current intent remains open, no constructor or later-work admission."
+        }
+      ]
+    }
+  ],
+  "nextWorth": "No further experiment within this exact nomination; no repair/renamed successor or new work proposed.",
+  "retainedQualification": "Prior worth A remains value/preparation-only; not current sourceA or generation admission.",
+  "notInferred": [
+    "global source/manufacturer absence",
+    "tool outage",
+    "global runtime incapability",
+    "artist/garment/image defect",
+    "physical reconstruction/fit/sewing authority",
+    "finished/default/AAA credit"
+  ],
+  "tools": [
+    {
+      "name": "initial",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/masculine-overshirt-details')\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['PLAN.md','SEARCH.json','INPUTS.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "4e8084",
+      "exit_code": 0,
+      "wall_time_seconds": 5.75e-06,
+      "original_token_count": 3338,
+      "outputBytes": 13352,
+      "outputSHA256": "7704b42dffc1be1b85a9596b15f83fa871bd643dac7d6a49c413a167293aeff4",
+      "firstLine": "UTC 2026-10-20T00:44:46.537758+00:00 PID 63732"
+    },
+    {
+      "name": "seal_compare",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib\nr=Path('/Users/robault/GitHub/sugata-avatar');p=r/'docs/evidence/appearance-2026-10-19/masculine-overshirt-details';print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid());m=json.loads((p/'INPUTS.json').read_bytes())\nfor x in m['pins']:\n b=(r/x['path']).read_bytes();assert len(b)==x['bytes'] and hashlib.sha256(b).hexdigest()==x['sha256'];print('PIN_PASS',x['path'])\nfor n in ['ROOT-WORTH.json','WORTH.md']:\n f=r/'docs/evidence/appearance-2026-10-19/masculine-overshirt-details-worth'/n;b=f.read_bytes();print('\\nWHOLE_WORTH',n,len(b),hashlib.sha256(b).hexdigest());print(b.decode())\ns=json.loads((p/'SEARCH.json').read_bytes());actual=s['result']['structuredContent'];assert json.loads(s['result']['content'][0]['text'])==actual;assert actual['success'] is True and actual['data']['web']==[] and actual['creditsUsed']==0 and s['result']['isError'] is False\nprint('INDEPENDENT_SEAL',json.dumps({'decision':'B_REQUIRED_REFERENCE_STEP_UNSATISFIED_CLOSE_UNRUN','witness':'PLAN requires one propercloth-only query followed by one selected official-result live page; actual successful sole query returns web[] and0credits. No official result exists in this packet to select.','effect':'Required exact source step remains unqualified. No broader query, alternate provider/page, oldJCrewwaiver, brief/prompt or generation may substitute.','limits':'No global source absence, ProperCloth capability absence, outage or artist/garment failure inferred. PriorworthA remains prep-only.','alternatives':['Freeze sourceproposal unrun and retain worthA/accepted exterior; preserves evidence and avoids contract change, no newdetailasset.','Defer facing/neck/cuff choice to later coupled artist owner using retained accepted exterior; no additional speculative reference or lookup, currentambiguity stays.'],'nextWorth':'No further experiment within this exact nomination.','pending_edits':False}))\nb=(p/'ROOT-FIRST.json').read_bytes();print('ROOT_FIRST',len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "7549da",
+      "exit_code": 0,
+      "wall_time_seconds": 9.125e-06,
+      "original_token_count": 3099,
+      "outputBytes": 12395,
+      "outputSHA256": "6f316687a1723306e3733a2697d272b2451623d239d5710c316704e752dc06f4",
+      "firstLine": "UTC 2026-10-20T00:45:12.389532+00:00 PID 64619"
+    }
+  ],
+  "errors": [],
+  "pending_edits": false,
+  "noActions": "No broader query/page/provider/reference/image/source hunt/brief/prompt/generation/browser/native/GPU/code/test/transport or other-file/canonical mutation; only exclusive critic pair written.",
+  "receiptPreparedUTC": "2026-10-20T00:45:55.445201+00:00"
+}

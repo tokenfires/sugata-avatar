@@ -1,0 +1,13 @@
+# Overshirt details: source-selection stop review
+
+B — close this exact source proposal at the required reference-selection step. The one permitted query ran; generation remains unrun. No further experiment under this nomination is worthwhile or admitted. Prior worth A remains a preparation-only value judgment.
+
+I whole-read PLAN, SEARCH and INPUTS and both bound worth documents. All four pins pass. Only these named texts/current hashes were inspected; no image, referred file, website, source/code, alternative provider, brief/prompt or target was opened.
+
+F1: PLAN's reference paragraph permits exactly one web-only propercloth.com query, limit2, followed by one chosen official-result live page (maxAge0); unavailable/unknown reference closes without generation. SEARCH records the literal query “site:propercloth.com/reference shirt sleeve placket cuff button construction”, includeDomains:[propercloth.com], limit2, sources:[web], domainTools:false. Its returned text and structuredContent agree: success:true, isError:false, data.web:[], creditsUsed:0, searchId01a156c3-29c1-770d-a5e3-92a6d39cd2fd. There is therefore no chosen official web result in this packet for the mandatory live-page step. Returned tool suggestions and the agent hint to broaden the query do not amend the fixed plan.
+
+The effect is a bounded source-contract refusal, not global source absence, manufacturer capability absence, a tool outage, physical/artist impossibility or an image defect. Existing retained J.Crew broad text is not the required newly selected reference and cannot silently waive that duty. No broader/repeated query, alternative domain/page/provider, original-only fallback, changed detail parts, writer/transport or renamed successor is admitted here.
+
+Alternative1: preserve this source-selection stop and the prior worth/accepted exterior references, avoiding invented authority and repeated searches but delivering no new detail sheet. Alternative2: defer facing/neck/cuff decisions to a later coupled garment/artist owner, avoiding another speculative2Ddetail while leaving the design ambiguity open. This is not constructor admission or a request to start that later work.
+
+I printed my independent source B in7549da/exit0, PID64619 at2026-10-20T00:45:12.389532Z before opening ROOT-FIRST. Root's separately sealed00:44:19 UNKNOWN/closed-generation-unrun agrees on this exact scope. Neither opinion changes the successful query or promotes it into a reference. The four source pins, prior worth A, accepted/default/frozen assets, checklist23scoped/10broad, all old closures and constructor HOLD remain. Only this review pair was written. Pending edits: false.
