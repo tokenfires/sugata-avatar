@@ -1,5 +1,21 @@
 # Sugata work window — October 18, 2026
 
+## October20, 04:12 UTC — editable overshirt finishing sheet delivered
+
+[Open the reviewed artist handoff and original vector/PNG](evidence/appearance-2026-10-19/overshirt-finish-design/README.md). It supplies full front/back context plus deliberately authored collar underside/stand, inside-facing turn/finish and slit-cuff overlap/closure. Subdued inside annotations remain disclosed; the clear separate legend carries the relationship. Unitless artist guidance only, no physical/sewing/native3D/fit/AAA/broad completion. Checklist23scoped/10broad and every other asset/phase goal remain unchanged.
+
+Independent documentary6901B/16538B pair wholly read841dc5/d27a49; root109624/PID13359/04:11:55UTC verifies41direct+nestedrows plus13root-firstrows, immutable6b691a46...53df47f/prefix/seal-order and10local-link occurrences. Exact2699B handoff/10031BSVG/231333BPNG remain unchanged. Initial rootimageB/criticimageA and historical no-jointA remain exact; later root artistA is attributed to same-image/clear-legend reinspection, with no criteria/pixel/source repair. Separate documentaryA confirms truthful chronology. [Final closure](evidence/appearance-2026-10-19/overshirt-finish-delivery/ROOT-DELIVERY.json).
+
+Only one direct CPU render c81c60/exit0/PID90332,889ms/observed214656KiB/no warnings; no native/GPU/browser/capture. Root/critic actual whole images qualify appearance; numerical/source checks support it. Design20files480428B, delivery5files<256KiB. All graphics/source/prose/retake/colour/font/layout/crop/renderer/successor allowances consumed. No live owned target/session/pendingcriticedit. Fresh appAPIview+f97f99/PID9763/04:10:02UTC saved same3344BACTIVEevery10samechat configSHA9b859344...c9a and Vite870HTTP200; future delivery untested.
+
+Close before04:33:47.162902UTC without extension. Next distinct bounded responsibility needs fresh independent worth; no more finishing variants. Preserve accepted/default/original/frozen/ignored/unrelated/9October10files, all old closures/AriHOLD/full AAA character/expression/wardrobe/representation/coupled-fit/motion/performance/VTuber/Mii roadmap and phase order. Human check-in/pause wins; no push/publish/purchase/install/model/subscription/reset-credit/otherproject work.
+
+## October20, 04:07 UTC — finishing preview retained, documentary gate pending
+
+Sole direct CPU job c81c60/exit0/PID90332 completed naturally,889ms/observed214656KiB/no warnings, exact1600x1100PNG231333B/a4249823...5e556. Root7305a8 verifies21inputs/PNGCRCs/IEND before first whole view. Critic whole-imageA and initial rootB independently identify the same subdued panelB annotations; opinions remain exact. Root67949d/04:06:03UTC whole-read stable9073B/20981B pair, verifies26bindings/immutablee64c68eb...a64de, then rechecks the SAME unchanged whole image and clear external legends. Final root artistA with contrast caveat follows later explicit brief inspection, not backdated joint approval or pixel/prose repair. [Complete evidence](evidence/appearance-2026-10-19/overshirt-finish-design/ROOT-IMAGE.json).
+
+Exact isolated README handoff is now under independent documentary gate in overshirt-finish-delivery; no final delivery/integration claim yet. No main/board/checklist change. Design20files/metadata<2MiB+solePNG<2MiB; no more graphical work, retake/font/colour/layout/renderer/crop/successor. No live target/session remains; doccritic active only. No physical/native3D/fit/runtime/AAA/broad completion. All prior closures/HOLD/default/original/frozen/ignored/unrelated/fullroadmap/23scoped10broad retained; same10minuteACTIVE/server. Stop04:33:47.162902UTC. Human steering wins.
+
 ## October20, 03:59 UTC — complete overshirt finishing source approved, preview pending
 
 One new original editable SVG owns full front/back context, upper/under collar and stand, inside-facing turn/finish, and slit-cuff overlap/buttonhole-over-button intent. Stable independent source8109B/18814B pair wholly readfde9b0/221e97; root763fc7/PID88788/03:59:17UTC verifies18bindings/immutable8e6b1d0e...280c28/prefix/seal-before-root-access. Source/observational resource A only; actual compatibility/output/appearance unqualified. Exact source/refs/resources/limits in [complete contract](evidence/appearance-2026-10-19/overshirt-finish-design/DESIGN.md) and ROOT-SOURCE.json.

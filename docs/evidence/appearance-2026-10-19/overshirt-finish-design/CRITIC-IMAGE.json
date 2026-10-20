@@ -1,0 +1,310 @@
+{
+  "schema": "overshirt-finish-actual-image-critic-v1",
+  "imageDecision": {
+    "sealedAtUTC": "2026-10-20T04:03:54.258780+00:00",
+    "sealPID": 97732,
+    "decision": "A",
+    "scope": "Retain the exact sole PNG and editable SVG as an original unitless artist finishing-intent sheet only. This is a full current DESIGN appearance judgment, not garment fit, sewing, 3D, native/runtime or AAA qualification.",
+    "reason": "The whole actual1600x1100 preview communicates complete front/back exterior context plus distinct upper leaf/low stand/undercollar, facing return with edge-turn legend, and opened slit/contrasting underlap/overlap with hole-end-over-button-end closed cuff relation. Important panel titles, legends and full garment silhouettes are in frame without caption collisions. The inside-panel on-body labels are subdued but still readable at original detail; the clear sand/ochre legend and separated edge marks preserve the intended relationship. No source/pixel repair is needed or admitted.",
+    "noRootImageOpinionRead": true,
+    "completeCriteria": [
+      {
+        "role": "whole layout and full context",
+        "actualWitness": "Title and four panels lie inside the1600x1100 frame. Front and back garments occupy approximatelyx72-669/y277-659, including collars, both sleeves/cuffs and full hems; front has distinct unfastened edges/buttons/buttonholes and a visible narrow centre gap. Front/back labels andA/B/C context legend are unobstructed.",
+        "result": "A at diagram scope; not measured silhouette or body/wrist/hem calibration."
+      },
+      {
+        "role": "collar upper/stand/underside",
+        "actualWitness": "Top-right panel x712-1560/y134-432 separates olive upper leaf aroundx771-1231/y233-315, sand low stand aroundx860-1142/y320-358 and sand undercollar aroundx794-1208/y350-403. Three distinct horizontal leaders/name labels and the separated-layer/non-pattern caption are legible.",
+        "result": "A; separated explanatory arrangements, not fitted pattern pieces."
+      },
+      {
+        "role": "inside facing and turn legend",
+        "actualWitness": "PanelB x712-1106/y454-938 shows olive body reverse and a separate sand facing return to its right, a dark inner-finish line/cream stitch nearx949-984 and an ochre dashed front-edge turn nearx997-1023. Bottom captions atx738/y884/911 explicitly connect sand to inside-facing intent and ochre dash to turned front edge.",
+        "result": "A, with the nonblocking label-contrast limitation below."
+      },
+      {
+        "role": "opened slit/overlap/underlap/closure",
+        "actualWitness": "PanelC x1128-1560/y454-938 shows the opened sleeve slit with olive left overlap and contrasting sand right underlap aroundx1285-1410/y617-735. The opened band has a hole atx1190-1217/y766 and a sand button-end extension aroundx1470-1520; the sentence at y824 specifies hole-end-over-button-end. The lower closed-cuff view aroundx1206-1452/y843-900 shows the fastened hole/button relation.",
+        "result": "A for artist closure intent, not physical assembly or operation."
+      },
+      {
+        "role": "labels and honest authority",
+        "actualWitness": "Panel headings, collar leaders, cuff sentence, front/back labels, colour/fold legend and footer are unclipped. Footer explicitly says original fictional choices/editable unitless/not sewing/fitted/finished3D. Olive exterior/sand underside/ochre turn language is internally consistent.",
+        "result": "A; all unseen relationships remain original authorship."
+      }
+    ],
+    "findings": [
+      {
+        "id": "L1",
+        "severity": "nonblocking communication limit",
+        "witness": "Actual panelB on olive field aroundx770-855/y605-697: Body/reverse and Inner finish labels, plus their subdued leader, have weaker contrast than the black headings and off-body captions. SOURCE finish.svg style .small uses#58665c, while the body field is#6c765b.",
+        "explanation": "These annotations take more attention at whole-sheet scale. They remain readable at original detail and the separate sand strip, dark inner line, cream stitch and explicit bottom legend make the role understandable, so this does not defeat the complete artist gate. Do not claim accessibility/contrast certification or uniformly strong label contrast.",
+        "alternatives": [
+          {
+            "choice": "Retain the exact whole sheet with this limitation and its clear legend.",
+            "tradeoff": "Delivers useful explicit finish intent without changing the consumed first result; no later edit/rerender is admitted."
+          },
+          {
+            "choice": "Reject the sheet if the intended consumer needs uniformly high-contrast standalone body annotations.",
+            "tradeoff": "Applies a stricter delivery standard but yields no artist handoff from this nomination; no font/colour/layout rescue or second preview follows."
+          }
+        ]
+      }
+    ],
+    "actualRecord": {
+      "entryJob": "c81c60",
+      "toolExitCode": 0,
+      "noLiveToolSessionReturned": true,
+      "targetPID": 90332,
+      "reportedElapsedMS": 889,
+      "toolWallSeconds": 0.8301155,
+      "observedMaxRSSKiB": 214656,
+      "warnings": [],
+      "node": "v24.19.0",
+      "sharp": "0.35.5",
+      "sourceSHA256": "aadbec90ae8a238cf48a08fbaaf65e535740132ae65a1b088656ea8fb6ca78a2",
+      "pngBytes": 231333,
+      "pngSHA256": "a4249823eafa85770bb6645a804c63cfd7766381f42999e6e299faad3b35e556",
+      "dimensions": [
+        1600,
+        1100
+      ],
+      "bitDepth": 8,
+      "colourType": 6,
+      "allChunkCRCsAndIEND": true,
+      "decodedScanlineBytes": 7041100
+    },
+    "nextDocumentaryHandoffWorthDoing": true,
+    "nextPermittedScope": "Only a separately truthful artist-retention/handoff/closure after root whole verification and agreement on this full image judgment. No new graphical experiment or source/renderer/font/layout/colour/crop/retake/renamed successor is worthwhile or permitted within this exhausted method.",
+    "limits": [
+      "One actual whole original-detail view of the exact finish.png only; no crop, alternate scale file, second view, new image, browser, capture, GPU, native3D, imagegen or rerender.",
+      "Original concept/blockout visual knowledge reused at exact admission pins, not newly viewed or requalified. All existing source/runtime/artifact bytes unchanged.",
+      "Observed natural tool exit0/no-session and resource figures qualify only this actual small preview. No hard RSS/wall cap, universal failure-path retirement, private dependency/font/OS closure, performance comparison or physical driver retirement claim.",
+      "Source/ID/count/runtime success did not substitute for actual complete image judgment. Stylized explanatory proportions are unitless; no garment/body measurement, sewing/manufacturing/fit/physical/3D/native/AAA acceptance follows.",
+      "All prior closures/Ari HOLD/accepted/default assets/full roadmap/checklist23/10 remain unchanged. First preview allowance consumed; no repair or successor."
+    ]
+  },
+  "imageDecisionCanonicalSHA256": "e64c68eba8b18483e08f9914432c1504bbbe89313e05a2ad547aba339a8a64de",
+  "canonicalization": "UTF-8 json.dumps ensure_ascii=False sort_keys=True separators=(comma,colon)",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/PLAN.md",
+      "bytes": 4111,
+      "sha256": "09c47d10a7052ce72257edaae10863dfc794c24562607e355ff5529d69770601"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/PREPARATION-NOTE.md",
+      "bytes": 2464,
+      "sha256": "02e01f4a7f7578eb5db5a4059a53a485aa5cb9a85e5bde2a3b026011bc8da9b3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/DESIGN.md",
+      "bytes": 4942,
+      "sha256": "6032b8030eb30eb2af37d8b80b74d6cb78859f9c677a57ed0baa50dccbe07eaf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/finish.svg",
+      "bytes": 10031,
+      "sha256": "aadbec90ae8a238cf48a08fbaaf65e535740132ae65a1b088656ea8fb6ca78a2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/render.cjs",
+      "bytes": 3425,
+      "sha256": "ddd8a51395e5399670d7423e7925f3255faf4d04e4ea758506c999582f197e6c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/REFERENCES.json",
+      "bytes": 42446,
+      "sha256": "d02792f7a852a4525a0ad8b8a75a694d8ae3910160e0442e16e50503fc40757b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-worth/README.md",
+      "bytes": 1986,
+      "sha256": "3dd1dc9d94bd656cf9eca37df88005b59f24d8cf9525bd49dd3ecdda3cb5ce7b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-worth/ROOT-WORTH.json",
+      "bytes": 31967,
+      "sha256": "586ac5e20761de359603b90f1eef443cde8ffc1732e47fb4193c3b7a67690071"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-worth/LOCAL-INPUTS.json",
+      "bytes": 2760,
+      "sha256": "0e06c6f454608ae6d0d06d0a27a79fd022a3fe4e4720d6d7374c3129204ff597"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8886,
+      "sha256": "8081b2052d17f95064c298213f4df54e5c3b3211c4ecbc2c0e8c0a28973995ab"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp/package.json",
+      "bytes": 8115,
+      "sha256": "ad4a2535d72eb638053a38867b1abf43c328cd1c1dbae5cf4172d498365a8b97"
+    },
+    {
+      "path": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "bytes": 121304480,
+      "sha256": "613be50c90e83aa8da58dd9ed393d0b39914a3b8ef4123fe817b46c2679cebe2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/INPUTS.json",
+      "bytes": 3170,
+      "sha256": "e2fb5907c41dc03fbfbae013ac70675587ca42bf45316cf73905c78a38da6a19"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/triptych-first.jpg",
+      "bytes": 47399,
+      "sha256": "5fd1071f64a7a7a1ebb5e36bd677b6412defba321a061a2e34e5b8dfb15b65da"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/ROOT-FIRST.json",
+      "bytes": 6139,
+      "sha256": "022e75e788c6a0c00711c628f441c3e75594741a02a958ad16a703ecc6b54fb9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/CRITIC-SOURCE.json",
+      "bytes": 18814,
+      "sha256": "f3d6270dcfba706b40226bc6c67c1d557a13a53f23934c1f0377b09e873eadb6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/ROOT-SOURCE.json",
+      "bytes": 32041,
+      "sha256": "4b30b5ffd15ddadec10b3ece752283257536bc85881d6257256d93b1952720a9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/SOURCE.md",
+      "bytes": 8109,
+      "sha256": "80188e2579128acd08a54e4d48c5fcbc2b157d3bfc5c310eaf83d7540a8e5527"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/TOOL-PREPARATION.json",
+      "bytes": 22880,
+      "sha256": "fbd20b6d1317715e130093aa20fd9dda2c5cc65c1e0a0c315789de302a6ccffe"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/ADMISSION.json",
+      "bytes": 5762,
+      "sha256": "56f796bffb5db8695198d3f1fcbdf1ec757353fd75df0cf422d69bff20965622"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/JOB.json",
+      "bytes": 12068,
+      "sha256": "96fa1fb84896b186178d9001d00405bc305c25ea4d29e927c580add857998abc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/finish.png",
+      "bytes": 231333,
+      "sha256": "a4249823eafa85770bb6645a804c63cfd7766381f42999e6e299faad3b35e556"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/ROOT-IMAGE-FIRST.json",
+      "bytes": 2517,
+      "sha256": "9fa2db14c382dc132d7f884bc5d50846a281bee44de528e6e9056e5458a06658"
+    }
+  ],
+  "operations": [
+    {
+      "scope": "whole JOB and ADMISSION before view",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design');print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['JOB.json','ADMISSION.json']:\n p=leaf/n;b=p.read_bytes();print('FILE',str(p),'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "job": "e8bb60",
+      "exit_code": 0,
+      "UTC": "2026-10-20T04:01:23.808546+00:00",
+      "PID": 92937
+    },
+    {
+      "scope": "21freshpins, actual report/source/output and PNG integrity before view",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os,struct,zlib\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design');a=json.loads((leaf/'ADMISSION.json').read_bytes());j=json.loads((leaf/'JOB.json').read_bytes());print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor row in a['pins']:\n p=Path(row['path']);b=p.read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256']\nassert len(a['pins'])==21 and j['job']['args']['cmd']==a['command'];ret=j['job']['result'];assert ret['exit_code']==0 and 'session_id' not in ret;out=json.loads(ret['output']);assert out['status']=='complete' and out['pid']==90332 and out['warnings']==[] and out['versions']['sharp']=='0.35.5' and out['elapsedMS']==889 and out['maxRSSKiB']==214656 and out['maxRSSKiB']<=1048576\np=leaf/'finish.png';b=p.read_bytes();assert not p.is_symlink() and len(b)==231333 and hashlib.sha256(b).hexdigest()=='a4249823eafa85770bb6645a804c63cfd7766381f42999e6e299faad3b35e556'==out['pngSHA256'];assert out['svgSHA256']==hashlib.sha256((leaf/'finish.svg').read_bytes()).hexdigest();assert b[:8]==bytes([137,80,78,71,13,10,26,10]);pos=8;chunks=[];packed=b''\nwhile pos<len(b):\n size=struct.unpack('>I',b[pos:pos+4])[0];tag=b[pos+4:pos+8];data=b[pos+8:pos+8+size];crc=struct.unpack('>I',b[pos+8+size:pos+12+size])[0];assert zlib.crc32(tag+data)&0xffffffff==crc;chunks.append([tag.decode(),size]);pos+=size+12\n if tag==b'IHDR':header=struct.unpack('>IIBBBBB',data)\n if tag==b'IDAT':packed+=data\n if tag==b'IEND':assert pos==len(b);break\nassert header==(1600,1100,8,6,0,0,0) and chunks[-1]==['IEND',0];scan=zlib.decompress(packed);assert len(scan)==7041100\nprint(json.dumps({'allAdmissionPins':21,'toolExit':ret['exit_code'],'toolSessionAbsent':True,'targetPID':out['pid'],'targetReportedElapsedMS':out['elapsedMS'],'observedMaxRSSKiB':out['maxRSSKiB'],'warnings':out['warnings'],'actualPNG':{'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()},'header':header,'allChunkCRCs':True,'IENDAtEOF':True,'decodedScanlineBytes':len(scan),'chunks':len(chunks),'sourceBinding':out['svgSHA256'],'noNewRenderOrImageView':True},sort_keys=True))\nPY",
+      "job": "df5598",
+      "exit_code": 0,
+      "UTC": "2026-10-20T04:01:51.658217+00:00",
+      "PID": 93870
+    },
+    {
+      "scope": "root image opinion after independent seal",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/ROOT-IMAGE-FIRST.json');b=p.read_bytes();print(json.dumps({'UTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID':os.getpid(),'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()},sort_keys=True));print(b.decode())\nPY",
+      "job": "40f36b",
+      "exit_code": 0,
+      "UTC": "2026-10-20T04:04:12.730126+00:00",
+      "PID": 98315
+    }
+  ],
+  "actualWholeView": {
+    "tool": "view_image",
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/finish.png",
+    "requestedDetail": "original",
+    "returnedDetail": "original",
+    "afterJob": "df5598",
+    "afterUTC": "2026-10-20T04:01:51.658217+00:00",
+    "backendPID": "not exposed",
+    "whole": true,
+    "crop": false
+  },
+  "viewChronology": "One whole original-detail view after df5598 at04:01:51.658217UTC and before this seal. Backend exact view PID/time not exposed. No root image opinion read.",
+  "coverage": {
+    "wholeText": [
+      "JOB.json",
+      "ADMISSION.json"
+    ],
+    "sameByteSemanticReuse": [
+      "Complete DESIGN/SVG/renderer/source and final resource contract from prior whole source review; exact original concept/blockout whole views from worth. No new linked semantic traversal."
+    ],
+    "independentChecks": [
+      "21current admission pins",
+      "tool/admission exact command equality",
+      "actual report exit/status/PID/no-session/warnings/version/resources",
+      "SVG/PNG actual SHA/bytes association",
+      "1600x1100RGBA8/all32chunksCRC/IEND/7041100decodedscanline bytes"
+    ],
+    "imageViews": 1
+  },
+  "independence": {
+    "sealUTC": "2026-10-20T04:03:54.258780+00:00",
+    "sealPID": 97732,
+    "rootImageOpinionNotRead": "True at immutable seal; first read only in40f36b after both durable files.",
+    "bothFilesDurableBeforeRootAccess": true
+  },
+  "errors": [],
+  "initialReview": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/IMAGE.md",
+    "bytes": 7837,
+    "sha256": "9a23e2ad2e142a4ab8da5bb8dfd9d13b3b7eed17a1895b46f68e697d6805f77a"
+  },
+  "pending_edits": false,
+  "status": "Stable full actual-image review, immutable critic A and root B disagreement retained; no joint full appearance A or integration. Root resolves final closure. No further target/source action.",
+  "rootComparison": {
+    "rootReadJob": "40f36b",
+    "rootReadUTC": "2026-10-20T04:04:12.730126+00:00",
+    "rootReadPID": 98315,
+    "rootSealUTC": "2026-10-20T04:01:03.972156+00:00",
+    "rootSealPID": 92279,
+    "rootDecision": "B for complete artist appearance; source/result association and technical success A remain separate",
+    "agreement": "Both independently identify the same weak Body/reverse/Inner finish contrast on olive in panelB and clear collar/context/cuff/outer legend. There is no pixel/source disagreement.",
+    "disagreement": "Critic sealed full current artist gate A with the muted labels as nonblocking because the labels remain readable at original detail and the separate sand/ochre legend communicates the relationship. Root sealed full artist B because the consequential inner-finish annotation is weak. This subjective qualification difference is preserved; critic sourceDecision/imageDecision are not changed to match root.",
+    "combinedStatus": "A joint full artist A has not been obtained. No full finishing-deliverable/checklist/default/integration promotion follows. Root independently resolves final closure from both actual witnesses; conservative evidence-only/full-B retention is available, with no new graphics or rescue.",
+    "rootOpinionAccessAfterBothDurableCriticFiles": true
+  },
+  "historicalInitialReceipt": {
+    "bytes": 18019,
+    "sha256": "0feaca47e1d08025770945d0c5b5e18a8e81a0541c27cafbbd91b8f95a26788f",
+    "scope": "Historical exact pre-comparison receipt; subsequent changes are external comparison/bookkeeping only."
+  },
+  "review": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/IMAGE.md",
+    "bytes": 9073,
+    "sha256": "f79f3daaec218aa758938db60d399ea8f1c6bc45c0de14d95e1390ee0e78d355"
+  },
+  "collectedUTC": "2026-10-20T04:05:06.133443+00:00",
+  "collectionPID": 99993
+}
