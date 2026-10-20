@@ -1,0 +1,344 @@
+{
+  "decision": "ONE_FIXED_TECHNICAL_TRIAL_A",
+  "pending_edits": false,
+  "image_scope": "NO_IMAGES_TECHNICAL_ONLY",
+  "limits": {
+    "worker_wall_seconds": 900,
+    "total_wall_seconds": 1200,
+    "sampled_rss_bytes": 4294967296,
+    "sampled_output_bytes": 2147483648,
+    "poll_seconds": 0.25,
+    "term_grace_seconds": 3,
+    "kill_grace_seconds": 3
+  },
+  "not_before_utc": "2026-10-20T12:48:40.485526+00:00",
+  "expires_utc": "2026-10-20T12:50:40.485526+00:00",
+  "pins": [
+    {
+      "path": "/Applications/Blender.app/Contents/MacOS/Blender",
+      "bytes": 182900560,
+      "sha256": "f5c1f2a0c0bca3389ec772d355242b700975ea84e66cbb3f5257a7bce8e5adeb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/README.md",
+      "bytes": 7175,
+      "sha256": "f67477956482652b62c6cec47ef7de6f928d5335b801acc796c9d6f064383dad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/fields.npz",
+      "bytes": 1058878,
+      "sha256": "88a158ceadf94ca23d3166bbca3ba40135eb60c5063dcb77dba1918050659d5f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-source-contract/SOURCE-MAP.json",
+      "bytes": 91085,
+      "sha256": "7cdcda00ad43629b558b829afbc76b226f121aabd98d7bb9b270c592b90bb129"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/after-geometry.npz",
+      "bytes": 840170,
+      "sha256": "10f646e42a868fe84ab14d6e3022918a70e6b0aeec30781f270037b79be2f024"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-complete-jacket-nomination/ROOT-READBACK.json",
+      "bytes": 817,
+      "sha256": "006c4ab395329016f53421f08d4271c435d4c014840a762b3655ea0ac681dc81"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-material-volume-contract/PLAN.md",
+      "bytes": 4387,
+      "sha256": "67a6bf5a8d477a187fcd4b729685133b47d7ec2bd2b429185df204b90bda4583"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-material-volume-contract/PRIMARY.json",
+      "bytes": 13401,
+      "sha256": "0c2a73392cfb526140cea7cc84ed427cf20e037ae9987329a40dc9f6f9126e9d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-material-volume-contract/SOURCE-INSPECTION.json",
+      "bytes": 14365,
+      "sha256": "a5b1926237d64be76482a224e04cf2e31dba3fbd158e4bfb99d8b0409d288f05"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-09/ari-wrist-registration-contract/WRIST-REFERENCE.json",
+      "bytes": 13132,
+      "sha256": "439acbcee0fb0a6a2ff5aeb6acde58a0de25b928494daea2dd1e985ce9535529"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/BINDINGS.json",
+      "bytes": 1781,
+      "sha256": "5bbd6f6e6aca3aed7acbb53e46e7247e76659c2474500abc56dd8994942d5961"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/CONTRACT.json",
+      "bytes": 17528,
+      "sha256": "974c1cbd3ad811717aec75069f8a2c696aaacf2a8c5631599d8244914d1a7fcf"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/INPUTS.json",
+      "bytes": 1808,
+      "sha256": "caaa8a1d84e4e7cd15d09d5d6a081137ab53a63618fd4ef68c9ac38089c63c17"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/PLAN.md",
+      "bytes": 2839,
+      "sha256": "e4fa96128413c2eee19f898cd2cc6031008af3ed02450baff3707c3657e15a22"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/README.md",
+      "bytes": 2755,
+      "sha256": "9ddd68e901cd8a9359ed2af5ad293674d08cf0277af7d3f0cc90960034191feb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/REVIEW.md",
+      "bytes": 4983,
+      "sha256": "275e04a50a500eb1b617c42b47b573c644c83efa1bf6f961a105a6d33c4f66f6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/ROOT-SEMANTIC-DIFF.json",
+      "bytes": 873,
+      "sha256": "2237c62d77c039e00a203049ecf7fc5570ac21f6001657b6b747ef75dda1bc1b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/ROOT-WORTH.json",
+      "bytes": 304,
+      "sha256": "8ab0df368872b47265bb081d73ebe1d5691230f527081c97c6c878c4711637b6"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-10/ari-volume-owner-revision/WORTH.md",
+      "bytes": 4659,
+      "sha256": "f47f879b9f3cc85fc2c25f95cd569a47d8e212968213f94a741a0fd7110ab8fd"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/ARCHIVE-OWNERS.json",
+      "bytes": 1338,
+      "sha256": "432ff88073dc210f6cd301a655098be85d1cfe6884a696f7479c98f36f2d7563"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/AST-PARSE-V2.json",
+      "bytes": 695,
+      "sha256": "938948e53a6b99c3f683ccb26606cf6fc0663736cc4c7832e217404358f6ad6d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/CORRECTION-PLAN.md",
+      "bytes": 3527,
+      "sha256": "c029adacd1ed9edcaf874758968a7a96af290813165cf2515f4aba95b1da4d7d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/FOUR-MEMBER-PREFLIGHT.json",
+      "bytes": 2567,
+      "sha256": "7992ae450bd80b0a2c6f062e4d9adf943d60ba40e16e15bb58dc604c4c3a6296"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/IMPLEMENTATION.md",
+      "bytes": 10335,
+      "sha256": "b97e8ac4c99c8603d597af8ea0b0fc23610d85418d2d557ecf0923aa33dea182"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/MEMORY-PREFLIGHT.txt",
+      "bytes": 1841,
+      "sha256": "72dc49f3e841aa51a2401a81881b81d50523a731b4e6184ec02367fd2a7ad344"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/PREPARATION-PLAN.md",
+      "bytes": 8609,
+      "sha256": "3e3b35a3295e237d4d1d05d61d1cb0afcf011b718f2ed45bc0d2c2dd2145c6a8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/README.md",
+      "bytes": 4543,
+      "sha256": "800562ff4baf57149692ebd95433dd37050b4306f367c6f17788463a3bef1129"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/ROOT-SOURCE-RESULT-V2.json",
+      "bytes": 1351,
+      "sha256": "41ff412e0a3f8f753f6de82e3641035b94b018574d87b773b6a03d30a9cf2948"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/ROOT-SOURCE-V2-VERIFICATION.json",
+      "bytes": 598,
+      "sha256": "8bc5dac8969a0d3bc45269843e9dc656da5049bc212544268580b8b3a0a93945"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/ROOT-SOURCE-VERIFICATION.json",
+      "bytes": 396,
+      "sha256": "8f54cc4977f0f96a0d00bbb1bd21e1f6f16d2269b68aa5c252728ba70433f7c2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/ROOT-WORKLOAD-V2-VERIFICATION.json",
+      "bytes": 572,
+      "sha256": "c11449201f234f32326f9781124149a81716096c56e412600916916d8b257731"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/ROOT-WORKLOAD-VERIFICATION.json",
+      "bytes": 570,
+      "sha256": "07547c0be7ebafde915b19c9f26a40a6e3e459291653404aecbde60bea5f4f00"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/RUNTIME-PREFLIGHT.json",
+      "bytes": 1327,
+      "sha256": "cd52d24d14b008dbdcb5de8410a65d4fddff26d2199bb4c46ed79ca50dbd7d3c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/SOURCE-FILE-PINS.json",
+      "bytes": 2631,
+      "sha256": "7203bda28710dbb0620fe4651ae17260c4eeca29091fbb63f959e4636a7c41b0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/SOURCE-HANDOFF-V2.json",
+      "bytes": 4726,
+      "sha256": "73436c57fe81096ecaae05c8e51944006ea261df1b267e751d937aef20d2e155"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/SOURCE-REVIEW-V2.md",
+      "bytes": 20176,
+      "sha256": "a837df5afaf5ab9ec94fbee70d0e0a3e508904fb4aeb3067b5b3cfc92848ed7a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/SOURCE-REVIEW.md",
+      "bytes": 16940,
+      "sha256": "635e29741c7f714ea2528155b567636cd9e85b92664af1207858cbe7c0ffe174"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/SOURCE-V1-PRESERVATION.json",
+      "bytes": 7055,
+      "sha256": "a999ad18a270b8685c69cf4af4d99571900fa0fadd6ca6a456aedff3fb7c28b3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/TRIAL-PLAN.md",
+      "bytes": 4079,
+      "sha256": "a63a8b56e29e45e958f7c8d5dd7abad356511b7d1ed781f2d52532c57070aab7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/TRIAL-PREFLIGHT.json",
+      "bytes": 6097,
+      "sha256": "e798294122bc5b1a33fb3ac6d43c30f5595b688d68e662f9c13906d2050cb288"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/WORKLOAD-REVIEW-V2.md",
+      "bytes": 17096,
+      "sha256": "ef895f8747b1d29bc4ffcf688539c0e024d4ca80d94134e1ef7880891a7660c5"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/WORKLOAD-REVIEW.md",
+      "bytes": 18949,
+      "sha256": "45682182a0e091909c278ad8152ecca7a1ae9b5bec6daef685d4c33799730520"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/constructor.py",
+      "bytes": 44918,
+      "sha256": "7f96e5a632fb4cd68a08e94e9bda1e8db556e998c8a4531f19a429e77f3fca2e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/run_once.py",
+      "bytes": 23289,
+      "sha256": "b04098dc55776c721a8d34498a7fb1900f84198fb855068734027736ab28ec20"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/source-v1/ARCHIVE-OWNERS.json",
+      "bytes": 1338,
+      "sha256": "432ff88073dc210f6cd301a655098be85d1cfe6884a696f7479c98f36f2d7563"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/source-v1/AST-PARSE.json",
+      "bytes": 616,
+      "sha256": "d34d59a5b11b710013851a9db9a0e6a4e4ee55f075be3730fb669bc3e99ae6a2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/source-v1/CHOICES-REVIEW.md",
+      "bytes": 8824,
+      "sha256": "6d43f4e0d2fa11133a49171e0a20c1b460fb407cd2ffd97c0a590352bd3deda0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/source-v1/FOUR-MEMBER-PREFLIGHT.json",
+      "bytes": 2567,
+      "sha256": "7992ae450bd80b0a2c6f062e4d9adf943d60ba40e16e15bb58dc604c4c3a6296"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/source-v1/IMPLEMENTATION.choices-reviewed.md",
+      "bytes": 5463,
+      "sha256": "c59b4ba7eadae3ca287d0f5527c6d7eab48561ad938c5c417dd31e4505fb7e7f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/source-v1/IMPLEMENTATION.md",
+      "bytes": 6749,
+      "sha256": "9f3b8ea4c218ff78e8bc549899860b6a598f54010eaf7413d25d9543db303502"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/source-v1/PREPARATION-PLAN.md",
+      "bytes": 8609,
+      "sha256": "3e3b35a3295e237d4d1d05d61d1cb0afcf011b718f2ed45bc0d2c2dd2145c6a8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/source-v1/README.md",
+      "bytes": 3519,
+      "sha256": "0ef525e0f605dbd7865944967755b9ced1f0f80d5ab130c022a659bcbaf22314"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/source-v1/ROOT-SOURCE-INITIAL.md",
+      "bytes": 3668,
+      "sha256": "ccbf6e5f063c281821834ecdb8e47b29eb851ce90489ee3536970413d740bdd1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/source-v1/RUNTIME-PREFLIGHT.json",
+      "bytes": 1327,
+      "sha256": "cd52d24d14b008dbdcb5de8410a65d4fddff26d2199bb4c46ed79ca50dbd7d3c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/source-v1/SOURCE-FILE-PINS.json",
+      "bytes": 2631,
+      "sha256": "7203bda28710dbb0620fe4651ae17260c4eeca29091fbb63f959e4636a7c41b0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/source-v1/SOURCE-HANDOFF.json",
+      "bytes": 3593,
+      "sha256": "2469cbcbd4eaf517ca90aada608cef8de28ab09e613abd30751660721fe24b16"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/source-v1/SOURCE-REVIEW.md",
+      "bytes": 16940,
+      "sha256": "635e29741c7f714ea2528155b567636cd9e85b92664af1207858cbe7c0ffe174"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/source-v1/WORKLOAD-REVIEW.md",
+      "bytes": 18949,
+      "sha256": "45682182a0e091909c278ad8152ecca7a1ae9b5bec6daef685d4c33799730520"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/source-v1/constructor.py",
+      "bytes": 44918,
+      "sha256": "7f96e5a632fb4cd68a08e94e9bda1e8db556e998c8a4531f19a429e77f3fca2e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/source-v1/run_once.py",
+      "bytes": 14814,
+      "sha256": "4b035b6b175913bf4d3fd31a81754e76aab14e1fb22caeb1ec1e2ad2219da0e7"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "bytes": 34640,
+      "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+    }
+  ],
+  "reviews": [
+    {
+      "role": "independent_source_workload",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/SOURCE-REVIEW-V2.md",
+      "decision": "A",
+      "pending_edits": false
+    },
+    {
+      "role": "root_verification",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/ROOT-SOURCE-RESULT-V2.json",
+      "decision": "A",
+      "pending_edits": false
+    }
+  ],
+  "additional_independent_A": "WORKLOAD-REVIEW-V2.md",
+  "single_command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-I",
+    "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/material-volume-constructor-preparation/run_once.py"
+  ],
+  "no_retry": true
+}

@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-20T12:48:40.414493+00:00",
+  "decision": "A",
+  "pending_edits": false,
+  "scope": "one exact full-grid numerical-only technical trial after the separately written finite admission",
+  "independent_reviews": {
+    "SOURCE-REVIEW-V2.md": {
+      "bytes": 20176,
+      "sha256": "a837df5afaf5ab9ec94fbee70d0e0a3e508904fb4aeb3067b5b3cfc92848ed7a",
+      "whole_read": "083774",
+      "verified": "490ac0"
+    },
+    "WORKLOAD-REVIEW-V2.md": {
+      "bytes": 17096,
+      "sha256": "ef895f8747b1d29bc4ffcf688539c0e024d4ca80d94134e1ef7880891a7660c5",
+      "whole_read": "6d1947",
+      "verified": "a699d4"
+    }
+  },
+  "fresh_preflight": "057554",
+  "source_handoff_sha256": "73436c57fe81096ecaae05c8e51944006ea261df1b267e751d937aef20d2e155",
+  "normative_nine_unchanged": true,
+  "worker_byte_identical": true,
+  "memory_free_snapshot_bytes": 47989309440,
+  "limits": {
+    "worker_wall_seconds": 900,
+    "total_wall_seconds": 1200,
+    "sampled_rss_bytes": 4294967296,
+    "sampled_output_bytes": 2147483648,
+    "poll_seconds": 0.25,
+    "term_grace_seconds": 3,
+    "kill_grace_seconds": 3
+  },
+  "latest_start_utc": "2026-10-20T12:55:00+00:00",
+  "checkpoint_utc": "2026-10-20T13:30:00+00:00",
+  "no_retry_or_repair_after_refusal": true,
+  "physical": "UNKNOWN",
+  "appearance": "UNKNOWN",
+  "actual_method_evaluation": false
+}

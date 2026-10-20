@@ -1,5 +1,13 @@
 # Sugata work window — October 18, 2026
 
+## Sole material-volume technical trial admitted; collect actual return (2026-10-20T12:49:15.397102+00:00)
+
+Both complete V2 source reviews A: SOURCE-REVIEW-V2 20176B/a837df5a… and WORKLOAD-REVIEW-V2 17096B/ef895f87…. Root whole083774/6d1947 plus490ac0/a699d4 verify all18bindings each, canonical seals/order and preserved16snapshots; complete current method/source independently inspected. Original B remains source-v1/; no second source correction. Root3e243e separately admits only exact one numerical-only command,61pins/ADMISSION SHA28e5147d… with start12:48:40.485526UTC/expiry12:50:40.485526UTC. No job had started at that admission.
+
+057554 fresh opaque9source/9normative/runtime hashes all match; no arrays/native decoded or queried. Solevm_stat exit0 reports47,989,309,440free bytes against8GiB minimum at12:47:27UTC; this snapshot is not future/peak proof. Worker/guard remain44918B/7f96e5a6… and23289B/b04098dc…. Same900sworker/1200stotalstop,4GiBsampledcombinedRSS/2GiBownedoutputs, fixedworkcaps/CPU/perfile; truthful limits and failure duties in frozen IMPLEMENTATION. No image, physical/artist/default/checklist credit.
+
+Root next owns actual outer command return/yielded session, actual supervisor/worker identities, all stage/observer/log/output/terminal collection and positive retirement. No second invocation, smaller method, source/metric/parameter/guard/diagnostic/image rescue after refusal/UNKNOWN/cap/error. First actual job is not claimed by this prelaunch header; do not duplicate it. Checkpoint13:30UTC; full roadmap/phaseorder/all oldclosures/HOLD/assets/same10minute recovery/server/humansteering remain. Retain pre-run README/source as immutable input; new actual RESULT will be the current receipt.
+
 ## Single inert guard correction sealed; fresh full reviews active (2026-10-20T12:41:21.518220+00:00)
 
 [Preparation receipt](evidence/appearance-2026-10-20/material-volume-constructor-preparation/README.md). First complete source opinions bothB/HOLD: root whole635cce/aa1d60 and64f9b5/077d49 verify full bindings/canonical seals. Exact original epoch committed cec03e79 and preserved read-only in source-v1/; no trial occurred. Findings were durable terminal collection, sticky cleanup failure and combined/final budget accounting; these are source defects, not geometric or runtime failures.
