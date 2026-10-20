@@ -1,0 +1,320 @@
+{
+  "schema": "warm-weather-delivery-critic-receipt-v1",
+  "deliveryDecision": {
+    "sealedAtUTC": "2026-10-20T03:01:30.729962+00:00",
+    "sealPID": 12620,
+    "decision": "A",
+    "integrateExactCandidate": true,
+    "scope": "Truthful artist handoff plus only the existing knitwear checklist row17 supplement; no new appearance/native/runtime or broad-goal qualification.",
+    "reason": "The whole actual first plate supports the handoff's sage above-elbow shirt/open collar, sand ankle trousers, navy/ivory low shoes and qualitative same-person continuity. The handoff truthfully limits the middle to a shallow oblique stance and the portrait to complete hair/head with a narrow grey top margin. It explicitly preserves unregistered artist-only/material/fit/native/runtime limits. Mechanical comparison proves only row17 is appended; canonical equals baseline, all other bytes, seven Usable rows, Outstanding suffix and23/10counts remain unchanged. The exact diff and local link contexts pass.",
+    "actionableFindings": [],
+    "alternatives": [
+      {
+        "choice": "Integrate the exact candidate after root fresh verification/CAS and retain the truthful handoff.",
+        "tradeoff": "Makes a real accepted seasonal wardrobe comparison discoverable without new checkboxes or native claims."
+      },
+      {
+        "choice": "Keep the accepted plate only in evidence and leave canonical checklist unchanged.",
+        "tradeoff": "Avoids another list extension, but makes the useful artist comparison harder to find; no additional image or document rescue is authorized."
+      }
+    ],
+    "ownActualImageWitnesses": [
+      "Front/middle sage shirts have short sleeves ending above elbows, open flat collars, buttons and untucked near-straight upper-hip hems; sand trousers reach above navy canvas/ivory shoes with small ankle intervals.",
+      "Middle torso is only slightly oblique while head/shoes turn farther; the handoff discloses this rather than claiming calibrated side depth.",
+      "The full figures' hair, hands and visible shoes lie within frame. Portrait head/bob is complete with a narrow grey margin; shoulder/chest cropping is intentional. Face/brow/nose/mouth/skin-texture/bob continuity remains qualitatively recognizable beside the original."
+    ],
+    "noRootDeliveryOpinionRead": true,
+    "canonicalChecklist": {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8644,
+      "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+    },
+    "candidate": {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CHECKLIST-CANDIDATE.md",
+      "bytes": 8886,
+      "sha256": "8081b2052d17f95064c298213f4df54e5c3b3211c4ecbc2c0e8c0a28973995ab"
+    },
+    "artistHandoff": {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ARTIST-HANDOFF.md",
+      "bytes": 2501,
+      "sha256": "a9c7d6f946167d29d53d95a5a7e5c80b34375c79d570a63cd9c11cdc27ed23c9"
+    },
+    "actualImage": {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/first.png",
+      "bytes": 2222757,
+      "sha256": "0248a8b9215e786fe40cfc664d7a002aa0f8116e0e0382331138c6f69f8fb74f"
+    },
+    "fixedAppearanceRoot": {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-IMAGE.json",
+      "bytes": 19259,
+      "sha256": "3bba0b61809ef3c5fe15067df93a8ac0dbca11ad85ccefa08ee6c21c284b521a"
+    }
+  },
+  "deliveryDecisionCanonicalSHA256": "a5a2cf13c1d6e7794325c72a92b37e5f4033f0ad07d90a5c4d9ba4ae1ad304cc",
+  "decisionCanonicalization": "UTF-8 json.dumps ensure_ascii=False, sort_keys=True, separators=(',',':')",
+  "initialIndependentReview": {
+    "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/DELIVERY-REVIEW.md",
+    "bytes": 4784,
+    "sha256": "0e9c95cb64c41f7f9d08e0a6cd77d2a98c3e3402a5963c3073934d65ba07b362"
+  },
+  "independence": {
+    "independentSealUTC": "2026-10-20T03:01:30.729962+00:00",
+    "independentSealPID": 12620,
+    "independentSealJob": "c5349f",
+    "rootDeliveryFirstReadJob": "7812d2",
+    "rootDeliveryFirstReadUTC": "2026-10-20T03:04:22.441783+00:00",
+    "rootDeliveryFirstReadPID": 13084,
+    "noRootDeliveryOpinionAccessBeforeSeal": true,
+    "comparison": "Root independently sealed A at 02:56:13.238904 UTC, PID 11855. Both find no actionable documentary defect and agree exact handoff/row17 integration is worthwhile after root fresh verification. Immutable critic deliveryDecision and initial review prefix are preserved."
+  },
+  "coverage": {
+    "wholeText": [
+      "DELIVERY-PLAN.md",
+      "ARTIST-HANDOFF.md",
+      "BASELINE-CHECKLIST.md",
+      "CHECKLIST-CANDIDATE.md",
+      "CHECKLIST.diff",
+      "BRIEF.md",
+      "IMAGE-REVIEW.md",
+      "COLLECTION.json",
+      "ROOT-DELIVERY-FIRST.json after seal"
+    ],
+    "boundedFixedEvidence": [
+      "ROOT-IMAGE.json parsed with schema/decision/next fields semantically read; remaining image/source qualifications reused at identical pins from fixed appearance evidence, not independently rerun.",
+      "Known target link metadata, image PNG headers/CRCs, canonical checklist, exact root opinion pins; no linked semantic traversal.",
+      "CRITIC-IMAGE-RECEIPT.json fresh pin only; no new source-history or runtime audit."
+    ],
+    "wholeImageViews": [
+      {
+        "tool": "view_image",
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+        "requestedDetail": "original",
+        "returnedDetail": "original",
+        "priorMetadataJob": "7d296b",
+        "priorMetadataUTC": "2026-10-20T02:59:05.104822+00:00",
+        "backendPID": "not exposed"
+      },
+      {
+        "tool": "view_image",
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/warm-weather-outfit/first.png",
+        "requestedDetail": "original",
+        "returnedDetail": "original",
+        "priorMetadataJob": "7d296b",
+        "priorMetadataUTC": "2026-10-20T02:59:05.104822+00:00",
+        "backendPID": "not exposed"
+      }
+    ],
+    "viewChronology": "Both whole original-detail views occurred after 7d296b at 02:59:05.104822 UTC and before c5349f at 03:01:30.729962 UTC. Backend PID/exact view timestamps are not exposed. No supplementary or fourth image was viewed.",
+    "mechanicalChecks": {
+      "canonicalEqualsBaseline": true,
+      "changedRows": [
+        17
+      ],
+      "oldRowPrefixPreserved": true,
+      "everyOtherByteEqual": true,
+      "usableRows": 7,
+      "usablePrefixExact": true,
+      "outstandingSuffixExact": true,
+      "scopedChecked": 23,
+      "broadOutstandingUnchecked": 10,
+      "exactUnifiedDiff": true,
+      "candidateCanonicalBaseLinksResolved": 33,
+      "handoffLeafBaseLinksResolved": 9,
+      "newCanonicalLinks": 1,
+      "images": {
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "bitDepth": 8,
+        "colourType": 2,
+        "allChunkCRCsAndIEND": true
+      }
+    }
+  },
+  "actionableFindings": [],
+  "alternatives": [
+    {
+      "choice": "Integrate the exact candidate after root fresh verification/CAS and retain the truthful handoff.",
+      "tradeoff": "Makes a real accepted seasonal wardrobe comparison discoverable without new checkboxes or native claims."
+    },
+    {
+      "choice": "Keep the accepted plate only in evidence and leave canonical checklist unchanged.",
+      "tradeoff": "Avoids another list extension, but makes the useful artist comparison harder to find; no additional image or document rescue is authorized."
+    }
+  ],
+  "scopeAndLimits": [
+    "Documentary integration worth A only; root independently whole-reads/fresh-verifies before exact canonical CAS/copy and checkpoint. Critic has not edited canonical files.",
+    "Fixed artist-only subjective appearance A reused; no new identity, calibrated angle/geometry, material physics, cooling, fit, native, rig, motion, runtime, performance, starter or AAA qualification.",
+    "No new image generation, browser, network, GPU, native, capture, crop, source/runtime/observer repair, retake, relabel, code execution or source editing. Only the two allowed review files written.",
+    "All prior closures, Ari HOLD, assets, defaults, full roadmap and phase order remain. No extra checked item or board/runtime/asset/roadmap promotion.",
+    "No actual whole TOOL-IMAGE dataURL read/print or target rerun. Same-byte COLLECTION and fixed IMAGE/ROOT evidence support request/copy limits; this is not a new backend/resource audit.",
+    "Absolute stop 2026-10-20T03:10:24.161020+00:00. No new experiment is proposed here."
+  ],
+  "errors": {
+    "currentDeliveryReaderErrors": [],
+    "historicalFixedImageReview": "Fresh independent appearance review was separately performed after the earlier source opinion disclosure. This delivery seal precedes root DELIVERY opinion access; no assertion that all earlier source history was blinded."
+  },
+  "operations": [
+    {
+      "scope": "plan",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport datetime,os,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/warm-weather-outfit/DELIVERY-PLAN.md');b=p.read_bytes();print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid());print('FILE',str(p),'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "job": {
+        "chunk_id": "16df3e",
+        "exit_code": 0,
+        "wall_time_seconds": 7.25e-06
+      }
+    },
+    {
+      "scope": "sources",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport datetime,os,hashlib,json\nr=Path('/Users/robault/GitHub/sugata-avatar');d=r/'docs/evidence/appearance-2026-10-19/warm-weather-outfit';print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['ARTIST-HANDOFF.md','BASELINE-CHECKLIST.md','CHECKLIST-CANDIDATE.md','CHECKLIST.diff','BRIEF.md','IMAGE-REVIEW.md','COLLECTION.json']:\n b=(d/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\np=d/'ROOT-IMAGE.json';b=p.read_bytes();x=json.loads(b);print('\\nROOT_IMAGE_PIN',len(b),hashlib.sha256(b).hexdigest());print('ROOT_IMAGE_KEYS',list(x));print('ROOT_IMAGE_BOUNDED',json.dumps({k:v for k,v in x.items() if k in ['schema','utc','pid','decision','imageDecision','actualImage','image','scope','next','criticReceipt','criticReview']},ensure_ascii=False,indent=2))\nPY",
+      "job": {
+        "chunk_id": "444ba6",
+        "exit_code": 0,
+        "wall_time_seconds": 7.75e-06
+      }
+    },
+    {
+      "scope": "verify",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport datetime,os,hashlib,struct,zlib,json,re,difflib\nr=Path('/Users/robault/GitHub/sugata-avatar');d=r/'docs/evidence/appearance-2026-10-19/warm-weather-outfit';print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\ndef pin(p):\n b=p.read_bytes();return {'path':str(p.relative_to(r)),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nb=(d/'BASELINE-CHECKLIST.md').read_bytes();c=(d/'CHECKLIST-CANDIDATE.md').read_bytes();cur=r/'docs/PROJECT-CHECKLIST.md';assert cur.read_bytes()==b and pin(cur)['sha256']=='6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6'\nbl=b.splitlines(keepends=True);cl=c.splitlines(keepends=True);changed=[i+1 for i,(x,y) in enumerate(zip(bl,cl)) if x!=y];assert len(bl)==len(cl) and changed==[17];assert cl[16].startswith(bl[16].rstrip(b'\\n')+b' ');assert b''.join(bl[:16]+bl[17:])==b''.join(cl[:16]+cl[17:]);assert b.split(b'## Outstanding',1)[1]==c.split(b'## Outstanding',1)[1];assert b.split(b'## Artist and research deliverables available',1)[0]==c.split(b'## Artist and research deliverables available',1)[0];assert b.count(b'- [x] ')==c.count(b'- [x] ')==23 and b.count(b'- [ ] ')==c.count(b'- [ ] ')==10\nactual=''.join(difflib.unified_diff(b.decode().splitlines(keepends=True),c.decode().splitlines(keepends=True),fromfile='docs/PROJECT-CHECKLIST.md@54581385',tofile='docs/PROJECT-CHECKLIST.md@proposed')).encode();assert actual==(d/'CHECKLIST.diff').read_bytes()\nprint('CANONICAL_BASELINE_EXACT',json.dumps(pin(cur)),'row17only; otherbytes/Usable7/Outstandingexact;23checked10open; literalDiffexact')\nfor rel,n,h in [('docs/evidence/appearance-2026-10-19/warm-weather-outfit/first.png',2222757,'0248a8b9215e786fe40cfc664d7a002aa0f8116e0e0382331138c6f69f8fb74f'),('docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png',2439336,'f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77')]:\n p=r/rel;a=pin(p);assert a['bytes']==n and a['sha256']==h and not p.is_symlink();raw=p.read_bytes();assert raw[:8]==b'\\x89PNG\\r\\n\\x1a\\n';off=8;ts=[]\n while off<len(raw):\n  length=struct.unpack('>I',raw[off:off+4])[0];t=raw[off+4:off+8];data=raw[off+8:off+8+length];crc=struct.unpack('>I',raw[off+8+length:off+12+length])[0];assert zlib.crc32(t+data)&0xffffffff==crc;ts.append(t.decode());off+=length+12\n assert off==len(raw) and ts[-1]=='IEND' and struct.unpack('>II',raw[16:24])==(1536,1024);print('IMAGE_HEADER_CRC_PASS',json.dumps(a),'1536x1024',ts)\npaths=['DELIVERY-PLAN.md','ARTIST-HANDOFF.md','BASELINE-CHECKLIST.md','CHECKLIST-CANDIDATE.md','CHECKLIST.diff','BRIEF.md','PROMPT.txt','TOOL-ARGS.json','IMAGE-REVIEW.md','ROOT-IMAGE.json','COLLECTION.json'];print('ACTUAL_DELIVERY_SOURCE_PINS',json.dumps([pin(d/n) for n in paths],separators=(',',':')))\nhrefs=re.findall(r'\\[[^\\]]+\\]\\(([^)]+)\\)',c.decode());assert all((r/'docs'/h).resolve().is_file() for h in hrefs if not h.startswith(('https:','http:')))\nadded=[h for h in hrefs if h not in re.findall(r'\\[[^\\]]+\\]\\(([^)]+)\\)',b.decode())];assert added==['evidence/appearance-2026-10-19/warm-weather-outfit/ARTIST-HANDOFF.md'];hl=re.findall(r'\\[[^\\]]+\\]\\(([^)]+)\\)',(d/'ARTIST-HANDOFF.md').read_text());assert all((d/h).resolve().is_file() for h in hl)\nprint('LINK_METADATA_PASS candidate',len(hrefs),'handoff',len(hl),'added',added);print('HANDOFF_LINK_TARGET_PINS',json.dumps([pin((d/h).resolve()) for h in hl],separators=(',',':')))\nPY",
+      "job": {
+        "chunk_id": "7d296b",
+        "exit_code": 0,
+        "wall_time_seconds": 7.459e-06
+      }
+    },
+    {
+      "scope": "seal",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\nr=Path('/Users/robault/GitHub/sugata-avatar');d=r/'docs/evidence/appearance-2026-10-19/warm-weather-outfit';payload=json.loads(\"{\\\"decisionBase\\\":{\\\"decision\\\":\\\"A\\\",\\\"integrateExactCandidate\\\":true,\\\"scope\\\":\\\"Truthful artist handoff plus only the existing knitwear checklist row17 supplement; no new appearance/native/runtime or broad-goal qualification.\\\",\\\"reason\\\":\\\"The whole actual first plate supports the handoff's sage above-elbow shirt/open collar, sand ankle trousers, navy/ivory low shoes and qualitative same-person continuity. The handoff truthfully limits the middle to a shallow oblique stance and the portrait to complete hair/head with a narrow grey top margin. It explicitly preserves unregistered artist-only/material/fit/native/runtime limits. Mechanical comparison proves only row17 is appended; canonical equals baseline, all other bytes, seven Usable rows, Outstanding suffix and23/10counts remain unchanged. The exact diff and local link contexts pass.\\\",\\\"actionableFindings\\\":[],\\\"alternatives\\\":[{\\\"choice\\\":\\\"Integrate the exact candidate after root fresh verification/CAS and retain the truthful handoff.\\\",\\\"tradeoff\\\":\\\"Makes a real accepted seasonal wardrobe comparison discoverable without new checkboxes or native claims.\\\"},{\\\"choice\\\":\\\"Keep the accepted plate only in evidence and leave canonical checklist unchanged.\\\",\\\"tradeoff\\\":\\\"Avoids another list extension, but makes the useful artist comparison harder to find; no additional image or document rescue is authorized.\\\"}],\\\"ownActualImageWitnesses\\\":[\\\"Front/middle sage shirts have short sleeves ending above elbows, open flat collars, buttons and untucked near-straight upper-hip hems; sand trousers reach above navy canvas/ivory shoes with small ankle intervals.\\\",\\\"Middle torso is only slightly oblique while head/shoes turn farther; the handoff discloses this rather than claiming calibrated side depth.\\\",\\\"The full figures' hair, hands and visible shoes lie within frame. Portrait head/bob is complete with a narrow grey margin; shoulder/chest cropping is intentional. Face/brow/nose/mouth/skin-texture/bob continuity remains qualitatively recognizable beside the original.\\\"],\\\"noRootDeliveryOpinionRead\\\":true}}\")\ndef pin(p):\n b=p.read_bytes();return {'path':str(p.relative_to(r)),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\ncanonical=pin(r/'docs/PROJECT-CHECKLIST.md');assert canonical['bytes']==8644 and canonical['sha256']=='6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6'\nnow=datetime.datetime.now(datetime.timezone.utc).isoformat();pid=os.getpid();x={'sealedAtUTC':now,'sealPID':pid,**payload['decisionBase'],'canonicalChecklist':canonical,'candidate':pin(d/'CHECKLIST-CANDIDATE.md'),'artistHandoff':pin(d/'ARTIST-HANDOFF.md'),'actualImage':pin(d/'first.png'),'fixedAppearanceRoot':pin(d/'ROOT-IMAGE.json')};canonicalJSON=json.dumps(x,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode();h=hashlib.sha256(canonicalJSON).hexdigest()\nbody='# Seasonal outfit documentary delivery review\\n\\nIndependent deliveryDecision sealed '+now+'; canonical JSON SHA256 '+h+'. This object is immutable; later comparison/receipt bookkeeping may be appended only outside it.\\n\\n## Immutable deliveryDecision\\n\\n```json\\n'+json.dumps(x,ensure_ascii=False,indent=2)+'\\n```\\n\\nA — the exact narrow delivery is worthwhile after root fresh verification and compare-and-swap. Source/image acceptance remains limited artist evidence. No canonical edit is performed by this review.\\n\\nThe complete handoff/drafts/diff/brief/fixed image review and collection were read; root appearance decision fields were read as fixed evidence, not as a delivery opinion. After fresh hash/header/all-chunk-CRC checks, the unchanged original and first plate were viewed whole at original detail. The supplement was not viewed again.\\n\\nThe checklist proof finds only row17 appended; every other byte, all seven Usable rows and the entire Outstanding suffix are exact, with23checked/10open before/after. The stored unified diff exactly equals that change. All33candidate links resolve from canonical docs/; all9handoff links resolve from the leaf. Old links are metadata-only, not source/image traversal.\\n\\nNo source/image/native/runtime/physical/starter/AAA completion or default promotion follows. Existing assets/closures/AriHOLD/phaseorder remain. No new target/capture/retake/relabel/edit is proposed.\\n\\nPost-seal root comparison and final receipt are pending; the decision above will remain exact.\\n'\nq=d/'DELIVERY-REVIEW.md'\nwith q.open('xb') as f:f.write(body.encode())\nprint('UTC',now,'PID',pid,'DURABLE_SEAL_WRITTEN');print('DECISION '+json.dumps(x,ensure_ascii=False,separators=(',',':')));print('DECISION_SHA256',h);print('INITIAL_REVIEW',json.dumps(pin(q)))\nPY",
+      "job": {
+        "chunk_id": "c5349f",
+        "exit_code": 0,
+        "wall_time_seconds": 6.166e-06
+      }
+    },
+    {
+      "scope": "root_compare",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-DELIVERY-FIRST.json')\nb=p.read_bytes()\nprint(json.dumps({'jobUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID':os.getpid(),'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()},sort_keys=True))\nprint(b.decode())\nPY",
+      "job": {
+        "chunk_id": "7812d2",
+        "exit_code": 0,
+        "wall_time_seconds": 7.666e-06
+      }
+    }
+  ],
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/DELIVERY-PLAN.md",
+      "bytes": 3221,
+      "sha256": "0cc139859df4ed8cef7f8b44a2ddd9232d9f586a898fd674818b8e7582df49f4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ARTIST-HANDOFF.md",
+      "bytes": 2501,
+      "sha256": "a9c7d6f946167d29d53d95a5a7e5c80b34375c79d570a63cd9c11cdc27ed23c9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/BASELINE-CHECKLIST.md",
+      "bytes": 8644,
+      "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CHECKLIST-CANDIDATE.md",
+      "bytes": 8886,
+      "sha256": "8081b2052d17f95064c298213f4df54e5c3b3211c4ecbc2c0e8c0a28973995ab"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CHECKLIST.diff",
+      "bytes": 1448,
+      "sha256": "ab46e13b321a278e99a5acfc0f87b089d419d287cf0dda05734f71e4da0a8547"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/first.png",
+      "bytes": 2222757,
+      "sha256": "0248a8b9215e786fe40cfc664d7a002aa0f8116e0e0382331138c6f69f8fb74f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/BRIEF.md",
+      "bytes": 4227,
+      "sha256": "8cd3ddf7b1f325eb17b36441af5975eaf570a4cd199ca703c479097aa9f8b552"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/IMAGE-REVIEW.md",
+      "bytes": 10615,
+      "sha256": "c919120a806d70933f7074172861d23e7d9837823178cb09000d15024fd6ef73"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CRITIC-IMAGE-RECEIPT.json",
+      "bytes": 29004,
+      "sha256": "153aa39d019e213281c0c446b3120089d6dfa0ca832cb75eff7b1e45b5be2a59"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-IMAGE.json",
+      "bytes": 19259,
+      "sha256": "3bba0b61809ef3c5fe15067df93a8ac0dbca11ad85ccefa08ee6c21c284b521a"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8644,
+      "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+      "bytes": 2023441,
+      "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/COLLECTION.json",
+      "bytes": 6819,
+      "sha256": "c45ebf5196dabdfb96046e9701bb9b44a2645091bdb1c0c73503c78a05cb6aa8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/README.md",
+      "bytes": 2871,
+      "sha256": "dc9b58f6f164433dca70fac6a9918d3faf8a3a7459fa59593753f336d9ab1c80"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/PROMPT.txt",
+      "bytes": 2348,
+      "sha256": "70ff3c82f0f57092368289ad6cd16684d7be005aeb62d78e37e6cf65de515ea1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/TOOL-ARGS.json",
+      "bytes": 2675,
+      "sha256": "7d07eeabb10f8cf40550c35fa772b7a9125bdecc605425005a2e05113bef5e2b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-DELIVERY-FIRST.json",
+      "bytes": 4630,
+      "sha256": "2ab0e34e7bf4f322b1749c087f09b7ebae45e67b0e5ef41954c009624b39f728"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2175,
+      "sha256": "f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874"
+    }
+  ],
+  "rootDeliveryOpinion": {
+    "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-DELIVERY-FIRST.json",
+    "bytes": 4630,
+    "sha256": "2ab0e34e7bf4f322b1749c087f09b7ebae45e67b0e5ef41954c009624b39f728"
+  },
+  "review": {
+    "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/DELIVERY-REVIEW.md",
+    "bytes": 5503,
+    "sha256": "4b136dc66be7722a0222768107fd8bd6f41e7f8b1cb1cfd00143f2865614ca44"
+  },
+  "collectedUTC": "2026-10-20T03:05:31.880066+00:00",
+  "collectionPID": 13257
+}

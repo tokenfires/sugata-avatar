@@ -1,0 +1,529 @@
+{
+  "schema": "warm-outfit-root-final-delivery-v1",
+  "verifiedUTC": "2026-10-20T03:06:54.177816+00:00",
+  "pid": 13472,
+  "decision": "A exact reviewed artist handoff and existing-row supplement integrated",
+  "criticWholeRead": {
+    "review": "7d2ddb/exit0/1376tokens",
+    "receipt": "d8f365/exit0/6163tokens",
+    "truncated": false
+  },
+  "criticPair": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/DELIVERY-REVIEW.md",
+      "bytes": 5503,
+      "sha256": "4b136dc66be7722a0222768107fd8bd6f41e7f8b1cb1cfd00143f2865614ca44"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CRITIC-DELIVERY-RECEIPT.json",
+      "bytes": 24652,
+      "sha256": "869a992e49c1872b98f2c402126f96b67f9032e5fa2cf88116450cddc0c708a5"
+    }
+  ],
+  "immutableDeliveryDecisionHash": "a5a2cf13c1d6e7794325c72a92b37e5f4033f0ad07d90a5c4d9ba4ae1ad304cc",
+  "independentlySealedBeforeRootDeliveryOpinion": true,
+  "initial4784ByteReviewPrefixExact": true,
+  "rootFirst": {
+    "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-DELIVERY-FIRST.json",
+    "bytes": 4630,
+    "sha256": "2ab0e34e7bf4f322b1749c087f09b7ebae45e67b0e5ef41954c009624b39f728"
+  },
+  "freshBindingsIncludingRepeats": 89,
+  "inputPinsBeforeIntegration": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/DELIVERY-PLAN.md",
+      "bytes": 3221,
+      "sha256": "0cc139859df4ed8cef7f8b44a2ddd9232d9f586a898fd674818b8e7582df49f4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ARTIST-HANDOFF.md",
+      "bytes": 2501,
+      "sha256": "a9c7d6f946167d29d53d95a5a7e5c80b34375c79d570a63cd9c11cdc27ed23c9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/BASELINE-CHECKLIST.md",
+      "bytes": 8644,
+      "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CHECKLIST-CANDIDATE.md",
+      "bytes": 8886,
+      "sha256": "8081b2052d17f95064c298213f4df54e5c3b3211c4ecbc2c0e8c0a28973995ab"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CHECKLIST.diff",
+      "bytes": 1448,
+      "sha256": "ab46e13b321a278e99a5acfc0f87b089d419d287cf0dda05734f71e4da0a8547"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/first.png",
+      "bytes": 2222757,
+      "sha256": "0248a8b9215e786fe40cfc664d7a002aa0f8116e0e0382331138c6f69f8fb74f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/BRIEF.md",
+      "bytes": 4227,
+      "sha256": "8cd3ddf7b1f325eb17b36441af5975eaf570a4cd199ca703c479097aa9f8b552"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/IMAGE-REVIEW.md",
+      "bytes": 10615,
+      "sha256": "c919120a806d70933f7074172861d23e7d9837823178cb09000d15024fd6ef73"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CRITIC-IMAGE-RECEIPT.json",
+      "bytes": 29004,
+      "sha256": "153aa39d019e213281c0c446b3120089d6dfa0ca832cb75eff7b1e45b5be2a59"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-IMAGE.json",
+      "bytes": 19259,
+      "sha256": "3bba0b61809ef3c5fe15067df93a8ac0dbca11ad85ccefa08ee6c21c284b521a"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8644,
+      "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+      "bytes": 2023441,
+      "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/COLLECTION.json",
+      "bytes": 6819,
+      "sha256": "c45ebf5196dabdfb96046e9701bb9b44a2645091bdb1c0c73503c78a05cb6aa8"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/README.md",
+      "bytes": 2871,
+      "sha256": "dc9b58f6f164433dca70fac6a9918d3faf8a3a7459fa59593753f336d9ab1c80"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/PROMPT.txt",
+      "bytes": 2348,
+      "sha256": "70ff3c82f0f57092368289ad6cd16684d7be005aeb62d78e37e6cf65de515ea1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/TOOL-ARGS.json",
+      "bytes": 2675,
+      "sha256": "7d07eeabb10f8cf40550c35fa772b7a9125bdecc605425005a2e05113bef5e2b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-DELIVERY-FIRST.json",
+      "bytes": 4630,
+      "sha256": "2ab0e34e7bf4f322b1749c087f09b7ebae45e67b0e5ef41954c009624b39f728"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2175,
+      "sha256": "f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/DELIVERY-PLAN.md",
+      "bytes": 3221,
+      "sha256": "0cc139859df4ed8cef7f8b44a2ddd9232d9f586a898fd674818b8e7582df49f4"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ARTIST-HANDOFF.md",
+      "bytes": 2501,
+      "sha256": "a9c7d6f946167d29d53d95a5a7e5c80b34375c79d570a63cd9c11cdc27ed23c9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/BASELINE-CHECKLIST.md",
+      "bytes": 8644,
+      "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CHECKLIST-CANDIDATE.md",
+      "bytes": 8886,
+      "sha256": "8081b2052d17f95064c298213f4df54e5c3b3211c4ecbc2c0e8c0a28973995ab"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CHECKLIST.diff",
+      "bytes": 1448,
+      "sha256": "ab46e13b321a278e99a5acfc0f87b089d419d287cf0dda05734f71e4da0a8547"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/first.png",
+      "bytes": 2222757,
+      "sha256": "0248a8b9215e786fe40cfc664d7a002aa0f8116e0e0382331138c6f69f8fb74f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/BRIEF.md",
+      "bytes": 4227,
+      "sha256": "8cd3ddf7b1f325eb17b36441af5975eaf570a4cd199ca703c479097aa9f8b552"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/IMAGE-REVIEW.md",
+      "bytes": 10615,
+      "sha256": "c919120a806d70933f7074172861d23e7d9837823178cb09000d15024fd6ef73"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CRITIC-IMAGE-RECEIPT.json",
+      "bytes": 29004,
+      "sha256": "153aa39d019e213281c0c446b3120089d6dfa0ca832cb75eff7b1e45b5be2a59"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-IMAGE.json",
+      "bytes": 19259,
+      "sha256": "3bba0b61809ef3c5fe15067df93a8ac0dbca11ad85ccefa08ee6c21c284b521a"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8644,
+      "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+      "bytes": 2023441,
+      "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/PLAN.md",
+      "bytes": 3743,
+      "sha256": "e8fa4372a0d9002d98aec08613fdaeb17b6a81be518474b06e3729ff3ac568b6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/LOCAL-INPUTS.json",
+      "bytes": 2441,
+      "sha256": "b13e5ff9b967faaa3192a8e3e5b68d95f3527e78046362f5138ba8fcff7487a2"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8644,
+      "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 4214,
+      "sha256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2175,
+      "sha256": "f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-tee-artist/README.md",
+      "bytes": 1904,
+      "sha256": "9a5ddfa2ee7459bee584b20170e8b6ba9323d626904078564d2eac09ca19878e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+      "bytes": 2023441,
+      "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/ROOT-WORTH.json",
+      "bytes": 4857,
+      "sha256": "c753e964fb1bc1d6ce900e39a9db450674080d3ccecec888252ccb5ab4db42df"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/WORTH.md",
+      "bytes": 4334,
+      "sha256": "ebe380650ac500bba93d9820c8dde17f3f1885cfb8331c84a09a8ec03683c929"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/CRITIC-RECEIPT.json",
+      "bytes": 18737,
+      "sha256": "126c8f4abe182fdfbb88ee191362d05b2013647b859c42560b2d8e956c0d574e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/ROOT-FIRST.json",
+      "bytes": 4331,
+      "sha256": "68402a732a2ea8db6a7b876f94f170189f45e73b7b16ebddf44ac48b8c49022f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/BRIEF.md",
+      "bytes": 4227,
+      "sha256": "8cd3ddf7b1f325eb17b36441af5975eaf570a4cd199ca703c479097aa9f8b552"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CALL-CONTRACT.md",
+      "bytes": 2626,
+      "sha256": "54249e5036935ddee3a858583f2f2d1f8c1aa55b3cf9b83e43599e14f9c4fc2a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/PLAN.md",
+      "bytes": 5816,
+      "sha256": "9b0ac45b24cd9a6bfa7058f9b36af704cdfe320814806338acebc2ed4881b8c5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/PROMPT.txt",
+      "bytes": 2348,
+      "sha256": "70ff3c82f0f57092368289ad6cd16684d7be005aeb62d78e37e6cf65de515ea1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-RAW.json",
+      "bytes": 31086,
+      "sha256": "2a76062c51394c6efd60e67c3f2dd2b8cdaeb0f7f5b802c94b3d94969bbd022f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-USE.md",
+      "bytes": 1639,
+      "sha256": "c3ff6f6d84591f59257de4c4783d69fc8366291747eaef8398703dece99c6e56"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-WORTH.md",
+      "bytes": 3843,
+      "sha256": "81b84e2d566a0c6ef73a6814574319509b72cf806ee896e9760e83f71390ef6f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-REFERENCE-FIRST.json",
+      "bytes": 1884,
+      "sha256": "441bf0b5f03c30e703200fb0d0440d7502c335f982122cc6b9271334b0e5d264"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/TOOL-ARGS.json",
+      "bytes": 2675,
+      "sha256": "7d07eeabb10f8cf40550c35fa772b7a9125bdecc605425005a2e05113bef5e2b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/TOOL-ROOT.json",
+      "bytes": 60374,
+      "sha256": "67f0963ff093a14eeda22ac9874355457f378e94f522ede1ef6f19db33266ba9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/SOURCE-INPUTS.json",
+      "bytes": 4984,
+      "sha256": "c1bdccdbdf90fa54818250d2624a1f8b70b90456da6c9d048fae4ed6cf41e659"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-SOURCE-FIRST.json",
+      "bytes": 2366,
+      "sha256": "efd97faab7c90e4b5cc96277b77447d40263e855e342b85984a923b7f5677796"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/SOURCE-REVIEW.md",
+      "bytes": 5076,
+      "sha256": "82bd475ab2e35cbbdf673043ac9684d7d8834bbc955afac4b7fa457fce8469c1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CRITIC-SOURCE-RECEIPT.json",
+      "bytes": 25505,
+      "sha256": "fd5bd1f8976cfd3a911552661f11cb42133e8f2d6ed28eb0074f1d3fd2605b77"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/SECOND-SOURCE-REVIEW.md",
+      "bytes": 9220,
+      "sha256": "4979827f92a0f2467f133362b136f2898daa7f05db76c3fd532b55777572306c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/SECOND-CRITIC-RECEIPT.json",
+      "bytes": 30405,
+      "sha256": "ea7534fbc7e620f3f96d48564f56dcdb2f15f2dbd313a2a37f4f34dc6b0da9ce"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/REVIEW-PROTOCOL.md",
+      "bytes": 997,
+      "sha256": "234793110a64f5a7a5c37f02d6fcc98cbc85706e29024be17e0c7611f1967d1c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-SOURCE.json",
+      "bytes": 21217,
+      "sha256": "12384c7ce407caa380205d11e47b485288f82b618c66180952857a8dacf08940"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/SOURCE-README.md",
+      "bytes": 1934,
+      "sha256": "6c1591476940cfaf9b626aa2a624b698f77968e13d82aeca8745c16a4a416dc1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ADMISSION.json",
+      "bytes": 7941,
+      "sha256": "2a7784dfa0aad7b9c754a28d81fe5adcfc08fc8938ca1d6d3e2fc2b59ed23aec"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/BRIEF.md",
+      "bytes": 4227,
+      "sha256": "8cd3ddf7b1f325eb17b36441af5975eaf570a4cd199ca703c479097aa9f8b552"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CALL-CONTRACT.md",
+      "bytes": 2626,
+      "sha256": "54249e5036935ddee3a858583f2f2d1f8c1aa55b3cf9b83e43599e14f9c4fc2a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CALL-STARTED.json",
+      "bytes": 390,
+      "sha256": "e0e705bbeb50995011621b5dc74fac65b01e45ef2b7423d1d2c9e961ccb0537a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CRITIC-SOURCE-RECEIPT.json",
+      "bytes": 25505,
+      "sha256": "fd5bd1f8976cfd3a911552661f11cb42133e8f2d6ed28eb0074f1d3fd2605b77"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/PLAN.md",
+      "bytes": 5816,
+      "sha256": "9b0ac45b24cd9a6bfa7058f9b36af704cdfe320814806338acebc2ed4881b8c5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/PROMPT.txt",
+      "bytes": 2348,
+      "sha256": "70ff3c82f0f57092368289ad6cd16684d7be005aeb62d78e37e6cf65de515ea1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-RAW.json",
+      "bytes": 31086,
+      "sha256": "2a76062c51394c6efd60e67c3f2dd2b8cdaeb0f7f5b802c94b3d94969bbd022f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-USE.md",
+      "bytes": 1639,
+      "sha256": "c3ff6f6d84591f59257de4c4783d69fc8366291747eaef8398703dece99c6e56"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-WORTH.md",
+      "bytes": 3843,
+      "sha256": "81b84e2d566a0c6ef73a6814574319509b72cf806ee896e9760e83f71390ef6f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/REVIEW-PROTOCOL.md",
+      "bytes": 997,
+      "sha256": "234793110a64f5a7a5c37f02d6fcc98cbc85706e29024be17e0c7611f1967d1c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-REFERENCE-FIRST.json",
+      "bytes": 1884,
+      "sha256": "441bf0b5f03c30e703200fb0d0440d7502c335f982122cc6b9271334b0e5d264"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-SOURCE-FIRST.json",
+      "bytes": 2366,
+      "sha256": "efd97faab7c90e4b5cc96277b77447d40263e855e342b85984a923b7f5677796"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-SOURCE.json",
+      "bytes": 21217,
+      "sha256": "12384c7ce407caa380205d11e47b485288f82b618c66180952857a8dacf08940"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/SECOND-CRITIC-RECEIPT.json",
+      "bytes": 30405,
+      "sha256": "ea7534fbc7e620f3f96d48564f56dcdb2f15f2dbd313a2a37f4f34dc6b0da9ce"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/SECOND-SOURCE-REVIEW.md",
+      "bytes": 9220,
+      "sha256": "4979827f92a0f2467f133362b136f2898daa7f05db76c3fd532b55777572306c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/SOURCE-INPUTS.json",
+      "bytes": 4984,
+      "sha256": "c1bdccdbdf90fa54818250d2624a1f8b70b90456da6c9d048fae4ed6cf41e659"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/SOURCE-README.md",
+      "bytes": 1934,
+      "sha256": "6c1591476940cfaf9b626aa2a624b698f77968e13d82aeca8745c16a4a416dc1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/SOURCE-REVIEW.md",
+      "bytes": 5076,
+      "sha256": "82bd475ab2e35cbbdf673043ac9684d7d8834bbc955afac4b7fa457fce8469c1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/TOOL-ARGS.json",
+      "bytes": 2675,
+      "sha256": "7d07eeabb10f8cf40550c35fa772b7a9125bdecc605425005a2e05113bef5e2b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/TOOL-IMAGE.json",
+      "bytes": 2982634,
+      "sha256": "79f225469eb4fda5ea381b3a697160ccb418bba4dd44187095462531022a342a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/TOOL-ROOT.json",
+      "bytes": 60374,
+      "sha256": "67f0963ff093a14eeda22ac9874355457f378e94f522ede1ef6f19db33266ba9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/first.png",
+      "bytes": 2222757,
+      "sha256": "0248a8b9215e786fe40cfc664d7a002aa0f8116e0e0382331138c6f69f8fb74f"
+    }
+  ],
+  "canonicalBefore": {
+    "path": "docs/PROJECT-CHECKLIST.md",
+    "bytes": 8644,
+    "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+  },
+  "canonicalAfter": {
+    "path": "docs/PROJECT-CHECKLIST.md",
+    "bytes": 8886,
+    "sha256": "8081b2052d17f95064c298213f4df54e5c3b3211c4ecbc2c0e8c0a28973995ab"
+  },
+  "checks": {
+    "changedRows": [
+      17
+    ],
+    "everyOtherChecklistByteExact": true,
+    "sevenUsableRowsExact": true,
+    "completeOutstandingSuffixExact": true,
+    "checked": 23,
+    "broadOpen": 10,
+    "localLinksResolved": 42,
+    "canonicalEqualsReviewedCandidate": true,
+    "oldCanonicalPinsResolveAt": "BASELINE-CHECKLIST.md or Git5458138518cf53c36ad456eec86846619234262c after intentional row17 transition"
+  },
+  "actualAppearanceWitness": "Root independently whole-viewed original and new output before image seal and whole-read entire handoff/candidate/diff a421b3. The image visibly supports sage short sleeves/open collar, sand ankle trousers, navy/ivory low shoes, qualitative retained face/bob/skin proportions and complete framing; handoff explicitly preserves shallow torso turn/narrow grey hair margin/material/artist-only limits. Critic independently viewed both whole originals and text, with no actionable finding. Numerical checks only support exact bytes and one-row change.",
+  "alternatives": [
+    {
+      "choice": "Integrate the exact candidate after root fresh verification/CAS and retain the truthful handoff.",
+      "tradeoff": "Makes a real accepted seasonal wardrobe comparison discoverable without new checkboxes or native claims."
+    },
+    {
+      "choice": "Keep the accepted plate only in evidence and leave canonical checklist unchanged.",
+      "tradeoff": "Avoids another list extension, but makes the useful artist comparison harder to find; no additional image or document rescue is authorized."
+    }
+  ],
+  "actionableFindings": [],
+  "limits": "No new source/image/capture/edit/crop/retake/relabel/repair/native/GPU/browser/runtime/fit/materialphysics/performance/identity/starter/AAA credit. All original/default/accepted/frozen/ignored assets, prior closures, AriHOLD/fullroadmap/phaseorder/unrelatedwork preserved. Only canonical row17 changed.",
+  "jobs": "No pending critic edits or owned image/target call. One image output already complete; backend physical state unexposed.",
+  "automation": {
+    "file": {
+      "path": "/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml",
+      "bytes": 3344,
+      "sha256": "9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a"
+    },
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "thread": "01a0ff57-d720-7db2-923f-9e3e0521216c"
+  },
+  "reviewHTTPHEAD": 200,
+  "serviceScope": "Saved ACTIVE10min config and server HEAD availability only; no future delivery/render/physical retirement/performance guarantee.",
+  "next": "Save exact delivery receipt/checkpoints/owned local commit before03:10:24.161020UTC; no further graphics under this nomination. Fresh genuinely different responsibility needs independent worth; humancheck-in/pausewins."
+}
