@@ -1,0 +1,23 @@
+{
+  "schema": "mara-surprise-exact-call-contract-v1",
+  "utc": "2026-10-20T00:57:53.083152+00:00",
+  "pid": 89158,
+  "authority": "TOOL-ARGS.json is the sole exact future imagegen parameter object. No args change.",
+  "promptByteBinding": {
+    "promptParameterUTF8Bytes": 2672,
+    "promptParameterSHA256": "db7bf3bf694b4cc4c463b126e40b9b55aea538eeb10f1a5f427464288f3d2408",
+    "promptTextArtifact": "PROMPT.txt stores exactly prompt parameter plus one terminal LF; the LF is artifact formatting and is not passed. The initial BRIEF byte-identical phrasing is superseded by this explicit exact relation, enforced before admission.",
+    "artifact": {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/PROMPT.txt",
+      "bytes": 2673,
+      "sha256": "e2d08e83dff266a015b5a7b33205a60feffd150953f9af8427ce1cb1714f5e2e"
+    },
+    "parameterFile": {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/TOOL-ARGS.json",
+      "bytes": 2895,
+      "sha256": "59e56ff5db29cd260a7fa51ebb3a586c2ed130fee3d9efea0093ee5038fdd322"
+    }
+  },
+  "countCorrection": "Initial BRIEF17? is a drafting typo, not an admission threshold. InitialINPUTS contains15pins. FINAL-INPUTS contains those15 plus originalINPUTS selfpin and this contract,17pins. Source/root admission uses the actual complete final binding set and separately pins stable review/receipt/opinions. No inherited guessed count.",
+  "preservation": "Initial brief/manifest/rootopinion remain untouched as initial preparation evidence. These are pre-source-review clarifications, no rejected method/target repair and no generation."
+}

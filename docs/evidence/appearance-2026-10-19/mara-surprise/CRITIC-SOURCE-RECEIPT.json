@@ -1,0 +1,241 @@
+{
+  "schema": "mara-surprise-independent-source-review-v1",
+  "collectionUTC": "2026-10-20T01:03:16.511614+00:00",
+  "collectionPID": 99510,
+  "verdict": "A_SOURCE_ONLY",
+  "nextFirstPlateWorth": "yes, only after root complete verification, local checkpoint and fresh admission",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8469,
+      "sha256": "51eff8f457e413fe78449f1273d53a2ae996b0f0f4482d0f6283c016ef533ae3"
+    },
+    {
+      "path": "docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "bytes": 3053,
+      "sha256": "f0f6118b1916220de67cb8748ec7232e1ab1b32e745415eb9c1d7629f429ca1d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise-worth/PLAN.md",
+      "bytes": 2770,
+      "sha256": "46a2454e418a2e5e4214f1dc0046afa03139e6f7fa9b57070560ea74109de779"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise-worth/CLOSURE-EXCERPT.json",
+      "bytes": 18500,
+      "sha256": "4831486b26ff4d45172384ad6d528453d3a3f31600098ae30e1f592fad65cf41"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise-worth/ROOT-WORTH.json",
+      "bytes": 4930,
+      "sha256": "df2795ab5201d0b81ddb829f435f3e1cbf566363dbc7c6be305f4d8519b0da7d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise-worth/WORTH.md",
+      "bytes": 3808,
+      "sha256": "7f664705795a44e5b0e73124e2f3f6b18f6ee977907630c2cffa2d56879be07e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise-worth/CRITIC-RECEIPT.json",
+      "bytes": 12674,
+      "sha256": "2cef724cde88515f4bd1d85fc8e7cc0cc232eb0fa43ed98f677be44df69080e0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/PLAN.md",
+      "bytes": 5121,
+      "sha256": "b3e01243fca85f0a7354262fdfa3ffb3ddac02494b128cb04b74be584109601b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/REFERENCE-RAW.json",
+      "bytes": 20677,
+      "sha256": "bcc780f9898d7358e66bdb3d9a789ed77136b99ec8ffca1951fe650a8fef200a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/REFERENCE-EXCERPT.md",
+      "bytes": 519,
+      "sha256": "a7811e54036c212fe21525359d23f91505589dedf2b1baf8cd7de0f8f60ead78"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/REFERENCES.md",
+      "bytes": 1564,
+      "sha256": "0b8b0853d982d7620f4c308669dfdd9dd7e019ec960b075076a07b21229a3c59"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/BRIEF.md",
+      "bytes": 4695,
+      "sha256": "57fd2322a1270cae9db97bfacc3a4f3b3ef6ffcee26c06301f0763649e37f50d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/PROMPT.txt",
+      "bytes": 2673,
+      "sha256": "e2d08e83dff266a015b5a7b33205a60feffd150953f9af8427ce1cb1714f5e2e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/TOOL-ARGS.json",
+      "bytes": 2895,
+      "sha256": "59e56ff5db29cd260a7fa51ebb3a586c2ed130fee3d9efea0093ee5038fdd322"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/INPUTS.json",
+      "bytes": 3064,
+      "sha256": "01d06649a8b06fb5208820638c6880448532186f55af3e066896dae5c57f1c64"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/CALL-CONTRACT.json",
+      "bytes": 1613,
+      "sha256": "a4a9f05e296249aaa8979e232127f177242c3e32188a60758afa3d5e3330eec5"
+    }
+  ],
+  "manifest": {
+    "path": "docs/evidence/appearance-2026-10-19/mara-surprise/FINAL-INPUTS.json",
+    "bytes": 3469,
+    "sha256": "f73efdd87756c93c06cd686e83dd35f781e36c7493fbd6143a00fcb521b3d804"
+  },
+  "supplementalInputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/ROOT-FIRST.json",
+      "bytes": 4331,
+      "sha256": "a6ba473780bf0f854794020be61692227aa4093a0476d5eea62094572893ef4f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise/ROOT-CALL-FIRST.json",
+      "bytes": 3977,
+      "sha256": "1c8574a8ea930f17deb6e4d76761360ffd2a29d8388db67286aa74577f9236f3"
+    }
+  ],
+  "review": {
+    "path": "docs/evidence/appearance-2026-10-19/mara-surprise/SOURCE-REVIEW.md",
+    "bytes": 4008,
+    "sha256": "f99bb36d13f27afd11aa0577d8d64ef3f7c20558943f0b8434074845fc14e80f"
+  },
+  "receiptSelfBinding": "Final bytes/hash are returned by the separate complete readback; no circular embedded self hash.",
+  "coverage": {
+    "wholeCurrentDocuments": [
+      "PLAN.md",
+      "FINAL-INPUTS.json",
+      "REFERENCES.md",
+      "BRIEF.md",
+      "PROMPT.txt",
+      "TOOL-ARGS.json",
+      "CALL-CONTRACT.json",
+      "REFERENCE-EXCERPT.md",
+      "INPUTS.json"
+    ],
+    "savedPrimaryScope": "REFERENCE-RAW fully byte-pinned and parsed; exact request/status/metadata/feedback plus only markdown lines54–61 semantically inspected. Large content/other markdown not a whole-article semantic claim; no linked image fetched.",
+    "priorSemanticEvidence": "Prior worth whole checklist/original handoff/PLAN/five exact historical closure rows/stable worth pair reused at unchanged current pins. Current hash verification is not a new whole semantic read of historical receipts.",
+    "priorActualWholeImage": {
+      "tool": "view_image",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "requestedDetail": "original",
+      "returnedDetail": "original",
+      "priorMetadataJob": "0ee329",
+      "priorMetadataUTC": "2026-10-20T00:49:20.331120+00:00",
+      "backendPID": "not exposed"
+    },
+    "newImageViews": 0,
+    "rootOpinions": "Both complete root opinions opened only after independent seal in50d63e/01:01:57.114334UTC/PID96941; comparison6631d3/01:02:02.317010UTC/PID97129.",
+    "toolArgumentSchema": "Exactly prompt/referenced_image_paths/transparent_background; one absolute original path; false transparency; no num_last_images/model/size API override. No invocation."
+  },
+  "checkedRelations": {
+    "directPins": 17,
+    "initialManifestRows": 15,
+    "initialPrefixEqualsFinalFirst15": true,
+    "promptParameterUTF8Bytes": 2672,
+    "promptParameterSHA256": "db7bf3bf694b4cc4c463b126e40b9b55aea538eeb10f1a5f427464288f3d2408",
+    "artifactEqualsParameterPlusOneLF": true,
+    "eightExcerptRowsEqualSavedPrimary54through61": true,
+    "referenceHTTP": 200,
+    "reportedCredits": 1,
+    "feedbackRefund": 0
+  },
+  "independentDecision": {
+    "verdict": "A_SOURCE_ONLY",
+    "next_worth": "One exact first artist plate is worthwhile after local checkpoint and fresh independent root admission; this review does not execute or admit a call.",
+    "reasoning": "The original calm/pleasant portrait is an actual qualitative continuity witness. The new matched A/B task owns a readable mild-surprise change with specific relaxed brow/eye/jaw cues and no emotion label shortcut. It neither repairs the original portrait nor claims rest/AU/native calibration. All 17 current pins and the manifest selfpin match. The eight saved primary rows bind exactly; they are auxiliary vocabulary only. TOOL-ARGS is exact and contains one original path, false transparency and no model/size API override. CALL-CONTRACT transparently resolves both initial clerical ambiguities before any source gate. Managed backend limits are honestly unexposed; root owns fresh dispatch, exact returned-path collection, complete bounded inventory and independent whole-image judgment.",
+    "findings": [],
+    "limits": "No new image view, linked reference image, network, generation, native/GPU/browser or target execution. Prior actual original view reused at unchanged pin. Full artist appearance remains unobserved."
+  },
+  "findings": [],
+  "resolvedPreparationWording": {
+    "witness": "Initial BRIEF paragraphs4/5; CALL-CONTRACT.promptByteBinding/countCorrection",
+    "effect": "Exact call authority and15-to17 binding set are explicit before source decision; initial docs remain exact.",
+    "alternatives": [
+      {
+        "choice": "Use frozen TOOL-ARGS and explicit CALL-CONTRACT as current authority.",
+        "tradeoff": "Preserves preparation history and exact call bytes; consumers must read the superseding contract."
+      },
+      {
+        "choice": "Rewrite and rebind the initial brief/manifest wording.",
+        "tradeoff": "Could simplify a new document, but changes frozen preparation evidence and is unnecessary here; not requested or done."
+      }
+    ]
+  },
+  "limits": [
+    "Source-only artist meaning worth; no actual output appearance or observer consensus.",
+    "Collection caps do not bound managed backend allocation or physical completion.",
+    "No target call, source edit, linked-photo view, external retrieval, browser, native or GPU action by critic.",
+    "Existing fullroadmap/checklist23scoped10broad/HOLD/defaults/assets/closed methods unchanged.",
+    "First image B/unknown closes without correction/retake/relabel/renamed successor; later delivery separately reviewed."
+  ],
+  "deadlineUTC": "2026-10-20T01:10:00Z",
+  "errors": [],
+  "jobs": [
+    {
+      "name": "surprise_source_initial",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-surprise');print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['PLAN.md','FINAL-INPUTS.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "d5d6da",
+      "exit_code": 0,
+      "wall_time_seconds": 6.792e-06,
+      "output_utf8bytes": 8843,
+      "output_sha256": "e033d14a7dc5c677cd2820bd5e7399556e50bec4a36dfe02a80f8e2414a6ac91",
+      "first_output_line": "UTC 2026-10-20T00:58:39.334698+00:00 PID 90714"
+    },
+    {
+      "name": "surprise_source_contract",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-surprise');print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['REFERENCES.md','BRIEF.md','PROMPT.txt','TOOL-ARGS.json','CALL-CONTRACT.json','REFERENCE-EXCERPT.md','INPUTS.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "7b9136",
+      "exit_code": 0,
+      "wall_time_seconds": 5e-06,
+      "output_utf8bytes": 17800,
+      "output_sha256": "e98a83899f71dec188f6b118d83be12d7eca126f056885e65b6d127b785940d6",
+      "first_output_line": "UTC 2026-10-20T00:58:55.404152+00:00 PID 91230"
+    },
+    {
+      "name": "surprise_source_verify",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,os,datetime,stat\nr=Path('/Users/robault/GitHub/sugata-avatar');d=r/'docs/evidence/appearance-2026-10-19/mara-surprise'\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\ndef pin(p):\n b=p.read_bytes();return {'path':str(p.relative_to(r)),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nm=json.loads((d/'FINAL-INPUTS.json').read_text());out=[]\nfor row in m['pins']:\n p=r/row['path'];assert p.is_file() and not p.is_symlink();a=pin(p);assert a==row,(a,row);out.append(a)\nprint('VERIFIED',len(out),'DIRECT_PINS',json.dumps(out,separators=(',',':')))\nprint('MANIFEST',json.dumps(pin(d/'FINAL-INPUTS.json')))\nraw=json.loads((d/'REFERENCE-RAW.json').read_text())\ndef compact(x,path='root'):\n if isinstance(x,dict):return {k:compact(v,path+'.'+k) for k,v in x.items()}\n if isinstance(x,list):return [compact(v,path+'[]') for v in x]\n if isinstance(x,str) and len(x)>1500:return {'omitted_large_string':path,'utf8bytes':len(x.encode()),'sha256':hashlib.sha256(x.encode()).hexdigest()}\n return x\nprint('RAW_METADATA_AND_REQUEST',json.dumps(compact(raw),ensure_ascii=False,indent=2))\nfound=[]\ndef findmd(x,path='root'):\n if isinstance(x,dict):\n  for k,v in x.items():\n   if k=='markdown' and isinstance(v,str):found.append((path+'.'+k,v))\n   else:findmd(v,path+'.'+k)\n elif isinstance(x,list):\n  for i,v in enumerate(x):findmd(v,path+'['+str(i)+']')\nfindmd(raw);assert len(found)>=1\nmatches=[]\nfor path,md in found:\n lines=md.splitlines();e=''.join(str(i)+': '+lines[i-1]+'\\n' for i in range(54,62));matches.append((path,e==(d/'REFERENCE-EXCERPT.md').read_text(),len(lines)))\nprint('EXCERPT_BINDINGS',json.dumps(matches));assert all(x[1] for x in matches)\nargs=json.loads((d/'TOOL-ARGS.json').read_text());pb=args['prompt'].encode();c=json.loads((d/'CALL-CONTRACT.json').read_text());assert (d/'PROMPT.txt').read_bytes()==pb+b'\\n';assert len(pb)==c['promptByteBinding']['promptParameterUTF8Bytes'];assert hashlib.sha256(pb).hexdigest()==c['promptByteBinding']['promptParameterSHA256'];assert set(args)=={'prompt','referenced_image_paths','transparent_background'};assert args['transparent_background'] is False;assert args['referenced_image_paths']==[str(r/m['pins'][2]['path'])];initial=json.loads((d/'INPUTS.json').read_text());assert len(initial['pins'])==15 and m['pins'][:15]==initial['pins']\nprint('EXACT_CALL_RELATION_PASS',len(pb),hashlib.sha256(pb).hexdigest(),'sole_original',args['referenced_image_paths'][0],'initial15plus2final17')\nPY",
+      "chunk_id": "b17c1f",
+      "exit_code": 0,
+      "wall_time_seconds": 5.042e-06,
+      "output_utf8bytes": 7430,
+      "output_sha256": "ce8682c7d1f0accee32f7809d28052c457b3fdaafabcc8bd485f902a13429b88",
+      "first_output_line": "UTC 2026-10-20T01:01:36.902941+00:00 PID 96320"
+    },
+    {
+      "name": "surprise_source_seal",
+      "command": "python3 - <<'PY'\nimport datetime,os,json\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nprint(\"{\\\"verdict\\\":\\\"A_SOURCE_ONLY\\\",\\\"next_worth\\\":\\\"One exact first artist plate is worthwhile after local checkpoint and fresh independent root admission; this review does not execute or admit a call.\\\",\\\"reasoning\\\":\\\"The original calm/pleasant portrait is an actual qualitative continuity witness. The new matched A/B task owns a readable mild-surprise change with specific relaxed brow/eye/jaw cues and no emotion label shortcut. It neither repairs the original portrait nor claims rest/AU/native calibration. All 17 current pins and the manifest selfpin match. The eight saved primary rows bind exactly; they are auxiliary vocabulary only. TOOL-ARGS is exact and contains one original path, false transparency and no model/size API override. CALL-CONTRACT transparently resolves both initial clerical ambiguities before any source gate. Managed backend limits are honestly unexposed; root owns fresh dispatch, exact returned-path collection, complete bounded inventory and independent whole-image judgment.\\\",\\\"findings\\\":[],\\\"limits\\\":\\\"No new image view, linked reference image, network, generation, native/GPU/browser or target execution. Prior actual original view reused at unchanged pin. Full artist appearance remains unobserved.\\\"}\")\nPY",
+      "chunk_id": "50d63e",
+      "exit_code": 0,
+      "wall_time_seconds": 8.25e-06,
+      "output_utf8bytes": 1270,
+      "output_sha256": "d8876968bbce9f2395c836fc1dce21bcb7eee781651708b2016572a068cf2a2b",
+      "first_output_line": "UTC 2026-10-20T01:01:57.114334+00:00 PID 96941"
+    },
+    {
+      "name": "surprise_source_root_compare",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-surprise')\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['ROOT-FIRST.json','ROOT-CALL-FIRST.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "6631d3",
+      "exit_code": 0,
+      "wall_time_seconds": 8.709e-06,
+      "output_utf8bytes": 8572,
+      "output_sha256": "d27a57c8188f94f8e821850b86d804db0c2e4dde3fc3c24051d60d1ed6db1250",
+      "first_output_line": "UTC 2026-10-20T01:02:02.317010+00:00 PID 97129"
+    }
+  ],
+  "collectionOperation": "Exclusive xb writes only SOURCE-REVIEW.md and CRITIC-SOURCE-RECEIPT.json; input pins reverified immediately before writing."
+}

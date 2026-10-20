@@ -1,0 +1,7 @@
+# Reference authority
+
+The sole visual reference is Mara's unchanged original whole artist sheet,2383355B/SHA163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311. Root and critic separately viewed it at original1536×1024 during worth review. It supplies qualitative face/texture/bob/clothing continuity, not registered anatomy or a neutral-rest master.
+
+One current primary-publisher page was live-read with Firecrawl maxAge0: [Paul Ekman Group — Surprise](https://www.paulekman.com/universal-emotions/what-is-surprise/), HTTP200, scrape01a156cd-af21-746a-b4c5-cf0b1225b81e. Metadata modified2026-04-13; this is the page's own date. REFERENCE-RAW preserves exact request/response and feedback; excerpt preserves actual numbered lines. One credit used, feedback refunded0. No search, second page, linked image or screenshot. The returned full markdown surfaced in the tool output; only the bounded numbered surprise/fear passage informs this brief.
+
+The publisher distinguishes curved raised brows and a relaxed upper-lid/jaw appearance from fear. We use this as auxiliary artistic cue vocabulary, without adopting universal-emotion/duration/diagnostic claims. Mild intensity, pose, matched layout and this particular woman's expressive choices remain original authoring. The linked source face photographs were not viewed or used as visual inputs. These texts do not establish observers' reading of the output, identity, demographic perception or native calibration. Actual first plate and independent readings decide its limited artist usefulness.
