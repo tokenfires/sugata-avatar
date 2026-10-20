@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-20T09:03:25.759252+00:00",
+  "pid": 29485,
+  "decision": "A_PENDING_INDEPENDENT_WORTH",
+  "wholeReads": "bf9217 whole18825Bboard +5461Bbootreceipt +2891Bhandoff; checklistwhole7683b5",
+  "basis": "Board has only paired boots files and checklist only old blockout; exact new isolated review/handoff is missing. Clear separate-study navigation can expose retained useful construction without revising its appearance gate.",
+  "witnesses": [
+    "ARTIST-WARDROBE.html paired ankle boots card links old October5MeshJSON/OBJ/README only.",
+    "PROJECT-CHECKLIST.md ankle-boot bullet names oldpairedblockout only.",
+    "New ARTIST-HANDOFF.md explicitly limits readability/coarse laces/facetedhardware and distinguishes newleft fromoldpair."
+  ],
+  "alternatives": [
+    {
+      "action": "Minimal clear separate-study navigation",
+      "tradeoff": "Makes editable ingredient findable, but labels must prevent finished-footwear inference."
+    },
+    {
+      "action": "Retain only isolated handoff",
+      "tradeoff": "No canonical wording risk; lowerdiscoverability for ongoingartistwork."
+    }
+  ],
+  "noEditsOrCapturesYet": true,
+  "stopUTC": "2026-10-20T09:14:48.674188+00:00"
+}

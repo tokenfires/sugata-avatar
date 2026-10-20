@@ -1,6 +1,6 @@
 # Sugata project checklist
 
-Updated October 19, 2026. **Customization is usable; complete character quality is still in progress.** Checked items describe the supported features or artist deliverables below, within their recorded review limits.
+Updated October 20, 2026. **Customization is usable; complete character quality is still in progress.** Checked items describe the supported features or artist deliverables below, within their recorded review limits.
 
 ## Usable now
 
@@ -23,7 +23,7 @@ Updated October 19, 2026. **Customization is usable; complete character quality 
 
 - [x] Editable unitless open overshirt blockout with an attached collar, full hanging sleeves and an actual front/profile/rear image; collar/cuff finish and wearable fit remain open. [Source, OBJ and reviewed image](evidence/appearance-2026-10-05/overshirt-first-view/README.md) A separate editable 2D artist sheet supplies collar, facing and cuff intent; it is unitless and does not establish 3D finishing or fit. [Finishing sheet and review limits](evidence/appearance-2026-10-19/overshirt-finish-design/README.md)
 
-- [x] Editable unitless paired ankle-boot blockout with inner surfaces and a fictional reference volume, crossing laces, rear counters and an actual front/profile/rear image; body fit and finished footwear remain open. [Source, OBJ and reviewed image](evidence/appearance-2026-10-05/boot-artist-first-view/README.md)
+- [x] Editable unitless paired ankle-boot blockout with inner surfaces and a fictional reference volume, crossing laces, rear counters and an actual front/profile/rear image; body fit and finished footwear remain open. [Source, OBJ and reviewed image](evidence/appearance-2026-10-05/boot-artist-first-view/README.md) A separate editable left-boot construction study adds open material ports, eyelets, a tongue and a continuous lace; projecting laces and faceted hardware remain coarse, with finished appearance, body fit and motion unqualified. [Construction comparison, source and limits](evidence/appearance-2026-10-20/open-lacing-upper-guard/review.html)
 
 - [x] Original short-groom, layered masculine artist target with full-body and portrait discussion views, plus a supplementary front/profile/rear clothed outfit sheet; olive overshirt, ivory tee, sandstone trousers and brown boots. Both are unregistered artist references; editable character, 3D, fit, motion and runtime remain open. [Original character design](research/MASCULINE-CHARACTER-TARGET-2026-10-04.md), [supplementary views and limits](evidence/appearance-2026-10-19/masculine-clothed-turnaround/ARTIST-HANDOFF.md)
 
