@@ -1,0 +1,13 @@
+# Managed first-image and collection contract
+
+This file is inert preparation. No call until independent source A, root whole-handoff/fresh-pin/reasoning verification, exact local source checkpoint and a fresh exclusive admission record. Dispatch the exact TOOL-ARGS.json once within120seconds of admission. PROMPT.txt bytes decode exactly to TOOL-ARGS.prompt including its terminal LF; both existing reference paths and transparent_backgroundfalse are exact. Omit num_last_images_to_include.
+
+At actual admission declare an absolute15minute call/collection deadline. Pending/unknown tool work is never duplicated. The built-in tool controls its backend model/PID/memory/credits/hard cancellation and may expose none of them; do not invent resource enforcement, physical retirement, performance, cost or completion. Use existing granted allowance only and stop on unavailable capacity without aggressive retries.
+
+One first output only; no regeneration/edit/retake/crop/alternate image selection. Preserve actual complete tool result and every returned path/status. An unexpected multiple-output result is not a best-of choice. Tool/default native original remains untouched; select only the directly returned first path and copy bytes unchanged after verifying it is one complete valid PNG. No generated-images search or missing-output recovery hunt.
+
+Project candidate image: at most16MiB and4096pixels in either dimension, PNG header/chunk CRCs valid. Source reference photo: at most8MiB/dimension8192 if valid. Entire leaf: <=48 regular files/32MiB; metadata <=4MiB. The managed tool does not expose output-size enforcement; these are postflight refusal limits, not guaranteed backend bounds. Inventory actual output bytes before formal appearance judgment. Oversize, invalid, missing, incomplete or ambiguous output stays unqualified; save the exact failure and stop without repair.
+
+Root serially views unchanged whole original character/reference and whole candidate at original detail, seals its own visual judgment, then critic independently views the same originals/output and seals before root-opinion comparison. Root whole-reads the stable handoff and fresh-verifies exact sources/output/collection inventory. Qualitative artist meaning only under BRIEF criteria; numerical checks support those images. No GPU/native/browser candidate or observer workaround is admitted.
+
+A later independent/root A may permit a truthful artist handoff and narrow existing checklist-row link. Source A and pixel A do not themselves perform that canonical delivery. All old methods/accepted assets/defaults/roadmap/AriHOLD remain.

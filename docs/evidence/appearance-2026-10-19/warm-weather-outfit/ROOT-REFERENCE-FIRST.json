@@ -1,0 +1,34 @@
+{
+  "utc": "2026-10-20T02:12:07.501216+00:00",
+  "pid": 4433,
+  "decision": "A for the single optional official garment-reference method in PLAN, not generation",
+  "reason": "A current camp-collar short-sleeve garment example could clarify collar spread, sleeve opening and light woven visual language for a complete seasonal outfit. Actual existing references show a long-sleeve knit and cannot supply those new clothing details. We still deliberately author the new design; this is auxiliary front-visible style evidence, not hidden-part/physical/brand or character authority.",
+  "inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/PLAN.md",
+      "bytes": 5816,
+      "sha256": "9b0ac45b24cd9a6bfa7058f9b36af704cdfe320814806338acebc2ed4881b8c5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/ROOT-WORTH.json",
+      "bytes": 4857,
+      "sha256": "c753e964fb1bc1d6ce900e39a9db450674080d3ccecec888252ccb5ab4db42df"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    }
+  ],
+  "alternatives": [
+    {
+      "choice": "Use the one bounded optional official example method.",
+      "tradeoff": "May ground a concrete visible silhouette/material distinction; finite retrieval can fail and cannot qualify hidden geometry or fabric physics."
+    },
+    {
+      "choice": "Keep all clothing details explicitly original-authored without external retrieval.",
+      "tradeoff": "Avoids another dependency and remains owned artist intent; has no external example witness."
+    }
+  ],
+  "scope": "No critic reference-method opinion read; no online call or photo acquired. One query/page/photo only if independent/root worth agrees; no fallback."
+}

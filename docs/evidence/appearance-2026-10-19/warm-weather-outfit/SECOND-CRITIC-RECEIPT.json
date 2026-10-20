@@ -1,0 +1,531 @@
+{
+  "schema": "warm-outfit-second-independent-source-review-v1",
+  "startedAtUTC": "2026-10-20T02:27:26+00:00",
+  "deadlineUTC": "2026-10-20T02:41:28.216468+00:00",
+  "independent_decision": {
+    "sealedAtUTC": "2026-10-20T02:30:29.103258+00:00",
+    "decision": "A",
+    "exactFirstManagedImageWorthDoing": true,
+    "scope": "Source completeness and worth only; this is neither generation admission nor pixel acceptance.",
+    "reason": "A at source-preparation scope. The brief owns every proposed clothing item, palette, visible length, material-language cue, newly unseen construction choice, view, lighting and output/failure duty. The whole references supply a sufficiently readable same-person anchor. Sage short sleeves and an open camp collar, ankle hems and navy/ivory low shoes create a concrete seasonal wardrobe comparison against the observed long-sleeve knit and brown boots. The failed optional product retrieval contributes no garment appearance evidence and does not leave a missing duty, because the original-authorship path was predeclared and the brief explicitly owns these choices. No actionable source-level ambiguity prevents this one artist comparison; actual face coherence, fabric reading, shoe pairing, layout/framing and cross-view consistency remain first-output questions.",
+    "imageWitnesses": [
+      {
+        "image": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+        "view": "Unchanged whole image at original detail, 1536x1024, after exact hash/header/chunk-CRC/IEND checks.",
+        "witness": "Left complete figure has a pale-blue long-sleeve crew sweater with ribbed neck/cuffs/hem, generous charcoal trousers and brown ankle boots. Both hands, entire head/bob and both shoes are inside the frame. Right large portrait makes the side-parted chin bob, eyes/brows, warm medium-brown skin texture, cheek/jaw/mouth and sweater neckline legible. Quiet grey surroundings and modest smile support the calm approachable continuity target.",
+        "authority": "Qualitative visual anchor only; no measured anatomy, registered body, physical yarn or demographic certification."
+      },
+      {
+        "image": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+        "view": "Unchanged whole image at original detail, 1536x1024, after exact hash/header/chunk-CRC/IEND checks.",
+        "witness": "FRONT, PROFILE and BACK figures visibly carry the pale-blue crew knit, charcoal generous trousers, brown boots and dark short bob. All heads and visible shoes remain inside the image; the page-left profile uses normal far-side overlap. Dropped shoulder, relaxed sleeve depth, untucked ribbed hem, rear hair and trouser silhouette are useful continuity vocabulary.",
+        "authority": "Supplemental authored clothed views, not a registered turntable or hidden-body master."
+      }
+    ],
+    "alternatives": [
+      {
+        "alternative": "Proceed later with exactly the frozen first managed image after root verification, local source checkpoint and fresh exclusive admission.",
+        "tradeoff": "Obtains the complete coordinated wardrobe comparison in one bounded result; accepts unguaranteed identity/layout/material success and tool-controlled backend resources, with postflight refusal and no retry."
+      },
+      {
+        "alternative": "Stop B/unknown now and retain only the two unchanged knitwear character images.",
+        "tradeoff": "Spends no generation allowance and preserves a fully known artist reference; supplies no seasonal outfit comparison, despite the present brief owning the missing clothing decisions. No fallback source search is authorized."
+      }
+    ],
+    "actionableSourceIssues": [],
+    "residualOutputQuestions": [
+      "Qualitative face/bob/proportion continuity across two figures and portrait",
+      "Actual short-sleeve/open-collar shirt and ankle-trouser/navy-ivory shoe coherence",
+      "Readable light woven shirt versus trouser folds and canvas/sole separation",
+      "Full heads/hands/visible feet and generous margins in one three-panel plate"
+    ],
+    "externalSourceAuthority": "None: exact selected live scrape HTTP200 landed on country selector; no product photo acquired or viewed; no search excerpt/image URL supplies appearance or physical-material authority.",
+    "rootOpinionReadBeforeSeal": false,
+    "otherSourceReviewReadBeforeSeal": false
+  },
+  "independent_decision_canonicalization": "json.dumps(sort_keys=True,separators=(comma,colon),ensure_ascii=False), UTF-8; no terminal LF",
+  "independent_decision_sha256": "32a6331dd36595e3d588dde4af16f6337918359c10c8ec02bb32b5decb6c651a",
+  "sourceManifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/warm-weather-outfit/SOURCE-INPUTS.json",
+    "bytes": 4984,
+    "sha256": "c1bdccdbdf90fa54818250d2624a1f8b70b90456da6c9d048fae4ed6cf41e659",
+    "pins": [
+      {
+        "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/PLAN.md",
+        "bytes": 3743,
+        "sha256": "e8fa4372a0d9002d98aec08613fdaeb17b6a81be518474b06e3729ff3ac568b6",
+        "actualBytes": 3743,
+        "actualSHA256": "e8fa4372a0d9002d98aec08613fdaeb17b6a81be518474b06e3729ff3ac568b6",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/LOCAL-INPUTS.json",
+        "bytes": 2441,
+        "sha256": "b13e5ff9b967faaa3192a8e3e5b68d95f3527e78046362f5138ba8fcff7487a2",
+        "actualBytes": 2441,
+        "actualSHA256": "b13e5ff9b967faaa3192a8e3e5b68d95f3527e78046362f5138ba8fcff7487a2",
+        "match": true
+      },
+      {
+        "path": "docs/PROJECT-CHECKLIST.md",
+        "bytes": 8644,
+        "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6",
+        "actualBytes": 8644,
+        "actualSHA256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6",
+        "match": true
+      },
+      {
+        "path": "docs/PRODUCT-ROADMAP.md",
+        "bytes": 32741,
+        "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+        "actualBytes": 32741,
+        "actualSHA256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264",
+        "match": true
+      },
+      {
+        "path": "docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md",
+        "bytes": 4214,
+        "sha256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c",
+        "actualBytes": 4214,
+        "actualSHA256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md",
+        "bytes": 2175,
+        "sha256": "f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874",
+        "actualBytes": 2175,
+        "actualSHA256": "f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-19/ari-tee-artist/README.md",
+        "bytes": 1904,
+        "sha256": "9a5ddfa2ee7459bee584b20170e8b6ba9323d626904078564d2eac09ca19878e",
+        "actualBytes": 1904,
+        "actualSHA256": "9a5ddfa2ee7459bee584b20170e8b6ba9323d626904078564d2eac09ca19878e",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+        "bytes": 2439336,
+        "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77",
+        "actualBytes": 2439336,
+        "actualSHA256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+        "bytes": 2023441,
+        "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0",
+        "actualBytes": 2023441,
+        "actualSHA256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/ROOT-WORTH.json",
+        "bytes": 4857,
+        "sha256": "c753e964fb1bc1d6ce900e39a9db450674080d3ccecec888252ccb5ab4db42df",
+        "actualBytes": 4857,
+        "actualSHA256": "c753e964fb1bc1d6ce900e39a9db450674080d3ccecec888252ccb5ab4db42df",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/WORTH.md",
+        "bytes": 4334,
+        "sha256": "ebe380650ac500bba93d9820c8dde17f3f1885cfb8331c84a09a8ec03683c929",
+        "actualBytes": 4334,
+        "actualSHA256": "ebe380650ac500bba93d9820c8dde17f3f1885cfb8331c84a09a8ec03683c929",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/CRITIC-RECEIPT.json",
+        "bytes": 18737,
+        "sha256": "126c8f4abe182fdfbb88ee191362d05b2013647b859c42560b2d8e956c0d574e",
+        "actualBytes": 18737,
+        "actualSHA256": "126c8f4abe182fdfbb88ee191362d05b2013647b859c42560b2d8e956c0d574e",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/ROOT-FIRST.json",
+        "bytes": 4331,
+        "sha256": "68402a732a2ea8db6a7b876f94f170189f45e73b7b16ebddf44ac48b8c49022f",
+        "actualBytes": 4331,
+        "actualSHA256": "68402a732a2ea8db6a7b876f94f170189f45e73b7b16ebddf44ac48b8c49022f",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/BRIEF.md",
+        "bytes": 4227,
+        "sha256": "8cd3ddf7b1f325eb17b36441af5975eaf570a4cd199ca703c479097aa9f8b552",
+        "actualBytes": 4227,
+        "actualSHA256": "8cd3ddf7b1f325eb17b36441af5975eaf570a4cd199ca703c479097aa9f8b552",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CALL-CONTRACT.md",
+        "bytes": 2626,
+        "sha256": "54249e5036935ddee3a858583f2f2d1f8c1aa55b3cf9b83e43599e14f9c4fc2a",
+        "actualBytes": 2626,
+        "actualSHA256": "54249e5036935ddee3a858583f2f2d1f8c1aa55b3cf9b83e43599e14f9c4fc2a",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/PLAN.md",
+        "bytes": 5816,
+        "sha256": "9b0ac45b24cd9a6bfa7058f9b36af704cdfe320814806338acebc2ed4881b8c5",
+        "actualBytes": 5816,
+        "actualSHA256": "9b0ac45b24cd9a6bfa7058f9b36af704cdfe320814806338acebc2ed4881b8c5",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/PROMPT.txt",
+        "bytes": 2348,
+        "sha256": "70ff3c82f0f57092368289ad6cd16684d7be005aeb62d78e37e6cf65de515ea1",
+        "actualBytes": 2348,
+        "actualSHA256": "70ff3c82f0f57092368289ad6cd16684d7be005aeb62d78e37e6cf65de515ea1",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-RAW.json",
+        "bytes": 31086,
+        "sha256": "2a76062c51394c6efd60e67c3f2dd2b8cdaeb0f7f5b802c94b3d94969bbd022f",
+        "actualBytes": 31086,
+        "actualSHA256": "2a76062c51394c6efd60e67c3f2dd2b8cdaeb0f7f5b802c94b3d94969bbd022f",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-USE.md",
+        "bytes": 1639,
+        "sha256": "c3ff6f6d84591f59257de4c4783d69fc8366291747eaef8398703dece99c6e56",
+        "actualBytes": 1639,
+        "actualSHA256": "c3ff6f6d84591f59257de4c4783d69fc8366291747eaef8398703dece99c6e56",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-WORTH.md",
+        "bytes": 3843,
+        "sha256": "81b84e2d566a0c6ef73a6814574319509b72cf806ee896e9760e83f71390ef6f",
+        "actualBytes": 3843,
+        "actualSHA256": "81b84e2d566a0c6ef73a6814574319509b72cf806ee896e9760e83f71390ef6f",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-REFERENCE-FIRST.json",
+        "bytes": 1884,
+        "sha256": "441bf0b5f03c30e703200fb0d0440d7502c335f982122cc6b9271334b0e5d264",
+        "actualBytes": 1884,
+        "actualSHA256": "441bf0b5f03c30e703200fb0d0440d7502c335f982122cc6b9271334b0e5d264",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/TOOL-ARGS.json",
+        "bytes": 2675,
+        "sha256": "7d07eeabb10f8cf40550c35fa772b7a9125bdecc605425005a2e05113bef5e2b",
+        "actualBytes": 2675,
+        "actualSHA256": "7d07eeabb10f8cf40550c35fa772b7a9125bdecc605425005a2e05113bef5e2b",
+        "match": true
+      },
+      {
+        "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/TOOL-ROOT.json",
+        "bytes": 60374,
+        "sha256": "67f0963ff093a14eeda22ac9874355457f378e94f522ede1ef6f19db33266ba9",
+        "actualBytes": 60374,
+        "actualSHA256": "67f0963ff093a14eeda22ac9874355457f378e94f522ede1ef6f19db33266ba9",
+        "match": true
+      }
+    ]
+  },
+  "wholeTextReads": [
+    "PLAN.md",
+    "BRIEF.md",
+    "PROMPT.txt",
+    "TOOL-ARGS.json",
+    "CALL-CONTRACT.md",
+    "REFERENCE-USE.md",
+    "SOURCE-INPUTS.json",
+    "docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md",
+    "docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md",
+    "docs/evidence/appearance-2026-10-19/ari-tee-artist/README.md",
+    "docs/PROJECT-CHECKLIST.md",
+    "docs/PRODUCT-ROADMAP.md"
+  ],
+  "readLimits": {
+    "otherReviewerVerdictsReadBeforeSeal": false,
+    "rawJSONRestriction": "Only exact request/status/selected URL/feedback metadata and page markdown rows1-5; no page body after row5; no search excerpts or image pixels. Whole raw bytes hashed only.",
+    "manifestOtherReceipts": "23 pins freshly hashed, no other reviewer source-verdict body read.",
+    "linkedTraversal": false,
+    "codeRuntimeNativeGPUOrBrowserReads": false,
+    "memoryHistory": false
+  },
+  "toolArgumentChecks": {
+    "exactPromptUTF8TerminalLFEquality": true,
+    "oneTerminalLF": true,
+    "keys": [
+      "prompt",
+      "referenced_image_paths",
+      "transparent_background"
+    ],
+    "references": [
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png"
+    ],
+    "transparent_background": false,
+    "num_last_images_to_include_omitted": true
+  },
+  "referenceReceipt": {
+    "searchRequest": {
+      "query": "site:cos.com \"camp-collar\" \"linen\"",
+      "includeDomains": [
+        "cos.com"
+      ],
+      "limit": 5,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false
+    },
+    "searchJobId": "01a15718-60a0-74ae-9ef4-5c49648da3b2",
+    "searchStatusSuccess": true,
+    "searchCreditsUsed": 2,
+    "selectedURL": "https://www.cos.com/en-us/men/menswear/shirts/casualshirts/product/camp-collar-short-sleeved-linen-shirt-light-blue-1328139002",
+    "pageRequest": {
+      "url": "https://www.cos.com/en-us/men/menswear/shirts/casualshirts/product/camp-collar-short-sleeved-linen-shirt-light-blue-1328139002",
+      "formats": [
+        "markdown"
+      ],
+      "onlyMainContent": true,
+      "maxAge": 0,
+      "timeout": 30000,
+      "domainTools": false
+    },
+    "pageJobId": "01a15718-dffd-7326-9552-89b6e98fb2ba",
+    "statusCode": 200,
+    "returnedURL": "https://www.cos.com/index.html?originPath=men%2Fmenswear%2Fshirts%2Fcasualshirts%2Fproduct%2Fcamp-collar-short-sleeved-linen-shirt-light-blue-1328139002&originPageType=product-page",
+    "title": "Select Your Location | Welcome to COS",
+    "pageCreditsUsed": 1,
+    "allowedMarkdownRows": [
+      "Redirecting you to selected country",
+      "",
+      "![](https://www.cos.com/static_assets/country-selector-desktop-aw26.jpg?imwidth=2160)",
+      "",
+      "# Select your country to continue"
+    ],
+    "externalImageViewed": false,
+    "photoCurlOperation": false,
+    "feedback": [
+      {
+        "feedbackId": "01a15719-9200-709f-aee0-aed4360f052c",
+        "rating": "good",
+        "fulfilled": true,
+        "creditsRefunded": 1
+      },
+      {
+        "feedbackId": "01a15719-964a-73da-a76a-10128f6e3c6c",
+        "rating": "bad",
+        "issue": "redirected_to_country_selector",
+        "fulfilled": true,
+        "creditsRefunded": 1
+      }
+    ],
+    "newProviderOperationsByThisReviewer": 0,
+    "feedbackExactArgs": {
+      "searchArgs": {
+        "searchId": "01a15718-60a0-74ae-9ef4-5c49648da3b2",
+        "rating": "good",
+        "valuableSources": [
+          {
+            "url": "https://www.cos.com/en-us/men/menswear/shirts/casualshirts/product/camp-collar-short-sleeved-linen-shirt-light-blue-1328139002",
+            "reason": "Relevant official camp-collar linen-shirt discovery; its excerpt identified the intended garment, but separate live retrieval must verify content."
+          }
+        ]
+      },
+      "scrapeArgs": {
+        "endpoint": "scrape",
+        "jobId": "01a15718-dffd-7326-9552-89b6e98fb2ba",
+        "url": "https://www.cos.com/en-us/men/menswear/shirts/casualshirts/product/camp-collar-short-sleeved-linen-shirt-light-blue-1328139002",
+        "rating": "bad",
+        "issues": [
+          "redirected_to_country_selector"
+        ],
+        "missingContent": [
+          {
+            "topic": "Requested product content",
+            "description": "HTTP200 live scrape returned the country selector, not the selected shirt page or a usable garment photo."
+          }
+        ],
+        "note": "No fallback or broader retrieval attempted."
+      }
+    }
+  },
+  "pngChecks": {
+    "bothImages": "1536x1024, 8-bit RGB, PNG signature/IHDR, every chunk CRC, exact complete IEND, four chunks each",
+    "viewTool": "tools.view_image with detail original, image forwarded at original detail, sequential whole originals; no crop/transformation"
+  },
+  "verificationCommands": [
+    {
+      "command": "pwd",
+      "exit": 0,
+      "purpose": "Confirm exact workspace"
+    },
+    {
+      "command": "ls -la docs/evidence/appearance-2026-10-19/warm-weather-outfit",
+      "exit": 0,
+      "purpose": "Inventory filenames/sizes only; did not expose source verdicts"
+    },
+    {
+      "command": "cat docs/evidence/appearance-2026-10-19/warm-weather-outfit/PLAN.md docs/evidence/appearance-2026-10-19/warm-weather-outfit/BRIEF.md docs/evidence/appearance-2026-10-19/warm-weather-outfit/PROMPT.txt docs/evidence/appearance-2026-10-19/warm-weather-outfit/TOOL-ARGS.json docs/evidence/appearance-2026-10-19/warm-weather-outfit/CALL-CONTRACT.md docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-USE.md docs/evidence/appearance-2026-10-19/warm-weather-outfit/SOURCE-INPUTS.json",
+      "exit": 0,
+      "purpose": "Whole exact mandatory source read, complete output"
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,struct,zlib\nbase=Path.cwd(); leaf=base/'docs/evidence/appearance-2026-10-19/warm-weather-outfit'\nmanifest=leaf/'SOURCE-INPUTS.json'; raw=manifest.read_bytes(); m=json.loads(raw)\nprint('MANIFEST',len(raw),hashlib.sha256(raw).hexdigest())\nfor p in m['pins']:\n b=(base/p['path']).read_bytes(); digest=hashlib.sha256(b).hexdigest()\n print(json.dumps({'path':p['path'],'bytes':len(b),'sha256':digest,'match':len(b)==p['bytes'] and digest==p['sha256']}))\n if p['path'].endswith('.png'):\n  assert b[:8]==b'\\x89PNG\\r\\n\\x1a\\n'; off=8; chunks=[]\n  while off<len(b):\n   n=struct.unpack('>I',b[off:off+4])[0]; typ=b[off+4:off+8]; dat=b[off+8:off+8+n]; crc=struct.unpack('>I',b[off+8+n:off+12+n])[0]\n   assert zlib.crc32(typ+dat)&0xffffffff==crc\n   if typ==b'IHDR': print('PNG_IHDR',p['path'],struct.unpack('>IIBBBBB',dat))\n   chunks.append(typ.decode('ascii')); off+=n+12\n   if typ==b'IEND': break\n  assert off==len(b) and chunks[-1]=='IEND'\n  print('PNG_COMPLETE_CRC_VALID',p['path'],len(chunks),'chunks')\na=json.loads((leaf/'TOOL-ARGS.json').read_bytes()); p=(leaf/'PROMPT.txt').read_bytes()\nprint('TOOL_ARG_CONTRACT',json.dumps({'promptExactUTF8Bytes':a['prompt'].encode()==p,'promptEndsLF':p.endswith(b'\\n'),'promptEndsDoubleLF':p.endswith(b'\\n\\n'),'keys':list(a),'refs':a['referenced_image_paths'],'transparent_background':a['transparent_background'],'numLastOmitted':'num_last_images_to_include' not in a}))\nr=json.loads((leaf/'REFERENCE-RAW.json').read_bytes())\nprint('RAW_TOP_SHAPE',json.dumps({k: {'type':type(v).__name__,'keys':list(v) if isinstance(v,dict) else None} for k,v in r.items()}))\nPY",
+      "exit": 0,
+      "purpose": "Fresh independent exact pins, image integrity and argument equality"
+    },
+    {
+      "command": "cat docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md docs/evidence/appearance-2026-10-19/ari-tee-artist/README.md docs/PROJECT-CHECKLIST.md docs/PRODUCT-ROADMAP.md",
+      "exit": 0,
+      "purpose": "Source receipts and canonical context; combined wrapper display truncated, repaired by full smaller reads before seal"
+    },
+    {
+      "command": "const r=await tools.view_image({path:\"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png\",detail:\"original\"});image(r.image_url,\"original\");",
+      "exit": 0,
+      "purpose": "Whole original concept visual witness"
+    },
+    {
+      "command": "const r=await tools.view_image({path:\"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png\",detail:\"original\"});image(r.image_url,\"original\");",
+      "exit": 0,
+      "purpose": "Whole supplemental sheet visual witness"
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json\nr=json.loads(Path('docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-RAW.json').read_bytes())\nprint('SEARCH_ARGS',json.dumps(r['search']['args']))\nprint('SELECTED_URL',r['selection']['url'])\nprint('PAGE_ARGS',json.dumps(r['page']['args']))\nprint('SCOPE',r['scope'])\nfor k in ['search','page','feedback']:\n v=r[k]['result'];print(k.upper()+'_RESULT_SHAPE',json.dumps({q:{'type':type(x).__name__,'keys':list(x) if isinstance(x,dict) else None} for q,x in v.items()}))\nprint('FEEDBACK_ARGS',json.dumps(r['feedback']['args']))\nprint('FEEDBACK_RESULT',json.dumps(r['feedback']['result']))\nv=r['page']['result'].get('structuredContent',{})\nfor k,x in v.items():\n if k=='markdown':\n  rows=x.split('\\n');print('PAGE_MARKDOWN_ROWS_1_TO_5',json.dumps([{'row':i+1,'text':t} for i,t in enumerate(rows[:5])]))\n elif k not in ['content','html','rawHtml','links','images','screenshot']: print('PAGE_STRUCTURED_'+k,json.dumps(x))\nPY",
+      "exit": 1,
+      "purpose": "Restricted metadata inspection only; AttributeError before feedback and markdown output, no forbidden body exposed"
+    },
+    {
+      "command": "cat docs/PROJECT-CHECKLIST.md",
+      "exit": 0,
+      "purpose": "Complete untruncated canonical checklist read"
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json\nr=json.loads(Path('docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-RAW.json').read_bytes())\nprint('SEARCH_STATUS',json.dumps({k:r['search']['result'].get(k) for k in ['isError']}))\ns=r['search']['result']['structuredContent'];print('SEARCH_NONCONTENT_METADATA',json.dumps({k:s[k] for k in ['success','id','creditsUsed'] if k in s}))\nprint('PAGE_STATUS',json.dumps({'isError':r['page']['result'].get('isError')}))\ns=r['page']['result']['structuredContent'];print('PAGE_METADATA',json.dumps(s['metadata']))\nprint('PAGE_MARKDOWN_ROWS_1_TO_5',json.dumps([{'row':i+1,'text':t} for i,t in enumerate(s['markdown'].split('\\n')[:5])]))\nprint('FEEDBACK_ARGS',json.dumps(r['feedback']['args']))\nprint('FEEDBACK_RESULT',json.dumps(r['feedback']['result']))\nPY",
+      "exit": 0,
+      "purpose": "Corrected restricted exact request/status/feedback and allowed5-row inspection"
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\np=Path('docs/PRODUCT-ROADMAP.md');b=p.read_bytes();print('FULL_READ_PART1_BYTES_0_17000');print(b[:17000].decode())\nPY",
+      "exit": 0,
+      "purpose": "Complete roadmap bytes0-16999 without truncation"
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nb=Path('docs/PRODUCT-ROADMAP.md').read_bytes();print('FULL_READ_PART2_BYTES_17000_EOF');print(b[17000:].decode())\nPY",
+      "exit": 0,
+      "purpose": "Complete roadmap bytes17000-EOF without truncation"
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,datetime\nleaf=Path('docs/evidence/appearance-2026-10-19/warm-weather-outfit')\nitems=[]\nfor p in sorted(leaf.rglob('*')):\n if p.is_file():items.append({'path':str(p.relative_to(leaf)),'bytes':p.stat().st_size})\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat())\nprint('LEAF_INVENTORY',json.dumps({'regularFiles':len(items),'totalBytes':sum(x['bytes'] for x in items),'items':items}))\nc=Path('docs/PROJECT-CHECKLIST.md').read_text();print('CHECKLIST_COUNTS',json.dumps({'checked':c.count('- [x]'),'unchecked':c.count('- [ ]')}))\nPY",
+      "exit": 0,
+      "purpose": "Prewrite inventory15files155446bytes and checklist23checked10unchecked"
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime\np=Path('docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-SOURCE-FIRST.json');b=p.read_bytes()\nprint('ROOT_FIRST_READ_AT',datetime.datetime.now(datetime.timezone.utc).isoformat());print('ROOT_SOURCE_PIN',len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "exit": 0,
+      "purpose": "First whole root decision read strictly after own seal/readback."
+    }
+  ],
+  "jobs": {
+    "newGeneration": 0,
+    "newRetrieval": 0,
+    "imageEditing": 0,
+    "nativeGPU": 0,
+    "tests": 0,
+    "capture": 0,
+    "shellCommands": "All synchronous completed with exit status captured; no PTY/session/background job launched. One metadata-inspection script exit1 corrected within scope.",
+    "PID": "No long-running or provider PID launched by reviewer; backend model/PID/memory/credits/hard cancel unavailable is frozen managed-call limitation."
+  },
+  "managedCallGateChecks": {
+    "preconditions": "independent sourceA, root stable whole handoff and fresh pins/reasoning, local checkpoint, fresh exclusive admission",
+    "dispatchWithinAdmissionSeconds": 120,
+    "callCollectionMinutes": 15,
+    "firstOnly": true,
+    "pendingUnknownNeverDuplicate": true,
+    "multipleOutputsNoBestOf": true,
+    "originalsUnchanged": true,
+    "candidateMaxBytes": 16777216,
+    "candidateMaxDimension": 4096,
+    "leafMaxRegularFiles": 48,
+    "leafMaxBytes": 33554432,
+    "metadataMaxBytes": 4194304,
+    "limitsArePostflightRefusal": true,
+    "failedPartialInvalidMissingOversizeAmbiguousStopNoRepair": true,
+    "resourceEnforcementUnavailableAcknowledged": true,
+    "sourceADoesNotAdmitCall": true,
+    "actualImageIndependentRootGateStillRequired": true
+  },
+  "prewriteLeafInventory": {
+    "atUTC": "2026-10-20T02:28:50.128925+00:00",
+    "regularFiles": 15,
+    "totalBytes": 155446,
+    "allMetadata": true
+  },
+  "checklistCounts": {
+    "scopedChecked": 23,
+    "broadUnchecked": 10
+  },
+  "preservation": {
+    "writtenPathsOnly": [
+      "SECOND-SOURCE-REVIEW.md",
+      "SECOND-CRITIC-RECEIPT.json"
+    ],
+    "allAcceptedDefaultOriginalFrozenIgnoredAssets": true,
+    "allClosedMethodsAndAriConstructorHold": true,
+    "fullAAAPhase1VTuberMiiRoadmap": true,
+    "noCanonicalHandoffEdit": true,
+    "recoveryViteUntouchedAndNotLiveVerified": true
+  },
+  "chronology": [
+    {
+      "atUTC": "2026-10-20T02:27:26+00:00",
+      "event": "Independent source review begins; no source verdict read."
+    },
+    {
+      "atUTC": "2026-10-20T02:30:29.103258+00:00",
+      "event": "Independent A and exact-first-image worth judgment sealed with actual source/image witnesses and two alternatives before ROOT-SOURCE-FIRST or any other source-review verdict read."
+    },
+    {
+      "atUTC": "2026-10-20T02:30:51.556615+00:00",
+      "event": "First whole read of ROOT-SOURCE-FIRST only, after independent seal and complete initial readback of both own files. No SOURCE-REVIEW or CRITIC-SOURCE-RECEIPT verdict read."
+    },
+    {
+      "atUTC": "2026-10-20T02:31:48.395468+00:00",
+      "event": "Post-seal comparison recorded; independent decision payload retained byte-equivalent under its canonical hash."
+    }
+  ],
+  "rootComparison": {
+    "status": "complete",
+    "rootFirstReadAtUTC": "2026-10-20T02:30:51.556615+00:00",
+    "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-SOURCE-FIRST.json",
+    "bytes": 2366,
+    "sha256": "efd97faab7c90e4b5cc96277b77447d40263e855e342b85984a923b7f5677796",
+    "rootSealedAtUTC": "2026-10-20T02:20:13.288870+00:00",
+    "agreement": "Both A on complete original-authored source and worth of exact first managed image after separate admission. Both treat COS country-selector response as no clothing/physical authority and require qualitative whole-output acceptance later.",
+    "differences": "Root second alternative defers until complete editable body/garment consumer; mine stops now with existing knitwear references. These express different opportunity costs, not disagreement about present artist-source completeness.",
+    "independentDecisionChanged": false,
+    "otherReviewerVerdictFilesNeverRead": true
+  },
+  "pending_edits": false,
+  "initialSealFilePins": [
+    {
+      "path": "SECOND-SOURCE-REVIEW.md",
+      "bytes": 8177,
+      "sha256": "a06a8528e730eca660f049d71fbb3f75658536f0a2511e8995d5ce815ec0845e"
+    },
+    {
+      "path": "SECOND-CRITIC-RECEIPT.json",
+      "bytes": 23058,
+      "sha256": "3f28b34256c7a7490031606ac0f1c573c691ddb8c564cdf384dd35282fc22ede"
+    }
+  ],
+  "finalReadbackProtocol": "After this final write: wholly emit review and complete complementary <=12000-byte receipt ranges, then recompute both stable file hashes, canonical independent-decision seal and all23 manifest pins; root must independently verify. No edit after successful stable final readback."
+}

@@ -1,0 +1,379 @@
+{
+  "schema": "warm-weather-outfit-independent-complete-source-v1",
+  "collectionUTC": "2026-10-20T02:27:11.079948+00:00",
+  "collectionPID": 7008,
+  "verdict": "A_COMPLETE_SOURCE_ONLY_ONE_FIRST_IMAGE_WORTH",
+  "pending_edits": false,
+  "inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/PLAN.md",
+      "bytes": 3743,
+      "sha256": "e8fa4372a0d9002d98aec08613fdaeb17b6a81be518474b06e3729ff3ac568b6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/LOCAL-INPUTS.json",
+      "bytes": 2441,
+      "sha256": "b13e5ff9b967faaa3192a8e3e5b68d95f3527e78046362f5138ba8fcff7487a2"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8644,
+      "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "docs/research/KNIT-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 4214,
+      "sha256": "c48f1a48d6da19db271520afefbfc4daf86423a6a040e02421bb85ff02357b1c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2175,
+      "sha256": "f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/ari-tee-artist/README.md",
+      "bytes": 1904,
+      "sha256": "9a5ddfa2ee7459bee584b20170e8b6ba9323d626904078564d2eac09ca19878e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+      "bytes": 2439336,
+      "sha256": "f3b288db55fa2800ab7a7cd3007146be8328b73ee0692ce45783238947e87e77"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+      "bytes": 2023441,
+      "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/ROOT-WORTH.json",
+      "bytes": 4857,
+      "sha256": "c753e964fb1bc1d6ce900e39a9db450674080d3ccecec888252ccb5ab4db42df"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/WORTH.md",
+      "bytes": 4334,
+      "sha256": "ebe380650ac500bba93d9820c8dde17f3f1885cfb8331c84a09a8ec03683c929"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/CRITIC-RECEIPT.json",
+      "bytes": 18737,
+      "sha256": "126c8f4abe182fdfbb88ee191362d05b2013647b859c42560b2d8e956c0d574e"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit-worth/ROOT-FIRST.json",
+      "bytes": 4331,
+      "sha256": "68402a732a2ea8db6a7b876f94f170189f45e73b7b16ebddf44ac48b8c49022f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/BRIEF.md",
+      "bytes": 4227,
+      "sha256": "8cd3ddf7b1f325eb17b36441af5975eaf570a4cd199ca703c479097aa9f8b552"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CALL-CONTRACT.md",
+      "bytes": 2626,
+      "sha256": "54249e5036935ddee3a858583f2f2d1f8c1aa55b3cf9b83e43599e14f9c4fc2a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/PLAN.md",
+      "bytes": 5816,
+      "sha256": "9b0ac45b24cd9a6bfa7058f9b36af704cdfe320814806338acebc2ed4881b8c5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/PROMPT.txt",
+      "bytes": 2348,
+      "sha256": "70ff3c82f0f57092368289ad6cd16684d7be005aeb62d78e37e6cf65de515ea1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-RAW.json",
+      "bytes": 31086,
+      "sha256": "2a76062c51394c6efd60e67c3f2dd2b8cdaeb0f7f5b802c94b3d94969bbd022f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-USE.md",
+      "bytes": 1639,
+      "sha256": "c3ff6f6d84591f59257de4c4783d69fc8366291747eaef8398703dece99c6e56"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-WORTH.md",
+      "bytes": 3843,
+      "sha256": "81b84e2d566a0c6ef73a6814574319509b72cf806ee896e9760e83f71390ef6f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-REFERENCE-FIRST.json",
+      "bytes": 1884,
+      "sha256": "441bf0b5f03c30e703200fb0d0440d7502c335f982122cc6b9271334b0e5d264"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/TOOL-ARGS.json",
+      "bytes": 2675,
+      "sha256": "7d07eeabb10f8cf40550c35fa772b7a9125bdecc605425005a2e05113bef5e2b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/TOOL-ROOT.json",
+      "bytes": 60374,
+      "sha256": "67f0963ff093a14eeda22ac9874355457f378e94f522ede1ef6f19db33266ba9"
+    }
+  ],
+  "manifest": {
+    "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/SOURCE-INPUTS.json",
+    "bytes": 4984,
+    "sha256": "c1bdccdbdf90fa54818250d2624a1f8b70b90456da6c9d048fae4ed6cf41e659"
+  },
+  "rootFirst": {
+    "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-SOURCE-FIRST.json",
+    "bytes": 2366,
+    "sha256": "efd97faab7c90e4b5cc96277b77447d40263e855e342b85984a923b7f5677796"
+  },
+  "review": {
+    "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/SOURCE-REVIEW.md",
+    "bytes": 5076,
+    "sha256": "82bd475ab2e35cbbdf673043ac9684d7d8834bbc955afac4b7fa457fce8469c1"
+  },
+  "receiptSelfBinding": "Separate whole stable readback returns exact self bytes/hash; no circular self hash.",
+  "coverage": {
+    "wholeCurrentSource": [
+      "PLAN.md",
+      "SOURCE-INPUTS.json",
+      "BRIEF.md",
+      "PROMPT.txt",
+      "TOOL-ARGS.json",
+      "CALL-CONTRACT.md",
+      "REFERENCE-USE.md",
+      "ROOT-SOURCE-FIRST.json only after own seal"
+    ],
+    "allOtherPinnedFiles": "Fresh byte/hash binding only or explicit same-byte prior review reuse; no entire TOOL-ROOT/history/root-worth semantic claim.",
+    "savedReferenceScope": "Exact request/status/selectedURL, five product titles/URLs only, page metadata, selector markdown rows1–5, once-only feedback and rawscope. No cached product description/image or country-navigation semantic evidence. Wrapper key structure inspected first without content.",
+    "priorActualViews": [
+      {
+        "tool": "view_image",
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png",
+        "requestedDetail": "original",
+        "returnedDetail": "original",
+        "priorMetadataJob": "b65c34",
+        "priorMetadataUTC": "2026-10-20T02:04:46.411103+00:00",
+        "backendPID": "not exposed"
+      },
+      {
+        "tool": "view_image",
+        "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+        "requestedDetail": "original",
+        "returnedDetail": "original",
+        "priorMetadataJob": "b65c34",
+        "priorMetadataUTC": "2026-10-20T02:04:46.411103+00:00",
+        "backendPID": "not exposed"
+      }
+    ],
+    "newImageViews": 0,
+    "historicalLocator": "Prior LOCAL-INPUTS historical606384e4 selection remains unchanged; no new Git/ledger/source hunt."
+  },
+  "independence": {
+    "ownSeal": "21fa6a/exit0/PID6624/2026-10-20T02:24:41.252470+00:00",
+    "rootFirstFileRead": "0b687a/exit0/PID6711/2026-10-20T02:25:08.634017+00:00",
+    "rootEarlierSeal": "ROOT-SOURCE-FIRST.utc2026-10-20T02:20:13.288870+00:00/PID5921",
+    "messageScope": "Parent exact-row clarification disclosed root-A scope before own seal; no claim of blindness to all parent opinions. Full root file content read only afterwards.",
+    "comparison": "Both A for complete original-authored source/one first image worth, not execution admission.",
+    "sealWordingClarification": "No source action in the sealed limits means no source construction/mutation; the explicit review reads are listed and retained."
+  },
+  "checks": {
+    "sourceRows": 23,
+    "allPinsCurrent": true,
+    "promptUTF8Bytes": 2348,
+    "promptSHA256": "70ff3c82f0f57092368289ad6cd16684d7be005aeb62d78e37e6cf65de515ea1",
+    "promptArtifactEqualsExactParameterIncludingOneLF": true,
+    "localImageReferences": 2,
+    "transparentBackground": false,
+    "numLastImagesOmitted": true,
+    "modelSizeAPIFieldsOmitted": true,
+    "newReferencePhotoAcquisitions": 0
+  },
+  "actualReferenceMetadata": {
+    "searchArgs": {
+      "query": "site:cos.com \"camp-collar\" \"linen\"",
+      "includeDomains": [
+        "cos.com"
+      ],
+      "limit": 5,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false
+    },
+    "searchID": "01a15718-60a0-74ae-9ef4-5c49648da3b2",
+    "searchResults": 5,
+    "reportedSearchCredits": 2,
+    "selectedURL": "https://www.cos.com/en-us/men/menswear/shirts/casualshirts/product/camp-collar-short-sleeved-linen-shirt-light-blue-1328139002",
+    "pageRequest": {
+      "url": "https://www.cos.com/en-us/men/menswear/shirts/casualshirts/product/camp-collar-short-sleeved-linen-shirt-light-blue-1328139002",
+      "formats": [
+        "markdown"
+      ],
+      "onlyMainContent": true,
+      "maxAge": 0,
+      "timeout": 30000,
+      "domainTools": false
+    },
+    "pageMetadata": {
+      "viewport": "width=device-width,initial-scale=1",
+      "language": "en",
+      "description": "Select your location to explore COS's curated collection of Men & Women's clothing, shoes, and accessories.",
+      "title": "Select Your Location | Welcome to COS",
+      "favicon": "https://www.cos.com/static_assets/favicons/light-mode-favicon-32x32.png",
+      "scrapeId": "01a15718-dffd-7326-9552-89b6e98fb2ba",
+      "sourceURL": "https://www.cos.com/en-us/men/menswear/shirts/casualshirts/product/camp-collar-short-sleeved-linen-shirt-light-blue-1328139002",
+      "url": "https://www.cos.com/index.html?originPath=men%2Fmenswear%2Fshirts%2Fcasualshirts%2Fproduct%2Fcamp-collar-short-sleeved-linen-shirt-light-blue-1328139002&originPageType=product-page",
+      "statusCode": 200,
+      "contentType": "text/html; charset=utf-8",
+      "timezone": "America/New_York",
+      "proxyUsed": "basic",
+      "indexId": "54dff426-72cf-4b8d-a590-b5a4baa6856d",
+      "creditsUsed": 1,
+      "concurrencyLimited": false
+    },
+    "exactFiveSelectorRows": [
+      {
+        "line": 1,
+        "text": "Redirecting you to selected country"
+      },
+      {
+        "line": 2,
+        "text": ""
+      },
+      {
+        "line": 3,
+        "text": "![](https://www.cos.com/static_assets/country-selector-desktop-aw26.jpg?imwidth=2160)"
+      },
+      {
+        "line": 4,
+        "text": ""
+      },
+      {
+        "line": 5,
+        "text": "# Select your country to continue"
+      }
+    ],
+    "feedback": "Two stored once-only fulfilled feedback responses each report1automaticcreditrefund; no reset/purchase/capacity request.",
+    "scope": "Live countryselector is not a garment body/photo. No curl/native photo/pixels; search/selector URLs remain unviewed. No fallback."
+  },
+  "actualIndependentDecision": {
+    "verdict": "A_COMPLETE_SOURCE_ONLY_ONE_FIRST_IMAGE_WORTH",
+    "worth": "Yes, exactly the frozen first managed artist plate is worthwhile after root whole-review/fresh pins, local checkpoint and exclusive admission. Source A does not launch/admit it.",
+    "reason": "The authored brief/prompt own a complete genuinely different seasonal sage short-sleeve camp-collar/sand ankle-trouser/navy-ivory low-shoe composition and front/three-quarter/portrait continuity/framing duties. Both source images actually viewed earlier remain exact and supply qualitative person continuity only. The optional official live page is a country selector, not a garment source; REFERENCE-USE explicitly disclaims product/photo/physical authority and keeps the predeclared original-authorship path. No missing external garment witness is substituted by search descriptions or unseen URLs. All23sourcepins and manifest match; PROMPT and exact prompt parameter are identical2348UTF8bytes including oneLF, with exactly two local paths/false transparency/omittednum_last/model/sizeAPI.",
+    "resourceReason": "One exact call after fresh exclusive gate, dispatchwithin120s, actual15min collection window, no duplicate onpendingunknown; actual returned-path/one valid PNG unchanged native/project copy;16MiB/4096edge and48regularfile/32MiB/4MiBmetadata postflight rules, CRC/header/inventory before appearance, preserved unqualified failures and no retake/fallback are explicit. Backendmodel/PID/memory/credits/hardcancel and physical guarantees unexposed; no performance/physicalfit/native/master/AAA claim.",
+    "alternatives": [
+      {
+        "choice": "Run exactly one first artist plate after the separate root gate.",
+        "tradeoff": "Can supply an immediately useful same-person seasonal coordination comparison; continuity/framing/design may fail and there is no retake."
+      },
+      {
+        "choice": "Defer further illustration until editable/coupled body-garment ownership is available.",
+        "tradeoff": "Avoids speculative art and managedcall effort; leaves this concrete seasonal wardrobe decision without a visual comparison."
+      }
+    ],
+    "findings": [],
+    "limits": "No new image/source/reference/call/browser/native/GPU/target action by critic. Parent's row-clarification message disclosed root source-A scope before this seal; full ROOT-SOURCE-FIRST content is still unread. Source judgment is from independently inspected exact authored duties and saved result, not a blind-before-all-messages claim."
+  },
+  "findings": [],
+  "referenceLimitation": {
+    "witness": "REFERENCE-RAW page metadata+rows1–5; PLAN optional paragraph; REFERENCE-USE paragraphs1–3",
+    "effect": "No external garment/physical authority; complete original-authorship duties remain explicit and sourceA does not depend on retrieval.",
+    "alternatives": [
+      {
+        "choice": "Proceed with this original-authored brief through separate root/first-image gates.",
+        "tradeoff": "No external example dependency, but actual continuity/design/readability can fail."
+      },
+      {
+        "choice": "Defer without another reference attempt.",
+        "tradeoff": "Avoids speculative art; seasonal comparison remains unvisualized. No alternate page/photo/provider is admitted."
+      }
+    ]
+  },
+  "alternatives": [
+    {
+      "choice": "Run exactly one first artist plate after the separate root gate.",
+      "tradeoff": "Can supply an immediately useful same-person seasonal coordination comparison; continuity/framing/design may fail and there is no retake."
+    },
+    {
+      "choice": "Defer further illustration until editable/coupled body-garment ownership is available.",
+      "tradeoff": "Avoids speculative art and managedcall effort; leaves this concrete seasonal wardrobe decision without a visual comparison."
+    }
+  ],
+  "limits": [
+    "Source A advises one exact future first plate only after root whole/fresh/sourcecheckpoint/exclusiveadmission; no current call by critic.",
+    "Postflight PNG16MiB/4096edge, leaf48regularfiles/32MiB, metadata4MiB do not bound opaque backend startup/memory/runtime/physical retirement.",
+    "No new source/image/reference/target except declared static review reads; no construction/mutation/browser/native/GPU/geometry/test/eval/generation.",
+    "No physical cooling/fabric/fit/rig/3D/runtime/performance/demographic/starter/AAA or phasegate qualification; all closures/assets/HOLD/checklist23scoped10broad preserved."
+  ],
+  "errors": [],
+  "next": "Root complete stable handoff/fresh input and reasoning verification, exact source checkpoint then exclusive actual-admission gate before any call.",
+  "deadlineUTC": "2026-10-20T02:41:28.216468Z",
+  "jobs": [
+    {
+      "name": "warm_source_initial",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport datetime,os,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/warm-weather-outfit');print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['PLAN.md','SOURCE-INPUTS.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "97c6ca",
+      "exit_code": 0,
+      "wall_time_seconds": 7.458e-06,
+      "output_utf8bytes": 11053,
+      "output_sha256": "1b99f164cbc602c7163b18ee67896404609733749ab60dfa64366775d72ffecd",
+      "first_output_line": "UTC 2026-10-20T02:21:06.419127+00:00 PID 6167"
+    },
+    {
+      "name": "warm_source_contract",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport datetime,os,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/warm-weather-outfit');print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['BRIEF.md','PROMPT.txt','TOOL-ARGS.json','CALL-CONTRACT.md','REFERENCE-USE.md']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "a04c5b",
+      "exit_code": 0,
+      "wall_time_seconds": 7.458e-06,
+      "output_utf8bytes": 14080,
+      "output_sha256": "0df46780909a56bb1fbb1001b2b643615af653fc2196dffcaeeb3bd1485b3d7c",
+      "first_output_line": "UTC 2026-10-20T02:21:28.449757+00:00 PID 6230"
+    },
+    {
+      "name": "warm_source_reference_shape",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-RAW.json');x=json.loads(p.read_text());print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\ndef shape(v,path='root',depth=0):\n if isinstance(v,dict):\n  print(path,'DICT_KEYS',list(v))\n  if depth<2:\n   for k,y in v.items():shape(y,path+'.'+k,depth+1)\n elif isinstance(v,list):print(path,'LIST',len(v))\n elif isinstance(v,str):print(path,'STRING_UTF8',len(v.encode()))\n else:print(path,v)\nshape(x)\nPY",
+      "chunk_id": "bf027b",
+      "exit_code": 0,
+      "wall_time_seconds": 6.917e-06,
+      "output_utf8bytes": 799,
+      "output_sha256": "fec398c77b2e1a99127072b5b610532aa9d598ef81b4b12a3b3b3ed374f7b4af",
+      "first_output_line": "UTC 2026-10-20T02:22:16.585154+00:00 PID 6319"
+    },
+    {
+      "name": "warm_source_verify",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\nr=Path('/Users/robault/GitHub/sugata-avatar');d=r/'docs/evidence/appearance-2026-10-19/warm-weather-outfit';print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\ndef pin(p):\n b=p.read_bytes();return {'path':str(p.relative_to(r)),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nm=json.loads((d/'SOURCE-INPUTS.json').read_text())\nfor z in m['pins']:\n p=r/z['path'];assert p.is_file() and not p.is_symlink() and pin(p)==z\nprint('CURRENT_SOURCE_PINS_PASS',len(m['pins']),'MANIFEST',json.dumps(pin(d/'SOURCE-INPUTS.json')))\na=json.loads((d/'TOOL-ARGS.json').read_text());pb=a['prompt'].encode();assert (d/'PROMPT.txt').read_bytes()==pb and pb.endswith(b'\\n') and not pb.endswith(b'\\n\\n');assert len(pb)==2348 and hashlib.sha256(pb).hexdigest()=='70ff3c82f0f57092368289ad6cd16684d7be005aeb62d78e37e6cf65de515ea1'\nassert set(a)=={'prompt','referenced_image_paths','transparent_background'} and a['transparent_background'] is False\nexpected=[str(r/'docs/evidence/appearance-2026-10-04/knit-character-concept/concept-v1.png'),str(r/'docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png')];assert a['referenced_image_paths']==expected\nprint('EXACT_CALL_BINDING_PASS prompt2348B/includes_terminalLF; two_originalrefs; falseopacity; omittednum_last/model/sizeAPI')\nx=json.loads((d/'REFERENCE-RAW.json').read_text());sc=x['search']['result']['structuredContent'];page=x['page']['result']['structuredContent'];print('SEARCH_ARGS',json.dumps(x['search']['args'],ensure_ascii=False));print('SEARCH_STRUCTURED_KEYS',list(sc))\ndef strip_description(v):\n if isinstance(v,dict):return {k:strip_description(y) for k,y in v.items() if k not in ['description','snippet','imageUrl','image','images','markdown']}\n if isinstance(v,list):return [strip_description(y) for y in v]\n return v\nprint('SEARCH_RESULT_METADATA_ONLY',json.dumps(strip_description(sc),ensure_ascii=False));print('SEARCH_IS_ERROR',x['search']['result'].get('isError'));print('SELECTION',json.dumps(x['selection'],ensure_ascii=False));print('PAGE_REQUEST',json.dumps(x['page']['args'],ensure_ascii=False));print('PAGE_METADATA',json.dumps(page.get('metadata'),ensure_ascii=False));print('PAGE_IS_ERROR',x['page']['result'].get('isError'))\nlines=page['markdown'].splitlines();print('EXACT_SELECTOR_ROWS_1_TO_5',json.dumps([{'line':i+1,'text':v} for i,v in enumerate(lines[:5])],ensure_ascii=False));assert lines[0]=='Redirecting you to selected country' and lines[4]=='# Select your country to continue'\nprint('ONCE_ONLY_FEEDBACK',json.dumps(x['feedback'],ensure_ascii=False));print('RAW_SCOPE',x['scope'])\nPY",
+      "chunk_id": "ce39e8",
+      "exit_code": 0,
+      "wall_time_seconds": 7.375e-06,
+      "output_utf8bytes": 7015,
+      "output_sha256": "477d5f264881857d5209ff76da481cc35e016f168ea10fad4384b293871af604",
+      "first_output_line": "UTC 2026-10-20T02:23:49.261119+00:00 PID 6516"
+    },
+    {
+      "name": "warm_source_seal",
+      "command": "python3 - <<'PY'\nimport os,datetime\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nprint('INDEPENDENT_SOURCE_SEAL',\"{\\\"verdict\\\":\\\"A_COMPLETE_SOURCE_ONLY_ONE_FIRST_IMAGE_WORTH\\\",\\\"worth\\\":\\\"Yes, exactly the frozen first managed artist plate is worthwhile after root whole-review/fresh pins, local checkpoint and exclusive admission. Source A does not launch/admit it.\\\",\\\"reason\\\":\\\"The authored brief/prompt own a complete genuinely different seasonal sage short-sleeve camp-collar/sand ankle-trouser/navy-ivory low-shoe composition and front/three-quarter/portrait continuity/framing duties. Both source images actually viewed earlier remain exact and supply qualitative person continuity only. The optional official live page is a country selector, not a garment source; REFERENCE-USE explicitly disclaims product/photo/physical authority and keeps the predeclared original-authorship path. No missing external garment witness is substituted by search descriptions or unseen URLs. All23sourcepins and manifest match; PROMPT and exact prompt parameter are identical2348UTF8bytes including oneLF, with exactly two local paths/false transparency/omittednum_last/model/sizeAPI.\\\",\\\"resourceReason\\\":\\\"One exact call after fresh exclusive gate, dispatchwithin120s, actual15min collection window, no duplicate onpendingunknown; actual returned-path/one valid PNG unchanged native/project copy;16MiB/4096edge and48regularfile/32MiB/4MiBmetadata postflight rules, CRC/header/inventory before appearance, preserved unqualified failures and no retake/fallback are explicit. Backendmodel/PID/memory/credits/hardcancel and physical guarantees unexposed; no performance/physicalfit/native/master/AAA claim.\\\",\\\"alternatives\\\":[{\\\"choice\\\":\\\"Run exactly one first artist plate after the separate root gate.\\\",\\\"tradeoff\\\":\\\"Can supply an immediately useful same-person seasonal coordination comparison; continuity/framing/design may fail and there is no retake.\\\"},{\\\"choice\\\":\\\"Defer further illustration until editable/coupled body-garment ownership is available.\\\",\\\"tradeoff\\\":\\\"Avoids speculative art and managedcall effort; leaves this concrete seasonal wardrobe decision without a visual comparison.\\\"}],\\\"findings\\\":[],\\\"limits\\\":\\\"No new image/source/reference/call/browser/native/GPU/target action by critic. Parent's row-clarification message disclosed root source-A scope before this seal; full ROOT-SOURCE-FIRST content is still unread. Source judgment is from independently inspected exact authored duties and saved result, not a blind-before-all-messages claim.\\\"}\")\nPY",
+      "chunk_id": "21fa6a",
+      "exit_code": 0,
+      "wall_time_seconds": 1.3458e-05,
+      "output_utf8bytes": 2483,
+      "output_sha256": "cc654340a7fa2bda2257e76291cf0dcbcd5dbd5f75f1e1d54b8a8b31a4693b97",
+      "first_output_line": "UTC 2026-10-20T02:24:41.252470+00:00 PID 6624"
+    },
+    {
+      "name": "warm_source_compare",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport datetime,os,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-SOURCE-FIRST.json');b=p.read_bytes();print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid());print('FILE',p.name,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "0b687a",
+      "exit_code": 0,
+      "wall_time_seconds": 7.792e-06,
+      "output_utf8bytes": 2524,
+      "output_sha256": "fff9184f756c9c48ffc7566ab41c14c24d5892df768563b533e6ad82e5eb8d16",
+      "first_output_line": "UTC 2026-10-20T02:25:08.634017+00:00 PID 6711"
+    }
+  ],
+  "collectionOperation": "Exclusive xb writes only SOURCE-REVIEW.md and CRITIC-SOURCE-RECEIPT.json after fresh current23pins."
+}

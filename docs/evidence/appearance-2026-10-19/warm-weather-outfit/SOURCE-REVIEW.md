@@ -1,0 +1,25 @@
+# Warm-weather outfit: complete source review
+
+A — the exact frozen first managed artist plate is worthwhile after root's whole-handoff/fresh-pin verification, local source checkpoint and fresh exclusive admission. This is source approval only; it neither launches nor admits a call. No actionable source blocker remains.
+
+BRIEF's composition section and PROMPT paragraph2 own the new sage camp-collar shirt, clearly above-elbow sleeves, relaxed cut/open collar/upper-hip hem, sand loose ankle trousers and navy canvas/ivory flat-sole low shoes. These are complete visible wardrobe choices rather than another sweater texture or hidden tee detail. The two permitted character sources, already actually whole-viewed, remain exact and supply qualitative face/groom/body-intent continuity, not registered anatomy or garment fit.
+
+BRIEF's view and acceptance sections, mirrored in PROMPT paragraph3, own a full front figure, full three-quarter figure and larger portrait with the same collar. Complete heads/hands/visible feet and portrait hair margins are explicit; normal far-side overlap and intentional portrait chest cropping are distinguished. Actual whole pixels must establish continuity, consistent clothing and material-language separation. Labels and a source A cannot establish appearance.
+
+The optional COS method supplied no garment witness. REFERENCE-RAW records one exact five-result official-domain query (2reported credits), one selected live maxAge0/main-markdown page (HTTP200,1reported credit) redirected to a country-selector URL/title. Only selector rows1–5 were semantically read: they contain the redirect message, an unviewed selector-image URL and “Select your country to continue.” No country-list navigation, garment photo/curl or image pixels were inspected/acquired. Five cached product titles/URLs are metadata, not product appearance or linen/cooling authority. The two once-only feedback returns each automatically report1credit refund; this is recorded provider behavior, not purchased/reset capacity or a measured net execution cost.
+
+PLAN expressly made that reference optional before retrieval. REFERENCE-USE and BRIEF now place every silhouette/palette/material-language/new hidden-detail choice under original authorship and disclaim the unobserved product/photo. This is the declared original-authorship path, not a fallback hunt or permission to broaden the failed reference method. Missing references cannot establish fabric physics or image quality.
+
+All23SOURCE-INPUTS pins and its selfpin match current regular nonsymlink bytes. TOOL-ARGS has exactly prompt, two absolute local character paths and transparent_background=false; no num_last_images, model or size-API field. The 2,348UTF8 prompt bytes, including one final LF, exactly equal PROMPT.txt (SHA70ff3c82…15ea1). CALL-CONTRACT accurately binds that relation.
+
+The call contract owns a fresh exclusive gate, exact one dispatch within120s, actual15minute collection deadline, retained pending state/no duplication, directly returned output/path/status and unchanged native/project copy. Its16MiB/4096edge PNG,48regular-file/32MiB leaf and4MiB metadata limits, header/CRC checks and full inventory are postflight qualification rules. Unknown/multiple/invalid/oversize/partial results stay preserved/unqualified with no retake, search, renderer/observer fallback or best-image selection. Backend model/PID/memory/credits/hard cancellation and physical worker retirement remain unexposed; no performance or hard allocation/completion guarantee follows.
+
+Independent A was sealed in21fa6a at02:24:41.252470UTC/PID6624 before ROOT-SOURCE-FIRST file content was opened in0b687a at02:25:08.634017UTC/PID6711. Root's exact-row clarification message had already disclosed root-A scope; this is not a claim of blindness to every parent message. The source reasoning above comes from the independent full authored-source/result inspection. The subsequently read root opinion agrees at source-only scope.
+
+Two alternatives:
+- Proceed with exactly one first artist plate after the separate root gate. It may give a useful same-character seasonal wardrobe comparison; identity/framing/coordination can still fail and there is no retake.
+- Defer illustration until editable/coupled body-garment ownership exists. This avoids speculative raster and managed-call effort, while leaving the specific seasonal choice without a visual comparison.
+
+No new image view, online call, source construction/edit, target, browser/native/GPU, geometry or generation occurred. Earlier source/image witnesses are reused at fresh exact pins; historical ledger selection is not a current history query. Accepted/default/original/frozen assets, old methods, Ari constructor HOLD, full roadmap/phase order and23scoped/10broad checklist remain. No physical cooling/fabric optics, reconstruction/demographic certification, editable/native/3D, fit/rig/morph/motion/runtime/performance/starter or AAA qualification follows. Source preparation stops02:41:28.216468UTC without extension.
+
+pending_edits=false.
