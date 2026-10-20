@@ -1,0 +1,91 @@
+{
+  "sealedUTC": "2026-10-20T13:50:09.193382+00:00",
+  "wholeNewSource": [
+    {
+      "path": "packages/core/src/motion/AcknowledgmentNod.js",
+      "bytes": 5270,
+      "sha256": "598f9ddec35c284240118946267a9d7095da03f90bd8ae1a93f5e79b4dddfc1a"
+    },
+    {
+      "path": "packages/core/src/motion/AcknowledgmentNod.selftest.mjs",
+      "bytes": 8102,
+      "sha256": "4c30685b9aefd1988eaaee3022ab9d14c6f0a30762b3cb823d424669fd17d52e"
+    },
+    {
+      "path": "packages/testbed/src/nod-study.html",
+      "bytes": 1626,
+      "sha256": "ad5643c7cee8c64ad1c7b75480368ee038588d03542a411e8c1c4f552c4797cf"
+    },
+    {
+      "path": "packages/testbed/src/nod-study.js",
+      "bytes": 5216,
+      "sha256": "dc5fdb642e1b201c1c13c8683d32cdc2598b0dce61d82f1af630d3f3806aa21d"
+    },
+    {
+      "path": "tools/critic/acknowledgment-nod.mjs",
+      "bytes": 11485,
+      "sha256": "d2376007b00a6e15e0dfcb0b3f15b11f5536dea0e6ed1f59850829237b33ef9f"
+    }
+  ],
+  "bindings": [
+    {
+      "path": "packages/core/src/motion/AcknowledgmentNod.js",
+      "bytes": 5270,
+      "sha256": "598f9ddec35c284240118946267a9d7095da03f90bd8ae1a93f5e79b4dddfc1a"
+    },
+    {
+      "path": "packages/core/src/motion/AcknowledgmentNod.selftest.mjs",
+      "bytes": 8102,
+      "sha256": "4c30685b9aefd1988eaaee3022ab9d14c6f0a30762b3cb823d424669fd17d52e"
+    },
+    {
+      "path": "packages/testbed/src/nod-study.html",
+      "bytes": 1626,
+      "sha256": "ad5643c7cee8c64ad1c7b75480368ee038588d03542a411e8c1c4f552c4797cf"
+    },
+    {
+      "path": "packages/testbed/src/nod-study.js",
+      "bytes": 5216,
+      "sha256": "dc5fdb642e1b201c1c13c8683d32cdc2598b0dce61d82f1af630d3f3806aa21d"
+    },
+    {
+      "path": "tools/critic/acknowledgment-nod.mjs",
+      "bytes": 11485,
+      "sha256": "d2376007b00a6e15e0dfcb0b3f15b11f5536dea0e6ed1f59850829237b33ef9f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-20/acknowledgment-nod/PLAN.md",
+      "bytes": 3943,
+      "sha256": "0f764b0f71b6c0a75ac3fb9f423b0b214c1d83f4b0394bcf7e7ca3dc19e1b554"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-20/acknowledgment-nod/ROOT-WORTH.json",
+      "bytes": 1690,
+      "sha256": "d290d02ffed956ed3b82ac64148f95af37bdc80057c2e3ccd500dd6a0273f2ed"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-20/acknowledgment-nod/WORTH.md",
+      "bytes": 8773,
+      "sha256": "d70b971d86964baf8c12bf97ca987e1081b8ac55416053d082e9dcaf0a608a7b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-20/acknowledgment-nod/SOURCE-CONTRACT.md",
+      "bytes": 7954,
+      "sha256": "6f28bd765c9efa4c9f787681e2ba404761cd94408cc4e801884841715bfbb135"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-20/acknowledgment-nod/SOURCE-INPUTS.json",
+      "bytes": 211227,
+      "sha256": "74a38ea8d712280be9484d4d42b754fd98f7b5eeef877af23250409ff270bf0f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-20/acknowledgment-nod/RUNTIME-PREFLIGHT.json",
+      "bytes": 3234,
+      "sha256": "1832bc08990b8df8bb254c20093b31a2b5da835a36e803edfd27eacbc3002c93"
+    }
+  ],
+  "targetExecuted": false,
+  "criticDeadlineUTC": "2026-10-20T14:12:00+00:00",
+  "totalDeadlineUTC": "2026-10-20T15:00:00+00:00",
+  "pending_edits": false
+}

@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"markdown\": \"<html><head><meta http-equiv=\\\"Content-Type\\\" content=\\\"text/html; charset=UTF-8\\\"><meta name=\\\"color-scheme\\\" content=\\\"light dark\\\"></head><body><pre style=\\\"word-wrap: break-word; white-space: pre-wrap;\\\">404 page not found\\n</pre></body></html>\",\n  \"metadata\": {\n    \"color-scheme\": \"light dark\",\n    \"scrapeId\": \"01a15984-94a8-771e-bdd0-c19617086ea5\",\n    \"sourceURL\": \"https://www.mindmakers.org/projects/bml-1-0/wiki/Wiki\",\n    \"url\": \"https://www.mindmakers.org/projects/bml-1-0/wiki/Wiki\",\n    \"statusCode\": 404,\n    \"error\": \"Not Found\",\n    \"contentType\": \"text/plain; charset=utf-8\",\n    \"timezone\": \"America/New_York\",\n    \"proxyUsed\": \"basic\",\n    \"indexId\": \"2c468922-6041-4e9a-9bcc-d696fc96a746\",\n    \"creditsUsed\": 1,\n    \"concurrencyLimited\": false\n  },\n  \"agent_hints\": [\n    \"The source page returned 404. If you need its current location or an alternative, use firecrawl_search with {\\\"query\\\":\\\"site:www.mindmakers.org wiki Wiki\\\",\\\"sources\\\":[\\\"web\\\"]}. Adjust the query to the page identity from your task; this is not a transient-error retry.\"\n  ]\n}"
+    }
+  ],
+  "structuredContent": {
+    "markdown": "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta name=\"color-scheme\" content=\"light dark\"></head><body><pre style=\"word-wrap: break-word; white-space: pre-wrap;\">404 page not found\n</pre></body></html>",
+    "metadata": {
+      "color-scheme": "light dark",
+      "scrapeId": "01a15984-94a8-771e-bdd0-c19617086ea5",
+      "sourceURL": "https://www.mindmakers.org/projects/bml-1-0/wiki/Wiki",
+      "url": "https://www.mindmakers.org/projects/bml-1-0/wiki/Wiki",
+      "statusCode": 404,
+      "error": "Not Found",
+      "contentType": "text/plain; charset=utf-8",
+      "timezone": "America/New_York",
+      "proxyUsed": "basic",
+      "indexId": "2c468922-6041-4e9a-9bcc-d696fc96a746",
+      "creditsUsed": 1,
+      "concurrencyLimited": false
+    },
+    "agent_hints": [
+      "The source page returned 404. If you need its current location or an alternative, use firecrawl_search with {\"query\":\"site:www.mindmakers.org wiki Wiki\",\"sources\":[\"web\"]}. Adjust the query to the page identity from your task; this is not a transient-error retry."
+    ]
+  },
+  "isError": false
+}

@@ -1,0 +1,31 @@
+{
+  "sealedUTC": "2026-10-20T13:28:49.881958+00:00",
+  "pins": [
+    {
+      "path": "packages/core/src/motion/AttentionAction.js",
+      "bytes": 12286,
+      "sha256": "762bc9ff7ef6b086d7cfd09d561afbd8407b5051681f46e8700ff4f867d29c34"
+    },
+    {
+      "path": "packages/core/src/motion/Layer.js",
+      "bytes": 11055,
+      "sha256": "e62f85746d87e4e4b7fc24449a2bb1c15e0ff1c0d2a254b4a146f4fab397a5a8"
+    },
+    {
+      "path": "packages/core/src/motion/Gesture.js",
+      "bytes": 46993,
+      "sha256": "c52205441a5d963579813a68fe1642097df7ba44a1166b66d2b7c4f20e9ac1ea"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 33025,
+      "sha256": "0331c4bbacd01218a6da58bb9f4ca466426f42f2332c5ab293d46c4dc0da91bc"
+    },
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 6075,
+      "sha256": "1c7233506e1783e0976752d63915b1e2a20d934b61608df1a196d99a5be6f760"
+    }
+  ],
+  "semanticScope": "Whole PLAN and AttentionAction/Layer, Gesture first95lines plus exact nod locator, roadmap Emotive gestures row only, current resume whole; other file bytes opaque pins. No linked assets/history/API calls."
+}

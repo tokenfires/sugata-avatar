@@ -1,5 +1,7 @@
 # Sugata — current work window
 
+**Current bounded activity (October 20):** [Complete acknowledgment-nod preparation](evidence/appearance-2026-10-20/acknowledgment-nod/README.md) is unexecuted under two independent complete source/workload reviews. No syntax/test/import/browser/capture or default/API promotion has run. Root must verify both stable handoffs before any separate CPU admission; actual CPU gate precedes a separate native gate. Source deadline14:12UTC/latestnative14:30/rootcheckpoint15:00UTC. Prior closures below remain.
+
 Updated October 20, 2026. Read this page, the [current checkpoint and selected closure index](RESUME-2026-10-18.md), and the latest linked receipt before acting. Older prospective instructions are historical; they do not admit a new job.
 
 ## Authority and scope

@@ -1,0 +1,62 @@
+{
+  "sealedUTC": "2026-10-20T13:50:09.192855+00:00",
+  "nodeVersion": "v24.13.1",
+  "nodeVersionJob": "bdbd01",
+  "ffmpegVersion": "9.0.2",
+  "ffmpegVersionJob": "672c44",
+  "playwrightVersion": "1.62.1",
+  "declaredBrowserVersion": "151.0.7922.34",
+  "declaredChromiumRevision": "1234",
+  "browserVersionExecuted": false,
+  "bindings": [
+    {
+      "path": "/Users/robault/.brv-cli/bin/node",
+      "resolved": "/Users/robault/.brv-cli/bin/node",
+      "bytes": 119127632,
+      "sha256": "d36b3d980963d44bd2c5e844fac4cfeee26a167b744287a4e74a9575af9d0559"
+    },
+    {
+      "path": "/opt/homebrew/bin/ffmpeg",
+      "resolved": "/opt/homebrew/Cellar/ffmpeg/9.0.2/bin/ffmpeg",
+      "bytes": 426512,
+      "sha256": "c8173e9755795978bce8e104f8d7044fabe7d6d84044aba37d3648c6f4e4e1a8"
+    },
+    {
+      "path": "/Users/robault/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+      "resolved": "/Users/robault/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+      "bytes": 52112,
+      "sha256": "a596b1cfc6353e987fcec8d71a23a28cd6a9e7a6b4e20b908e4c4fcffe51158e"
+    },
+    {
+      "path": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/package.json",
+      "resolved": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/package.json",
+      "bytes": 1416,
+      "sha256": "ca170ec143a88ed3043ac953eb3b2377b2b97304104f4e1e23316684ce2c35af"
+    },
+    {
+      "path": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs",
+      "resolved": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs",
+      "bytes": 704,
+      "sha256": "a0f5715ea22354f922791a9c53dc012d5d5c067ff9cc4cd35ffb7cd272071a9f"
+    },
+    {
+      "path": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/package.json",
+      "resolved": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/package.json",
+      "bytes": 876,
+      "sha256": "07c47543631fef9508760365dee9fbe958c562093ec8d122543949ed231f233f"
+    },
+    {
+      "path": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/browsers.json",
+      "resolved": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/browsers.json",
+      "bytes": 1780,
+      "sha256": "f306eed529599b1eaf2f8a85db9de2b23e1a3fe36c2b66434b7c9434fb627a99"
+    },
+    {
+      "path": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/types/types.d.ts",
+      "resolved": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/types/types.d.ts",
+      "bytes": 1110840,
+      "sha256": "6c688250f2b7061cec3a17ab8797671137b653f8c4e81a6df3190cb112a7579a"
+    }
+  ],
+  "noTargetImportOrCPUOrNative": true
+}
