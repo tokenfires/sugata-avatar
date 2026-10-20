@@ -1,5 +1,13 @@
 # Sugata work window — October 18, 2026
 
+## Fixed-source boot eyelets refused — no hardware built (2026-10-20T07:30:02.796723+00:00)
+
+Independent/rootB: complete producer and current master intent own a continuous upper, closed facing overlay and capped decorative laces, not the functional through-path required by the append-only proposal. No cutting/reroute/offset/ring relabel or old renderer/source rescue followed. Root whole9195B handoff a79407, then d0aac0/PID13514/07:27:00UTC verifies5pins/immutableefa68360...8e32 and actual current intent strings. [Complete refusal receipt](evidence/appearance-2026-10-20/ankle-boot-interface-preflight/README.md).
+
+Three admitted inputs781019B, source text/JSON structure only; no coordinate arithmetic, geometry test, producer/checker/import/eval/native/browser/GPU/network/new image. Initial root structural output overprinted string labels/truncated; no full readback claim or reparse. Saved ROOT-CPU matches current master798002bb...a0c5 but lacks producer hash; no other linked pins requalified. Original/default/accepted/frozen/ignored/October10/unrelated assets, currentboard/checklist23/10/roadmap/allclosures/material-volumeHOLD remain. No owned target/pending critic edit. Same retained10minute recovery/reviewserver; no push/publish/purchase/install/model/subscription/resetcredit/other project work. Close before07:39:18UTC.
+
+Larger missing duty is a complete upper/closure architecture owning actual openings and the source/interface relationship. Any new nomination must explicitly preserve this B, declare genuinely different topology/ownership, distinguish assistant-imposed fixed-source guards from user closures, and ask fresh independent worth before source/geometry/reference work. No successor is automatically admitted. Human steering wins.
+
 ## Boot hardware worth: conditional source preparation only (2026-10-20T07:17:12.277759+00:00)
 
 Root/independent conditionalA supports complete inert source-frame/fictional-foot/lace-facing-aperture responsibility before hardware authorship. Actual coarse mesh lacks readable rings; existing illustration already supplies eyelet/stitch/tread language, so another flat sheet is redundant. If protected unchanged geometry cannot support the through-path/upper relationship, stop; no decorative-ring functional-eyelet relabel. [Exact bounded receipt](evidence/appearance-2026-10-20/ankle-boot-finish-worth/README.md).

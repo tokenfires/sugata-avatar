@@ -1,0 +1,68 @@
+{
+  "sealedUTC": "2026-10-20T07:22:05.446387+00:00",
+  "pid": 12836,
+  "decision": "B: fixed protected-body functional-eyelet proposal refuses before hardware authorship",
+  "beforeIndependentSourceHandoff": true,
+  "sourceWitnesses": [
+    {
+      "file": "build.py",
+      "lines": "42-45,75-88",
+      "finding": "Bridge covers every cyclic ring interval. All outer/inner upper sections are continuously bridged, rim joined, floors capped; no selected lace-facing aperture construction is owned."
+    },
+    {
+      "file": "build.py",
+      "lines": "119-130",
+      "finding": "Tongue/front-facing panel is a closed four-corner-row solid, bridged between every row and capped at both ends, laid over the upper."
+    },
+    {
+      "file": "build.py",
+      "lines": "149-168,224-227",
+      "finding": "Laces are independent capped cylinder segments; contact intent explicitly calls tongue/facing a closed overlay on continuous upper and laces decorative separate components with intentional crossing overlap."
+    },
+    {
+      "file": "build.py",
+      "lines": "90-94,217-230",
+      "finding": "Axes and mirrored unitless frame plus complete fictional reference are declared; anatomical/continuous enclosure/fit remain unqualified. That does not supply the missing functional eyelet interface."
+    }
+  ],
+  "savedMasterBinding": "Current760165B/798002bbe3c6e05d90a156d99403ff22066c0c38a8150410ebb47fde7713a0c5 exactly matches the existing ROOT-CPU pin; other saved linked paths were not followed or requalified.",
+  "scopeLimits": "Whole producer and whole ROOT-CPU metadata read; structural JSON parse was allowed, but initial output mistakenly emitted all vertex-label strings and was truncated. No full structural readback claimed; no reparse/rescue needed for the source-based refusal. No coordinate arithmetic, old producer/checker/import/evaluation, geometry predicate, construction, linked input, native/browser/GPU/network/new image.",
+  "alternatives": [
+    {
+      "option": "Stop the fixed-body append-only hardware proposal and retain exact source plus target",
+      "tradeoff": "Prevents claiming decorative rings are functional eyelets; leaves hardware finishing open."
+    },
+    {
+      "option": "Future complete new upper/closure architecture owning apertures, threaded lace and the full replacement source/interface responsibility",
+      "tradeoff": "Could supply actual closure construction but is substantially broader and needs a genuinely new explicit design/source/workload contract, not a repair or successor admitted here."
+    }
+  ],
+  "nextAction": "Await independent source verdict, whole-read/verify it and checkpoint refusal. No hardware/source repair, alternate closure/source, renderer or image admitted.",
+  "inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-20/ankle-boot-interface-preflight/PLAN.md",
+      "bytes": 2992,
+      "sha256": "abbbefb70e225efd8e09a13cc71a9f822b1da75b754c0ff82c0bc512f911ff00"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-20/ankle-boot-interface-preflight/READ-ADMISSION.json",
+      "bytes": 525,
+      "sha256": "420bba6e4a44cfc8797729e39f7f655ef61b00a6d3c0a341d3d10146b1d1fe1b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/build.py",
+      "bytes": 11389,
+      "sha256": "1ddbbd3a99e1617d96e1d520c3378c06a630ffdb25fb13973a2e982c782c12f5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/export/mesh.json",
+      "bytes": 760165,
+      "sha256": "798002bbe3c6e05d90a156d99403ff22066c0c38a8150410ebb47fde7713a0c5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/boot-artist-first-view/ROOT-CPU.json",
+      "bytes": 9465,
+      "sha256": "049ee63ad43517364c79579e24aa0bd76453dd3ecf5e9dd8ae0729aee33bf8a0"
+    }
+  ]
+}
