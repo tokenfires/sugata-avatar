@@ -1,0 +1,3 @@
+# Sage shirt — source checkpoint
+
+Final original SVG and ordinary first-preview workload have separate independent/root A; actual pixels are not yet observed or qualified. [Plan](PLAN.md), [complete source/edit/workload](DESIGN.md), [final independent gate](SOURCE-FINAL.md), [root verification](ROOT-SOURCE-FINAL.json). Earlier initial source/A and proportion/timing disclosures are preserved. One exact first preview remains conditional on fresh root admission; no existing target/native/GPU/browser job is running. Source15:35/image15:50/checkpoint16:00UTC bounds. All accepted/default/roadmap/23checked/10open and prior exact closures retained.

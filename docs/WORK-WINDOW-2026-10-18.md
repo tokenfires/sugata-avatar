@@ -1,5 +1,7 @@
 # Sugata — current work window
 
+**Current bounded nomination (October20,15:11UTC):** [Editable sage camp-collar shirt](evidence/appearance-2026-10-20/sage-shirt-design/PLAN.md). Independent/root worth A permits a distinct original garment-source sheet; six-area SVG and workload are prepared and under independent source review. No renderer import, preview or native/GPU/browser job is admitted/running. Source gate15:35, image/result15:50, checkpoint16:00UTC. The previous wardrobe-board observation sequence remains consumed.
+
 **Latest bounded receipt (October20):** [Two retained outfit turnarounds added to the visual wardrobe board](evidence/appearance-2026-10-20/artist-turnaround-board/README.md). Independent/root source, actual original-image, three first fixed page-image and scoped-data reviews passed. Exact reviewed bytes were copied and served as the canonical board at14:49:13UTC. This improves access to existing artist references; character/fit/3D/runtime goals remain open. The single owned tab19 is collected; no further board graphics/capture is selected.
 
 Updated October 20, 2026. Read this page, the [current checkpoint and selected closure index](RESUME-2026-10-18.md), and the latest linked receipt before acting. Older prospective instructions are historical; they do not admit a new job.

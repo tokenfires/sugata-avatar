@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-20T15:07:00.310787+00:00",
+  "staticOnly": true,
+  "pins": [
+    {
+      "path": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "bytes": 121304480,
+      "sha256": "613be50c90e83aa8da58dd9ed393d0b39914a3b8ef4123fe817b46c2679cebe2"
+    },
+    {
+      "path": "/Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp/package.json",
+      "bytes": 8115,
+      "sha256": "ad4a2535d72eb638053a38867b1abf43c328cd1c1dbae5cf4172d498365a8b97"
+    }
+  ],
+  "sharpVersion": "0.35.5",
+  "executable": true,
+  "runtimeImportOrProbe": false
+}

@@ -1,0 +1,3 @@
+# Correction scope and timing
+
+PREPARATION-NOTE's phrase "before any worth decision" was too broad: root's first independent worth opinion had already been saved at14:59:57UTC, before the prospective renderer name was corrected around15:00UTC. The correction preceded the critic's15:03:21UTC independent worth verdict and root's15:06:29UTC verification/admission for preparation. No target, renderer import/probe or output occurred under either name. The first root opinion judged the usefulness of the missing editable garment source, not an executable renderer contract. The original note and worth-bound bytes remain preserved; this addendum corrects chronology rather than silently changing those historical pins.

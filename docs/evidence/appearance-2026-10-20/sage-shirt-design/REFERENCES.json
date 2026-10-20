@@ -1,0 +1,65 @@
+{
+  "search": {
+    "args": {
+      "query": "site:toast.com camp collar short sleeve shirt cotton",
+      "includeDomains": [
+        "toast.com"
+      ],
+      "limit": 2,
+      "sources": [
+        "web"
+      ],
+      "domainTools": false
+    },
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"success\":true,\"data\":{\"web\":[],\"tools\":[]},\"creditsUsed\":0,\"id\":\"01a159d9-8ecc-770a-9999-9a21933130c8\",\"agent_hints\":[\"No web results were returned. If the task is still unresolved, use firecrawl_search again with {\\\"query\\\":\\\"<broader or alternative query>\\\",\\\"sources\\\":[\\\"web\\\"]}.\"]}"
+        }
+      ],
+      "structuredContent": {
+        "success": true,
+        "data": {
+          "web": [],
+          "tools": []
+        },
+        "id": "01a159d9-8ecc-770a-9999-9a21933130c8",
+        "creditsUsed": 0,
+        "agent_hints": [
+          "No web results were returned. If the task is still unresolved, use firecrawl_search again with {\"query\":\"<broader or alternative query>\",\"sources\":[\"web\"]}."
+        ]
+      },
+      "isError": false
+    }
+  },
+  "feedback": {
+    "args": {
+      "searchId": "01a159d9-8ecc-770a-9999-9a21933130c8",
+      "rating": "bad",
+      "missingContent": [
+        {
+          "topic": "Official camp-collar shirt example",
+          "description": "No web results for this bounded source query; no site absence inferred. Original garment source remains independently authored."
+        }
+      ]
+    },
+    "result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"success\": true,\n  \"feedbackId\": \"01a159d9-fa47-7023-bbe4-49d1034fc1ba\",\n  \"creditsRefunded\": 0,\n  \"creditsRefundedToday\": 9,\n  \"dailyRefundCap\": 100\n}"
+        }
+      ],
+      "structuredContent": {
+        "success": true,
+        "feedbackId": "01a159d9-fa47-7023-bbe4-49d1034fc1ba",
+        "creditsRefunded": 0,
+        "creditsRefundedToday": 9,
+        "dailyRefundCap": 100
+      },
+      "isError": false
+    }
+  },
+  "decision": "The one optional official garment search returned no results. No selected scrape, external image or construction authority. No repeat search; original reference and explicit authored hidden details suffice."
+}

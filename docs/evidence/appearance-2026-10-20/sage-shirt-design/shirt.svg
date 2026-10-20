@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1200" viewBox="0 0 1800 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Sage camp shirt — original editable design</title>
+  <desc id="desc">Six unitless artist schematics: front, wearer-left profile, back, open collar and inside facing, sleeve hem return, and side vent and hem. Back and hidden finishing details are new design choices, not recovered from the outfit illustration. Not a sewing pattern or fit proof.</desc>
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; fill: #273c35; }
+    .heading { font-size: 27px; font-weight: 700; }
+    .label { font-size: 20px; }
+    .note { font-size: 18px; fill: #46594f; }
+    .edge { stroke: #344b40; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+    .cloth { fill: #acb89f; }
+    .reverse { fill: #ebd5a6; }
+    .line { fill: none; stroke: #576e59; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .hidden { fill: none; stroke: #52644d; stroke-width: 2; stroke-dasharray: 7 6; }
+    .callout { fill: none; stroke: #53665d; stroke-width: 1.8; }
+    .panel { fill: #fffdf7; stroke: #d9ddd1; stroke-width: 2; }
+  </style>
+  <rect width="1800" height="1200" fill="#f4f2e8"/>
+  <g id="header" data-feature="scope">
+    <text x="42" y="50" font-size="36" font-weight="700">SAGE CAMP SHIRT</text>
+    <text x="42" y="83" class="label">Original editable artist intent · relaxed short sleeves · open flat collar</text>
+    <text x="1758" y="45" class="note" text-anchor="end">SEASONAL WARDROBE / 01</text>
+    <text x="1758" y="78" class="note" text-anchor="end">Unitless schematics · no measured fit</text>
+  </g>
+  <g id="front" data-view="front" data-feature="complete-front">
+    <rect x="40" y="110" width="550" height="550" rx="12" class="panel"/>
+    <text x="62" y="148" class="heading">01 / FRONT</text>
+    <text x="62" y="178" class="note">Relaxed box; plain sleeves; no chest pocket</text>
+    <g id="front-geometry" transform="translate(-63 44) scale(1.2 .8)">
+    <path id="front-outline" d="M273 220 L232 234 L189 244 L143 339 L200 363 L220 319 L220 577 L410 577 L410 319 L430 363 L487 339 L441 244 L398 234 L357 220 L342 246 L315 277 L288 246 Z" class="cloth edge"/>
+    <path id="front-neck-reverse" d="M273 220 Q315 245 357 220 L341 263 L315 283 L289 263 Z" class="reverse edge"/>
+    <path id="front-left-collar" d="M273 220 L245 245 L282 285 L307 269 L288 246 Z" class="cloth edge"/>
+    <path id="front-right-collar" d="M357 220 L385 245 L348 285 L323 269 L342 246 Z" class="cloth edge"/>
+    <path id="front-overlap" d="M307 277 L307 576 L325 576 L325 277" class="cloth edge"/>
+    <path id="front-armhole-left" d="M189 244 Q225 265 220 319 M441 244 Q405 265 410 319" class="line"/>
+    <path id="front-hem-stitch" d="M221 564 L306 564 M326 564 L409 564 M149 329 L203 351 M427 351 L481 329" class="line"/>
+    <path id="front-vent-marks" d="M220 551 L220 577 M410 551 L410 577" stroke="#fffdf7" stroke-width="5"/>
+    <path d="M224 550 L224 572 M406 550 L406 572" class="line"/>
+    <g id="front-buttons" data-feature="four-buttons" fill="#f5e6c3" stroke="#53614b" stroke-width="1.8">
+      <circle cx="316" cy="317" r="5"/><circle cx="316" cy="383" r="5"/><circle cx="316" cy="449" r="5"/><circle cx="316" cy="515" r="5"/>
+    </g>
+    </g>
+    <text x="62" y="610" class="note">Four buttons below the open collar.</text>
+    <text x="62" y="637" class="note">Wearer-right front overlaps wearer-left.</text>
+  </g>
+  <g id="profile" data-view="wearer-left-profile" data-feature="complete-profile">
+    <rect x="625" y="110" width="550" height="550" rx="12" class="panel"/>
+    <text x="647" y="148" class="heading">02 / WEARER-LEFT PROFILE</text>
+    <text x="647" y="178" class="note">Front faces left; hem at one intended level</text>
+    <g id="profile-geometry" transform="translate(0 44) scale(1 .8)">
+    <path id="profile-outline" d="M870 226 Q900 221 936 239 L949 300 L952 576 L830 576 L833 310 L842 254 Z" class="cloth edge"/>
+    <path id="profile-collar" d="M870 226 L844 245 L854 268 L883 249 L911 242 L899 230 Z" class="cloth edge"/>
+    <path id="profile-sleeve" d="M880 244 Q916 253 927 283 L934 351 L875 358 L859 289 Q857 264 880 244 Z" class="cloth edge"/>
+    <path id="profile-sleeve-hem" d="M874 346 L932 339" class="line"/>
+    <path id="profile-side-seam" d="M895 357 L895 547" class="line"/>
+    <path id="profile-vent" d="M889 548 L889 576 L901 576 L901 548" fill="#fffdf7" stroke="#344b40" stroke-width="2"/>
+    <path id="profile-hem" d="M831 565 L888 565 M902 565 L950 565" class="line"/>
+    </g>
+    <path d="M790 386.4 L831 386.4 M777 386.4 L788 380.8 L788 392 Z" class="callout"/>
+    <text x="690" y="375.2" class="note">FRONT</text>
+    <path d="M992 454.4 L952 486.4 L903 486.4" class="callout"/>
+    <text x="973" y="442.4" class="note">Small side vent</text>
+    <text x="647" y="610" class="note">Profile depth and vent are newly authored.</text>
+    <text x="647" y="637" class="note">No body section or registered projection.</text>
+  </g>
+  <g id="back" data-view="back" data-feature="complete-back">
+    <rect x="1210" y="110" width="550" height="550" rx="12" class="panel"/>
+    <text x="1232" y="148" class="heading">03 / BACK</text>
+    <text x="1232" y="178" class="note">Shallow yoke; plain centre back; no pleat</text>
+    <g id="back-geometry" transform="translate(-297 44) scale(1.2 .8)">
+    <path id="back-outline" d="M1443 220 L1402 234 L1359 244 L1313 339 L1370 363 L1390 319 L1390 577 L1580 577 L1580 319 L1600 363 L1657 339 L1611 244 L1568 234 L1527 220 Q1485 245 1443 220 Z" class="cloth edge"/>
+    <path id="back-collar" d="M1443 220 Q1485 239 1527 220 L1533 252 Q1485 271 1437 252 Z" class="cloth edge"/>
+    <path id="back-yoke" d="M1375 271 Q1485 295 1595 271" class="line"/>
+    <path id="back-armholes" d="M1359 244 Q1395 265 1390 319 M1611 244 Q1575 265 1580 319" class="line"/>
+    <path id="back-hems" d="M1391 564 L1579 564 M1319 329 L1373 351 M1597 351 L1651 329" class="line"/>
+    <path id="back-vent-marks" d="M1390 551 L1390 577 M1580 551 L1580 577" stroke="#fffdf7" stroke-width="5"/>
+    <path d="M1394 550 L1394 572 M1576 550 L1576 572" class="line"/>
+    </g>
+    <text x="1232" y="610" class="note">Back and yoke are original design intent.</text>
+    <text x="1232" y="637" class="note">No recovered hidden or fitted geometry.</text>
+  </g>
+  <g id="collar-facing" data-view="inside-front-detail" data-feature="camp-collar-facing-overlap">
+    <rect x="40" y="685" width="550" height="405" rx="12" class="panel"/>
+    <text x="62" y="724" class="heading">04 / OPEN COLLAR + FACING</text>
+    <text x="62" y="755" class="note">Inside shown open; sand = reverse/inside</text>
+    <path id="collar-chest" d="M205 803 L145 827 L135 970 L491 970 L481 827 L421 803 L386 817 L313 879 L240 817 Z" class="cloth edge"/>
+    <path id="collar-reverse" d="M240 804 Q313 834 386 804 L389 836 L313 901 L237 836 Z" class="reverse edge"/>
+    <path id="left-facing" d="M240 817 L313 879 L300 970 L265 970 L276 894 L218 840 Z" class="reverse edge"/>
+    <path id="right-facing" d="M386 817 L313 879 L326 970 L361 970 L350 894 L408 840 Z" class="reverse edge"/>
+    <path id="left-flat-collar" d="M240 804 L205 826 L263 871 L287 850 L258 823 Z" class="cloth edge"/>
+    <path id="right-flat-collar" d="M386 804 L421 826 L363 871 L339 850 L368 823 Z" class="cloth edge"/>
+    <path id="facing-inner-finish" d="M230 841 L287 893 L276 967 M396 841 L339 893 L350 967" class="hidden"/>
+    <path id="collar-fold-indication" d="M248 821 L282 849 M378 821 L344 849" class="hidden"/>
+    <text x="62" y="1011" class="label">Flat collar; no separate stand.</text>
+    <text x="62" y="1042" class="note">Facings turn inside both front edges.</text>
+    <text x="62" y="1071" class="note">Open arrangement explains layers, not a pattern.</text>
+  </g>
+  <g id="sleeve-return" data-view="inside-sleeve-detail" data-feature="plain-sleeve-hem-return">
+    <rect x="625" y="685" width="550" height="405" rx="12" class="panel"/>
+    <text x="647" y="724" class="heading">05 / PLAIN SLEEVE HEM</text>
+    <text x="647" y="755" class="note">Inside schematic; no visible rolled cuff</text>
+    <path id="sleeve-flat" d="M747 805 L1037 805 L1022 962 L762 962 Z" class="cloth edge"/>
+    <path id="sleeve-inside-return" d="M762 929 L1022 929 L1022 962 L762 962 Z" class="reverse edge"/>
+    <path id="sleeve-inner-stitch" d="M765 939 L1019 939" class="hidden"/>
+    <path id="sleeve-underarm-join" d="M810 806 L815 928 M824 806 L827 928" class="line"/>
+    <path d="M1050 858 L995 932" class="callout"/>
+    <text x="943" y="839" class="note">Inside return</text>
+    <text x="647" y="1011" class="label">A simple turned hem, not a cuff band.</text>
+    <text x="647" y="1042" class="note">Dashed line = hidden finish/stitch intent.</text>
+    <text x="647" y="1071" class="note">Short sleeve joins at the relaxed shoulder.</text>
+  </g>
+  <g id="hem-vent" data-view="inside-side-hem-detail" data-feature="side-vent-and-hem-return">
+    <rect x="1210" y="685" width="550" height="405" rx="12" class="panel"/>
+    <text x="1232" y="724" class="heading">06 / HEM + SIDE VENT</text>
+    <text x="1232" y="755" class="note">Inside at one side; front and back same level</text>
+    <path id="hem-left-panel" d="M1300 800 L1457 800 L1457 960 L1300 960 Z" class="cloth edge"/>
+    <path id="hem-right-panel" d="M1457 800 L1637 800 L1637 960 L1475 960 L1475 903 L1457 903 Z" class="cloth edge"/>
+    <path id="vent-open-gap" d="M1457 903 L1475 903 L1475 960 L1457 960 Z" fill="#fffdf7"/>
+    <path id="hem-returns" d="M1300 936 L1443 936 L1443 903 L1457 903 L1457 960 L1300 960 Z M1475 903 L1489 903 L1489 936 L1637 936 L1637 960 L1475 960 Z" class="reverse edge"/>
+    <path id="side-join" d="M1457 801 L1457 902" class="line"/>
+    <path id="hem-finish" d="M1302 947 L1448 947 L1448 908 M1484 908 L1484 947 L1635 947" class="hidden"/>
+    <path id="vent-top-reinforcement" d="M1449 899 L1483 899" class="edge" fill="none"/>
+    <text x="1232" y="1011" class="label">Two short side openings; plain turned hem.</text>
+    <text x="1232" y="1042" class="note">Vent, inside returns and yoke are new choices.</text>
+    <text x="1232" y="1071" class="note">No dimensions, stitch count or seam allowance.</text>
+  </g>
+  <g id="footer" data-feature="qualification-limits">
+    <rect x="42" y="1112" width="21" height="21" class="cloth edge"/>
+    <text x="75" y="1130" class="note">Sage = outer cloth</text>
+    <rect x="315" y="1112" width="21" height="21" class="reverse edge"/>
+    <text x="348" y="1130" class="note">Sand = newly authored inside/reverse</text>
+    <path d="M758 1123 L804 1123" class="hidden"/>
+    <text x="819" y="1130" class="note">Dashed = hidden finish/fold intent</text>
+    <text x="42" y="1170" class="label">Artist schematics only · not registered projections, a sewing pattern, physical cloth, body fit, 3D or runtime clothing.</text>
+  </g>
+</svg>
