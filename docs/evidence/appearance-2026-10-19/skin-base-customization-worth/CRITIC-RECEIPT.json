@@ -1,0 +1,325 @@
+{
+  "schema": "skin-base-customization-independent-worth-v1",
+  "startedAtUTC": "2026-10-20T03:14:05+00:00",
+  "deadlineUTC": "2026-10-20T03:29:23.002837+00:00",
+  "worthDecision": {
+    "sealedAtUTC": "2026-10-20T03:16:28.136455+00:00",
+    "decision": "A",
+    "nextCompleteContractWorthPreparing": true,
+    "admissionScope": "Complete isolated source/settings/workload/artist proposal preparation only. No implementation, material/API edit, test, render or current appearance qualification.",
+    "consumer": "A person can deliberately choose and restore an independent skin base-colour choice alongside hair and clothing, and compare the complete clothed character under declared appearance conditions. It is not a perceived-identity or demographic control.",
+    "reason": "The exact inspected construction/settings route has an actionable source-integration gap for this consumer: its material factory builds albedo/tint colour explicitly and exposes a complete tuning-uniform list without a separate skin-base input; the inspected Avatar construction call forwards maps only; the complete settings reader explicitly normalizes hair and wardrobe colours but shows no explicit skin-base field. That is sufficient to prepare a complete proposal for this specific route, while neither full Avatar API nor helper implementations nor debug skin page were inspected. Global feature/API absence is not established and is not this A. The proposal must establish a complete supported path before implementation can be considered.",
+    "findings": [
+      {
+        "finding": "Independent base-colour intent has no explicit integration point in the inspected material-construction path.",
+        "sourceWitnesses": [
+          {
+            "path": "packages/core/src/material/SkinMaterial.js",
+            "lines": "983-985,1019-1051,1088-1112",
+            "observation": "Factory merges defaults/options.settings; creates named scatter/transmission/lip/cavity/thin-tissue nodes; attaches albedoMap and applies the region map when present; complete skinUniforms enumeration exposes these controls but no independent general skin-base term."
+          },
+          {
+            "path": "packages/core/src/material/SkinMaterial.js",
+            "lines": "1131-1171, especially1167-1169",
+            "observation": "Complete applyRegionMap uses region-driven local tint and thinTint and assigns colorNode from texture(albedoMap).rgb multiplied by those terms. The code expression, rather than the comment global claim, is the source witness."
+          },
+          {
+            "path": "packages/core/src/Avatar.js",
+            "lines": "3052-3057",
+            "observation": "The contained skin-factory call passes albedoMap/curvatureMapUrl/cavityMapUrl/regionMapUrl, with no settings or explicit independent base-colour argument at this call."
+          }
+        ],
+        "explanation": "Simply promising a general material.color picker is not an owned solution for the shown region/albedo colourNode path. Preparing the intended colour semantics and end-to-end admission/persistence/default/visual responsibilities has concrete value before anyone edits material or UI. This does not prove absence of a setter or another route outside the windows.",
+        "alternatives": [
+          {
+            "choice": "Prepare a complete independently authored base-colour/source/settings/artist contract for this shown route.",
+            "tradeoff": "Can make a useful customization choice concrete while forcing texture-detail, colour-space, neutral/default, cavity/subsurface and complete-character appearance duties to be owned; adds preparation work and no capability yet."
+          },
+          {
+            "choice": "Leave the current texture-driven skin and existing controls untouched; select another complete-character responsibility.",
+            "tradeoff": "Avoids an unproven control and any interaction with skin shading, but provides no independently authored base-colour choice through the shown route."
+          }
+        ]
+      },
+      {
+        "finding": "Existing local material tints and scattering parameters cannot be presented as an already-qualified general skin-base control.",
+        "sourceWitnesses": [
+          {
+            "path": "packages/core/src/material/SkinMaterial.js",
+            "lines": "380-388,435-446,448-476",
+            "observation": "The relevant defaults subset distinguishes cavityAlbedo/cavityChroma, thin-tissue depth/tint and lipTint; thinTissueDepthMillimetres is0 and lipTint is identity. Associated comments record their intended local/scattering roles and historical limitations; comments are not current pixels."
+          },
+          {
+            "path": "packages/core/src/material/SkinMaterial.js",
+            "lines": "1033-1039,1096-1101,1152-1169",
+            "observation": "Factory nodes retain separate lip/cavity/thin terms; complete region wiring drives thinTint from the green-channel thickness and lip tint from thresholded region.b before albedo multiplication."
+          }
+        ],
+        "explanation": "A base-colour customization contract must own the relation to existing texture/local modulation and cavity/scatter parameters instead of silently repurposing a local term or reviving the historical mask/thickness approach. No present skin appearance defect, physical correctness or bit-identical visual result was observed.",
+        "alternatives": [
+          {
+            "choice": "Require the future proposal to explicitly author a separate base-colour meaning with neutral restoration and bounded material/appearance invariants.",
+            "tradeoff": "Preserves the meaning of local controls and makes review possible, but may prove too complex or visually unsuccessful and then must stop."
+          },
+          {
+            "choice": "Retain current material semantics and prioritize authored complete-character/skin assets before any customization extension.",
+            "tradeoff": "Keeps shading assumptions intact and focuses quality work, while deferring the proposed independent user choice."
+          }
+        ]
+      },
+      {
+        "finding": "The supported settings round-trip for a new choice is not owned by the inspected reader and needs explicit contract responsibility.",
+        "sourceWitnesses": [
+          {
+            "path": "packages/testbed/src/showcase-settings.mjs",
+            "lines": "20-49",
+            "observation": "Complete selectionFromConfiguration explicitly resolves hairColour/hairTint, wardrobe selection/colours, frame/scene/light, then derives expected options via optionsForShowcase and compares normalized configuration."
+          },
+          {
+            "path": "packages/testbed/src/showcase-settings.mjs",
+            "lines": "7-17,52-74",
+            "observation": "sameOptions rejects unexpected fields relative to expected; read settings caps bytes and parses JSON; URL restoration iterates canonical selection and special-cases hairTint. Imported helpers are outside this review."
+          }
+        ],
+        "explanation": "The inspected file shows no explicit skin-base normalization/persistence duty. Because imported expected/canonical helpers were not read, this is not proof that every skin field is rejected or that saved/exported settings globally omit it. It is a concrete responsibility a complete future contract must settle before promising a supported feature.",
+        "alternatives": [
+          {
+            "choice": "Make parsing/validation/canonical saved/export/URL/default compatibility and artist comparison one complete next proposal.",
+            "tradeoff": "Can preserve user choices consistently; requires broader future source authority under a new exact contract before any edit."
+          },
+          {
+            "choice": "Defer the control and preserve current complete-look settings unchanged.",
+            "tradeoff": "Avoids persistence ambiguity and unsupported field promises, while leaving the proposed customization consumer unanswered."
+          }
+        ]
+      }
+    ],
+    "coverageLimits": [
+      "SKIN_DEFAULTS294-490 is only a relevant property/comment subset; no claim about its full object.",
+      "SkinMaterial960-1220 contains complete createSkinMaterial983-1112 and applyRegionMap1131-1171, but not complete SkinNodeMaterial/source module; adjacent helpers at boundaries may be partial.",
+      "Avatar2990-3105 contains the complete shown skin call and local try/catch, not all swapFigure or public Avatar API.",
+      "showcase-settings1-74 is the complete file; imported helpers and UI/SDK setters remain uninspected. skin.js was not opened; no additional locator was run.",
+      "Full-file bytes were hashed for pins only; semantic source reads were confined to the four exact ranges.",
+      "Historical/material comments do not establish current pixels, physical measurements, global repository absence or runtime success."
+    ],
+    "priorityAndClosures": "A does not inherently conflict with complete-character priority: its consumer is a whole clothed character comparison plus usable consistent settings, not an isolated slider milestone. The future complete proposal must own colour intent, texture/local-colour preservation, colour-space/subsurface/cavity/default/persistence and unchanged accepted assets, plus separately admitted whole-image/resource duties. This nomination cannot reopen material-owner/lifetime, observer/capture/transport/source rescue, geometry or Ari constructor holds. If any such repair is required to qualify it, stop instead of treating A as permission. Full Phase1/AAA/representation/wardrobe/expression/coupled-fit/motion/performance then VTuber/Mii goals remain open.",
+    "nextAction": "Root whole-read this stable worth pair and independently verify the four exact window/fullfile/document pins and reasoning. If root independently agrees A, prepare one complete bounded source/settings/workload/artist contract only; no implementation or graphics follows from this decision.",
+    "rootWorthOpinionReadBeforeSeal": false
+  },
+  "worthDecisionCanonicalHash": "bc71022dbfa4b5ea7e9ecc9d986cc31e7f30eda1472e5343acda40b8095633b6",
+  "canonicalization": "UTF8 json.dumps(worthDecision,sort_keys=True,separators=(comma,colon),ensure_ascii=False), no terminalLF",
+  "inputPins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/skin-base-customization-worth/PLAN.md",
+      "bytes": 4059,
+      "sha256": "7dbb1edc6ff48e2ddbe1b184b4dfccaa80a7c9ec599e3a1787fe1b884e97111a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/skin-base-customization-worth/LOCAL-INPUTS.json",
+      "bytes": 39495,
+      "sha256": "0a7291316c5e2cbcbbc56a9bd0cc0ce5b9f1a1a8e3b3223357ea72a5cfce1a09"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8886,
+      "sha256": "8081b2052d17f95064c298213f4df54e5c3b3211c4ecbc2c0e8c0a28973995ab"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    }
+  ],
+  "sourceWindows": [
+    {
+      "path": "packages/core/src/material/SkinMaterial.js",
+      "wholeFileBytes": 72436,
+      "wholeFileSHA256": "803522f23feb60a98f5dc927e2a274351c872141a7d038b11c4673a4ff91440e",
+      "startLine": 294,
+      "endLine": 490,
+      "rangeBytes": 13708,
+      "rangeSHA256": "2997c52fda8fae8a7d188c61def5906c4d48f6f87a6d0bdcfddc8b3248b4b536",
+      "freshMatch": true
+    },
+    {
+      "path": "packages/core/src/material/SkinMaterial.js",
+      "wholeFileBytes": 72436,
+      "wholeFileSHA256": "803522f23feb60a98f5dc927e2a274351c872141a7d038b11c4673a4ff91440e",
+      "startLine": 960,
+      "endLine": 1220,
+      "rangeBytes": 12870,
+      "rangeSHA256": "0d5def9a5e6467992bc76c6c8f590c68525be6053f8ac345c2687f3df938062d",
+      "freshMatch": true
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "wholeFileBytes": 252785,
+      "wholeFileSHA256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18",
+      "startLine": 2990,
+      "endLine": 3105,
+      "rangeBytes": 5424,
+      "rangeSHA256": "f400574bc06af53abf8e4fbb56c7b1053ec181a5326925c036485b6e2b8f9ebd",
+      "freshMatch": true
+    },
+    {
+      "path": "packages/testbed/src/showcase-settings.mjs",
+      "wholeFileBytes": 4633,
+      "wholeFileSHA256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad",
+      "startLine": 1,
+      "endLine": 74,
+      "rangeBytes": 4633,
+      "rangeSHA256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad",
+      "freshMatch": true
+    }
+  ],
+  "documentUse": {
+    "checklist": "Current complete8886byte file wholly read; no linked traversal.",
+    "roadmap": "Reused own prior complete complementary byte reads331c03/d2ffc7 at fresh equal b63372b0 pin; no new source or range.",
+    "checklistCounts": "23scopedchecked/10broadopen"
+  },
+  "commands": [
+    {
+      "command": "cat docs/evidence/appearance-2026-10-19/skin-base-customization-worth/PLAN.md docs/evidence/appearance-2026-10-19/skin-base-customization-worth/LOCAL-INPUTS.json",
+      "chunk_id": "a8bce6",
+      "exit_code": 0,
+      "result": "Combined output truncated; repaired by whole PLAN read plus metadata/verification and four separate full windows. No root opinion read."
+    },
+    {
+      "command": "cat docs/evidence/appearance-2026-10-19/skin-base-customization-worth/PLAN.md",
+      "chunk_id": "633d9a",
+      "exit_code": 0,
+      "result": "Whole exact PLAN emitted."
+    },
+    {
+      "command": "sed -n '294,490p' packages/core/src/material/SkinMaterial.js | nl -ba -v 294",
+      "chunk_id": "150b7c",
+      "exit_code": 0,
+      "result": "Whole exact197line range emitted."
+    },
+    {
+      "command": "sed -n '960,1220p' packages/core/src/material/SkinMaterial.js | nl -ba -v 960",
+      "chunk_id": "768926",
+      "exit_code": 0,
+      "result": "Whole exact261line range emitted."
+    },
+    {
+      "command": "sed -n '2990,3105p' packages/core/src/Avatar.js | nl -ba -v 2990",
+      "chunk_id": "9d0eb1",
+      "exit_code": 0,
+      "result": "Whole exact116line range emitted."
+    },
+    {
+      "command": "sed -n '1,74p' packages/testbed/src/showcase-settings.mjs | nl -ba -v 1",
+      "chunk_id": "80f236",
+      "exit_code": 0,
+      "result": "Whole exact74line complete file emitted."
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime\np=Path('docs/evidence/appearance-2026-10-19/skin-base-customization-worth/ROOT-FIRST.json');b=p.read_bytes();print('ROOT_WORTH_FIRST_READ_AT',datetime.datetime.now(datetime.timezone.utc).isoformat());print('ROOT_WORTH_FIRST_PIN',len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "f8cb5c",
+      "exit_code": 0,
+      "result": "First whole ROOT-FIRST opinion read after immutable worthDecision seal and own whole pair readback."
+    }
+  ],
+  "metadataVerificationChunks": [
+    {
+      "chunk_id": "4b325e",
+      "exit_code": 0,
+      "result": "Exact PLAN/manifest pins, all manifest nontext metadata, fresh4range/fullfile/text matches.",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib\nleaf=Path('docs/evidence/appearance-2026-10-19/skin-base-customization-worth')\nfor name in ['PLAN.md','LOCAL-INPUTS.json']:\n b=(leaf/name).read_bytes();print('FILE_PIN',name,len(b),hashlib.sha256(b).hexdigest())\nr=json.loads((leaf/'LOCAL-INPUTS.json').read_bytes());print('MANIFEST_METADATA',json.dumps({k:v for k,v in r.items() if k!='windows'}));print('WINDOW_METADATA',json.dumps([{k:v for k,v in w.items() if k!='text'} for w in r['windows']],indent=2))\nfor i,w in enumerate(r['windows']):\n b=Path(w['path']).read_bytes();part=b''.join(b.splitlines(keepends=True)[w['startLine']-1:w['endLine']]);assert len(b)==w['wholeFileBytes'] and hashlib.sha256(b).hexdigest()==w['wholeFileSHA256'];assert len(part)==w['rangeBytes'] and hashlib.sha256(part).hexdigest()==w['rangeSHA256'] and part.decode()==w['text'];print('FRESH_WINDOW_MATCH',i+1,w['path'],w['startLine'],w['endLine'])\nPY"
+    },
+    {
+      "chunk_id": "33139e",
+      "exit_code": 0,
+      "result": "Current doc pins and complete current checklist emitted.",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib\nfor name in ['docs/PROJECT-CHECKLIST.md','docs/PRODUCT-ROADMAP.md']:\n b=Path(name).read_bytes();print('DOC_PIN',name,len(b),hashlib.sha256(b).hexdigest())\nb=Path('docs/PROJECT-CHECKLIST.md').read_bytes();print(b.decode())\nPY"
+    }
+  ],
+  "jobs": {
+    "allReviewerCommandsSynchronousCompleted": true,
+    "noPTYBackgroundOrSessionID": true,
+    "productImportsEvalExecutionTests": 0,
+    "nativeGPUCaptureImagesOrDecodes": 0,
+    "network": 0,
+    "sourceLocatorCallsByThisReviewer": 0,
+    "rootManifestRecordedPID": 14634,
+    "rootManifestRecordedUTC": "2026-10-20T03:12:59.591147+00:00",
+    "resourceOrPhysicalRetirementClaims": false
+  },
+  "prewriteLeafInventory": {
+    "regularFiles": 4,
+    "bytes": 117480
+  },
+  "caps": {
+    "regularFiles": 8,
+    "bytes": 262144
+  },
+  "writtenOnly": [
+    "WORTH.md",
+    "CRITIC-RECEIPT.json"
+  ],
+  "readLimits": {
+    "fourExactWindowsOnly": true,
+    "noRootWorthOpinionBeforeSeal": true,
+    "noAdditionalSourceFilesOrLinks": true,
+    "noImagesOrOnline": true,
+    "noGlobalAbsenceClaim": true
+  },
+  "chronology": [
+    {
+      "atUTC": "2026-10-20T03:14:05+00:00",
+      "event": "Independent worth starts without root opinion."
+    },
+    {
+      "atUTC": "2026-10-20T03:16:28.136455+00:00",
+      "event": "Immutable worthDecision and canonical hash sealed into both new files before any root opinion; initial whole readback follows."
+    },
+    {
+      "atUTC": "2026-10-20T03:16:28.136455+00:00",
+      "event": "Independent seal command completed chunk f2df2b exit0; root opinion unread."
+    },
+    {
+      "event": "Whole initial own pair readback completed chunks2a8d22 andcdf7a5 exit0 before root opinion."
+    },
+    {
+      "atUTC": "2026-10-20T03:16:51.412798+00:00",
+      "event": "First root worth opinion whole-read in chunkf8cb5c exit0 after independent seal and own readback."
+    },
+    {
+      "atUTC": "2026-10-20T03:17:29.839937+00:00",
+      "event": "Comparison and command/pin bookkeeping finalized; immutable worthDecision/hash unchanged."
+    }
+  ],
+  "rootComparison": {
+    "status": "complete",
+    "firstReadUTC": "2026-10-20T03:16:51.412798+00:00",
+    "chunk_id": "f8cb5c",
+    "path": "docs/evidence/appearance-2026-10-19/skin-base-customization-worth/ROOT-FIRST.json",
+    "bytes": 5048,
+    "sha256": "53c1df8f23ec4c0c73b51b03a2ac8e96d06daa92b9bd7c9942b9a0393c875e9c",
+    "rootSealedUTC": "2026-10-20T03:13:38.959543+00:00",
+    "agreement": "Both A only for complete scoped source/settings/workload/artist contract preparation; both use the factory colourNode and shown construction/settings path, reject global API absence and current appearance/physical claims, preserve owner/observer/geometry/Ari closures.",
+    "classificationDifference": "Root lists no actionable defects. My three findings are concrete future contract responsibilities and scoped integration gaps, explicitly not proved current runtime or appearance defects. No implementation or repair admission follows.",
+    "immutableWorthDecisionChanged": false,
+    "noOtherRootWorthOpinionRead": true
+  },
+  "pending_edits": false,
+  "initialSealPins": [
+    {
+      "path": "WORTH.md",
+      "bytes": 11906,
+      "sha256": "28e6d0cfe424c4f9bb3ce40798fa198b3eedcae0d3b041bcb2985865cdc2c3bd"
+    },
+    {
+      "path": "CRITIC-RECEIPT.json",
+      "bytes": 16046,
+      "sha256": "f14214fe0f51900612b7c4feb759cf8acc1a0261db33caf32d418ea3affb6c7c"
+    }
+  ],
+  "finalWorthPin": {
+    "path": "docs/evidence/appearance-2026-10-19/skin-base-customization-worth/WORTH.md",
+    "bytes": 12818,
+    "sha256": "39cbf5cee264571c7fdc8b65effed62d147a861c7a40e72961e45acb59ec682f"
+  },
+  "finalPairHashProtocol": "After final receipt write, wholly emit WORTH and receipt in bounded complete outputs, then verify both stable hashes, equality/immutable hash of decision objects, every input/window/fullfile pin and leaf8files256KiB cap. Announce final pair hashes and final readback commandIDs in final response; receipt cannot embed its own final hash without circularity."
+}

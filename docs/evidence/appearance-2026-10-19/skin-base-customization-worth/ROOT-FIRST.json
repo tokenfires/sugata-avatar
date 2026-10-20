@@ -1,0 +1,80 @@
+{
+  "schema": "skin-base-root-first-worth-v1",
+  "sealedUTC": "2026-10-20T03:13:38.959543+00:00",
+  "pid": 14755,
+  "decision": "A for complete scoped source/workload/artist contract preparation only; no implementation or runtime admission",
+  "reason": "Within the inspected skin factory and Showcase selection path there is a concrete distinct base-colour consumer worth specifying: ordinary material.color is bypassed when a region map installs colorNode, and the full read selection normalizer explicitly reconstructs hair/wardrobe/frame/scene/light without a skin selection field. This is evidence for a proposed editable control on this path, not a proof that no other API/page can change skin. Complete current defaults/API/persistence/native appearance duties are not established by these four windows and must be owned by any later complete contract.",
+  "actualSourceWitnesses": [
+    {
+      "path": "packages/core/src/material/SkinMaterial.js",
+      "lines": "983-1112,1123-1171",
+      "observation": "Factory receives body albedo, builds uniforms and applies region-map path; colorNode uses texture times lip/thin multipliers with opaque1. Its comment explicitly says material.color stops being honoured. Existing region multipliers are not a new general base-colour contract."
+    },
+    {
+      "path": "packages/testbed/src/showcase-settings.mjs",
+      "lines": "1-74",
+      "observation": "Complete normalizer reconstructs hair colour/tint, wardrobe colours, framing/scene/light and validates against expected options. New skin state must have explicit reconstruction/default/export ownership; not a parameter-only change."
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "lines": "3028-3092",
+      "observation": "Inspected swapFigure call forwards body albedo and three bake maps without a skin-settings override, with async load/error ownership. Full Avatar API and function continuation were not read."
+    },
+    {
+      "path": "packages/core/src/material/SkinMaterial.js",
+      "lines": "380-388,407-476",
+      "observation": "Historical authored comments/default properties distinguish cavity scattering albedo from texture and record off-by-default thin/lip tint failures. These source comments warn against replacing authored skin with existing region tints; current pictures/measurements not revalidated."
+    }
+  ],
+  "alternatives": [
+    {
+      "choice": "Prepare complete isolated skin-base parameter/settings/artist contract for this inspected path",
+      "tradeoff": "May add a useful customization dimension, but must own colour-space semantics, albedo/region/cavity interaction, exact Original restoration, async swap/disposal and saved-state compatibility plus genuinely admissible actual whole-image qualification."
+    },
+    {
+      "choice": "Leave current controls and select another character-quality responsibility",
+      "tradeoff": "Avoids parameter proliferation without complete material/visual ownership, but defers this particular user customization; broader representation/AAA goals remain."
+    }
+  ],
+  "actionableFindings": [],
+  "coverageLimit": "Four exact bounded windows, not complete SKIN_DEFAULTS/Avatar or global absence proof. Initial broad display truncation repaired only by exact second-window re-emission509d29; no expanded range, owner or search. No implementation/test/reference/asset/renderer/browser/native/capture/image run.",
+  "closedMethods": "No owner-candidate lifetime repair, closed native observer/transport rescue or Ari constructor. Any inability to own a genuinely separate complete contract stops later admission.",
+  "next": "Wholly verify independent worth handoff and source witnesses; A only admits exact contract preparation. Stop03:29:23.002837UTC.",
+  "pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/skin-base-customization-worth/PLAN.md",
+      "bytes": 4059,
+      "sha256": "7dbb1edc6ff48e2ddbe1b184b4dfccaa80a7c9ec599e3a1787fe1b884e97111a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/skin-base-customization-worth/LOCAL-INPUTS.json",
+      "bytes": 39495,
+      "sha256": "0a7291316c5e2cbcbbc56a9bd0cc0ce5b9f1a1a8e3b3223357ea72a5cfce1a09"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8886,
+      "sha256": "8081b2052d17f95064c298213f4df54e5c3b3211c4ecbc2c0e8c0a28973995ab"
+    },
+    {
+      "path": "packages/core/src/material/SkinMaterial.js",
+      "bytes": 72436,
+      "sha256": "803522f23feb60a98f5dc927e2a274351c872141a7d038b11c4673a4ff91440e"
+    },
+    {
+      "path": "packages/core/src/Avatar.js",
+      "bytes": 252785,
+      "sha256": "fdbe49aec99f9c718bde269b5e434cda07af1504ea8df386a634714cea112b18"
+    },
+    {
+      "path": "packages/testbed/src/showcase-settings.mjs",
+      "bytes": 4633,
+      "sha256": "5beb01f56121f272218a58350455a79bfe4c455c2e27ae1900f1e47bc34a8cad"
+    }
+  ]
+}

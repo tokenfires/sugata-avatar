@@ -1,5 +1,14 @@
 # Sugata work window — October 18, 2026
 
+## October20, 03:20 UTC — skin-base customization proposal worth preparing
+
+Independent/root review of four bounded source windows identifies a distinct material/settings consumer worth a complete proposal: a deliberately chosen/restorable skin base colour alongside hair/clothing on a whole clothed character. This A permits preparation only. No global API-absence/current pixel/physical claim; no code or native/image admission. [Worth receipt](evidence/appearance-2026-10-19/skin-base-customization-worth/README.md).
+
+Stable12818B/20405B pair wholly read2e40f7/f1d1ae; rootd47e98 at03:19:29UTC verifies12bindings/four exact range-text-fullfile pins/immutable independent object. Complete factory/region function and full settings file support specific future duties; Defaults/Avatar subsets/imported helpers remain explicit coverage limits. No additional source range/owner, implementation, test, network, image or capture.
+
+All prior closures/AriHOLD/accepted/default/original/frozen/ignored/unrelated assets/fullroadmap/phaseorder/checklist23/10 preserved. No owned target/pendingcriticedit; recovered10minuteACTIVE/Vite retained. Next: separately bound a complete source/settings/workload/artist proposal; stop if it requires reopening closed owner/lifetime/observer/source/geometry methods. Humancheck-in/pausewins.
+
+
 ## October20, 03:07 UTC — seasonal wardrobe comparison delivered
 
 The retained knitwear character now has a complete warm-weather artist comparison: sage short-sleeve shirt, sand ankle trousers and navy/ivory low shoes. Actual whole-image independent/root review and separate truthful-delivery review pass. [Artist handoff](evidence/appearance-2026-10-19/warm-weather-outfit/ARTIST-HANDOFF.md) · [Delivery receipt](evidence/appearance-2026-10-19/warm-weather-outfit/DELIVERY-README.md).
