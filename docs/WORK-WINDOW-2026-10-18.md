@@ -1,5 +1,11 @@
 # Sugata work window — October 18, 2026
 
+## Ari first-image brief under independent review (2026-10-20T08:46:58.953146+00:00)
+
+[Complete contract](evidence/appearance-2026-10-20/ari-expression-pair/CONTRACT.md) freezes one built-in image call from the unchanged original Ari reference, exact prompt/arguments, hosted-runtime limits and first-output ownership. Root initial c99182/08:46:29UTC before critic handoff. Existing quality_critic reviews complete brief, deadline09:03UTC; preparation stop09:08UTC. No generation admitted or running. Do not duplicate review or invoke before root verification. Separate reviewer receives the actual unlabelled first image before current meanings/prompt/root opinion, then explicit comparison; no human validation claim.
+
+One output only, no retake/edit/crop/relabel/parameter/style/pose rescue. No native/control/rest/master/rig/runtime or broad milestone credit. Boot construction remains closed with its finish limits. Originals/accepted/default/frozen/ignored/October10/unrelated assets/full roadmap/all prior closures/material-volume HOLD preserved. Same10minute recovery/reviewserver; human steering wins.
+
 ## Ari worth A for complete brief only (2026-10-20T08:41:05.653277+00:00)
 
 [Exact worth receipt](evidence/appearance-2026-10-20/ari-expression-worth/README.md): root+critic wholeoriginalAri view, initial70a97a before independent08:39:32, whole8844B9fe286; fresh7pins/immutable692c118e...0dccf/order verified. One illustration consumer can clarify calmattention/quietdetermination for Ari; no native/rest/master/control/squint/brow/tease/rig/runtime repair. Partialclosurelocator/fulloldsourceopaquehashsnapshot limits retained.
