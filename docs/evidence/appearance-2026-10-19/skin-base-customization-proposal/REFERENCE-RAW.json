@@ -1,0 +1,190 @@
+{
+  "schema": "skin-base-proposal-primary-reference-attempts-v1",
+  "tool": "Firecrawl MCP search only; no scrape called",
+  "searches": [
+    {
+      "arguments": {
+        "query": "site:threejs.org/manual/en/color-management color management Linear-sRGB color",
+        "includeDomains": [
+          "threejs.org"
+        ],
+        "limit": 3,
+        "sources": [
+          "web"
+        ],
+        "domainTools": false,
+        "categories": [
+          "developer"
+        ]
+      },
+      "actualResult": {
+        "status": "fulfilled",
+        "value": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"success\":true,\"data\":{\"tools\":[],\"web\":[{\"url\":\"https://github.com/mrdoob/three.js/issues/23392\",\"title\":\"Related\",\"description\":\"However, colors passed to three.js shader must be Linear-sRGB.\\n\\n- Add `colorSpace` argument to THREE.Color getters/setters\\n  - sRGB input will be converted to Linear-sRGB, as required by the renderer\\n\\n- Many examples already use `renderer.outputEncoding=sRGB`, and so hard-coded colors (like background and ground colors) are implicitly Linear-sRGB... These will need to be updated (or their appearance will change) with color management enabled.\\n\\nColor Management: Documentation\\\\\\n#23430\\n\\n|  |\\n|-|\\n| Update —- Color Management: Documentation #23430@Mugen87 to your question earlier, I believe that almost anything a user will 'do' with a Color instance should done in the working color space (Linear-sRGB, as defined in link above), and that's _not_ the color space users will find in a color picker or their CSS stylesheets, which are usually sRGB.If we define `color.encoding` or `color.colorSpace` and most colors get marked sRGB — since that is what users initialize them with! — there's very little you can safely do with the RGB components of that Color instance. Instead I think it's best to specify the color space of the input when constructing a color, and immediately convert to Linear-sRGB at that point. |\\n\\n|  |\\n|-|\\n| > Vertex colors in glTF are linear multipliers...The glTF specification's phrasing of \\\"linear multipliers\\\" is something I'd prefer to leave out of three.js. It's clearer to say that both three.js vertex colors, `material.color`, `light.color`, etc. are expected to be given in Linear-sRGB space. The same is true of almost any role colors may fill in three.js. If we want to say that a loose/unused THREE.Color does not have a color space that's fine, but a Color used by a material or a light must be Linear-sRGB.> If a user is using a color picker, then the user needs to know something about color space conversion...The current state of three.js is that every time the user provides a color from virtually any other software, they must immediately do an explicit sRGB → Linear-sRGB conversion. The same is true for our own examples using `dat.gui` color pickers. It's good for users to know something about color space conversion, but requiring boilerplate conversion on every color input is not a good status quo, and not (IMO) standard practice in a graphics library. The objective of this PR is to ensure that a correct color workflow (with sRGB → Linear-sRGB conversion) is also the easiest color workflow. If this requires adding a stated assumption that certain THREE.Color instances contain RGB components in Linear-sRGB, I think we should do that. |\",\"position\":1,\"category\":\"developer\"},{\"url\":\"https://github.com/mrdoob/three.js/issues/30305\",\"title\":\"Improve explanation on how to migrate from 151 to 152 color management#30305\",\"description\":\"# Improve explanation on how to migrate from 151 to 152 color management#30305\\n## Material Properties\\nWe assume sRGB and convert to Linear-sRGB only for hexadecimal and CSS-style color representations.\\n\\n## Migration Steps\\nOtherwise, we render in Linear-sRGB, convert to sRGB, then blend and composite.\\n\\n\\\"Linear-sRGB color space\\\" is kind of an oxymoron.\\n\\n\\\"Linear-sRGB color space\\\" is kind of an oxymoron.\\n\\nThere are any number of possible linear color spaces, so I'm using the term \\\"Linear-sRGB\\\" as a shorthand for the particular color space with linear transfer functions, Rec. 709 \\\"sRGB\\\" primaries, and D65 white point.\\n\\nThis configuration is commonly known in the industry as \\\"linear-sRGB.\\\"\",\"position\":2,\"category\":\"developer\"},{\"url\":\"https://github.com/mrdoob/three.js/issues/26721\",\"title\":\"ColorManagement: Document which three.js colors are intended to be in linear and sRGB space#26721\",\"description\":\"# ColorManagement: Document which three.js colors are intended to be in linear and sRGB space#26721\\n## Description\\nhybridherbst\\n\\nLast edited by hybridherbst\\n\\n### Description\\nI think it would be useful to note somewhere which colors set throughout three are intended to be in linear or sRGB space.\\n\\nAs an example, the scene background ( [https://threejs.org/docs/#api/en/scenes/Scene.background](https://threejs.org/docs/#api/en/scenes/Scene.background)) just states it is a color, of course one can experiment if that is passed through as linear or sRGB to the shader. The same applies to e.g. material.color, light.color, and others. At least in the glTF spec there's differences between the color spaces (e.g. diffuse color is in sRGB, light color is in linear), but I'm not sure if in three everything is just sRGB and how that will/will not change once P3 and other wide gamut spaces are available.\\n\\nContributorAuthor\\n\\nFrom looking at what the GLTFLoader does:\\n\\n_material.color_\\n\\nLine 668 in 24ccd56\\n\\n|  |  |\\n|-|-|\\n|  | materialParams.color.setRGB(array[0],array[1],array[2],LinearSRGBColorSpace); |\\n\\nis treated the same as\\n\\n_light.color_\\n\\nLine 550 in 24ccd56\\n\\n|  |  |\\n|-|-|\\n|  | if(lightDef.color!==undefined)color.setRGB(lightDef.color[0],lightDef.color[1],lightDef.color[2],LinearSRGBColorSpace); |\\n\\n~~despite the light being in linear space in glTF and the albedo color being in sRGB space in glTF.~~ ~~So I guess that means in three light.color and material.color are also using different color spaces.~~\\n\\nIn more recent versions of three.js we treat all THREE.Color instances alike, regardless of where they are used. Components (like `color.r`) are always in the working color space (currently \\\"Linear-sRGB\\\").\\n\\nCertain setters — for hexadecimal and CSS strings — assume their inputs are sRGB by convention, and are converted automatically to the working color space. The remaining setters assume input is already in the working color space and perform no conversion, but this can be overridden with the `colorSpace` argument to any setter as shown on the THREE.Color documentation:\\n… (8 more lines)\",\"position\":3,\"category\":\"developer\"}]},\"creditsUsed\":2,\"id\":\"01a15756-c80e-718d-ad6d-9f3cf3182d60\",\"agent_hints\":[\"All 3 web results are excerpts only (#1 \\\"https://github.com/mrdoob/three.js/issues/23392\\\", #2 \\\"https://github.com/mrdoob/three.js/issues/30305\\\", #3 \\\"https://github.com/mrdoob/three.js/issues/26721\\\"). If you need more than an excerpt, use firecrawl_scrape with {\\\"url\\\":\\\"<one of these URLs>\\\",\\\"formats\\\":[\\\"markdown\\\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content.\"]}"
+            }
+          ],
+          "structuredContent": {
+            "success": true,
+            "data": {
+              "tools": [],
+              "web": [
+                {
+                  "url": "https://github.com/mrdoob/three.js/issues/23392",
+                  "title": "Related",
+                  "description": "However, colors passed to three.js shader must be Linear-sRGB.\n\n- Add `colorSpace` argument to THREE.Color getters/setters\n  - sRGB input will be converted to Linear-sRGB, as required by the renderer\n\n- Many examples already use `renderer.outputEncoding=sRGB`, and so hard-coded colors (like background and ground colors) are implicitly Linear-sRGB... These will need to be updated (or their appearance will change) with color management enabled.\n\nColor Management: Documentation\\\n#23430\n\n|  |\n|-|\n| Update —- Color Management: Documentation #23430@Mugen87 to your question earlier, I believe that almost anything a user will 'do' with a Color instance should done in the working color space (Linear-sRGB, as defined in link above), and that's _not_ the color space users will find in a color picker or their CSS stylesheets, which are usually sRGB.If we define `color.encoding` or `color.colorSpace` and most colors get marked sRGB — since that is what users initialize them with! — there's very little you can safely do with the RGB components of that Color instance. Instead I think it's best to specify the color space of the input when constructing a color, and immediately convert to Linear-sRGB at that point. |\n\n|  |\n|-|\n| > Vertex colors in glTF are linear multipliers...The glTF specification's phrasing of \"linear multipliers\" is something I'd prefer to leave out of three.js. It's clearer to say that both three.js vertex colors, `material.color`, `light.color`, etc. are expected to be given in Linear-sRGB space. The same is true of almost any role colors may fill in three.js. If we want to say that a loose/unused THREE.Color does not have a color space that's fine, but a Color used by a material or a light must be Linear-sRGB.> If a user is using a color picker, then the user needs to know something about color space conversion...The current state of three.js is that every time the user provides a color from virtually any other software, they must immediately do an explicit sRGB → Linear-sRGB conversion. The same is true for our own examples using `dat.gui` color pickers. It's good for users to know something about color space conversion, but requiring boilerplate conversion on every color input is not a good status quo, and not (IMO) standard practice in a graphics library. The objective of this PR is to ensure that a correct color workflow (with sRGB → Linear-sRGB conversion) is also the easiest color workflow. If this requires adding a stated assumption that certain THREE.Color instances contain RGB components in Linear-sRGB, I think we should do that. |",
+                  "position": 1,
+                  "category": "developer"
+                },
+                {
+                  "url": "https://github.com/mrdoob/three.js/issues/30305",
+                  "title": "Improve explanation on how to migrate from 151 to 152 color management#30305",
+                  "description": "# Improve explanation on how to migrate from 151 to 152 color management#30305\n## Material Properties\nWe assume sRGB and convert to Linear-sRGB only for hexadecimal and CSS-style color representations.\n\n## Migration Steps\nOtherwise, we render in Linear-sRGB, convert to sRGB, then blend and composite.\n\n\"Linear-sRGB color space\" is kind of an oxymoron.\n\n\"Linear-sRGB color space\" is kind of an oxymoron.\n\nThere are any number of possible linear color spaces, so I'm using the term \"Linear-sRGB\" as a shorthand for the particular color space with linear transfer functions, Rec. 709 \"sRGB\" primaries, and D65 white point.\n\nThis configuration is commonly known in the industry as \"linear-sRGB.\"",
+                  "position": 2,
+                  "category": "developer"
+                },
+                {
+                  "url": "https://github.com/mrdoob/three.js/issues/26721",
+                  "title": "ColorManagement: Document which three.js colors are intended to be in linear and sRGB space#26721",
+                  "description": "# ColorManagement: Document which three.js colors are intended to be in linear and sRGB space#26721\n## Description\nhybridherbst\n\nLast edited by hybridherbst\n\n### Description\nI think it would be useful to note somewhere which colors set throughout three are intended to be in linear or sRGB space.\n\nAs an example, the scene background ( [https://threejs.org/docs/#api/en/scenes/Scene.background](https://threejs.org/docs/#api/en/scenes/Scene.background)) just states it is a color, of course one can experiment if that is passed through as linear or sRGB to the shader. The same applies to e.g. material.color, light.color, and others. At least in the glTF spec there's differences between the color spaces (e.g. diffuse color is in sRGB, light color is in linear), but I'm not sure if in three everything is just sRGB and how that will/will not change once P3 and other wide gamut spaces are available.\n\nContributorAuthor\n\nFrom looking at what the GLTFLoader does:\n\n_material.color_\n\nLine 668 in 24ccd56\n\n|  |  |\n|-|-|\n|  | materialParams.color.setRGB(array[0],array[1],array[2],LinearSRGBColorSpace); |\n\nis treated the same as\n\n_light.color_\n\nLine 550 in 24ccd56\n\n|  |  |\n|-|-|\n|  | if(lightDef.color!==undefined)color.setRGB(lightDef.color[0],lightDef.color[1],lightDef.color[2],LinearSRGBColorSpace); |\n\n~~despite the light being in linear space in glTF and the albedo color being in sRGB space in glTF.~~ ~~So I guess that means in three light.color and material.color are also using different color spaces.~~\n\nIn more recent versions of three.js we treat all THREE.Color instances alike, regardless of where they are used. Components (like `color.r`) are always in the working color space (currently \"Linear-sRGB\").\n\nCertain setters — for hexadecimal and CSS strings — assume their inputs are sRGB by convention, and are converted automatically to the working color space. The remaining setters assume input is already in the working color space and perform no conversion, but this can be overridden with the `colorSpace` argument to any setter as shown on the THREE.Color documentation:\n… (8 more lines)",
+                  "position": 3,
+                  "category": "developer"
+                }
+              ]
+            },
+            "id": "01a15756-c80e-718d-ad6d-9f3cf3182d60",
+            "creditsUsed": 2,
+            "agent_hints": [
+              "All 3 web results are excerpts only (#1 \"https://github.com/mrdoob/three.js/issues/23392\", #2 \"https://github.com/mrdoob/three.js/issues/30305\", #3 \"https://github.com/mrdoob/three.js/issues/26721\"). If you need more than an excerpt, use firecrawl_scrape with {\"url\":\"<one of these URLs>\",\"formats\":[\"markdown\"]}. Retrieve only needed pages; do not re-scrape results that already contain the required content."
+            ]
+          },
+          "isError": false
+        }
+      }
+    },
+    {
+      "arguments": {
+        "query": "site:dev.epicgames.com/documentation/en-us/metahuman skin material controls skin tone base color",
+        "includeDomains": [
+          "dev.epicgames.com"
+        ],
+        "limit": 3,
+        "sources": [
+          "web"
+        ],
+        "domainTools": false
+      },
+      "actualResult": {
+        "status": "fulfilled",
+        "value": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"success\":true,\"data\":{\"web\":[],\"tools\":[{\"provider\":\"ebay-com\",\"capability\":\"listings/item_variations\",\"description\":\"The item has variations (item.has_variations) and you need per-SKU prices and availability.\"},{\"provider\":\"us-forums-blizzard-com\",\"capability\":\"forum-discussions/get_topic\",\"description\":\"Read a discussion found through list_topics or search_posts; page through long threads with `page` (and a smaller `page_size` when only the first replies matter).\"},{\"provider\":\"us-forums-blizzard-com\",\"capability\":\"forum-discussions/list_topics\",\"description\":\"Browse or monitor a forum or category, e.g. WoW: Forever discussions (en/wow category 347) newest first, or the week's top topics.\"}]},\"creditsUsed\":0,\"id\":\"01a15756-c7b9-773b-9f4c-6f7e3c7ba92a\",\"agent_hints\":[\"No web results were returned. If the task is still unresolved, use firecrawl_search again with {\\\"query\\\":\\\"<broader or alternative query>\\\",\\\"sources\\\":[\\\"web\\\"]}.\"]}"
+            }
+          ],
+          "structuredContent": {
+            "success": true,
+            "data": {
+              "web": [],
+              "tools": [
+                {
+                  "provider": "ebay-com",
+                  "capability": "listings/item_variations",
+                  "description": "The item has variations (item.has_variations) and you need per-SKU prices and availability."
+                },
+                {
+                  "provider": "us-forums-blizzard-com",
+                  "capability": "forum-discussions/get_topic",
+                  "description": "Read a discussion found through list_topics or search_posts; page through long threads with `page` (and a smaller `page_size` when only the first replies matter)."
+                },
+                {
+                  "provider": "us-forums-blizzard-com",
+                  "capability": "forum-discussions/list_topics",
+                  "description": "Browse or monitor a forum or category, e.g. WoW: Forever discussions (en/wow category 347) newest first, or the week's top topics."
+                }
+              ]
+            },
+            "id": "01a15756-c7b9-773b-9f4c-6f7e3c7ba92a",
+            "creditsUsed": 0,
+            "agent_hints": [
+              "No web results were returned. If the task is still unresolved, use firecrawl_search again with {\"query\":\"<broader or alternative query>\",\"sources\":[\"web\"]}."
+            ]
+          },
+          "isError": false
+        }
+      }
+    }
+  ],
+  "feedback": [
+    {
+      "arguments": {
+        "searchId": "01a15756-c80e-718d-ad6d-9f3cf3182d60",
+        "rating": "bad",
+        "missingContent": [
+          {
+            "topic": "Official threejs.org colour-management manual",
+            "description": "The request restricted includeDomains to threejs.org but returned only historical github.com issues. No permitted current manual page was returned for the planned source contract."
+          }
+        ]
+      },
+      "actualResult": {
+        "status": "fulfilled",
+        "value": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"success\": true,\n  \"feedbackId\": \"01a15757-bcff-7209-8701-c3dff1374209\",\n  \"creditsRefunded\": 1,\n  \"creditsRefundedToday\": 3,\n  \"dailyRefundCap\": 100\n}"
+            }
+          ],
+          "structuredContent": {
+            "success": true,
+            "feedbackId": "01a15757-bcff-7209-8701-c3dff1374209",
+            "creditsRefunded": 1,
+            "creditsRefundedToday": 3,
+            "dailyRefundCap": 100
+          },
+          "isError": false
+        }
+      }
+    },
+    {
+      "arguments": {
+        "searchId": "01a15756-c7b9-773b-9f4c-6f7e3c7ba92a",
+        "rating": "bad",
+        "missingContent": [
+          {
+            "topic": "Official MetaHuman skin-material control documentation",
+            "description": "No web results returned for the official-domain query. Unrelated provider suggestions are outside the web-only request and cannot supply the needed authoring authority."
+          }
+        ]
+      },
+      "actualResult": {
+        "status": "fulfilled",
+        "value": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\n  \"success\": true,\n  \"feedbackId\": \"01a15757-c13e-71c3-9de4-3bbef431d8fd\",\n  \"creditsRefunded\": 0,\n  \"creditsRefundedToday\": 3,\n  \"dailyRefundCap\": 100\n}"
+            }
+          ],
+          "structuredContent": {
+            "success": true,
+            "feedbackId": "01a15757-c13e-71c3-9de4-3bbef431d8fd",
+            "creditsRefunded": 0,
+            "creditsRefundedToday": 3,
+            "dailyRefundCap": 100
+          },
+          "isError": false
+        }
+      }
+    }
+  ],
+  "admittedScrapes": 0,
+  "calledScrapes": 0,
+  "networkReadLimit": "Only these2searches, no retry/fallback/third source. first official-domain result not present; raw issue excerpts retained but not used as current/versioned manual authority. MetaHuman web[]; provider suggestions ignored, no source/image acquisition or authority/global absence claim.",
+  "noNewSourceQueries": true
+}
+
