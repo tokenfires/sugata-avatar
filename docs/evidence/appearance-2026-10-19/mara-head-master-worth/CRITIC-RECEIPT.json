@@ -1,0 +1,225 @@
+{
+  "schema": 1,
+  "review": "REVIEW.md",
+  "decision": {
+    "schema": 1,
+    "sealedUTC": "2026-10-20T04:55:14.732623+00:00",
+    "sealPID": 98406,
+    "verdict": "B",
+    "worthPreparingThisNomination": false,
+    "reason": "A Mara rest-form consumer would be consequential, but this packet still proposes choosing a neutral scaffold and supplying the creative facial decisions later. It names neither an actual new complete master owner nor a concrete authoring method that resolves the previous first gap.",
+    "nextUnderThisNomination": "Close unchanged; no generic census, new brief/portrait, macro/source/observer rescue or renamed successor.",
+    "actionableFindingIds": [
+      "F1"
+    ],
+    "noRootOpinionReadBeforeSeal": true,
+    "noAppearanceOrNativeFailureClaim": true,
+    "noUniversalHeadAuthorshipBan": true
+  },
+  "decisionCanonicalSha256": "8a7df125a615638acb4781cda22c767c2c56f076826efd1bb918d78ff592f90e",
+  "independentReviewPrefix": {
+    "bytes": 4856,
+    "sha256": "65c934c585a12e043763e6e6b35ce7ab0b49ec8438b12b8472877e81d75975c8"
+  },
+  "collection": {
+    "pid": 98406,
+    "utc": "2026-10-20T04:55:14.732623+00:00"
+  },
+  "inputManifest": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-head-master-worth/INPUTS.json",
+    "bytes": 2119,
+    "sha256": "6c3de62beb110d4c23dacae514c0bc4ea76599c6faa096540ca57c5cd9549a4e"
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/README.md",
+      "bytes": 4476,
+      "sha256": "a75d60b87af0fbb8e40f3d027afcb1989c67b379a789884f24e7215d994edb3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW.md",
+      "bytes": 3405,
+      "sha256": "687ab7c57d062a018bd4e2fdffd0de7b97ae96a993abbb684545d931c7be09bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/SOURCE-PATH-GAP.json",
+      "bytes": 5009,
+      "sha256": "1a778aeab27a5c270d5239872b2254c9b95381f336e40541449a6f295cbc1a2d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "bytes": 3053,
+      "sha256": "f0f6118b1916220de67cb8748ec7232e1ab1b32e745415eb9c1d7629f429ca1d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 9124,
+      "sha256": "df08da32f45a07a5503cd184418d2e2e7194f96a4bbdfecf32e513c96dbbe527"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-head-master-worth/PLAN.md",
+      "bytes": 3705,
+      "sha256": "50309bc33b5822c7979f7c2f306a7d184801168ec9207a44d88632514db86318"
+    }
+  ],
+  "coverage": {
+    "whole": [
+      "PLAN.md",
+      "INPUTS.json",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/README.md",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW.md",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/SOURCE-PATH-GAP.json",
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md"
+    ],
+    "opaqueOnly": [
+      "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md"
+    ],
+    "sameByteReuse": "Original Mara whole-image observation and complete roadmap knowledge reused at exact fresh pins, with no current image view.",
+    "notReadBeforeSeal": [
+      "ROOT-FIRST.json/current root opinion"
+    ]
+  },
+  "operations": {
+    "commands": [
+      "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-head-master-worth')\nprint('pid',os.getpid(),'utc',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor name in ['PLAN.md','INPUTS.json']:\n b=(leaf/name).read_bytes();print('WHOLE',name,len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib,json\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-head-master-worth');m=json.loads((leaf/'INPUTS.json').read_bytes())\nprint('pid',os.getpid(),'utc',datetime.datetime.now(datetime.timezone.utc).isoformat())\nfor row in m['pins']:\n b=Path(row['path']).read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256'];print('PIN_PASS',row['path'],len(b),row['sha256'])\nfor row in m['pins'][:5]:\n p=Path(row['path']);print('WHOLE',str(p))\n for i,s in enumerate(p.read_text().splitlines(),1):print(str(i)+':'+s)\nPY"
+    ],
+    "returns": [
+      {
+        "chunkId": "0589e0",
+        "exitCode": 0,
+        "wallTimeSeconds": 8.125e-06,
+        "pid": 96687,
+        "utc": "2026-10-20T04:54:20.998258+00:00",
+        "outputBytes": 6045,
+        "outputSha256": "26df0c0d02391ca71c9434c9302fcefc82160bf8ba4eb6cf2567625e872c3ba8"
+      },
+      {
+        "chunkId": "6f71bb",
+        "exitCode": 0,
+        "wallTimeSeconds": 7.708e-06,
+        "pid": 96917,
+        "utc": "2026-10-20T04:54:28.178565+00:00",
+        "outputBytes": 27520,
+        "outputSha256": "febf9637c51ad21e2b6730a67595b5eccbf8290fe3c1205270dd78b2ebf88c4a"
+      }
+    ],
+    "errors": [],
+    "targetOrImageCalls": 0,
+    "linkedSemanticExpansion": false,
+    "canonicalOrSourceChanges": 0
+  },
+  "limits": {
+    "hardStopUTC": "2026-10-20T05:12:09.869121+00:00",
+    "onlyAllowedWrites": [
+      "REVIEW.md",
+      "CRITIC-RECEIPT.json"
+    ],
+    "noProgrammeOrNativeAdmission": true,
+    "noGenericCensusOrRescueOrSuccessor": true,
+    "allOldClosuresAndMaterialHoldPreserved": true,
+    "checked": 23,
+    "outstanding": 10
+  },
+  "rootComparison": {
+    "status": "B agrees; immutable independent decision/prefix unchanged",
+    "rootOpinion": {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-head-master-worth/ROOT-FIRST.json",
+      "bytes": 4685,
+      "sha256": "8753932ce68f572340b1bd9ffbcc15c70711fe5e902c4482cd55074f30d1b68a"
+    },
+    "rootSealedUTC": "2026-10-20T04:54:07.508600+00:00",
+    "ownReadUTC": "2026-10-20T04:55:26.388643+00:00",
+    "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-head-master-worth/ROOT-FIRST.json');b=p.read_bytes();print('WHOLE','pid',os.getpid(),'utc',datetime.datetime.now(datetime.timezone.utc).isoformat(),'bytes',len(b),'sha256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+    "return": {
+      "chunkId": "166a4b",
+      "exitCode": 0,
+      "wallTimeSeconds": 6.166e-06,
+      "pid": 98741,
+      "utc": "2026-10-20T04:55:26.388643+00:00",
+      "outputBytes": 4822,
+      "outputSha256": "ea5883c36a357bf0a61a4754ce725fe41bdcb0a7584d7e38fb07a836108762a2"
+    },
+    "bothIndependentSealsBeforeRead": {
+      "job": "14fcd0",
+      "pid": 98406,
+      "utc": "2026-10-20T04:55:14.733512+00:00"
+    }
+  },
+  "pending_edits": false,
+  "reviewBinding": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-head-master-worth/REVIEW.md",
+    "bytes": 5558,
+    "sha256": "181b67d1fef0e503ccbdb53693df8e8697668566524a6da42bb5cdea51b747a5"
+  },
+  "freshBindings": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-head-master-worth/INPUTS.json",
+      "bytes": 2119,
+      "sha256": "6c3de62beb110d4c23dacae514c0bc4ea76599c6faa096540ca57c5cd9549a4e"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/README.md",
+      "bytes": 4476,
+      "sha256": "a75d60b87af0fbb8e40f3d027afcb1989c67b379a789884f24e7215d994edb3a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW.md",
+      "bytes": 3405,
+      "sha256": "687ab7c57d062a018bd4e2fdffd0de7b97ae96a993abbb684545d931c7be09bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/SOURCE-PATH-GAP.json",
+      "bytes": 5009,
+      "sha256": "1a778aeab27a5c270d5239872b2254c9b95381f336e40541449a6f295cbc1a2d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "bytes": 3053,
+      "sha256": "f0f6118b1916220de67cb8748ec7232e1ab1b32e745415eb9c1d7629f429ca1d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 9124,
+      "sha256": "df08da32f45a07a5503cd184418d2e2e7194f96a4bbdfecf32e513c96dbbe527"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-head-master-worth/PLAN.md",
+      "bytes": 3705,
+      "sha256": "50309bc33b5822c7979f7c2f306a7d184801168ec9207a44d88632514db86318"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-head-master-worth/ROOT-FIRST.json",
+      "bytes": 4685,
+      "sha256": "8753932ce68f572340b1bd9ffbcc15c70711fe5e902c4482cd55074f30d1b68a"
+    }
+  ],
+  "finalCollection": {
+    "pid": 99271,
+    "utc": "2026-10-20T04:55:43.271394+00:00",
+    "freshExactBindings": 10,
+    "pending_edits": false
+  }
+}

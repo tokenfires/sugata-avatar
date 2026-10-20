@@ -1,5 +1,11 @@
 # Sugata work window — October 18, 2026
 
+## October20, 04:57 UTC — underspecified Mara head nomination closed
+
+Independent/rootB: a neutral editable face is consequential, but the nomination still defers the actual named master and concrete manual authoring mechanism required by the existing source closure. No source/geometry/portrait/brief/native preparation follows. Root whole-read5558B/10640B pairf1c581/cb4d60;166abf/PID1373/04:56:35UTC independently verifies11bindings/immutable8a7df125...2f90e/prefix/seal-order. [Exact worth closure](evidence/appearance-2026-10-19/mara-head-master-worth/README.md).
+
+No generic census, substitute master, macro/source/native/observer rescue or renamed successor under this nomination. Original/default/accepted/frozen/ignored/unrelated/October10assets, allclosures/material-volumeHOLD/fullroadmap/phaseorder/23checked10broad remain. No live owned target/pending critic edit. Separate Snow named-official-source page worth is metadata-only/pending independent critic, no network yet and no source/adoption/native admission; it is not an automatic Mara successor. SameACTIVE10minute/server retained; human steering wins.
+
 ## October20, 04:51 UTC — finishing sheet discoverable from the checklist
 
 A new narrow catalogue contract adds only the exact238-byte artist-intent sentence/link to the existing overshirt row. Earlier isolated-delivery scope remains historical and unchanged. The original blockout finishing/fit-open clause, seven usable-feature rows,23checked/10outstanding and all other checklist bytes remain exact. [Change and evidence](evidence/appearance-2026-10-19/overshirt-checklist-link/README.md).
