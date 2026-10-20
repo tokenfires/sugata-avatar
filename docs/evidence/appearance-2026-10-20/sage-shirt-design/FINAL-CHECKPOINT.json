@@ -1,0 +1,246 @@
+{
+  "at": "2026-10-20T15:25:29.132344+00:00",
+  "status": "A_COMPLETE_ISOLATED_ARTIST_SOURCE",
+  "sourceCheckpointHEAD": "871879b7b9a0889b8717a4c251f46839abde9501",
+  "rootImageGate": "b1edb6",
+  "targetJob": "1dce41",
+  "normalExit": 0,
+  "ownedExecutorSession": null,
+  "native3D_GPU_browser_capture_job": null,
+  "acceptedRuntimeDefaultChanged": false,
+  "previewAllowanceConsumed": true,
+  "graphicSuccessorSelected": false,
+  "preserved": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/warm-weather-outfit/first.png",
+      "bytes": 2222757,
+      "sha256": "0248a8b9215e786fe40cfc664d7a002aa0f8116e0e0382331138c6f69f8fb74f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/warm-weather-outfit/ARTIST-HANDOFF.md",
+      "bytes": 2501,
+      "sha256": "a9c7d6f946167d29d53d95a5a7e5c80b34375c79d570a63cd9c11cdc27ed23c9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/warm-weather-outfit/BRIEF.md",
+      "bytes": 4227,
+      "sha256": "8cd3ddf7b1f325eb17b36441af5975eaf570a4cd199ca703c479097aa9f8b552"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-design/README.md",
+      "bytes": 2699,
+      "sha256": "f3fc49dc74f9de19de0cf54d2b4259e99f5655280139977081a67ee7b5834ac1"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 9628,
+      "sha256": "c50bd3b2e4f3d3089b1cc098a89f46a2aedb658b952b63a78594f0e48aef3af2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PRODUCT-ROADMAP.md",
+      "bytes": 33025,
+      "sha256": "0331c4bbacd01218a6da58bb9f4ca466426f42f2332c5ab293d46c4dc0da91bc"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/CURRENT-DESIGN-GATES.md",
+      "bytes": 4284,
+      "sha256": "34146facdb9e034251abccadce6c3fb8c491f2343b0753c36e08d64b6dd86621"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 22349,
+      "sha256": "9fd140d9c6aaffffbb0bbcffe3d9d3f4572e16301de634ef92650d09a9cd3170"
+    }
+  ],
+  "checklist": {
+    "scopedChecked": 23,
+    "broadOpen": 10,
+    "bytesUnchanged": true
+  },
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/ADMISSION.json",
+      "bytes": 9121,
+      "sha256": "74e0477cd5ba16f4c2c8ab7e465dbe2cfce114ff16d70004dafca3ca113ab4fb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/ADMISSION.used",
+      "bytes": 131,
+      "sha256": "9d43dba1db4587d65c9c398152b6d9fefe8986b392c17c6b81a128cdff65387d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/ARTIST-HANDOFF.md",
+      "bytes": 2195,
+      "sha256": "964b2164b202070308c24ed604e1d24779072af87b65cc69cb2a57c3efb99126"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/AUTHORING-NOTE.md",
+      "bytes": 2085,
+      "sha256": "4b56f4833243f6458fe2bfe11f26441c56f6a7edeb6015144e7f11a1a54fc106"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/DESIGN.md",
+      "bytes": 7080,
+      "sha256": "e28abf57597c871319994d6ed10ef66a66b46b228672cf145668225c0fbb47b7"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/FINAL-SOURCE-CHECK.json",
+      "bytes": 284,
+      "sha256": "55ae7e4efb5daa05999f2546e7a6951dac1682da9ab4d2367da248dc7619d1d3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/HTTP-CHECK.json",
+      "bytes": 892,
+      "sha256": "f2d600137ec0bfaa67b0ed0677495b22f2ee80cd32ca446aefc51eb60668b855"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/IMAGE-REVIEW.md",
+      "bytes": 8523,
+      "sha256": "741b1ffbccaae7fc74c2132e08c024ab9b35e4c0ac286d92cacf00a179d3b8c4"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/INPUTS.json",
+      "bytes": 1481,
+      "sha256": "52c1a113f9f6823dba71e59e20bf1c93d3be528a72934a56857878dd6d1fdf3f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/JOB.json",
+      "bytes": 1683,
+      "sha256": "9c49ae817ebb4790a522aa4626e3680aacafd6ff51b5e7b2978af1296ddbf831"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/OBSERVATION.json",
+      "bytes": 3033,
+      "sha256": "e3ac0f373cb7b009b18ee72444352907dcf088e1cacfe557c4b1a316ceefb24a"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/PLAN.md",
+      "bytes": 3740,
+      "sha256": "8ae7fdcaf1f6db822bbfe2631ac1d5ec74839ebc7150b28dc0b94349eabf887b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/PREPARATION-NOTE.md",
+      "bytes": 422,
+      "sha256": "d0dd54473864182cc3e9627f56f9704dc0a2f9a493a978a3b701b63c165d3c71"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/README.md",
+      "bytes": 6478,
+      "sha256": "7f4e4fe5b58a36545e7bf74fdca56b79fa7f38eef7567638024da8216d3a791d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/RECOVERY-CHECK.json",
+      "bytes": 409,
+      "sha256": "e5cbd05a1915f4e723ece5e1ac4f17c13155559444575270d5471e29175ee1e8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/REFERENCES.json",
+      "bytes": 2291,
+      "sha256": "3e2360c3733355e98eebbdb1be3211dcddd90f023815a718a5cc70b2631fec10"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/ROOT-IMAGE-FIRST.json",
+      "bytes": 2196,
+      "sha256": "8e5a3b6b0b9bc31cd54f9098c434fb8b55fd3181b9f79e3d7dcb1671160ff0a0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/ROOT-IMAGE.json",
+      "bytes": 1487,
+      "sha256": "e588eefeb3e346ccb8e5fd56f344fd3dffed514836806b57ae0592f4843396c0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/ROOT-SOURCE-FINAL-FIRST.json",
+      "bytes": 1352,
+      "sha256": "3211f43d1aab706af351bcef917af45ed84e4e4b43850a9fd4ddb0c297c91948"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/ROOT-SOURCE-FINAL.json",
+      "bytes": 789,
+      "sha256": "32f079aeff6bbb221348fdf769d0781dd602257f0547e3aa695f7f18fd8c7cad"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/ROOT-SOURCE-FIRST.json",
+      "bytes": 1125,
+      "sha256": "e1e059a75d03d0dcfc69d8bab8162d9c85cbf8a48ff2eb89f2ad477a30fc5c32"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/ROOT-WORTH-FIRST.json",
+      "bytes": 1874,
+      "sha256": "0b4efce9231cbb69e3bf7ef2b94895d35b2eb8cc9c32142831ee3b7382079a6d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/ROOT-WORTH.json",
+      "bytes": 649,
+      "sha256": "393a31d6eb5cbe4d5fa43179794ef413079a89443754c9363f0896831298111b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/RUNTIME.json",
+      "bytes": 636,
+      "sha256": "56772a5de552f5150effa8264c26cf9bc869e1897033723d488e353098ac8deb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/SOURCE-CHECK.json",
+      "bytes": 2222,
+      "sha256": "7639508b82795110d34fa86602a2e5c5e386e2f484104f9be072faf7b4f09256"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/SOURCE-FINAL.md",
+      "bytes": 14361,
+      "sha256": "58201122c5f016976b9beacbf8e0f2e35067f65db4e80a3ced492c4f5a4d9104"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/SOURCE-INPUTS.initial.json",
+      "bytes": 5409,
+      "sha256": "5f6eee8cf49f0e752c1cc2d951f427af5b7e63f3d67ef2de0fae660ec39dbad8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/SOURCE-INPUTS.json",
+      "bytes": 7418,
+      "sha256": "fff698b54363d26731f6a9e3f575faadb2dbdcf8003b7e79cb0936385d1c8b51"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/SOURCE-REVIEW.md",
+      "bytes": 12097,
+      "sha256": "336c8ab1bc49d2e55647bc2f0d92b29e0418cc9753d97bac2890ad47f89a9c68"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/TIMING-NOTE.md",
+      "bytes": 718,
+      "sha256": "2926fb889e09ea65d1eec23826725fce420a23b6f3aa0a106de7a5bd0a1295ea"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/WORTH.md",
+      "bytes": 8004,
+      "sha256": "ab705e56d172040cb9fd0eee667652e4ef79d1fa49cacb36d5544666edf8922c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/render.cjs",
+      "bytes": 3777,
+      "sha256": "0f7a4d1d85e2cec6e2a7eef7c92d57754780756eab0b4100eeff1a3b4adf4fa2"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/render.initial.cjs.txt",
+      "bytes": 3777,
+      "sha256": "d903c2b5d0560b3d5678b7015cdd5bbab0b28b92091fe9b821419747d7566887"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/shirt.initial.svg.txt",
+      "bytes": 10752,
+      "sha256": "e1228349eb5d2d907e00d9dc979c4023f7c51ee3744ead343938d9cf5d289acb"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/shirt.png",
+      "bytes": 256705,
+      "sha256": "59d4f7d51aa5ebb330c3fcb816cff32378ac84657ef80df1854f90b2c34c124c"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/shirt.svg",
+      "bytes": 11011,
+      "sha256": "af38e75fa68d19eb90a8edf50df6640f73631e205ec82df405b93db1eebfb701"
+    }
+  ],
+  "serverEvidence": "Exact HTTP200 source/PNG at15:21:09UTC in HTTP-CHECK.json; retained server, no new service.",
+  "recoveryEvidence": "RECOVERY-CHECK.json15:12:18UTC: saved automation bytes unchanged from existing ACTIVE10minute app API epoch. No settings write; future delivery unverified.",
+  "limits": "Limited unitless artist source; overlap annotated/no verified assembly; no pattern/cloth/fit/3D/runtime/starter/AAA qualification. Read-only local evidence and local Git, not an immutable/off-machine backup.",
+  "next": "Genuinely new useful garment/character/fit authoring duty with fresh independent worth; no replay/polish of this first sheet or closed methods. Full roadmap/phase order remain."
+}

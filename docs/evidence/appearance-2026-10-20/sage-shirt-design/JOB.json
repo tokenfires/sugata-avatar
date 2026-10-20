@@ -1,0 +1,19 @@
+{
+  "admissionCall": "8a90f7",
+  "sourceCheckpointCall": "be5328",
+  "sourceCheckpoint": "871879b7b9a0889b8717a4c251f46839abde9501",
+  "args": {
+    "cmd": "exec env NODE_OPTIONS='' UV_THREADPOOL_SIZE=1 /Users/robault/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node --max-old-space-size=96 --unhandled-rejections=strict render.cjs",
+    "workdir": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design",
+    "yield_time_ms": 1000,
+    "max_output_tokens": 2200,
+    "tty": true
+  },
+  "result": {
+    "chunk_id": "1dce41",
+    "wall_time_seconds": 0.148967375,
+    "exit_code": 0,
+    "original_token_count": 209,
+    "output": "{\"status\":\"complete\",\"pid\":52590,\"node\":\"v24.19.0\",\"versions\":{\"aom\":\"3.15.1\",\"archive\":\"3.8.9\",\"cairo\":\"1.18.6\",\"cgif\":\"0.5.4\",\"exif\":\"0.6.26\",\"expat\":\"2.8.5\",\"ffi\":\"3.8.0\",\"fontconfig\":\"2.18.3\",\"freetype\":\"2.14.3\",\"fribidi\":\"1.0.17\",\"glib\":\"2.90.0\",\"harfbuzz\":\"14.5.0\",\"heif\":\"1.23.5\",\"highway\":\"1.4.0\",\"imagequant\":\"2.4.1\",\"lcms\":\"2.19.1\",\"mozjpeg\":\"0826579\",\"pango\":\"1.58.2\",\"pixman\":\"0.46.4\",\"png\":\"1.6.58\",\"proxy-libintl\":\"0.5\",\"rsvg\":\"2.63.2\",\"tiff\":\"4.7.2\",\"uhdr\":\"2.0.2\",\"vips\":\"8.18.7\",\"webp\":\"1.6.0\",\"xml2\":\"2.15.4\",\"zlib-ng\":\"2.3.3\",\"sharp\":\"0.35.5\"},\"svgBytes\":11011,\"svgSHA256\":\"af38e75fa68d19eb90a8edf50df6640f73631e205ec82df405b93db1eebfb701\",\"pngBytes\":256705,\"pngSHA256\":\"59d4f7d51aa5ebb330c3fcb816cff32378ac84657ef80df1854f90b2c34c124c\",\"width\":1800,\"height\":1200,\"maxRSSKiB\":216880,\"elapsedMS\":214,\"warnings\":[]}\r\n"
+  }
+}

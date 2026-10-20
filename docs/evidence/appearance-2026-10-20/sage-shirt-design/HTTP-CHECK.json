@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-20T15:21:09.306370+00:00",
+  "checks": [
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/shirt.svg",
+      "HTTP": 200,
+      "contentType": "image/svg+xml",
+      "bytes": 11011,
+      "sha256": "af38e75fa68d19eb90a8edf50df6640f73631e205ec82df405b93db1eebfb701",
+      "literalMatchesLocal": true
+    },
+    {
+      "url": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-design/shirt.png",
+      "HTTP": 200,
+      "contentType": "image/png",
+      "bytes": 256705,
+      "sha256": "59d4f7d51aa5ebb330c3fcb816cff32378ac84657ef80df1854f90b2c34c124c",
+      "literalMatchesLocal": true
+    }
+  ],
+  "limits": "Read-only literal HTTP association, not a new browser display or appearance qualification. Retained server only."
+}
