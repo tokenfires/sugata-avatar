@@ -1,0 +1,219 @@
+{
+  "schema": "knit-yarn-specimen-independent-source-result-review-v1",
+  "collectionUTC": "2026-10-20T01:47:54.389662+00:00",
+  "collectionPID": 83624,
+  "verdict": "B_CLOSE_PREPARATION_SOURCE_UNKNOWN",
+  "pending_edits": false,
+  "currentSourceInputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/PLAN.md",
+      "bytes": 4237,
+      "sha256": "6a2345ca0bbc0330293aea80510ef9a44af964ec0d92d6ce3210bbbf8c11a99c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/REFERENCE-WORTH.md",
+      "bytes": 3296,
+      "sha256": "0f0c9d3fbb437b7aed893e0bb5de3b3ee1dce8881c68f73234d9f7b443db79a7"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/REFERENCE-RESULT.json",
+      "bytes": 13549,
+      "sha256": "3cd554853a494e305b569d5fa3ebd3062d1fbb1f068dec54ae795866a86515d0"
+    }
+  ],
+  "priorWorthAnchorInputs": [
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8644,
+      "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2175,
+      "sha256": "f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-cancellation-contract/README.md",
+      "bytes": 7261,
+      "sha256": "7c5a4da03f5a05f5dd64c5082e83c7561118c9bdfe7cba5ab425415ff96e1123"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+      "bytes": 2023441,
+      "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-cancellation-contract/first.jpg",
+      "bytes": 100427,
+      "sha256": "a521ca28ae636be6a81f303fca639e4aee67d56b522fef1a32facbd68fcc6e6c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/PLAN.md",
+      "bytes": 3929,
+      "sha256": "40b717c82716717857cb5bd200054a69925289256662cad0aa5cd10fcfe27da0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/REFERENCE-RAW.json",
+      "bytes": 29853,
+      "sha256": "77ef38f68f3e184dbe050a16d71c538715148caeb9e6ded2cc4f1f4fa8714815"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/REFERENCE-EXCERPT.json",
+      "bytes": 4224,
+      "sha256": "bd1b0bccc36c7871b8f4745d53d787f4a8cbed892e761c3226e2192daca86a40"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/LOCATOR.json",
+      "bytes": 430,
+      "sha256": "582f4051f90b15cb0e42e462db37d64add3db2858582ffae022150ac0ae252e5"
+    }
+  ],
+  "priorWorthManifest": {
+    "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/INPUTS.json",
+    "bytes": 1911,
+    "sha256": "e8c7d9c5e25d28c0421a294db4ebcb9a35cb006ac29ad4042e055a9f8dfc5766"
+  },
+  "priorStableWorth": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/WORTH.md",
+      "bytes": 4867,
+      "sha256": "1f2cf982c6cb7d7f6e2d096d13bff43b46d21faba3b68528dc11c9662306c5d9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/CRITIC-RECEIPT.json",
+      "bytes": 18788,
+      "sha256": "4108d1f4e6f4eefdc6d4c5842cae04ca1192ed5e52506f7032b4a7bf6b2c3735"
+    }
+  ],
+  "rootSourceFirst": {
+    "path": "docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/ROOT-SOURCE-FIRST.json",
+    "bytes": 2469,
+    "sha256": "aacc1c0a3fd73cd63208bcae216b4a79a3eb3d32e9b5a6842f7367c41a9e42cc"
+  },
+  "review": {
+    "path": "docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/SOURCE-REVIEW.md",
+    "bytes": 3714,
+    "sha256": "3470f374a6857603107e5e494cc2049c074a4cd523e31563fa6f7e6aa7084569"
+  },
+  "receiptSelfBinding": "Separate whole readback returns exact receipt bytes/hash; no circular self hash.",
+  "coverage": {
+    "wholeCurrentDocuments": [
+      "PLAN.md",
+      "REFERENCE-WORTH.md",
+      "REFERENCE-RESULT.json",
+      "ROOT-SOURCE-FIRST.json after own seal"
+    ],
+    "priorScope": "Prior nine anchors and stable worth pair freshly byte/hash bound, no repeated receipt/source semantics or image view. Existing34-row abstract/stages/two-image reasoning reused only at prior exact pins.",
+    "locatorVerification": "Exactly18 already-returned row number/text pairs compared to corresponding saved author-page markdown positions; no new locator query or other content traversal.",
+    "rootNestedScope": "Root opinion is byte-pinned and read; historical ROOT-REFERENCE-FIRST listed inside it is not independently reopened or represented as a new direct semantic input.",
+    "PDF": "No PDF content, page image, page count or actual fetched bytes available. No PDF/figure/code/data/reference retry or alternate retrieval."
+  },
+  "independence": {
+    "ownSeal": "d32867/exit0/PID80701/2026-10-20T01:46:18.733642+00:00",
+    "rootContentFirstRead": "12d249/exit0/PID81102/2026-10-20T01:46:32.368306+00:00",
+    "rootEarlierSeal": "ROOT-SOURCE-FIRST.utc2026-10-20T01:45:01.846890+00:00/PID78269",
+    "comparison": "Both close B/unknown due missing source, not geometry failure; prior A remains preparation-only."
+  },
+  "actualReference": {
+    "selectionURL": "https://www.cemyuksel.com/research/stitchmeshes/stitchmeshes.pdf",
+    "retainedLocatorJob": "7412d9/exit0/PID76374/2026-10-20T01:44:01.036340+00:00",
+    "locatorRows": 18,
+    "literalRowsBoundToSavedRAW": true,
+    "selectionMainRows": [
+      142,
+      146
+    ],
+    "request": {
+      "tool": "web.run",
+      "args": {
+        "open": [
+          {
+            "ref_id": "https://www.cemyuksel.com/research/stitchmeshes/stitchmeshes.pdf"
+          }
+        ],
+        "response_length": "short"
+      }
+    },
+    "returnedResult": "Internal Error ()\nciteturn66view0 [wordlim: 200] Source: open({\"ref_id\":\"https://www.cemyuksel.com/research/stitchmeshes/stitchmeshes.pdf\",\"lineno\":null}); Total lines: 1\nL0: Failed to fetch https://www.cemyuksel.com/research/stitchmeshes/stitchmeshes.pdf: (400) Timeout fetching\n",
+    "resultSavedUTC": "2026-10-20T01:44:37.040331+00:00",
+    "resultWriterPID": 77519,
+    "oneFetchConsumed": true,
+    "PDFPageCount": null,
+    "actualPDFBytes": null,
+    "PDFTextPagesInspected": 0,
+    "PDFPageImagesInspected": 0
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "decision": "blocking source unknown",
+      "witness": "REFERENCE-RESULT.returnedResult (Internal Error/(400) Timeout fetching), PLAN bounded question/stop rule and future-contract duties",
+      "effect": "No local stitch/interloop/contact source was returned, so a complete honest finite specimen/source/qualification contract is not owned; stop before construction.",
+      "notInferred": [
+        "Author HTTP400",
+        "global paper absence/outage",
+        "geometry or yarn infeasibility",
+        "old shader fault"
+      ],
+      "alternatives": [
+        {
+          "choice": "Retain accepted illustration as current qualitative brief and checkpoint this exact result.",
+          "tradeoff": "Immediately useful artist intent, but no editable yarn/contact source."
+        },
+        {
+          "choice": "Defer concrete specimen until complete artist/source and material consumer own duties under separate future worth.",
+          "tradeoff": "No invented validity or current retry; requires new responsibility and delivers no specimen now."
+        }
+      ]
+    }
+  ],
+  "priorWorth": "A for bounded reference check/preparation remains exact; unavailable source prevents progression, not retrospective invalidation.",
+  "next": "Close/checkpoint only. No immediate experiment or continuation under this exact nomination.",
+  "errors": [
+    {
+      "kind": "actual managed reference result",
+      "witness": "REFERENCE-RESULT.returnedResult",
+      "scope": "Sole PDF open timed out; no fallback/retry. Managed error notation is not author HTTP evidence."
+    }
+  ],
+  "limits": [
+    "No source program/construction/geometry/algorithm/target/import/evaluation/test/browser/native/GPU/capture/generation or other-file change by critic.",
+    "No new reference/PDF/image/figure/data/code or linked traversal.",
+    "No source/physical/PBR/fit/garment/rig/motion/performance/default/AAA qualification.",
+    "All prior closures, accepted/default/original/frozen/ignored/unrelated assets/fullroadmap/Ari material-volumeHOLD preserved."
+  ],
+  "deadlineUTC": "2026-10-20T02:10:00Z",
+  "jobs": [
+    {
+      "name": "yarn_source_initial",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source');print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['PLAN.md','REFERENCE-WORTH.md','REFERENCE-RESULT.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "db8ebc",
+      "exit_code": 0,
+      "wall_time_seconds": 5.375e-06,
+      "output_utf8bytes": 21449,
+      "output_sha256": "9de6b05dffd51500593445577522d1ca07ce084ef8aeeecd1041e55d5ab82934",
+      "first_output_line": "UTC 2026-10-20T01:45:32.036277+00:00 PID 79244"
+    },
+    {
+      "name": "yarn_source_seal",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib\nr=Path('/Users/robault/GitHub/sugata-avatar');d=r/'docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source';w=r/'docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth';print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\ndef pin(p):\n b=p.read_bytes();return {'path':str(p.relative_to(r)),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nm=json.loads((w/'INPUTS.json').read_text())\nfor z in m['pins']:assert pin(r/z['path'])==z and not (r/z['path']).is_symlink()\nprint('PRIOR_NINE_ANCHOR_BINDINGS_PASS',len(m['pins']));print('EXACT_SOURCE_AND_PRIOR_WORTH_PINS',json.dumps([pin(d/n) for n in ['PLAN.md','REFERENCE-WORTH.md','REFERENCE-RESULT.json']]+[pin(w/n) for n in ['INPUTS.json','WORTH.md','CRITIC-RECEIPT.json']],separators=(',',':')))\nx=json.loads((d/'REFERENCE-RESULT.json').read_text());loc=json.loads(x['selection']['locatorResult']['output']);lines=json.loads((w/'REFERENCE-RAW.json').read_text())['response']['structuredContent']['markdown'].splitlines();assert len(loc['pdfLocatorRows'])==18\nfor z in loc['pdfLocatorRows']:assert lines[z['line']-1]==z['text']\nu='https://www.cemyuksel.com/research/stitchmeshes/stitchmeshes.pdf';assert x['selection']['url']==u and x['request']['args']=={'open':[{'ref_id':u}],'response_length':'short'};assert u in lines[141] and u in lines[145];assert 'Timeout fetching' in x['returnedResult'] and 'Internal Error' in x['returnedResult'];assert x['selection']['locatorResult']['exit_code']==0\nprint('18_LOCATOR_ROWS_LITERAL_PASS; exactstandardpreprintrequest; noPDFtext/page/image/count/bytes in returned one-line error')\nprint('INDEPENDENT_SOURCE_SEAL',\"{\\\"verdict\\\":\\\"B_CLOSE_PREPARATION_SOURCE_UNKNOWN\\\",\\\"reason\\\":\\\"The selected author-linked main2012standard preprint is identifiable from the saved rows, but the sole managed PDF open returned Internal Error /(400) Timeout fetching. It supplied no PDF text, page images, page count or actual file bytes. Therefore the required local stitch/interloop/contact semantics cannot be examined, and centerline/join/contact/periodicity/qualification duties remain unowned. PLAN explicitly stops on unavailable source/missing ownership; the abstract/stages alone are insufficient to authorize a specimen contract or arbitrary tubes as knitted geometry.\\\",\\\"next\\\":\\\"Close this exact nomination unrun and checkpoint the returned result. No retry, high-resolution or related paper, alternate provider, local download/rendering, source/geometry construction, shader/observer repair or constructor admission. Prior worth A remains preparation/reference-check only.\\\",\\\"limits\\\":\\\"Managed tool retrieval failure, not an author HTTP400/global source absence/outage, geometry failure or proof that yarn geometry is infeasible. No new image view, PDF page, network or target action by critic.\\\",\\\"alternatives\\\":[{\\\"choice\\\":\\\"Close and preserve this exact unavailable-source preparation, deferring the concrete specimen until a separately owned source is nominated.\\\",\\\"tradeoff\\\":\\\"Honors one-fetch contract and prevents unsupported geometry; no editable specimen is delivered.\\\"},{\\\"choice\\\":\\\"Wait for an artist-owned complete local stitch/interloop source and qualification responsibility before any future specimen nomination.\\\",\\\"tradeoff\\\":\\\"Avoids making this model depend on the failed managed fetch, but requires new explicit source/artist work and leaves yarn authoring open; not an automatic continuation or retry.\\\"}]}\")\nPY",
+      "chunk_id": "d32867",
+      "exit_code": 0,
+      "wall_time_seconds": 5.417e-06,
+      "output_utf8bytes": 3105,
+      "output_sha256": "79fdc5ef68f10232161baf839ee7d45e62169187230a86744b30a1e115efeee8",
+      "first_output_line": "UTC 2026-10-20T01:46:18.733642+00:00 PID 80701"
+    },
+    {
+      "name": "yarn_source_compare",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/ROOT-SOURCE-FIRST.json');b=p.read_bytes();print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid());print('FILE',p.name,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "12d249",
+      "exit_code": 0,
+      "wall_time_seconds": 8.083e-06,
+      "output_utf8bytes": 2628,
+      "output_sha256": "29f6e476d23c952822d445b4e85292b73237c1f689f0c7f950609a0d21928b33",
+      "first_output_line": "UTC 2026-10-20T01:46:32.368306+00:00 PID 81102"
+    }
+  ],
+  "collectionOperation": "Exclusive xb writes only SOURCE-REVIEW.md and CRITIC-SOURCE-RECEIPT.json, preserving all input bytes."
+}

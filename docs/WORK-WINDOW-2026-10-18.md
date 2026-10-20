@@ -1,5 +1,14 @@
 # Sugata work window — October 18, 2026
 
+## October 20, 01:49 UTC — yarn specimen source check stopped
+
+The sole admitted main-paper read returned a managed-reader timeout with no PDF text, pages or images. Required local stitch/interloop/contact semantics remain unowned, so no complete source/workload contract or construction was admitted. Root and critic independently agree. Prior worth A remains preparation-only; this does not establish a missing paper, author-server failure or unsuitable geometry. [Source-stop receipt](evidence/appearance-2026-10-19/knit-yarn-specimen-source/README.md) · [Root verification](evidence/appearance-2026-10-19/knit-yarn-specimen-source/ROOT-SOURCE.json).
+
+No retry, fallback, code/data/source acquisition, geometry or render followed. This nomination is closed. All accepted/default/original/frozen/ignored assets, prior closed methods and Ari constructor HOLD remain. Checklist: 23 scoped checks, 10 broad goals open. No live target or pending critic edits. Review-server HEAD returned200 and saved ten-minute recovery remains ACTIVE.
+
+Next: a genuinely different roadmap responsibility needs fresh independent worth. No renamed knit-source/material/renderer workaround. Human check-in receives a concise status and awaits steering; a pause requires checkpoint and automation API pause/readback.
+
+
 ## October 20, 01:40 UTC — yarn-source specimen worth preparing
 
 Independent and root whole-image/source reviews agree that one small editable yarn-geometry source could own a distinct material-authoring responsibility. This admits exact contract preparation only; no geometry, algorithm, test or render was run. It does not promise to fix the rejected knit appearance. [Worth receipt](evidence/appearance-2026-10-19/knit-yarn-geometry-worth/README.md) · [Root verification](evidence/appearance-2026-10-19/knit-yarn-geometry-worth/ROOT-WORTH.json).

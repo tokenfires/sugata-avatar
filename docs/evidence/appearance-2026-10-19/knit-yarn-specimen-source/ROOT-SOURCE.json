@@ -1,0 +1,188 @@
+{
+  "schema": "knit-yarn-specimen-root-source-stop-v1",
+  "decision": "B / source unknown: close this preparation without retry or construction",
+  "reason": "The sole primary-PDF read supplied no local stitch/interloop/contact semantics. Required source/qualification/workload duties remain unowned. Prior worth A remains preparation and reference-inspection only.",
+  "exactWitness": "Actual returned web-reader string equals REFERENCE-RESULT and independent receipt exactly: Internal Error / (400) Timeout fetching. This is not author HTTP provenance or a geometry/availability conclusion.",
+  "alternatives": [
+    {
+      "choice": "Retain accepted illustration as the qualitative material brief.",
+      "tradeoff": "Immediately useful artist intent, no editable yarn/contact model."
+    },
+    {
+      "choice": "Defer concrete yarn geometry until complete source and material-consumer ownership exists.",
+      "tradeoff": "No speculative validity; no specimen now or automatic successor."
+    }
+  ],
+  "wholeHandoff": {
+    "command": "cat docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/SOURCE-REVIEW.md\ncat docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/CRITIC-SOURCE-RECEIPT.json",
+    "chunk_id": "c5c905",
+    "exit_code": 0,
+    "tokens": 4505,
+    "coverage": "Whole stable 3714-byte SOURCE-REVIEW and 14304-byte receipt, 4505 tokens without truncation."
+  },
+  "freshVerification": {
+    "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\nactual=json.loads(\"{\\\"args\\\":{\\\"open\\\":[{\\\"ref_id\\\":\\\"https://www.cemyuksel.com/research/stitchmeshes/stitchmeshes.pdf\\\"}],\\\"response_length\\\":\\\"short\\\"},\\\"result\\\":\\\"Internal Error ()\\\\n\ue200cite\ue202turn66view0\ue201 [wordlim: 200] Source: open({\\\\\\\"ref_id\\\\\\\":\\\\\\\"https://www.cemyuksel.com/research/stitchmeshes/stitchmeshes.pdf\\\\\\\",\\\\\\\"lineno\\\\\\\":null}); Total lines: 1\\\\nL0: Failed to fetch https://www.cemyuksel.com/research/stitchmeshes/stitchmeshes.pdf: (400) Timeout fetching\\\\n\\\"}\")\np=Path('docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source');w=p.parent/'knit-yarn-geometry-worth'\ndef pin(q):\n b=Path(q).read_bytes();return {'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\nc=json.loads((p/'CRITIC-SOURCE-RECEIPT.json').read_text());assert c['pending_edits'] is False\nrows=c['currentSourceInputs']+c['priorWorthAnchorInputs']+[c['priorWorthManifest']]+c['priorStableWorth']+[c['rootSourceFirst'],c['review']]\nfor x in rows: assert pin(x['path'])==x,x['path']\nfor name in ['CRITIC-SOURCE-RECEIPT.json','ROOT-REFERENCE-FIRST.json','TOOL-ROOT.json','LIVE-SERVICES.json']: rows.append(pin(p/name))\nfirst=json.loads((p/'ROOT-REFERENCE-FIRST.json').read_text())\nfor x in first['pins']: assert pin(x['path'])==x,x['path'];rows.append(x)\nsourcefirst=json.loads((p/'ROOT-SOURCE-FIRST.json').read_text())\nfor x in sourcefirst['inputs']: assert pin(x['path'])==x,x['path']\nr=json.loads((p/'REFERENCE-RESULT.json').read_text());assert r['request']['args']==actual['args'] and r['returnedResult']==actual['result'] and c['actualReference']['returnedResult']==actual['result']\nloc=json.loads(r['selection']['locatorResult']['output']);lines=json.loads((w/'REFERENCE-RAW.json').read_text())['response']['structuredContent']['markdown'].splitlines();assert len(loc['pdfLocatorRows'])==18\nfor x in loc['pdfLocatorRows']:assert lines[x['line']-1]==x['text']\nassert c['independence']['ownSeal'].split('/')[3] < c['independence']['rootContentFirstRead'].split('/')[3]\nassert c['actualReference']['PDFTextPagesInspected']==0 and c['actualReference']['PDFPageImagesInspected']==0\nassert pin(p/'SOURCE-REVIEW.md')['sha256']=='3470f374a6857603107e5e494cc2049c074a4cd523e31563fa6f7e6aa7084569'\nassert pin(p/'CRITIC-SOURCE-RECEIPT.json')['sha256']=='29ae5e57683132d78f24d1a1cd076cdc3b2218325f17a1b278686452306373da'\nsvc=json.loads((p/'LIVE-SERVICES.json').read_text());a=svc['automation'];assert pin(a['path'])=={k:a[k] for k in ['path','bytes','sha256']}\nunique=list({x['path']:x for x in rows}.values())\nprint(json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'freshBindings':unique,'uniqueBindingCount':len(unique),'exactReturnedResultAndArgs':True,'locatorLiteralRows':18,'criticIndependence':c['independence'],'sourceVerdict':c['verdict'],'pendingCriticEdits':False,'ownedTargets':[]},indent=2))\nPY",
+    "result": {
+      "chunk_id": "5a882b",
+      "wall_time_seconds": 6.083e-06,
+      "exit_code": 0,
+      "original_token_count": 1328,
+      "output": "{\n  \"utc\": \"2026-10-20T01:49:07.369295+00:00\",\n  \"pid\": 85937,\n  \"freshBindings\": [\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/PLAN.md\",\n      \"bytes\": 4237,\n      \"sha256\": \"6a2345ca0bbc0330293aea80510ef9a44af964ec0d92d6ce3210bbbf8c11a99c\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/REFERENCE-WORTH.md\",\n      \"bytes\": 3296,\n      \"sha256\": \"0f0c9d3fbb437b7aed893e0bb5de3b3ee1dce8881c68f73234d9f7b443db79a7\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/REFERENCE-RESULT.json\",\n      \"bytes\": 13549,\n      \"sha256\": \"3cd554853a494e305b569d5fa3ebd3062d1fbb1f068dec54ae795866a86515d0\"\n    },\n    {\n      \"path\": \"docs/PROJECT-CHECKLIST.md\",\n      \"bytes\": 8644,\n      \"sha256\": \"6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md\",\n      \"bytes\": 2175,\n      \"sha256\": \"f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-cancellation-contract/README.md\",\n      \"bytes\": 7261,\n      \"sha256\": \"7c5a4da03f5a05f5dd64c5082e83c7561118c9bdfe7cba5ab425415ff96e1123\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png\",\n      \"bytes\": 2023441,\n      \"sha256\": \"dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-cancellation-contract/first.jpg\",\n      \"bytes\": 100427,\n      \"sha256\": \"a521ca28ae636be6a81f303fca639e4aee67d56b522fef1a32facbd68fcc6e6c\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/PLAN.md\",\n      \"bytes\": 3929,\n      \"sha256\": \"40b717c82716717857cb5bd200054a69925289256662cad0aa5cd10fcfe27da0\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/REFERENCE-RAW.json\",\n      \"bytes\": 29853,\n      \"sha256\": \"77ef38f68f3e184dbe050a16d71c538715148caeb9e6ded2cc4f1f4fa8714815\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/REFERENCE-EXCERPT.json\",\n      \"bytes\": 4224,\n      \"sha256\": \"bd1b0bccc36c7871b8f4745d53d787f4a8cbed892e761c3226e2192daca86a40\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/LOCATOR.json\",\n      \"bytes\": 430,\n      \"sha256\": \"582f4051f90b15cb0e42e462db37d64add3db2858582ffae022150ac0ae252e5\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/INPUTS.json\",\n      \"bytes\": 1911,\n      \"sha256\": \"e8c7d9c5e25d28c0421a294db4ebcb9a35cb006ac29ad4042e055a9f8dfc5766\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/WORTH.md\",\n      \"bytes\": 4867,\n      \"sha256\": \"1f2cf982c6cb7d7f6e2d096d13bff43b46d21faba3b68528dc11c9662306c5d9\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/CRITIC-RECEIPT.json\",\n      \"bytes\": 18788,\n      \"sha256\": \"4108d1f4e6f4eefdc6d4c5842cae04ca1192ed5e52506f7032b4a7bf6b2c3735\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/ROOT-SOURCE-FIRST.json\",\n      \"bytes\": 2469,\n      \"sha256\": \"aacc1c0a3fd73cd63208bcae216b4a79a3eb3d32e9b5a6842f7367c41a9e42cc\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/SOURCE-REVIEW.md\",\n      \"bytes\": 3714,\n      \"sha256\": \"3470f374a6857603107e5e494cc2049c074a4cd523e31563fa6f7e6aa7084569\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/CRITIC-SOURCE-RECEIPT.json\",\n      \"bytes\": 14304,\n      \"sha256\": \"29ae5e57683132d78f24d1a1cd076cdc3b2218325f17a1b278686452306373da\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/ROOT-REFERENCE-FIRST.json\",\n      \"bytes\": 2230,\n      \"sha256\": \"8b12ee227addc93975477f2477572004b29b76f26ebb63934104310d33905ca8\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/TOOL-ROOT.json\",\n      \"bytes\": 39605,\n      \"sha256\": \"05cd597720ec97e708a642bb0bdea909d5e81396f957e1c0eb4e3a371139964a\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/LIVE-SERVICES.json\",\n      \"bytes\": 873,\n      \"sha256\": \"1300e977b0ce0ebcf1f4cafb0b0d9248bf7a45edbb4427eb3c71c299aa2d2a20\"\n    },\n    {\n      \"path\": \"docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/ROOT-WORTH.json\",\n      \"bytes\": 12881,\n      \"sha256\": \"f4a4edc6c403ef3d4bbf895f0ec23695f4a7107b5d4de397fd4c95c7dbe39f28\"\n    }\n  ],\n  \"uniqueBindingCount\": 22,\n  \"exactReturnedResultAndArgs\": true,\n  \"locatorLiteralRows\": 18,\n  \"criticIndependence\": {\n    \"ownSeal\": \"d32867/exit0/PID80701/2026-10-20T01:46:18.733642+00:00\",\n    \"rootContentFirstRead\": \"12d249/exit0/PID81102/2026-10-20T01:46:32.368306+00:00\",\n    \"rootEarlierSeal\": \"ROOT-SOURCE-FIRST.utc2026-10-20T01:45:01.846890+00:00/PID78269\",\n    \"comparison\": \"Both close B/unknown due missing source, not geometry failure; prior A remains preparation-only.\"\n  },\n  \"sourceVerdict\": \"B_CLOSE_PREPARATION_SOURCE_UNKNOWN\",\n  \"pendingCriticEdits\": false,\n  \"ownedTargets\": []\n}\n"
+    },
+    "checks": {
+      "utc": "2026-10-20T01:49:07.369295+00:00",
+      "pid": 85937,
+      "freshBindings": [
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/PLAN.md",
+          "bytes": 4237,
+          "sha256": "6a2345ca0bbc0330293aea80510ef9a44af964ec0d92d6ce3210bbbf8c11a99c"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/REFERENCE-WORTH.md",
+          "bytes": 3296,
+          "sha256": "0f0c9d3fbb437b7aed893e0bb5de3b3ee1dce8881c68f73234d9f7b443db79a7"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/REFERENCE-RESULT.json",
+          "bytes": 13549,
+          "sha256": "3cd554853a494e305b569d5fa3ebd3062d1fbb1f068dec54ae795866a86515d0"
+        },
+        {
+          "path": "docs/PROJECT-CHECKLIST.md",
+          "bytes": 8644,
+          "sha256": "6c660cb496615dd595bde14d2964c36c88a075bb07729a1be52522d1a85c0af6"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md",
+          "bytes": 2175,
+          "sha256": "f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-cancellation-contract/README.md",
+          "bytes": 7261,
+          "sha256": "7c5a4da03f5a05f5dd64c5082e83c7561118c9bdfe7cba5ab425415ff96e1123"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+          "bytes": 2023441,
+          "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-cancellation-contract/first.jpg",
+          "bytes": 100427,
+          "sha256": "a521ca28ae636be6a81f303fca639e4aee67d56b522fef1a32facbd68fcc6e6c"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/PLAN.md",
+          "bytes": 3929,
+          "sha256": "40b717c82716717857cb5bd200054a69925289256662cad0aa5cd10fcfe27da0"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/REFERENCE-RAW.json",
+          "bytes": 29853,
+          "sha256": "77ef38f68f3e184dbe050a16d71c538715148caeb9e6ded2cc4f1f4fa8714815"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/REFERENCE-EXCERPT.json",
+          "bytes": 4224,
+          "sha256": "bd1b0bccc36c7871b8f4745d53d787f4a8cbed892e761c3226e2192daca86a40"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/LOCATOR.json",
+          "bytes": 430,
+          "sha256": "582f4051f90b15cb0e42e462db37d64add3db2858582ffae022150ac0ae252e5"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/INPUTS.json",
+          "bytes": 1911,
+          "sha256": "e8c7d9c5e25d28c0421a294db4ebcb9a35cb006ac29ad4042e055a9f8dfc5766"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/WORTH.md",
+          "bytes": 4867,
+          "sha256": "1f2cf982c6cb7d7f6e2d096d13bff43b46d21faba3b68528dc11c9662306c5d9"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/CRITIC-RECEIPT.json",
+          "bytes": 18788,
+          "sha256": "4108d1f4e6f4eefdc6d4c5842cae04ca1192ed5e52506f7032b4a7bf6b2c3735"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/ROOT-SOURCE-FIRST.json",
+          "bytes": 2469,
+          "sha256": "aacc1c0a3fd73cd63208bcae216b4a79a3eb3d32e9b5a6842f7367c41a9e42cc"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/SOURCE-REVIEW.md",
+          "bytes": 3714,
+          "sha256": "3470f374a6857603107e5e494cc2049c074a4cd523e31563fa6f7e6aa7084569"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/CRITIC-SOURCE-RECEIPT.json",
+          "bytes": 14304,
+          "sha256": "29ae5e57683132d78f24d1a1cd076cdc3b2218325f17a1b278686452306373da"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/ROOT-REFERENCE-FIRST.json",
+          "bytes": 2230,
+          "sha256": "8b12ee227addc93975477f2477572004b29b76f26ebb63934104310d33905ca8"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/TOOL-ROOT.json",
+          "bytes": 39605,
+          "sha256": "05cd597720ec97e708a642bb0bdea909d5e81396f957e1c0eb4e3a371139964a"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source/LIVE-SERVICES.json",
+          "bytes": 873,
+          "sha256": "1300e977b0ce0ebcf1f4cafb0b0d9248bf7a45edbb4427eb3c71c299aa2d2a20"
+        },
+        {
+          "path": "docs/evidence/appearance-2026-10-19/knit-yarn-geometry-worth/ROOT-WORTH.json",
+          "bytes": 12881,
+          "sha256": "f4a4edc6c403ef3d4bbf895f0ec23695f4a7107b5d4de397fd4c95c7dbe39f28"
+        }
+      ],
+      "uniqueBindingCount": 22,
+      "exactReturnedResultAndArgs": true,
+      "locatorLiteralRows": 18,
+      "criticIndependence": {
+        "ownSeal": "d32867/exit0/PID80701/2026-10-20T01:46:18.733642+00:00",
+        "rootContentFirstRead": "12d249/exit0/PID81102/2026-10-20T01:46:32.368306+00:00",
+        "rootEarlierSeal": "ROOT-SOURCE-FIRST.utc2026-10-20T01:45:01.846890+00:00/PID78269",
+        "comparison": "Both close B/unknown due missing source, not geometry failure; prior A remains preparation-only."
+      },
+      "sourceVerdict": "B_CLOSE_PREPARATION_SOURCE_UNKNOWN",
+      "pendingCriticEdits": false,
+      "ownedTargets": []
+    }
+  },
+  "services": {
+    "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os,tomllib,urllib.request\np=Path('docs/evidence/appearance-2026-10-19/knit-yarn-specimen-source');q=Path('/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml');b=q.read_bytes();cfg=tomllib.loads(b.decode())\nx={'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'automation':{'path':str(q),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest(),'status':cfg.get('status'),'rrule':cfg.get('rrule'),'threadFields':{k:v for k,v in cfg.items() if 'thread' in k.lower()},'scope':'Saved configuration only; no mutation, duplicate timer or future/mobile delivery proof.'},'vite':{'url':'http://127.0.0.1:5173/src/showcase.html?savedImport=1','method':'HEAD','timeoutSeconds':3,'scope':'Availability only; no page body, browser entry, renderer or UI qualification.'},'ownedTargets':[]}\ntry:\n with urllib.request.urlopen(urllib.request.Request(x['vite']['url'],method='HEAD'),timeout=3) as r: x['vite']['status']=r.status\nexcept Exception as e: x['vite']['error']=type(e).__name__+': '+str(e)\nx['collectedUTC']=datetime.datetime.now(datetime.timezone.utc).isoformat();out=p/'LIVE-SERVICES.json';assert not out.exists();out.write_text(json.dumps(x,indent=2)+'\\n');print(json.dumps(x,indent=2));print('FILE',len(out.read_bytes()),hashlib.sha256(out.read_bytes()).hexdigest())\nPY",
+    "result": {
+      "chunk_id": "eac858",
+      "wall_time_seconds": 1.5791e-05,
+      "exit_code": 0,
+      "original_token_count": 237,
+      "output": "{\n  \"utc\": \"2026-10-20T01:45:59.757856+00:00\",\n  \"pid\": 80087,\n  \"automation\": {\n    \"path\": \"/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml\",\n    \"bytes\": 3344,\n    \"sha256\": \"9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a\",\n    \"status\": \"ACTIVE\",\n    \"rrule\": \"FREQ=MINUTELY;INTERVAL=10\",\n    \"threadFields\": {\n      \"target_thread_id\": \"01a0ff57-d720-7db2-923f-9e3e0521216c\"\n    },\n    \"scope\": \"Saved configuration only; no mutation, duplicate timer or future/mobile delivery proof.\"\n  },\n  \"vite\": {\n    \"url\": \"http://127.0.0.1:5173/src/showcase.html?savedImport=1\",\n    \"method\": \"HEAD\",\n    \"timeoutSeconds\": 3,\n    \"scope\": \"Availability only; no page body, browser entry, renderer or UI qualification.\",\n    \"status\": 200\n  },\n  \"ownedTargets\": [],\n  \"collectedUTC\": \"2026-10-20T01:45:59.790362+00:00\"\n}\nFILE 873 1300e977b0ce0ebcf1f4cafb0b0d9248bf7a45edbb4427eb3c71c299aa2d2a20\n"
+    }
+  },
+  "provenance": "PLAN written01:41:51 before declared01:43 reference start. Root reference-worth preparation seal01:42:36; reference gate76eb65/01:43:51 preceded locator7412d9/01:44:01 and sole managed fetch. Exact arguments/result saved. No PDF pages/text/images returned.",
+  "limits": "No fallback, source/geometry/optimizer/test/renderer/browser/native/GPU target, generation, default/checklist promotion, or old recipe repair. No physical, PBR, fit, motion, performance or AAA qualification. All preserved source/assets/closures and Ari constructor HOLD remain.",
+  "next": "This nomination is closed. A genuinely different roadmap responsibility requires fresh independent worth; no automatic renamed knit source/material/renderer workaround.",
+  "liveOwnedTargets": [],
+  "pendingCriticEdits": false,
+  "writtenUTC": "2026-10-20T01:49:34.843691+00:00",
+  "writerPID": 86750,
+  "priorCheckpointPins": {
+    "WORK-WINDOW-2026-10-18.md": {
+      "bytes": 179326,
+      "sha256": "e86fb8cd611966fba37bf050fa724a9bf4012040182164365fd65195f3c5354a"
+    },
+    "RESUME-2026-10-18.md": {
+      "bytes": 154262,
+      "sha256": "ab04e5cf1bd4bd4a404dd2b9d393ea7a5326341932cef4d9bbaa9b6f6be0f2e7"
+    }
+  }
+}

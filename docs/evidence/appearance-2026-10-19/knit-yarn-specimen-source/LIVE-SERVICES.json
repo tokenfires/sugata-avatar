@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-20T01:45:59.757856+00:00",
+  "pid": 80087,
+  "automation": {
+    "path": "/Users/robault/.codex/automations/advance-sugata-avatar-visual-quality/automation.toml",
+    "bytes": 3344,
+    "sha256": "9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a",
+    "status": "ACTIVE",
+    "rrule": "FREQ=MINUTELY;INTERVAL=10",
+    "threadFields": {
+      "target_thread_id": "01a0ff57-d720-7db2-923f-9e3e0521216c"
+    },
+    "scope": "Saved configuration only; no mutation, duplicate timer or future/mobile delivery proof."
+  },
+  "vite": {
+    "url": "http://127.0.0.1:5173/src/showcase.html?savedImport=1",
+    "method": "HEAD",
+    "timeoutSeconds": 3,
+    "scope": "Availability only; no page body, browser entry, renderer or UI qualification.",
+    "status": 200
+  },
+  "ownedTargets": [],
+  "collectedUTC": "2026-10-20T01:45:59.790362+00:00"
+}
