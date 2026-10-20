@@ -1,0 +1,80 @@
+{
+  "status": "CPU_DATA_ONLY",
+  "at": "2026-10-20T16:09:11.129Z",
+  "pid": 50365,
+  "sourceSHA256": "6685b9e75f139ae6d0ecd3bde5c62b7a3bd5c5b33600903f26f0310e7f65dfca",
+  "stages": [
+    {
+      "step": 0,
+      "counts": [
+        102,
+        191,
+        87
+      ],
+      "boundaryLengths": [
+        4,
+        4,
+        10,
+        16
+      ],
+      "minimumTriangleCross": 0.009732419368430612,
+      "hardInteriorEdges": 5
+    },
+    {
+      "step": 1,
+      "counts": [
+        380,
+        730,
+        348
+      ],
+      "boundaryLengths": [
+        8,
+        8,
+        20,
+        32
+      ],
+      "minimumTriangleCross": 0.0028895553713841945,
+      "hardInteriorEdges": 10
+    },
+    {
+      "step": 2,
+      "counts": [
+        1458,
+        2852,
+        1392
+      ],
+      "boundaryLengths": [
+        16,
+        16,
+        40,
+        64
+      ],
+      "minimumTriangleCross": 0.0006154584165481848,
+      "hardInteriorEdges": 20
+    }
+  ],
+  "surfaceQuads": 1392,
+  "surfaceTriangles": 2784,
+  "decorativeDiscs": 4,
+  "globalIntersectionOrPhysicalFit": false,
+  "artifacts": [
+    {
+      "name": "model.json",
+      "bytes": 161261,
+      "sha256": "eb93e6331ffc6b4cdfb85d1e3fcef1f0f2a1d46bf204d7b32fb0f0117de5218f"
+    },
+    {
+      "name": "shirt.obj",
+      "bytes": 113179,
+      "sha256": "61e9e31f40bca0c7eb925e102ee7ac3123f1822870ae9af245250b649d90cf15"
+    },
+    {
+      "name": "shirt.mtl",
+      "bytes": 762,
+      "sha256": "52f61d9af1c96a4fd7ba30ff602f2d64d2878537eac02d314dc72adbc680b841"
+    }
+  ],
+  "elapsedMS": 88,
+  "maxRSSKiB": 197632,
+  "limits": "Finite source/topology/Float32 support only; no actual3D image, assembled closure, fitted body, native GPU release or complete avatar qualification."
+}

@@ -1,0 +1,124 @@
+{
+  "at": "2026-10-20T16:10:23.559478+00:00",
+  "pid": 53267,
+  "decision": "A_SAVED_DATA_CONSIDER_ONE_NATIVE",
+  "currentDataCriticRead": false,
+  "job": "af21af",
+  "normalExit": 0,
+  "elapsedMS": 95,
+  "maxRSSKiB": 197664,
+  "main": {
+    "positions": 1458,
+    "edges": 2852,
+    "quads": 1392,
+    "components": 1,
+    "boundaryLengths": [
+      16,
+      16,
+      40,
+      64
+    ],
+    "Euler": -2,
+    "manifoldVertexFans": true,
+    "minimumCrossDoubleFloat32": [
+      0.0006154584165481848,
+      0.000615458749801814
+    ],
+    "parents": 87,
+    "descendantsPerParent": 16,
+    "hardInteriorEdges": 20
+  },
+  "export": {
+    "sharedMainVertices": 1458,
+    "totalVertices": 1526,
+    "triangles": 2848,
+    "features": [
+      "front",
+      "placket",
+      "back",
+      "yoke",
+      "side",
+      "shoulder",
+      "negative-x-sleeve",
+      "positive-x-sleeve",
+      "collar"
+    ],
+    "decorativeDiscs": 4,
+    "exactJSONOBJAssociation": true
+  },
+  "all37AdmissionPinsMatch": true,
+  "outputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/CPU-ADMISSION.json",
+      "bytes": 11241,
+      "sha256": "850bafe4fb0d6eb753016ba2efcd7f2c29c978d3145101a83f36f57f89d3bc74"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/CPU-ADMISSION.used",
+      "bytes": 131,
+      "sha256": "fc75eb6878fad6c7562daf95d39acec2e278cb06152ac5b8737df8ef5e1e38e9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/JOB.json",
+      "bytes": 1382,
+      "sha256": "59bb73cfb77e0ce5e95007969bdc0fa57f4683fd8c8028d028663800b9e0825b"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/ROOT-SOURCE.json",
+      "bytes": 9937,
+      "sha256": "f31bb5871cfcd2cbdd28ea4412f19f92f44fa99a77e07f8dc9a877aec65c0077"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/SOURCE-REVIEW.md",
+      "bytes": 16492,
+      "sha256": "d31cbf306ffe1bb389cb57f1bcc467f5fe49d05824dacc21eeee48b70472f371"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/SOURCE-INPUTS.json",
+      "bytes": 7859,
+      "sha256": "1d6729f1cd25ccfca9e20d66fa02e151ca851213b1a22e08bd4045b73d301c37"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/cage.json",
+      "bytes": 8950,
+      "sha256": "6685b9e75f139ae6d0ecd3bde5c62b7a3bd5c5b33600903f26f0310e7f65dfca"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/build.cjs",
+      "bytes": 12064,
+      "sha256": "04bbb34f4c9879a94279992456a5b3f4e548e32c663643433533b8a79ba685d8"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/trial-001/model.json",
+      "bytes": 161261,
+      "sha256": "eb93e6331ffc6b4cdfb85d1e3fcef1f0f2a1d46bf204d7b32fb0f0117de5218f"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/trial-001/shirt.obj",
+      "bytes": 113179,
+      "sha256": "61e9e31f40bca0c7eb925e102ee7ac3123f1822870ae9af245250b649d90cf15"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/trial-001/shirt.mtl",
+      "bytes": 762,
+      "sha256": "52f61d9af1c96a4fd7ba30ff602f2d64d2878537eac02d314dc72adbc680b841"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage/trial-001/BUILD-RESULT.json",
+      "bytes": 1750,
+      "sha256": "dcfd80a95e0d38fe0ba9e6a3a96c867274f548db698c22575799653d55946916"
+    }
+  ],
+  "auditWallSeconds": 0.06982854200759903,
+  "limits": "No producer/refinement replay, physical fit, global intersection, appearance or native/GPU proof. Data ownership supports one separately gated first three-view image only.",
+  "alternatives": [
+    {
+      "choice": "One first native view after fresh served-route and capacity/admission gate",
+      "tradeoff": "Can determine whole shirt form from actual pixels; any B/unknown freezes it."
+    },
+    {
+      "choice": "Stop at editable CPU source",
+      "tradeoff": "Avoids native work but leaves appearance wholly unqualified."
+    }
+  ]
+}
