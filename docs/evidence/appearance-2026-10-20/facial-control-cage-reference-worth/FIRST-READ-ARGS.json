@@ -1,0 +1,17 @@
+{
+  "url": "https://graphics.pixar.com/library/Geri/paper.pdf",
+  "formats": [
+    "markdown"
+  ],
+  "parsers": [
+    "pdf"
+  ],
+  "pdfOptions": {
+    "maxPages": 12
+  },
+  "onlyMainContent": true,
+  "maxAge": 0,
+  "proxy": "basic",
+  "timeout": 30000,
+  "domainTools": false
+}

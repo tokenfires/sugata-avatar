@@ -1,0 +1,28 @@
+{
+  "utc": "2026-10-20T11:44:56.246289+00:00",
+  "pid": 88620,
+  "requestTool": "Firecrawl scrape one namedPDF; exact FIRST-READ-ARGS.json",
+  "metadata": {
+    "title": "TECHNOLOGY LIBRARIES \u2014 Pixar Animation Studios",
+    "url": "https://www.pixar.com/technology-libraries",
+    "sourceURL": "https://graphics.pixar.com/library/Geri/paper.pdf",
+    "statusCode": 200,
+    "contentType": "text/html;charset=utf-8",
+    "proxyUsed": "basic",
+    "scrapeId": "01a1591f-7c08-731f-8f9b-754d1de1d53b",
+    "creditsUsed": 1
+  },
+  "warning": "The engine used does not support the following features: pdf -- your scrape may be partial.",
+  "body": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/facial-control-cage-reference-worth/source-buffer/RETURNED.md",
+    "bytes": 2847,
+    "sha256": "39c09f34ea2f710f512abc6f3fb303d05cc0e3fb42868dcd9718bec500d035a2",
+    "wholeActualReturnedMarkdownRead": true,
+    "localIgnoredReadOnlyRecoveryCache": true
+  },
+  "requestedPaperDelivered": false,
+  "actualReturnedContent": "HTML technology-libraries page, not requested paper; no images or linked URLs followed",
+  "stopBeforeConditionalWebOpenOrScreenshot": true,
+  "callsBeyondFirstSourceRequest": 0,
+  "parserWarningOnlyAppliesToUsedEngine": true
+}
