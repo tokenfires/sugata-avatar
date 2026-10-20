@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-20T12:22:13.135859+00:00",
+  "pid": 95404,
+  "programmes": [
+    {
+      "name": "constructor.py",
+      "bytes": 44918,
+      "sha256": "7f96e5a632fb4cd68a08e94e9bda1e8db556e998c8a4531f19a429e77f3fca2e",
+      "lines": 1000,
+      "ast": "parsed without import or evaluation",
+      "top_level_nodes": 69
+    },
+    {
+      "name": "run_once.py",
+      "bytes": 14814,
+      "sha256": "4b035b6b175913bf4d3fd31a81754e76aab14e1fb22caeb1ec1e2ad2219da0e7",
+      "lines": 294,
+      "ast": "parsed without import or evaluation",
+      "top_level_nodes": 30
+    }
+  ],
+  "target_evaluation": false
+}

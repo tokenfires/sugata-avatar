@@ -1,0 +1,91 @@
+{
+  "utc": "2026-10-20T12:03:21.126352+00:00",
+  "pid": 92099,
+  "members": [
+    {
+      "name": "Human_world",
+      "archive": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/after-geometry.npz",
+      "member": "Human_world.npy",
+      "npyVersion": [
+        1,
+        0
+      ],
+      "headerBytes": 118,
+      "dtype": "<f4",
+      "shape": [
+        13380,
+        3
+      ],
+      "rawBytes": 160560,
+      "rawSHA256": "22022ad54de179f76350c0213e4c3ed017c76e3673ae77974976c58aee32c11c",
+      "zipCRCVerifiedByRead": true
+    },
+    {
+      "name": "Human_triangles",
+      "archive": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-skin-palette/work/after-geometry.npz",
+      "member": "Human_triangles.npy",
+      "npyVersion": [
+        1,
+        0
+      ],
+      "headerBytes": 118,
+      "dtype": "<i4",
+      "shape": [
+        26756,
+        3
+      ],
+      "rawBytes": 321072,
+      "rawSHA256": "d0ff552960bba88368a96a0ac207ca15ec0b8b3c857c1d47db440cb0874cb8f4",
+      "zipCRCVerifiedByRead": true
+    },
+    {
+      "name": "l_arm_faces",
+      "archive": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/fields.npz",
+      "member": "l_arm_faces.npy",
+      "npyVersion": [
+        1,
+        0
+      ],
+      "headerBytes": 118,
+      "dtype": "<i4",
+      "shape": [
+        4221
+      ],
+      "rawBytes": 16884,
+      "rawSHA256": "9aaae1564484cc20abdd7660ddaa7036bdca85fcb36a14ef078b59a3a7882c80",
+      "zipCRCVerifiedByRead": true
+    },
+    {
+      "name": "r_arm_faces",
+      "archive": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-08/ari-bomber-paths/fields.npz",
+      "member": "r_arm_faces.npy",
+      "npyVersion": [
+        1,
+        0
+      ],
+      "headerBytes": 118,
+      "dtype": "<i4",
+      "shape": [
+        4221
+      ],
+      "rawBytes": 16884,
+      "rawSHA256": "d4d1a6d94598a52602c4d10563943ea7820544e841def693a8407c74236a93e6",
+      "zipCRCVerifiedByRead": true
+    }
+  ],
+  "decodedRawBytes": 515400,
+  "finiteCoordinatesAndTriangleIndexRange": true,
+  "armSelectorsUniqueDisjointAndInRange": true,
+  "bodyBoundsEqualHistoricalInspection": true,
+  "elapsedSeconds": 0.0076354999910108745,
+  "processMaxRSSBytes": 28606464,
+  "cpuLimitSeconds": [
+    5,
+    6
+  ],
+  "memoryEstimate128MiBNotKernelLimit": true,
+  "onlyFourDeclaredPayloadsDecoded": true,
+  "unusedPayloadsOpaque": true,
+  "noBVHGridFieldOrTargetCodeEvaluation": true,
+  "constructorStatus": "HOLD"
+}

@@ -1,0 +1,35 @@
+{
+  "utc": "2026-10-20T12:40:04.086583+00:00",
+  "root_opinion": "A proposed complete static source only, pending independent full review and root verification",
+  "programmes": [
+    {
+      "name": "constructor.py",
+      "bytes": 44918,
+      "sha256": "7f96e5a632fb4cd68a08e94e9bda1e8db556e998c8a4531f19a429e77f3fca2e",
+      "lines": 1000,
+      "ast": "parse only without import or evaluation",
+      "top_level_nodes": 69
+    },
+    {
+      "name": "run_once.py",
+      "bytes": 23289,
+      "sha256": "b04098dc55776c721a8d34498a7fb1900f84198fb855068734027736ab28ec20",
+      "lines": 446,
+      "ast": "parse only without import or evaluation",
+      "top_level_nodes": 34
+    }
+  ],
+  "root_whole_guard_read_jobs": [
+    "3c1122",
+    "59073e"
+  ],
+  "last_changes": "pending-artifact status and four-line admission pin/expiry check also inspected in authoring; AST only",
+  "basis": "Independent terminal receipts precede any hash/inventory; collection errors sticky; combined supervisor/observer/worker RSS and final observed output/clock refusal; unchanged complete constructor; no target execution",
+  "limits": [
+    "No runtime/failed-path/feasibility/geometry/physical/image qualification",
+    "Raw invalid native tuple may be absent; UNKNOWN cannot become whole-field PASS",
+    "Sampled limits, filesystem/native stalls, and universal descendant absence unproven",
+    "No ADMISSION or trial; no second correction reserved; cutoff13:15/checkpoint13:30"
+  ],
+  "pending_edits": false
+}
