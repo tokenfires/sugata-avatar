@@ -1,0 +1,32 @@
+{
+  "sealedUTC": "2026-10-20T04:56:06.935363+00:00",
+  "pid": 176,
+  "decision": "A",
+  "worthOneOfficialPageOnly": true,
+  "witness": "PATH-REVIEW paragraph4 and alternative require a concrete named complete form/material owner with explicit roles; generic macro code and flat atlas did not supply that.",
+  "reason": "A fixed named authored character source is a different possible input. One official page can establish whether a source/version/provenance/face-rig artifact is actually offered or leave it unresolved, which changes whether a later adoption proposal is even sensible. No generic hunt, local qualification or assumption it is Mara.",
+  "alternatives": [
+    {
+      "choice": "Read exactly the fixed Snowv4 official page after independent worth A",
+      "tradeoff": "Selected; small bounded information cost could name a real source or decisively stop; no file/download/native ownership is inferred."
+    },
+    {
+      "choice": "Remain with current generic MPFB lineage and propose more manual head words",
+      "tradeoff": "Avoids retrieval but does not supply the actual named creative source required by the old closure; not pursued."
+    }
+  ],
+  "noCurrentCriticOpinionRead": true,
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/snow-named-source-worth/PLAN.md",
+      "bytes": 3151,
+      "sha256": "c3eddd9c637c8d5cdccdbbf8a039b3ff5eb81a2d545c6767dd842330f67bdf46"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW.md",
+      "bytes": 3405,
+      "sha256": "687ab7c57d062a018bd4e2fdffd0de7b97ae96a993abbb684545d931c7be09bc"
+    }
+  ],
+  "next": "Independent worth decision; only joint A permits one page retrieval, all files/models/appearances remain unadmitted."
+}

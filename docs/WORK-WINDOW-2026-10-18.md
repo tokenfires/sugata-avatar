@@ -1,5 +1,11 @@
 # Sugata work window — October 18, 2026
 
+## October20, 05:03 UTC — named Snow source question unresolved
+
+Fresh independent/rootA admitted one fixed official-page read only. Root's sole04:59:26–29UTC Firecrawl invocation used cached-only lockdowntrue and was rejected INVALID_ARGUMENT/no cached data; tool reports no outbound page request. No page/HTTP/author/license/version/face-rig/download fact obtained. This is an invocation mistake, no Snow/source/platform/appearance or quota failure. Cost/jobID absent/unknown, no feedback target/call. [Exact bounded result](evidence/appearance-2026-10-19/snow-named-source-worth/README.md).
+
+Independent/rootBunknown then close unresolved: root whole-read stable7699B/12566B result pair58f8ea/695246;4b62ca/PID14064/05:02:57UTC verifies9pins/immutabled93061ea...de00/order/fiveworthfiles unchanged/caps. No retry/alternateURL/name/options/linkedread/source/model/download/adoption/native or automatic successor. Earlier Mara source/head/portrait/material/observer closures remain exact and material-volumeHOLD unchanged. Accepted/default/original/frozen/ignored/unrelated/October10assets/fullroadmap/phaseorder/23checked10broad preserved; no pending owned job/critic edit. Fresh43532b/PID3167/04:57:28UTC same3344B config9b859344...c9a ACTIVEevery10 and Vite870HTTP200; future delivery untested. Human steering wins.
+
 ## October20, 04:57 UTC — underspecified Mara head nomination closed
 
 Independent/rootB: a neutral editable face is consequential, but the nomination still defers the actual named master and concrete manual authoring mechanism required by the existing source closure. No source/geometry/portrait/brief/native preparation follows. Root whole-read5558B/10640B pairf1c581/cb4d60;166abf/PID1373/04:56:35UTC independently verifies11bindings/immutable8a7df125...2f90e/prefix/seal-order. [Exact worth closure](evidence/appearance-2026-10-19/mara-head-master-worth/README.md).

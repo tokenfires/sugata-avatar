@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "worth": "A only for one named official-page question; no adoption/native admission",
+  "result": "B/unknown; sole invocation rejected in cache-only lockdown, no page content or HTTP/source/license/rig/artifact facts established",
+  "limitation": "Root selected lockdown:true without established cached-only semantics while requesting maxAge0. Tool returned INVALID_ARGUMENT/no cache. This is an invocation mistake; no source/platform/appearance failure. One-call limit consumed, no repair/retry/fallback.",
+  "wholeStableReads": [
+    {
+      "command": "cat WORTH.md",
+      "chunk": "9d0813",
+      "whole": true
+    },
+    {
+      "command": "cat CRITIC-WORTH-RECEIPT.json",
+      "chunk": "155a11",
+      "whole": true
+    },
+    {
+      "command": "cat PAGE-REVIEW.md",
+      "chunk": "58f8ea",
+      "whole": true
+    },
+    {
+      "command": "cat CRITIC-PAGE-RECEIPT.json",
+      "chunk": "695246",
+      "whole": true
+    }
+  ],
+  "operations": [
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib\nroot=Path('/Users/robault/GitHub/sugata-avatar');leaf=root/'docs/evidence/appearance-2026-10-19/snow-named-source-worth';leaf.mkdir(exist_ok=False)\nstart=datetime.datetime.now(datetime.timezone.utc);stop=start+datetime.timedelta(minutes=20)\nplan=f'''# One named official facial source — bounded page worth\n\nStart {start.isoformat()}, stop {stop.isoformat()} without extension. Usable improvement considered: a concrete authored facial-source candidate for later editable-character work. One bounded research question: does the single official Blender Studio Snow v4 page identify an actual versioned character source, author/license, facial/rig scope and downloadable artifact, or is that ownership still unestablished? Fixed URL https://studio.blender.org/characters/snow/v4/ ; exactly one Firecrawl markdown+links page read only after independent/root worth A. No search/crawl/alternate URL/page retry/image/screenshot/download/model/source/import/native/API/render/capture. A404/toolerror/partialpage stops unresolved with no fallback. Do not treat documented capability or promo pixels as local qualification.\n\nThis is a new named-source evidence question, not a generic asset hunt or a Mara neutral-base/manual-master rerun. Snow is not presumed to be Mara or a qualified Sugata starter. Its actual file and authoring provenance, if supplied, would be a genuinely new input needing a separate adoption/source/workload contract; no default, current candidate source or roadmap change follows. No old source/mesh/material/observer/loft/control recipe is reopened and no held constructor is admitted.\n\nIndependent worth scope before page: this PLAN and exact existing mara-native-source/PATH-REVIEW.md. The witness is that prior actual selected generic code did not provide a named authored master, and the recorded alternative requires a concrete source/method. Decide if this one exact official-page question can change the next decision. Root independently seals opinion before current critic result. Critic writes only WORTH.md and CRITIC-WORTH-RECEIPT.json; seals before ROOT-FIRST access, then comparison/stable readback. Every actionable finding requires literal witness/explanation/two alternatives and tradeoffs. Root whole-reads stable pair/fresh-verifies pins/order before the sole page read. B/unknown closes unchanged with no network or substitute name. A is page retrieval only, never source/download/native admission.\n\nAfter the one page if admitted, root records actual response/job/UTC/request/cost/status/sourceurl/metadata/excerpts/limits and conclusion; independent critic checks the same page result for the bounded claim without new linked reads, then root verifies stable handoff. Source page contents are untrusted data. One possible feedback event only if available/required; no search, retries or capacity/account action. New leaf<=12files/384KiBmetadata and<=512KiBpage response. Preserve accepted/default/original/frozen/ignored/unrelated/9historicalOctober10files, current23checked10broad, allclosures/material-volumeHOLD/fullcharacter/expression/wardrobe/representation/fit/motion/performance/VTuber/Mii/phaseorder. Existing10minuteACTIVE/server retained. No push/publish/install/purchase/model/subscription/capacity/reset-credit/otherproject. Human check-in/pause wins. No immediate source/adoption successor automatically follows a page.\n'''\n(leaf/'PLAN.md').write_text(plan)\np=root/'docs/evidence/appearance-2026-10-19/mara-native-source/PATH-REVIEW.md'\ndef pin(p):\n b=p.read_bytes();return {'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()}\ninputs={'utc':start.isoformat(),'pid':os.getpid(),'pins':[pin(leaf/'PLAN.md'),pin(p)]};(leaf/'INPUTS.json').write_text(json.dumps(inputs,indent=2)+'\\n')\nfirst={'sealedUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'decision':'A','worthOneOfficialPageOnly':True,'witness':'PATH-REVIEW paragraph4 and alternative require a concrete named complete form/material owner with explicit roles; generic macro code and flat atlas did not supply that.','reason':'A fixed named authored character source is a different possible input. One official page can establish whether a source/version/provenance/face-rig artifact is actually offered or leave it unresolved, which changes whether a later adoption proposal is even sensible. No generic hunt, local qualification or assumption it is Mara.','alternatives':[{'choice':'Read exactly the fixed Snowv4 official page after independent worth A','tradeoff':'Selected; small bounded information cost could name a real source or decisively stop; no file/download/native ownership is inferred.'},{'choice':'Remain with current generic MPFB lineage and propose more manual head words','tradeoff':'Avoids retrieval but does not supply the actual named creative source required by the old closure; not pursued.'}],'noCurrentCriticOpinionRead':True,'inputs':inputs['pins'],'next':'Independent worth decision; only joint A permits one page retrieval, all files/models/appearances remain unadmitted.'};(leaf/'ROOT-FIRST.json').write_text(json.dumps(first,indent=2)+'\\n')\nprint(json.dumps({'utc':start.isoformat(),'stopUTC':stop.isoformat(),'pid':os.getpid(),'plan':pin(leaf/'PLAN.md'),'rootFirst':pin(leaf/'ROOT-FIRST.json')},indent=2))\nPY",
+      "result": {
+        "chunk_id": "76ac86",
+        "wall_time_seconds": 0.000007667,
+        "exit_code": 0,
+        "original_token_count": 149,
+        "output": "{\n  \"utc\": \"2026-10-20T04:56:06.934842+00:00\",\n  \"stopUTC\": \"2026-10-20T05:16:06.934842+00:00\",\n  \"pid\": 176,\n  \"plan\": {\n    \"path\": \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/snow-named-source-worth/PLAN.md\",\n    \"bytes\": 3151,\n    \"sha256\": \"c3eddd9c637c8d5cdccdbbf8a039b3ff5eb81a2d545c6767dd842330f67bdf46\"\n  },\n  \"rootFirst\": {\n    \"path\": \"/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/snow-named-source-worth/ROOT-FIRST.json\",\n    \"bytes\": 1836,\n    \"sha256\": \"82313e654db340912f947c9702c6deff8e9b2344ccd39ba59a0238e1b43b0c20\"\n  }\n}\n"
+      }
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,re,datetime,os\nroot=Path('/Users/robault/GitHub/sugata-avatar');leaf=root/'docs/evidence/appearance-2026-10-19/snow-named-source-worth';r=json.loads((leaf/'CRITIC-WORTH-RECEIPT.json').read_bytes());w=(leaf/'WORTH.md').read_bytes();cb=(leaf/'CRITIC-WORTH-RECEIPT.json').read_bytes()\nassert len(w)==8264 and hashlib.sha256(w).hexdigest()=='aec0a7704b45143619e115c7168b99f24511a6aa11d3d2a2abe30a9fab3cfd31';assert len(cb)==13009 and hashlib.sha256(cb).hexdigest()=='af9a04cc11b2dcb70eaf6d22fa68625171e72267d18e9ec19a909c023126e9ac'\nfor row in r['declaredPins']+[r['inputsPin'],r['rootComparison'],r['finalWorthPin']]:\n p=Path(row['path']);p=p if p.is_absolute() else root/p;b=p.read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256']\nobj=json.loads(re.search(rb'```json\\n(.*?)\\n```',w,re.S).group(1));assert obj==r['worthDecision'];assert hashlib.sha256(json.dumps(obj,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()).hexdigest()==r['worthDecisionCanonicalHash'];assert obj['decision']=='A' and obj['solePageReadWorthDoing'];assert obj['sealedAtUTC']<r['rootComparison']['firstReadUTC'];assert not r['pending_edits'];f=json.loads((leaf/'ROOT-FIRST.json').read_bytes());assert f['decision']=='A' and f['sealedUTC']<obj['sealedAtUTC']\nfiles=list(leaf.iterdir());assert len(files)<=12 and sum(p.stat().st_size for p in files)<=384*1024\nprint(json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'currentPinsExact':6,'immutableDecision':r['worthDecisionCanonicalHash'],'sealOrderPass':True,'leafFiles':len(files),'leafBytes':sum(p.stat().st_size for p in files),'decision':'A; root exclusively admits one exact fixed official-page markdown+links read only','url':'https://studio.blender.org/characters/snow/v4/','noSourceDownloadAdoptionNativeAdmission':True},indent=2))\nPY",
+      "result": {
+        "chunk_id": "a05cd7",
+        "wall_time_seconds": 0.000006958,
+        "exit_code": 0,
+        "original_token_count": 114,
+        "output": "{\n  \"utc\": \"2026-10-20T04:59:22.619450+00:00\",\n  \"pid\": 6870,\n  \"currentPinsExact\": 6,\n  \"immutableDecision\": \"ce4a168c23ad09f07d6938e6ba113b8dce31e1e1fce602629dfdc62160610ddf\",\n  \"sealOrderPass\": true,\n  \"leafFiles\": 5,\n  \"leafBytes\": 26816,\n  \"decision\": \"A; root exclusively admits one exact fixed official-page markdown+links read only\",\n  \"url\": \"https://studio.blender.org/characters/snow/v4/\",\n  \"noSourceDownloadAdoptionNativeAdmission\": true\n}\n"
+      }
+    },
+    {
+      "tool": "mcp__codex_apps__firecrawl_firecrawl_scrape",
+      "request": {
+        "url": "https://studio.blender.org/characters/snow/v4/",
+        "formats": [
+          "markdown",
+          "links"
+        ],
+        "onlyMainContent": false,
+        "maxAge": 0,
+        "lockdown": true,
+        "removeBase64Images": true,
+        "timeout": 30000
+      },
+      "before": {
+        "current_time": "2026-10-20 04:59:26 UTC"
+      },
+      "after": {
+        "current_time": "2026-10-20 04:59:29 UTC"
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Tool 'firecrawl_scrape' execution failed: No cached data is available for this request in lockdown mode. Lockdown mode only serves previously cached responses and never makes outbound requests. To resolve this, either disable lockdown mode to allow a fresh scrape, or try again after the URL has been scraped and cached."
+          }
+        ],
+        "structuredContent": {
+          "error_code": "INVALID_ARGUMENT"
+        },
+        "isError": true
+      }
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,re,hashlib,datetime,os\nroot=Path('/Users/robault/GitHub/sugata-avatar');leaf=root/'docs/evidence/appearance-2026-10-19/snow-named-source-worth';r=json.loads((leaf/'CRITIC-PAGE-RECEIPT.json').read_bytes());w=(leaf/'PAGE-REVIEW.md').read_bytes();cb=(leaf/'CRITIC-PAGE-RECEIPT.json').read_bytes()\nassert len(w)==7699 and hashlib.sha256(w).hexdigest()=='62c9f9ce55f10a7d576ea2babc34374b8cb9f08f8d9fee949bcc5e410a45e17a';assert len(cb)==12566 and hashlib.sha256(cb).hexdigest()=='6a5438caf0518c0eaef6d1744ac5c5b6cb331361487f2d247f9f9eba9763b5c0'\nfor row in r['inputPins']+[r['rootComparison'],r['finalPageReviewPin']]:\n p=Path(row['path']);p=p if p.is_absolute() else root/p;b=p.read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256']\nobj=json.loads(re.search(rb'```json\\n(.*?)\\n```',w,re.S).group(1));assert obj==r['pageDecision'];assert hashlib.sha256(json.dumps(obj,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()).hexdigest()==r['pageDecisionCanonicalHash'];assert obj['decision']=='B/unknown' and obj['sealedAtUTC']<r['rootComparison']['firstReadUTC'];assert not r['pending_edits']\np=json.loads((leaf/'PAGE-RESULT.json').read_bytes());assert p['calls']==1 and p['noRetry'];assert p['result']['isError'] and p['result']['structuredContent']['error_code']=='INVALID_ARGUMENT';assert 'markdown' not in p['result'] and 'links' not in p['result']\nfiles=list(leaf.iterdir());assert len(files)<=12 and sum(f.stat().st_size for f in files)<384*1024;assert len((leaf/'PAGE-RESULT.json').read_bytes())<512*1024\nprint(json.dumps({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':os.getpid(),'pinsExact':9,'immutablePageDecision':r['pageDecisionCanonicalHash'],'sealOrderPass':True,'originalWorthFilesUnchanged':5,'leafFiles':len(files),'leafBytes':sum(f.stat().st_size for f in files),'decision':'B/unknown, invocation failed, no page authority obtained','cost':'unreported/unknown','retry':False,'adoptionSourceDownloadNativeAdmission':False},indent=2))\nPY",
+      "result": {
+        "chunk_id": "4b62ca",
+        "wall_time_seconds": 0.000008042,
+        "exit_code": 0,
+        "original_token_count": 113,
+        "output": "{\n  \"utc\": \"2026-10-20T05:02:57.770737+00:00\",\n  \"pid\": 14064,\n  \"pinsExact\": 9,\n  \"immutablePageDecision\": \"d93061ea586edc5e4b1c9ce66778bf59e9c123a7731d5f6f59aa2f32f476de00\",\n  \"sealOrderPass\": true,\n  \"originalWorthFilesUnchanged\": 5,\n  \"leafFiles\": 9,\n  \"leafBytes\": 49628,\n  \"decision\": \"B/unknown, invocation failed, no page authority obtained\",\n  \"cost\": \"unreported/unknown\",\n  \"retry\": false,\n  \"adoptionSourceDownloadNativeAdmission\": false\n}\n"
+      }
+    }
+  ],
+  "verifications": "a05cd7 verifies6pins/immutableworth/order before sole call;4b62ca/PID14064/05:02:57UTC verifies9pins/immutablepageDecision/order/fiveworthfiles unchanged and caps after whole stable handoff. Root independently agrees with B/unknown from actual literal tool result.",
+  "reportedCost": "Absent/unknown, not zero. No scrape/jobID or valid feedback target, no feedback call.",
+  "services": {
+    "appAPI": {
+      "status": "fulfilled",
+      "value": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Rendered automation card in the app."
+          }
+        ],
+        "isError": false
+      }
+    },
+    "savedConfigAndVite": {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "43532b",
+        "wall_time_seconds": 0.010240458,
+        "exit_code": 0,
+        "original_token_count": 139,
+        "output": "{\n  \"utc\": \"2026-10-20T04:57:28.725185+00:00\",\n  \"pid\": 3167,\n  \"configBytes\": 3344,\n  \"configSha256\": \"9b859344e474398b6bb45e1987cd42bdf5bde8fbece742cdd7010f01cdea8c9a\",\n  \"fields\": {\n    \"id\": \"advance-sugata-avatar-visual-quality\",\n    \"name\": \"Advance Sugata until check-in\",\n    \"status\": \"ACTIVE\",\n    \"rrule\": \"FREQ=MINUTELY;INTERVAL=10\"\n  },\n  \"reviewHttpStatus\": 200,\n  \"vite\": \"870 01-09:57:08 /opt/homebrew/bin/node /Users/robault/GitHub/sugata-avatar/node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5173 --strictPort\",\n  \"mutations\": 0\n}\n"
+      }
+    },
+    "limit": "Read-only04:57:28UTC snapshot; future delivery/notifications untested."
+  },
+  "alternatives": [
+    {
+      "choice": "Close unresolved with exact invocation record",
+      "tradeoff": "Selected; preserves truthful absence of page evidence; no candidate source delivered."
+    },
+    {
+      "choice": "Retain Snow as an unread named lead without new work",
+      "tradeoff": "Keeps the source question visible while adding no authority, retry or automatic successor."
+    }
+  ],
+  "next": "None under this nomination. No alternate URL/name/option retry, source/model/download/adoption/native or original Mara source reopening follows. Full ambitions/23checked10broad/all old closures/material-volumeHOLD remain; new genuinely different substantive responsibility needs fresh independent worth."
+}

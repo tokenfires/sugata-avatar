@@ -1,0 +1,226 @@
+{
+  "schema": "snow-sole-page-independent-result-v1",
+  "startedAtUTC": "2026-10-20T05:00:31+00:00",
+  "deadlineUTC": "2026-10-20T05:16:06.934842+00:00",
+  "pageDecision": {
+    "sealedAtUTC": "2026-10-20T05:01:30.539128+00:00",
+    "decision": "B/unknown",
+    "namedSourceQuestionResolved": false,
+    "pageAuthorityAccepted": false,
+    "nextUnderNomination": "Close this sole page attempt unresolved and checkpoint its exact tool error. No alternate URL/name/options retry, feedback target, source/model/download/native or adoption admission.",
+    "reason": "The sole recorded request used the exact fixed URL but set lockdown:true. Its returned isError:true record has structured error_code INVALID_ARGUMENT and a literal no-cache/lockdown message saying the mode never makes outbound requests. Thus no official page text, links, HTTP status or named/versioned author/license/facial-rig/download fact was returned. PLAN explicitly stops toolerror/partialpage unresolved with no fallback. A change to lockdown or any other option would be another call and is not admitted. Prior worthA justified asking the named-source question; it does not establish the answer or source adoption.",
+    "findings": [
+      {
+        "finding": "The only admitted tool attempt supplied no page authority, so this nomination cannot answer its named-source question.",
+        "literalWitnesses": [
+          {
+            "field": "PAGE-RESULT.request",
+            "observation": "Exact studio.blender.org/characters/snow/v4/; formats markdown/links, onlyMainContent:false, maxAge:0, lockdown:true, removeBase64Images:true, timeout30000."
+          },
+          {
+            "field": "PAGE-RESULT.result.content[0].text",
+            "observation": "Literal tool message: No cached data is available for this request in lockdown mode. It says lockdown only serves cached responses and never makes outbound requests."
+          },
+          {
+            "field": "PAGE-RESULT.result.structuredContent/error status",
+            "observation": "error_code INVALID_ARGUMENT; isError:true. No returned markdown/links, HTTP code, scrapeId/jobID or cost field."
+          },
+          {
+            "field": "PLAN toolerror/no-retry duty andPAGE-RESULT.calls/noRetry",
+            "observation": "Toolerror stops unresolved without fallback; recorded calls:1 and noRetry:true. The result text suggests changing mode or retrying later, but those are data, not authority to make a second request."
+          }
+        ],
+        "explanation": "maxAge:0 in this failed request is not evidence of a live author-page response. The no-outbound statement is the tool report, not independent packet observation. This is not HTTP404, author-server downtime, missing Snow source, wrong platform, rig/appearance failure, license denial or quota exhaustion. Lack of job/cost data also does not establish zero cost or authorize feedback without a target.",
+        "alternatives": [
+          {
+            "choice": "Close B/unknown now with the exact sole-call/cache-only error and no source claims.",
+            "tradeoff": "Honours the one-call bound and preserves accurate evidence; the named-source question stays unanswered and no source adoption can follow."
+          },
+          {
+            "choice": "Retain Snow only as an unread named lead and defer that source question while leaving existing character work and qualified controls unchanged.",
+            "tradeoff": "Preserves the candidate question and full ambitions without pretending this attempt qualified it; produces no new source fact, page retry or automatic successor."
+          }
+        ]
+      }
+    ],
+    "recordedCall": {
+      "calls": 1,
+      "request": {
+        "url": "https://studio.blender.org/characters/snow/v4/",
+        "formats": [
+          "markdown",
+          "links"
+        ],
+        "onlyMainContent": false,
+        "maxAge": 0,
+        "lockdown": true,
+        "removeBase64Images": true,
+        "timeout": 30000
+      },
+      "beforeUTC": "2026-10-20 04:59:26 UTC",
+      "afterUTC": "2026-10-20 04:59:29 UTC",
+      "isError": true,
+      "errorCode": "INVALID_ARGUMENT",
+      "outboundRequest": "Tool explicitly reports none under lockdown; not independently network-observed.",
+      "HTTPStatus": null,
+      "pageContent": null,
+      "scrapeJobId": null,
+      "cost": "Unknown; absent from result, not zero.",
+      "feedback": "No returned scrape/job target; recorded no feedback call.",
+      "timingLimit": "Recorded clock endpoints at one-second precision; not HTTP/server duration or physical-worker telemetry."
+    },
+    "scopeLimits": [
+      "Only whole PAGE-RESULT is newly semantically read; prior PLAN/WORTH/INPUTS and initial root worth are reused at freshly unchanged pins.",
+      "No further page/network/feedback/source/locator/image/model/code/import/test/decode/native/API/browser/render/capture or option repair.",
+      "No official page facts, global source absence, platform support, license permission or source/rig/appearance qualification follows.",
+      "Source/model adoption still requires a separate later complete contract; this failed one-call nomination admits none.",
+      "All five original worth files remain byte-identical. Current23checked10broad/fullambitions and every old closure/material-volumeHOLD/accepted/default/original/frozen/ignored/unrelated asset remain preserved."
+    ],
+    "nextAction": "Root wholly read/fresh-verify this stable page-review/receipt and exact sole-call result, then save the unresolved B/unknown checkpoint. No further target or network work under this nomination.",
+    "rootPageOpinionReadBeforeSeal": false
+  },
+  "pageDecisionCanonicalHash": "d93061ea586edc5e4b1c9ce66778bf59e9c123a7731d5f6f59aa2f32f476de00",
+  "canonicalization": "UTF8 json.dumps(pageDecision,sort_keys=True,separators=(comma,colon),ensure_ascii=False), no terminalLF",
+  "inputPins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/snow-named-source-worth/PLAN.md",
+      "bytes": 3151,
+      "sha256": "c3eddd9c637c8d5cdccdbbf8a039b3ff5eb81a2d545c6767dd842330f67bdf46"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/snow-named-source-worth/INPUTS.json",
+      "bytes": 556,
+      "sha256": "908d3b9bd9716b2d1ed3dd6b7e4080d1266ce88b8d5f4960768519d44d31ff46"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/snow-named-source-worth/WORTH.md",
+      "bytes": 8264,
+      "sha256": "aec0a7704b45143619e115c7168b99f24511a6aa11d3d2a2abe30a9fab3cfd31"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/snow-named-source-worth/CRITIC-WORTH-RECEIPT.json",
+      "bytes": 13009,
+      "sha256": "af9a04cc11b2dcb70eaf6d22fa68625171e72267d18e9ec19a909c023126e9ac"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/snow-named-source-worth/ROOT-FIRST.json",
+      "bytes": 1836,
+      "sha256": "82313e654db340912f947c9702c6deff8e9b2344ccd39ba59a0238e1b43b0c20"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/snow-named-source-worth/PAGE-RESULT.json",
+      "bytes": 1306,
+      "sha256": "a26303ff6d998c605c55afba4a7bd3bf09137523a9fa5160f60dc72295f07cb0"
+    }
+  ],
+  "wholeNewSemanticReads": [
+    "PAGE-RESULT.json"
+  ],
+  "reused": "Own known PLAN/WORTH/INPUTS and root initial worth at fresh equal file pins; no new external or project source.",
+  "commands": [
+    {
+      "command": "cat docs/evidence/appearance-2026-10-19/snow-named-source-worth/PAGE-RESULT.json",
+      "chunk_id": "56831c",
+      "exit_code": 0,
+      "result": "Whole exact request/times/raw tool error emitted without truncation."
+    },
+    {
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime\np=Path('docs/evidence/appearance-2026-10-19/snow-named-source-worth/ROOT-PAGE-FIRST.json');b=p.read_bytes();print('ROOT_PAGE_FIRST_READ_AT',datetime.datetime.now(datetime.timezone.utc).isoformat());print('ROOT_PAGE_FIRST_PIN',len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "d96ed9",
+      "exit_code": 0,
+      "result": "First whole root page opinion strictly after own durable independent seal and whole initial pair readback."
+    }
+  ],
+  "pinCommand": {
+    "chunk_id": "405c1b",
+    "exit_code": 0,
+    "result": "All five original worth files and PAGE-RESULT fresh pins emitted; prewrite leaf7files29363bytes.",
+    "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib\nleaf=Path('docs/evidence/appearance-2026-10-19/snow-named-source-worth')\nfor n in ['PLAN.md','INPUTS.json','WORTH.md','CRITIC-WORTH-RECEIPT.json','ROOT-FIRST.json','PAGE-RESULT.json']:\n b=(leaf/n).read_bytes();print('FRESH_PIN',n,len(b),hashlib.sha256(b).hexdigest())\nfiles=[p for p in leaf.rglob('*') if p.is_file()];print('LEAF',len(files),sum(p.stat().st_size for p in files))\nPY"
+  },
+  "jobs": {
+    "reviewerNewNetworkFeedback": 0,
+    "semanticProjectSourceLocator": 0,
+    "imagesCodeModelDownloadImportTestDecode": 0,
+    "nativeAPIBrowserRenderCapture": 0,
+    "PTYBackgroundSession": null,
+    "allShellCommandsSynchronousCompleted": true,
+    "recordedRootToolCalls": 1,
+    "returnedToolJobID": null,
+    "returnedFeedbackTarget": null,
+    "reportedCost": "absent/unknown",
+    "noPhysicalWorkerOrResourceClaims": true
+  },
+  "caps": {
+    "leafRegularFiles": 12,
+    "leafMetadataBytes": 393216,
+    "pageResponseBytes": 524288
+  },
+  "prewriteLeafInventory": {
+    "regularFiles": 7,
+    "bytes": 29363
+  },
+  "writtenOnly": [
+    "PAGE-REVIEW.md",
+    "CRITIC-PAGE-RECEIPT.json"
+  ],
+  "chronology": [
+    {
+      "atUTC": "2026-10-20T05:00:31+00:00",
+      "event": "Independent result review starts; root page opinion unread."
+    },
+    {
+      "atUTC": "2026-10-20T05:01:30.539128+00:00",
+      "event": "Independent immutable pageDecision/hash written to both new files before root page opinion; whole initial readback follows."
+    },
+    {
+      "atUTC": "2026-10-20T05:01:30.539128+00:00",
+      "event": "Independent B/unknown seal command completed chunk5106b3 exit0; root page opinion unread."
+    },
+    {
+      "event": "Whole own initial pair readback completed chunk0d331f exit0 before root page opinion."
+    },
+    {
+      "atUTC": "2026-10-20T05:01:45.341390+00:00",
+      "event": "First root page opinion wholly read chunkd96ed9 exit0 after independent seal/readback."
+    },
+    {
+      "atUTC": "2026-10-20T05:02:13.534517+00:00",
+      "event": "Post-seal comparison and command/pin/job bookkeeping finalized; pageDecision immutable hash unchanged; no network/retry."
+    }
+  ],
+  "rootComparison": {
+    "status": "complete",
+    "firstReadUTC": "2026-10-20T05:01:45.341390+00:00",
+    "chunk_id": "d96ed9",
+    "path": "docs/evidence/appearance-2026-10-19/snow-named-source-worth/ROOT-PAGE-FIRST.json",
+    "bytes": 1241,
+    "sha256": "fe226b2f6c25510d4c5ff1bf96c1539c7f3ab97fd477869028f9af84e101d418",
+    "rootSealedUTC": {
+      "current_time": "2026-10-20 04:59:29 UTC"
+    },
+    "agreement": "Root UNRESOLVED/stop and independent B/unknown have the same scope: invocation/cache-only error, no returned page authority and no retry/adoption/native. Tool-reported no outbound is not a source/Blender/platform/appearance failure.",
+    "wordingLimit": "Root no-page-content wording is read as no returned content for this exact attempt, not global page nonexistence.",
+    "alternativeDifference": "Root records altered-option retry as a forbidden unperformed counterfactual. It is not an admissible alternative under this nomination; my alternatives both retain the unresolved/no-retry boundary.",
+    "pageDecisionChanged": false,
+    "noOtherRootPageOpinionRead": true
+  },
+  "pending_edits": false,
+  "initialSealPins": [
+    {
+      "path": "PAGE-REVIEW.md",
+      "bytes": 6842,
+      "sha256": "f72c2773f4d7746e16af09bc92db66b792d77ffdff4fee11e637cb781d07796b"
+    },
+    {
+      "path": "CRITIC-PAGE-RECEIPT.json",
+      "bytes": 8997,
+      "sha256": "5f228a3a8a732aa081f719eecec25fc6129c6fef0b968377b832e30ebaaee39b"
+    }
+  ],
+  "finalPageReviewPin": {
+    "path": "docs/evidence/appearance-2026-10-19/snow-named-source-worth/PAGE-REVIEW.md",
+    "bytes": 7699,
+    "sha256": "62c9f9ce55f10a7d576ea2babc34374b8cb9f08f8d9fee949bcc5e410a45e17a"
+  },
+  "finalPairHashProtocol": "After final receipt write, wholly emit both own files, then verify stable pair hashes, immutable decision equality/canonical hash, all six input pins/root pin and leaf cap. Announce final receipt hash/readbackIDs in final response without circular self-hash embedding."
+}

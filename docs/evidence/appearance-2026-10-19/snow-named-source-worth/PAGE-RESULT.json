@@ -1,0 +1,36 @@
+{
+  "request": {
+    "url": "https://studio.blender.org/characters/snow/v4/",
+    "formats": [
+      "markdown",
+      "links"
+    ],
+    "onlyMainContent": false,
+    "maxAge": 0,
+    "lockdown": true,
+    "removeBase64Images": true,
+    "timeout": 30000
+  },
+  "before": {
+    "current_time": "2026-10-20 04:59:26 UTC"
+  },
+  "after": {
+    "current_time": "2026-10-20 04:59:29 UTC"
+  },
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Tool 'firecrawl_scrape' execution failed: No cached data is available for this request in lockdown mode. Lockdown mode only serves previously cached responses and never makes outbound requests. To resolve this, either disable lockdown mode to allow a fresh scrape, or try again after the URL has been scraped and cached."
+      }
+    ],
+    "structuredContent": {
+      "error_code": "INVALID_ARGUMENT"
+    },
+    "isError": true
+  },
+  "calls": 1,
+  "readOutcome": "Tool INVALID_ARGUMENT/cache-only lockdown error; no official page content returned. Tool reports no outbound page request. No actual HTTP404/availability/license/version/source/face/rig/artifact fact established.",
+  "feedback": "No scrapeId/jobID or creditsCost returned; no valid feedback target, no feedback call. Cost unknown, not zero claim.",
+  "noRetry": true
+}
