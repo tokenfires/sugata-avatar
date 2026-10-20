@@ -1,0 +1,76 @@
+{
+  "utc": "2026-10-20T06:37:06.941818+00:00",
+  "pid": 5027,
+  "deadlineUTC": "2026-10-20T07:20:28.059868+00:00",
+  "worthHandoff": {
+    "bytes": 7144,
+    "sha256": "eaa4bd1f2ecbc7c9fcffbe6bcefd3505dc1a784c3fc8d2ffdd6eb9229b8725b2",
+    "canonicalOpinionSHA256": "5c297e3b965abad0adb0a07c24734a8d378d9976865c99eb5bd81b12770efa4c"
+  },
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/seasonal-board-comparison/PLAN.md",
+      "bytes": 2861,
+      "sha256": "625a9325bd013b095ddc4dcd87dea17bcfeae13f642d282e03ac54cd91e126ba"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/ARTIST-WARDROBE.html",
+      "bytes": 16062,
+      "sha256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/ARTIST-HANDOFF.md",
+      "bytes": 2175,
+      "sha256": "f3e8daa057fe9e64fd3d088a6ad8e293d828a5115883f24578bce61b16d1e874"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/warm-weather-outfit/ARTIST-HANDOFF.md",
+      "bytes": 2501,
+      "sha256": "a9c7d6f946167d29d53d95a5a7e5c80b34375c79d570a63cd9c11cdc27ed23c9"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/knit-character-turnaround/first.png",
+      "bytes": 2023441,
+      "sha256": "dc30615ef843789825f671a57a6c21f8d0732ad1e9352146c315e76a5ebb33a0"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/warm-weather-outfit/first.png",
+      "bytes": 2222757,
+      "sha256": "0248a8b9215e786fe40cfc664d7a002aa0f8116e0e0382331138c6f69f8fb74f"
+    }
+  ],
+  "candidate": {
+    "path": "docs/evidence/appearance-2026-10-19/seasonal-board-comparison/candidate.html",
+    "bytes": 18825,
+    "sha256": "906e0f844a6db7bb28b5c83b342d05b14d744ec5b14a3f4367b2c74827004131"
+  },
+  "exactOnlyInsertions": {
+    "navigationBytes": 48,
+    "sectionBytes": 2715,
+    "baselineBytes": 16062,
+    "baselineSHA256": "7ce463b30bccaa046c2e7c59f1305265fb7473d323014b2e1bda5f3517e94118"
+  },
+  "observationProposal": {
+    "staticOnly": true,
+    "javascript": false,
+    "newLibraries": false,
+    "newAssets": false,
+    "newImages": false,
+    "layouts": [
+      {
+        "width": 1280,
+        "height": 1000,
+        "role": "desktop side by side"
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "role": "mobile stacked"
+      }
+    ],
+    "target": "http://127.0.0.1:5173/@fs/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/seasonal-board-comparison/candidate.html#seasonal",
+    "allowance": "one static browser tab, desktop plus mobile viewport review, retained screenshots of the two whole section layouts and one keyboard anchor/focus check; no avatar scene, animation, native renderer, harness or repeated capture epoch",
+    "limits": "max 10 loaded local project images plus existing static links; no document JavaScript, dynamic services, installs or external network. Stop on load, truth or layout failure without retake/rescue loop."
+  },
+  "rootSourceVerdict": "A: unchanged baseline restored by removing exactly two insertions; current original image/handoff bindings exact; explicit unequal view roles and common illustration/fit/motion limits. Await independent source/worth advice before browser observation; no canonical mutation yet."
+}
