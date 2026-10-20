@@ -1,5 +1,11 @@
 # Sugata work window — October 18, 2026
 
+## October20, 05:36 UTC — complete3D overshirt source A, actual job not yet admitted
+
+Root whole-read stable10704B/25596B paird00870/1bcd00. Independent sourceA sealed05:34:16UTC before05:34:35root-opinion access; root priorA05:25:38 preserved. 29f064/PID79644/05:35:43UTC verifies25bindings plus receipt, immutable687f6203...ecd28/prefix/seal-order, all22originalmanifest rows and ADMISSION/resultabsence. Root independently whole-read24,627B programme, DESIGN/PLAN and source witnesses. [Exact root source gate](evidence/appearance-2026-10-19/overshirt-finish-3d-source/ROOT-SOURCE.json).
+
+Only static source/workloadA: no geometry arrays evaluated/generated, target/import/render/output/native/GPU/browser/capture yet. One unchanged directCPUjob requires fresh exclusive admission after this local checkpoint; actual naturalexit0<30s/observed<=1GiB plus independent actual output/data/PNG/pins before image. First substantiveB/unknown closes without source/value/renderer/camera/observer/wrapper repair/retake/successor. Stop06:05:16.502091UTC unchanged. All original/default/accepted/frozen/ignored/unrelated/October10assets, consumed2Dsheet/oldclosures/HOLD/fullroadmap/phaseorder/23checked10broad/mainboard unchanged; sameACTIVE10minute/server. No live ownedtarget/pendingcriticedit. Human steering wins.
+
 ## October20, 05:26 UTC — complete3D overshirt source inert, independent gate pending
 
 Separate preparation after15b9c06a worthA owns actual retained/replaced/shared interfaces, real Vslits/lapped cuffs/slots/buttons, finite inside/undercollar/facing-return shell, topology checks and depth-correct CPU raster with four fixed views. Full literal source/workload in [DESIGN](evidence/appearance-2026-10-19/overshirt-finish-3d-source/DESIGN.md). run.cjs24627B/1c4b3d5b...870802, design12044B/46b589e2...fca30,22inputpins. Two currentofficialSharp constructor/composite pages reported200/1credit each; feedback0each. One rejected local same-filemetadata patch changed no bytes, preserved transparently; no retrieval/source/target retry.
