@@ -1,0 +1,7 @@
+# Actual Mara worth jobs
+
+a0b243/exit0/PID66855/00:46:22UTC: bounded PLAN, whole3053B original handoff and one exact purpose query with5historicalWORK-WINDOWrows.4c4908/exit1 stopped before anywrite/image-read because print(res.stdout) added a trailing blank;362ca8/exit0 strips only that transport blank, validates same5literalGit979f759b rows and original PNG2383355B/1536×1024. No newquery/path/semanticrepair. Root whole-original view_image original followed, no crop/edit/extraimage. c1f26d/exit0/PID70548/00:48:16: firstopinionseal. fdf438/exit0/PID73649/00:49:50 retainedROOTTOOLS.
+
+Critic3f1182/exit0/PID71901/00:48:57 wholePLAN/INPUTS;0ee329/exit0/PID72682/00:49:20 fivepins,wholehandoff/frozenclosurepacket andheader. Actualwholeoriginal image view before168f72/exit0/PID75014/00:50:35 independentseal beforeROOTFIRST.7a3759/exit0/PID77279/00:51:42 stable3808Bworth/12674Breceipt;8360d4/exit0/PID78143/00:52:08 whole readback8bindings/5historicalrowhashes. Root981803/exit0 wholly reads pair4166tokens, then freshclosechecks8bindings/5literalhistoricalrows. No criticerrors orpendingedits.
+
+No online/reference/brief/prompt/generation/source/code/test/browser/native/GPU/oldfixture target. Six olderMara nativePNGsstillunviewed. Exactsource/toolrecords are inROOTTOOLS/criticreceipt. Root saves only this leaf plus additive mainnotes, verifies exactGitblobs/sourcebindings and cleanstatus after localcommit. Humansteering wins; sameVite/ACTIVEtenminute recovery retained. No push/publication/install/purchase/capacity/model/reset-credit/otherproject.

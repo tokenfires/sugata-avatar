@@ -1,0 +1,117 @@
+{
+  "utc": "2026-10-20T00:53:28.565223+00:00",
+  "pid": 80703,
+  "decision": "A_BRIEF_ONLY",
+  "freshBindings": 8,
+  "historicalRows": 5,
+  "preclosePins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise-worth/CLOSURE-EXCERPT.json",
+      "bytes": 18500,
+      "sha256": "4831486b26ff4d45172384ad6d528453d3a3f31600098ae30e1f592fad65cf41"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise-worth/CRITIC-RECEIPT.json",
+      "bytes": 12674,
+      "sha256": "2cef724cde88515f4bd1d85fc8e7cc0cc232eb0fa43ed98f677be44df69080e0"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise-worth/INPUTS.json",
+      "bytes": 1062,
+      "sha256": "d90ad00c400717ce6e74e2c76d1811d96ab049e4967cad204a4558bcf1b20fb1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise-worth/JOBS.md",
+      "bytes": 1562,
+      "sha256": "1f5cdf1308ecf01c6191f74ed343bb2aaaed6ef3558dabffe98291d84f42815b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise-worth/PLAN.md",
+      "bytes": 2770,
+      "sha256": "46a2454e418a2e5e4214f1dc0046afa03139e6f7fa9b57070560ea74109de779"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise-worth/README.md",
+      "bytes": 1099,
+      "sha256": "796c26152cc544ca799d28533f116ff247bf17e0af16ce7e0c38de1ca68cf349"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise-worth/ROOT-FIRST.json",
+      "bytes": 3203,
+      "sha256": "37a2e02d9402cd58c6a3c6ef39918858afa02b7eb230cfc6d4e85f1c49073732"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise-worth/ROOT-TOOLS.json",
+      "bytes": 43748,
+      "sha256": "cce1c9d4c3d3fe8a08abcb6adc57b0ac92811561387484b5daee075eda571914"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise-worth/ROOT-WORTH.json",
+      "bytes": 4930,
+      "sha256": "df2795ab5201d0b81ddb829f435f3e1cbf566363dbc7c6be305f4d8519b0da7d"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/mara-surprise-worth/WORTH.md",
+      "bytes": 3808,
+      "sha256": "7f664705795a44e5b0e73124e2f3f6b18f6ee977907630c2cffa2d56879be07e"
+    },
+    {
+      "path": "docs/WORK-WINDOW-2026-10-18.md",
+      "bytes": 172521,
+      "sha256": "500303cbebdfc66aac7ba993e0f48f02091a64116618b3d0f0b3b2f78c97c158"
+    },
+    {
+      "path": "docs/RESUME-2026-10-18.md",
+      "bytes": 147457,
+      "sha256": "049745d855f6c6c8ac1ad86d50c59cdaa5a85f032278f4a25e3cd2714e3e8657"
+    }
+  ],
+  "ownedPaths": [
+    "docs/RESUME-2026-10-18.md",
+    "docs/WORK-WINDOW-2026-10-18.md",
+    "docs/evidence/appearance-2026-10-19/mara-surprise-worth/CLOSURE-EXCERPT.json",
+    "docs/evidence/appearance-2026-10-19/mara-surprise-worth/CRITIC-RECEIPT.json",
+    "docs/evidence/appearance-2026-10-19/mara-surprise-worth/INPUTS.json",
+    "docs/evidence/appearance-2026-10-19/mara-surprise-worth/JOBS.md",
+    "docs/evidence/appearance-2026-10-19/mara-surprise-worth/PLAN.md",
+    "docs/evidence/appearance-2026-10-19/mara-surprise-worth/README.md",
+    "docs/evidence/appearance-2026-10-19/mara-surprise-worth/ROOT-CLOSE.json",
+    "docs/evidence/appearance-2026-10-19/mara-surprise-worth/ROOT-FIRST.json",
+    "docs/evidence/appearance-2026-10-19/mara-surprise-worth/ROOT-TOOLS.json",
+    "docs/evidence/appearance-2026-10-19/mara-surprise-worth/ROOT-WORTH.json",
+    "docs/evidence/appearance-2026-10-19/mara-surprise-worth/WORTH.md"
+  ],
+  "exactSaveCommands": [
+    [
+      "git",
+      "add",
+      "--",
+      "docs/RESUME-2026-10-18.md",
+      "docs/WORK-WINDOW-2026-10-18.md",
+      "docs/evidence/appearance-2026-10-19/mara-surprise-worth/CLOSURE-EXCERPT.json",
+      "docs/evidence/appearance-2026-10-19/mara-surprise-worth/CRITIC-RECEIPT.json",
+      "docs/evidence/appearance-2026-10-19/mara-surprise-worth/INPUTS.json",
+      "docs/evidence/appearance-2026-10-19/mara-surprise-worth/JOBS.md",
+      "docs/evidence/appearance-2026-10-19/mara-surprise-worth/PLAN.md",
+      "docs/evidence/appearance-2026-10-19/mara-surprise-worth/README.md",
+      "docs/evidence/appearance-2026-10-19/mara-surprise-worth/ROOT-CLOSE.json",
+      "docs/evidence/appearance-2026-10-19/mara-surprise-worth/ROOT-FIRST.json",
+      "docs/evidence/appearance-2026-10-19/mara-surprise-worth/ROOT-TOOLS.json",
+      "docs/evidence/appearance-2026-10-19/mara-surprise-worth/ROOT-WORTH.json",
+      "docs/evidence/appearance-2026-10-19/mara-surprise-worth/WORTH.md"
+    ],
+    [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    [
+      "git",
+      "commit",
+      "-m",
+      "docs: retain Mara surprise meaning worth decision"
+    ]
+  ],
+  "postCommitDuty": "Verify each exact owned commitblob/sourcebinding and cleanstatus. Excludes own/futurecommit hash to avoid circular binding."
+}

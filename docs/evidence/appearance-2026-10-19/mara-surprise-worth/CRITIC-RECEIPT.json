@@ -1,0 +1,194 @@
+{
+  "schema": "critic-expression-artist-worth-v1",
+  "collectionUTC": "2026-10-20T00:51:42.375507+00:00",
+  "collectionPID": 77279,
+  "decision": "A_ONE_SEPARATE_EXACT_CALM_MILD_SURPRISE_ARTIST_BRIEF_ONLY",
+  "deadlineUTC": "2026-10-20T01:00:00Z",
+  "inputs": [
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/PROJECT-CHECKLIST.md",
+      "bytes": 8469,
+      "sha256": "51eff8f457e413fe78449f1273d53a2ae996b0f0f4482d0f6283c016ef533ae3"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md",
+      "bytes": 3053,
+      "sha256": "f0f6118b1916220de67cb8748ec7232e1ab1b32e745415eb9c1d7629f429ca1d"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "bytes": 2383355,
+      "sha256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-surprise-worth/PLAN.md",
+      "bytes": 2770,
+      "sha256": "46a2454e418a2e5e4214f1dc0046afa03139e6f7fa9b57070560ea74109de779"
+    },
+    {
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-surprise-worth/CLOSURE-EXCERPT.json",
+      "bytes": 18500,
+      "sha256": "4831486b26ff4d45172384ad6d528453d3a3f31600098ae30e1f592fad65cf41"
+    }
+  ],
+  "manifestSelf": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-surprise-worth/INPUTS.json",
+    "bytes": 1062,
+    "sha256": "d90ad00c400717ce6e74e2c76d1811d96ab049e4967cad204a4558bcf1b20fb1"
+  },
+  "rootFirst": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-surprise-worth/ROOT-FIRST.json",
+    "bytes": 3203,
+    "sha256": "37a2e02d9402cd58c6a3c6ef39918858afa02b7eb230cfc6d4e85f1c49073732"
+  },
+  "review": {
+    "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-surprise-worth/WORTH.md",
+    "bytes": 3808,
+    "sha256": "7f664705795a44e5b0e73124e2f3f6b18f6ee977907630c2cffa2d56879be07e"
+  },
+  "independence": {
+    "job": "168f72",
+    "exit": 0,
+    "pid": 75014,
+    "utc": "2026-10-20T00:50:35.044356+00:00",
+    "order": "Own complete source/image worth decision printed before ROOT-FIRST contents. Root separate seal00:48:16.079644/PID70548."
+  },
+  "coverage": {
+    "wholeText": [
+      "PLAN.md",
+      "INPUTS.json",
+      "3053B originalARTIST-HANDOFF.md",
+      "CLOSURE-EXCERPT.json"
+    ],
+    "checklist": "Same8469B/51eff8f4 current pin; previous whole-read semantic evidence reused, no further links.",
+    "actualWholeImages": 1,
+    "soleView": {
+      "tool": "view_image",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/mature-feminine-character-target/concept-v1.png",
+      "requestedDetail": "original",
+      "returnedDetail": "original",
+      "priorMetadataJob": "0ee329",
+      "priorMetadataUTC": "2026-10-20T00:49:20.331120+00:00",
+      "backendPID": "not exposed",
+      "imageBytes": 2383355,
+      "imageSHA256": "163cf68cda0566a50699d51497d3b86c71f43543910a6205409d31aad2580311",
+      "nativeDimensions": [
+        1536,
+        1024
+      ],
+      "scope": "Exactly one whole original-detail image. Exact backend image UTC/PID unexposed; view occurred after0ee329 at00:49:20.331120 and before168f72 seal00:50:35.044356UTC. No crop/rescale/edit/extra image."
+    },
+    "noTraversal": "No extra image/source/reference/oldfixture/link/browser/target. Historical selected Git blob read for exact hash and five rows only, no new pattern query."
+  },
+  "historicalGitBinding": {
+    "sourceCommit": "979f759b779b385eaf50b1893ab1fd04c3d34e17",
+    "path": "docs/WORK-WINDOW-2026-10-18.md",
+    "bytes": 169246,
+    "sha256": "8ba6fbe69e8365fcd9f22428b4406586a13fb5ee8e8be41e306e8a1c27e494de",
+    "exactRows": [
+      {
+        "line": 81,
+        "UTF8bytes": 709,
+        "sha256": "a90caa1d8e1add303511b15aa01aca2440daa68c9430a621aa18d8f118529494"
+      },
+      {
+        "line": 239,
+        "UTF8bytes": 589,
+        "sha256": "14536c2f0a28a77d925db0c2872154a2970caba0905623d2b0200224f429681c"
+      },
+      {
+        "line": 437,
+        "UTF8bytes": 1008,
+        "sha256": "1cebd3722ebbb0183cecae0bbcea1e1c816accded832f35fc0381428aa158cc5"
+      },
+      {
+        "line": 630,
+        "UTF8bytes": 577,
+        "sha256": "e2e78dafe648119f59ee8554ebf0f76e8a935a73bc787efe7068caa222be392d"
+      },
+      {
+        "line": 638,
+        "UTF8bytes": 563,
+        "sha256": "c155d8f20bbdd8493b83606ba6a2123a1d6cc1a4d3c45500de9464f260597e6f"
+      }
+    ],
+    "meaning": "Frozen979f759b epoch, not current WORK-WINDOW line offsets or current-file pin; only these five rows semantically inspected.",
+    "verificationJob": "168f72/exit0"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "imageWitness": "Original portrait eyes/brows approx1010–1240/y220–320 and closed upward-corner mouth1030–1200/y395–455 are calm/pleasant; wholebody repeats calm face, no paired mild-surprise cue.",
+      "sourceWitness": [
+        "Handoff5/7 face/texturecontinuity;13 oldvariants/retakes/source/head/groom/foot/sweaterrescuesoutsidehandoff",
+        "Checklist57 intendedhumanmeaningstillopen",
+        "Exacthistoricalrows239gesture-referenceB,437groom/sourceboundary,630/638missingfacial/rest/materialmaster"
+      ],
+      "effect": "A new explicit artist-meaning comparison can guide later authors, distinct from rescuing old portrait/head/native methods. Original calm/pleasant image is not calibratedneutralrest or AUzero.",
+      "requiredNextBriefBoundary": "Name baseline calm/pleasant or explicitlyauthoredcalm, keeporiginalunchanged and characterqualitativecontinuity; no native/morph/rig/3D/calibration/demographicclaim or oldclosurewaiver.",
+      "alternatives": [
+        {
+          "choice": "Prepare one precise separatelygated calm/mild-surprise comparisonbrief",
+          "tradeoff": "Inspectable meaningtarget, speculativecontinuity/observerjudgment and laterimagefailure risk."
+        },
+        {
+          "choice": "Defer untilselectededitablefacial/expressionartistmaster",
+          "tradeoff": "Avoidanother2Dpair; intendedmeaningremainsunarticulated."
+        }
+      ]
+    }
+  ],
+  "rootReaderProvenance": {
+    "failure": "4c4908/exit1 before anywrite on trailingprintedblank row",
+    "correction": "362ca8 strips only trailingemptytransport rows, verifies sameexactfive; no newquery/path/input/target change",
+    "source": "Bound CLOSURE-EXCERPT.readerNote/priorReaderResult and parent handoff; not critic or target failure."
+  },
+  "notQualified": [
+    "currentbrief/prompt/reference/generation",
+    "actualmildsurpriseimage",
+    "neutralrest-expressionmaster/AUcalibration",
+    "native/morph/rig/head/groom/body/source",
+    "registered3D/motion/fit",
+    "perceivedage/gendercertification",
+    "runtime/default/AAA"
+  ],
+  "tools": [
+    {
+      "name": "initial",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/mara-surprise-worth');print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['PLAN.md','INPUTS.json']:\n b=(p/n).read_bytes();print('\\nFILE',n,'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "3f1182",
+      "exit_code": 0,
+      "wall_time_seconds": 6.125e-06,
+      "original_token_count": 1020,
+      "outputBytes": 4079,
+      "outputSHA256": "8108aa70cf5aa527982aff189cb1e6950467cf6ddf3d163c3ea90b2e45b5d0e6",
+      "firstLine": "UTC 2026-10-20T00:48:57.013050+00:00 PID 71901"
+    },
+    {
+      "name": "sources",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport os,datetime,json,hashlib,struct\nr=Path('/Users/robault/GitHub/sugata-avatar');p=r/'docs/evidence/appearance-2026-10-19/mara-surprise-worth';print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid());m=json.loads((p/'INPUTS.json').read_bytes())\nfor x in m['pins']:\n b=(r/x['path']).read_bytes();assert len(b)==x['bytes'] and hashlib.sha256(b).hexdigest()==x['sha256'];print('PIN_PASS',x['path'],len(b),x['sha256'])\nfor n in ['docs/evidence/nonhair-2026-10-05/mature-wardrobe-board/ARTIST-HANDOFF.md','docs/evidence/appearance-2026-10-19/mara-surprise-worth/CLOSURE-EXCERPT.json']:\n b=(r/n).read_bytes();print('\\nFILE',n);print(b.decode())\nb=(r/m['pins'][2]['path']).read_bytes();assert b[:8]==b'\\x89PNG\\r\\n\\x1a\\n';print('ORIGINAL_IMAGE_HEADER',struct.unpack('>IIBBBBB',b[16:29]));print('INPUTS_SELF',len((p/'INPUTS.json').read_bytes()),hashlib.sha256((p/'INPUTS.json').read_bytes()).hexdigest())\nPY",
+      "chunk_id": "0ee329",
+      "exit_code": 0,
+      "wall_time_seconds": 8.833e-06,
+      "original_token_count": 5655,
+      "outputBytes": 22619,
+      "outputSHA256": "494aa8643ce9908f94513e833dcbc75e88e548f5509943d2aee615b14267040e",
+      "firstLine": "UTC 2026-10-20T00:49:20.331120+00:00 PID 72682"
+    },
+    {
+      "name": "seal_compare",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,datetime,os,subprocess\nr=Path('/Users/robault/GitHub/sugata-avatar');p=r/'docs/evidence/appearance-2026-10-19/mara-surprise-worth';print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nx=json.loads((p/'CLOSURE-EXCERPT.json').read_bytes());b=subprocess.run(['git','show',x['sourceCommit']+':'+x['path']],cwd=r,check=True,capture_output=True).stdout;assert len(b)==x['sourceBytes'] and hashlib.sha256(b).hexdigest()==x['sourceSHA256'];lines=b.decode().splitlines();assert len(x['exactFiveRows'])==5\nchecks=[]\nfor l in x['exactFiveRows']:\n prefix,text=l.split(':',1);n=int(prefix);assert lines[n-1]==text;checks.append({'line':n,'UTF8bytes':len(text.encode()),'sha256':hashlib.sha256(text.encode()).hexdigest()})\nassert [v for v in x['exactRows'].splitlines() if v] == x['exactFiveRows'];print('EXACT_HISTORICAL_FIVE_ROWS',json.dumps({'commit':x['sourceCommit'],'path':x['path'],'blobBytes':len(b),'blobSHA256':hashlib.sha256(b).hexdigest(),'rows':checks},separators=(',',':')))\nprint('INDEPENDENT_SEAL',json.dumps({'decision':'A_ONE_SEPARATE_EXACT_CALM_MILD_SURPRISE_ARTIST_BRIEF_ONLY','pixelWitness':'Actualwhole1536x1024original portrait eyebrows/eyes around1010–1240/y220–320 and closed upward-corner mouth around1030–1200/y395–455 support calm/pleasant, not a paired surprise or verifiedneutralrestmaster; wholebody repeats the calm appearance.','sourceWitness':'Handoff preserves face/texture and excludes oldvariants/retakes/source/head/groomrescue; historicalrows239/437/630/638 retain gesture/groom/master limits; checklist57 leaves intended expressionmeaning open.','distinctResponsibility':'A newlyauthored supplemental comparison of readable meaning can offer a future expression artist a concrete mild-surprise target, without changing original, repairing a priorimage/view/head/native method or claiming matchedgeometry/actionunits. This is explicit newauthoring not automaticwaiver.','requiredBoundary':'Nextbrief must call baseline calm/pleasant or explicitlyauthoredcalm; do not claimoriginalisAUzero/neutralrestcalibration. No native/morph/rig/source/groom/body/agecertification or oldMaraPNGview.','alternatives':['Prepare one precise separatelygated meaningcomparisonbrief, gaining inspectable artistintent at costof speculativecontinuity/meaningjudgment and laterimagefailure risk.','Defer untilselectedfacial/expressionartistmaster exists, avoiding another2Dpair but leaving this intendedmeaning unarticulated.'],'scope':'WorthA forbrief/source/reference/outputpreparation only; no currentbrief/prompt/reference/generation or oldclosurewaiver.','pending_edits':False}))\nb=(p/'ROOT-FIRST.json').read_bytes();print('ROOT_FIRST',len(b),hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "chunk_id": "168f72",
+      "exit_code": 0,
+      "wall_time_seconds": 6.708e-06,
+      "original_token_count": 1429,
+      "outputBytes": 5714,
+      "outputSHA256": "3a5872e1d47dd928284a09962260e5ac05a03127bd1ba4495eee154c800c545a",
+      "firstLine": "UTC 2026-10-20T00:50:35.044356+00:00 PID 75014"
+    }
+  ],
+  "errors": [],
+  "pending_edits": false,
+  "noActions": "No source/code/test/fixture/browser/native/GPU/reference/query/brief/prompt/generation/extraimage/camera/oldclosure/otherchat/canonical action. Only currentexclusivecriticpair written.",
+  "receiptPreparedUTC": "2026-10-20T00:51:42.377696+00:00"
+}
