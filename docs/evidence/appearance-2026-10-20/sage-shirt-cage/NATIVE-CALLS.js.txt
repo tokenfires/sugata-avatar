@@ -1,0 +1,67 @@
+// Prospective CUA REPL source. Five separate bounded calls; do not execute as a shell/Node script.
+// Gate-dependent actual timestamps/hash/URL come only from the fresh NATIVE-ADMISSION.json.
+// A: one blank owner and durable ID before target navigation. Existing documented browser3 handle.
+var sageCageBase='/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/sage-shirt-cage';
+var sageCageCrypto=await import('node:crypto');
+var sageCageAdmissionBytes=await boardArtifactFS.readFile(sageCageBase+'/NATIVE-ADMISSION.json');
+var sageCageAdmission=JSON.parse(sageCageAdmissionBytes);
+var sageCageHash=b=>sageCageCrypto.createHash('sha256').update(b).digest('hex');
+var sageCageNeed=(ok,s)=>{if(!ok)throw Error(s);};
+var sageCageStart=Date.now();
+sageCageNeed(sageCageAdmission.contract==='sage-shirt-first-three-view-v1'&&sageCageAdmission.allowance===1,'wrong native admission');
+sageCageNeed(Number.isFinite(Date.parse(sageCageAdmission.issuedUTC))&&Number.isFinite(Date.parse(sageCageAdmission.deadlineUTC))&&sageCageStart>=Date.parse(sageCageAdmission.issuedUTC)&&sageCageStart-Date.parse(sageCageAdmission.issuedUTC)<120000&&sageCageStart<Date.parse(sageCageAdmission.deadlineUTC),'stale native admission');
+sageCageNeed(sageCageAdmission.targetURL==='http://127.0.0.1:5173/@fs'+sageCageBase+'/index.html'&&/^[a-f0-9]{64}$/.test(sageCageAdmission.modelSHA256),'wrong native source');
+var sageCageUsed=await boardArtifactFS.open(sageCageBase+'/NATIVE-ADMISSION.used','wx');
+try{await sageCageUsed.writeFile(JSON.stringify({at:new Date().toISOString(),admissionSHA256:sageCageHash(sageCageAdmissionBytes)})+'\n');await sageCageUsed.sync();}finally{await sageCageUsed.close();}
+var sageCageTab;
+try{
+  sageCageTab=await cua.createBrowserTab('3','about:blank',{visible:false});
+  var sageCageOwner=await boardArtifactFS.open(sageCageBase+'/OWNED-TAB.json','wx');
+  try{await sageCageOwner.writeFile(JSON.stringify({id:sageCageTab.id,targetURL:sageCageAdmission.targetURL,acquiredUTC:new Date().toISOString(),startedMS:sageCageStart})+'\n');await sageCageOwner.sync();}finally{await sageCageOwner.close();}
+  nodeRepl.write({ownedId:sageCageTab.id,ownerSavedBeforeNavigation:true});
+}catch(error){if(sageCageTab)try{await sageCageTab.close();}catch(closeError){nodeRepl.write({ownedId:sageCageTab.id,closeError:String(closeError)});}throw error;}
+
+// B: navigate only this known owner; no alternate target/reload.
+await sageCageTab.goto(sageCageAdmission.targetURL);
+await sageCageTab.getAXState();
+
+// C: one bounded readiness/metadata observation, then root inspects before D.
+await sageCageTab.playwright.waitForLoadState({state:'load',timeoutMs:10000});
+await sageCageTab.playwright.getByText('First three views rendered · saved source '+sageCageAdmission.modelSHA256.slice(0,12),{exact:true}).waitFor({state:'visible',timeoutMs:10000});
+await sageCageTab.getAXState();
+var sageCageDOM=await sageCageTab.playwright.evaluate(()=>{
+  const status=document.querySelector('#status'),canvas=document.querySelector('#garment'),footer=document.querySelector('footer');
+  const rect=e=>{const r=e.getBoundingClientRect();return{x:r.x,y:r.y,width:r.width,height:r.height};};
+  return{heading:document.querySelector('h1').textContent,status:status.textContent,dataset:{...status.dataset},canvas:{width:canvas.width,height:canvas.height,rect:rect(canvas)},footer:rect(footer),document:{width:document.documentElement.scrollWidth,height:document.documentElement.scrollHeight},viewport:{width:document.documentElement.clientWidth,height:document.documentElement.clientHeight}};
+});
+var sageCageActualURL=await sageCageTab.url();
+var sageCageLogs=await sageCageTab.dev.logs({levels:['warn','error'],limit:50});
+var sageCageReady= sageCageActualURL===sageCageAdmission.targetURL&&sageCageDOM.dataset.complete==='true'&&!sageCageDOM.dataset.failed&&sageCageDOM.dataset.modelSha256===sageCageAdmission.modelSHA256&&sageCageDOM.dataset.views==='3'&&sageCageDOM.dataset.triangles==='2848'&&sageCageDOM.canvas.width===1200&&sageCageDOM.canvas.height===440&&sageCageDOM.document.width<=2048&&sageCageDOM.document.height<=2048&&sageCageDOM.canvas.rect.x>=0&&sageCageDOM.canvas.rect.y>=0&&sageCageDOM.canvas.rect.x+sageCageDOM.canvas.rect.width<=sageCageDOM.document.width&&sageCageDOM.canvas.rect.y+sageCageDOM.canvas.rect.height<=sageCageDOM.document.height&&sageCageLogs.length===0;
+var sageCageReadiness={at:new Date().toISOString(),ownedId:sageCageTab.id,actualURL:sageCageActualURL,dom:sageCageDOM,logs:sageCageLogs,passed:sageCageReady};
+var sageCageReadinessText=JSON.stringify(sageCageReadiness,null,2)+'\n';
+sageCageNeed(Buffer.byteLength(sageCageReadinessText)<=65536,'readiness metadata cap');
+await boardArtifactFS.writeFile(sageCageBase+'/READINESS.json',sageCageReadinessText,{flag:'wx'});
+nodeRepl.write(sageCageReadiness);
+sageCageNeed(sageCageReady,'first native readiness refused');
+
+// D: only after successful observed C. One screenshot, ordinary exact-byte artifact I/O.
+sageCageNeed(sageCageReady&&Date.now()-sageCageStart<=300000&&Date.now()<Date.parse(sageCageAdmission.deadlineUTC),'native capture gate/clock');
+var sageCageFirstJPEG=await sageCageTab.screenshot({fullPage:true});
+sageCageNeed(sageCageFirstJPEG.length<=8388608,'native returned-image byte cap');
+var sageCageIsJPEG=sageCageFirstJPEG[0]===255&&sageCageFirstJPEG[1]===216;
+var sageCageImageName=sageCageIsJPEG?'first-three-view.jpg':'first-return.bin';
+await boardArtifactFS.writeFile(sageCageBase+'/'+sageCageImageName,sageCageFirstJPEG,{flag:'wx'});
+await boardArtifactFS.writeFile(sageCageBase+'/CAPTURE.json',JSON.stringify({at:new Date().toISOString(),ownedId:sageCageTab.id,name:sageCageImageName,bytes:sageCageFirstJPEG.length,sha256:sageCageHash(sageCageFirstJPEG),jpegSignature:sageCageIsJPEG,elapsedMS:Date.now()-sageCageStart})+'\n',{flag:'wx'});
+sageCageNeed(sageCageIsJPEG,'unexpected capture format, preserved unknown bytes');
+await nodeRepl.emitImage({bytes:sageCageFirstJPEG,mimeType:'image/jpeg'});
+
+// E: always run owned collection after any B/C/D outcome; no viewport was overridden.
+var sageCageClose={at:new Date().toISOString(),id:sageCageTab?.id,closed:false};
+try{if(sageCageTab){await sageCageTab.close();sageCageClose.closed=true;}}catch(error){sageCageClose.error=String(error);}
+var sageCageTabsAfter=await cua.listTabs({browser:'3'});
+sageCageClose.after=sageCageTabsAfter;sageCageClose.elapsedMS=Date.now()-sageCageStart;
+sageCageClose.ownedAbsent=!sageCageTabsAfter.some(t=>t.id===sageCageClose.id);
+await boardArtifactFS.writeFile(sageCageBase+'/CLEANUP.json',JSON.stringify(sageCageClose,null,2)+'\n',{flag:'wx'});
+nodeRepl.write(sageCageClose);
+// If close throws and the owned ID remains, one same-ID cleanup only is permitted; no new target/capture.
+// Preserve unknown owner/partial evidence on failure; do not turn a missing summary/failed write into A.

@@ -1,0 +1,111 @@
+Primary URL: https://threejs.org/docs/pages/WebGLRenderer.html
+HTTP200; current docs, installed0.185.1 separately pinned. Scoped complete method sections, not whole navigation/page.
+
+### . [dispose](https://threejs.org/docs/pages/WebGLRenderer.html\#dispose)()
+
+Frees the GPU-related resources allocated by this instance. Call this
+method whenever this instance is no longer used in your app.
+
+
+### . [forceContextLoss](https://threejs.org/docs/pages/WebGLRenderer.html\#forceContextLoss)()
+
+Simulates a loss of the WebGL context. This requires support for the `WEBGL_lose_context` extension.
+
+
+### . [render](https://threejs.org/docs/pages/WebGLRenderer.html\#render)( scene : [Object3D](https://threejs.org/docs/pages/Object3D.html), camera : [Camera](https://threejs.org/docs/pages/Camera.html) )
+
+Renders the given scene (or other type of 3D object) using the given camera.
+
+The render is done to a previously specified render target set by calling [WebGLRenderer#setRenderTarget](https://threejs.org/docs/pages/WebGLRenderer.html#setRenderTarget)
+or to the canvas as usual.
+
+By default render buffers are cleared before rendering but you can prevent
+this by setting the property `autoClear` to `false`. If you want to prevent
+only certain buffers being cleared you can `autoClearColor`, `autoClearDepth`
+or `autoClearStencil` to `false`. To force a clear, use [WebGLRenderer#clear](https://threejs.org/docs/pages/WebGLRenderer.html#clear).
+
+|     |     |
+| --- | --- |
+| **scene** | The scene to render. |
+| **camera** | The camera. |
+
+
+### . [setPixelRatio](https://threejs.org/docs/pages/WebGLRenderer.html\#setPixelRatio)( value : number )
+
+Sets the given pixel ratio and resizes the canvas if necessary.
+
+|     |     |
+| --- | --- |
+| **value** | The pixel ratio. |
+
+
+### . [setSize](https://threejs.org/docs/pages/WebGLRenderer.html\#setSize)( width : number, height : number, updateStyle : boolean )
+
+Resizes the output canvas to (width, height) with device pixel ratio taken
+into account, and also sets the viewport to fit that size, starting in (0,
+0). Setting `updateStyle` to false prevents any style changes to the output canvas.
+
+|     |     |
+| --- | --- |
+| **width** | The width in logical pixels. |
+| **height** | The height in logical pixels. |
+| **updateStyle** | Whether to update the `style` attribute of the canvas or not.<br>Default is `true`. |
+
+
+### . [setScissor](https://threejs.org/docs/pages/WebGLRenderer.html\#setScissor)( x : number \| [Vector4](https://threejs.org/docs/pages/Vector4.html), y : number, width : number, height : number )
+
+Sets the scissor region to render from `(x, y)` to `(x + width, y + height)`.
+
+|     |     |
+| --- | --- |
+| **x** | The horizontal coordinate for the lower left corner of the scissor region origin in logical pixel unit.<br>Or alternatively a four-component vector specifying all the parameters of the scissor region. |
+| **y** | The vertical coordinate for the lower left corner of the scissor region origin in logical pixel unit. |
+| **width** | The width of the scissor region in logical pixel unit. |
+| **height** | The height of the scissor region in logical pixel unit. |
+
+
+### . [setScissorTest](https://threejs.org/docs/pages/WebGLRenderer.html\#setScissorTest)( boolean : boolean )
+
+Enable or disable the scissor test. When this is enabled, only the pixels
+within the defined scissor area will be affected by further renderer
+actions.
+
+|     |     |
+| --- | --- |
+| **boolean** | Whether the scissor test is enabled or not. |
+
+
+### . [setViewport](https://threejs.org/docs/pages/WebGLRenderer.html\#setViewport)( x : number \| [Vector4](https://threejs.org/docs/pages/Vector4.html), y : number, width : number, height : number )
+
+Sets the viewport to render from `(x, y)` to `(x + width, y + height)`.
+
+|     |     |
+| --- | --- |
+| **x** | The horizontal coordinate for the lower left corner of the viewport origin in logical pixel unit.<br>Or alternatively a four-component vector specifying all the parameters of the viewport. |
+| **y** | The vertical coordinate for the lower left corner of the viewport origin in logical pixel unit. |
+| **width** | The width of the viewport in logical pixel unit. |
+| **height** | The height of the viewport in logical pixel unit. |
+
+## Type Definitions
+
+
+### . [Options](https://threejs.org/docs/pages/WebGLRenderer.html\#~Options)
+
+WebGLRenderer options.
+
+|     |     |
+| --- | --- |
+| **canvas**<br>HTMLCanvasElement<br>\|<br>OffscreenCanvas | A canvas element where the renderer draws its output. If not passed in here, a new canvas element will be created by the renderer.<br>Default is `null`. |
+| **context**<br>WebGL2RenderingContext | Can be used to attach an existing rendering context to this renderer.<br>Default is `null`. |
+| **precision**<br>'highp'<br>\|<br>'mediump'<br>\|<br>'lowp' | The default shader precision. Uses `highp` if supported by the device.<br>Default is `'highp'`. |
+| **alpha**<br>boolean | Controls the default clear alpha value. When set to`true`, the value is `0`. Otherwise it's `1`.<br>Default is `false`. |
+| **premultipliedAlpha**<br>boolean | Whether the renderer will assume colors have premultiplied alpha or not.<br>Default is `true`. |
+| **antialias**<br>boolean | Whether to use the default MSAA or not.<br>Default is `false`. |
+| **stencil**<br>boolean | Whether the drawing buffer has a stencil buffer of at least 8 bits or not.<br>Default is `false`. |
+| **preserveDrawingBuffer**<br>boolean | Whether to preserve the buffer until manually cleared or overwritten.<br>Default is `false`. |
+| **powerPreference**<br>'default'<br>\|<br>'low-power'<br>\|<br>'high-performance' | Provides a hint to the user agent indicating what configuration of GPU is suitable for this WebGL context.<br>Default is `'default'`. |
+| **failIfMajorPerformanceCaveat**<br>boolean | Whether the renderer creation will fail upon low performance is detected.<br>Default is `false`. |
+| **depth**<br>boolean | Whether the drawing buffer has a depth buffer of at least 16 bits.<br>Default is `true`. |
+| **logarithmicDepthBuffer**<br>boolean | Whether to use a logarithmic depth buffer. It may be necessary to use this if dealing with huge differences in scale in a single scene.<br>Note that this setting uses `gl_FragDepth` if available which disables the Early Fragment Test optimization and can cause a decrease in performance.<br>Default is `false`. |
+| **reversedDepthBuffer**<br>boolean | Whether to use a reverse depth buffer. Requires the `EXT_clip_control` extension.<br>This is a more faster and accurate version than logarithmic depth buffer.<br>Default is `false`. |
+| **outputBufferType**<br>number | Defines the type of the output buffer. Use `HalfFloatType` for HDR rendering with tone mapping and post-processing support.<br>Default is `UnsignedByteType`. |
