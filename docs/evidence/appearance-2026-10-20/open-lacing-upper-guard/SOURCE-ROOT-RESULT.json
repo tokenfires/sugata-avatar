@@ -1,0 +1,23 @@
+{
+  "verifiedUTC": "2026-10-20T08:20:06.921860+00:00",
+  "pid": 22392,
+  "verdict": "A_FIRST_SINGLE_BOUND_INVOCATION_ONLY",
+  "wholeHandoff": "c8e5a8",
+  "wholeWrapperRead": "8478d9",
+  "handoffBytes": 16466,
+  "handoffSHA256": "4fbbb669253f1b81e340163230692866438eae742239baa0d1a6729a997bd900",
+  "canonicalOpinionSHA256": "506c5e8d3913efcd2d31262b558b262b683bcd60b767b1e89b938e741735709c",
+  "fourteenFreshReviewAndSixRuntimePinsExact": true,
+  "rootInitialUTC": "2026-10-20T08:15:04.591444+00:00",
+  "criticSealUTC": "2026-10-20T08:17:36.126919+00:00",
+  "geometryToolsCopiesExact": true,
+  "runFuseAndOutputAbsent": true,
+  "liveOwnedTargetMatches": [],
+  "livenessMethod": "Bounded2second sameps metadata, exact two candidate ASCII paths and runtime command plus run-once.py/build.mjs arguments; no unrelated process intervention",
+  "preflightCorrection": "3e4dc5 first liveness command finished but its foreign process metadata could not be UTF8 decoded; no whole read/admission/target. Same ps request decoded with replacement for invalid foreign bytes; exact ASCII owned source identity unaffected. No observer/provider/source/workload change or geometry run.",
+  "rootExternalSupervisorRequired": true,
+  "command": "/opt/homebrew/opt/python@3.14/bin/python3.14 /Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-20/open-lacing-upper-guard/run-once.py",
+  "next": "One yielded terminal invocation; record actual session/PIDs and collect same session under CONTRACT. No retry/guard cycle/source/view repair. Image only after actual normal child0/resourcegood/reaped collection.",
+  "noGeometryYetExecuted": true,
+  "materialVolumeConstructor": "HOLD"
+}

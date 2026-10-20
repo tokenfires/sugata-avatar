@@ -1,0 +1,16 @@
+{
+  "verifiedUTC": "2026-10-20T08:13:12.835808+00:00",
+  "pid": 21034,
+  "verdict": "A_INERT_GUARD_COMPLETION_ONLY",
+  "wholeHandoff": "4e55e2",
+  "handoffBytes": 5278,
+  "handoffSHA256": "75eb28f0b7664f8d85cd7938adc0db0b9b38249b607e4461d89a34eb9d0f5a98",
+  "canonicalOpinionSHA256": "1e3d872fab6f6784fa2577f47d0813c20e19ff1d9be98240a0663ec813f5718d",
+  "allFourFreshInputsExact": true,
+  "rootInitialUTC": "2026-10-20T08:08:58.137682+00:00",
+  "criticSealUTC": "2026-10-20T08:10:48.126948+00:00",
+  "preparationStopUTC": "2026-10-20T08:33:12.835808+00:00",
+  "originalPreparationStopUTC": "2026-10-20T09:00:00.278483+00:00",
+  "noConstructorAdmission": true,
+  "limits": "Guard-only pre-execution duties, no geometry/check/view/threshold changes or tests. One fresh complete gate required before first invocation; if still incomplete stop guard cycle."
+}
