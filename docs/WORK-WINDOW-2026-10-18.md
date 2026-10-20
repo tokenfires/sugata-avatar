@@ -1,5 +1,11 @@
 # Sugata work window — October 18, 2026
 
+## October20, 03:49 UTC — overshirt finishing intent worth preparing
+
+Independent/root A identifies a genuinely new artist decision: explicit collar underside/turnback, facing return and slit-cuff overlap/closure in whole garment context. Existing coarse facing/cuff/stand/leaf roles are acknowledged. This is complete new design/source/installed CPU-vector-render contract preparation only, not drawing or repair/rerender of the closed mesh. [Worth receipt](evidence/appearance-2026-10-19/overshirt-finish-worth/README.md).
+
+Stable7940B/16217B pair wholly read117fa1/4fb48b; root77ee79/exit0/PID65733 at03:47:27UTC verifies13bindings/immutable6da61e2d...f07be/initial prefix/seal-before-root-access. Actual two retained whole images and entire builder/mesh text underpin the decision. Both alternatives and tradeoffs retained. One aggregate checkpoint display truncated and not claimed whole; latest heads read separately. No source execution, renderer/library probe, construction, image, online/native/GPU/browser/capture or asset/main/checklist/roadmap change. All closures/HOLD/full ambitions/checklist23/10 unchanged. Eight metadata files under384KiB, no pending target/critic edits; same ten-minute recovery/server retained. Close before03:57:52.798322UTC. Next separately bounded complete contract; human steering wins.
+
 ## October20, 03:32 UTC — skin-base complete proposal stopped unimplemented
 
 The admitted two-search preparation did not return its required permitted official authority: Three.js returned3GitHubissue excerpts and MetaHumanweb[]. No selected official page/scrape/current material profile or complete source/design/workload contract followed. Independent/rootB/unknown closes this nomination without source/observer rescue; prior worthA remains preparation-only, full skin/representation ambitions remain. [Source-stop receipt](evidence/appearance-2026-10-19/skin-base-customization-proposal/README.md).

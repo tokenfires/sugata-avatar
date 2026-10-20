@@ -1,0 +1,238 @@
+{
+  "schema": "overshirt-finish-worth-critic-v1",
+  "worthDecision": {
+    "sealedAtUTC": "2026-10-20T03:42:54.713286+00:00",
+    "sealPID": 56933,
+    "decision": "A",
+    "nextExactContractWorthDoing": true,
+    "admission": "Preparation only for one complete original editable 2D finishing-design/source/installed CPU-vector-render/resource/terminal qualification contract; no drawing, renderer/library probe, construction or execution.",
+    "reason": "The retained whole concept supplies a buttoned open overshirt, pointed collar and wrist cuffs, while the existing editable source already names front_facing/cuff_band/collar_stand/collar_leaf only at coarse shared-surface blockout scope. Choosing the interior-facing return, collar underside/turnback relation and cuff slit/overlap/closure in a single full-garment-context design would settle future artist decisions not specified by those role labels. This is worthwhile only as new explicit artist intent, not a correction or rerender of the closed blockout.",
+    "noRootWorthOpinionRead": true,
+    "findings": [
+      {
+        "id": "W1",
+        "kind": "new authored finishing decision, not missing existing role",
+        "witnesses": [
+          "triptych-first.jpg, whole 1280x900: front collar x182-283/y318-362 and wrists x55-107 and356-408/y507-524 are coarse and have little visible band separation; complete profile/rear clarify outer volume but no open cuff/detail or inside-return diagram.",
+          "build.py literal role = 'front_facing' if c == 3 assigns an existing strip within the front grid; quad('cuff_band' if r == 4 else 'sleeve', ...) assigns the last closed ring row; stand/leaf loops add six quads of each on the seven neck nodes. mesh.json preserves these actual face_roles, neck/armhole seams and wrist/free boundary lists.",
+          "README calls it an artist starting point with weak visible cuff-band separation; RESULT explicitly says named cuff/collar groups cannot stand for finished visual detail."
+        ],
+        "explanation": "Editable geometric groups already exist and must be preserved as such. They do not choose a cuff slit/overlap/button relation or an inside-facing turnback/edge finish; the whole source explicitly disclaims material finish and fabric thickness. A new authored finishing map could give a future artist concrete choices without editing the frozen volume.",
+        "alternatives": [
+          {
+            "choice": "Prepare one complete original finishing design contract with full garment context and linked collar/inside/cuff/slit views.",
+            "tradeoff": "Owns the undecided relationships in editable 2D, but adds another artist artifact and must not masquerade as wearable geometry or a sewing pattern."
+          },
+          {
+            "choice": "Defer the finishing sheet until a future coupled garment/body artist owns the full clothing source.",
+            "tradeoff": "Avoids premature detail and keeps decisions near a real construction consumer, but leaves these specific finish choices unresolved."
+          }
+        ]
+      },
+      {
+        "id": "W2",
+        "kind": "artist authority and closure boundary",
+        "witnesses": [
+          "concept-v1.png, whole1536x1024: full-body left collar around x330-433/y137-193, front buttons/edge around x341-376/y199-488, cuffs around x234-281/y442-490 and480-517/y466-505; portrait collar x822-1261/y485-755 shows outer collar/weave/buttons but does not expose full interior or an opened cuff slit.",
+          "MASCULINE-CHARACTER-TARGET states garment interfaces/outer-inner layer surfaces remain undefined and the source is not exact geometric/colour correspondence.",
+          "RESULT explicitly refuses more geometry/material/camera/lifecycle rescue, retake or recapture on the fixed method; PLAN preserves that closure and requires an exact future editable/raster-source/CPU-renderer resource contract."
+        ],
+        "explanation": "The visible style can ground a new artist choice, but hidden finishing details cannot be presented as recovered reference facts or as a repair of the old mesh. A useful next contract must select and label these relationships, retain the original exterior palette/context, and own literal shared-source render and failure duties before any art is authored.",
+        "alternatives": [
+          {
+            "choice": "Prepare the new exact contract with all unseen finishing choices labelled original, no physical/manufacturing/fit claims and no use of the old 3D renderer.",
+            "tradeoff": "Allows a genuinely distinct design responsibility with a bounded first-image question; later source and actual image gates can still refuse it."
+          },
+          {
+            "choice": "Stop here and keep the existing concept/coarse source as the available artist targets.",
+            "tradeoff": "No new dependency or presentation work, but the inside/turnback/slit decisions remain unowned; no renamed blockout or detail rescue follows."
+          }
+        ]
+      }
+    ],
+    "limits": [
+      "No claimed improvement to the frozen mesh, topology, wearable fit, cloth, physical sewing, real-body coupling, runtime, native or AAA qualification.",
+      "No additional semantic file, brand reference, directory search, source execution/import/evaluation/test, geometry computation/reconstruction, GLB/OBJ/source-member decoding, renderer/library probe, network, browser, GPU, native, capture, imagegen or asset edit.",
+      "The old blockout method remains closed. This does not reopen knit worn-technical, Ari bomber/interior, Mara native/source/publisher or other refused methods.",
+      "Any future exact design/source/renderer/resource/terminal contract requires separate full critic/root review; no human approval of this self-authored plan is claimed.",
+      "Exactly the two nominated old whole images were viewed; existing same-byte checklist/roadmap semantic knowledge was reused."
+    ]
+  },
+  "worthDecisionCanonicalSHA256": "6da61e2d29a4727bfb3f2bb34e0ed12dc783b49a7aa1058e2abbafb84b6f07be",
+  "canonicalization": "UTF-8 json.dumps ensure_ascii=False sort_keys=True separators=(comma,colon)",
+  "independentSealUTC": "2026-10-20T03:42:54.713286+00:00",
+  "independentSealPID": 56933,
+  "inputs": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/overshirt-finish-worth/PLAN.md",
+      "bytes": 4431,
+      "sha256": "93e06537c05d8060e4c940674e03ef2fc007af6514b38b62acc412f1e62d9f15"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/overshirt-finish-worth/LOCAL-INPUTS.json",
+      "bytes": 2760,
+      "sha256": "0e06c6f454608ae6d0d06d0a27a79fd022a3fe4e4720d6d7374c3129204ff597"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/README.md",
+      "bytes": 2553,
+      "sha256": "23f66a7a8c2781b476016630b70950cd873f7216200ec8d5dcd2c72185f6e451"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/RESULT.md",
+      "bytes": 3375,
+      "sha256": "aa37460c6f1cb119a8680f887799b0235cebe7104345db8601b2c07f512961ae"
+    },
+    {
+      "path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/build.py",
+      "bytes": 8223,
+      "sha256": "cbaa652042008d835c531abb8e7514ec727a41d7bba126ac91d5f23fca048423"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/export/mesh.json",
+      "bytes": 30694,
+      "sha256": "bac92957a37762cc8c2b5b472ed9946f2b3c13882c38cd716f58b393faab86db"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/triptych-first.jpg",
+      "bytes": 47399,
+      "sha256": "5fd1071f64a7a7a1ebb5e36bd677b6412defba321a061a2e34e5b8dfb15b65da"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8886,
+      "sha256": "8081b2052d17f95064c298213f4df54e5c3b3211c4ecbc2c0e8c0a28973995ab"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/overshirt-finish-worth/ROOT-FIRST.json",
+      "bytes": 5756,
+      "sha256": "d0f58d855dbbd4ef883e801ffd70eec8575daf879ef5722c53b2b0cdccd22af0"
+    }
+  ],
+  "operations": [
+    {
+      "scope": "plan+manifest",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport datetime,os,hashlib\nleaf=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-worth')\nprint('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor n in ['PLAN.md','LOCAL-INPUTS.json']:\n p=leaf/n;b=p.read_bytes();print('FILE',str(p),'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest());print(b.decode())\nPY",
+      "job": "007ada",
+      "exit_code": 0
+    },
+    {
+      "scope": "all9pins+three whole receipts+whole builder",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,datetime,os\nr=Path('/Users/robault/GitHub/sugata-avatar');leaf=r/'docs/evidence/appearance-2026-10-19/overshirt-finish-worth';m=json.loads((leaf/'LOCAL-INPUTS.json').read_bytes());print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid())\nfor row in m['pins']:\n p=r/row['path'];b=p.read_bytes();assert len(b)==row['bytes'] and hashlib.sha256(b).hexdigest()==row['sha256'];print('PIN_PASS',row['path'],len(b),row['sha256'])\nfor row in m['pins'][:4]:\n print('\\nWHOLE',row['path']);print((r/row['path']).read_text())\nPY",
+      "job": "df8286",
+      "exit_code": 0
+    },
+    {
+      "scope": "mesh bytes0..15999",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/export/mesh.json');b=p.read_bytes();print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid(),'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest(),'SCOPE_BYTES_0_15999');print(b[:16000].decode())\nPY",
+      "job": "c66128",
+      "exit_code": 0
+    },
+    {
+      "scope": "mesh bytes16000..EOF initial output, internally clipped",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,datetime,os\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/export/mesh.json');b=p.read_bytes();print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid(),'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest(),'SCOPE_BYTES_16000_EOF');print(b[16000:].decode())\nPY",
+      "job": "0a989c",
+      "exit_code": 0
+    },
+    {
+      "scope": "mesh bytes16000..23999 complete",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport datetime,os,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/export/mesh.json');b=p.read_bytes();print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid(),'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest(),'START',16000,'STOP',24000);print(b[16000:24000].decode())\nPY",
+      "job": "2834c3",
+      "exit_code": 0
+    },
+    {
+      "scope": "mesh bytes24000..EOF complete",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport datetime,os,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/export/mesh.json');b=p.read_bytes();print('UTC',datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID',os.getpid(),'BYTES',len(b),'SHA256',hashlib.sha256(b).hexdigest(),'START',24000,'STOP',30694);print(b[24000:30694].decode())\nPY",
+      "job": "cbe672",
+      "exit_code": 0
+    },
+    {
+      "scope": "independent seal in both allowed files",
+      "job": "fba0ae",
+      "exit_code": 0,
+      "UTC": "2026-10-20T03:42:54.713286+00:00",
+      "PID": 56933,
+      "commandSHA256": "1f544aa22c2ca1bad5ddb15cc4c832be7180d3111cbbdb43d277abf60b897b68",
+      "commandPolicy": "The exact seal command was submitted in the retained tool record fba0ae; payload is the immutable decision plus manifest-bound read metadata, not source or target execution."
+    },
+    {
+      "scope": "whole root opinion after seal",
+      "command": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,datetime,os,hashlib\np=Path('/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-19/overshirt-finish-worth/ROOT-FIRST.json');b=p.read_bytes();print(json.dumps({'UTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'PID':os.getpid(),'path':str(p),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()},sort_keys=True));print(b.decode())\nPY",
+      "job": "dc7eee",
+      "exit_code": 0,
+      "UTC": "2026-10-20T03:43:18.990084+00:00",
+      "PID": 57727
+    }
+  ],
+  "actualWholeViews": [
+    {
+      "tool": "view_image",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-05/overshirt-first-view/triptych-first.jpg",
+      "requestedDetail": "original",
+      "returnedDetail": "original",
+      "afterMetadataJob": "df8286",
+      "backendPID": "not exposed"
+    },
+    {
+      "tool": "view_image",
+      "path": "/Users/robault/GitHub/sugata-avatar/docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "requestedDetail": "original",
+      "returnedDetail": "original",
+      "afterMetadataJob": "df8286",
+      "backendPID": "not exposed"
+    }
+  ],
+  "viewChronology": "Both original-detail image views followed source metadata job df8286 at03:41:14.934498UTC and preceded this seal. Exact backend view PID/time is not exposed.",
+  "errors": [
+    {
+      "kind": "read-only output clipping",
+      "job": "0a989c",
+      "effect": "The initial second-half mesh display included an internal truncated marker. It is not claimed wholly read from that display. Same pinned bytes16000..23999 and24000..EOF were completely recovered in2834c3/cbe672; no source/target change or new scope."
+    }
+  ],
+  "initialReview": {
+    "path": "docs/evidence/appearance-2026-10-19/overshirt-finish-worth/WORTH.md",
+    "bytes": 6986,
+    "sha256": "cdd0dbb6a701c59868e77ef2f2dfd520785d7a7927261c5f5d507fe3475f4952"
+  },
+  "pending_edits": false,
+  "status": "Stable full review/receipt, immutable independent worthDecision preserved, root opinion compared after seal. No target/source preparation executed; stop editing after whole readback.",
+  "rootComparison": {
+    "rootFirstReadUTC": "2026-10-20T03:43:18.990084+00:00",
+    "rootFirstReadPID": 57727,
+    "rootFirstReadJob": "dc7eee",
+    "rootSealUTC": "2026-10-20T03:40:28.449550+00:00",
+    "rootSealPID": 52326,
+    "rootDecision": "A for complete new 2D finishing-design/source/CPU-vector-render contract preparation only",
+    "agreement": "Same practical distinction: existing named coarse roles are already owned, but a future explicit collar/interior/cuff closure intent can add a new artist decision. Both retain old geometry/appearance/native methods closed. No disagreement requires source change.",
+    "rootOpinionAccessAfterBothDurableCriticFiles": true
+  },
+  "historicalInitialReceipt": {
+    "path": "docs/evidence/appearance-2026-10-19/overshirt-finish-worth/CRITIC-RECEIPT.json",
+    "bytes": 13500,
+    "sha256": "835d861a6275521f21bbf6aec7d4c7d722b2e1a58ced01eb2346409a86ada2fb",
+    "scope": "Historical initial durable decision receipt before comparison; final receipt updates only external bookkeeping while worthDecision is unchanged."
+  },
+  "review": {
+    "path": "docs/evidence/appearance-2026-10-19/overshirt-finish-worth/WORTH.md",
+    "bytes": 7940,
+    "sha256": "f9c14c7ccf4e9c1b2387fa72b159ebbabe21acd04afcab5ae129a94e6b2198f6"
+  },
+  "collectedUTC": "2026-10-20T03:43:57.704271+00:00",
+  "collectionPID": 58974
+}

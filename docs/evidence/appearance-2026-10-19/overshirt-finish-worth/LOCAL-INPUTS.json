@@ -1,0 +1,71 @@
+{
+  "schema": "overshirt-finishing-worth-inputs-v1",
+  "createdUTC": "2026-10-20T03:40:28.447451+00:00",
+  "pid": 52326,
+  "pins": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/README.md",
+      "bytes": 2553,
+      "sha256": "23f66a7a8c2781b476016630b70950cd873f7216200ec8d5dcd2c72185f6e451"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/RESULT.md",
+      "bytes": 3375,
+      "sha256": "aa37460c6f1cb119a8680f887799b0235cebe7104345db8601b2c07f512961ae"
+    },
+    {
+      "path": "docs/research/MASCULINE-CHARACTER-TARGET-2026-10-04.md",
+      "bytes": 3264,
+      "sha256": "cf4b096c0940790062ee13b76f7ad452f1ebc5bfb30368ddb00c40302f7812ba"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/build.py",
+      "bytes": 8223,
+      "sha256": "cbaa652042008d835c531abb8e7514ec727a41d7bba126ac91d5f23fca048423"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/export/mesh.json",
+      "bytes": 30694,
+      "sha256": "bac92957a37762cc8c2b5b472ed9946f2b3c13882c38cd716f58b393faab86db"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/triptych-first.jpg",
+      "bytes": 47399,
+      "sha256": "5fd1071f64a7a7a1ebb5e36bd677b6412defba321a061a2e34e5b8dfb15b65da"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "bytes": 2262882,
+      "sha256": "4f2dcb32d200b8998fec7c80231c1fa9b0ab6ba73f1be3ff534bc5846984ee44"
+    },
+    {
+      "path": "docs/PROJECT-CHECKLIST.md",
+      "bytes": 8886,
+      "sha256": "8081b2052d17f95064c298213f4df54e5c3b3211c4ecbc2c0e8c0a28973995ab"
+    },
+    {
+      "path": "docs/PRODUCT-ROADMAP.md",
+      "bytes": 32741,
+      "sha256": "b63372b0c777000675838af499ddccc4b14ffdac2b6c5d4d35cdc5e66b2c2264"
+    }
+  ],
+  "wholeTextRead": [
+    "READMEff2ce7",
+    "RESULTandtargetab55f4",
+    "build.pyf401ba",
+    "mesh.json0-15999/16000-EOF4e8839/52e396"
+  ],
+  "wholeActualViews": [
+    {
+      "path": "docs/evidence/appearance-2026-10-05/overshirt-first-view/triptych-first.jpg",
+      "detail": "original",
+      "scope": "existing whole native1280x900triptych, no recapture or crop"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-04/masculine-character-target/concept-v1.png",
+      "detail": "original",
+      "scope": "whole retained1536x1024fictional character concept, no edit/relabel"
+    }
+  ],
+  "sourceCoverage": "Only3whole text receipts+2whole authoring files from exact source-linked paths; full current checklist/roadmap reused at unchanged freshly hashed pins. No linked reference or renderer/OBJ/model/native decode opened; no source executable imported/run."
+}
