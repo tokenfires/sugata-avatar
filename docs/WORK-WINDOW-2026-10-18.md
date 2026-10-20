@@ -1,5 +1,11 @@
 # Sugata work window — October 18, 2026
 
+## October20, 04:23 UTC — extra Mara concern portrait deferred
+
+No new portrait/brief/prompt/source/reference call. Independent criticB finds another same-format alternate-emotion raster pair insufficiently consequential before a named face/motion authoring consumer; concern is not already owned and accepted art is not defective. Root initiallyA, whole-read stable8617B/15261B pairf2455f/a0cce7 and accepts stop/priority after actual same whole-image/doc witnesses. Root94d2d0/PID36024/04:23:31UTC verifies11bindings/immutabled0ef901c...843295/prefix/seal-before-root-access. Both initial opinions retained, no global expression ban or automatic newpermission requirement. [Exact worth closure](evidence/appearance-2026-10-19/mara-concern-worth/README.md).
+
+Eight metadata files<384KiB; no source/model/buffer/geometry/import/test/newimage/online/native/GPU/browser/capture/art/default/main/checklist/roadmap edit, no pending target/critic edit. No concern-source repair/renamed successor. Currentsequentialclipper orientation found alreadyaccepted34calls andclosedharness; no rerun. Original/default/accepted/frozen/ignored/unrelated/9October10files/alloldclosures/AriHOLD/fullAAAcharacter/expression/wardrobe/representation/coupled-fit/motion/performance/VTuber/Mii/23scoped10broad preserved. SameACTIVE10minute/server retained; next genuinely different substantive consumer requires freshworth. Close before04:36:02.201504UTC; humansteeringwins.
+
 ## October20, 04:12 UTC — editable overshirt finishing sheet delivered
 
 [Open the reviewed artist handoff and original vector/PNG](evidence/appearance-2026-10-19/overshirt-finish-design/README.md). It supplies full front/back context plus deliberately authored collar underside/stand, inside-facing turn/finish and slit-cuff overlap/closure. Subdued inside annotations remain disclosed; the clear separate legend carries the relationship. Unitless artist guidance only, no physical/sewing/native3D/fit/AAA/broad completion. Checklist23scoped/10broad and every other asset/phase goal remain unchanged.
