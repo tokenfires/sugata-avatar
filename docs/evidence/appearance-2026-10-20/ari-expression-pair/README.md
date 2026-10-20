@@ -1,0 +1,31 @@
+# Ari expression comparison — rejected first image
+
+The first generated pair preserves a plausible Ari likeness, but does not establish the requested calm-attentive / quiet-determination contrast. Both root and independent critic read two close calm, mildly pleasant variants. The right face is non-hostile and more reserved; that alone is insufficient evidence of determination. This experiment is closed with B. Do not repair, retake, crop, relabel or change the prompt to rescue it.
+
+This is a rejection receipt, not an accepted expression handoff. The unchanged first image is [retained as evidence](first-output.png). It earns no expression, native-control, rig, pose, sequence, runtime, gender-readability or AAA milestone. Original Ari, accepted/default assets and the full roadmap remain unchanged; material-volume stays HOLD.
+
+## Exact first call and preservation
+
+The prior [worth decision](../ari-expression-worth/ROOT-RESULT.json) admitted complete preparation only. The [complete contract](CONTRACT.md), [exact prompt](PROMPT.txt), [tool arguments](INPUTS.json) and seven [input pins](INPUT-PINS.json) were frozen before review. Independent admission A sealed08:48:47UTC, 11914-byte [handoff](ADMISSION-REVIEW.md), SHA256 `5c9bfb2f95c59d1baa8355694327279ef4a9b59bf66e990989fbf63eacefa6d4`. Root whole read `d362e8` and `ff9f0b` fresh eight-pin/canonical/order verification admitted exactly one call; complete preparation commit `7d0972bc`.
+
+One built-in `image_gen.imagegen` invocation used the complete INPUTS.json, SHA256 `b05420db1a1aa0b8315f1842e8a819e48924d655d7a41dd5c1d4896399add480`: sole unchanged October7 Ari reference, full1735-byte prompt, transparent false and no recent-image selector. See [pre-call receipt](INVOCATION.json) at08:49:45.730947UTC/PID27111. The tool returned successfully in32.2s without a yielded cell/session; no numbered cell identity was exposed. Its native filename identity is `exec-74c4fde6-9820-4096-940c-c05917c83aeb`. No CLI, alternate provider/model, purchase, install, reset-credit redemption, retry or second image call occurred.
+
+[Collection](COLLECTION.json), job `8eae14`/08:50:38.096299UTC/PID27211, preserves the first native PNG unchanged in this leaf:1774x887,2143174bytes,SHA256 `668547df6c47f49a70aa44eeb34ab23af92ffcca85bbf4557861e2dcce2be720`. Its original tool file remains at `/Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-74c4fde6-9820-4096-940c-c05917c83aeb.png`. Full copy equality is verified. [Tool metadata](TOOL-RESULT.json) records the returned output hint without duplicating base64. Hosted CPU/memory/process retirement were not observable; no hard-resource guarantee is claimed. Same call is complete, with no owned image/capture target left.
+
+## Actual image decisions
+
+Root whole-viewed the generated full canvas and exact saved native PNG at original detail, then sealed [initial B](ROOT-IMAGE-INITIAL.json), `a331fe`/08:51:16.114669UTC/PID27278, before the independent actual-image opinion. Mouth/brow/eye regions on both sides read too similarly pleasant and attentive to meet the fixed distinction. Root later whole-viewed the complete original character sheet again; [reference/initial verification](ROOT-REFERENCE-AND-INITIAL-VERIFICATION.json) preserves that chronology and character-plausibility judgment.
+
+The separate critic first received only the actual image/path/hash and left/right descriptive task. [Initial meaning read](INITIAL-MEANING-READ.md) sealed08:53:00.071790UTC/PID27547, SHA256 `a942f2f1bd6d4f5dfc41c8308e8b0d83ad76371c1a15ce5c4b26aeef906a28dd`: warm/inquisitive left, reserved/attentive right, subtle contrast. Targets, current prompt, reference and root opinion were withheld at that stage; path/Ari/two-portrait priming is disclosed. This is subjective AI critique, not scientific blinding or human validation.
+
+After its initial seal, the critic received the full fixed brief, targets and original reference, whole-viewed both exact images, and sealed [final B](FINAL-IMAGE-REVIEW.md)08:56:22.260445UTC/PID28116 without reading root's current image opinion. Final handoff12698bytes,SHA256 `b70c53675f3a5ce847e22fd4d190c273de894da44171dd6cdec81200aa19411a`; first opinion canonical SHA256 `cde07bf52a97093a490ce16940861efd21b8c0642cba8d67bee1a45ada91ed0a`. It supplies whole-frame witnesses, explanation and two closure alternatives. Minor absence of the requested central gap is recorded but is not the reason for B.
+
+Root whole-read that final handoff `a45859`, independently retained its initial B, and verified all nine fresh pins, native equality, initial-reading immutability and opinion chronology in [final root result](ROOT-IMAGE-RESULT.json), `da6603`/08:57:42.520521UTC/PID28339. No accepted expression handoff or presentation page follows this failure.
+
+## Recovery
+
+Original reference2193053bytes/SHA256 `6f1bdb3406b915e45a963c0613780f6c4a0bbb1f267f765ecdb1e94ae8ba259d`, its original handoff, all frozen evidence, ignored source buffers, October10 material-volume files, unrelated worktrees, accepted/default assets and prior refusals are preserved. [Readback](PRESERVATION-READBACK.json), `d6967c`/08:56:44UTC, verifies the main artist board/checklist unchanged and retained review server HTTP200 with exact existing boot-page bytes; no browser/layout capture occurred. Same heartbeat was read back ACTIVE every10minutes through app API+TOML `d97004`/08:52:03UTC. Delivery cadence is not a guarantee. No push, publish or other-project work occurred.
+
+The independent critics have no pending edits. This Ari nomination and the earlier boot one-run construction study are closed; the latter remains a limited editable construction ingredient with stiff lace/faceted hardware finish concerns. No boot route/geometry/material/view/observer/retake successor is admitted.
+
+Next action: use the existing project checklist to nominate one genuinely different usable improvement, with a fresh independent worth decision and explicit source/workload/first-image gate before investigation. Do not revisit this failed Ari target with another prompt or treat the heartbeat as material-volume admission. Human check-in/new steering takes precedence; a pause must collect/checkpoint owned work and pause the same automation with app readback while retaining the review server.

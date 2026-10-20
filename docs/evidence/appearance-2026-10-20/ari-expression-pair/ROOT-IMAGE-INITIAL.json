@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-20T08:51:16.114669+00:00",
+  "pid": 27278,
+  "verdict": "B_MEANING_CONTRAST_INSUFFICIENT",
+  "imageSHA256": "668547df6c47f49a70aa44eeb34ab23af92ffcca85bbf4557861e2dcce2be720",
+  "imageBytes": 2143174,
+  "wholeImageViewedAtOriginalDetail": true,
+  "viewEvidence": "Generated full canvas plus exact saved native PNG whole-view; image tool exposed no numbered view job id.",
+  "reading": "Both faces read attentive and mildly pleasant. Right mouth is a little firmer/less upturned, with a small brow difference, but I do not see a sufficiently legible quiet determination contrast independent of the prompt. The picture looks coherent and similar across panels, with open eyes and matching clothes/background. This pleasant pair fails the fixed meaning contrast gate.",
+  "witnesses": [
+    {
+      "region": "left face, roughly x285-630 y270-570 of1774x887",
+      "observation": "Relaxed open eyes, a slight closed-mouth smile and lifted mouth corners read welcoming attention."
+    },
+    {
+      "region": "right face, roughly x1180-1520 y270-570",
+      "observation": "Very similar open gaze and soft mouth; subtle firmness alone reads a second pleasant/neutral portrait, not reliably resolve. No major angry scowl is present, but avoiding anger is insufficient."
+    }
+  ],
+  "alternatives": [
+    {
+      "action": "Keep exact first image as rejected expression evidence and close this experiment",
+      "tradeoff": "Honest decision and no repeated tuning; Ari determination source remains open."
+    },
+    {
+      "action": "Defer Ari expression authoring until an editable head/expression owner and explicit art direction exist",
+      "tradeoff": "Allows owned expression work later under a genuinely new worth contract; requires substantially more work and supplies no immediate determination reference."
+    }
+  ],
+  "noRepairRetakeOrRelabel": true,
+  "independentImageOpinionNotRead": true,
+  "nativeRuntimeQualification": false
+}
