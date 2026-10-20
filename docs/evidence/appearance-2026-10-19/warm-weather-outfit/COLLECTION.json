@@ -1,0 +1,172 @@
+{
+  "schema": "warm-outfit-first-collection-v1",
+  "collectedUTC": "2026-10-20T02:41:48.714097+00:00",
+  "bookkeepingPID": 9379,
+  "nativeOriginal": {
+    "path": "/Users/robault/.codex/generated_images/01a0ff57-d720-7db2-923f-9e3e0521216c/exec-9690cd60-9fa3-45d0-87fe-aa3b1e20b98d.png",
+    "bytes": 2222757,
+    "sha256": "0248a8b9215e786fe40cfc664d7a002aa0f8116e0e0382331138c6f69f8fb74f"
+  },
+  "projectCopy": {
+    "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/first.png",
+    "bytes": 2222757,
+    "sha256": "0248a8b9215e786fe40cfc664d7a002aa0f8116e0e0382331138c6f69f8fb74f"
+  },
+  "imageUrlDecodesExactlyToNative": true,
+  "completePNG": {
+    "ihdr": [
+      1536,
+      1024,
+      8,
+      2,
+      0,
+      0,
+      0
+    ],
+    "chunks": [
+      "IHDR",
+      "caBX",
+      "IDAT",
+      "IEND"
+    ],
+    "allCRCsPass": true,
+    "completeIEND": true
+  },
+  "sourceAdmission": {
+    "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ADMISSION.json",
+    "bytes": 7941,
+    "sha256": "2a7784dfa0aad7b9c754a28d81fe5adcfc08fc8938ca1d6d3e2fc2b59ed23aec"
+  },
+  "toolRecord": {
+    "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/TOOL-IMAGE.json",
+    "bytes": 2982634,
+    "sha256": "79f225469eb4fda5ea381b3a697160ccb418bba4dd44187095462531022a342a"
+  },
+  "callArgsExact": true,
+  "sourcePinCount": 32,
+  "returnedClock": {
+    "current_time": "2026-10-20 02:37:59 UTC"
+  },
+  "callCollectionDeadlineUTC": "2026-10-20T02:52:21.927195+00:00",
+  "dispatchEvidence": "Completion precedes dispatchByUTC; same awaited script serialized exclusive marker then sole call. Toolclock precision is one second.",
+  "inventoryBeforeReceipt": [
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ADMISSION.json",
+      "bytes": 7941,
+      "sha256": "2a7784dfa0aad7b9c754a28d81fe5adcfc08fc8938ca1d6d3e2fc2b59ed23aec"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/BRIEF.md",
+      "bytes": 4227,
+      "sha256": "8cd3ddf7b1f325eb17b36441af5975eaf570a4cd199ca703c479097aa9f8b552"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CALL-CONTRACT.md",
+      "bytes": 2626,
+      "sha256": "54249e5036935ddee3a858583f2f2d1f8c1aa55b3cf9b83e43599e14f9c4fc2a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CALL-STARTED.json",
+      "bytes": 390,
+      "sha256": "e0e705bbeb50995011621b5dc74fac65b01e45ef2b7423d1d2c9e961ccb0537a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/CRITIC-SOURCE-RECEIPT.json",
+      "bytes": 25505,
+      "sha256": "fd5bd1f8976cfd3a911552661f11cb42133e8f2d6ed28eb0074f1d3fd2605b77"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/PLAN.md",
+      "bytes": 5816,
+      "sha256": "9b0ac45b24cd9a6bfa7058f9b36af704cdfe320814806338acebc2ed4881b8c5"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/PROMPT.txt",
+      "bytes": 2348,
+      "sha256": "70ff3c82f0f57092368289ad6cd16684d7be005aeb62d78e37e6cf65de515ea1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-RAW.json",
+      "bytes": 31086,
+      "sha256": "2a76062c51394c6efd60e67c3f2dd2b8cdaeb0f7f5b802c94b3d94969bbd022f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-USE.md",
+      "bytes": 1639,
+      "sha256": "c3ff6f6d84591f59257de4c4783d69fc8366291747eaef8398703dece99c6e56"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/REFERENCE-WORTH.md",
+      "bytes": 3843,
+      "sha256": "81b84e2d566a0c6ef73a6814574319509b72cf806ee896e9760e83f71390ef6f"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/REVIEW-PROTOCOL.md",
+      "bytes": 997,
+      "sha256": "234793110a64f5a7a5c37f02d6fcc98cbc85706e29024be17e0c7611f1967d1c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-REFERENCE-FIRST.json",
+      "bytes": 1884,
+      "sha256": "441bf0b5f03c30e703200fb0d0440d7502c335f982122cc6b9271334b0e5d264"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-SOURCE-FIRST.json",
+      "bytes": 2366,
+      "sha256": "efd97faab7c90e4b5cc96277b77447d40263e855e342b85984a923b7f5677796"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/ROOT-SOURCE.json",
+      "bytes": 21217,
+      "sha256": "12384c7ce407caa380205d11e47b485288f82b618c66180952857a8dacf08940"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/SECOND-CRITIC-RECEIPT.json",
+      "bytes": 30405,
+      "sha256": "ea7534fbc7e620f3f96d48564f56dcdb2f15f2dbd313a2a37f4f34dc6b0da9ce"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/SECOND-SOURCE-REVIEW.md",
+      "bytes": 9220,
+      "sha256": "4979827f92a0f2467f133362b136f2898daa7f05db76c3fd532b55777572306c"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/SOURCE-INPUTS.json",
+      "bytes": 4984,
+      "sha256": "c1bdccdbdf90fa54818250d2624a1f8b70b90456da6c9d048fae4ed6cf41e659"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/SOURCE-README.md",
+      "bytes": 1934,
+      "sha256": "6c1591476940cfaf9b626aa2a624b698f77968e13d82aeca8745c16a4a416dc1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/SOURCE-REVIEW.md",
+      "bytes": 5076,
+      "sha256": "82bd475ab2e35cbbdf673043ac9684d7d8834bbc955afac4b7fa457fce8469c1"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/TOOL-ARGS.json",
+      "bytes": 2675,
+      "sha256": "7d07eeabb10f8cf40550c35fa772b7a9125bdecc605425005a2e05113bef5e2b"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/TOOL-IMAGE.json",
+      "bytes": 2982634,
+      "sha256": "79f225469eb4fda5ea381b3a697160ccb418bba4dd44187095462531022a342a"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/TOOL-ROOT.json",
+      "bytes": 60374,
+      "sha256": "67f0963ff093a14eeda22ac9874355457f378e94f522ede1ef6f19db33266ba9"
+    },
+    {
+      "path": "docs/evidence/appearance-2026-10-19/warm-weather-outfit/first.png",
+      "bytes": 2222757,
+      "sha256": "0248a8b9215e786fe40cfc664d7a002aa0f8116e0e0382331138c6f69f8fb74f"
+    }
+  ],
+  "regularFilesBeforeReceipt": 23,
+  "bytesBeforeReceipt": 5431944,
+  "scope": "One first output; unchanged native/project bytes and complete raw two-field tool result. Preview was displayed but formal appearance judgment waits for this receipt/inventory. No crop/edit/retake/extra image or physical/performance/worker-retirement claim."
+}
