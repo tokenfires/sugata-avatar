@@ -1,0 +1,49 @@
+{
+  "checkedUTC": "2026-10-31T07:56:07.075099+00:00",
+  "files": [
+    {
+      "path": "reference/ember/authoring/facebuilder/ember-head-photo2-expression-v001.blend",
+      "bytes": 2472786,
+      "sha256": "7e60c86a5bf85b7e7f9cc7769b68508626fd2fb375b22677cdbc0dd942992ceb",
+      "localOnly": true
+    },
+    {
+      "path": "reference/ember/authoring/facebuilder/ember-head-photo2-expression-v001.glb",
+      "bytes": 2308552,
+      "sha256": "455f3d6bd138da27508914821d620376576f868699936cea4dc70fb054b5feee",
+      "localOnly": true
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-facebuilder/photo2-export-state.jpg",
+      "bytes": 840989,
+      "sha256": "a85769f037f17544085c45d384ca7d791739a9451a4133cede51128256d1a5c6",
+      "localOnly": true
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-facebuilder/browser-photo2-front-shape.jpg",
+      "bytes": 61463,
+      "sha256": "c75d51db96ff78b77b189b2e39803c535b8006a2d3dafcdafcf8606f55ca17e8",
+      "localOnly": true
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-facebuilder/browser-photo2-angle-shape.jpg",
+      "bytes": 61266,
+      "sha256": "308eb06625a825ffa59cec1a71be9deb2cb9f28151fac186def20bbbcc616074",
+      "localOnly": true
+    },
+    {
+      "path": "packages/testbed/src/ember-facebuilder.js",
+      "bytes": 3837,
+      "sha256": "f85d5634c2cabb29713bc8f882551dd1e7168f7a304f5fa87774518bd7ea63eb",
+      "localOnly": false
+    }
+  ],
+  "comparison": {
+    "neutralSourcesUnchanged": true,
+    "vertexCount": 18097,
+    "changedVertexPositionsOver1eMinus8": 17921,
+    "maxPositionDistanceInAuthoringUnits": 0.043010243838122034,
+    "embeddedTextureIdentical": true,
+    "note": "Confirms a geometry-state change and reused texture; not likeness or expression acceptance."
+  }
+}

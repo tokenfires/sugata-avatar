@@ -1,5 +1,7 @@
 # Ember — external FaceBuilder trial
 
+**Latest bounded receipt:** [portrait2 expression diagnostic](PHOTO2-EXPRESSION-DIAGNOSTIC.md). The single expression-selected export/two-view comparison below is now consumed; read its result and next action rather than replaying it.
+
 **October31,2026 human steering:** Robert installed FaceBuilder in Blender, explicitly approved one free15-day trial in the pending question, and required prominent central disclosure that this is an external tool needed by the selected Sugata workflow. [Main README disclosure](../../../README.md#external-dependency--ember-character-authoring) · [central dependency register](../../AUTHORING-DEPENDENCIES.md).
 
 Usable improvement: discoverable, accurate authoring provenance plus one ordinary editable fitted-head handoff if the tool works. Bounded question: can the installed add-on/Core use the two assigned portraits and export an editable head for actual likeness review? Verify compatibility and image handling first. Stop at a concrete compatibility, privacy, fit/export or actual-image failure; no purchases/subscriptions or third estimated-slider build. Independent critic/root gates and original-reference/default/frozen-evidence preservation continue.

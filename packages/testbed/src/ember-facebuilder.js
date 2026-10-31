@@ -14,9 +14,13 @@ const camera=new PerspectiveCamera(29,1,0.01,100);
 scene.add(new HemisphereLight('#ffffff','#757d73',2));
 const key=new DirectionalLight('#ffffff',2.4);
 key.position.set(-4,5,7);scene.add(key);
-const url='/@fs/Users/robault/GitHub/sugata-avatar/reference/ember/authoring/facebuilder/ember-head-projected-v001.glb';
+const expression=new URLSearchParams(location.search).get('expression')??'neutral';
+if(!['neutral','photo2'].includes(expression))throw new Error('Unknown fitted expression');
+const filename=expression==='neutral'?'ember-head-projected-v001.glb':'ember-head-photo2-expression-v001.glb';
+const url=`/@fs/Users/robault/GitHub/sugata-avatar/reference/ember/authoring/facebuilder/${filename}`;
+document.querySelector('header p').textContent=`Photo-fitted head · FaceBuilder / Blender authoring · ${expression==='neutral'?'neutral base':'portrait 2 expression diagnostic'}, unaccepted`;
 let focus,distance,meshes=[];
-let view='front',mode='photo',draws=0;
+let view='front',mode=expression==='photo2'?'shape':'photo',draws=0;
 async function render(){
     if(!focus)return;
     const angle=({front:0,angle:Math.PI/6,profile:Math.PI/2})[view];
@@ -24,7 +28,7 @@ async function render(){
     camera.lookAt(focus);
     for(const {mesh,photo,shape} of meshes)mesh.material=mode==='photo'?photo:shape;
     await renderer.renderAsync(scene,camera);
-    Object.assign(document.body.dataset,{ready:'true',view,mode,model:url,draws:String(++draws)});
+    Object.assign(document.body.dataset,{ready:'true',view,mode,expression,model:url,draws:String(++draws)});
     status.textContent=mode==='photo'?'First photo projection · hair/neck gaps visible · likeness not accepted':'Actual fitted geometry · texture hidden · structure not accepted';
 }
 function resize(){
@@ -56,6 +60,7 @@ async function main(){
         for(const x of document.querySelectorAll('[data-mode]'))x.setAttribute('aria-pressed',String(x===b));
         void render();
     };
+    for(const b of document.querySelectorAll('[data-mode]'))b.setAttribute('aria-pressed',String(b.dataset.mode===mode));
     new ResizeObserver(resize).observe(stage);resize();
 }
 main().catch(error=>{status.textContent=`Head could not open: ${error.message}`;document.body.dataset.error=error.message;console.error(error);});

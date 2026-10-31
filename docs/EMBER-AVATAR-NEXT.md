@@ -21,6 +21,8 @@ Produce an isolated, rendered head-and-shoulders Ember candidate with recognizab
 
 ## Improve the same character
 
+**Latest bounded result:** the [portrait2 expression diagnostic](evidence/ember-2026-10-31-facebuilder/PHOTO2-EXPRESSION-DIAGNOSTIC.md) is complete. It explains a subtle mouth/cheek change, not the whole photographic-smile difference. Next, inspect the actual portrait2 source-camera overlay; correct only a clearly witnessed pin-alignment error in one preserved pass. If none is visible, proceed to derived skin/material work without pin edits. Read the receipt's stop condition; do not repeat Auto Align or expression exports.
+
 Allow a small, planned revision cycle when a visual finding has an evidence-backed correction. Preserve each version and judge its actual improvement. Stop repetitive adjustments that add no visible or decision-relevant gain; reconsider the asset, diagnosis or rendering route. No generic-likeness pass, moving goalposts or unqualified default promotion. Existing explicitly closed experiments remain closed; this plan does not replay them.
 
 Once face/hair/material likeness is convincing, extend the same character to the pinned body proportions and a complete finished outfit, then expression identity, head movement, blinking, speech shapes, hair motion and fitting. The expression references test that the same person persists through warm engagement and quiet focus; their filenames alone do not prove emotional meaning. The full AAA character, wardrobe, representation, coupled-fit, motion, performance, VTuber and Mii roadmap stays intact.
