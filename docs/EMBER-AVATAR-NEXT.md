@@ -1,10 +1,12 @@
 # Next development goal — build Ember's Sugata avatar
 
-**Planned next work; construction and the ten-minute recovery timer remain paused.** Robert has chosen Ember as the first complete character, supplied her self-authored sheet and13 images, and resolved portrait roles. This replaces older general wardrobe experiments as the next development direction. It does not reopen a historical job or grant autonomous execution while paused.
+**ACTIVE — Robert explicitly resumed October30,2026.** Build Ember, starting with her face, skin, eyes and hair; he is obtaining an outfit image separately. The existing ten-minute recovery timer is ACTIVE through app API and readback. Her self-authored sheet and13 images, with resolved portrait roles, define the target. This supersedes the October20 pause for Sugata only and replaces older general wardrobe experiments. It does not reopen historical jobs.
 
-The existing advance-sugata-avatar-visual-quality timer was updated through the app API to follow this goal. Exact saved-prompt readback matched; its ten-minute cadence, name and destination were preserved, and status remains PAUSED. This synchronization starts no work.
+The existing advance-sugata-avatar-visual-quality timer was updated through the app API to record the explicit resume. Its ten-minute cadence, name and destination were preserved; saved status readback is ACTIVE. Recovery receipt: [Ember first candidate](evidence/ember-2026-10-30/README.md).
 
 ## First visible milestone
+
+**Latest result:** two actual face studies were rejected for likeness after independent/root image inspection. The first age-setting error and grain were improved; the second still looks like someone else. The estimated-slider sequence is stopped. [Current receipt and pending photo-guided trial proposal](evidence/ember-2026-10-30/README.md). Do not install/activate FaceBuilder or accept its agreement until Robert answers that specific question; timer stays active and quiet while pending.
 
 Produce an isolated, rendered head-and-shoulders Ember candidate with recognizable facial structure, hazel eyes, fair warm freckled skin and copper-auburn loose wavy hair. Use face-reference-2 for frontal face and face-reference-1 for angled face and hair. Compare actual frontal and three-quarter views with those originals. The target is a convincing real-time representation of Ember; a generic auburn-haired woman is insufficient. A head study is the first milestone toward her complete avatar, not completion of the full character or AAA roadmap.
 

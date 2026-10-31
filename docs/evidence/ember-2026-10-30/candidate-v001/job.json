@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--threads",
+    "4",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "tools/ember-prototype/build.py",
+    "--",
+    "--identity",
+    "tools/ember-prototype/identity-v001.json",
+    "--output",
+    "docs/evidence/ember-2026-10-30/candidate-v001/ember.glb"
+  ],
+  "startedUTC": "2026-10-31T04:04:21.772031+00:00",
+  "timeoutSeconds": 120,
+  "sourceSHA256": "09eebad530bf1451ef6e42f22bc8c89dabe6c9af21b94f844f16f93556086108",
+  "state": "FAILED",
+  "pid": 64055,
+  "exitCode": 2,
+  "seconds": 1.161
+}

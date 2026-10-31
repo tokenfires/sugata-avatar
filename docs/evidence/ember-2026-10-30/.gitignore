@@ -1,0 +1,5 @@
+# Comparison frames contain the user's original reference images. Preserve locally;
+# track their hashes, not copies of those references in repository history.
+candidate-v*/*.jpg
+snow-source-preview.jpg
+final-review.jpg

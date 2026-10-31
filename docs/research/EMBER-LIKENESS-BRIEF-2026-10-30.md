@@ -4,6 +4,8 @@ Reference intake, October30,2026. Robert supplied Ember's own attribute sheet, t
 
 ## Current direction
 
+**October30 human resume and outfit addendum:** construction is now explicitly active. Her full name is **Ember Hearth**. Robert supplied three preferred-outfit images in reference/ember/preferred-outfit; root viewed all three. They show a relaxed oatmeal knit sweater, dropped shoulders and ribbed round neck/cuffs/hem, dark straight cropped jeans and bare feet. Barefoot at home is her deliberate cozy preference, not an omitted shoe requirement. [Separate original outfit inventory](ember-preferred-outfit-inputs-2026-10-30.json). Front/back garment lengths vary somewhat across generated views; they convey design intent, not registered sewing measurements. The two assigned close portraits still govern facial identity. Continue face/skin/eyes/hair first, then this complete outfit on the same character.
+
 Ember is the first complete character target. Robert permits appropriate licensed starting assets. Local browser rendering is preferred; another method is an option only if a concrete comparison demonstrates a worthwhile improvement. No asset, vendor or renderer has been selected here. Her own sheet and generated self-images define her appearance; existing Sugata defaults are implementation ingredients, not a reason to change her identity.
 
 The target is a convincing, recognizable representation of Ember in a real-time avatar system. Photographic pixel identity is unnecessary. Broad similarity such as auburn hair plus a young woman is insufficient. A correct renderer, valid mesh, long list of parameters or attractive unrelated face cannot substitute for likeness.

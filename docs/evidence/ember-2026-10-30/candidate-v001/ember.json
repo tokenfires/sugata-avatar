@@ -1,0 +1,161 @@
+{
+  "identity": {
+    "path": "tools/ember-prototype/identity-v001.json",
+    "sha256": "9300d5fcdee1700cab6ca4ee1923d4879376c01e97a84b64c6ea97fb65de5442"
+  },
+  "archive": {
+    "path": "tools/figure-pipeline/.cache/makehuman_system_assets_cc0.zip",
+    "sha256": "b542127a8e25547c7c29c19f2d1d2adb9a664c80396ecd694095dbc8028a0107"
+  },
+  "pipeline": {
+    "path": "tools/figure-pipeline/build_figure.py",
+    "sha256": "270e87d563ab0212835ec2c63b4d6364a1031397979152b0af14bccdc7753065"
+  },
+  "targetInputs": [
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/head/head-oval.target.gz",
+      "weight": 0.48,
+      "sha256": "057eea7c5535c325493b9107228052b03c78fac1bcb24905313fae6351179cb8"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/head/head-round.target.gz",
+      "weight": 0.2,
+      "sha256": "9c5661568155231f4c5f13b0d332c09b0c27452cafc02f5685ff4d7c69010f50"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/head/head-scale-vert-decr.target.gz",
+      "weight": 0.06,
+      "sha256": "64e86d59a469eeeb0201026880bcd6ebb0cbd590a74b179f58efa879b3772f6c"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/chin/chin-height-decr.target.gz",
+      "weight": 0.18,
+      "sha256": "1f4196d330b418d576e9400a754cb99d7e60b069ee8fdef645713f84db984e0c"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/chin/chin-width-decr.target.gz",
+      "weight": 0.1,
+      "sha256": "6c3aaca074630e89951184130a4a158b6f62c9d0cf57cf8eb828c445ff40c21a"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/chin/chin-prominent-decr.target.gz",
+      "weight": 0.06,
+      "sha256": "4ed14cb51e7ea7b3ecd469a537733924353c683f3cfe545be182d18a220dcb4e"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/chin/chin-jaw-drop-decr.target.gz",
+      "weight": 0.12,
+      "sha256": "9176198f2ddcbb48d21d26b5c61e646bb656c6fc96508d4406272efa2aeab40c"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/cheek/l-cheek-volume-incr.target.gz",
+      "weight": 0.16,
+      "sha256": "75bf330b96d0036c46f779ed003782c7380c77dd06c14fd80f1fa20a5093fee1"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/cheek/r-cheek-volume-incr.target.gz",
+      "weight": 0.16,
+      "sha256": "4df3e61e843c2d3381ef534e90d347b6b8ea763428d69eba8ef2ed5ab0affb8c"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/cheek/l-cheek-inner-incr.target.gz",
+      "weight": 0.08,
+      "sha256": "aa88894b5e89617c98c8738ffa61aab79f450a5420570d4c2ee8e97ae6a70c3e"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/cheek/r-cheek-inner-incr.target.gz",
+      "weight": 0.08,
+      "sha256": "db0700f0785acc72c2c91665d8ae9502b959e28c60e8fbd1d4b1a2bc94d11199"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/cheek/l-cheek-bones-decr.target.gz",
+      "weight": 0.1,
+      "sha256": "109d88ec6394cb3455073ae9f2a6038b8b4d6b57feeaf4633611bc60f27ed212"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/cheek/r-cheek-bones-decr.target.gz",
+      "weight": 0.1,
+      "sha256": "f128fdcf1d91769a907dc2c74056edac427196c1900f875c34c03b01dee5b7af"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/nose/nose-scale-horiz-decr.target.gz",
+      "weight": 0.16,
+      "sha256": "95d8dc4a3589bbb6105191abc6e3cae47c3c424ce189b5f0a611dc098806060d"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/nose/nose-nostrils-width-decr.target.gz",
+      "weight": 0.08,
+      "sha256": "7c08d53d08ad0d397853d8ecdef5df200c697dc9afee8bf09a73f94a8287664f"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/nose/nose-point-width-decr.target.gz",
+      "weight": 0.05,
+      "sha256": "920cd53d57b8797414af73b59e54d34547ef2e1c79fa0a19ca55dbddc0aa7365"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/mouth/mouth-scale-horiz-decr.target.gz",
+      "weight": 0.04,
+      "sha256": "aed1a3c27224d12828de1ffc3fe9c2895f4389417d016016dd4f1fefccdbc6c9"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/mouth/mouth-lowerlip-volume-incr.target.gz",
+      "weight": 0.06,
+      "sha256": "6eefdf010318ac86aa59aeefffdf1f7e566f280a04e9843003b0543b4dc99179"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/eyes/l-eye-scale-incr.target.gz",
+      "weight": 0.04,
+      "sha256": "2d2d2d088931ce206eb6dad91e26318f045c7e4e6b6580acc812750b0f18f4bc"
+    },
+    {
+      "path": "/Users/robault/Library/Application Support/Blender/5.2/extensions/blender_org/mpfb/data/targets/eyes/r-eye-scale-incr.target.gz",
+      "weight": 0.04,
+      "sha256": "af556b9a6f930ce74f86d64f32b2f801bb5f4bb91f49c3ed37225b7d0413c5af"
+    }
+  ],
+  "output": {
+    "path": "docs/evidence/ember-2026-10-30/candidate-v001/ember.glb",
+    "bytes": 8504452,
+    "sha256": "46422291770a0efb308ab0a580fdd5d0c667bfbf0d121ae22d561f2e87462660"
+  },
+  "blender": "5.2.3 LTS",
+  "seconds": 2.4616794169996865,
+  "meshes": [
+    {
+      "name": "Human",
+      "vertices": 13380,
+      "faces": 13378
+    },
+    {
+      "name": "Human.cornea",
+      "vertices": 512,
+      "faces": 490
+    },
+    {
+      "name": "Human.eyebrow001",
+      "vertices": 124,
+      "faces": 96
+    },
+    {
+      "name": "Human.eyelashes01",
+      "vertices": 250,
+      "faces": 184
+    },
+    {
+      "name": "Human.high-poly",
+      "vertices": 552,
+      "faces": 530
+    },
+    {
+      "name": "Human.teeth_base",
+      "vertices": 3868,
+      "faces": 3560
+    },
+    {
+      "name": "Human.tongue01",
+      "vertices": 226,
+      "faces": 224
+    }
+  ],
+  "limits": "Static unrigged facial candidate only. No hair, expression, likeness or finish qualification."
+}

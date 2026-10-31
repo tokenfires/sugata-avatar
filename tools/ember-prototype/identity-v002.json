@@ -1,0 +1,39 @@
+{
+  "name": "Ember facial study v002",
+  "scope": "Authoring estimates from the two supplied portraits; not calibrated measurements or a likeness pass.",
+  "macro": {
+    "gender": 0.0,
+    "age": 0.5,
+    "muscle": 0.35,
+    "weight": 0.48,
+    "height": 0.45,
+    "proportions": 0.5,
+    "cupsize": 0.5,
+    "firmness": 0.5,
+    "race": {
+      "caucasian": 1.0,
+      "african": 0.0,
+      "asian": 0.0
+    }
+  },
+  "sourceMixNote": "MakeHuman source blend is an authoring initialization, not an inferred ethnicity or user-facing identity classification.",
+  "values": {
+    "head/head-oval": 0.32,
+    "head/head-round": 0.08,
+    "head/head-scale-vert-decr-incr": 0.0,
+    "chin/chin-height-decr-incr": -0.05,
+    "chin/chin-width-decr-incr": -0.1,
+    "chin/chin-prominent-decr-incr": -0.06,
+    "chin/chin-jaw-drop-decr-incr": -0.12,
+    "cheek/cheek-volume-decr-incr": 0.16,
+    "cheek/cheek-inner-decr-incr": 0.08,
+    "cheek/cheek-bones-decr-incr": -0.1,
+    "nose/nose-scale-horiz-decr-incr": -0.06,
+    "nose/nose-nostrils-width-decr-incr": -0.02,
+    "nose/nose-point-width-decr-incr": 0.0,
+    "mouth/mouth-scale-horiz-decr-incr": -0.04,
+    "mouth/mouth-lowerlip-volume-decr-incr": 0.06,
+    "eyes/eye-scale-decr-incr": 0.04
+  },
+  "revisionNote": "Correct v001 source age initialization: .28 blended child/young; .5 selects young. Reduce round/oval targets mildly. One planned facial revision; no measured calendar-age claim."
+}

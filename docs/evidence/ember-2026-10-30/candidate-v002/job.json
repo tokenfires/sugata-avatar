@@ -1,0 +1,25 @@
+{
+  "command": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--threads",
+    "4",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "tools/ember-prototype/build.py",
+    "--",
+    "--identity",
+    "tools/ember-prototype/identity-v002.json",
+    "--output",
+    "docs/evidence/ember-2026-10-30/candidate-v002/ember.glb"
+  ],
+  "startedUTC": "2026-10-31T04:10:22.042796+00:00",
+  "timeoutSeconds": 120,
+  "sourceSHA256": "bac3faafc25e01c9d7404b177344556eaea6ea670e0d3851c821f3bc9c592b23",
+  "state": "COMPLETE",
+  "reason": "Single planned facial revision after actual v001 image rejection",
+  "pid": 75717,
+  "exitCode": 0,
+  "seconds": 3.728
+}
