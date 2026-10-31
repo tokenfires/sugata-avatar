@@ -1,6 +1,6 @@
 # Ember — external FaceBuilder trial
 
-**Latest bounded receipt:** [portrait2 expression diagnostic](PHOTO2-EXPRESSION-DIAGNOSTIC.md). The single expression-selected export/two-view comparison below is now consumed; read its result and next action rather than replaying it.
+**Latest bounded receipt:** [skin coverage v001](SKIN-COVERAGE-v001.md). Current source-overlay review justified zero pin edits. One separate skin-coverage material is source-reviewed but **unrendered/unassessed** because supported browser control became unavailable before candidate navigation. Existing working review and all prior assets are unchanged. Resume the exact planned frontal/profile review when that interface returns; do not replay fitting or make another mask version. The [portrait2 expression diagnostic](PHOTO2-EXPRESSION-DIAGNOSTIC.md) and its exports/views are consumed.
 
 **October31,2026 human steering:** Robert installed FaceBuilder in Blender, explicitly approved one free15-day trial in the pending question, and required prominent central disclosure that this is an external tool needed by the selected Sugata workflow. [Main README disclosure](../../../README.md#external-dependency--ember-character-authoring) · [central dependency register](../../AUTHORING-DEPENDENCIES.md).
 

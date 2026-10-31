@@ -21,6 +21,8 @@ Produce an isolated, rendered head-and-shoulders Ember candidate with recognizab
 
 ## Improve the same character
 
+**Current recovery:** [skin coverage v001](evidence/ember-2026-10-31-facebuilder/SKIN-COVERAGE-v001.md) is a separate, source-reviewed but UNRENDERED material study. The current portrait2 overlay justified zero pin edits. Supported browser control became unavailable before candidate navigation; no appearance pass/rejection or revision is possible yet. Next is its one planned frontal/profile review when that interface returns. Do not repeat fitting, source research or mask edits; retain the unchanged working review and full character goal.
+
 **Latest bounded result:** the [portrait2 expression diagnostic](evidence/ember-2026-10-31-facebuilder/PHOTO2-EXPRESSION-DIAGNOSTIC.md) is complete. It explains a subtle mouth/cheek change, not the whole photographic-smile difference. Next, inspect the actual portrait2 source-camera overlay; correct only a clearly witnessed pin-alignment error in one preserved pass. If none is visible, proceed to derived skin/material work without pin edits. Read the receipt's stop condition; do not repeat Auto Align or expression exports.
 
 Allow a small, planned revision cycle when a visual finding has an evidence-backed correction. Preserve each version and judge its actual improvement. Stop repetitive adjustments that add no visible or decision-relevant gain; reconsider the asset, diagnosis or rendering route. No generic-likeness pass, moving goalposts or unqualified default promotion. Existing explicitly closed experiments remain closed; this plan does not replay them.

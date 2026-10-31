@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ember · photo-fitted head review</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#eeece6;color:#30352f;font:16px/1.5 system-ui,sans-serif}header{padding:20px 28px;border-bottom:1px solid #d9d6cc}h1{font:500 27px Georgia,serif;margin:0}header p{margin:5px 0 0;font-size:14px;color:#62675e}main{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:24px;padding:24px 28px}nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}button{font:inherit;font-size:13px;border:1px solid #aeb6a9;border-radius:20px;background:transparent;padding:7px 14px;cursor:pointer}button[aria-pressed=true]{background:#364a3e;color:white}button:focus-visible{outline:3px solid #b25c33;outline-offset:3px}#stage{height:calc(100vh - 220px);min-height:540px;position:relative;background:#b9beb5;border-radius:10px;overflow:hidden}canvas{width:100%;height:100%;display:block}#status{position:absolute;bottom:16px;left:18px;right:18px;font-size:13px;background:#eeece6ed;padding:7px 12px;border-radius:6px}aside h2{font-size:15px;margin-top:0}figure{margin:0 0 16px}figure img{width:100%;border-radius:8px;display:block}figcaption,aside p,footer{font-size:12px;color:#62675e}footer{padding:0 28px 20px}@media(max-width:800px){main{display:block;padding:16px}#stage{height:65vh;min-height:380px}aside{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:15px}aside h2,aside p{grid-column:1/-1}}
+</style>
+<header><h1>Ember Hearth</h1><p>Photo-fitted head · FaceBuilder / Blender authoring · first projection, unaccepted</p></header>
+<main><section aria-label="Rendered head review"><nav aria-label="Review controls">
+<button data-view="front" aria-pressed="true">Front</button><button data-view="angle" aria-pressed="false">Three-quarter</button><button data-view="profile" aria-pressed="false">Profile</button>
+<button data-mode="photo" aria-pressed="true">Projected photo colour</button><button data-mode="shape" aria-pressed="false">Untextured shape</button>
+<button data-mode="skin" aria-pressed="false" hidden>Provisional skin coverage</button>
+</nav><div id="stage"><canvas id="portrait" aria-label="Actual exported FaceBuilder head"></canvas><div id="status" role="status">Loading the exported head…</div></div></section>
+<aside><h2>Assigned references</h2><figure><img src="/@fs/Users/robault/GitHub/sugata-avatar/reference/ember/portraits/face-reference-2.png" alt="Ember frontal face reference"><figcaption>Face reference 2 · frontal face</figcaption></figure><figure><img src="/@fs/Users/robault/GitHub/sugata-avatar/reference/ember/portraits/face-reference-1.png" alt="Ember angled face and hair reference"><figcaption>Face reference 1 · angled face and hair</figcaption></figure><p>Photo colour includes the source lighting, eyes and hair painted onto the head. It is a diagnostic projection, not finished skin, independent eyes or a hairstyle. Untextured shape separates geometry from those cues.</p></aside></main>
+<footer>External authoring dependency: KeenTools FaceBuilder / proprietary Core 2026.3.1 in Blender 5.2.3. Local trial output; likeness, finish and expression are separate review questions.</footer>
+<script type="module" src="/src/ember-facebuilder-skin-review-v001.js"></script>
+</html>

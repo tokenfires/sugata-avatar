@@ -1,0 +1,60 @@
+{
+  "checkedUTC": "2026-10-31T08:21:33.297087+00:00",
+  "files": [
+    {
+      "path": "packages/testbed/ember-facebuilder-skin-v001.html",
+      "bytes": 3363,
+      "sha256": "3f666321dfaf811bbee80762e31cfbcf139341178e218ee4877b3596980c7508",
+      "localOnly": false
+    },
+    {
+      "path": "packages/testbed/src/ember-facebuilder-skin-review-v001.js",
+      "bytes": 4684,
+      "sha256": "02f2e9c7ad7e1b9c7bd07a9a5afa49ef2e2b7a3857a0f44f4874ed38dd87a2a6",
+      "localOnly": false
+    },
+    {
+      "path": "packages/testbed/src/ember-facebuilder-skin-v001.js",
+      "bytes": 1577,
+      "sha256": "e94947167d0fb761f981d7651c687ced0fbc26a4386b029363bc758b231f3e4f",
+      "localOnly": false
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-facebuilder/portrait2-current-overlay.jpg",
+      "bytes": 1219902,
+      "sha256": "fc399c7f509196217573fb566413a325436bdb8da95f23164468915ae939b476",
+      "localOnly": true
+    },
+    {
+      "path": "reference/ember/authoring/facebuilder/source-projected-atlas-v001.png",
+      "bytes": 1512296,
+      "sha256": "def960c1c1bcc50a22d5692027a6d0ffa466c4408b0af8f52e3354ec21204c96",
+      "localOnly": true
+    }
+  ],
+  "originalInputsUnchanged": [
+    "reference/ember/back.png",
+    "reference/ember/front-t-pose.png",
+    "reference/ember/front.png",
+    "reference/ember/portraits/expressions/amused.png",
+    "reference/ember/portraits/expressions/knowing-glance.png",
+    "reference/ember/portraits/expressions/listneing-curious.png",
+    "reference/ember/portraits/expressions/normal-happy.png",
+    "reference/ember/portraits/expressions/quiet-focus.png",
+    "reference/ember/portraits/expressions/signature-head-tilt-warm-happy.png",
+    "reference/ember/portraits/expressions/sleeping.png",
+    "reference/ember/portraits/face-reference-1.png",
+    "reference/ember/portraits/face-reference-2.png",
+    "reference/ember/side.png",
+    "reference/ember/sugata-attributes-2026-10-30.md",
+    "reference/ember/preferred-outfit/2026-10-31T03-49-37Z.png",
+    "reference/ember/preferred-outfit/2026-10-31T03-51-10Z.png",
+    "reference/ember/preferred-outfit/2026-10-31T03-55-12Z.png"
+  ],
+  "fittedSourceExportsUnchanged": true,
+  "workingReviewMatchesCommit": "facc90ca",
+  "candidateNavigationSucceeded": false,
+  "candidateFrames": 0,
+  "appearance": "UNASSESSED",
+  "sourceQa": "root and independent critic; no blocking source defect, runtime unverified"
+}
