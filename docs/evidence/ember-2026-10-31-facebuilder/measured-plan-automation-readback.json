@@ -1,0 +1,12 @@
+{
+  "id": "advance-sugata-avatar-visual-quality",
+  "name": "Advance Sugata until check-in",
+  "status": "PAUSED",
+  "kind": "heartbeat",
+  "rrule": "FREQ=MINUTELY;INTERVAL=10",
+  "targetThreadId": "01a0ff57-d720-7db2-923f-9e3e0521216c",
+  "updatedAt": 1793457538654,
+  "promptSha256": "55e0c3a7c657f80a2d316a582f2df2a9d570ba4bf0c02a30a5e2709b13e272a5",
+  "exactPromptReadbackMatches": true,
+  "source": "App API update/view plus saved TOML readback; documentation-only plan update during human pause."
+}

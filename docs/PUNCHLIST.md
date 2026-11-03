@@ -1,3 +1,5 @@
+> **Historical.** Current entry point: `AGENTS.md`; current status: `docs/EMBER-AVATAR-NEXT.md`.
+
 # Sugata 姿 — punch list
 
 > **September 22 resumed work:** Start with [RECOVERY-2026-09-22.md](RECOVERY-2026-09-22.md).

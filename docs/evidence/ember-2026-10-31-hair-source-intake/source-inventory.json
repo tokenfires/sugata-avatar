@@ -1,0 +1,78 @@
+{
+  "checkedAt": "2026-11-01T02:15:09.455297+00:00",
+  "scope": "One local source inventory only; no native/render/build or asset edits. Headers establish real GLBs, not shape quality.",
+  "sources": {
+    "assets/hair/manifest.json": {
+      "bytes": 8843,
+      "sha256": "02fb1bb35d345fb5765fd5b72403764d254aa8f115ec9a014e13d0cfd62c73ba"
+    },
+    "tools/figure-pipeline/hair_cards.py": {
+      "bytes": 183787,
+      "sha256": "6a9392de61d52953e35543b6aa4b39ac9817cac2f1c5f032177aeae1456baaca"
+    },
+    "tools/figure-pipeline/README.md": {
+      "bytes": 91488,
+      "sha256": "9e6278c0d550936826a30572ae705a1b6b2dac3d20604b49cfee748f0ea2db50"
+    },
+    "docs/CURRENT-DESIGN-GATES.md": {
+      "bytes": 4284,
+      "sha256": "34146facdb9e034251abccadce6c3fb8c491f2343b0753c36e08d64b6dd86621"
+    },
+    "docs/evidence/appearance-2026-10-20/ari-curl-groom-preparation/README.md": {
+      "bytes": 6241,
+      "sha256": "e56b8cc053a899bc4674bc9052330aa93fbf07ec8fcff5606b5964bb720c0baa"
+    }
+  },
+  "grooms": [
+    {
+      "id": "bob01",
+      "declaredShape": "Side-parted, face-framing, roughly to the collarbone. The default groom.",
+      "path": "assets/hair/bob01/g050.glb",
+      "bytes": 3346728,
+      "magic": "glTF"
+    },
+    {
+      "id": "bob02",
+      "declaredShape": "Chin-length graduated bob: tapered nape, released front curtains and a refined jaw-length hem on g050. Run hair_fall.mjs, hair_hem.mjs, then hair_tail_release.mjs after export; see tools/figure-pipeline/README.md.",
+      "path": "assets/hair/bob02/g050.glb",
+      "bytes": 3347176,
+      "magic": "glTF"
+    },
+    {
+      "id": "crop01",
+      "declaredShape": "Men's short back-and-sides with length on top, faded through the cut field.",
+      "path": "assets/hair/crop01/g050.glb",
+      "bytes": 3096380,
+      "magic": "glTF"
+    },
+    {
+      "id": "quiff01",
+      "declaredShape": "Men's short sides with real length on top, swept up and back.",
+      "path": "assets/hair/quiff01/g050.glb",
+      "bytes": 3105068,
+      "magic": "glTF"
+    },
+    {
+      "id": "long01",
+      "declaredShape": "Long and straight, past the shoulderblades.",
+      "path": "assets/hair/long01/g050.glb",
+      "bytes": 3345760,
+      "magic": "glTF"
+    },
+    {
+      "id": "pixie01",
+      "declaredShape": "Very short, textured, with a side-swept fringe.",
+      "path": "assets/hair/pixie01/g050.glb",
+      "bytes": 3109904,
+      "magic": "glTF"
+    },
+    {
+      "id": "lob01",
+      "declaredShape": "Shoulder-length graduated cut with a centre part.",
+      "path": "assets/hair/lob01/g050.glb",
+      "bytes": 3345988,
+      "magic": "glTF"
+    }
+  ],
+  "emberCacheHairFiles": 0
+}

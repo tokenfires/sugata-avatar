@@ -1,0 +1,579 @@
+{
+  "schema": 1,
+  "sourceImages": {
+    "front": "reference/ember/portraits/face-reference-2.png",
+    "angle": "reference/ember/portraits/face-reference-1.png"
+  },
+  "imageSize": [
+    1024,
+    1024
+  ],
+  "anchors": [
+    {
+      "name": "nose-tip",
+      "number": 1,
+      "vertices": [
+        297
+      ],
+      "weights": [
+        1
+      ],
+      "status": "surface-reviewed-provisional",
+      "uncertaintyPixels": 8
+    },
+    {
+      "name": "mouth-screen-left",
+      "number": 2,
+      "vertices": [
+        369
+      ],
+      "weights": [
+        1
+      ],
+      "status": "surface-reviewed-provisional",
+      "uncertaintyPixels": 5
+    },
+    {
+      "name": "mouth-screen-right",
+      "number": 3,
+      "vertices": [
+        7129
+      ],
+      "weights": [
+        1
+      ],
+      "status": "surface-reviewed-provisional",
+      "uncertaintyPixels": 5
+    },
+    {
+      "name": "lower-lip-mid",
+      "number": 4,
+      "vertices": [
+        492
+      ],
+      "weights": [
+        1
+      ],
+      "status": "surface-reviewed-provisional",
+      "uncertaintyPixels": 5
+    },
+    {
+      "name": "eye-outer-screen-left",
+      "number": 5,
+      "vertices": [
+        6781
+      ],
+      "weights": [
+        1
+      ],
+      "status": "surface-reviewed-provisional",
+      "uncertaintyPixels": 5
+    },
+    {
+      "name": "eye-outer-screen-right",
+      "number": 6,
+      "vertices": [
+        13377
+      ],
+      "weights": [
+        1
+      ],
+      "status": "surface-reviewed-provisional",
+      "uncertaintyPixels": 5
+    },
+    {
+      "name": "eye-inner-screen-left",
+      "number": 7,
+      "vertices": [
+        6769
+      ],
+      "weights": [
+        1
+      ],
+      "status": "surface-reviewed-provisional",
+      "uncertaintyPixels": 5
+    },
+    {
+      "name": "eye-inner-screen-right",
+      "number": 8,
+      "vertices": [
+        13365
+      ],
+      "weights": [
+        1
+      ],
+      "status": "surface-reviewed-provisional",
+      "uncertaintyPixels": 5
+    },
+    {
+      "name": "nose-wing-screen-left",
+      "number": 9,
+      "vertices": [
+        5051
+      ],
+      "weights": [
+        1
+      ],
+      "status": "surface-reviewed-provisional",
+      "uncertaintyPixels": 5
+    },
+    {
+      "name": "nose-wing-screen-right",
+      "number": 10,
+      "vertices": [
+        11669
+      ],
+      "weights": [
+        1
+      ],
+      "status": "surface-reviewed-provisional",
+      "uncertaintyPixels": 5
+    },
+    {
+      "name": "front-outline-cheek-left",
+      "number": 11,
+      "view": "front",
+      "vertices": [
+        910,
+        736,
+        5206
+      ],
+      "weights": [
+        0.7403421477163405,
+        0.02975158891257215,
+        0.22990626337108738
+      ],
+      "status": "root-surface-pick",
+      "uncertaintyPixels": 10
+    },
+    {
+      "name": "front-outline-cheek-right",
+      "number": 12,
+      "view": "front",
+      "vertices": [
+        11789,
+        11768,
+        11817
+      ],
+      "weights": [
+        0.32879664768572914,
+        0.11259560713170483,
+        0.5586077451825661
+      ],
+      "status": "root-surface-pick",
+      "uncertaintyPixels": 10
+    },
+    {
+      "name": "front-outline-jaw-left",
+      "number": 13,
+      "view": "front",
+      "vertices": [
+        5226,
+        5298,
+        5297
+      ],
+      "weights": [
+        0.14470137999067748,
+        0.2481294950429874,
+        0.6071691249663351
+      ],
+      "status": "root-surface-pick",
+      "uncertaintyPixels": 10
+    },
+    {
+      "name": "front-outline-jaw-right",
+      "number": 14,
+      "view": "front",
+      "vertices": [
+        11835,
+        11902,
+        11903
+      ],
+      "weights": [
+        0.03372474222891764,
+        0.6374256861072235,
+        0.32884957166385886
+      ],
+      "status": "root-surface-pick",
+      "uncertaintyPixels": 10
+    },
+    {
+      "name": "front-outline-chin",
+      "number": 15,
+      "view": "front",
+      "vertices": [
+        11781,
+        5211,
+        5171
+      ],
+      "weights": [
+        0.019501921889849172,
+        0.29892134376476903,
+        0.6815767343453818
+      ],
+      "status": "root-surface-pick",
+      "uncertaintyPixels": 10
+    },
+    {
+      "name": "angle-outline-cheek-near",
+      "number": 16,
+      "view": "angle",
+      "vertices": [
+        7612,
+        11817,
+        7456
+      ],
+      "weights": [
+        0.33766747267959035,
+        0.07407478247828929,
+        0.5882577448421203
+      ],
+      "status": "root-surface-pick",
+      "uncertaintyPixels": 10
+    },
+    {
+      "name": "angle-outline-jaw-near",
+      "number": 17,
+      "view": "angle",
+      "vertices": [
+        7728,
+        7725,
+        7726
+      ],
+      "weights": [
+        0.2773359206186662,
+        0.6690632337246355,
+        0.05360084565669829
+      ],
+      "status": "root-surface-pick",
+      "uncertaintyPixels": 10
+    },
+    {
+      "name": "angle-outline-chin",
+      "number": 18,
+      "view": "angle",
+      "vertices": [
+        5168,
+        5211,
+        5214
+      ],
+      "weights": [
+        0.8109345485979581,
+        0.11281937865698419,
+        0.07624607274505768
+      ],
+      "status": "root-surface-pick",
+      "uncertaintyPixels": 10
+    },
+    {
+      "name": "upper-lip-outer-mid",
+      "number": 19,
+      "vertices": [
+        455,
+        7118,
+        362
+      ],
+      "weights": [
+        0.17125882046982654,
+        0.15911361734130103,
+        0.6696275621888724
+      ],
+      "status": "root-surface-pick",
+      "uncertaintyPixels": 6
+    },
+    {
+      "name": "upper-lip-peak-left",
+      "number": 20,
+      "vertices": [
+        5344,
+        5345,
+        355
+      ],
+      "weights": [
+        0.02630369573243997,
+        0.011546929082135825,
+        0.9621493751854242
+      ],
+      "status": "root-surface-pick",
+      "uncertaintyPixels": 6
+    },
+    {
+      "name": "upper-lip-peak-right",
+      "number": 21,
+      "vertices": [
+        7116,
+        11948,
+        11947
+      ],
+      "weights": [
+        0.8614543272578723,
+        0.10246571643169519,
+        0.03607995631043251
+      ],
+      "status": "root-surface-pick",
+      "uncertaintyPixels": 6
+    },
+    {
+      "name": "mouth-seam-mid",
+      "number": 22,
+      "vertices": [
+        473,
+        520,
+        474
+      ],
+      "weights": [
+        0.08781869886132196,
+        0.018298947309610597,
+        0.8938823538290674
+      ],
+      "status": "root-surface-pick",
+      "uncertaintyPixels": 6
+    },
+    {
+      "name": "upper-lid-left",
+      "number": 23,
+      "vertices": [
+        4865,
+        4847,
+        1
+      ],
+      "weights": [
+        0.24578524489014913,
+        0.49238321142513525,
+        0.26183154368471556
+      ],
+      "status": "root-surface-pick",
+      "uncertaintyPixels": 6
+    },
+    {
+      "name": "lower-lid-left",
+      "number": 24,
+      "vertices": [
+        47,
+        44,
+        4861
+      ],
+      "weights": [
+        0.199914072606518,
+        0.31311760984607756,
+        0.4869683175474044
+      ],
+      "status": "root-surface-pick",
+      "uncertaintyPixels": 6
+    },
+    {
+      "name": "upper-lid-right",
+      "number": 25,
+      "vertices": [
+        6786,
+        6787,
+        11465
+      ],
+      "weights": [
+        0.10561189440325591,
+        0.6453705827052141,
+        0.24901752289152998
+      ],
+      "status": "root-surface-pick",
+      "uncertaintyPixels": 6
+    },
+    {
+      "name": "lower-lid-right",
+      "number": 26,
+      "vertices": [
+        6828,
+        13372,
+        13370
+      ],
+      "weights": [
+        0.29728747361206576,
+        0.04959523815899903,
+        0.6531172882289352
+      ],
+      "status": "root-surface-pick",
+      "uncertaintyPixels": 6
+    }
+  ],
+  "observations": {
+    "front": {
+      "nose-tip": [
+        521,
+        589
+      ],
+      "mouth-screen-left": [
+        414,
+        671
+      ],
+      "mouth-screen-right": [
+        630,
+        673
+      ],
+      "lower-lip-mid": [
+        520,
+        723
+      ],
+      "eye-outer-screen-left": [
+        355,
+        452
+      ],
+      "eye-outer-screen-right": [
+        694,
+        453
+      ],
+      "eye-inner-screen-left": [
+        463,
+        464
+      ],
+      "eye-inner-screen-right": [
+        578,
+        464
+      ],
+      "nose-wing-screen-left": [
+        455,
+        599
+      ],
+      "nose-wing-screen-right": [
+        586,
+        595
+      ],
+      "front-outline-cheek-left": [
+        304,
+        600
+      ],
+      "front-outline-cheek-right": [
+        788,
+        600
+      ],
+      "front-outline-jaw-left": [
+        361,
+        754
+      ],
+      "front-outline-jaw-right": [
+        700,
+        754
+      ],
+      "front-outline-chin": [
+        522,
+        854
+      ],
+      "upper-lip-outer-mid": [
+        521,
+        669
+      ],
+      "upper-lip-peak-left": [
+        494,
+        664
+      ],
+      "upper-lip-peak-right": [
+        549,
+        664
+      ],
+      "mouth-seam-mid": [
+        521,
+        691
+      ],
+      "upper-lid-left": [
+        410,
+        433
+      ],
+      "lower-lid-left": [
+        410,
+        471
+      ],
+      "upper-lid-right": [
+        638,
+        430
+      ],
+      "lower-lid-right": [
+        638,
+        470
+      ]
+    },
+    "angle": {
+      "nose-tip": [
+        500,
+        495
+      ],
+      "mouth-screen-left": [
+        452,
+        559
+      ],
+      "mouth-screen-right": [
+        597,
+        550
+      ],
+      "lower-lip-mid": [
+        518,
+        594
+      ],
+      "eye-outer-screen-left": [
+        395,
+        401
+      ],
+      "eye-outer-screen-right": [
+        630,
+        389
+      ],
+      "eye-inner-screen-left": [
+        467,
+        406
+      ],
+      "eye-inner-screen-right": [
+        546,
+        403
+      ],
+      "nose-wing-screen-left": [
+        466,
+        505
+      ],
+      "nose-wing-screen-right": [
+        551,
+        499
+      ],
+      "angle-outline-cheek-near": [
+        725,
+        500
+      ],
+      "angle-outline-jaw-near": [
+        666,
+        607
+      ],
+      "angle-outline-chin": [
+        523,
+        676
+      ],
+      "upper-lip-outer-mid": [
+        513,
+        552
+      ],
+      "upper-lip-peak-left": [
+        496,
+        549
+      ],
+      "upper-lip-peak-right": [
+        532,
+        546
+      ],
+      "mouth-seam-mid": [
+        516,
+        572
+      ],
+      "upper-lid-left": [
+        438,
+        385
+      ],
+      "lower-lid-left": [
+        438,
+        417
+      ],
+      "upper-lid-right": [
+        596,
+        371
+      ],
+      "lower-lid-right": [
+        596,
+        408
+      ]
+    }
+  }
+}

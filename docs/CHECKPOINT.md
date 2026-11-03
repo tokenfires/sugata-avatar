@@ -1,3 +1,5 @@
+> **Historical.** Current entry point: `AGENTS.md`; current status: `docs/EMBER-AVATAR-NEXT.md`.
+
 # Checkpoint — the hair phase paused 2026-08-13, control run 2026-08-14
 
 > **Current work:** read [OVERNIGHT-2026-09-08.md](OVERNIGHT-2026-09-08.md) first, then

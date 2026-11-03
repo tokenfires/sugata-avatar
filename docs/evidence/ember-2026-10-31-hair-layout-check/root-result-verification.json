@@ -1,0 +1,175 @@
+{
+  "utc": "2026-11-01T03:51:41.477964+00:00",
+  "failureSha256": "1e7b35cffbb0c38da4025d8c1d77bc89a77756d5566b1e1673d5a55721a8a97e",
+  "completedGuides": 37,
+  "assessedRibbons": 111,
+  "sampledPasses": 102,
+  "samplingFailures": [
+    {
+      "guide": "crown-sweep-02",
+      "ribbon": 1,
+      "segments": 40,
+      "allocationErrorMm": 0.3724448381007244,
+      "heldOutErrorMm": 0.36855872445461846,
+      "allocationInterval": [
+        0.359375,
+        0.375
+      ],
+      "allocationWorstQ": 0.3671875,
+      "heldOutInterval": [
+        0.359375,
+        0.375
+      ],
+      "heldOutWorstQ": 0.3681640625
+    },
+    {
+      "guide": "crown-sweep-04",
+      "ribbon": 0,
+      "segments": 40,
+      "allocationErrorMm": 0.3578418464762161,
+      "heldOutErrorMm": 0.3541214448431339,
+      "allocationInterval": [
+        0.46875,
+        0.5
+      ],
+      "allocationWorstQ": 0.484375,
+      "heldOutInterval": [
+        0.46875,
+        0.5
+      ],
+      "heldOutWorstQ": 0.486328125
+    },
+    {
+      "guide": "crown-sweep-04",
+      "ribbon": 1,
+      "segments": 40,
+      "allocationErrorMm": 0.3685112931354693,
+      "heldOutErrorMm": 0.3697349424456859,
+      "allocationInterval": [
+        0.25,
+        0.28125
+      ],
+      "allocationWorstQ": 0.265625,
+      "heldOutInterval": [
+        0.25,
+        0.28125
+      ],
+      "heldOutWorstQ": 0.263671875
+    },
+    {
+      "guide": "crown-sweep-04",
+      "ribbon": 2,
+      "segments": 40,
+      "allocationErrorMm": 0.3578418464762161,
+      "heldOutErrorMm": 0.3541214448431339,
+      "allocationInterval": [
+        0.46875,
+        0.5
+      ],
+      "allocationWorstQ": 0.484375,
+      "heldOutInterval": [
+        0.46875,
+        0.5
+      ],
+      "heldOutWorstQ": 0.486328125
+    },
+    {
+      "guide": "side-heavy-01",
+      "ribbon": 1,
+      "segments": 40,
+      "allocationErrorMm": 0.36400712288453463,
+      "heldOutErrorMm": 0.3613639724579475,
+      "allocationInterval": [
+        0.17857142857142855,
+        0.21428571428571427
+      ],
+      "allocationWorstQ": 0.1964285714285714,
+      "heldOutInterval": [
+        0.17857142857142855,
+        0.21428571428571427
+      ],
+      "heldOutWorstQ": 0.19419642857142855
+    },
+    {
+      "guide": "occipital-02",
+      "ribbon": 1,
+      "segments": 40,
+      "allocationErrorMm": 0.3623882364103629,
+      "heldOutErrorMm": 0.35889195554427533,
+      "allocationInterval": [
+        0.25,
+        0.2857142857142857
+      ],
+      "allocationWorstQ": 0.26785714285714285,
+      "heldOutInterval": [
+        0.25,
+        0.2857142857142857
+      ],
+      "heldOutWorstQ": 0.2700892857142857
+    },
+    {
+      "guide": "occipital-03",
+      "ribbon": 1,
+      "segments": 40,
+      "allocationErrorMm": 0.37626309537702524,
+      "heldOutErrorMm": 0.3793986211718022,
+      "allocationInterval": [
+        0.9285714285714286,
+        1
+      ],
+      "allocationWorstQ": 0.9732142857142857,
+      "heldOutInterval": [
+        0.9285714285714286,
+        1
+      ],
+      "heldOutWorstQ": 0.9776785714285714
+    },
+    {
+      "guide": "occipital-04",
+      "ribbon": 1,
+      "segments": 40,
+      "allocationErrorMm": 0.36973168818338,
+      "heldOutErrorMm": 0.3728127855850503,
+      "allocationInterval": [
+        0.9285714285714286,
+        1
+      ],
+      "allocationWorstQ": 0.9732142857142857,
+      "heldOutInterval": [
+        0.9285714285714286,
+        1
+      ],
+      "heldOutWorstQ": 0.9776785714285714
+    },
+    {
+      "guide": "occipital-05",
+      "ribbon": 1,
+      "segments": 40,
+      "allocationErrorMm": 0.35748305264484115,
+      "heldOutErrorMm": 0.36046207808371883,
+      "allocationInterval": [
+        0,
+        0.07142857142857142
+      ],
+      "allocationWorstQ": 0.026785714285714284,
+      "heldOutInterval": [
+        0,
+        0.07142857142857142
+      ],
+      "heldOutWorstQ": 0.02232142857142857
+    }
+  ],
+  "storedErrorWitnessesRecomputed": 222,
+  "storedAnchorsRecomputed": 55,
+  "maxAnchorReconstructionDifferenceM": 2.2848356298658885e-16,
+  "all42InputsUnchanged": true,
+  "firstGuideNotInResults": true,
+  "unassessedGuides": [
+    "nape-03",
+    "nape-04"
+  ],
+  "structuralStop": "nape-03 centre-root seed outside eligible scalp; exact distance/nearest triangle absent from failure receipt",
+  "noNewCurveEvaluation": true,
+  "completeReportExists": false,
+  "automaticRetry": false
+}

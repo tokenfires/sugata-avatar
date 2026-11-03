@@ -1,0 +1,21 @@
+{
+  "checkedUtc": "2026-10-31T17:50:35.009154+00:00",
+  "trigger": "2026-10-31T17:48:39.872Z heartbeat",
+  "existingHandleRead": "browser.user is unavailable",
+  "freshSymbolicBind": "browser.user is unavailable",
+  "route": {
+    "browser": "iab",
+    "url": "http://127.0.0.1:5173/ember-appearance-v001.html"
+  },
+  "inventory": {
+    "1": "Chrome extension",
+    "2": "MCP Apps",
+    "3": "ChatGPT in-app browser"
+  },
+  "inventoryChangedSinceRepair": false,
+  "conclusion": "Numeric mismatch was real but does not fully explain the recurring failure. Cross-turn stability FAILED even using correct symbolic route. Deeper tool/session-lifecycle cause remains unproved.",
+  "resetsThisTurn": 0,
+  "candidateEdits": 0,
+  "newCaptures": 0,
+  "next": "Stop recovery attempts under this contract; preserve work. Require a changed app/tool connection state or a newly bounded repair step before retesting."
+}

@@ -1,0 +1,59 @@
+{
+  "utc": "2026-11-01T04:14:45.978836+00:00",
+  "inputsUnchanged": 54,
+  "savedGuideControlsAndAnchorsIdentical": true,
+  "storedWitnessesVerified": 18,
+  "maxSavedCubicWitnessDifferenceM": 6.667930448976997e-16,
+  "verificationScope": "Evaluated saved display Bezier coefficients against18 saved point witnesses; no source curve, sampler or compiler reevaluation. Three actual browser frames inspected by root.",
+  "captures": [
+    {
+      "view": "front",
+      "svgBytes": 526907,
+      "screenshot": "front.jpg",
+      "bytes": 109932,
+      "sha256": "030173a959cf5807dfec160fb92d983a90bd270d2e76f512f52d1d13f59517df",
+      "format": "JPEG",
+      "dimensions": [
+        1024,
+        880
+      ]
+    },
+    {
+      "view": "angle",
+      "svgBytes": 527727,
+      "screenshot": "angle.jpg",
+      "bytes": 110127,
+      "sha256": "3325a8694bc60fe4b024515cd2eed843679e27326dbf9d2b4f7a11a687a6cc04",
+      "format": "JPEG",
+      "dimensions": [
+        1024,
+        880
+      ]
+    },
+    {
+      "view": "rear",
+      "svgBytes": 526895,
+      "screenshot": "rear.jpg",
+      "bytes": 109130,
+      "sha256": "8c152534a9d431745c564e2c76d1f95bedc836f20c94f193ab435f4c3e5e0640",
+      "format": "JPEG",
+      "dimensions": [
+        1024,
+        880
+      ]
+    }
+  ],
+  "allThreeCaptureSlotsConsumed": true,
+  "evaluations": 225,
+  "workerResources": {
+    "cpuSeconds": 0.083512,
+    "wallSeconds": 0.057372791,
+    "observedRssBytes": 125157376
+  },
+  "contextTriangles": 10008,
+  "eligibleScalpTriangles": 288,
+  "totalFolderBytesBeforeReceipt": 1983660,
+  "appearanceAccepted": false,
+  "hairMeshGenerated": false,
+  "receiptNote": "Initial screenshot suffix was png; corrected to jpg after inspecting returned JPEG bytes. No image editing or recapture. Optional PIL import unavailable during metadata verification; built-in JPEG header parsing used."
+}

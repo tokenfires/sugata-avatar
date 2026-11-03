@@ -1,0 +1,21 @@
+{
+  "source": "assets/figures/figure_g000.glb",
+  "mesh": "base.001",
+  "count": 14517,
+  "axis": "gltf-y-up-metres",
+  "expressionGroups": {
+    "smile": [
+      "mouthSmileLeft",
+      "mouthSmileRight"
+    ],
+    "squint": [
+      "eyeSquintLeft",
+      "eyeSquintRight"
+    ],
+    "cheekSquint": [
+      "cheekSquintLeft",
+      "cheekSquintRight"
+    ]
+  },
+  "limits": "Identity application does not automatically refit separate eyes or teeth. Source export only; no fitting or appearance conclusion."
+}

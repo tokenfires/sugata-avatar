@@ -1,0 +1,23 @@
+{
+  "utc": "2026-11-01T04:26:44.382413+00:00",
+  "preflightSha256": "9cfbbe923d4b4955a96534d98d0530cd536334636041ed37ead7f56ff27ecab0",
+  "independentSourceReviewed": true,
+  "rootSourceReviewed": true,
+  "admitSingleCorrespondence": true,
+  "admitGuideEdit": false,
+  "admitCandidateBuild": false,
+  "rootSourceNotes": [
+    "Exactly2 original seeds; no other guide controls or curves evaluated.",
+    "Eligibility matches frozen point predicates, all-corner .999 head weight, outward dot>.1; same triangle ordering and strict nearest less-than tie.",
+    "Report strict original seed distance<.025 separately from head/scalp eligibility; surface point does not include .0006 outward offset.",
+    "Both outcomes reported honestly; nape03 known miss, nape04 previously unassessed. No pass is automatic root nomination.",
+    "One exclusive STARTED/log, exact-manifest admission,10CPU/15wall/512MiB RSS,64k candidate pairs and2MiB total folder.",
+    "No control edits, candidate files, sampler/compiler imports or browser operation."
+  ],
+  "critic": "/root/local_feature_critic",
+  "criticVerdict": "Exact-source review passes;64 inputs unchanged; no blocker. Source-ready only.",
+  "rootDecision": "Separately admit ONE supervised read-only lookup for the two original nape seeds. This fills actual surface correspondence required by the coherent authoring contract, with no root/guide edit or candidate admission.",
+  "ownership": "Continuation chat idle; no owned check/build/render loop; existing Vite retained.",
+  "browserRequired": false,
+  "automaticRetry": false
+}

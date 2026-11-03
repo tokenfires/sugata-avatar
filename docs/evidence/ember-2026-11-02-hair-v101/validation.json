@@ -1,0 +1,351 @@
+{
+  "protectedInputs": "All preflight/build hashes match; approved face, eyes and brows unchanged",
+  "retainedGeometry": "All232other ribbons exact across7vertexbuffers. Complete UV/UV1/rootDistance/index buffers exact. Source guides and control anchors exact; only9gap-facing upper edge Z positions and derived attributes change. AllX/Ypositions exact.",
+  "retainedV065SideFillExact": true,
+  "retainedV067CrownFillExact": true,
+  "retainedV075UpperCoverageAndReturnEdgeExact": true,
+  "retainedV082WaveEdgeExact": true,
+  "retainedV084AlphaFillExact": true,
+  "retainedV085V086OppositeFillExact": true,
+  "retainedV089NeckBlendExact": true,
+  "retainedV090ArchFillExact": true,
+  "retainedV091AdjacentArchFillExact": true,
+  "retainedV092OppositeArchFillExact": true,
+  "retainedV094VisibleRimFillExact": true,
+  "retainedV095QuarterRimFillExact": true,
+  "retainedV096MidRearFillExact": true,
+  "retainedV098UpperSlotTaperExact": true,
+  "retainedV099OppositeSlotExact": true,
+  "retainedV100AdjacentSlotExact": true,
+  "allEdgeHeightsExact": true,
+  "allTransverseXExact": true,
+  "allOriginalRootAndEndRowsExact": true,
+  "targetCentrelineAndOppositeBoundaryExact": true,
+  "changedPositionVertices": 9,
+  "reshape": {
+    "guide": "side-heavy-06",
+    "vertices": [
+      {
+        "vertex": 7388,
+        "row": 8,
+        "cross": 2,
+        "t": 0.21428571428571427,
+        "weight": 0.008302204810495614,
+        "before": [
+          -0.09540023199851982,
+          1.5266278353847071,
+          -0.05106786772010628
+        ],
+        "after": [
+          -0.09540023199851982,
+          1.5266278353847071,
+          -0.05093503244313835
+        ],
+        "extension": [
+          0,
+          0,
+          0.00013283527696792983
+        ]
+      },
+      {
+        "vertex": 7391,
+        "row": 9,
+        "cross": 2,
+        "t": 0.25,
+        "weight": 0.5000000000000003,
+        "before": [
+          -0.11031450234572115,
+          1.5155638954114181,
+          -0.06357784683060409
+        ],
+        "after": [
+          -0.11031450234572115,
+          1.5155638954114181,
+          -0.055577846830604086
+        ],
+        "extension": [
+          0,
+          0,
+          0.008000000000000005
+        ]
+      },
+      {
+        "vertex": 7394,
+        "row": 10,
+        "cross": 2,
+        "t": 0.2857142857142857,
+        "weight": 0.9916977951895044,
+        "before": [
+          -0.11770231465705777,
+          1.5016605106872594,
+          -0.07119959530337704
+        ],
+        "after": [
+          -0.11770231465705777,
+          1.5016605106872594,
+          -0.05533243058034497
+        ],
+        "extension": [
+          0,
+          0,
+          0.01586716472303207
+        ]
+      },
+      {
+        "vertex": 7397,
+        "row": 11,
+        "cross": 2,
+        "t": 0.30357142857142855,
+        "weight": 1,
+        "before": [
+          -0.11789788107791542,
+          1.4943335081797349,
+          -0.07368851495057882
+        ],
+        "after": [
+          -0.11789788107791542,
+          1.4943335081797349,
+          -0.05768851495057882
+        ],
+        "extension": [
+          0,
+          0,
+          0.016
+        ]
+      },
+      {
+        "vertex": 7400,
+        "row": 12,
+        "cross": 2,
+        "t": 0.3214285714285714,
+        "weight": 1,
+        "before": [
+          -0.11695558901475758,
+          1.4878364674681657,
+          -0.07652845768643496
+        ],
+        "after": [
+          -0.11695558901475758,
+          1.4878364674681657,
+          -0.06052845768643496
+        ],
+        "extension": [
+          0,
+          0,
+          0.016
+        ]
+      },
+      {
+        "vertex": 7403,
+        "row": 13,
+        "cross": 2,
+        "t": 0.3571428571428571,
+        "weight": 0.9140640906353175,
+        "before": [
+          -0.11374688619065493,
+          1.4767010860496343,
+          -0.082143599965676
+        ],
+        "after": [
+          -0.11374688619065493,
+          1.4767010860496343,
+          -0.06751857451551091
+        ],
+        "extension": [
+          0,
+          0,
+          0.01462502545016508
+        ]
+      },
+      {
+        "vertex": 7406,
+        "row": 14,
+        "cross": 2,
+        "t": 0.3928571428571428,
+        "weight": 0.4157721739477883,
+        "before": [
+          -0.11120598038208328,
+          1.4675986665321206,
+          -0.086360887448359
+        ],
+        "after": [
+          -0.11120598038208328,
+          1.4675986665321206,
+          -0.07970853266519438
+        ],
+        "extension": [
+          0,
+          0,
+          0.006652354783164613
+        ]
+      },
+      {
+        "vertex": 7409,
+        "row": 15,
+        "cross": 2,
+        "t": 0.4107142857142857,
+        "weight": 0.16264132545734877,
+        "before": [
+          -0.11083021231147906,
+          1.464076116411873,
+          -0.08767384554269521
+        ],
+        "after": [
+          -0.11083021231147906,
+          1.464076116411873,
+          -0.08507158433537763
+        ],
+        "extension": [
+          0,
+          0,
+          0.0026022612073175804
+        ]
+      },
+      {
+        "vertex": 7412,
+        "row": 16,
+        "cross": 2,
+        "t": 0.42857142857142855,
+        "weight": 0.013117620780426442,
+        "before": [
+          -0.11111442731878608,
+          1.4613461604466027,
+          -0.08852337484492968
+        ],
+        "after": [
+          -0.11111442731878608,
+          1.4613461604466027,
+          -0.08831349291244286
+        ],
+        "extension": [
+          0,
+          0,
+          0.0002098819324868231
+        ]
+      }
+    ],
+    "maxDisplacementM": 0.016,
+    "qualification": "One local slot fill; full hair appearance remains unaccepted."
+  },
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "addedVertices": 0,
+  "addedTriangles": 0,
+  "vertices": 23997,
+  "triangles": 31064,
+  "sceneAndComponent": "Identical to v100 after version normalization",
+  "material": "All appearance profiles, v084 alpha infill, ambient, pigment and shadow settings unchanged",
+  "clearance": {
+    "triangleCrossings": [
+      132,
+      122
+    ],
+    "nearestSignedFlags": [
+      61,
+      50
+    ],
+    "correctedWindingFaces": 242,
+    "changedWindingTriangles": 0,
+    "qualification": "No added body crossings or nearest-normal flags. Index buffer exact. Existing body-clearance/winding limitations remain; not full final surface qualification."
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2773,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.81072,
+    "rssBytes": 176390144,
+    "wallSeconds": 1.60257875
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Retain v101 as local improvement",
+    "finding": "90-degree broad mid-rear opening becomes much narrower slit, strands continue through descending bend.45-degree view gains coverage without blunt return. No new tab, shelf or frontal framing change in reviewed views.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Map270-degree neck-side channel863-881/476-520; widen adjacent backing wave gap-facing middle edge, preserving outer silhouette, centreline and ends."
+  },
+  "retainedForNextStep": true,
+  "baseline": "v100",
+  "fullReportedClearanceAndWitnessesExact": true,
+  "coverageProxy": {
+    "samples": 36,
+    "newlyCovered": [
+      [
+        686,
+        404
+      ],
+      [
+        678,
+        412
+      ]
+    ],
+    "lost": [],
+    "qualification": "Coarse nearest alpha/core proxy only, not full shader/MSAA coverage certification. Actual browser images establish visible change."
+  }
+}

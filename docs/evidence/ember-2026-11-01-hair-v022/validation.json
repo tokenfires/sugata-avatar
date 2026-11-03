@@ -1,0 +1,55 @@
+{
+  "protectedInputs": "all hashes match",
+  "fixedLongGuides": 102,
+  "unchangedRibbonsAll7Attributes": 218,
+  "editedFrontalSupportBands": [
+    "graded-heavy-01",
+    "graded-heavy-02",
+    "graded-heavy-05"
+  ],
+  "all221TerminalRowsMaxDisplacementM": 0.0,
+  "editedSupportRootEdgeMaxDisplacementM": 5.030047273931998e-06,
+  "existing7BodyFillBands": "all7 attributes unchanged after vertex-offset mapping",
+  "ambientAndFilter": "retained; component and main match after version-string normalization",
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "draws": 1
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "draws": 2
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "draws": 3
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "draws": 4
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "draws": 5
+    }
+  ],
+  "resources": {
+    "cpuSeconds": 1.436992,
+    "rssBytes": 178077696,
+    "wallSeconds": 1.235962583
+  },
+  "vertices": 23172,
+  "triangles": 30012,
+  "clearanceCrossings": [
+    132,
+    122
+  ],
+  "appearanceAccepted": false,
+  "critic": "One review: reject current lowering implementation. Lowest strand ratio1.05 approaches reference1.07, but dense mass remains higher; separated floating horizontal strands form comb-like fringe. Correct three support bands to follow scalp and overlap, then measure continuous boundary.",
+  "retained": false
+}

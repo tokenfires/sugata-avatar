@@ -1,3 +1,5 @@
+> **Historical.** Current entry point: `AGENTS.md`; current status: `docs/EMBER-AVATAR-NEXT.md`.
+
 # Sugata 姿 — progress and resume state
 
 > **Current session, September 22, 2026:** Start with

@@ -1,0 +1,50 @@
+{
+  "rootRecords": "identical",
+  "rootAndTerminalRows": "all211 identical",
+  "guideSpecifications": "identical",
+  "protectedInputs": "match",
+  "changedVerticesFloat32": 1043,
+  "maxMoveMm": 4.000109542736843,
+  "unchangedBeyondRootDistanceM": 0.032,
+  "browserViews": [
+    {
+      "view": "front",
+      "draw": 1,
+      "rootResidualMm": 0.00010843891732606441,
+      "fullHairFraming": true
+    },
+    {
+      "view": "angle",
+      "draw": 2,
+      "rootResidualMm": 0.00010843891686893117,
+      "fullHairFraming": true
+    },
+    {
+      "view": "rear",
+      "draw": 4,
+      "rootResidualMm": 0.00010843891706976359,
+      "fullHairFraming": true
+    },
+    {
+      "view": "head",
+      "draw": 5,
+      "rootResidualMm": 0.00010845078828007981,
+      "fullHairFraming": true
+    },
+    {
+      "view": "face",
+      "draw": 3,
+      "rootResidualMm": 0.00010843891730854621,
+      "fullHairFraming": false
+    }
+  ],
+  "resources": {
+    "cpuSeconds": 1.448828,
+    "rssBytes": 179798016,
+    "wallSeconds": 1.2386526669999998
+  },
+  "clearanceCrossings": [
+    132,
+    122
+  ]
+}

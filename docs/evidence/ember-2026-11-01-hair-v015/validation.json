@@ -1,0 +1,48 @@
+{
+  "existingBuffers": "all8 prefixes identical to v013",
+  "protectedInputs": "match",
+  "v014TuckExcluded": true,
+  "newLocksWithinExistingXYZBounds": true,
+  "silhouetteQualification": "XYZ bounds only; judge silhouette from images",
+  "browserViews": [
+    {
+      "view": "front",
+      "draw": 1,
+      "rootResidualMm": 0.00010843891732606441,
+      "fullHairFraming": true
+    },
+    {
+      "view": "angle",
+      "draw": 2,
+      "rootResidualMm": 0.00010843891686893117,
+      "fullHairFraming": true
+    },
+    {
+      "view": "rear",
+      "draw": 4,
+      "rootResidualMm": 0.00010843891706976359,
+      "fullHairFraming": true
+    },
+    {
+      "view": "head",
+      "draw": 5,
+      "rootResidualMm": 0.00010845078828007981,
+      "fullHairFraming": true
+    },
+    {
+      "view": "face",
+      "draw": 3,
+      "rootResidualMm": 0.00010843891730854621,
+      "fullHairFraming": false
+    }
+  ],
+  "resources": {
+    "cpuSeconds": 1.444444,
+    "rssBytes": 177831936,
+    "wallSeconds": 1.2328917080000001
+  },
+  "clearanceCrossings": [
+    132,
+    122
+  ]
+}

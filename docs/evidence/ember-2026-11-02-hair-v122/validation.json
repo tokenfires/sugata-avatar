@@ -1,0 +1,297 @@
+{
+  "protectedInputs": "All admitted hashes match; approved face, eyes and brows unchanged",
+  "baseline": "v121",
+  "changedPositionVertices": 8,
+  "targetGuide": "under-occipital-04-1",
+  "allOther232RibbonsExactAcrossSevenBuffers": true,
+  "allXAndYExact": true,
+  "targetCentrelineAndOppositeEdgeExact": true,
+  "sourceGuidesAndControlsExact": true,
+  "rootsAndEndsExact": true,
+  "completeUvUv1RootDistanceIndicesExact": true,
+  "globalBoundsExact": true,
+  "addedVertices": 0,
+  "addedTriangles": 0,
+  "vertices": 23997,
+  "triangles": 31064,
+  "reshape": {
+    "guide": "under-occipital-04-1",
+    "vertices": [
+      {
+        "vertex": 19268,
+        "row": 3,
+        "cross": 2,
+        "t": 0.14285714285714285,
+        "weight": 0.16436151603498522,
+        "before": [
+          0.012383925055663145,
+          1.5784767817029122,
+          -0.01971879832452116
+        ],
+        "after": [
+          0.012383925055663145,
+          1.5784767817029122,
+          -0.022348582581080922
+        ],
+        "extension": [
+          0,
+          0,
+          -0.0026297842565597635
+        ]
+      },
+      {
+        "vertex": 19271,
+        "row": 4,
+        "cross": 2,
+        "t": 0.1607142857142857,
+        "weight": 0.6684431486880462,
+        "before": [
+          0.01180750484882965,
+          1.5770482954858862,
+          -0.029612041495696677
+        ],
+        "after": [
+          0.01180750484882965,
+          1.5770482954858862,
+          -0.040307131874705415
+        ],
+        "extension": [
+          0,
+          0,
+          -0.01069509037900874
+        ]
+      },
+      {
+        "vertex": 19274,
+        "row": 5,
+        "cross": 2,
+        "t": 0.17857142857142855,
+        "weight": 0.9975976676384839,
+        "before": [
+          0.01031626673888645,
+          1.5741637736480862,
+          -0.04663443961337352
+        ],
+        "after": [
+          0.01031626673888645,
+          1.5741637736480862,
+          -0.06259600229558926
+        ],
+        "extension": [
+          0,
+          0,
+          -0.015961562682215744
+        ]
+      },
+      {
+        "vertex": 19277,
+        "row": 6,
+        "cross": 2,
+        "t": 0.21428571428571427,
+        "weight": 1,
+        "before": [
+          0.005589075868720333,
+          1.5652090919393369,
+          -0.0665032289237975
+        ],
+        "after": [
+          0.005589075868720333,
+          1.5652090919393369,
+          -0.0825032289237975
+        ],
+        "extension": [
+          0,
+          0,
+          -0.016
+        ]
+      },
+      {
+        "vertex": 19280,
+        "row": 7,
+        "cross": 2,
+        "t": 0.25,
+        "weight": 0.944606413994169,
+        "before": [
+          0.000564076902058067,
+          1.553370356051181,
+          -0.07382835031403163
+        ],
+        "after": [
+          0.000564076902058067,
+          1.553370356051181,
+          -0.08894205293793833
+        ],
+        "extension": [
+          0,
+          0,
+          -0.015113702623906704
+        ]
+      },
+      {
+        "vertex": 19283,
+        "row": 8,
+        "cross": 2,
+        "t": 0.26785714285714285,
+        "weight": 0.6509362595517174,
+        "before": [
+          -0.0012433977513390236,
+          1.5472898636021792,
+          -0.07770608671787657
+        ],
+        "after": [
+          -0.0012433977513390236,
+          1.5472898636021792,
+          -0.08812106687070405
+        ],
+        "extension": [
+          0,
+          0,
+          -0.010414980152827479
+        ]
+      },
+      {
+        "vertex": 19286,
+        "row": 9,
+        "cross": 2,
+        "t": 0.2857142857142857,
+        "weight": 0.27757991993132136,
+        "before": [
+          -0.0021324022418098823,
+          1.5414242089170878,
+          -0.07599445221971254
+        ],
+        "after": [
+          -0.0021324022418098823,
+          1.5414242089170878,
+          -0.08043573093861368
+        ],
+        "extension": [
+          0,
+          0,
+          -0.004441278718901142
+        ]
+      },
+      {
+        "vertex": 19289,
+        "row": 10,
+        "cross": 2,
+        "t": 0.30357142857142855,
+        "weight": 0.023752858077841887,
+        "before": [
+          -0.0012879517624971525,
+          1.5347702933963767,
+          -0.07086389677047375
+        ],
+        "after": [
+          -0.0012879517624971525,
+          1.5347702933963767,
+          -0.07124394249971922
+        ],
+        "extension": [
+          0,
+          0,
+          -0.0003800457292454702
+        ]
+      }
+    ],
+    "maxDisplacementM": 0.016,
+    "qualification": "Eight interior cross2 edge points only; actual occlusion, outline and clearance require build/render verification."
+  },
+  "sceneAndComponent": "Identical to v121 after version normalization",
+  "material": "All profiles and previous alpha fills, ambient, pigment and shadow settings unchanged",
+  "clearance": {
+    "completeReportExact": true,
+    "triangleCrossings": [
+      132,
+      122
+    ],
+    "nearestSignedFlags": [
+      61,
+      50
+    ],
+    "correctedWindingFaces": 242,
+    "qualification": "Unchanged full-groom clearance and winding limits remain; not final qualification."
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2774,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.805596,
+    "rssBytes": 181911552,
+    "wallSeconds": 1.600024416
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Retain v122 for visible270degree upper-rear coverage gain",
+    "finding": "Several270degree channels become smaller holes without new ledge or contour change. Intended225degree opening remains largely unresolved. Front, angle and rear stable.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Map and overlap remaining225degree gray core x878-896/y346-358 from actual bordering inner edge; preserve new270degree gain."
+  },
+  "coverageProxy": {
+    "samples": 16,
+    "newSamplesAboveHalfAlpha": 0,
+    "lostSamplesAboveHalfAlpha": 0,
+    "qualification": "Nearest atlas sample proxy only. Added edge mostly traverses the atlas feather; actual rendered appearance decides retention."
+  },
+  "retainedForNextStep": true,
+  "retainedBaseline": "v122",
+  "retainedConstructionStagesExact": true,
+  "v092TargetEdgeFurtherExtended": true
+}

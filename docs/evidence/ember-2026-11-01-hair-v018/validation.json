@@ -1,0 +1,97 @@
+{
+  "existingBuffers": "all8 identical to v017, v016 and v015",
+  "sourceGuidesAndBands": "identical to v017; hair length and lock-end targets preserved",
+  "protectedInputs": "match",
+  "ambientComponent": "identical to v017 after version-name substitution",
+  "material": "same v017 pigment, ambient, root and alpha settings; only shadow filtering changed",
+  "existingAppearanceAndViewReports": "source, weights, pose, geometry, ocular, brows, maps, eyeGeometry, light preset, bounds and hemisphere match v017",
+  "shadowKernel": {
+    "receivers": "scalp hair only",
+    "casters": [
+      "scalp hair",
+      "body/head"
+    ],
+    "lights": "existing key/fill; positions, colours and intensities unchanged",
+    "maps": 2,
+    "resolution": 1024,
+    "filter": "PCF tent25",
+    "bias": -3e-05,
+    "normalBiasM": 0.0004,
+    "scope": "Directional card/head occlusion; no scatter, pigment, geometry or face-lighting edits",
+    "samples": 25,
+    "kernel": "5x5 grid at two-texel spacing; separable weights 1,2,3,2,1; sum81",
+    "radiusTexels": 4,
+    "radiusAxisM": 0.002734375,
+    "qualification": "Fixed shadow-space blur; not physical area-light penumbra; render cost not benchmarked"
+  },
+  "browserViews": [
+    {
+      "view": "front",
+      "draw": 1,
+      "rootResidualMm": 0.00010843891732606441,
+      "fullHairFraming": true,
+      "onlyHairReceivesShadows": true,
+      "both1024MapsRendered": true,
+      "filterBuilds": 2,
+      "indirectBuilds": 1
+    },
+    {
+      "view": "angle",
+      "draw": 2,
+      "rootResidualMm": 0.00010843891686893117,
+      "fullHairFraming": true,
+      "onlyHairReceivesShadows": true,
+      "both1024MapsRendered": true,
+      "filterBuilds": 2,
+      "indirectBuilds": 1
+    },
+    {
+      "view": "face",
+      "draw": 3,
+      "rootResidualMm": 0.00010843891730854621,
+      "fullHairFraming": false,
+      "onlyHairReceivesShadows": true,
+      "both1024MapsRendered": true,
+      "filterBuilds": 2,
+      "indirectBuilds": 1
+    },
+    {
+      "view": "rear",
+      "draw": 4,
+      "rootResidualMm": 0.00010843891706976359,
+      "fullHairFraming": true,
+      "onlyHairReceivesShadows": true,
+      "both1024MapsRendered": true,
+      "filterBuilds": 2,
+      "indirectBuilds": 1
+    },
+    {
+      "view": "head",
+      "draw": 5,
+      "rootResidualMm": 0.00010845078828007981,
+      "fullHairFraming": true,
+      "onlyHairReceivesShadows": true,
+      "both1024MapsRendered": true,
+      "filterBuilds": 2,
+      "indirectBuilds": 1
+    }
+  ],
+  "process": {
+    "utc": "2026-11-01T20:51:57.721317+00:00",
+    "pid": 21796,
+    "exitCode": 0,
+    "wallSeconds": 1.3916893750138115,
+    "sampledPeakRssBytes": 173637632,
+    "stopReason": null,
+    "completeArtifact": true,
+    "automaticRetry": false
+  },
+  "clearanceCrossings": [
+    132,
+    122
+  ],
+  "appearanceAccepted": false,
+  "limitation": "Fixed shadow-space blur, not physical penumbra. GPU cost not benchmarked; still renders on demand only. No final surface clearance certificate.",
+  "critic": "One independent review: retain filtering improvement within shadow study, v015 still overall appearance baseline. Smoother side/rear dark-to-auburn transitions; crown hatching remains. Next bounded hypothesis: receiver bias.",
+  "browserDelivery": "All5 captures and reports saved before tab14 left browser session; final attempt to mark it failed once. Known unavailable handle; no reset or repeated retry. Saved outputs and localhost page remain available."
+}

@@ -1,0 +1,103 @@
+{
+  "inputs": [
+    {
+      "path": "packages/testbed/ember-appearance-v001.html",
+      "sha256": "9f4cbf3fb9bc4b704b60d4aa3704cc8e3dd92cb5213d038c9e016b0c02647052",
+      "unchanged": true
+    },
+    {
+      "path": "packages/testbed/src/ember-appearance-v001.js",
+      "sha256": "fc486085da779ae74f2e33f501349b678a97551c59187a99a583829c18984af0",
+      "unchanged": true
+    },
+    {
+      "path": "packages/core/src/material/EyeMaterial.js",
+      "sha256": "a64b29c812a7110cfdf8cf1045023628605af0906b607f49cd337a53ba79aa25",
+      "unchanged": true
+    },
+    {
+      "path": "packages/core/src/material/SkinMaterial.js",
+      "sha256": "803522f23feb60a98f5dc927e2a274351c872141a7d038b11c4673a4ff91440e",
+      "unchanged": true
+    },
+    {
+      "path": "packages/core/src/figure/Skeleton.js",
+      "sha256": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4",
+      "unchanged": true
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb",
+      "sha256": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef",
+      "unchanged": true
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-measured-fit/candidate-correction-v001.json",
+      "sha256": "9572d8f2f6b433b5eb5e1dd7ee3e1f17e95109ac8606edc46d361f2f369eea3e",
+      "unchanged": true
+    },
+    {
+      "path": "reference/ember/portraits/face-reference-2.png",
+      "sha256": "50cdaa32a44fd064b4d3f21bdec722ce533b822508fb5e5048f9fc950a5b14fe",
+      "unchanged": true
+    },
+    {
+      "path": "reference/ember/portraits/face-reference-1.png",
+      "sha256": "92464091b3c68000c79ed846896f4df1486ed39fdff902ff97940eda564e9d3a",
+      "unchanged": true
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2",
+      "unchanged": true
+    },
+    {
+      "path": "packages/testbed/src/ember-appearance-v002.js",
+      "sha256": "ca8872ba2ccc365cd4ce1ee8ec601f9b953a8b0f820f6bdc99bdb350894032dc",
+      "unchanged": true
+    },
+    {
+      "path": "packages/testbed/ember-appearance-v002.html",
+      "sha256": "43c4e270e8e531515946e7da64cae92363473cd096456390806a40893258f1a3",
+      "unchanged": true
+    }
+  ],
+  "outputs": [
+    {
+      "path": "packages/testbed/src/ember-appearance-v003.js",
+      "bytes": 7359,
+      "sha256": "85e1012c25786ef69b74fc09b6de1b4127cdd9a520f6bd624c5b4f9ecec1ea81"
+    },
+    {
+      "path": "packages/testbed/src/ember-ocular-v003-material.js",
+      "bytes": 76094,
+      "sha256": "55040b37a7a1d35ec31c1716fbeefa88a27227d27f6de2239d5ec1cb3009014a"
+    },
+    {
+      "path": "packages/testbed/ember-appearance-v003.html",
+      "bytes": 2069,
+      "sha256": "566100b75acc51b00641720226a32dfca55cf1c87509e02e1b364605531bc509"
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-ocular-v003/angle-neutral.jpg",
+      "bytes": 103518,
+      "sha256": "800e48e67c71872aefaa9d13d8c48ff5c07ee566c5f7a0bfc108f04f33d82823"
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-ocular-v003/gaze-left.jpg",
+      "bytes": 102577,
+      "sha256": "0490f3af788ee2e543df3183ba218e54a09189eefd1718ff22fa707ec6ae8791"
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-ocular-v003/gaze-right.jpg",
+      "bytes": 102756,
+      "sha256": "67b26ca3baed8b5a58700a75f538110d4bd897d3ca738a605eeba4aec178b08f"
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-ocular-v003/front-reference.jpg",
+      "bytes": 103554,
+      "sha256": "85813172e9b3c795fe01c42152e0c44663d79fadadac25fe5eac7c5e1775f1aa"
+    }
+  ],
+  "sourceChecks": "node --check on both new JS files; git diff --check passed",
+  "screenshots": 4
+}

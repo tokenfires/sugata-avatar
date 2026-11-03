@@ -1,0 +1,47 @@
+{
+  "controls": [
+    "head/head-scale-horiz-decr-incr",
+    "cheek/cheek-volume-decr-incr",
+    "chin/chin-height-decr-incr",
+    "chin/chin-width-decr-incr",
+    "chin/chin-prominent-decr-incr",
+    "eyes/eye-scale-decr-incr",
+    "eyes/eye-trans-in-out",
+    "eyes/eye-trans-down-up",
+    "eyes/eye-corner1-down-up",
+    "nose/nose-scale-horiz-decr-incr",
+    "nose/nose-scale-vert-decr-incr",
+    "nose/nose-scale-depth-decr-incr",
+    "nose/nose-trans-down-up",
+    "nose/nose-point-down-up",
+    "mouth/mouth-scale-horiz-decr-incr",
+    "mouth/mouth-trans-down-up",
+    "mouth/mouth-scale-depth-decr-incr",
+    "eyes/eye-height1-decr-incr",
+    "eyes/eye-height3-decr-incr",
+    "eyes/eye-corner2-down-up"
+  ],
+  "views": {
+    "front": 20,
+    "angle": 18
+  },
+  "basisShape": [
+    20,
+    2,
+    14517,
+    3
+  ],
+  "basisBytes": 13936320,
+  "allFinite": true,
+  "existingControlMovementLimit": 0.2,
+  "addedControls": [
+    "eyes/eye-height1-decr-incr",
+    "eyes/eye-height3-decr-incr",
+    "eyes/eye-corner2-down-up"
+  ],
+  "maxIterations": 80,
+  "internalDeadlineSeconds": 60,
+  "osCpuLimitSeconds": 120,
+  "correctionRuns": 0,
+  "excluded": "Source pigment points19-21; no new lip-volume controls."
+}

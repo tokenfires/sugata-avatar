@@ -1,0 +1,67 @@
+{
+  "protectedInputs": "All hashes match, including approved face assets and shared HairMaterial",
+  "all8GeometryBuffers": "Byte-identical to v028; all roots, lock-end targets, crown backing, bounds and hairline mesh fixed",
+  "specification": "Identical except version, status and local hairlineEdgeTrial metadata",
+  "localMaterialChange": "Only three lower-hairline ribbons receive the edge coverage mask; 243 tagged vertices, remaining 23184 untagged",
+  "frameReports": "All five match v028 after normalizing version, draw counter and hairlineEdge report only",
+  "sceneSource": "Byte-identical after version normalization; lights, cameras, ambient model/gain, transmission, pigment and approved features fixed",
+  "trial": {
+    "ids": [
+      "lower-hairline-overlap-01",
+      "lower-hairline-overlap-02",
+      "lower-hairline-overlap-03"
+    ],
+    "method": "Local per-ribbon tag; fine anti-aliased strand mask only outer22percent of lower edge, middle longitudinal span; slight irregular edge recession at most1.1mm",
+    "strandCellsAcrossWidth": 48,
+    "rootAndTipMask": "unchanged outside v=.11-.82; full effect v=.22-.70",
+    "preservation": "All8 compiled buffers and backing geometry, all long locks/end targets, pigment, softer-shadow settings, ambient, lights, face eyes brows fixed",
+    "qualification": "One local coverage-mask trial; render to judge if it softens the laminated lip without reopening gaps"
+  },
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "draws": 1
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "draws": 2
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "draws": 3
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "draws": 4
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "draws": 5
+    }
+  ],
+  "vertices": 23427,
+  "triangles": 30340,
+  "resources": {
+    "cpuSeconds": 1.426633,
+    "rssBytes": 177438720,
+    "wallSeconds": 1.213165459
+  },
+  "clearanceCrossings": [
+    132,
+    122
+  ],
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v029; retain v028",
+    "evidence": "Thick rim remains; close-up adds dotted partly detached fringe, not connected fine hairs. Little front/angle gain. No large new scalp slit; rear and silhouette stable.",
+    "hairline": "Approximately 1.1 eye spacings retained visually; not a new anatomical calibration",
+    "rootAgreement": true,
+    "next": "From v028, reshape only upper/interior surfaces of three added frontal bands; preserve lowest boundary and backing coverage."
+  }
+}

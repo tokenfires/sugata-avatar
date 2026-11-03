@@ -1,0 +1,107 @@
+{
+  "protectedInputs": "All hashes match including approved face assets, atlas and shared HairMaterial",
+  "allGeometry": "All eight original buffer prefixes byte-identical to v034; all 228 existing ribbons, roots, endpoints, hairline and global bounds fixed; 78 vertices and 100 triangles appended",
+  "originalBufferPrefixesPreserved": [
+    "position",
+    "normal",
+    "uv",
+    "uv1",
+    "index",
+    "along",
+    "across",
+    "rootDistance"
+  ],
+  "coverageScope": {
+    "guide": "rear-slot-bridge-01",
+    "taggedVertices": 78,
+    "ribbons": 1
+  },
+  "componentScope": "Local dense-core material applies only to the added ribbon; original scope flags and material retained for all existing locks",
+  "scene": "Byte-identical after version normalization",
+  "frameReports": "Five matched reports after version/draw/new-geometry counts/card-frame metrics and trial metadata normalization",
+  "materialPreservation": "Pigment, ambient model/gain, root and edge masks, lights and shadow transmission/filter settings fixed; actual hair-shadow coverage follows alpha",
+  "trial": {
+    "guide": "rear-slot-bridge-01",
+    "taggedRibbons": 1,
+    "maxAddedVertices": 213,
+    "coreOpacity": 0.96,
+    "startFade": [
+      0.22,
+      0.35
+    ],
+    "endFade": [
+      0.75,
+      0.9
+    ],
+    "edgeFadeLeft": [
+      0.03,
+      0.15
+    ],
+    "edgeFadeRight": [
+      0.85,
+      0.97
+    ],
+    "method": "Dense core in one added backing ribbon; retained atlas feather and tip outside the window",
+    "preservation": "All existing228ribbons and their geometry, roots/end targets, hairline, pigment, ambient and approved features fixed",
+    "qualification": "One added interior backing ribbon within existing 24000-vertex ceiling; shadow coverage follows new hair"
+  },
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "croppedVertices": 0
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "croppedVertices": 2772
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "croppedVertices": 0
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "croppedVertices": 0
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "croppedVertices": 0
+    }
+  ],
+  "resources": {
+    "cpuSeconds": 1.431477,
+    "rssBytes": 177618944,
+    "wallSeconds": 1.228560958
+  },
+  "vertices": 23865,
+  "triangles": 30904,
+  "clearance": "Unchanged 132/122 crossings and 239 corrected winding faces; final clearance/winding not certified",
+  "newBrowserErrors": 0,
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Retain v045 as a modest rear-coverage improvement",
+    "evidence": "Long slit substantially reduced; v044 straight panel gone. Narrower bridge follows surrounding wave better. Front, angle and head views show no obvious new jaw loop, hairline change or silhouette shift. Small pale segment remains.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Tuck only the pale exposed lower-middle segment behind neighboring waves while retaining overlap, upper bridge shape and all existing locks."
+  },
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "newTrianglesUseOnlyNewVertices": true,
+  "materialMatchesV044": "Byte-identical after version normalization; new dense core unchanged"
+}

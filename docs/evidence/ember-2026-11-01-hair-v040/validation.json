@@ -1,0 +1,105 @@
+{
+  "protectedInputs": "All hashes match including face assets, atlas and shared HairMaterial",
+  "unchangedOtherRibbons": 227,
+  "unchangedOtherRibbonAttributes": [
+    "position",
+    "normal",
+    "uv",
+    "uv1",
+    "along",
+    "across",
+    "rootDistance"
+  ],
+  "allRootAndEndRowsExact": 456,
+  "allOriginalGuideInputs": "Unchanged; all 182 original long ribbons byte-identical",
+  "changedVertices": 54,
+  "maxDisplacementM": 0.022803515180335347,
+  "maxWidthFloat32ErrorM": 4.109316144307318e-09,
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "unchangedBuffers": [
+    "uv",
+    "uv1",
+    "index"
+  ],
+  "sceneAndMaterial": "Byte-identical after version normalization; v034 density, colour, ambient, shadow settings and approved features fixed",
+  "frameReports": "All five identical after version/draw normalization; four full-hair views uncropped",
+  "resources": {
+    "cpuSeconds": 1.387849,
+    "rssBytes": 179339264,
+    "wallSeconds": 1.176018958
+  },
+  "vertices": 23787,
+  "triangles": 30804,
+  "clearance": "Unchanged 132/122 crossings and 239 corrected winding faces; final clearance/winding not certified",
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "croppedVertices": 0
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "croppedVertices": 2772
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "croppedVertices": 0
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "croppedVertices": 0
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "croppedVertices": 0
+    }
+  ],
+  "trial": {
+    "guide": "body-fill-rear-03",
+    "ribbon": 0,
+    "maxOffsetM": [
+      0.014,
+      0,
+      -0.018
+    ],
+    "startFade": [
+      0.3,
+      0.45
+    ],
+    "endFade": [
+      0.56,
+      0.72
+    ],
+    "method": "Translate all three vertices of each selected middle row equally before existing head-clearance projection; recompute normals and card directions",
+    "preservation": "All other 227 ribbons, root/end rows, original guide targets, hairline, outer bounds, material and approved features fixed",
+    "projectionEvidence": "Retained rear view maps t=.4464 to .5357 of this band along the opening at approximately page x721-745, y412-454 before displacement",
+    "qualification": "Interior continuity trial using the existing sampling rows; final continuous curvature and surface clearance remain unqualified",
+    "movedBridgeVertices": 54,
+    "maxBridgeDisplacementM": 0.022803508501982758
+  },
+  "newBrowserErrors": 0,
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v040; retain v034",
+    "evidence": "Upper rear opening is covered, but the long gray slit below remains. The displaced underlayer exposes a broad angular bend beside the central mass. Front, angle and head views show no obvious hairline or silhouette regression.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "From v034, leave the upper middle unchanged and move only the lower-middle section into the remaining slit, behind neighboring outer waves. Preserve roots and terminal rows."
+  }
+}

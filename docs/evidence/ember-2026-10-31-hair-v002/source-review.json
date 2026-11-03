@@ -1,0 +1,31 @@
+{
+  "utc": "2026-11-01T03:19:56.071906+00:00",
+  "preflightSha256": "0ad041c25474a06e96d6ef21e2a51048a984b8555ee998f59b9f56a4397e9d5d",
+  "critic": "/root/local_feature_critic",
+  "criticVerdict": "Source-ready; no blocking findings. Separate root single-build admission is the next responsibility; no additional diagnostic/source revision needed.",
+  "rootVerdict": "Agree after independent diff, q/t/indexing/workload/source-hash and protected-block verification.",
+  "sourceReady": true,
+  "admitSingleBuild": true,
+  "executionThisSlice": "one compilation admitted, not yet run at admission timestamp",
+  "appearanceAccepted": false,
+  "frozenV001Preserved": true,
+  "limitsUnchanged": true,
+  "next": "Run once under the unchanged watchdog. Failure stops; success allows only the four fixed planned witnesses and independent/root image review.",
+  "rootAdmission": {
+    "utc": "2026-11-01T03:26:07.920352+00:00",
+    "decision": "Admit exactly one supervised v002 compilation against this exact reviewed manifest.",
+    "reason": "Independent/root exact-source review complete; 26 inputs unchanged; continuation chat idle; no matching owned build job; fresh supported IAB page completed front/reference/warm draw1.",
+    "browser": {
+      "retainedHandle": "browser.user unavailable",
+      "freshTab": "6",
+      "url": "http://127.0.0.1:5173/ember-local-feature-v001.html",
+      "completedDraws": 1,
+      "handoffMarked": true,
+      "newCaptures": 0
+    },
+    "limitsUnchanged": true,
+    "automaticRetry": false,
+    "runtimeCommand": "python3 tools/ember-hair/run-v002.py",
+    "appearanceAcceptance": false
+  }
+}

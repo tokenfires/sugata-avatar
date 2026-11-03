@@ -1,0 +1,48 @@
+{
+  "utc": "2026-11-01T04:43:04.797532+00:00",
+  "critic": "/root/local_feature_critic",
+  "rootAndCriticDecision": "Retain the concrete isolated proposal as source-reviewed, unapplied and unqualified. Description corrections are sufficient for retention, not application.",
+  "proposalSha256": "935a97173f5d9216167bd09092ccb96ee4266f7ca8c6e80e2cc17c651b0d5f46",
+  "manifestSha256": "51e5c2a819038b9b32e7e17fc05e416ad5ced205555313720158402f5c3b1c39",
+  "verifiedInputs": 69,
+  "beforeVectorsMatch": 26,
+  "proposedChangedGuides": 8,
+  "unchangedGuides": 32,
+  "protectedSourceUnchanged": true,
+  "findings": [
+    {
+      "witness": "proposal entries crown-sweep-02 points/3",
+      "finding": "Fixed control height is not a proved curve maximum. Wording corrected; no curve evaluation."
+    },
+    {
+      "witness": "proposal entries occipital-02/03/04/05 points/5 and points/6",
+      "finding": "Fixed last controls and endFraction parameters do not establish physical .94/.97 endpoint preservation. Binding application blocker; measuring drift does not permit accepting it or compensating edits."
+    },
+    {
+      "witness": "proposal nape-03 nominatedSite triangle14712 edge barycentrics",
+      "finding": "Explicit site/triangle/normal correspondence required. No new nearest lookup alone, root-row or motion pass."
+    }
+  ],
+  "alternatives": [
+    {
+      "choice": "Retain this exact source proposal for one guarded application/qualification implementation review",
+      "tradeoff": "Concrete inspectable authoring intent; physical-tip and other construction gaps may block execution. Selected for source preparation only."
+    },
+    {
+      "choice": "Retain original guide layout without applying the proposal",
+      "tradeoff": "Preserves every existing point, but leaves known sampling and nape03 attachment failures unresolved; does not authorize a retry."
+    }
+  ],
+  "sourceImplementationPreparationAdmitted": true,
+  "applicationAdmitted": false,
+  "qualificationExecutionAdmitted": false,
+  "candidateBuildAdmitted": false,
+  "appearanceAccepted": false,
+  "next": "Prepare actual finite application/qualification source, not another planning-only wrapper. Explicitly preserve physical ribbon endpoints and nape triangle/barycentric site or fail closed before candidate output; no compensating edits or changed fractions. Declare evidence reuse, cover all changed paths and unassessed nape04 construction, preserve all safeguards. Independent/root source/workload review and a separate later execution decision remain required.",
+  "ownedJobs": {
+    "continuationChat": "idle",
+    "vitePid": 9108,
+    "constructionJobs": []
+  },
+  "noCurveSamplerCompilerBrowserImageOperation": true
+}

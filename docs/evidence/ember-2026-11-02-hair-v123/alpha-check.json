@@ -1,0 +1,61 @@
+{
+  "config": {
+    "guide": "under-occipital-04-1",
+    "ribbon": 0,
+    "start": 0.17,
+    "full": 0.195,
+    "fade": 0.24,
+    "end": 0.27,
+    "offsetTexels": -12,
+    "contribution": 0.65,
+    "edgeBlend": [
+      0.8,
+      0.86
+    ],
+    "centreBlend": [
+      0.955,
+      0.99
+    ],
+    "purpose": "Composite a fixed twelve-texel inward strand alpha sample over the transparent rear arch margin. Feathered interior window preserves original alpha, roots, edges, tips and all existing fills."
+  },
+  "scopeSamples": 40401,
+  "changedScopeSamples": 624,
+  "originalAlphaNeverReduced": true,
+  "outsideWindowExact": true,
+  "retainedCategoriesExact": true,
+  "noMixedTriangleCategories": true,
+  "taggedVertices": {
+    "waveAtlasFill": 123,
+    "neckAtlasFill": 120,
+    "rearCrownAtlasFill": 114,
+    "upperCrownAtlasFill": 72,
+    "rearArchAtlasFill": 114
+  },
+  "formerBlankMarginSamples": [
+    {
+      "u": 0.9412355830742506,
+      "t": 0.19217547997117806,
+      "before": 0.002526087841533459,
+      "after": 0.6191892208931077
+    },
+    {
+      "u": 0.9185114081026584,
+      "t": 0.2120695327780852,
+      "before": 0.2463592839489742,
+      "after": 0.7208185097051676
+    },
+    {
+      "u": 0.8858135376397898,
+      "t": 0.2253156404249928,
+      "before": 0.21077992651728356,
+      "after": 0.7237729742810493
+    },
+    {
+      "u": 0.9583770009343788,
+      "t": 0.22867070961658703,
+      "before": 0,
+      "after": 0.44459026525118833
+    }
+  ],
+  "qualification": "Bilinear base-level alpha and discrete scope proxy; no GPU filtering or MSAA certification"
+}

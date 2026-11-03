@@ -1,0 +1,47 @@
+{
+  "proposalSha256": "935a97173f5d9216167bd09092ccb96ee4266f7ca8c6e80e2cc17c651b0d5f46",
+  "bytes": 19418,
+  "exactBeforeEntriesMatchFrozenSource": true,
+  "controlEntries": 26,
+  "modifiedGuides": [
+    "crown-sweep-02",
+    "crown-sweep-04",
+    "side-heavy-01",
+    "occipital-02",
+    "occipital-03",
+    "occipital-04",
+    "occipital-05",
+    "nape-03"
+  ],
+  "unchangedGuideCount": 32,
+  "maxProposedControlDisplacementMm": 19.209372712298553,
+  "sourceSha256Unchanged": true,
+  "checks": "JSON correspondence, coordinates, displacement arithmetic and field equality only; no curves or candidate output.",
+  "applicationAdmitted": false,
+  "runtimeExecuted": false,
+  "preparationNote": "Source uses null surfaceControls for outer guides; metadata-only preparation handles null as absent. No proposal file existed before this successful write.",
+  "metadataCorrection": "Clarified control3 height versus actual curve maximum, and fixed terminal guide coordinates/end fractions versus unqualified generally moving .94/.97 ribbon endpoints. Numeric proposal unchanged.",
+  "unqualifiedApplicationGaps": [
+    {
+      "area": "curve extrema",
+      "status": "Control3 Y unchanged does not prove unchanged crest maximum; no curve evaluation admitted in source preparation."
+    },
+    {
+      "area": "trimmed ribbon tips",
+      "status": "Occipital .94/.97 endpoints generally move; only terminal guide controls and endFraction fields are fixed. Actual tip displacement and intended length preservation require explicit later qualification; do not silently call all tips unchanged."
+    },
+    {
+      "area": "nape03 edge anchor",
+      "status": "Application needs explicit recorded triangle/barycentric/normal correspondence. Feeding the nominated edge point through another nearest lookup alone is insufficient and is not admitted by this proposal."
+    },
+    {
+      "area": "known sampling failures",
+      "status": "All known failures remain unresolved; source bounds/proposed controls are not a pass."
+    }
+  ],
+  "finalVerificationUtc": "2026-11-01T04:41:46.726103+00:00",
+  "verifiedManifestSha256": "51e5c2a819038b9b32e7e17fc05e416ad5ced205555313720158402f5c3b1c39",
+  "verifiedInputCount": 69,
+  "allManifestInputsUnchanged": true,
+  "actualRibbonEndpointPreservation": "Binding and unqualified; nonzero .94/.97 endpoint drift must fail closed. Metadata clarification is not a waiver or application admission."
+}

@@ -1,0 +1,102 @@
+{
+  "protectedInputs": "All hashes match including face assets, atlas and shared HairMaterial",
+  "geometry": "All eight geometry buffers byte-identical to v034; 228 ribbons, roots, end targets and widths fixed",
+  "unchangedBuffers": [
+    "position",
+    "normal",
+    "uv",
+    "uv1",
+    "along",
+    "across",
+    "rootDistance",
+    "index"
+  ],
+  "scene": "Byte-identical after version normalization",
+  "material": "Only local roughness nodes, two packed selection flags and reporting differ from v034; pigment, alpha, ambient, shadows and lights unchanged",
+  "frameReports": "All five identical after removing trial metadata and normalizing version/draw count",
+  "trial": {
+    "guide": "temple-light-01",
+    "ribbons": [
+      0,
+      1,
+      2
+    ],
+    "taggedVertices": 351,
+    "multiplierRange": [
+      0.75,
+      1.25
+    ],
+    "bandsAcross": 7,
+    "longitudinalWarp": {
+      "amplitude": 0.18,
+      "frequency": 8
+    },
+    "startFade": [
+      0.12,
+      0.28
+    ],
+    "endFade": [
+      0.78,
+      0.94
+    ],
+    "pixelFootprintFade": [
+      0.4,
+      1.1
+    ],
+    "lobes": [
+      "R",
+      "TT",
+      "TRT"
+    ],
+    "meanMultiplier": 1,
+    "preservation": "All geometry buffers, pigment, alpha, hairline, ends, ambient, lighting, shadow settings and approved features fixed",
+    "qualification": "Local roughness study only; unresolved variation fades to baseline mean"
+  },
+  "packedBuffer": "Density flag in x retains the same 360 backing vertices; roughness flag in y selects 351 vertices in exactly three temple-light-01 ribbons",
+  "resources": {
+    "cpuSeconds": 1.620072,
+    "rssBytes": 176898048,
+    "wallSeconds": 1.3872220419999999
+  },
+  "vertices": 23787,
+  "triangles": 30804,
+  "clearance": "Unchanged 132/122 crossings and 239 corrected winding faces; final clearance/winding not certified",
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "croppedVertices": 0
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "croppedVertices": 2772
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "croppedVertices": 0
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "croppedVertices": 0
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "croppedVertices": 0
+    }
+  ],
+  "newBrowserErrors": 0,
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v039; retain v034",
+    "evidence": "No useful breakup of the broad light-side highlight at close-up or full-head scale. No obvious new noise or striping; coverage, face opening and hairline stable. Insufficient appearance gain.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "From v034, reposition the middle of one existing rear underlayer to bridge the vertical opening between the central back mass and screen-left hanging wave. Preserve roots, terminal targets and outer silhouette."
+  },
+  "priorFailedAttempt": "v038 had no rendered hair because 9 vertex buffers exceeded the device limit of 8; v039 packs both selection flags in one vec2 buffer and has no new GPU errors."
+}

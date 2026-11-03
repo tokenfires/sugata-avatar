@@ -1,0 +1,70 @@
+{
+  "protectedInputs": "All hashes match including face assets, atlas and shared material",
+  "all8PreviousBuffers": "Exact prefixes; all224existing ribbons, roots, centrelines, endpoints and hairline unchanged",
+  "addedLocks": [
+    "inner-backing-heavy-01",
+    "inner-backing-heavy-02"
+  ],
+  "addedVertices": 183,
+  "addedTriangles": 236,
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "newRoots": 6,
+  "sceneAndMaterial": "Byte-identical after version normalization; ambient, pigment, shadows, cameras and approved features fixed",
+  "frameReports": "All five match v031 after version/draw, geometry counts and face close-up crop count normalization. All four full-hair views uncropped.",
+  "clearance": "Unchanged132 bind/122 head crossings;239corrected winding faces; final clearance/winding not certified",
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "croppedVertices": 0
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "croppedVertices": 2766
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "croppedVertices": 0
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "croppedVertices": 0
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "croppedVertices": 0
+    }
+  ],
+  "vertices": 23610,
+  "triangles": 30576,
+  "resources": {
+    "cpuSeconds": 1.424361,
+    "rssBytes": 179175424,
+    "wallSeconds": 1.219365291
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Retain v032 as useful local coverage improvement",
+    "evidence": "Screen-left cheek/jaw opening visibly denser in front, angle and close-up. Backing joins descending waves without conspicuous flat panel. Hairline and outer silhouette stable; rear essentially unchanged.",
+    "remaining": "New short tips somewhat wispy; overall hair still substantially thinner than portraits",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Two staggered backing waves behind opposite screen-right ear-to-neck opening, preserving face opening and all existing endpoints."
+  }
+}

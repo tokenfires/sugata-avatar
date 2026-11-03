@@ -1,0 +1,174 @@
+{
+  "protectedInputs": "All admitted hashes match. Approved face, eyes and brows unchanged.",
+  "baseline": "v120",
+  "completeV120GeometryExact": true,
+  "geometryBuffersExact": [
+    "position",
+    "normal",
+    "uv",
+    "uv1",
+    "along",
+    "across",
+    "rootDistance",
+    "index"
+  ],
+  "sourceGuidesAndControlAnchorsExact": true,
+  "rootsAndEndsExact": true,
+  "v120CrownExtensionExact": true,
+  "all233RibbonsExact": true,
+  "addedVertices": 0,
+  "addedTriangles": 0,
+  "changedPositionVertices": 0,
+  "vertices": 23997,
+  "triangles": 31064,
+  "appearance": "Only scoped upper crown alpha infill added. Existing fills, alpha profiles elsewhere, ambient, pigment, roughness, shadow settings and sidecar textures unchanged.",
+  "componentProof": "Equals120 after removing scoped fourth category, new alpha sample and category3 upper bound.",
+  "alphaCheck": {
+    "config": {
+      "guide": "part-sweep-1-4",
+      "ribbon": 0,
+      "start": 0.35,
+      "full": 0.4,
+      "fade": 0.58,
+      "end": 0.64,
+      "offsetTexels": 6,
+      "contribution": 0.65,
+      "edgeBlend": [
+        0.3,
+        0.38
+      ],
+      "centreBlend": [
+        0.46,
+        0.54
+      ],
+      "purpose": "Composite a fixed six-texel translated strand alpha sample over the central upper crown slit. Feathered interior window preserves original alpha, roots, edges, tips and all existing fills."
+    },
+    "scopeSamples": 40401,
+    "changedScopeSamples": 678,
+    "originalAlphaNeverReduced": true,
+    "outsideWindowExact": true,
+    "retainedCategoriesExact": true,
+    "noMixedTriangleCategories": true,
+    "taggedVertices": {
+      "waveAtlasFill": 123,
+      "neckAtlasFill": 120,
+      "rearCrownAtlasFill": 114,
+      "upperCrownAtlasFill": 72
+    },
+    "formerBlankMarginSamples": [
+      {
+        "u": 0.42678096693972817,
+        "t": 0.40224646385156454,
+        "before": 0.30001118260335213,
+        "after": 0.7550039139111733
+      },
+      {
+        "u": 0.4025260395458066,
+        "t": 0.4657819169094665,
+        "before": 0,
+        "after": 0.65
+      },
+      {
+        "u": 0.4046407388575553,
+        "t": 0.5788506969167602,
+        "before": 0,
+        "after": 0.65
+      }
+    ],
+    "qualification": "Bilinear base-level alpha and discrete scope proxy; no GPU filtering or MSAA certification"
+  },
+  "clearance": {
+    "completeReportExact": true,
+    "triangleCrossings": [
+      132,
+      122
+    ],
+    "nearestSignedFlags": [
+      61,
+      50
+    ],
+    "correctedWindingFaces": 242,
+    "qualification": "Prior full-groom clearance/winding limits remain; unchanged geometry does not establish final qualification."
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2774,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "preBuildLoadError": {
+    "initialLoad": "Preview opened before build output existed; JSON request received Vite fallback HTML.",
+    "recovery": "Reloaded once after successful compiler completion; all11views then rendered successfully.",
+    "preBuildErrors": 1,
+    "postBuildErrors": 0,
+    "buildCompleted": "2026-11-02T11:32:54.999189+00:00"
+  },
+  "resources": {
+    "cpuSeconds": 1.849826,
+    "rssBytes": 180994048,
+    "wallSeconds": 1.6593909169999999
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Retain v121 locally",
+    "finding": "Bright225degree scalp slit substantially reduced with strand detail retained and no obvious patch boundary. Inspected hairline, crest and surrounding views stable.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Fill225degree gray opening beneath upper rear arch x867-897/y340-358 with tapered inner backing edge; keep outer arch fixed."
+  },
+  "retainedForNextStep": true,
+  "retainedBaseline": "v121"
+}

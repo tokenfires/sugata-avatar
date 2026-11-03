@@ -1,0 +1,62 @@
+{
+  "utc": "2026-11-01T04:18:36.403897+00:00",
+  "critic": "/root/local_feature_critic",
+  "rootInspected": [
+    "front.jpg",
+    "angle.jpg",
+    "rear.jpg",
+    "reference/ember/portraits/face-reference-1.png"
+  ],
+  "criticInspected": [
+    "front.jpg",
+    "angle.jpg",
+    "rear.jpg",
+    "reference/ember/portraits/face-reference-1.png"
+  ],
+  "verdict": "Retain construction evidence; no hair appearance or candidate acceptance. Single visual generation and all three fixed captures consumed.",
+  "findings": [
+    {
+      "witness": "front.jpg and angle.jpg, blue crown-sweep-02 controls1.2\u20131.3\u20131.4; original portrait1 upper swept lock",
+      "finding": "Tight crest after scalp-following transition; portrait supports root lift with a broader continuous turn.",
+      "rootDecision": "Agreed. Broaden transition under a later authoring contract; do not flatten crown to satisfy numbers."
+    },
+    {
+      "witness": "rear.jpg and angle.jpg, occipital-02/03/04/05 controls4\u20137",
+      "finding": "Similar bend phase across four displayed paths.",
+      "rootDecision": "Consider justified variation, not a complete-hairstyle repetition verdict;33 omitted guides and all surfaces remain unshown."
+    },
+    {
+      "witness": "three seed overlays and saved layout-check nape records",
+      "finding": "Unresolved seeds need actual eligible-triangle correspondence. Existing nape-02 was already near original25mm bound.",
+      "rootDecision": "No projected or guessed root fix, no large automatic shift or mask/distance relaxation."
+    },
+    {
+      "witness": "front.jpg/angle.jpg nape text and small upper control labels",
+      "finding": "Some annotation crowding remains. W2/W4 coalesced and sidebar IDs/source report remain explicit.",
+      "rootDecision": "Limit precise pixel-label inference; reuse saved exact data. No recapture or diagram revision."
+    }
+  ],
+  "separateAssessments": {
+    "likeness": "Unassessed by these guide sheets; existing head likeness remains unaccepted",
+    "finish": "No hair surfaces/materials; unassessed",
+    "expressionMeaning": "Bind-pose diagram only; unassessed",
+    "construction": "Provides visual grounding for named curve-transition and layout concerns; does not pass sampling, root-motion or clearance"
+  },
+  "alternatives": [
+    {
+      "choice": "Conservative coherent authoring revision within existing seven-guide family plus two unresolved attachments",
+      "tradeoff": "Preserves useful shapes and first/unaffected guides; numerical feasibility remains a later bounded check. Selected for source-contract preparation."
+    },
+    {
+      "choice": "Re-author affected lock family together with explicit wave/transition intent",
+      "tradeoff": "Potentially more coherent design but greater shape change and likeness drift risk. Not selected."
+    }
+  ],
+  "next": "Prepare and independently/root review one coherent authoring-source contract for seven affected paths and two unresolved nape attachments. Every proposed control change needs a visual purpose; numeric failure alone does not mandate it. Preserve useful lower waves, lift, original first/unaffected guides, approved face/eyes/brows and exact safeguards. Establish actual eligible root correspondence under that separately scoped contract. No partial crown/nape-only repair can admit a build while other known failures remain unresolved.",
+  "samplerRescueChainClosed": true,
+  "diagnosticAndCapturesConsumed": true,
+  "controlEditsAdmitted": false,
+  "newSamplerExperimentAdmitted": false,
+  "candidateBuildAdmitted": false,
+  "appearanceAccepted": false
+}

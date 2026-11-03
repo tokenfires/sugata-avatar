@@ -1,0 +1,194 @@
+{
+  "checkedAt": "2026-11-01T02:11:06.692894+00:00",
+  "allUnchanged": true,
+  "checks": {
+    "/Users/robault/GitHub/sugata-avatar/tools/ember-measured-fit/local_feature_attribution.mjs": {
+      "bytes": 11962,
+      "sha256": "773eacb2929a2bc907dfe965b8467fdd4abc6515cdfefde8ce65917f34de4d33",
+      "unchanged": true
+    },
+    "tools/lut-bake/glb.mjs": {
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2",
+      "unchanged": true
+    },
+    "packages/core/src/figure/IdentityCatalogue.js": {
+      "bytes": 19040,
+      "sha256": "27d507080cfdcf54ab814d18761265a84119cfdb6c66126458061c21336759ae",
+      "unchanged": true
+    },
+    "packages/core/src/figure/IdentityTargets.js": {
+      "bytes": 20618,
+      "sha256": "424a420dc82d2f595d0e08f855b2bdf29ea107c8ec4c70c03a723065c717521d",
+      "unchanged": true
+    },
+    "assets/identity/catalogue.json": {
+      "bytes": 211224,
+      "sha256": "b8ac339c591a52cd454eb3dc82c564a1798714e34ca4c1e714fec40d36d3a176",
+      "unchanged": true
+    },
+    "assets/identity/figure-vertex-map.bin": {
+      "bytes": 29034,
+      "sha256": "f6ce5044e74a31094f11642f822df6ebdb2efb37c730a8765a60e67b346e01ff",
+      "unchanged": true
+    },
+    "assets/identity/targets/cheek.bin": {
+      "bytes": 33488,
+      "sha256": "4143c00c3774e2b9411cdf6ffe1c439ca3dc819829c3f14c4afcb0ba3e8d375c",
+      "unchanged": true
+    },
+    "assets/identity/targets/chin.bin": {
+      "bytes": 273280,
+      "sha256": "48e6eb7b6a0a82fa4e542ef24d241a435ff23c0710fb58bfca748d8032a0a07f",
+      "unchanged": true
+    },
+    "assets/identity/targets/mouth.bin": {
+      "bytes": 245792,
+      "sha256": "8aa1c280e5752241d5a3872becabcd26a929e78455088af907f39809f2d00d9b",
+      "unchanged": true
+    },
+    "docs/evidence/ember-2026-10-31-measured-fit/candidate-correction-v001.json": {
+      "bytes": 16270,
+      "sha256": "9572d8f2f6b433b5eb5e1dd7ee3e1f17e95109ac8606edc46d361f2f369eea3e",
+      "unchanged": true
+    },
+    "docs/evidence/ember-2026-10-31-measured-fit/candidate-correction-v001-positions.f32": {
+      "bytes": 174204,
+      "sha256": "6d17c63dc89c628106464e7ba6097c244787eeea9793276be755edcffb8a285f",
+      "unchanged": true
+    },
+    "docs/evidence/ember-2026-10-31-measured-fit/observations-correction-v001.json": {
+      "bytes": 10643,
+      "sha256": "4d12caa726aa7255456476b9654d7b43867de246885018b5cb8f2d6e07ffa038",
+      "unchanged": true
+    },
+    "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb": {
+      "bytes": 11568232,
+      "sha256": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef",
+      "unchanged": true
+    },
+    "tools/figure-pipeline/.cache/ember-source/eyes/high-poly/high-poly.mhclo": {
+      "bytes": 72490,
+      "sha256": "b183cfe37120ab726f9b3f2ea6cd3a64c44ce7b4bd91a77c841cf70c04f83a0d",
+      "unchanged": true
+    },
+    "tools/figure-pipeline/.cache/ember-source/eyebrows/eyebrow001/eyebrow001.mhclo": {
+      "bytes": 9141,
+      "sha256": "54c8892c2ba577f4152d779ce1f20f7cd323beb8cbd9cb701796165c221b4f5b",
+      "unchanged": true
+    },
+    "tools/figure-pipeline/.cache/ember-source/eyelashes/eyelashes01/eyelashes01.mhclo": {
+      "bytes": 2265,
+      "sha256": "5a86b29c15649273d723084954b7fa7bf199112571d4f58539b46734d397ee6b",
+      "unchanged": true
+    },
+    "tools/figure-pipeline/.cache/ember-source/teeth/teeth_base/teeth_base.mhclo": {
+      "bytes": 263220,
+      "sha256": "9edc3deff3bb97a95c791878064dd069a74a38f95ea6d9707a9ba68d888b3b5c",
+      "unchanged": true
+    },
+    "tools/figure-pipeline/.cache/ember-source/tongue/tongue01/tongue01.mhclo": {
+      "bytes": 2113,
+      "sha256": "61d825899cd78ff3146fa1324118060cb44b095fae1427d408c199ade74e3c9e",
+      "unchanged": true
+    },
+    "packages/testbed/src/ember-brow-only-v002.js": {
+      "bytes": 9653,
+      "sha256": "6cfd55383e0afb7dae51d2cfcaca177d3228ffd0db5beed7c0bf39b21920b2a9",
+      "unchanged": true
+    },
+    "packages/testbed/src/ember-ocular-v003-material.js": {
+      "bytes": 76094,
+      "sha256": "55040b37a7a1d35ec31c1716fbeefa88a27227d27f6de2239d5ec1cb3009014a",
+      "unchanged": true
+    },
+    "docs/evidence/ember-2026-10-31-local-feature-attribution/source-report.json": {
+      "bytes": 128737,
+      "sha256": "2a9bbc222d7947f6fc9e4578bdd0b52c010a33fc03b1dd6de53cdfef3cf61fd9",
+      "unchanged": true
+    },
+    "docs/evidence/ember-2026-10-31-local-feature-attribution/README.md": {
+      "bytes": 3527,
+      "sha256": "65f03e44f1fa730c2a3ebdfdf95d04ada09ecc3ef2d88241e03310ec4d523ea7",
+      "unchanged": true
+    },
+    "/Users/robault/GitHub/sugata-avatar/tools/ember-measured-fit/local_feature_candidate.mjs": {
+      "bytes": 9229,
+      "sha256": "8d54dffd31dace356aeb7de43d44e300ec125afbacaf059ee22a4da02ba6e947",
+      "unchanged": true
+    },
+    "packages/testbed/src/ember-local-feature-v001.js": {
+      "bytes": 11828,
+      "sha256": "d1b769696b525537d85fa8808f7df69450229b69af3457292f044ca478da7c97",
+      "unchanged": true
+    },
+    "packages/testbed/ember-local-feature-v001.html": {
+      "bytes": 2174,
+      "sha256": "02972aaad9e3407f8eb61877386ee1be1a2da4635ae6496977603917243adb7a",
+      "unchanged": true
+    },
+    "docs/evidence/ember-2026-10-31-local-feature-v001/positions.f32": {
+      "bytes": 174204,
+      "sha256": "3859319a3c553fea959b80ba19ad9ad9a4823a42b11a32adfd356d06635c2654",
+      "unchanged": true
+    },
+    "docs/evidence/ember-2026-10-31-local-feature-v001/normals.f32": {
+      "bytes": 174204,
+      "sha256": "907028a279e85dc4a15c2cc9829fdbc10af82d0aa2d989f9cddf09e8817e67e7",
+      "unchanged": true
+    },
+    "docs/evidence/ember-2026-10-31-local-feature-v001/normal-rotations.f32": {
+      "bytes": 232272,
+      "sha256": "69dc4c03d436588505c22260fcbafaf959c16d34617c2a6cad0db5d9dfcd2b91",
+      "unchanged": true
+    }
+  },
+  "captures": {
+    "baseline-angle-neutral": {
+      "bytes": 106093,
+      "sha256": "08dc3668c1990f19a07639174bc28f0473516160528f2016e73ca92c969b24ec",
+      "view": "angle",
+      "frame": "reference",
+      "weights": {
+        "mouthSmileLeft": 0.261196718093633,
+        "mouthSmileRight": 0.261196718093633
+      },
+      "neutralLight": true
+    },
+    "front-reference": {
+      "bytes": 105928,
+      "sha256": "60109fc45533fdab4156f8ecebd863d289aa833c560dc80c5a888a23f318888b",
+      "view": "front",
+      "frame": "reference",
+      "weights": {
+        "mouthSmileLeft": 0.3409697180754864,
+        "mouthSmileRight": 0.3409697180754864
+      },
+      "neutralLight": false
+    },
+    "front-neutral": {
+      "bytes": 105290,
+      "sha256": "4af928cf411f65e1317ee9f9d58a190ce53ec570fb3fefb95d8f36a2f94eaca3",
+      "view": "front",
+      "frame": "neutral",
+      "weights": {},
+      "neutralLight": true
+    },
+    "angle-neutral": {
+      "bytes": 105781,
+      "sha256": "9d99803e14576a4545a00565ac6545e9bc1e82c0562284ff9997e8fb8c172380",
+      "view": "angle",
+      "frame": "reference",
+      "weights": {
+        "mouthSmileLeft": 0.261196718093633,
+        "mouthSmileRight": 0.261196718093633
+      },
+      "neutralLight": true
+    }
+  },
+  "captureBudget": {
+    "allowed": 4,
+    "consumed": 4,
+    "remaining": 0
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "controls": [
+    "head/head-scale-horiz-decr-incr",
+    "cheek/cheek-volume-decr-incr",
+    "chin/chin-height-decr-incr",
+    "chin/chin-width-decr-incr",
+    "chin/chin-prominent-decr-incr",
+    "eyes/eye-scale-decr-incr",
+    "eyes/eye-trans-in-out",
+    "eyes/eye-trans-down-up",
+    "eyes/eye-corner1-down-up",
+    "nose/nose-scale-horiz-decr-incr",
+    "nose/nose-scale-vert-decr-incr",
+    "nose/nose-scale-depth-decr-incr",
+    "nose/nose-trans-down-up",
+    "nose/nose-point-down-up",
+    "mouth/mouth-scale-horiz-decr-incr",
+    "mouth/mouth-trans-down-up",
+    "mouth/mouth-scale-depth-decr-incr"
+  ],
+  "views": {
+    "front": 15,
+    "angle": 13
+  },
+  "basisShape": [
+    17,
+    2,
+    14517,
+    3
+  ],
+  "basisBytes": 11845872,
+  "allFinite": true,
+  "maxIterations": 80,
+  "internalDeadlineSeconds": 60,
+  "osCpuLimitSeconds": 120,
+  "candidateRuns": 0,
+  "controlRange": [
+    -0.8,
+    0.8
+  ],
+  "expressions": [
+    "shared-left-right-smile-per-view"
+  ],
+  "exclusions": [
+    "eyelid aperture sliders",
+    "upper lip thickness",
+    "new asset authoring",
+    "multi-start"
+  ]
+}

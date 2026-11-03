@@ -1,0 +1,11 @@
+{
+  "id": "advance-sugata-avatar-visual-quality",
+  "name": "Advance Sugata until check-in",
+  "kind": "heartbeat",
+  "status": "ACTIVE",
+  "rrule": "FREQ=MINUTELY;INTERVAL=10",
+  "target_thread_id": "01a0ff57-d720-7db2-923f-9e3e0521216c",
+  "updated_at": 1793459493704,
+  "promptSha256": "626a51b1a4cee78354468925b394895e814580c4acaddf27ab53e9d44b7ce13a",
+  "verification": "app API update returned ACTIVE, view queried, saved TOML status/cadence/destination read back"
+}

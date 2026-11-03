@@ -1,0 +1,36 @@
+{
+  "utc": "2026-11-01T03:27:03.601966+00:00",
+  "failureSha256": "3ae68e64821fad3c418177917aafa78fb1d47a2880fdabf31b4bc270e785385a",
+  "guide": "crown-sweep-02",
+  "ribbon": 1,
+  "endFraction": 1,
+  "interval": {
+    "index": 39,
+    "lo": 0.9375,
+    "hi": 1,
+    "maxErrorM": 0.0003827047137562069,
+    "worst": {
+      "q": 0.9765625,
+      "fraction": 0.625,
+      "point": [
+        -0.11181292733947626,
+        1.3792750136312795,
+        0.15553368866841613
+      ],
+      "chordPoint": [
+        -0.11210172060320671,
+        1.3791192581474365,
+        0.15533670750686004
+      ]
+    }
+  },
+  "recomputedStoredDistanceM": 0.00038270471375620685,
+  "thresholdM": 0.00035,
+  "overThresholdM": 3.270471375620685e-05,
+  "rootConclusion": "Saved error arithmetic and named source correspondence verified. No curve evaluation or compiler replay. Final interval exceeded sampled tolerance; no hairstyle/anatomy inference.",
+  "previousInputsUnchanged": 27,
+  "currentInputsUnchanged": 26,
+  "noMeshOrCompleteArtifacts": true,
+  "newCaptures": 0,
+  "automaticRetry": false
+}

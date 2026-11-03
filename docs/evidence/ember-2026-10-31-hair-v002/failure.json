@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-01T03:26:08.053Z",
+  "error": "Error: Guide crown-sweep-02 ribbon 1: Adaptive sampled chord error exceeds fixed limit: {\"index\":39,\"lo\":0.9375,\"hi\":1,\"maxErrorM\":0.0003827047137562069,\"worst\":{\"q\":0.9765625,\"fraction\":0.625,\"point\":[-0.11181292733947626,1.3792750136312795,0.15553368866841613],\"chordPoint\":[-0.11210172060320671,1.3791192581474365,0.15533670750686004]}}\n    at compile (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v002.mjs:126:26)\n    at file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v002.mjs:73:7\n    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)",
+  "collisionPairs": 0,
+  "resources": {
+    "cpu": {
+      "user": 48896,
+      "system": 7091
+    },
+    "rss": 115867648,
+    "wallSeconds": 0.029434166
+  },
+  "candidateAccepted": false,
+  "automaticRetry": false
+}

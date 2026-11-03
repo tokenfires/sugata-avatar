@@ -1,0 +1,22 @@
+{
+  "command": [
+    "/Applications/Blender.app/Contents/MacOS/Blender",
+    "--background",
+    "--threads",
+    "2",
+    "--python-exit-code",
+    "1",
+    "--python",
+    "/Users/robault/GitHub/sugata-avatar/tools/ember-measured-fit/eye_bridge.py",
+    "--",
+    "--run-admitted-eye-bridge-v001"
+  ],
+  "startedUnix": 1793462973.635304,
+  "limits": {
+    "builds": 1,
+    "wallSeconds": 180,
+    "rssBytes": 4294967296,
+    "outputBytes": 167772160,
+    "threads": 2
+  }
+}

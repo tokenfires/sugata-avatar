@@ -1,0 +1,98 @@
+{
+  "inputs": {
+    "/Users/robault/GitHub/sugata-avatar/tools/ember-measured-fit/local_feature_attribution.mjs": {
+      "bytes": 11962,
+      "sha256": "773eacb2929a2bc907dfe965b8467fdd4abc6515cdfefde8ce65917f34de4d33"
+    },
+    "tools/lut-bake/glb.mjs": {
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    },
+    "packages/core/src/figure/IdentityCatalogue.js": {
+      "bytes": 19040,
+      "sha256": "27d507080cfdcf54ab814d18761265a84119cfdb6c66126458061c21336759ae"
+    },
+    "packages/core/src/figure/IdentityTargets.js": {
+      "bytes": 20618,
+      "sha256": "424a420dc82d2f595d0e08f855b2bdf29ea107c8ec4c70c03a723065c717521d"
+    },
+    "assets/identity/catalogue.json": {
+      "bytes": 211224,
+      "sha256": "b8ac339c591a52cd454eb3dc82c564a1798714e34ca4c1e714fec40d36d3a176"
+    },
+    "assets/identity/figure-vertex-map.bin": {
+      "bytes": 29034,
+      "sha256": "f6ce5044e74a31094f11642f822df6ebdb2efb37c730a8765a60e67b346e01ff"
+    },
+    "assets/identity/targets/cheek.bin": {
+      "bytes": 33488,
+      "sha256": "4143c00c3774e2b9411cdf6ffe1c439ca3dc819829c3f14c4afcb0ba3e8d375c"
+    },
+    "assets/identity/targets/chin.bin": {
+      "bytes": 273280,
+      "sha256": "48e6eb7b6a0a82fa4e542ef24d241a435ff23c0710fb58bfca748d8032a0a07f"
+    },
+    "assets/identity/targets/mouth.bin": {
+      "bytes": 245792,
+      "sha256": "8aa1c280e5752241d5a3872becabcd26a929e78455088af907f39809f2d00d9b"
+    },
+    "docs/evidence/ember-2026-10-31-measured-fit/candidate-correction-v001.json": {
+      "bytes": 16270,
+      "sha256": "9572d8f2f6b433b5eb5e1dd7ee3e1f17e95109ac8606edc46d361f2f369eea3e"
+    },
+    "docs/evidence/ember-2026-10-31-measured-fit/candidate-correction-v001-positions.f32": {
+      "bytes": 174204,
+      "sha256": "6d17c63dc89c628106464e7ba6097c244787eeea9793276be755edcffb8a285f"
+    },
+    "docs/evidence/ember-2026-10-31-measured-fit/observations-correction-v001.json": {
+      "bytes": 10643,
+      "sha256": "4d12caa726aa7255456476b9654d7b43867de246885018b5cb8f2d6e07ffa038"
+    },
+    "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb": {
+      "bytes": 11568232,
+      "sha256": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef"
+    },
+    "tools/figure-pipeline/.cache/ember-source/eyes/high-poly/high-poly.mhclo": {
+      "bytes": 72490,
+      "sha256": "b183cfe37120ab726f9b3f2ea6cd3a64c44ce7b4bd91a77c841cf70c04f83a0d"
+    },
+    "tools/figure-pipeline/.cache/ember-source/eyebrows/eyebrow001/eyebrow001.mhclo": {
+      "bytes": 9141,
+      "sha256": "54c8892c2ba577f4152d779ce1f20f7cd323beb8cbd9cb701796165c221b4f5b"
+    },
+    "tools/figure-pipeline/.cache/ember-source/eyelashes/eyelashes01/eyelashes01.mhclo": {
+      "bytes": 2265,
+      "sha256": "5a86b29c15649273d723084954b7fa7bf199112571d4f58539b46734d397ee6b"
+    },
+    "tools/figure-pipeline/.cache/ember-source/teeth/teeth_base/teeth_base.mhclo": {
+      "bytes": 263220,
+      "sha256": "9edc3deff3bb97a95c791878064dd069a74a38f95ea6d9707a9ba68d888b3b5c"
+    },
+    "tools/figure-pipeline/.cache/ember-source/tongue/tongue01/tongue01.mhclo": {
+      "bytes": 2113,
+      "sha256": "61d825899cd78ff3146fa1324118060cb44b095fae1427d408c199ade74e3c9e"
+    },
+    "packages/testbed/src/ember-brow-only-v002.js": {
+      "bytes": 9653,
+      "sha256": "6cfd55383e0afb7dae51d2cfcaca177d3228ffd0db5beed7c0bf39b21920b2a9"
+    },
+    "packages/testbed/src/ember-ocular-v003-material.js": {
+      "bytes": 76094,
+      "sha256": "55040b37a7a1d35ec31c1716fbeefa88a27227d27f6de2239d5ec1cb3009014a"
+    }
+  },
+  "limits": {
+    "cpuSeconds": 60,
+    "rssBytes": 536870912,
+    "outputBytes": 10485760
+  },
+  "scope": "Five existing local controls; raw endpoint supports, six direction samples at 0.1, frozen-body correspondence and five attached-part descriptors. No candidate, no solver, no oral intersections.",
+  "fieldCount": 6,
+  "sliderIds": [
+    "cheek/cheek-volume-decr-incr",
+    "chin/chin-width-decr-incr",
+    "chin/chin-cleft-decr-incr",
+    "mouth/mouth-lowerlip-height-decr-incr",
+    "mouth/mouth-lowerlip-volume-decr-incr"
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "protectedInputs": "All preflight hashes match. Approved face, eyes and brows unchanged.",
+  "retainedGeometry": "All 231 other ribbons exact across seven vertex arrays and their index triangles. Original source guides, coverage-band definitions and control anchors exact.",
+  "splitPatch": {
+    "sourceGuide": "side-scalp-heavy-01",
+    "sections": [
+      {
+        "guide": "side-scalp-heavy-rear-01",
+        "vertexStart": 23865,
+        "vertexCount": 21,
+        "parameters": [
+          0,
+          0.14285714285714285,
+          0.35714285714285715,
+          0.42857142857142855,
+          0.6428571428571429,
+          0.7857142857142857,
+          1
+        ]
+      },
+      {
+        "guide": "side-scalp-heavy-front-01",
+        "vertexStart": 23886,
+        "vertexCount": 21,
+        "parameters": [
+          0,
+          0.07142857142857142,
+          0.21428571428571427,
+          0.5,
+          0.7142857142857143,
+          0.8571428571428571,
+          1
+        ]
+      }
+    ],
+    "originalVertices": 42,
+    "finalVertices": 42,
+    "maxRearExtensionM": 0.05613081368535451,
+    "maxDepthFitM": 0.038559573387501905,
+    "maxTriangleCorrectionM": 0.011615040701649787,
+    "triangleSamples": 3072,
+    "triangleConstraints": 686,
+    "rayMisses": 3,
+    "preservedAnchors": [
+      {
+        "oldVertex": 23865,
+        "newVertex": 23865
+      },
+      {
+        "oldVertex": 23866,
+        "newVertex": 23867
+      },
+      {
+        "oldVertex": 23866,
+        "newVertex": 23886
+      },
+      {
+        "oldVertex": 23867,
+        "newVertex": 23888
+      }
+    ],
+    "qualification": "Two-section resampling trial. Original adaptive centreline tolerance does not qualify these final resampled sections."
+  },
+  "changedPositionVertices": 40,
+  "originalAnchorCorrespondence": [
+    [
+      23865,
+      23865
+    ],
+    [
+      23866,
+      23867
+    ],
+    [
+      23866,
+      23886
+    ],
+    [
+      23867,
+      23888
+    ]
+  ],
+  "originalTerminalCorrespondence": [
+    [
+      23904,
+      23883
+    ],
+    [
+      23905,
+      23885
+    ],
+    [
+      23905,
+      23904
+    ],
+    [
+      23906,
+      23906
+    ]
+  ],
+  "originalAnchorPositionsAndRecordsExact": true,
+  "originalTerminalPositionsExact": true,
+  "allOtherRootAndEndRowsExact": true,
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "addedVertices": 0,
+  "addedTriangles": -4,
+  "vertices": 23997,
+  "triangles": 31064,
+  "sceneAndComponent": "Byte-identical to v068 after version normalization. No shader edits.",
+  "material": "Appearance profiles, pigment, ambient and shadow settings unchanged. Same 132 dense-core vertices now span four ribbons, including the two resampled sections.",
+  "clearance": {
+    "triangleCrossings": [
+      132,
+      122
+    ],
+    "nearestSignedFlags": [
+      60,
+      50
+    ],
+    "correctedWindingFacesBefore": 242,
+    "correctedWindingFacesAfter": 242,
+    "qualification": "No added crossing or signed-distance flags or winding corrections. Existing defects and final resampled surface remain unqualified."
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2772,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.791558,
+    "rssBytes": 173490176,
+    "wallSeconds": 1.5851903330000001
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v073; retain v068",
+    "finding": "The two-strip construction reduces the sheet at 45 degrees and covers the targeted upper patch at 135 degrees. At 90 degrees it leaves a conspicuous diagonal seam and tooth-shaped scalp notches beneath the rebuilt section. Frontal views and silhouette remain stable.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Keep the two-strip upper/rear overlap but restore v068 lower/front coverage at this junction. Map and adjust the lower/front rows to close the notches without recreating the broad rear ledge."
+  }
+}

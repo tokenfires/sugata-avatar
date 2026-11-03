@@ -1,0 +1,108 @@
+{
+  "protectedInputs": "All preflight/build hashes match; approved face, eyes and brows unchanged",
+  "retainedGeometry": "All8v051buffers are exact prefixes; all230earlier ribbons including182originallongribbons unchanged",
+  "allPriorRootsAndEndRowsExact": true,
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "addedVertices": 45,
+  "addedTriangles": 56,
+  "vertices": 23952,
+  "triangles": 31012,
+  "scene": "Byte-identical to v051 after version normalization",
+  "material": "Existing dense-core profile assigned to new connecting band; prior coverage, pigment, ambient and shadow model/gain unchanged",
+  "clearance": {
+    "triangleCrossings": "Unchanged132bind/122head",
+    "correctedWindingFaces": 239,
+    "nearestSignedFlagsBefore": [
+      60,
+      50
+    ],
+    "nearestSignedFlagsAfter": [
+      60,
+      52
+    ],
+    "newFlagProbe": "The2newhead-pose flags are12.05/22.39mm from their nearest triangles and lie before the outermost skin hit on negativeXrays through the body at their ownY/Z. These signed-nearest flags do not demonstrate penetration. Actual crossing counts unchanged. Existing final clearance/winding remain unqualified."
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2772,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.43249,
+    "rssBytes": 178503680,
+    "wallSeconds": 1.2228093329999998
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v052; retain v051",
+    "finding": "More coverage above/behind ear but exposed broad diagonal patch at90degrees, dark blunt-ended panel at135degrees and small projecting tab at270degrees. Established front views stable.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Reshape only connector to follow side-scalp contour through middle and both edges; tuck terminal under firstrearwave; check90/135/270together while preserving useful coverage footprint."
+  }
+}

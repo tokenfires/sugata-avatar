@@ -1,0 +1,55 @@
+[
+  {
+    "state": "bind",
+    "negative": [
+      {
+        "vertex": 16872,
+        "local": [
+          -0.12117965519428253,
+          1.4693093299865723,
+          0.051481809467077255
+        ],
+        "posed": [
+          -0.12117965519428253,
+          1.4693093062880327,
+          0.05148175903329061
+        ],
+        "signedM": -0.008481055175287971,
+        "nearestDistanceM": 0.03757660055440438,
+        "nearest": [
+          -0.09122702479362488,
+          1.4792858503097406,
+          0.031102617474093687
+        ],
+        "normal": [
+          -0.4069334542434986,
+          0.33990954481932834,
+          -0.8478600504553635
+        ]
+      }
+    ],
+    "surfaceChecks": [
+      {
+        "vertex": 16872,
+        "firstBodySurface": [
+          -0.07725176179682941,
+          1.4693093062880327,
+          0.05148175903329061
+        ],
+        "gapToLeftmostBodyM": 0.04392789339745312,
+        "outsideBodyLeftEnvelope": true
+      }
+    ],
+    "targetTriangles": 160,
+    "targetCrossings": 0,
+    "crossingTriangles": []
+  },
+  {
+    "state": "head",
+    "negative": [],
+    "surfaceChecks": [],
+    "targetTriangles": 160,
+    "targetCrossings": 0,
+    "crossingTriangles": []
+  }
+]

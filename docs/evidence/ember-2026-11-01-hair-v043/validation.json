@@ -1,0 +1,93 @@
+{
+  "protectedInputs": "All hashes match including approved face assets, atlas and shared HairMaterial",
+  "allGeometry": "All eight buffers byte-identical to v034; all 228 ribbons, roots, endpoints, hairline and bounds fixed",
+  "unchangedBuffers": [
+    "position",
+    "normal",
+    "uv",
+    "uv1",
+    "index",
+    "along",
+    "across",
+    "rootDistance"
+  ],
+  "coverageScope": {
+    "guide": "body-fill-rear-03",
+    "taggedVertices": 84,
+    "ribbons": 1
+  },
+  "componentScope": "Only local alpha core, packed scope flags and report metadata differ from v034",
+  "scene": "Byte-identical after version normalization",
+  "frameReports": "Five matched reports after version/draw normalization and removing trial metadata",
+  "materialPreservation": "Pigment, ambient model/gain, root and edge masks, lights and shadow transmission/filter settings fixed; actual hair-shadow coverage follows alpha",
+  "trial": {
+    "guide": "body-fill-rear-03",
+    "taggedRibbons": 1,
+    "taggedVertices": 84,
+    "coreOpacity": 0.94,
+    "startFade": [
+      0.56,
+      0.66
+    ],
+    "endFade": [
+      0.78,
+      0.84
+    ],
+    "edgeFadeLeft": [
+      0.04,
+      0.16
+    ],
+    "edgeFadeRight": [
+      0.84,
+      0.96
+    ],
+    "method": "Maximum of retained atlas coverage and a smooth dense core, multiplied by unchanged root and edge masks",
+    "preservation": "All geometry, original tips at v>=.84, outer edge strips, other227ribbons, hairline, pigment, ambient and approved features fixed",
+    "qualification": "Local coverage experiment; shadow coverage follows alpha. Atlas-hole hypothesis is not established."
+  },
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "croppedVertices": 0
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "croppedVertices": 2772
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "croppedVertices": 0
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "croppedVertices": 0
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "croppedVertices": 0
+    }
+  ],
+  "resources": {
+    "cpuSeconds": 1.372534,
+    "rssBytes": 176979968,
+    "wallSeconds": 1.168109583
+  },
+  "vertices": 23787,
+  "triangles": 30804,
+  "clearance": "Unchanged 132/122 crossings and 239 corrected winding faces; final clearance/winding not certified",
+  "newBrowserErrors": 0,
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v043; retain v034",
+    "evidence": "Lower underlayer slightly denser, but prominent rear slit remains and overall fullness effectively unchanged. No obvious enlarged jaw loop or new broad panel. Images alone do not establish the cause.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Add one narrow curved backing ribbon directly behind the remaining slot with dense middle and feathered edges; hide root/tip and preserve all existing locks."
+  }
+}

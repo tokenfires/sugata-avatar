@@ -1,0 +1,111 @@
+{
+  "protectedInputs": "All protected hashes match including face assets, atlas and shared HairMaterial",
+  "unchangedRibbons": 226,
+  "unchangedMappedAttributes": [
+    "position",
+    "normal",
+    "uv",
+    "uv1",
+    "along",
+    "across",
+    "rootDistance"
+  ],
+  "continuousBacking": "lower-hairline-overlap-03 unchanged in all7vertex attributes",
+  "splitOuterBoundaryPositionsExact": 110,
+  "splitOriginalRootAndEndTargetsExact": 12,
+  "allLongGuideInputs": "Unchanged; only two short frontal support surfaces subdivided",
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "addedVertices": 165,
+  "addedTriangles": 212,
+  "newAnchoredRootRecords": 6,
+  "materialAndScene": "Byte-identical after version normalization; v034density, colour, ambient, shadowsettings and approved features fixed",
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "croppedVertices": 0
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "croppedVertices": 2772
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "croppedVertices": 0
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "croppedVertices": 0
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "croppedVertices": 0
+    }
+  ],
+  "resources": {
+    "cpuSeconds": 1.647425,
+    "rssBytes": 186974208,
+    "wallSeconds": 1.4088696669999998
+  },
+  "vertices": 23952,
+  "triangles": 31016,
+  "clearance": "Unchanged132/122crossings; corrected winding247vs239. Final surface clearance/winding not certified",
+  "trial": {
+    "ids": [
+      "lower-hairline-overlap-01",
+      "lower-hairline-overlap-02"
+    ],
+    "partsPerBand": 2,
+    "middleFractions": [
+      0.43,
+      0.6
+    ],
+    "variation": [
+      0.035,
+      0.028
+    ],
+    "phase": [
+      0.2,
+      1.7
+    ],
+    "midSurfaceLiftM": 0.0007,
+    "newStrips": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "preservation": "Third lower-hairline band and every other ribbon fixed; exact lower/upper boundary and original root/end targets retained. No v029 mask or v030 recession.",
+    "qualification": "Local subdivision trial with 165 extra vertices; finer surfaces must be judged in browser against portraits",
+    "splitVertices": 330,
+    "addedVertices": 165
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v035; retain v034",
+    "evidence": "Close-up and angle show a smoother blunt lower crown band, not convincing finer locks. Reduced horizontal gaps do not outweigh more solid appearance. No obvious new scalp gap or detached dots; height stable.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "From v034, vary banking along one broad light-side outer wave; keep centreline,width and endpoints fixed, no extra vertices or covering layers."
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "baseline": "v104",
+  "protectedInputs": "All preflight/build hashes match; approved face, eyes and brows unchanged",
+  "geometry": "All233ribbons, complete seven vertex buffers and index buffer byte-exact to v104; guides/control anchors and all construction-stage reports unchanged",
+  "sourceChecks": "Main scene exact after version normalization; component differs only in reviewed local alpha scoping/compositing/reporting blocks",
+  "geometryPositionsChanged": 0,
+  "vertices": 23997,
+  "triangles": 31064,
+  "localFill": {
+    "guide": "under-side-light-04-1",
+    "ribbon": 0,
+    "start": 0.5,
+    "full": 0.55,
+    "fade": 0.62,
+    "end": 0.68,
+    "offsetTexels": 3.5,
+    "contribution": 0.65,
+    "edgeBlend": [
+      0.03,
+      0.14
+    ],
+    "centreBlend": [
+      0.42,
+      0.5
+    ],
+    "channel": "alpha only",
+    "purpose": "Composite one translated alpha sample into gaps of the existing curved neck-overlap half, faded above and below. Preserve original alpha, outer feather, centreline, opposite half, roots and tips, complete geometry and all other ribbon coverage.",
+    "qualification": "Local strand-density proxy; not extra geometry or certified fibre occlusion."
+  },
+  "scope": {
+    "taggedRibbons": 1,
+    "taggedVertices": 120,
+    "retainedV084FillDisjoint": true,
+    "outsideWindowUnchanged": true,
+    "allOriginalRootAndEndRowsExact": true,
+    "globalBoundsExact": true
+  },
+  "material": "Existing appearance profiles, pigment, ambient, root transition and shadow settings unchanged; added coverage participates in existing shadows",
+  "clearance": {
+    "fullReportedClearanceAndWitnessesExact": true,
+    "triangleCrossings": [
+      132,
+      122
+    ],
+    "nearestSignedFlags": [
+      61,
+      50
+    ],
+    "correctedWindingFaces": 242,
+    "qualification": "Existing full-groom body-clearance/winding limitations remain; not final surface qualification."
+  },
+  "alphaProxy": {
+    "samples": 40401,
+    "changed": 2412,
+    "neverReducesOriginalAlpha": true,
+    "outsideWindowExact": true,
+    "qualification": "Bilinear base-level alpha proxy; no GPU filtering, shadow, mipmap or MSAA certification"
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2774,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.738369,
+    "rssBytes": 177750016,
+    "wallSeconds": 1.538702958
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v105; retain v104",
+    "finding": "Ladder gaps shrink, but270-degree lower overlap becomes a conspicuous smooth brown patch around860-900/534-569; its diagonal lower boundary reads more strongly as a card edge. Frontal framing and major contours remain stable.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Confine offset-alpha fill to central gaps and fade back to v104 alpha before exposed lower return around270-degree y548-570; preserve useful upper coverage without solidifying boundary."
+  },
+  "retainedForNextStep": false,
+  "retainedBaseline": "v104"
+}

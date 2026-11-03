@@ -1,3 +1,5 @@
+> **Historical.** Current entry point: `AGENTS.md`; current status: `docs/EMBER-AVATAR-NEXT.md`.
+
 # Sugata work window — October 2, 2026
 
 **Current continuation: Robert explicitly resumed October 7. The ten-minute recovery heartbeat is ACTIVE in the resumed chat. See [current work window and Ari delivery](WORK-WINDOW-2026-10-07.md). The October 6 pause remains historical evidence.**

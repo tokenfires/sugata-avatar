@@ -1,0 +1,71 @@
+{
+  "config": {
+    "guide": "under-occipital-04-1",
+    "ribbon": 0,
+    "start": 0.21,
+    "full": 0.225,
+    "fade": 0.25,
+    "end": 0.27,
+    "offsetTexels": -12,
+    "contribution": 0.65,
+    "edgeBlend": [
+      0.69,
+      0.73
+    ],
+    "centreBlend": [
+      0.79,
+      0.825
+    ],
+    "purpose": "Extend the existing rear-arch strand sample into a small inner transparent slot. Maximum of old and new feathered windows never reduces retained alpha; geometry stays fixed."
+  },
+  "scopeSamples": 40401,
+  "changedScopeSamples": 143,
+  "originalAlphaNeverReduced": true,
+  "outsideWindowExact": true,
+  "otherCategoriesExact": true,
+  "retainedCoverageNeverReduced": true,
+  "retainedWindowFormulaExact": true,
+  "noMixedTriangleCategories": true,
+  "textureSamplesAdded": 0,
+  "taggedVertices": {
+    "waveAtlasFill": 123,
+    "neckAtlasFill": 120,
+    "rearCrownAtlasFill": 114,
+    "upperCrownAtlasFill": 72,
+    "rearArchAtlasFill": 114,
+    "oppositeArchAtlasFill": 123
+  },
+  "formerBlankMarginSamples": [
+    {
+      "pixel": [
+        905,
+        362
+      ],
+      "u": 0.7524283900465826,
+      "t": 0.2251690538831781,
+      "before": 0,
+      "after": 0.6065994047683126
+    },
+    {
+      "pixel": [
+        909,
+        366
+      ],
+      "u": 0.7728727588336601,
+      "t": 0.23745378343237508,
+      "before": 0,
+      "after": 0.65
+    },
+    {
+      "pixel": [
+        909,
+        370
+      ],
+      "u": 0.7529802871418221,
+      "t": 0.24949311640855593,
+      "before": 0,
+      "after": 0.65
+    }
+  ],
+  "qualification": "Bilinear base-level alpha and discrete scope proxy; no GPU filtering or MSAA certification"
+}

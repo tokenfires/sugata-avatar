@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-11-01T02:25:47.084830+00:00",
+  "searchBudget": {
+    "queries": 4,
+    "assetCandidates": 3,
+    "consumedQueries": 4,
+    "consumedAssetCandidates": 3
+  },
+  "files": {
+    "polybit-source.md": {
+      "bytes": 4098,
+      "sha256": "70be67e505dfc7779ba2e04c02367e6c2f37ec75b13fb4605254d616d274629f"
+    },
+    "polybit-preview.jpg": {
+      "bytes": 46603,
+      "sha256": "77bed2000b78e5cf1387bdf45fd75ba03649a3e7a8848f37790a4fd1aab31302"
+    },
+    "zhairezt-source.md": {
+      "bytes": 6816,
+      "sha256": "2960c8f67fa3268103bf0fb40a39d2184b83b09e49c03f0a1e761b7dbd185a82"
+    },
+    "ellie-source.md": {
+      "bytes": 6005,
+      "sha256": "0bae329b3b11deb86d38ab4a91c252c9b138253615627258f6082800b7bf54fa"
+    },
+    "cc-by-4.0.md": {
+      "bytes": 3522,
+      "sha256": "c17c00cfeadd06f6690926626b1bc96009798d0e9a754fd5b6baebad1787220a"
+    },
+    "search-results.json": {
+      "bytes": 13850,
+      "sha256": "9689abf409dc639a179535498040f2213f7516e2903b1019718aa972d7574cfa"
+    }
+  },
+  "preview": {
+    "polybit": "Actual publisher thumbnail viewed through supported IAB and screenshot saved unchanged. One angled image; no additional view claimed.",
+    "zhairezt": "Not visually evaluated; stopped on specific provenance concerns in listing and author comment.",
+    "ellie": "Attempted published preview URL in same supported tab; net::ERR_BLOCKED_BY_CLIENT. No alternate fetch, security change or native fallback."
+  },
+  "assetDownloads": 0,
+  "nativeBuilds": 0,
+  "candidateRenders": 0,
+  "existingAvatarEdits": 0,
+  "limits": "This bounded search does not establish that no suitable source exists elsewhere."
+}

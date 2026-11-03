@@ -1,0 +1,640 @@
+{
+  "inputs": {
+    "packages/testbed/src/ember-local-feature-v001.js": {
+      "bytes": 11828,
+      "sha256": "d1b769696b525537d85fa8808f7df69450229b69af3457292f044ca478da7c97"
+    },
+    "packages/testbed/src/ember-ocular-v003-material.js": {
+      "bytes": 76094,
+      "sha256": "55040b37a7a1d35ec31c1716fbeefa88a27227d27f6de2239d5ec1cb3009014a"
+    },
+    "packages/core/src/material/HairMaterial.js": {
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    "packages/core/src/figure/Skeleton.js": {
+      "bytes": 19123,
+      "sha256": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4"
+    },
+    "tools/figure-pipeline/hair_texture.py": {
+      "bytes": 61711,
+      "sha256": "1e6962000651b8eab1d8d3c931259960f7889af1a0c7b3caac54357840279f64"
+    },
+    "reference/ember/portraits/face-reference-1.png": {
+      "bytes": 1277836,
+      "sha256": "92464091b3c68000c79ed846896f4df1486ed39fdff902ff97940eda564e9d3a"
+    },
+    "assets/hair/bob01/albedo.png": {
+      "bytes": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+    },
+    "assets/hair/bob01/normal.png": {
+      "bytes": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+    },
+    "assets/hair/bob01/flow.png": {
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    "assets/hair/bob01/depth.png": {
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    },
+    "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb": {
+      "bytes": 11568232,
+      "sha256": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef"
+    },
+    "docs/evidence/ember-2026-10-31-local-feature-v001/positions.f32": {
+      "bytes": 174204,
+      "sha256": "3859319a3c553fea959b80ba19ad9ad9a4823a42b11a32adfd356d06635c2654"
+    },
+    "docs/evidence/ember-2026-10-31-local-feature-v001/normals.f32": {
+      "bytes": 174204,
+      "sha256": "907028a279e85dc4a15c2cc9829fdbc10af82d0aa2d989f9cddf09e8817e67e7"
+    },
+    "packages/testbed/src/ember-brow-only-v002.js": {
+      "bytes": 9653,
+      "sha256": "6cfd55383e0afb7dae51d2cfcaca177d3228ffd0db5beed7c0bf39b21920b2a9"
+    },
+    "docs/evidence/ember-2026-10-31-brow-lash-v001/brow-positions.f32": {
+      "bytes": 1488,
+      "sha256": "d7e204c19fd76a10d06ac2545956d0d939127608d3342663dcec6a7136234247"
+    },
+    "docs/evidence/ember-2026-10-31-measured-fit/candidate-correction-v001.json": {
+      "bytes": 16270,
+      "sha256": "9572d8f2f6b433b5eb5e1dd7ee3e1f17e95109ac8606edc46d361f2f369eea3e"
+    },
+    "reference/ember/portraits/face-reference-2.png": {
+      "bytes": 1213961,
+      "sha256": "50cdaa32a44fd064b4d3f21bdec722ce533b822508fb5e5048f9fc950a5b14fe"
+    },
+    "tools/ember-hair/ember-waves-v132.json": {
+      "bytes": 249934,
+      "sha256": "72026cae0c3284f5be92fb363b34e91150f236c49bfb030483ed5f4e0c8bd94b"
+    },
+    "/Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v132.mjs": {
+      "bytes": 99541,
+      "sha256": "dd6d68a0db46fcc78eed055770c1cba9302ffdad1f0298ac660a7b4ed8b9b259"
+    },
+    "tools/ember-hair/card-frames-v011.mjs": {
+      "bytes": 2214,
+      "sha256": "8de08d253448c00e034a4e09bdd6d99c2397667e94b496bf6143e7ac1765edf0"
+    },
+    "tools/ember-hair/run-v132.py": {
+      "bytes": 1943,
+      "sha256": "d131803508b40636870156b5f038b32d1db1f040804449c50e41dd783cb2bbaf"
+    },
+    "tools/ember-hair/sample-adaptive-v003.mjs": {
+      "bytes": 2928,
+      "sha256": "a5d54f7fdba303d51b913cd30942b081e94f4de3d2f25ef2479cf8733c9f784a"
+    },
+    "docs/evidence/ember-2026-10-31-hair-v001/preflight.json": {
+      "bytes": 6315,
+      "sha256": "ee1779fb8c658e073f033ffee1167808a21f43e9a8a552828e180fe9deb5b988"
+    },
+    "docs/evidence/ember-2026-10-31-hair-sampler-check/report.json": {
+      "bytes": 321629,
+      "sha256": "2de8b01b475e0d38f3c5231d664e43e3afe9d2101085463880eb2ea4a3dde420"
+    },
+    "docs/evidence/ember-2026-10-31-hair-sampler-check/review-receipt.json": {
+      "bytes": 965,
+      "sha256": "e27890012217860115d69a80da4acd0935bd415f37d330c26d925f67fe783b20"
+    },
+    "tools/lut-bake/glb.mjs": {
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    },
+    "tools/critic/png.mjs": {
+      "bytes": 11612,
+      "sha256": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/gap-location.json": {
+      "bytes": 1661,
+      "sha256": "18009fb11a5aa99ed54dfa57935d893be69808faafb0b9710513e80a0d8397b3"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/crown-location.json": {
+      "bytes": 1663,
+      "sha256": "d8c1e31def602c1a6611a08390674fd5d538ac6ff9d089d9ed463b54744b63d5"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/fit-measurement.json": {
+      "bytes": 4847,
+      "sha256": "f27e0c8c5757fba5d999deaed1110bc46cfd7acef233e593d4ec0da7c5d92b31"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/upper-location.json": {
+      "bytes": 1651,
+      "sha256": "4a5d6b88b3794cd6bfe013fe654ad5b3b724a54c3f1d1bfd8e9daa0d04f651fd"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/adjacent-location.json": {
+      "bytes": 1666,
+      "sha256": "3253c28618d31328c370d68c4623886ee1bb168c45816829bc6e2465546da8b3"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/corner-boundary.json": {
+      "bytes": 2278,
+      "sha256": "5753c1bd544102686bbd0a91b20736dbf4f95701093289760f3c6b49e18de1b8"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/notch-location.json": {
+      "bytes": 27620,
+      "sha256": "2e5a4722a789e80b6b75b675c6bd34c7623a673bd6c069cf781ff37e263e158c"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/seam-location.json": {
+      "bytes": 31812,
+      "sha256": "89e6a5d8b72a7a0847eff4f1b7df260fdfba4f599a9184f05a514e53e6af78ef"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/wave-location.json": {
+      "bytes": 10429,
+      "sha256": "60438332f207b7b03be35333b6e862753d0acf31fc90e7884be1fbe998314e14"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/strand-spacing.json": {
+      "bytes": 3025,
+      "sha256": "3683d4d60a3c4cd17ed42de3e428aa3152d3ca5ce34494422710d04e5960db70"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/neck-channel-location.json": {
+      "bytes": 43920,
+      "sha256": "66607c3af4b3f938768ce6218aedb3bc881f49e094d8c4009e61e72bf9bb4a78"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/lower-channel-location.json": {
+      "bytes": 15710,
+      "sha256": "51a11a8966be3d41e2c617b060e503530c7ca66b232d99c2778b89c8c92e9ee8"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/opposite-channel-location.json": {
+      "bytes": 60240,
+      "sha256": "4af8ab9932d1633431fbbe02972407a40aec26543777a71da2a104d186400325"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/bend-location.json": {
+      "bytes": 274349,
+      "sha256": "92a2e87b4c4b40fac2143785ff91e784444f847e6aa816897387dde2f086af15"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/notch-transition-location.json": {
+      "bytes": 40319,
+      "sha256": "ebcefef477c0e2611da6726c721dd0562f47628da022c79653e29d1130e55045"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/arch-location.json": {
+      "bytes": 78314,
+      "sha256": "cd1ac146a6f413225a3e3c27da1dd7b78cff32f55474474f7bf9b06738c17522"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/arch-adjacent-location.json": {
+      "bytes": 59124,
+      "sha256": "21b08db8c477f789392295d2fc6d7aebd086a4e94f65515f8ea1a52dda0b095b"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/opposite-arch-location.json": {
+      "bytes": 116830,
+      "sha256": "6f406a9b4768faca184ec18b88075c9377edaa8f495ad846f89b258783bae748"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/visible-rim-location.json": {
+      "bytes": 56755,
+      "sha256": "eda2b7184f7cb6c355a6f9fa589b91581056365d0a464ea4425dde23bcbff89b"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/edge-config.json": {
+      "bytes": 5097,
+      "sha256": "0e0827a40a01657af858cd1c978f43ea866400731c269f6b73ea4ea96e609ded"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/quarter-rim-location.json": {
+      "bytes": 42580,
+      "sha256": "bf00a132b7abbe02e161a4c21236c6d84e5b7890f71ab8c48e2eba5b41f74614"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/quarter-edge-config.json": {
+      "bytes": 5161,
+      "sha256": "506dd554f77adc339f120b1f709e43a691538cbab7d9dedc4d037a6b7d9e43b9"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/quarter-arch-location.json": {
+      "bytes": 79218,
+      "sha256": "1f3565b0374f943c0f46297dd3cd32381083fde3f079157454138ae99b85ed95"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/mid-rim-location.json": {
+      "bytes": 45484,
+      "sha256": "2220dbbc1e986af526956c6b426672575b76ba9606225bd0b0aed363fc9cbb0f"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/mid-edge-config.json": {
+      "bytes": 5014,
+      "sha256": "ce0fd94c09e63f049e26a71f19f59b7ff122cfdd5c19dbc88b1381515b9bdd0f"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/mid-rear-location.json": {
+      "bytes": 124327,
+      "sha256": "4422d044da382f661f67bc292fbc781a11d3d3155304ca1a7a510e80f4d6df15"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/slot-rim-location.json": {
+      "bytes": 36566,
+      "sha256": "3bfa9f42cc59e92bd18302413dab011997d683e9d706ff3f2cced4fc32097a8f"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/slot-edge-config.json": {
+      "bytes": 5060,
+      "sha256": "f4b475e1db46b794830f7bdb45ceaf540748830f8e9651bcc7aec218488dc978"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/upper-slot-location.json": {
+      "bytes": 54787,
+      "sha256": "579f8875b8dd15365518c9a44a1d90ff03e276e9d2f03772b281a1ac1f028b90"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/tab-location.json": {
+      "bytes": 11512,
+      "sha256": "a6bc7830efeb5a674a8f0b78c139eab4b535c27cacf0437d25abfc0acaa5f1d1"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/taper-edge-config.json": {
+      "bytes": 5093,
+      "sha256": "a43a258ec6ae861b8a085fbfabf5d4092629c3be9dfe1311672d2d3a65a47259"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/opposite-slot-location.json": {
+      "bytes": 69867,
+      "sha256": "b96e375ec01b737ded5e7c144d9a10c1387733ac434fd5e3c5fb192f8d8caffd"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/opposite-slot-rim.json": {
+      "bytes": 36644,
+      "sha256": "d582a4c3e1c0d3a08d17d91996686fce05bc981ccf9018ec51ab3788f8e53cb8"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/opposite-slot-config.json": {
+      "bytes": 5053,
+      "sha256": "6c53d9b880f23db91c2b50507502fa4796f942fc2e29d32f64826767a38fa56c"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/neck-triangle-location.json": {
+      "bytes": 28389,
+      "sha256": "2564b976f2e9ac0b950fcf04f8cc9ff0f179d9e3f95fc4e7066c659857263111"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/neck-triangle-rim.json": {
+      "bytes": 56671,
+      "sha256": "8639a019010d2b5fd6fc421d3af105ca37da05a211d5fceb5ed34ec0e4c0f070"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/neck-triangle-config.json": {
+      "bytes": 4682,
+      "sha256": "bced7a688baae3b17edbea577b97605692a7fef9f587ab10c717a9f0f35c57ff"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/quarter-slot-location.json": {
+      "bytes": 33075,
+      "sha256": "38d419a67ce26e065e8686a644b538b35758865db8ec9773423872d736dc772c"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/quarter-slot-rim.json": {
+      "bytes": 67630,
+      "sha256": "70a367dcee2971347ba60dabfe1dc2a71f241bcea83545416e071875a4baa5de"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/quarter-slot-config.json": {
+      "bytes": 4982,
+      "sha256": "d12c8346ea2239f051242841accc8c596aed4e83dc29a4d6e6d43a0983f1860b"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/rear-arch-rim.json": {
+      "bytes": 274233,
+      "sha256": "a9a979b01273b873b1416f96b1510ad5b1a2a501c20f50998c27fde8deceae4d"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/rear-arch-hits.json": {
+      "bytes": 62869,
+      "sha256": "261b8b1ea8a860aafbd89f5f3eee93f28df28b166e4fb637d379e51b0fb8fcf5"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/rear-arch-alpha-probe.json": {
+      "bytes": 2083,
+      "sha256": "bc812a5a9ae07fb4d761f84f102ab8b8e331d17482b9403a5496afaad4de3538"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/opposite-upper-arch-config.json": {
+      "bytes": 7532,
+      "sha256": "0f046a7b6dece54e8431524da6565be6570c2771cad3f61c566f7953d86356ce"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/opposite-core-hits.json": {
+      "bytes": 33375,
+      "sha256": "3ec17af3072302b099e4e65df4c919aeb928dbda4f2fb83564d2e65cfea7aa27"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/opposite-core-alpha-probe.json": {
+      "bytes": 1008,
+      "sha256": "f37c5dabc21e1f7ca80dec1e880fa1282e4ba7a08f02b69edfe388defad0a44a"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/rear-wave-inner-config.json": {
+      "bytes": 6418,
+      "sha256": "b7b069b2776382fb74b1402c6f75662183bb823f08adf7c96ac10d46fa9e28cb"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/rear-wave-inner-rim.json": {
+      "bytes": 360154,
+      "sha256": "5c08cdbc5361fb00d8871814565c516b17961ba92b1cae029adf94af09284c39"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/rear-wave-inner-hits.json": {
+      "bytes": 86347,
+      "sha256": "c26c8a53070691aae8287a5cde52d48b76eb53b008cbe543a8e64f1d1d63f6fa"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/rear-crest-inner-config.json": {
+      "bytes": 8522,
+      "sha256": "9c2d6c84b5c0e476bfc45a8348aa9b9e04409c916da768982c3411e9413f6a96"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/rear-crest-inner-rim.json": {
+      "bytes": 206694,
+      "sha256": "4a10432e163426ed7e3f8cf2ee2e84f7a2658a0624d19140f2fcaab8cfbb93a8"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/rear-crest-inner-hits.json": {
+      "bytes": 42781,
+      "sha256": "b05d9f3fa190bd08ec9c8d69f280a15b71af08b2571774e5eef216ca19ec34f0"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/side-arch-upward-config.json": {
+      "bytes": 8492,
+      "sha256": "3288be1b424faeb0a66053aa9eb723f2d32c13c0c3fc420793a62682ce8fe3e3"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/inner-arch-hits.json": {
+      "bytes": 49565,
+      "sha256": "3f3121ab15fce8171a9800cec0617787a5aab4005dabca52182706dc0a5c3a10"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/inner-arch-alpha-probe.json": {
+      "bytes": 995,
+      "sha256": "4e71481746c35a7e39102878803fa40b3243bb2d06b24aff00007d2052b5af43"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/side-arch-upward-rim.json": {
+      "bytes": 211090,
+      "sha256": "0151c3d2115c641af70f146b381a17ef5bcd5c3bea81135f05af6cffb0628d0d"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/side-arch-upward-hits.json": {
+      "bytes": 33427,
+      "sha256": "27ce6923a98fcce14bbbb6892be97e37318caa118d1a8924585f54b74f944621"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/opposite-upper-arch-rim.json": {
+      "bytes": 391148,
+      "sha256": "5cdbe99ae3573614a10df9dceb7ab90184f1c97fe58a2db4b5889a073b427aaf"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/opposite-upper-arch-hits.json": {
+      "bytes": 34257,
+      "sha256": "6ea4481cb3017238bffe7c59062fcab92caf3625247c49002c1624eb5c05f00b"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/rear-arch-config.json": {
+      "bytes": 4595,
+      "sha256": "7160dc355be0fe56a5ec2446f4fd711ef6664fa11455551b576eb01fbef365b3"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/upper-crown-rim.json": {
+      "bytes": 500457,
+      "sha256": "f40729349361a047a60f2da5a7df393bfebfb18a2232901fc9f4b674fd6e391d"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/upper-crown-hits.json": {
+      "bytes": 23204,
+      "sha256": "b30c1429e48137489dabfad70c8dca138934497a2d2ed04c48a8823b643e8213"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/upper-crown-alpha-probe.json": {
+      "bytes": 1500,
+      "sha256": "409a8ce78044f282aa5e90a8771c82282195ef6cf4915ce4e645680e57b8c0c2"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/quarter-patch-config.json": {
+      "bytes": 4670,
+      "sha256": "567647968ce0594c6025d6619895775a8017d235dd3d2e7bf00081bf9148349c"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/quarter-patch-rim.json": {
+      "bytes": 430972,
+      "sha256": "ec1d069f934f9778b62f975e749eb8a02638883806021142ae5893e7ea57870b"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/quarter-patch-hits.json": {
+      "bytes": 20654,
+      "sha256": "a82ce0d42de25e93eee1bfeb30d82163da217a90d2838ad4962c0cf2f2613d86"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/opposite-crown-config.json": {
+      "bytes": 4671,
+      "sha256": "9ddb74431e9f6e2f6de1d059d293444a2e715be953a157ff749553277319bc65"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/opposite-crown-rim.json": {
+      "bytes": 572813,
+      "sha256": "359261de97c7c95b1a17f024c81cd3c485252d44391aa46265ac0b29641128b3"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/opposite-crown-hits.json": {
+      "bytes": 23799,
+      "sha256": "0191825d41d89fe7bb1ade30f4d81b20491c716041f87b4795e6cef6a456d3cb"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/rear-crown-rim.json": {
+      "bytes": 593144,
+      "sha256": "cc774934a6282a2312b39677910d9c90bb610b270e1a93494b1dec4e4d48eaa1"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/rear-crown-hits.json": {
+      "bytes": 28636,
+      "sha256": "c3bd8bab0fed6c3c6f99ab7c88838be7f4d5afeb466419cefc7caf4f502f088b"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/rear-alpha-probe.json": {
+      "bytes": 751,
+      "sha256": "0244c98ba13ba3415ebe87e207245bb91c66865406f5c3bf55a517a412be5f96"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/crown-opening-config.json": {
+      "bytes": 7749,
+      "sha256": "1197232be323806434aeffb46afe2fb35fd32a9ad861a75a5c0add6c7e59b4d4"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/crown-opening-rim.json": {
+      "bytes": 540570,
+      "sha256": "0fdaf9de0ce2dbc86186e4b407d09292c67e8773cf78e790e78915bad2fd7e1f"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/crown-opening-hits.json": {
+      "bytes": 17070,
+      "sha256": "786cdbc7ba8d5ab253a7030e165d52d4d74b24ba699a0bd8cc26d490da771e19"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/adjacent-quarter-rim.json": {
+      "bytes": 51764,
+      "sha256": "9dbd4f3f5a20b5cc8f3a2556f1636e98e216480aa2bbcd71636eab86be5cc2ab"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/adjacent-quarter-config.json": {
+      "bytes": 4976,
+      "sha256": "03b3e7c44888d93a3937ed68f43c3b0c6f72c92bfc4fd4a49eac6a40ef83d3e3"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/neck-strip-location.json": {
+      "bytes": 26603,
+      "sha256": "e74895a2bf71ff66284bd6b2e27e46aaa9d156f0eff5614725f62827206faf14"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/neck-strip-rim.json": {
+      "bytes": 55583,
+      "sha256": "b55768a3b4b8494a795d78aad8c8c49c90438779209e9fffd49467e1f8ddcfd5"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/neck-strip-config.json": {
+      "bytes": 4576,
+      "sha256": "d7de1ea942e0c793598bcbfb254da5e5c53ea9f8e96b175fe965b3d1132f18e7"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/neck-alpha-location.json": {
+      "bytes": 42803,
+      "sha256": "b7039c0f492fec697509b1a71daaa1a748dcc4a3fc98c2dd551697918a656556"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/lower-return-location.json": {
+      "bytes": 25557,
+      "sha256": "3a5ac7a454a733ac8a814e155ea0e62d362d8364c436399bb04b8b0012dfe6af"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/neck-strand-spacing.json": {
+      "bytes": 3968,
+      "sha256": "1beab585fa78eaef89e21006bc85138d1806d88afdc2302cc310ec54b7acd0b2"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/neck-upper-location.json": {
+      "bytes": 42576,
+      "sha256": "19bd8efecdbce5c71afd36e08cc513d163baefa46f81c2cdaee40c76f5207887"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/neck-upper-rim.json": {
+      "bytes": 36440,
+      "sha256": "d87f1794f0bec8a143e7ce3768c8f52de7fd59385e1e914a834a9f09014e14b2"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/neck-upper-config.json": {
+      "bytes": 4621,
+      "sha256": "4d961e336164461c8cc416f66de498e4e6e280ac717e46e8a0632cb95cb74e10"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/neck-middle-location.json": {
+      "bytes": 65539,
+      "sha256": "e4e076250484b841e755f26deefa8653ef285ccd60c90206af118578b8902244"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/neck-middle-rim.json": {
+      "bytes": 25378,
+      "sha256": "c86cfe982ffd1c5e84653408c07046fa63a905efd76587eb5691fcf49a9cb91c"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/neck-middle-config.json": {
+      "bytes": 4950,
+      "sha256": "0f8b8d32194d21b9ce018b6ad955768a729c8aeb2902d5f8606cd82017f49981"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/mid-opening-location.json": {
+      "bytes": 94495,
+      "sha256": "4af7d4515480630c1b96fcb5a48e9f719249da2140f548bce34081bbb03b83fb"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/mid-opening-rim.json": {
+      "bytes": 33521,
+      "sha256": "70f9d090742b05cf832ce5faa028c3015e1125b30126ee96cf8e4f6ec6a55c1a"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/mid-opening-config.json": {
+      "bytes": 4699,
+      "sha256": "68cd87edeaaeec7f038c9d36fb8912786e011ef3f1557057b150e05040b145dc"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/adjacent-slot-location.json": {
+      "bytes": 72767,
+      "sha256": "4786033a9a1f06b8d9c432e8ce29edbb4765daa9b3bf200143ff65bd7c4aeead"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/adjacent-slot-rim.json": {
+      "bytes": 33597,
+      "sha256": "a2a97c1905ee79f887e195076a22e8505c5331e62598655f2c8d68143c3aa45f"
+    },
+    "docs/evidence/ember-2026-11-02-hair-v132/adjacent-slot-config.json": {
+      "bytes": 4902,
+      "sha256": "9db4325bb60cba51de267f5e245b872f294c61787eee159bc001b76de869e417"
+    },
+    "packages/testbed/ember-hair-v132.html": {
+      "bytes": 3255,
+      "sha256": "975ea612b8cb078a60d4a6d2793eaa81ad638c4b48af784c195e6cceec51916b"
+    },
+    "packages/testbed/src/ember-hair-v132.js": {
+      "bytes": 14905,
+      "sha256": "a2163282d4456879a2c3400421e7511d9baab3b9e1c3ba3224475f4423235d87"
+    },
+    "packages/testbed/src/ember-hair-v132-component.js": {
+      "bytes": 20821,
+      "sha256": "8a70e53dd742b6814ff1b426448691ee1b12fc310457540e9611f47bfc7ff714"
+    },
+    "packages/testbed/src/ember-hair-v047-motion.js": {
+      "bytes": 5098,
+      "sha256": "f327240f7dddab0bab5c1053d188bb26b67d763d5404c56e48c251ae5234297b"
+    },
+    "package-lock.json": {
+      "bytes": 24580,
+      "sha256": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2"
+    }
+  },
+  "limits": {
+    "cpuSeconds": 10,
+    "wallSeconds": 15,
+    "rssBytes": 536870912,
+    "maxVertices": 24000,
+    "maxTriangles": 32000,
+    "collisionPairs": 2000000,
+    "meshBytes": 4194304,
+    "reportBytes": 2097152,
+    "totalOutputBytes": 10485760
+  },
+  "atlas": {
+    "width": 1024,
+    "height": 1024,
+    "rootV": 0,
+    "tipV": 1,
+    "capStripExcluded": 0,
+    "strips": [
+      {
+        "strip": 1,
+        "rows": [
+          {
+            "y": 0,
+            "n": 68,
+            "medianRootToTip": 0
+          },
+          {
+            "y": 128,
+            "n": 89,
+            "medianRootToTip": 0.125490203499794
+          },
+          {
+            "y": 256,
+            "n": 89,
+            "medianRootToTip": 0.250980406999588
+          },
+          {
+            "y": 512,
+            "n": 86,
+            "medianRootToTip": 0.501960813999176
+          },
+          {
+            "y": 768,
+            "n": 82,
+            "medianRootToTip": 0.7490196228027344
+          },
+          {
+            "y": 960,
+            "n": 49,
+            "medianRootToTip": 0.9372549057006836
+          }
+        ]
+      },
+      {
+        "strip": 2,
+        "rows": [
+          {
+            "y": 0,
+            "n": 88,
+            "medianRootToTip": 0
+          },
+          {
+            "y": 128,
+            "n": 89,
+            "medianRootToTip": 0.125490203499794
+          },
+          {
+            "y": 256,
+            "n": 101,
+            "medianRootToTip": 0.250980406999588
+          },
+          {
+            "y": 512,
+            "n": 93,
+            "medianRootToTip": 0.501960813999176
+          },
+          {
+            "y": 768,
+            "n": 62,
+            "medianRootToTip": 0.7490196228027344
+          },
+          {
+            "y": 960,
+            "n": 0,
+            "medianRootToTip": null
+          }
+        ]
+      },
+      {
+        "strip": 3,
+        "rows": [
+          {
+            "y": 0,
+            "n": 80,
+            "medianRootToTip": 0
+          },
+          {
+            "y": 128,
+            "n": 89,
+            "medianRootToTip": 0.125490203499794
+          },
+          {
+            "y": 256,
+            "n": 83,
+            "medianRootToTip": 0.250980406999588
+          },
+          {
+            "y": 512,
+            "n": 89,
+            "medianRootToTip": 0.501960813999176
+          },
+          {
+            "y": 768,
+            "n": 47,
+            "medianRootToTip": 0.7490196228027344
+          },
+          {
+            "y": 960,
+            "n": 0,
+            "medianRootToTip": null
+          }
+        ]
+      }
+    ]
+  },
+  "guides": 153,
+  "ribbons": 233,
+  "scope": "Source/atlas preflight only; no geometry compilation or camera/identity solve"
+}

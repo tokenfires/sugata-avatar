@@ -1,0 +1,136 @@
+{
+  "utc": "2026-11-01T03:00:52.328360+00:00",
+  "status": "first compilation stopped on curve sampling; no mesh or render",
+  "buildBudgetConsumed": 1,
+  "candidateCaptures": 0,
+  "meshOutputs": [],
+  "worker": {
+    "cpuSeconds": 0.048073,
+    "observedRssBytesAtFailure": 115015680,
+    "wallSeconds": 0.02597025
+  },
+  "supervisor": {
+    "utc": "2026-11-01T02:59:10.604657+00:00",
+    "pid": 45844,
+    "exitCode": 1,
+    "wallSeconds": 0.1160085830015305,
+    "sampledPeakRssBytes": 950272,
+    "stopReason": null,
+    "completeArtifact": false,
+    "automaticRetry": false
+  },
+  "memoryLimitOfInference": "The short process completed between watchdog samples; its sampled RSS is not the true peak. Worker RSS at failure is a separate observation.",
+  "inputs": {
+    "packages/testbed/src/ember-local-feature-v001.js": {
+      "bytes": 11828,
+      "sha256": "d1b769696b525537d85fa8808f7df69450229b69af3457292f044ca478da7c97",
+      "unchanged": true
+    },
+    "packages/testbed/src/ember-ocular-v003-material.js": {
+      "bytes": 76094,
+      "sha256": "55040b37a7a1d35ec31c1716fbeefa88a27227d27f6de2239d5ec1cb3009014a",
+      "unchanged": true
+    },
+    "packages/core/src/material/HairMaterial.js": {
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613",
+      "unchanged": true
+    },
+    "packages/core/src/figure/Skeleton.js": {
+      "bytes": 19123,
+      "sha256": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4",
+      "unchanged": true
+    },
+    "tools/figure-pipeline/hair_texture.py": {
+      "bytes": 61711,
+      "sha256": "1e6962000651b8eab1d8d3c931259960f7889af1a0c7b3caac54357840279f64",
+      "unchanged": true
+    },
+    "reference/ember/portraits/face-reference-1.png": {
+      "bytes": 1277836,
+      "sha256": "92464091b3c68000c79ed846896f4df1486ed39fdff902ff97940eda564e9d3a",
+      "unchanged": true
+    },
+    "assets/hair/bob01/albedo.png": {
+      "bytes": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5",
+      "unchanged": true
+    },
+    "assets/hair/bob01/normal.png": {
+      "bytes": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a",
+      "unchanged": true
+    },
+    "assets/hair/bob01/flow.png": {
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6",
+      "unchanged": true
+    },
+    "assets/hair/bob01/depth.png": {
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b",
+      "unchanged": true
+    },
+    "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb": {
+      "bytes": 11568232,
+      "sha256": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef",
+      "unchanged": true
+    },
+    "docs/evidence/ember-2026-10-31-local-feature-v001/positions.f32": {
+      "bytes": 174204,
+      "sha256": "3859319a3c553fea959b80ba19ad9ad9a4823a42b11a32adfd356d06635c2654",
+      "unchanged": true
+    },
+    "docs/evidence/ember-2026-10-31-local-feature-v001/normals.f32": {
+      "bytes": 174204,
+      "sha256": "907028a279e85dc4a15c2cc9829fdbc10af82d0aa2d989f9cddf09e8817e67e7",
+      "unchanged": true
+    },
+    "tools/ember-hair/ember-waves-v001.json": {
+      "bytes": 38230,
+      "sha256": "b95683611ecbadbafc6552b30eddce2381a4d83b499cd9fbf253de9ea153cfc7",
+      "unchanged": true
+    },
+    "/Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile.mjs": {
+      "bytes": 19438,
+      "sha256": "f6f13db43ecf988bf5ca2a339da38c0682401a92bd3ee67dec4cf181f2dd25fa",
+      "unchanged": true
+    },
+    "tools/ember-hair/run.py": {
+      "bytes": 2265,
+      "sha256": "ac7815da77a1fe2a1a452ba31a4e8ca4c1d1b44a54c84e6e5572c3e4ed187728",
+      "unchanged": true
+    },
+    "tools/lut-bake/glb.mjs": {
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2",
+      "unchanged": true
+    },
+    "tools/critic/png.mjs": {
+      "bytes": 11612,
+      "sha256": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a",
+      "unchanged": true
+    },
+    "packages/testbed/ember-hair-v001.html": {
+      "bytes": 1906,
+      "sha256": "37d64c75fcbe6e92f4f7666f2d15aac2553086b096369d657a4c38e02c893b75",
+      "unchanged": true
+    },
+    "packages/testbed/src/ember-hair-v001.js": {
+      "bytes": 12779,
+      "sha256": "724a58548acafea5dbe290eef17c3da49504a5fb0c25f5a0a8c09501d912ca9e",
+      "unchanged": true
+    },
+    "packages/testbed/src/ember-hair-v001-component.js": {
+      "bytes": 4724,
+      "sha256": "9fbbdbc51c820236d7b11f0c8b265f43753e8b71466be7e2f11991493e661f4a",
+      "unchanged": true
+    },
+    "package-lock.json": {
+      "bytes": 24580,
+      "sha256": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2",
+      "unchanged": true
+    }
+  },
+  "nextStepReview": "Root/critic nominate one source-only first-guide sampler comparison with unchanged curve/root/endpoints and <=40 segments; no compiler replay or automatic subsequent build."
+}

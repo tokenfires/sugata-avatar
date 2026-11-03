@@ -1,0 +1,5 @@
+{
+  "reason": "Free-path bands with explicit facing normal unnecessarily queried scalp for every lower point",
+  "fix": "Skip unused radial normal query only for free paths with authored normals; root anchors and clearance projection unchanged",
+  "manualRetry": true
+}

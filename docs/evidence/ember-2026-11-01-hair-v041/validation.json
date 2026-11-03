@@ -1,0 +1,108 @@
+{
+  "protectedInputs": "All hashes match including face assets, atlas and shared HairMaterial",
+  "unchangedOtherRibbons": 227,
+  "unchangedOtherRibbonAttributes": [
+    "position",
+    "normal",
+    "uv",
+    "uv1",
+    "along",
+    "across",
+    "rootDistance"
+  ],
+  "allRootAndEndRowsExact": 456,
+  "allOriginalGuideInputs": "Unchanged; all 182 original long ribbons byte-identical",
+  "changedVertices": 33,
+  "maxDisplacementM": 0.011704701033589365,
+  "maxWidthFloat32ErrorM": 2.094237935845733e-09,
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "unchangedBuffers": [
+    "uv",
+    "uv1"
+  ],
+  "triangleConnectivity": "All triangles retain vertex sets; one selected-underlayer winding correction is no longer needed",
+  "windingChanges": 1,
+  "correctedWindingFacesBefore": 239,
+  "correctedWindingFacesAfter": 238,
+  "sceneAndMaterial": "Byte-identical after version normalization; v034 density, colour, ambient, shadow settings and approved features fixed",
+  "frameReports": "All five identical after version/draw/winding-count normalization; four full-hair views uncropped",
+  "resources": {
+    "cpuSeconds": 1.383966,
+    "rssBytes": 178438144,
+    "wallSeconds": 1.1777811669999998
+  },
+  "vertices": 23787,
+  "triangles": 30804,
+  "clearance": "Unchanged 132/122 crossings; corrected winding faces 239 to 238; final clearance/winding not certified",
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "croppedVertices": 0
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "croppedVertices": 2772
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "croppedVertices": 0
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "croppedVertices": 0
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "croppedVertices": 0
+    }
+  ],
+  "trial": {
+    "guide": "body-fill-rear-03",
+    "ribbon": 0,
+    "maxOffsetM": [
+      0.011,
+      0,
+      0.004
+    ],
+    "startFade": [
+      0.56,
+      0.68
+    ],
+    "endFade": [
+      0.8,
+      0.91
+    ],
+    "method": "Translate only lower-middle rows before head-clearance projection; slight positive-Z offset keeps the underlayer behind rear outer waves",
+    "preservation": "Upper rows through t=.56, other 227 ribbons, all root/end rows, original long locks, hairline, global bounds, material and approved features fixed",
+    "projectionEvidence": "Read-only screenshot sampling found background-coloured slit pixels around page x723-728, y475-510. Ray hits at x730,y470 put nape-04 near z=-.095 and this backing near z=-.078; backing remains farther from rear camera.",
+    "qualification": "One lower-interior coverage trial; final continuous curvature and surface clearance remain unqualified",
+    "movedBridgeVertices": 33,
+    "maxBridgeDisplacementM": 0.011704699910719625
+  },
+  "newBrowserErrors": 0,
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v041; retain v034",
+    "evidence": "The rear slit is partly occupied, but a curved opening remains beside the shifted lock. Front close-up exposes a larger isolated loop behind the screen-right jaw. Translation redistributes gaps.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "From v034, extend only the slit-facing edge of the same lower-middle underlayer. Fix centreline, opposite edge, roots and terminal rows."
+  }
+}

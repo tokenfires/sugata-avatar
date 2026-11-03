@@ -1,0 +1,76 @@
+{
+  "protectedInputs": "All hashes match including approved face assets, atlas and shared HairMaterial",
+  "all8GeometryBuffers": "Byte-identical to v033; all228ribbons, roots, endpoints, hairline and bounds fixed",
+  "coverageScope": {
+    "ribbons": 4,
+    "taggedVertices": 360,
+    "untaggedVertices": 23427
+  },
+  "sourceChanges": "Local component alpha profile and scope attribute/report only; scene source identical after version normalization",
+  "frameReports": "All five identical after version,draw count and new backingDensity metadata normalization",
+  "materialPreservation": "Base colour, ambient model/gain, root transition, edge taper, lights and shadow transmission/filter settings unchanged. Hair-shadow coverage naturally follows local alpha change.",
+  "trial": {
+    "ids": [
+      "inner-backing-heavy-01",
+      "inner-backing-heavy-02",
+      "inner-backing-light-01",
+      "inner-backing-light-02"
+    ],
+    "alphaRemap": "1-(1-a)^2; preserves exact zero and one; lifts partial fibre coverage",
+    "startFade": [
+      0.15,
+      0.28
+    ],
+    "endFade": [
+      0.63,
+      0.86
+    ],
+    "preservation": "Original root transition and edge taper retained; unchanged before v=.15 and after v=.86. All eight geometry buffers, colour, ambient model/gain, light and shadow settings fixed.",
+    "qualification": "Four-lock middle-density trial; inspect paneling, strand detail, shadows and disconnected short tips"
+  },
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "croppedVertices": 0
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "croppedVertices": 2772
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "croppedVertices": 0
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "croppedVertices": 0
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "croppedVertices": 0
+    }
+  ],
+  "resources": {
+    "cpuSeconds": 1.432955,
+    "rssBytes": 177012736,
+    "wallSeconds": 1.219844333
+  },
+  "vertices": 23787,
+  "triangles": 30804,
+  "clearance": "Unchanged132/122crossings and239corrected winding faces; final surface clearance/winding not certified",
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Retain v034 as small density improvement",
+    "evidence": "Inner backing less lace-like, especially beside screen-right cheek in close-up; joins waves better without obvious solid panel. Hairline and outline stable; full-head gain modest.",
+    "remaining": "Short separate internal tips and broad laminated crown remain",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Split foremost hairline-overlap surfaces into staggered narrower pieces inside existing budget, preserving backing and exact lower boundary."
+  }
+}

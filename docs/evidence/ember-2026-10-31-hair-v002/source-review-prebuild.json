@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-01T03:19:56.071906+00:00",
+  "preflightSha256": "0ad041c25474a06e96d6ef21e2a51048a984b8555ee998f59b9f56a4397e9d5d",
+  "critic": "/root/local_feature_critic",
+  "criticVerdict": "Source-ready; no blocking findings. Separate root single-build admission is the next responsibility; no additional diagnostic/source revision needed.",
+  "rootVerdict": "Agree after independent diff, q/t/indexing/workload/source-hash and protected-block verification.",
+  "sourceReady": true,
+  "admitSingleBuild": false,
+  "executionThisSlice": "none",
+  "appearanceAccepted": false,
+  "frozenV001Preserved": true,
+  "limitsUnchanged": true,
+  "next": "Root separately records one supervised compilation admission against this exact manifest after ownership, unchanged-source and review-availability checks. Failure stops without automatic retry."
+}

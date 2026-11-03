@@ -1,0 +1,55 @@
+{
+  "protectedInputs": "all hashes match including shared HairMaterial",
+  "all8GeometryBuffers": "byte-identical to v027; roots endpoints hairline crown and silhouette unchanged",
+  "sourceChanges": "Local component differs only in version and hair baseColourHex",
+  "frameReports": "All5 match v027 after normalizing version,draw counter and baseColourHex only",
+  "colour": {
+    "beforeHex": "57301e",
+    "candidateHex": "4d3226",
+    "intent": "Reduce red-orange saturation toward browner auburn midtones while retaining copper identity and highlights",
+    "sourceReview": "createHairMaterial converts sRGB to linear; baseColour feeds pigment-weighted ambient, TT/TRT and sqrt(colour) scatter. Primary R highlight remains achromatic and light-driven. No new lock colour fields.",
+    "preservation": "Same lighting, exposure, ambient proxy and gain, .28 neutral shadow transmission, filter/bias, all8 geometry buffers, face eyes brows and endpoints"
+  },
+  "ambientAndShadows": "v017 ambient model/gain and v027 transmission preserved; pigment-weighted contribution follows new base colour",
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "draws": 1
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "draws": 3
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "draws": 2
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "draws": 4
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "draws": 5
+    }
+  ],
+  "vertices": 23427,
+  "triangles": 30340,
+  "resources": {
+    "cpuSeconds": 1.426214,
+    "rssBytes": 177405952,
+    "wallSeconds": 1.214538709
+  },
+  "clearanceCrossings": [
+    132,
+    122
+  ],
+  "appearanceAccepted": false,
+  "critic": "One review: retain colour change. Neutral-angle midtones closer to portrait auburn; warm copper retained in front/lit waves; no new identity choice. Softer shadow separation remains useful. Next refine only3 foremost lower-hairline ribbon edges into finer staggered strands, retaining backing and1.1-eye-spacing boundary.",
+  "retainedFor": "Auburn midtones within existing copper-auburn identity; not final appearance"
+}

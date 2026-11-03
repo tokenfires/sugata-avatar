@@ -1,0 +1,144 @@
+{
+  "protectedInputs": "All preflight/build hashes match; approved face, eyes and brows unchanged",
+  "retainedGeometry": "All eight v051 buffers exact prefixes;230earlier ribbons fixed. Relative to v053 only lower-middle rear-edge positions and local derived frames/normals change; indices/UVs/rootDistance identical.",
+  "allPriorRootsAndEndRowsExact": true,
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "addedVertices": 45,
+  "addedTriangles": 56,
+  "vertices": 23952,
+  "triangles": 31012,
+  "scene": "Byte-identical to v051 after version normalization",
+  "material": "Existing dense-core profile assigned to new connecting band; prior coverage, pigment, ambient and shadow model/gain unchanged",
+  "clearance": {
+    "triangleCrossings": "Unchanged132bind/122head",
+    "correctedWindingFaces": 239,
+    "nearestSignedFlagsBefore": [
+      60,
+      50
+    ],
+    "nearestSignedFlagsAfter": [
+      60,
+      50
+    ],
+    "qualification": "Counts unchanged; existing final clearance and winding remain unqualified."
+  },
+  "sideSurfaceFit": {
+    "vertices": 31,
+    "maxDisplacementM": 0.03648700908411716,
+    "misses": 2
+  },
+  "triangleSideClearance": {
+    "samples": 765,
+    "constraints": 55,
+    "correctedVertices": [
+      {
+        "vertex": 23931,
+        "correctionM": 7.492110530049308e-05
+      },
+      {
+        "vertex": 23934,
+        "correctionM": 0.007953914654294873
+      },
+      {
+        "vertex": 23937,
+        "correctionM": 0.007953914654294873
+      }
+    ],
+    "maxCorrectionM": 0.007953914654294873
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2772,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.510662,
+    "rssBytes": 181223424,
+    "wallSeconds": 1.277774458
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v056; retain v053",
+    "finding": "No meaningful closure of the135degree triangular scalp gap; front stable and no large new panel/tab. Rearward extension misses actual gap on positiveZ side.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Start from v053; target measured positiveZ/cross2 lower-middle edge at bindx\u2212.075to\u2212.079,y1.468to1.480,z+.030to+.031. Preserve existing locks, roots and tapered end."
+  },
+  "changedConnectorEdgeVertices": [
+    23928,
+    23931,
+    23934,
+    23937,
+    23940,
+    23943
+  ],
+  "connectorCentreFrontEdgeRootAndEndPositionsExact": true,
+  "addedVerticesRelativeToV053": 0,
+  "addedTrianglesRelativeToV053": 0,
+  "gapLocation": "gap-location.json; manual image points ray-cast through fixed camera into preserved bind body"
+}

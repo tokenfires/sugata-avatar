@@ -1,0 +1,355 @@
+{
+  "protectedInputs": "All preflight/build hashes match; approved face, eyes and brows unchanged",
+  "retainedGeometry": "All232other ribbons exact across7vertexbuffers and their index triangles. Complete UV/UV1/rootDistance buffers exact. Source guide control points and coverage bands exact; only target gap-facing edge positions and derived attributes change.",
+  "retainedV065SideFillExact": true,
+  "retainedV067CrownFillExact": true,
+  "retainedV075UpperCoverageAndReturnEdgeExact": true,
+  "allOriginalRootAndEndRowsExact": true,
+  "targetCentrelineAndOppositeBoundaryExact": true,
+  "changedPositionVertices": 10,
+  "reshape": {
+    "guide": "under-side-heavy-03-2",
+    "vertices": [
+      {
+        "vertex": 16857,
+        "row": 10,
+        "cross": 0,
+        "t": 0.30357142857142855,
+        "weight": 0.014577259475218563,
+        "before": [
+          -0.08304186899741721,
+          1.5363929499164524,
+          0.06383454151321556
+        ],
+        "after": [
+          -0.08325647851065386,
+          1.536285308307463,
+          0.06350266580461209
+        ],
+        "extension": [
+          -0.0002146095132366556,
+          -0.00010764160898942111,
+          -0.0003318757086034706
+        ]
+      },
+      {
+        "vertex": 16860,
+        "row": 11,
+        "cross": 0,
+        "t": 0.3214285714285714,
+        "weight": 0.3935860058309033,
+        "before": [
+          -0.0864235270534814,
+          1.5268843214703156,
+          0.06761894047402414
+        ],
+        "after": [
+          -0.09180108365654074,
+          1.5256404790036113,
+          0.057894114286752424
+        ],
+        "extension": [
+          -0.0053775566030593415,
+          -0.0012438424667042993,
+          -0.009724826187271714
+        ]
+      },
+      {
+        "vertex": 16863,
+        "row": 12,
+        "cross": 0,
+        "t": 0.33928571428571425,
+        "weight": 0.8819241982507284,
+        "before": [
+          -0.09134033030675923,
+          1.5136617320798769,
+          0.0711047013416678
+        ],
+        "after": [
+          -0.10294854539362533,
+          1.5130837260563983,
+          0.04872202263642553
+        ],
+        "extension": [
+          -0.011608215086866103,
+          -0.0005780060234786416,
+          -0.022382678705242274
+        ]
+      },
+      {
+        "vertex": 16866,
+        "row": 13,
+        "cross": 0,
+        "t": 0.3571428571428571,
+        "weight": 1,
+        "before": [
+          -0.09718050217464007,
+          1.4982586744759252,
+          0.07399357075302009
+        ],
+        "after": [
+          -0.10997418106058912,
+          1.4993129595156816,
+          0.04851292595034866
+        ],
+        "extension": [
+          -0.012793678885949055,
+          0.0010542850397563088,
+          -0.025480644802671426
+        ]
+      },
+      {
+        "vertex": 16869,
+        "row": 14,
+        "cross": 0,
+        "t": 0.37499999999999994,
+        "weight": 1,
+        "before": [
+          -0.1033992140406295,
+          1.481938685476705,
+          0.07602213796675977
+        ],
+        "after": [
+          -0.11566484505810713,
+          1.4842205014042447,
+          0.05043255828154448
+        ],
+        "extension": [
+          -0.012265631017477628,
+          0.0022818159275396436,
+          -0.025589579685215295
+        ]
+      },
+      {
+        "vertex": 16872,
+        "row": 15,
+        "cross": 0,
+        "t": 0.3928571428571428,
+        "weight": 1,
+        "before": [
+          -0.10958257750210115,
+          1.4659679903731404,
+          0.07719763998341105
+        ],
+        "after": [
+          -0.12117965167716215,
+          1.469309279379045,
+          0.05148181096840679
+        ],
+        "extension": [
+          -0.01159707417506099,
+          0.00334128900590458,
+          -0.025715829015004257
+        ]
+      },
+      {
+        "vertex": 16875,
+        "row": 16,
+        "cross": 0,
+        "t": 0.4107142857142857,
+        "weight": 0.9834696037145019,
+        "before": [
+          -0.11533745926906841,
+          1.451614677499859,
+          0.07757509317838132
+        ],
+        "after": [
+          -0.12602189537454403,
+          1.456092740745212,
+          0.052222100737375654
+        ],
+        "extension": [
+          -0.010684436105475623,
+          0.004478063245352836,
+          -0.025352992441005667
+        ]
+      },
+      {
+        "vertex": 16878,
+        "row": 17,
+        "cross": 0,
+        "t": 0.42857142857142855,
+        "weight": 0.7657609329446071,
+        "before": [
+          -0.12024046407300083,
+          1.4402525656721015,
+          0.07725980056832134
+        ],
+        "after": [
+          -0.1279632681074365,
+          1.4452134164794812,
+          0.0576515612928654
+        ],
+        "extension": [
+          -0.007722804034435666,
+          0.004960850807379657,
+          -0.01960823927545594
+        ]
+      },
+      {
+        "vertex": 16881,
+        "row": 18,
+        "cross": 0,
+        "t": 0.4464285714285714,
+        "weight": 0.4217160133894834,
+        "before": [
+          -0.12303529027077166,
+          1.435835510059198,
+          0.07683209491782987
+        ],
+        "after": [
+          -0.12678342259377146,
+          1.4407517139394515,
+          0.06667360343179905
+        ],
+        "extension": [
+          -0.003748132322999796,
+          0.004916203880253573,
+          -0.010158491486030818
+        ]
+      },
+      {
+        "vertex": 16884,
+        "row": 19,
+        "cross": 0,
+        "t": 0.4642857142857143,
+        "weight": 0.11330439477378218,
+        "before": [
+          -0.12611682741851854,
+          1.4310969353946468,
+          0.07527989452772814
+        ],
+        "after": [
+          -0.1269772001484211,
+          1.4327847399333233,
+          0.07271770300674733
+        ],
+        "extension": [
+          -0.0008603727299025543,
+          0.001687804538676652,
+          -0.002562191520980801
+        ]
+      }
+    ],
+    "maxDisplacementM": 0.028531613973656292,
+    "maxBackwardM": 0.025715829015004257,
+    "maxOutwardM": 0.012793678885949055,
+    "qualification": "Local edge extension trial; retained adaptive sampling does not certify the modified edge surface."
+  },
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "addedVertices": 0,
+  "addedTriangles": 0,
+  "vertices": 23997,
+  "triangles": 31064,
+  "sceneAndComponent": "Byte-identical to v075 after version normalization",
+  "material": "All appearance profiles, ambient, pigment and shadow settings unchanged",
+  "clearance": {
+    "triangleCrossings": [
+      132,
+      122
+    ],
+    "nearestSignedFlags": [
+      61,
+      50
+    ],
+    "correctedWindingFaces": 242,
+    "changedWindingTriangles": [],
+    "targetTriangleCrossings": [
+      0,
+      0
+    ],
+    "additionalBindProximityFlag": {
+      "vertex": 16872,
+      "signedM": -0.008481055175287971,
+      "nearestDistanceM": 0.03757660055440438,
+      "outsideBodyXGapM": 0.04392789339745312,
+      "interpretation": "Nearest-normal sign is misleading at this point: +X surface ray places the vertex outside the leftmost body envelope at the sameY/Z. Target160triangles have zero body intersections in both checked poses. Raw flag retained, not treated as proof of penetration."
+    },
+    "qualification": "No added body crossings; raw nearest-normal flags61/50 versus60/50 baseline. Final surface, baseline defects, winding and other poses remain unqualified."
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2772,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.759915,
+    "rssBytes": 179159040,
+    "wallSeconds": 1.532196291
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Retain v082 as incremental baseline",
+    "finding": "At90/45 the broad bare wedge becomes narrower strand-separated openings following the existing wave rather than a blunt connector panel. No conspicuous new135 termination; frontal framing and silhouette stable. Strand spacing remains too regular and wide.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Local atlas sampling across widened middle; keep geometry, outer edges, roots/end targets and other ribbons fixed."
+  },
+  "retainedForNextStep": true,
+  "coverageCheck": "Four previously empty manually sampled wedge pixels have nearest-texel alpha proxy0.953-1.0; not full shader/MSAA certification."
+}

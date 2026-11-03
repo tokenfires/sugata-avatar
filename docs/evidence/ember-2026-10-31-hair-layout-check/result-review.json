@@ -1,0 +1,41 @@
+{
+  "utc": "2026-11-01T03:54:31.658064+00:00",
+  "critic": "/root/local_feature_critic",
+  "rootAndCriticVerdict": "Retain partial source evidence; reject sampler-only v003 readiness; close sampler rescue chain.",
+  "completedGuides": 37,
+  "assessedRibbons": 111,
+  "sampledPasses": 102,
+  "samplingFailures": 9,
+  "failedGuides": [
+    "crown-sweep-02",
+    "crown-sweep-04",
+    "side-heavy-01",
+    "occipital-02",
+    "occipital-03",
+    "occipital-04",
+    "occipital-05"
+  ],
+  "structuralStop": "nape-03 centre-root lookup failed the unchanged strict25mm eligible-scalp distance; nearest distance/triangle not recorded",
+  "unassessed": [
+    "nape-03",
+    "nape-04"
+  ],
+  "excludedPriorEvidenceOnly": "crown-sweep-01",
+  "rootVerification": "Recomputed222 stored error distances/parameters and55 anchors from frozen patch; maxanchor difference2.285e-16m; all42 inputs match. No curve reevaluation.",
+  "alternatives": [
+    {
+      "choice": "Coherent guide-authoring revision for seven affected paths and unresolved nape attachments",
+      "tradeoff": "Addresses construction directly but changes intended shapes before visual evidence; not selected yet."
+    },
+    {
+      "choice": "Bounded visual authoring review of frozen guide paths and attachment context against portrait1 before edits",
+      "tradeoff": "Adds one diagnostic review but grounds control decisions in actual source geometry and intended style; selected for contract/source preparation."
+    }
+  ],
+  "next": "Scope one finite visual-authoring review using saved resolved controls, original unresolved nape seeds and frozen body context. Reuse existing evidence; explicitly label diagnostic/noncandidate. Independently review contract/source/workload before any visual execution.",
+  "noNewSamplerExperiment": true,
+  "controlEditAdmitted": false,
+  "newRuntimeOrBuildAdmitted": false,
+  "automaticRetry": false,
+  "appearanceAccepted": false
+}

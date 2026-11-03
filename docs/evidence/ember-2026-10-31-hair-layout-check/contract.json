@@ -1,0 +1,105 @@
+{
+  "scope": "One source-only sampling-feasibility pass over39 unresolved guides; no first-guide execution, compiler, mesh or rendering.",
+  "source": "tools/ember-hair/ember-waves-v001.json",
+  "selectedGuideIds": [
+    "crown-sweep-02",
+    "crown-sweep-03",
+    "crown-sweep-04",
+    "crown-sweep-05",
+    "crown-sweep-06",
+    "crown-sweep-07",
+    "crown-sweep-08",
+    "temple-heavy-01",
+    "temple-heavy-02",
+    "temple-heavy-03",
+    "temple-heavy-04",
+    "temple-light-01",
+    "temple-light-02",
+    "temple-light-03",
+    "temple-light-04",
+    "side-heavy-01",
+    "side-heavy-02",
+    "side-heavy-03",
+    "side-heavy-04",
+    "side-heavy-05",
+    "side-heavy-06",
+    "side-light-01",
+    "side-light-02",
+    "side-light-03",
+    "side-light-04",
+    "side-light-05",
+    "side-light-06",
+    "occipital-01",
+    "occipital-02",
+    "occipital-03",
+    "occipital-04",
+    "occipital-05",
+    "occipital-06",
+    "occipital-07",
+    "occipital-08",
+    "nape-01",
+    "nape-02",
+    "nape-03",
+    "nape-04"
+  ],
+  "excludedGuide": "crown-sweep-01",
+  "ribbons": 117,
+  "reuse": {
+    "firstGuideReport": "docs/evidence/ember-2026-10-31-hair-sampler-check/report.json",
+    "failedBuild": "docs/evidence/ember-2026-10-31-hair-v002/failure.json",
+    "newSelectorFirstGuideEvidence": false
+  },
+  "method": {
+    "type": "centripetal Catmull-Rom; unchanged resolved controls; control-knot initial intervals; largest sampled-error midpoint bisection; earliest tie",
+    "allocationProbes": [
+      0.125,
+      0.25,
+      0.375,
+      0.5,
+      0.625,
+      0.75,
+      0.875
+    ],
+    "heldOutProbes": [
+      0.0625,
+      0.1875,
+      0.3125,
+      0.4375,
+      0.5625,
+      0.6875,
+      0.8125,
+      0.9375
+    ],
+    "postValidationRefinement": false,
+    "thresholdM": 0.00035,
+    "maxSegments": 40
+  },
+  "limits": {
+    "cpuSeconds": 10,
+    "wallSeconds": 15,
+    "rssBytes": 536870912,
+    "totalOutputBytes": 2097152,
+    "reportBytes": 1572864,
+    "logBytes": 262144,
+    "evaluationsPerRibbon": 1536,
+    "evaluationsTotal": 180000
+  },
+  "staticBounds": {
+    "maxInitialIntervals": 11,
+    "minInitialIntervals": 7,
+    "maxUncachedRequestsPerRibbon": 1057,
+    "maxTotalUncachedRequests": 123669,
+    "derivation": "9m+18(40-m)+10*40 =1120-9m <=1057 for7<=m<=11;117 ribbons."
+  },
+  "stopRules": [
+    "collect all numerical sampling failures in the one pass",
+    "stop on structural input/anchor, nonfinite or resource error",
+    "no method fallback, parameter sweep, curve edit, compiler replay or candidate admission"
+  ],
+  "resultLimits": [
+    "sampledPass requires allocationPass AND heldOutPass",
+    "sampled error only, not continuous bound",
+    "no ribbon-surface/frame/root-motion/clearance/appearance claim",
+    "first-guide-new-selector gap remains explicit"
+  ]
+}

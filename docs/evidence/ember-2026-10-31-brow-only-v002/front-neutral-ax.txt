@@ -1,0 +1,68 @@
+Browser tab: 1, Title: "Ember — brow-only correction v002", URL: "http://127.0.0.1:5173/ember-brow-only-v002.html".
+1 AXWebArea Ember — brow-only correction v002, URL: 127.0.0.1:5173/ember-brow-only-v002.html
+	2 heading Ember · brow-only correction v002, Value: 1
+		3 text Ember · brow-only correction v002
+	4 text Raised auburn brows with original coverage; baseline lashes on the frozen measured head. Hair is still missing; likeness and finish are not accepted.
+	5 container
+		6 checkbox Front reference 2, Value: 1
+		7 checkbox Angled reference 1, Value: 0
+		8 checkbox Neutral light, Value: 1, ID: light
+	9 container
+		29 text Portrait 2 · face authority
+		11 image Description: Original Ember portrait, ID: reference
+	12 container
+		13 text Warm freckled skin · hazel eyes · same measured shape
+		14 image portrait
+	30 text front · neutral · neutral light · brow-only correction v002 · frame 3 · NOT ACCEPTED
+	16 container
+		17 text Motion frame 
+		18 pop up button (collapsed, settable) Motion frame, Value: Neutral expression, ID: pose, Secondary Actions: Expand
+			19 menu
+				20 Reference smile
+				21 (selected) Neutral expression
+				22 Closed blink
+				23 Look left
+				24 Look right
+				25 Head turn
+	26 text The mouth parts have a known clearance defect. This skin/eye study does not repair or qualify speech movement.
+	27 text Visible frame report
+	28 text entry area Visible frame report, ID: report, Value: {
+  "source": "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb",
+  "sourceHash": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef",
+  "view": "front",
+  "frame": "neutral",
+  "draws": 3,
+  "weights": {},
+  "headYaw": 0,
+  "neutralLight": true,
+  "ocularCorrection": {
+    "version": "v003",
+    "scleraChroma": 0,
+    "irisInput": "lighter procedural hazel using frozen source fibres",
+    "postAlbedoLift": false
+  },
+  "cards": [
+    {
+      "mesh": "Humaneyebrow001",
+      "brow": true,
+      "alphaTest": 0.5,
+      "alphaToCoverage": false,
+      "msaaSamples": 4,
+      "placement": "2mm upward query; projected rise .773–2.101mm; same frozen-skin signed gap",
+      "drawSamples": 4
+    }
+  ],
+  "geometry": "frozen head, eyes, lashes and morphs; brow-card positions corrected only",
+  "maps": {
+    "curvature": null,
+    "region": null,
+    "cavity": null
+  },
+  "eyeY": 1.4865916967391968,
+  "eyeFront": 0.12358388304710388,
+  "eyeGeometry": "left : sclera R 16.444 mm (rms 0.223), cornea R 8.934 mm over 55 verts (rms 0.0252) centred 8.667 mm forward, iris plane 14.417 mm (rms 0.323), iris R 7.033 mm, anterior chamber 3.183 mm, axis 0.004 -0.022 1.000\nright: sclera R 16.444 mm (rms 0.223), cornea R 8.924 mm over 55 verts (rms 0.0255) centred 8.678 mm forward, iris plane 14.417 mm (rms 0.323), iris R 6.941 mm, anterior chamber 3.184 mm, axis -0.004 -0.022 1.000",
+  "oralClearance": "failed witnessed crossings; no repair in this study",
+  "limits": "no face identity edit, animation loop, native build or new source texture"
+}
+
+The focused UI element is 8 checkbox Neutral light, Value: 1, ID: light

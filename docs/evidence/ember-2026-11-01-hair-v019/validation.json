@@ -1,0 +1,109 @@
+{
+  "existingBuffers": "all8 identical to v018",
+  "sourceGuidesAndBands": "identical; hair length and lock-end targets preserved",
+  "protectedInputs": "match",
+  "ambientComponent": "identical after version substitution",
+  "viewerSource": "only changed shadow.bias from -0.00003 to -0.0003, besides version identifiers",
+  "existingAppearanceAndViewReports": "preserved source, weights, pose, geometry, ocular, brows, maps, eyeGeometry, light preset, bounds, hemisphere and hair material",
+  "shadowKernel": {
+    "receivers": "scalp hair only",
+    "casters": [
+      "scalp hair",
+      "body/head"
+    ],
+    "lights": "existing key/fill; positions, colours and intensities unchanged",
+    "maps": 2,
+    "resolution": 1024,
+    "filter": "PCF tent25",
+    "bias": -0.0003,
+    "normalBiasM": 0.0004,
+    "scope": "Directional card/head occlusion; no scatter, pigment, geometry or face-lighting edits",
+    "samples": 25,
+    "kernel": "5x5 grid at two-texel spacing; separable weights 1,2,3,2,1; sum81",
+    "radiusTexels": 4,
+    "radiusAxisM": 0.002734375,
+    "qualification": "Fixed shadow-space blur; not physical area-light penumbra; render cost not benchmarked",
+    "receiverBiasTrial": {
+      "prior": -3e-05,
+      "current": -0.0003,
+      "orthographicDepthSpanM": 2.49,
+      "priorDepthOffsetM": 7.47e-05,
+      "currentDepthOffsetM": 0.000747,
+      "normalBiasUnchangedM": 0.0004,
+      "rationale": "Negative comparison bias moves receiver toward light; hypothesis for crown striping, not a diagnosis",
+      "qualification": "Check contact shadow detachment and overlap loss in rendered views"
+    }
+  },
+  "browserViews": [
+    {
+      "view": "front",
+      "draw": 1,
+      "rootResidualMm": 0.00010843891732606441,
+      "fullHairFraming": true,
+      "onlyHairReceivesShadows": true,
+      "both1024MapsRendered": true,
+      "filterBuilds": 2,
+      "indirectBuilds": 1
+    },
+    {
+      "view": "angle",
+      "draw": 2,
+      "rootResidualMm": 0.00010843891686893117,
+      "fullHairFraming": true,
+      "onlyHairReceivesShadows": true,
+      "both1024MapsRendered": true,
+      "filterBuilds": 2,
+      "indirectBuilds": 1
+    },
+    {
+      "view": "face",
+      "draw": 3,
+      "rootResidualMm": 0.00010843891730854621,
+      "fullHairFraming": false,
+      "onlyHairReceivesShadows": true,
+      "both1024MapsRendered": true,
+      "filterBuilds": 2,
+      "indirectBuilds": 1
+    },
+    {
+      "view": "rear",
+      "draw": 4,
+      "rootResidualMm": 0.00010843891706976359,
+      "fullHairFraming": true,
+      "onlyHairReceivesShadows": true,
+      "both1024MapsRendered": true,
+      "filterBuilds": 2,
+      "indirectBuilds": 1
+    },
+    {
+      "view": "head",
+      "draw": 5,
+      "rootResidualMm": 0.00010845078828007981,
+      "fullHairFraming": true,
+      "onlyHairReceivesShadows": true,
+      "both1024MapsRendered": true,
+      "filterBuilds": 2,
+      "indirectBuilds": 1
+    }
+  ],
+  "process": {
+    "utc": "2026-11-01T20:55:18.489831+00:00",
+    "pid": 26697,
+    "exitCode": 0,
+    "wallSeconds": 1.3897676249907818,
+    "sampledPeakRssBytes": 172195840,
+    "stopReason": null,
+    "completeArtifact": true,
+    "automaticRetry": false
+  },
+  "clearanceCrossings": [
+    132,
+    122
+  ],
+  "appearanceAccepted": false,
+  "limitation": "Bias hypothesis only. No final clearance, likeness or motion qualification.",
+  "critic": "One independent review: reject bias change; no useful crown hatching reduction or obvious new root detachment. Preserve v018 bias/filter and v017 ambient.",
+  "sourceCheck": "Renderer._getShadowNodes forwards colorNode.a including rootFade/taper; override copies alphaTest 0.5. Visible material uses alpha-to-coverage; shadow override is masked. Images do not establish missing mask.",
+  "next": "Matched hair-caster on/off diagnostic in v018, keeping head shadows and all appearance inputs fixed.",
+  "browserDelivery": "Five captures saved, angle restored and tab15 marked deliverable. Fresh-tab recovery succeeded; zero current browser failures."
+}

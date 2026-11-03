@@ -1,0 +1,55 @@
+{
+  "geometryBuffers": "All five match v008 byte for byte",
+  "protectedInputs": "All match",
+  "analyticUnevenRowDerivativeFixture": "passed within 2e-5",
+  "browserViews": [
+    {
+      "view": "front",
+      "draw": 1,
+      "rootResidualMm": 0.00010843891732606441,
+      "fullHairFraming": true
+    },
+    {
+      "view": "angle",
+      "draw": 2,
+      "rootResidualMm": 0.00010843891686893117,
+      "fullHairFraming": true
+    },
+    {
+      "view": "rear",
+      "draw": 4,
+      "rootResidualMm": 0.00010843891706976359,
+      "fullHairFraming": true
+    },
+    {
+      "view": "head",
+      "draw": 5,
+      "rootResidualMm": 0.00010845078828007981,
+      "fullHairFraming": true
+    },
+    {
+      "view": "face",
+      "draw": 3,
+      "rootResidualMm": 0.00010843891730854621,
+      "fullHairFraming": false
+    }
+  ],
+  "resources": {
+    "cpuSeconds": 1.422206,
+    "rssBytes": 175243264,
+    "wallSeconds": 1.230178333
+  },
+  "cardFrame": {
+    "vertices": 22077,
+    "method": "uneven-row central derivatives; per-column cross derivative",
+    "normalized": false,
+    "minAlong": 0.0039466156790496495,
+    "minAcross": 0.001051622846605718,
+    "minSinAngle": 0.01592324187345105,
+    "addedBytes": 529848
+  },
+  "clearanceCrossings": [
+    132,
+    122
+  ]
+}

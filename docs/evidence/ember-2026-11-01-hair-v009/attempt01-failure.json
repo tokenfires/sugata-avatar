@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-01T19:27:16.032Z",
+  "error": "Error: Guide frame reversal under-side-heavy-04-1\n    at requireThat (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v009.mjs:22:61)\n    at compile (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v009.mjs:160:82)\n    at file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v009.mjs:71:7\n    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)",
+  "collisionPairs": 0,
+  "resources": {
+    "cpu": {
+      "user": 156886,
+      "system": 40331
+    },
+    "rss": 137986048,
+    "wallSeconds": 0.134903583
+  },
+  "candidateAccepted": false,
+  "automaticRetry": false
+}

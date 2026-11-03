@@ -1,0 +1,104 @@
+{
+  "recordedAtUtc": "2026-10-31T19:14:34.572677+00:00",
+  "scope": "Robert-requested browser debugging; avatar work and timer paused",
+  "appVersion": "26.1027.30824",
+  "appBuild": "22943",
+  "automationStatus": "PAUSED",
+  "tests": [
+    {
+      "operation": "retained page AX read",
+      "result": "browser.user is unavailable."
+    },
+    {
+      "operation": "documented selected-browser tabs.list",
+      "result": "current Ember appearance tab returned"
+    },
+    {
+      "operation": "documented selected-browser tabs.get(1)",
+      "result": "browser.user is unavailable. before DOM read"
+    },
+    {
+      "operation": "local HTTP health check",
+      "result": 200
+    },
+    {
+      "operation": "supported app open_in_codex current-chat browser URL",
+      "result": "queued"
+    },
+    {
+      "operation": "retained page AX read after app open request",
+      "result": "browser.user is unavailable."
+    }
+  ],
+  "logFile": "/Users/robault/Library/Logs/com.openai.codex/2026/10/31/codex-desktop-36e1d205-62c8-4eec-bee8-20045b3ec744-93844-t0-i1-182127-0.log",
+  "logEvents": [
+    {
+      "line": 205,
+      "event": "2026-10-31T18:21:37.986Z info [browser-session-registry] IAB_LIFECYCLE captured session route conversationId=01a0ff57-d720-7db2-923f-9e3e0521216c disposeAfterSessionActivity=false ownerWebContentsId=1 windowId=1"
+    },
+    {
+      "line": 243,
+      "event": "2026-10-31T18:21:38.310Z info [browser-session-registry] IAB_LIFECYCLE ended browser use session activity conversationId=01a0ff57-d720-7db2-923f-9e3e0521216c disposeAfterSessionActivity=false windowId=1"
+    },
+    {
+      "line": 453,
+      "event": "2026-10-31T18:21:57.187Z warning [browser-use-iab-api] IAB_LIFECYCLE iab backend info request failed conversationId=01a0ff57-d720-7db2-923f-9e3e0521216c errorMessage=\"No ChatGPT browser route is available for browser session 01a0ff57-d720-7db2-923f-9e3e0521216c\" errorName=Error"
+    },
+    {
+      "line": 457,
+      "event": "2026-10-31T18:21:59.539Z warning [browser-use-iab-api] IAB_LIFECYCLE iab backend info request failed conversationId=01a0ff57-d720-7db2-923f-9e3e0521216c errorMessage=\"No ChatGPT browser route is available for browser session 01a0ff57-d720-7db2-923f-9e3e0521216c\" errorName=Error"
+    },
+    {
+      "line": 462,
+      "event": "2026-10-31T18:22:17.756Z warning [browser-use-iab-api] IAB_LIFECYCLE iab backend info request failed conversationId=01a0ff57-d720-7db2-923f-9e3e0521216c errorMessage=\"No ChatGPT browser route is available for browser session 01a0ff57-d720-7db2-923f-9e3e0521216c\" errorName=Error"
+    },
+    {
+      "line": 548,
+      "event": "2026-10-31T18:23:33.040Z info [browser-session-registry] IAB_LIFECYCLE released browser sidebar page browserTabId=browser-use:8e36471c-aa2e-4882-85e3-1cf1808e1863 conversationId=client-new-thread:327e2d8a-dfdf-4126-b508-0e82d4094860 windowId=1"
+    },
+    {
+      "line": 558,
+      "event": "2026-10-31T18:23:33.083Z info [browser-session-registry] IAB_LIFECYCLE ended browser use session activity conversationId=01a0ff57-d720-7db2-923f-9e3e0521216c disposeAfterSessionActivity=false windowId=1"
+    },
+    {
+      "line": 661,
+      "event": "2026-10-31T18:40:58.474Z warning [browser-use-iab-api] IAB_LIFECYCLE iab backend info request failed conversationId=01a0ff57-d720-7db2-923f-9e3e0521216c errorMessage=\"No ChatGPT browser route is available for browser session 01a0ff57-d720-7db2-923f-9e3e0521216c\" errorName=Error"
+    },
+    {
+      "line": 693,
+      "event": "2026-10-31T18:42:19.429Z info [browser-session-registry] IAB_LIFECYCLE ended browser use session activity conversationId=01a0ff57-d720-7db2-923f-9e3e0521216c disposeAfterSessionActivity=false windowId=1"
+    },
+    {
+      "line": 747,
+      "event": "2026-10-31T18:49:37.589Z info [browser-session-registry] IAB_LIFECYCLE ended browser use session activity conversationId=01a0ff57-d720-7db2-923f-9e3e0521216c disposeAfterSessionActivity=false windowId=1"
+    },
+    {
+      "line": 821,
+      "event": "2026-10-31T18:59:36.962Z info [browser-session-registry] IAB_LIFECYCLE ended browser use session activity conversationId=01a0ff57-d720-7db2-923f-9e3e0521216c disposeAfterSessionActivity=false windowId=1"
+    },
+    {
+      "line": 909,
+      "event": "2026-10-31T19:10:31.455Z warning [browser-use-iab-api] IAB_LIFECYCLE iab backend info request failed conversationId=01a0ff57-d720-7db2-923f-9e3e0521216c errorMessage=\"No ChatGPT browser route is available for browser session 01a0ff57-d720-7db2-923f-9e3e0521216c\" errorName=Error"
+    }
+  ],
+  "underlyingError": "No ChatGPT browser route is available for browser session 01a0ff57-d720-7db2-923f-9e3e0521216c",
+  "sourceWitness": {
+    "archive": "/Applications/ChatGPT.app/Contents/Resources/app.asar",
+    "entry": ".vite/build/early-bootstrap-916-2f6483d5bfd826f1.js",
+    "functions": [
+      "getInfo",
+      "prepareSessionRoute",
+      "canServeSession",
+      "ensureSessionRoute"
+    ],
+    "interpretation": "getInfo rejects during app session-route validation; canServeSession also checks backend registration identity, so this message alone does not prove which registry condition failed"
+  },
+  "candidateJsSha256": "fc486085da779ae74f2e33f501349b678a97551c59187a99a583829c18984af0",
+  "newCandidateScreenshots": 0,
+  "newCandidateEdits": 0,
+  "toolSessionResets": 0,
+  "installedAppEdits": 0,
+  "nativeAppFallback": false,
+  "rawTransportCalls": false,
+  "nextDiagnostic": "User reselects this chat and opens its browser panel; perform one documented page read after visible-state confirmation"
+}

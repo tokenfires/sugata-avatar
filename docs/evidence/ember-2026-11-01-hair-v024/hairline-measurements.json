@@ -1,0 +1,51 @@
+{
+  "method": "Manual 2D visible pupil-centre and central skin-hair-boundary picks; height divided by pupil-centre spacing. 512px image coordinates. No physical head-size inference.",
+  "reference": "face-reference-2.png at half native resolution",
+  "candidate": "v024 face.jpg canvas rectangle x546,y172,width512,height512",
+  "uncertainty": "Hair boundary roughly +/-5 display pixels and pupils +/-2px; ratio rounded to one decimal for conclusions. Hairline is partly obscured and pose/camera remain possible confounds.",
+  "points": {
+    "reference": {
+      "left": [
+        205,
+        226.5
+      ],
+      "right": [
+        318.5,
+        225.5
+      ],
+      "hair": [
+        261.75,
+        104
+      ],
+      "eyeSpacingPx": 113.50440520085553,
+      "eyeLineY": 226.0,
+      "heightPx": 122.0,
+      "heightInEyeSpacings": 1.0748481504670309
+    },
+    "candidate": {
+      "left": [
+        204,
+        226
+      ],
+      "right": [
+        318,
+        226
+      ],
+      "hair": [
+        261,
+        102
+      ],
+      "eyeSpacingPx": 114.0,
+      "eyeLineY": 226.0,
+      "heightPx": 124.0,
+      "heightInEyeSpacings": 1.087719298245614
+    }
+  },
+  "result": "Approximately1.1 eye spacings in portrait2 and v024; previous candidate was1.4. Robert approved lowering toward the portrait. Three overlapping lower hairline layers added; all prior geometry including approved face and eyes preserved.",
+  "independentCriticPick": {
+    "x": 261,
+    "y": 104,
+    "uncertaintyPx": 5,
+    "result": "Agrees with rounded1.1 spacing from root pick y102; continuous boundary credible"
+  }
+}

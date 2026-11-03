@@ -1,0 +1,22 @@
+{
+  "utc": "2026-11-01T04:13:11.816916+00:00",
+  "preflightSha256": "5413cd181c827ea32707b010db9129d72ed71c14998a69fb153a8b46e6defc08",
+  "independentSourceReviewed": true,
+  "rootSourceReviewed": true,
+  "admitSingleVisual": true,
+  "rootDecision": "Separately admit ONE supervised frozen-path diagram generation and at most THREE fixed browser sheet captures under the reviewed contract. This enables visual authoring review, not a hair build or control edit.",
+  "sourceOnly": true,
+  "appearanceAccepted": false,
+  "critic": "/root/local_feature_critic",
+  "criticVerdict": "Source-ready; no remaining blockers after projected-winding and coincident-label corrections. No execution/appearance admission from source review.",
+  "admissionEvidence": {
+    "otherChat": "01a194ba-ffd1-7841-b0cd-2d40e0ac1924 idle at revision4; no new steering",
+    "jobs": "No owned build/check/render job; Vite PID9108 retained",
+    "inputs": "All54 exact inputs and prior42 unchanged",
+    "browser": "Retained handle failed; one fresh supported symbolic-IAB tab7 reached unchanged local-feature front/reference/warm draw1; no screenshot",
+    "rootReview": "root-source-verification.json; exact cubic algebra/intervals/scalp context/resource limits reviewed"
+  },
+  "automaticRetry": false,
+  "controlEditsAdmitted": false,
+  "candidateBuildAdmitted": false
+}

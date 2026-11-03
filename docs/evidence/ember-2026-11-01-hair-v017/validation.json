@@ -1,0 +1,96 @@
+{
+  "existingBuffers": "all8 identical to v016 and v015",
+  "sourceGuidesAndBands": "identical to v016",
+  "protectedInputs": "match",
+  "material": "same v016 settings plus one local hemisphere diffuse proxy",
+  "existingAppearanceAndViewReports": "identical to v016 for source, weights, pose, geometry, ocular, brows, maps, eyeGeometry, light preset and bounds",
+  "browserViews": [
+    {
+      "view": "front",
+      "draw": 1,
+      "rootResidualMm": 0.00010843891732606441,
+      "fullHairFraming": true,
+      "onlyHairReceivesShadows": true,
+      "both1024MapsRendered": true,
+      "indirectBuilds": 1,
+      "hemisphere": {
+        "sky": "efeee9",
+        "ground": "7c8173",
+        "intensity": 1.4
+      }
+    },
+    {
+      "view": "angle",
+      "draw": 2,
+      "rootResidualMm": 0.00010843891686893117,
+      "fullHairFraming": true,
+      "onlyHairReceivesShadows": true,
+      "both1024MapsRendered": true,
+      "indirectBuilds": 1,
+      "hemisphere": {
+        "sky": "ffffff",
+        "ground": "7c8173",
+        "intensity": 1.4
+      }
+    },
+    {
+      "view": "face",
+      "draw": 3,
+      "rootResidualMm": 0.00010843891730854621,
+      "fullHairFraming": false,
+      "onlyHairReceivesShadows": true,
+      "both1024MapsRendered": true,
+      "indirectBuilds": 1,
+      "hemisphere": {
+        "sky": "efeee9",
+        "ground": "7c8173",
+        "intensity": 1.4
+      }
+    },
+    {
+      "view": "rear",
+      "draw": 4,
+      "rootResidualMm": 0.00010843891706976359,
+      "fullHairFraming": true,
+      "onlyHairReceivesShadows": true,
+      "both1024MapsRendered": true,
+      "indirectBuilds": 1,
+      "hemisphere": {
+        "sky": "ffffff",
+        "ground": "7c8173",
+        "intensity": 1.4
+      }
+    },
+    {
+      "view": "head",
+      "draw": 5,
+      "rootResidualMm": 0.00010845078828007981,
+      "fullHairFraming": true,
+      "onlyHairReceivesShadows": true,
+      "both1024MapsRendered": true,
+      "indirectBuilds": 1,
+      "hemisphere": {
+        "sky": "efeee9",
+        "ground": "7c8173",
+        "intensity": 1.4
+      }
+    }
+  ],
+  "process": {
+    "utc": "2026-11-01T20:43:24.903575+00:00",
+    "pid": 9606,
+    "exitCode": 0,
+    "wallSeconds": 1.3119107499951497,
+    "sampledPeakRssBytes": 172851200,
+    "stopReason": null,
+    "completeArtifact": true,
+    "automaticRetry": false
+  },
+  "clearanceCrossings": [
+    132,
+    122
+  ],
+  "appearanceAccepted": false,
+  "limitation": "Diffuse proxy, not fibre multiple scattering or environment specular. No final surface clearance certificate.",
+  "critic": "One independent review: modest improvement over v016, retain v015 overall. Brown detail returns, abrupt dark bands remain. Carry ambient term into one shadow-filtering/bias correction."
+}

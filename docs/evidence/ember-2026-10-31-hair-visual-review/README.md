@@ -1,0 +1,29 @@
+> **Clarified by Robert, 2026-11-01:** "approved eyes" means the eyeballs only (iris and sclera). Eyelids, lid shape, lashes, brows and the rest of the face are **not** approved and still have open corrections; see `docs/EMBER-AVATAR-NEXT.md`.
+
+# Ember hair paths — visual construction review collected
+
+**One diagnostic generation and all three fixed browser captures are complete and consumed.** Root and the independent critic inspected [front](front.jpg), [angle](angle.jpg), [rear](rear.jpg) and original portrait1. These are X-ray guide sheets, **not a scalp-hair candidate**. No guide controls, approved eyes, retained face/brows, materials or references changed.
+
+## Findings and decision
+
+The blue crown-sweep-02 transition through controls1.2→1.3→1.4 makes a tight crest in front/angle. Portrait1 supports keeping root lift while broadening that turn. The four displayed occipital paths repeat similar bend phases through controls4–7; this supports considering local variation, not judging the complete hairstyle when33 guides and every ribbon surface are omitted. Nape-03/04 remain unresolved seed markers. Their projections do not establish replacement roots; existing nape-02 was already near the original25mm distance boundary. No automatic seed shift or eligibility relaxation is justified.
+
+Root independently agrees with the critic's actual-image findings. Some small labels/nape text remain crowded; the fixed source report and failure key preserve exact correspondence. No recapture is admitted. Likeness, finish and expression meaning remain separately unassessed by this diagnostic. No coverage, occlusion, collision, attachment-motion or hair appearance pass follows.
+
+**Next: prepare one coherent authoring-source contract covering the seven affected paths and two unresolved attachments.** Prefer conservative changes within the current construction: broader crown transition, only visually justified variation elsewhere, and actual eligible-triangle correspondence for nape roots. Preserve useful lower waves, reference lift and the excluded first/unaffected guides. Every proposed control change must name a visual purpose; a numerical failure alone does not mandate moving controls. The alternative is re-authoring the affected lock family together, which permits more coherent relationships but changes more shape and risks reference drift. It is not selected now.
+
+The contract must account for all known unresolved construction failures; fixing crown02/nape alone cannot admit a build while the others remain unresolved. Keep0.350mm/40 intervals and every scalp/root/ear/inner-coverage, frame/surface/atlas and runtime guard unchanged. No new allocation experiment, first-guide/layout-check replay, compiler replay, control edit or candidate build is admitted by this receipt. [Independent/root decision](result-review.json).
+
+## Actual work and preservation
+
+[Contract](contract.json), [54-input manifest](preflight.json), [source review before admission](source-review-before-admission.json), [separate root admission](source-review.json) and [root source verification](root-source-verification.json). Exact manifest SHA256: `5413cd181c827ea32707b010db9129d72ed71c14998a69fb153a8b46e6defc08`. Both reviewers resolved projected-triangle winding and coincident-label issues before execution. All original guide sources and42 prior inputs remain unchanged.
+
+PID48769 exited0 under the existing watchdog. The generator used225 fixed evaluations to convert only seven saved resolved curves into per-control-interval SVG cubics. No sampler, compiler, new root lookup or hair mesh ran. Three unchanged original endpoint fractions appear as markers only; ribbon widths/offsets are not depicted. Frozen body context includes10,008 triangles and288 eligible scalp triangles using the exact existing predicates. SVG winding normalization affects only display fill, not source geometry. [Display report](display-report.json), [process receipt](process-result.json), [log](generation.log).
+
+Generation used0.083512 worker CPU seconds and0.057373 worker wall seconds at the report observation; observed RSS125,157,376bytes. Supervisor wall0.115855seconds; sparse RSS samples do not establish a true peak. No resource bound was hit. The three SVGs total about1.58MB and the three screenshots about329KB; total receipt folder is under2.1MB, below10MiB. Generation limits10 CPU/15 wall seconds/512MiB observedRSS remain fixed. Browser work is bounded to three static local sheets, not a measured browser RSS claim.
+
+Root verified all54 input hashes, exact saved control/anchor correspondence, output hashes and1024×880 screenshot dimensions. Evaluating the saved SVG cubic coefficients against18 existing failure-point witnesses differed by at most6.668e-16m; no source curve/sampler was reevaluated during that verification. [Root result verification](root-result-verification.json). Screenshot bytes are JPEG; file suffixes were corrected without changing bytes or recapturing.
+
+Supported CUA used one fresh symbolic-IAB tab7 after the retained handle failed. The unchanged baseline first reached completed front/reference/warm frame1; no baseline screenshot was taken. Then all three fixed sheets reached Ready with both images decoded; rear was marked for handoff. [Browser receipt](browser-receipt.json). No macOS permissions/settings operation or native/render loop. Vite PID9108 retained, continuation chat idle, no owned build/check job remains. Automation stays ACTIVE with original destination/cadence.
+
+The complete recognizable animated Ember goal remains: warm freckled skin, approved working hazel eyes, actual loose wavy copper-auburn hair and a short motion demonstration, then cozy sweater/dark jeans/bare feet, expression/speech/movement and full AAA/representation/coupled-fit/performance/VTuber/Mii roadmap. No scalp-hair candidate is awaiting Robert's review yet.

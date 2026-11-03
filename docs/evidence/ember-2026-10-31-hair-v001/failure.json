@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-01T02:59:10.549Z",
+  "error": "Error: Chord error exceeds fixed limit: crown-sweep-01 0.0004877548026863861\n    at requireThat (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile.mjs:21:61)\n    at compile (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile.mjs:121:5)\n    at file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile.mjs:69:7\n    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)",
+  "collisionPairs": 0,
+  "resources": {
+    "cpu": {
+      "user": 41722,
+      "system": 6351
+    },
+    "rss": 115015680,
+    "wallSeconds": 0.02597025
+  },
+  "candidateAccepted": false,
+  "automaticRetry": false
+}

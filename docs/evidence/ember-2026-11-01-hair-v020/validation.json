@@ -1,0 +1,68 @@
+{
+  "existingBuffers": "all8 identical",
+  "protectedInputs": "match",
+  "ambientAndFilter": "retained",
+  "views": [
+    {
+      "name": "front-on",
+      "draw": 1,
+      "rootResidualMm": 0.00010843891732606441,
+      "hairCastsShadows": true
+    },
+    {
+      "name": "face-on",
+      "draw": 2,
+      "rootResidualMm": 0.00010843891730854621,
+      "hairCastsShadows": true
+    },
+    {
+      "name": "face-off",
+      "draw": 3,
+      "rootResidualMm": 0.00010843891730854621,
+      "hairCastsShadows": false
+    },
+    {
+      "name": "angle-on",
+      "draw": 5,
+      "rootResidualMm": 0.00010843891686893117,
+      "hairCastsShadows": true
+    },
+    {
+      "name": "angle-off",
+      "draw": 4,
+      "rootResidualMm": 0.00010843891686893117,
+      "hairCastsShadows": false
+    },
+    {
+      "name": "rear-on",
+      "draw": 6,
+      "rootResidualMm": 0.00010843891706976359,
+      "hairCastsShadows": true
+    },
+    {
+      "name": "rear-off",
+      "draw": 7,
+      "rootResidualMm": 0.00010843891706976359,
+      "hairCastsShadows": false
+    },
+    {
+      "name": "head-on",
+      "draw": 9,
+      "rootResidualMm": 0.00010845078828007981,
+      "hairCastsShadows": true
+    }
+  ],
+  "resources": {
+    "cpuSeconds": 1.462795,
+    "rssBytes": 178438144,
+    "wallSeconds": 1.261289333
+  },
+  "vertices": 22539,
+  "triangles": 29196,
+  "clearanceCrossings": [
+    132,
+    122
+  ],
+  "critic": "One review: on/off attributes crown hatching to hair-cast shadows, without diagnosing mechanism. Coverage gaps remain. Hairline picks and rounded1.1 vs1.4 eye-spacing comparison credible.",
+  "appearanceAccepted": false
+}

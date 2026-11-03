@@ -1,0 +1,55 @@
+{
+  "existingBuffers": "all8 old buffers exact prefixes; pre-existing roots and terminal rows unchanged",
+  "protectedInputs": "match",
+  "ambientAndFilter": "retained",
+  "views": [
+    {
+      "name": "front",
+      "draw": 1,
+      "rootResidualMm": 0.00010843891732606441,
+      "hairCastsShadows": true
+    },
+    {
+      "name": "angle",
+      "draw": 2,
+      "rootResidualMm": 0.00010843891686893117,
+      "hairCastsShadows": true
+    },
+    {
+      "name": "face",
+      "draw": 3,
+      "rootResidualMm": 0.00010843891730854621,
+      "hairCastsShadows": true
+    },
+    {
+      "name": "rear",
+      "draw": 4,
+      "rootResidualMm": 0.00010843891706976359,
+      "hairCastsShadows": true
+    },
+    {
+      "name": "head",
+      "draw": 5,
+      "rootResidualMm": 0.00010845078828007981,
+      "hairCastsShadows": true
+    }
+  ],
+  "resources": {
+    "cpuSeconds": 1.440501,
+    "rssBytes": 177045504,
+    "wallSeconds": 1.229076584
+  },
+  "vertices": 23148,
+  "triangles": 29980,
+  "clearanceCrossings": [
+    132,
+    122
+  ],
+  "critic": "One review: retain modest volume gain at neck and lower rear, stable central boundary and outline. New underlayers read as straight strings; next reshape only those7 into staggered shallow waves.",
+  "appearanceAccepted": false,
+  "newVertices": 609,
+  "newBands": 7,
+  "newVerticesWithinPriorXYZBounds": true,
+  "centralHairline": "Visually unchanged; pending separate human choice",
+  "buildCorrections": "Two diagnosed failed attempts preserved; corrected control count and an unused radial normal query. No resource/sampling/clearance limits loosened."
+}

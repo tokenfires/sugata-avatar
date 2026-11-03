@@ -1,0 +1,31 @@
+Browser tab: 5, Title: "Ember — eye correction v002", URL: "http://127.0.0.1:5173/ember-appearance-v002.html".
+There has been no change in the accessibility tree.
+The focused UI element is 27 text entry area Visible frame report, ID: report, Value: {
+  "source": "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb",
+  "sourceHash": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef",
+  "view": "front",
+  "frame": "reference",
+  "draws": 5,
+  "weights": {
+    "mouthSmileLeft": 0.3409697180754864,
+    "mouthSmileRight": 0.3409697180754864
+  },
+  "headYaw": 0,
+  "neutralLight": false,
+  "ocularCorrection": {
+    "version": "v002",
+    "scleraChroma": 0,
+    "irisLift": 0.8
+  },
+  "geometry": "unchanged frozen candidate",
+  "maps": {
+    "curvature": null,
+    "region": null,
+    "cavity": null
+  },
+  "eyeY": 1.4865916967391968,
+  "eyeFront": 0.12358388304710388,
+  "eyeGeometry": "left : sclera R 16.444 mm (rms 0.223), cornea R 8.934 mm over 55 verts (rms 0.0252) centred 8.667 mm forward, iris plane 14.417 mm (rms 0.323), iris R 7.033 mm, anterior chamber 3.183 mm, axis 0.004 -0.022 1.000\nright: sclera R 16.444 mm (rms 0.223), cornea R 8.924 mm over 55 verts (rms 0.0255) centred 8.678 mm forward, iris plane 14.417 mm (rms 0.323), iris R 6.941 mm, anterior chamber 3.184 mm, axis -0.004 -0.022 1.000",
+  "oralClearance": "failed witnessed crossings; no repair in this study",
+  "limits": "no identity edit, animation loop, native build or new source texture"
+}

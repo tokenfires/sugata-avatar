@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-02T02:30:06.127Z",
+  "error": "Error: Crown edge combined correction ceiling\n    at requireThat (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v066.mjs:23:61)\n    at compile (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v066.mjs:369:7)\n    at file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v066.mjs:72:7\n    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)",
+  "collisionPairs": 0,
+  "resources": {
+    "cpu": {
+      "user": 1346925,
+      "system": 64437
+    },
+    "rss": 152567808,
+    "wallSeconds": 1.2887230419999998
+  },
+  "candidateAccepted": false,
+  "automaticRetry": false
+}

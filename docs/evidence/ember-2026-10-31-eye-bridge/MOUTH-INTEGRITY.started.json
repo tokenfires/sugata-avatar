@@ -1,0 +1,62 @@
+{
+  "startedUtc": "2026-10-31T16:24:57.055Z",
+  "preflight": {
+    "source": "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb",
+    "sourceHash": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef",
+    "checkerHash": "4e99e6f643825c076e02a1277c3956c8c7eab1286f256c58dc95f1badace1180",
+    "limits": {
+      "states": [
+        0,
+        0.45
+      ],
+      "seconds": 20,
+      "candidatePairsPerState": 100000,
+      "reportBytes": 1048576,
+      "heapMiB": 256
+    },
+    "meshTransformError": 0,
+    "bindError": 4.971310076928859e-7,
+    "meshes": [
+      {
+        "name": "base.001",
+        "vertices": 14517,
+        "triangles": 26756
+      },
+      {
+        "name": "teeth_base",
+        "vertices": 4494,
+        "triangles": 7120
+      },
+      {
+        "name": "tongue01",
+        "vertices": 253,
+        "triangles": 448
+      }
+    ],
+    "maximumAabbComparisons": 30352896,
+    "fixtureResults": [
+      {
+        "name": "crossing",
+        "actual": "interior-crossing"
+      },
+      {
+        "name": "separated",
+        "actual": "no-interior-crossing"
+      },
+      {
+        "name": "coplanar",
+        "actual": "coplanar-candidate"
+      },
+      {
+        "name": "edge-contact",
+        "actual": "no-interior-crossing"
+      },
+      {
+        "name": "degenerate",
+        "actual": "degenerate"
+      }
+    ],
+    "interpretation": "Noncoplanar interior triangle crossings only. Coplanar/boundary contacts, mesh containment without surface crossings and full anatomy are not qualified."
+  },
+  "command": "node --max-old-space-size=256 tools/ember-measured-fit/mouth_integrity.mjs --run-admitted-two-states"
+}

@@ -1,0 +1,121 @@
+{
+  "protectedInputs": "All preflight/build hashes match; approved face, eyes and brows unchanged",
+  "geometry": "All eight buffers byte-exact to v082 across all233ribbons; includes positions, normal/along/across, UV/UV1, root distance and index. Source guides, centres, root/end targets, length and global bounds preserved.",
+  "changedGeometryVertices": 0,
+  "addedVertices": 0,
+  "addedTriangles": 0,
+  "vertices": 23997,
+  "triangles": 31064,
+  "scene": "Byte-identical to v082 after version normalization",
+  "material": "Only localized alpha atlas sampling changes. Existing density/core tags preserved exactly in first two packed channels; third channel tags one123vertex ribbon. No shared HairMaterial, pigment, ambient, flow/depth or shadow profile changes.",
+  "atlasRemap": {
+    "guide": "under-side-heavy-03-2",
+    "ribbon": 0,
+    "start": 0.3,
+    "full": 0.35,
+    "fade": 0.405,
+    "end": 0.48,
+    "additionalHalfWidthScale": 2.2,
+    "repeatInterior": [
+      0.16,
+      0.84
+    ],
+    "edgeBlend": [
+      0.03,
+      0.14
+    ],
+    "centreBlend": [
+      0.42,
+      0.5
+    ],
+    "channel": "alpha only",
+    "purpose": "Restore transverse alpha frequency inside the widened half with mirrored interior sampling. Retain original alpha at outer edge, centreline, opposite half, roots and ends. Geometry, flow/depth sidecars, pigment and lighting are fixed.",
+    "qualification": "Localized coverage trial; does not certify per-fibre shading or motion."
+  },
+  "clearance": {
+    "triangleCrossings": [
+      132,
+      122
+    ],
+    "nearestSignedFlags": [
+      61,
+      50
+    ],
+    "correctedWindingFaces": 242,
+    "geometryExactToV082": true,
+    "qualification": "Unchanged v082 clearance limitations; extra bind nearest-normal flag was independently verified outside the body. Full final surface/winding/other poses remain unqualified."
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2772,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.847185,
+    "rssBytes": 181583872,
+    "wallSeconds": 1.6119434160000001
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v083; retain v082",
+    "finding": "Some gaps narrow at90 but strand breakup looks chopped and repetitive rather than continuous;45 improvement slight. No broad new panel or frontal framing change.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Keep original atlas sample and blend one fixed-offset sample only within widened middle, fading at window boundaries; geometry and edges stay fixed."
+  },
+  "retainedForNextStep": false
+}

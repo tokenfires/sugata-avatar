@@ -1,3 +1,5 @@
+> **Historical.** Current entry point: `AGENTS.md`; current status: `docs/EMBER-AVATAR-NEXT.md`.
+
 # Sugata — September 24–25 overnight continuation
 
 **Current state: paused at Robert's request after the thirteenth round, September 25 at

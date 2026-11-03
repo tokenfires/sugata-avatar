@@ -1,0 +1,67 @@
+{
+  "preflightSha256": "5413cd181c827ea32707b010db9129d72ed71c14998a69fb153a8b46e6defc08",
+  "inputsVerified": 54,
+  "priorInputsUnchanged": 42,
+  "actualSourceCounts": [
+    {
+      "guide": "crown-sweep-02",
+      "controls": 9,
+      "pieces": 8,
+      "savedFailures": 1
+    },
+    {
+      "guide": "crown-sweep-04",
+      "controls": 9,
+      "pieces": 8,
+      "savedFailures": 3
+    },
+    {
+      "guide": "side-heavy-01",
+      "controls": 8,
+      "pieces": 7,
+      "savedFailures": 1
+    },
+    {
+      "guide": "occipital-02",
+      "controls": 8,
+      "pieces": 7,
+      "savedFailures": 1
+    },
+    {
+      "guide": "occipital-03",
+      "controls": 8,
+      "pieces": 7,
+      "savedFailures": 1
+    },
+    {
+      "guide": "occipital-04",
+      "controls": 8,
+      "pieces": 7,
+      "savedFailures": 1
+    },
+    {
+      "guide": "occipital-05",
+      "controls": 8,
+      "pieces": 7,
+      "savedFailures": 1
+    }
+  ],
+  "fixedDisplayEvaluationsIfRun": 225,
+  "existingBodyTriangleCount": 26756,
+  "maxViews": 3,
+  "syntax": "Node module and embedded viewer parsed; Python AST parsed; no imports or generator execution",
+  "rootSourceConclusions": [
+    "Per-interval cubic values solve A=2B1+B2 and B=B1+2B2; orthographic projection preserves a cubic. Three uses one cubic for each original control interval.",
+    "Only seven saved resolvedControls form curves; no root search, control mutation or first-guide evaluator. Nape seeds remain unresolved.",
+    "Body triangles retain frozen indexing and patched positions; scalp context reuses identical joint-weight, coordinate and outward checks. No nearest distance or eligibility repair inferred.",
+    "X-ray views explicitly omit occlusion and surfaces; reference is uncropped but unregistered. W1..9 map saved allocation/held-out witnesses to guide/ribbon.",
+    "Launcher and worker require independently/root-reviewed exact manifest AND separate admitSingleVisual true. Exclusive log/STARTED markers consume launch.",
+    "CPU RLIMIT10s, worker CPU/wall/RSS checks, external15s/512MiB observedRSS watchdog and file-size ceilings. No source check can predict visible usefulness.",
+    "Projected triangle winding normalized for SVG union silhouette only; otherwise opposing front/back triangles would cancel under the fill rule. 3D source indices unchanged.",
+    "Coincident W2/W4 labels coalesce for display; both saved guide/ribbon failures remain separate in report/sidebar. Nape seed labels have fixed staggered offsets."
+  ],
+  "diagnosticExecuted": false,
+  "curveEvaluated": false,
+  "newImages": 0,
+  "admitSingleVisual": false
+}

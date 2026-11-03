@@ -1,0 +1,102 @@
+{
+  "utc": "2026-11-01T04:29:59.957162+00:00",
+  "critic": "/root/local_feature_critic",
+  "rootAndCriticDecision": "Retain exact two-seed facts; nominate inspected nape03 site for an isolated future authoring proposal and preserve nape04 original seed. No original failed seed is retroactively accepted.",
+  "originalSeedResults": [
+    {
+      "guide": "nape-03",
+      "distanceMm": 26.013452629072976,
+      "pass": false
+    },
+    {
+      "guide": "nape-04",
+      "distanceMm": 15.74571519892815,
+      "pass": true
+    }
+  ],
+  "nominatedFutureSite": {
+    "guide": "nape-03",
+    "triangleIndex": 14712,
+    "vertices": [
+      12989,
+      12988,
+      8363
+    ],
+    "cornerPositions": [
+      [
+        0.02539805695414543,
+        1.49658203125,
+        -0.0397968664765358
+      ],
+      [
+        0.012676063925027847,
+        1.4977302551269531,
+        -0.04221843183040619
+      ],
+      [
+        0.013774910010397434,
+        1.514363408088684,
+        -0.04365423321723938
+      ]
+    ],
+    "cornerHeadWeights": [
+      1,
+      1,
+      1
+    ],
+    "cornerCoordinateBranches": [
+      [
+        "rear"
+      ],
+      [
+        "rear"
+      ],
+      [
+        "rear"
+      ]
+    ],
+    "bary": [
+      0.273925147423559,
+      0.7260748525764366,
+      4.482298248045763e-15
+    ],
+    "surfacePoint": [
+      0.016160937741050374,
+      1.4974157277321836,
+      -0.04155510418385146
+    ],
+    "normal": [
+      0.17772598995765732,
+      -0.09628108773900929,
+      -0.9793586802787649
+    ],
+    "outwardDot": 0.9910322361482218,
+    "applied": false,
+    "acceptedRoot": false,
+    "edgeWarning": "Third barycentric coordinate is approximately zero; this centre site does not qualify ribbon root-row span, inner controls, surfaces or motion."
+  },
+  "preserveUnchangedSeed": "nape-04",
+  "preserveIntentGuides": {
+    "crown-sweep-04": "Saved front/angle orange2.2\u20132.3\u20132.4 is a broad useful turn; no demonstrated image defect at W2/W3/W4.",
+    "side-heavy-01": "Purple3.0\u20133.2 lifted entry and3.3\u20133.7 loose S-bends remain useful; W5 is not a visual-defect witness."
+  },
+  "readinessGap": "These two curves still fail construction sampling. Any proposed control re-expression needs a construction rationale and preservation of visible shape; do not fabricate reference defects. Crown02/nape-only work is not build-ready.",
+  "alternatives": [
+    {
+      "choice": "Nominate the inspected nape03 eligible triangle/barycentric site in a separate authored proposal",
+      "tradeoff": "Replaces an off-surface guess with actual eligible surface correspondence; edge/root-row and inner-control safeguards remain unqualified. Selected."
+    },
+    {
+      "choice": "Keep original nape03 seed unresolved",
+      "tradeoff": "Makes no source change but leaves construction blocked; no repeat lookup or threshold-targeting seed nudge."
+    }
+  ],
+  "rootVerification": "All64 inputs unchanged. Original GLB triangle ids, frozen positions, head weights, barycentric surface points, normals, distances and closest-edge conditions independently verified. No complete-surface query repeated.",
+  "oneCorrespondenceReportConsumed": true,
+  "next": "Prepare ONE isolated authoring proposal source with explicit old/new control/site entries and visual or preserve-intent construction rationale for each change. Use the nominated nape03 site, retain nape04 original seed, preserve useful lower waves and first/unaffected guides. Cover every known failure explicitly; unresolved entries keep build admission false. Independent/root source review before any application/qualification. No additional lookup, sampler experiment or new planning-only wrapper.",
+  "proposalSourcePreparationAdmitted": true,
+  "appliedGuideEditAdmitted": false,
+  "candidateBuildAdmitted": false,
+  "newDiagnosticAdmitted": false,
+  "appearanceAccepted": false
+}

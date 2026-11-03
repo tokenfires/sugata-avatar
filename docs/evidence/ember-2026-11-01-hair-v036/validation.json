@@ -1,0 +1,110 @@
+{
+  "protectedInputs": "All hashes match including face assets, atlas and shared HairMaterial",
+  "unchangedOtherRibbons": 225,
+  "unchangedOtherRibbonAttributes": [
+    "position",
+    "normal",
+    "uv",
+    "uv1",
+    "along",
+    "across",
+    "rootDistance"
+  ],
+  "allCentrelinePositionsExact": 7929,
+  "allRootAndEndRowsExact": 456,
+  "allOriginalGuideInputs": "Unchanged",
+  "changedEdgeVertices": 172,
+  "maxEdgeShiftM": 0.0026282712466232224,
+  "maxWidthFloat32ErrorM": 9.379428779661414e-08,
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "unchangedBuffers": [
+    "uv",
+    "uv1",
+    "index",
+    "rootDistance"
+  ],
+  "sceneAndMaterial": "Byte-identical after version normalization; v034density, colour, ambient, shadowsettings and approved features fixed",
+  "frameReports": "All five identical after version/draw normalization; tight face crop changes2772to2770 due to banked edges. Four full-hair views remain uncropped.",
+  "resources": {
+    "cpuSeconds": 1.606908,
+    "rssBytes": 180240384,
+    "wallSeconds": 1.354259125
+  },
+  "vertices": 23787,
+  "triangles": 30804,
+  "clearance": "Unchanged132/122crossings and239corrected winding faces; final clearance/winding not certified",
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "croppedVertices": 0
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "croppedVertices": 2770
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "croppedVertices": 0
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "croppedVertices": 0
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "croppedVertices": 0
+    }
+  ],
+  "trial": {
+    "guide": "temple-light-01",
+    "ribbons": [
+      0,
+      1,
+      2
+    ],
+    "degrees": [
+      0,
+      0,
+      0,
+      12,
+      22,
+      5,
+      -20,
+      -8,
+      17,
+      0,
+      0
+    ],
+    "method": "Rotate each baked cross-section about its unchanged centreline tangent; roots and final10percent fixed",
+    "preservation": "All228centreline paths and all root/end rows, widths, other225ribbons, hairline, density, colour, ambient and shadow settings fixed",
+    "qualification": "One outer-wave surface-orientation trial; no new vertices or covering layer",
+    "bankedVertices": 172,
+    "maxBankShiftM": 0.0026282668950667865,
+    "maxBankAngleDegrees": 21.87639297645168
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v036; retain v034",
+    "evidence": "Banking changes local highlight placement but face and angle still show broad sheet-like wave. No major new gap or hairline change; insufficient gain.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Test shallow cross-section curvature on the same three ribbons using existing columns; preserve centrelines/root/end rows/widths and recompute shading directions."
+  }
+}

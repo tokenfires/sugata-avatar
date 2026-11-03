@@ -1,0 +1,270 @@
+{
+  "protectedInputs": "All admitted hashes match; approved face, eyes and brows unchanged",
+  "baseline": "v129",
+  "changedPositionVertices": 7,
+  "targetGuide": "occipital-04",
+  "allOther232RibbonsExactAcrossSevenBuffers": true,
+  "xzCoordinatesExact": true,
+  "maxDownwardYExtensionM": 0.007000088691711426,
+  "targetCentrelineAndOppositeEdgeExact": true,
+  "sourceGuidesAndControlsExact": true,
+  "rootsAndEndsExact": true,
+  "retainedConstructionStagesExact": true,
+  "v095AndV126OppositeArchEdgesExact": true,
+  "completeUvUv1RootDistanceIndicesExact": true,
+  "globalBoundsExact": true,
+  "addedVertices": 0,
+  "addedTriangles": 0,
+  "vertices": 23997,
+  "triangles": 31064,
+  "reshape": {
+    "guide": "occipital-04",
+    "vertices": [
+      {
+        "vertex": 10653,
+        "row": 6,
+        "cross": 0,
+        "t": 0.1607142857142857,
+        "weight": 0.14307310225677544,
+        "before": [
+          0.020168188684251832,
+          1.577815408793284,
+          -0.032781647409182886
+        ],
+        "after": [
+          0.020168188684251832,
+          1.5768138970774868,
+          -0.032781647409182886
+        ],
+        "extension": [
+          0,
+          -0.0010015117157974281,
+          0
+        ]
+      },
+      {
+        "vertex": 10656,
+        "row": 7,
+        "cross": 0,
+        "t": 0.17857142857142855,
+        "weight": 0.6974688758513391,
+        "before": [
+          0.019632968640277082,
+          1.57813186034593,
+          -0.040687572258390176
+        ],
+        "after": [
+          0.019632968640277082,
+          1.5732495782149707,
+          -0.040687572258390176
+        ],
+        "extension": [
+          0,
+          -0.0048822821309593735,
+          0
+        ]
+      },
+      {
+        "vertex": 10659,
+        "row": 8,
+        "cross": 0,
+        "t": 0.1964285714285714,
+        "weight": 1,
+        "before": [
+          0.018814404990927586,
+          1.577967913560576,
+          -0.04963183379614265
+        ],
+        "after": [
+          0.018814404990927586,
+          1.570967913560576,
+          -0.04963183379614265
+        ],
+        "extension": [
+          0,
+          -0.007,
+          0
+        ]
+      },
+      {
+        "vertex": 10662,
+        "row": 9,
+        "cross": 0,
+        "t": 0.21428571428571427,
+        "weight": 1,
+        "before": [
+          0.017730566269688715,
+          1.5769567006177676,
+          -0.059164757723889495
+        ],
+        "after": [
+          0.017730566269688715,
+          1.5699567006177677,
+          -0.059164757723889495
+        ],
+        "extension": [
+          0,
+          -0.007,
+          0
+        ]
+      },
+      {
+        "vertex": 10665,
+        "row": 10,
+        "cross": 0,
+        "t": 0.25,
+        "weight": 1,
+        "before": [
+          0.015477170870466812,
+          1.5715925768786754,
+          -0.0771462269917559
+        ],
+        "after": [
+          0.015477170870466812,
+          1.5645925768786755,
+          -0.0771462269917559
+        ],
+        "extension": [
+          0,
+          -0.007,
+          0
+        ]
+      },
+      {
+        "vertex": 10668,
+        "row": 11,
+        "cross": 0,
+        "t": 0.26785714285714285,
+        "weight": 0.708454810495627,
+        "before": [
+          0.014848713552232988,
+          1.5678749635726816,
+          -0.08456796944209692
+        ],
+        "after": [
+          0.014848713552232988,
+          1.5629157798992122,
+          -0.08456796944209692
+        ],
+        "extension": [
+          0,
+          -0.004959183673469389,
+          0
+        ]
+      },
+      {
+        "vertex": 10671,
+        "row": 12,
+        "cross": 0,
+        "t": 0.2857142857142857,
+        "weight": 0.198250728862974,
+        "before": [
+          0.014850392099836726,
+          1.564019578746949,
+          -0.08979581792666884
+        ],
+        "after": [
+          0.014850392099836726,
+          1.5626318236449082,
+          -0.08979581792666884
+        ],
+        "extension": [
+          0,
+          -0.0013877551020408181,
+          0
+        ]
+      }
+    ],
+    "maxDisplacementM": 0.007,
+    "qualification": "Seven interior cross0 points extended downward. Actual multi-angle occlusion, outline and clearance require build/render verification."
+  },
+  "sceneAndComponent": "Identical to v129 after version normalization",
+  "material": "All profiles and previous alpha fills, ambient, pigment and shadow settings unchanged",
+  "clearance": {
+    "completeReportExact": true,
+    "triangleCrossings": [
+      132,
+      122
+    ],
+    "nearestSignedFlags": [
+      61,
+      50
+    ],
+    "correctedWindingFaces": 242,
+    "qualification": "Unchanged full-groom clearance and winding limits remain; not final qualification."
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2774,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.799556,
+    "rssBytes": 181747712,
+    "wallSeconds": 1.5939405
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Retain v130 locally",
+    "finding": "The 225 degree opening beneath the rear crest is substantially narrower, and added coverage follows the arch without a conspicuous flap or seam. Side, rear and frontal views show no obvious contour or framing regression.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Narrow the rear-view gray opening (904\u2013920,404\u2013426) with a tapered overlap beneath the outer wave, preserving its outline"
+  },
+  "retainedForNextStep": true,
+  "retainedBaseline": "v130"
+}

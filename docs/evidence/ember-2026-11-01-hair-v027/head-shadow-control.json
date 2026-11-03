@@ -1,0 +1,20 @@
+{
+  "comparison": "v026 vs v027 angled head-only shadow controls, identical geometry and hair casting disabled",
+  "pixelRectangle": [
+    552,
+    176,
+    504,
+    504
+  ],
+  "decoder": "macOS NSBitmapImageRep, deviceRGB, JPEG samples",
+  "meanAbsChannelDifference255": 0.03471598826095311,
+  "maxAbsChannelDifference255": 26.933912336826324,
+  "fractionPixelsOver8": 0.0008267195767195767,
+  "changedPixelBounds": [
+    676,
+    352,
+    952,
+    503
+  ],
+  "qualification": "Small edge differences in the native transmission path; not pixel-identical head shadows. No full layered head-behind-hair occlusion certification."
+}

@@ -1,0 +1,118 @@
+{
+  "protectedInputs": "All preflight/build hashes match; approved face, eyes and brows unchanged",
+  "retainedGeometry": "All eight v045 buffers are exact prefixes; all229earlier ribbons including182originallongribbons unchanged",
+  "allPriorRootsAndEndRowsExact": true,
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "addedVertices": 42,
+  "addedTriangles": 52,
+  "vertices": 23907,
+  "triangles": 30956,
+  "scene": "v047 inspection scene byte-identical after version normalization",
+  "material": "Retained pigment, ambient, shadow transmission/filter and prior density assignments fixed. Existing96percentcore profile reused only on new scalp band.",
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2772,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.484866,
+    "rssBytes": 177029120,
+    "wallSeconds": 1.279976833
+  },
+  "clearance": {
+    "bindCrossingsBefore": 132,
+    "bindCrossingsAfter": 132,
+    "headCrossingsBefore": 122,
+    "headCrossingsAfter": 122,
+    "penetratingVertices": "Unchanged60bind/50head",
+    "correctedWindingFaces": 239,
+    "qualification": "No new crossings versus retainedv045. Existing clearance/winding defects remain unqualified."
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Retain v051 as a small upper-temple coverage improvement",
+    "finding": "Small gain survives the1.9mmoffsetincrease; no meaningful new cap edge, floating panel, gap or front-view change compared with v049. Broader side/rear-quarter gap remains.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Extend inner coverage downward/rearward around the ear into the first rear underlayer; preserve upper coverage and hide the edge behind outer waves. Judge90/135degreeviews jointly."
+  },
+  "earlierAttempts": [
+    {
+      "version": "v048",
+      "result": "Geometry ceiling; no mesh/render; no critic"
+    },
+    {
+      "version": "v049",
+      "result": "Eleven rendered views; one critic found small visual gain; root withheld retention due16newcrossings in each pose"
+    },
+    {
+      "version": "v050",
+      "result": "Clearance repaired, but42newvertices disagreed with39vertexviewer guard; caught before rendering; v051corrects guard. All8geometrybuffers exactly matchv051; no critic"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-01T18:15:30.856Z",
+  "error": "Error: Reversed generated ribbon face -0.9992357502032593\n    at requireThat (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v003.mjs:22:61)\n    at compile (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v003.mjs:166:3)\n    at file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v003.mjs:71:7\n    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)",
+  "collisionPairs": 0,
+  "resources": {
+    "cpu": {
+      "user": 162798,
+      "system": 41447
+    },
+    "rss": 141967360,
+    "wallSeconds": 0.130347958
+  },
+  "candidateAccepted": false,
+  "automaticRetry": false
+}

@@ -1,0 +1,237 @@
+{
+  "protectedInputs": "All preflight hashes match. Approved face, eyes and brows unchanged.",
+  "retainedGeometry": "All 231 other ribbons exact across seven vertex arrays and their index triangles. Original source guides, coverage-band definitions and control anchors exact.",
+  "splitPatch": {
+    "sourceGuide": "side-scalp-heavy-01",
+    "sections": [
+      {
+        "guide": "side-scalp-heavy-rear-01",
+        "vertexStart": 23865,
+        "vertexCount": 21,
+        "parameters": [
+          0,
+          0.14285714285714285,
+          0.35714285714285715,
+          0.42857142857142855,
+          0.6428571428571429,
+          0.7857142857142857,
+          1
+        ]
+      },
+      {
+        "guide": "side-scalp-heavy-front-01",
+        "vertexStart": 23886,
+        "vertexCount": 21,
+        "parameters": [
+          0,
+          0.07142857142857142,
+          0.21428571428571427,
+          0.5,
+          0.7142857142857143,
+          0.8571428571428571,
+          1
+        ]
+      }
+    ],
+    "originalVertices": 42,
+    "finalVertices": 42,
+    "lowerAtlasRestore": {
+      "start": 0.64,
+      "full": 0.82,
+      "purpose": "At lower rows blend each section local atlas U into its original cross-band U. The measured notch has both strips in front of skin, but both local atlas edges are transparent; restore continuous original lower coverage without widening geometry or changing shaders."
+    },
+    "maxRearExtensionM": 0.05613081368535451,
+    "maxDepthFitM": 0.038559573387501905,
+    "maxTriangleCorrectionM": 0.011615040701649787,
+    "triangleSamples": 3072,
+    "triangleConstraints": 686,
+    "rayMisses": 3,
+    "preservedAnchors": [
+      {
+        "oldVertex": 23865,
+        "newVertex": 23865
+      },
+      {
+        "oldVertex": 23866,
+        "newVertex": 23867
+      },
+      {
+        "oldVertex": 23866,
+        "newVertex": 23886
+      },
+      {
+        "oldVertex": 23867,
+        "newVertex": 23888
+      }
+    ],
+    "qualification": "Two-section resampling trial. Original adaptive centreline tolerance does not qualify these final resampled sections."
+  },
+  "changedPositionVerticesVsV068": 40,
+  "geometryExactVsV073": true,
+  "lowerUvChangedVerticesVsV073": [
+    23878,
+    23879,
+    23881,
+    23882,
+    23884,
+    23885,
+    23898,
+    23899,
+    23901,
+    23902,
+    23904,
+    23905
+  ],
+  "originalAnchorCorrespondence": [
+    [
+      23865,
+      23865
+    ],
+    [
+      23866,
+      23867
+    ],
+    [
+      23866,
+      23886
+    ],
+    [
+      23867,
+      23888
+    ]
+  ],
+  "originalTerminalCorrespondence": [
+    [
+      23904,
+      23883
+    ],
+    [
+      23905,
+      23885
+    ],
+    [
+      23905,
+      23904
+    ],
+    [
+      23906,
+      23906
+    ]
+  ],
+  "originalAnchorPositionsAndRecordsExact": true,
+  "originalTerminalPositionsExact": true,
+  "allOtherRootAndEndRowsExact": true,
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "addedVertices": 0,
+  "addedTriangles": -4,
+  "vertices": 23997,
+  "triangles": 31064,
+  "sceneAndComponent": "Byte-identical to v068 after version normalization. No shader edits.",
+  "material": "Appearance profiles, pigment, ambient and shadow settings unchanged. Same 132 dense-core vertices now span four ribbons, including the two resampled sections.",
+  "clearance": {
+    "triangleCrossings": [
+      132,
+      122
+    ],
+    "nearestSignedFlags": [
+      60,
+      50
+    ],
+    "correctedWindingFacesBefore": 242,
+    "correctedWindingFacesAfter": 242,
+    "qualification": "No added crossing or signed-distance flags or winding corrections. Existing defects and final resampled surface remain unqualified."
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2772,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.883681,
+    "rssBytes": 171868160,
+    "wallSeconds": 1.666982291
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Retain v074 as a local coverage improvement over v068",
+    "finding": "Upper pale strip covered at 90 degrees and v073 tooth-shaped notches substantially closed. Upper coverage gain survives at 135 degrees; avoids the projecting sheet at 45 degrees. Diagonal seam remains near (746,380)-(803,395) and patch looks flat. Front, face, angle and opposite-side views show no apparent new hairline or silhouette regression.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Reshape the internal diagonal join with existing rows into staggered boundaries aligned with descending locks. Preserve outer coverage footprint and repaired lower U mapping."
+  },
+  "notchProxyCheck": {
+    "pixel": [
+      810,
+      412
+    ],
+    "scope": "Nearest atlas texel/core approximation only; not shader/MSAA certification",
+    "beforeMaxScalpStripAlpha": 0.011056128422371947,
+    "afterMaxScalpStripAlpha": 1
+  },
+  "retainedForNextStep": true
+}

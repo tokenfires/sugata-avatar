@@ -1,0 +1,291 @@
+{
+  "purpose": "Read-only attachment and texture census, not a groom build or root selection",
+  "preflight": {
+    "cpuSeconds": 15,
+    "rssCeilingBytes": 536870912,
+    "reportBytes": 2097152,
+    "memoryEnforcement": "bounded inputs plus observed RSS; RLIMIT_AS unavailable on this host",
+    "priorAttempt": "RLIMIT_AS rejected before any source read/output; corrected preflight only"
+  },
+  "bodyVertexCount": 14517,
+  "bodyTriangleCount": 26756,
+  "headJointIndex": 44,
+  "headNode": 38,
+  "headAncestorChain": [
+    {
+      "node": 38,
+      "name": "head",
+      "translation": [
+        0,
+        0.1131085529923439,
+        -5.587935447692871e-08
+      ],
+      "rotation": [
+        -0.21300575137138367,
+        0,
+        0,
+        0.9770509600639343
+      ],
+      "scale": [
+        1,
+        0.9999999403953552,
+        0.9999999403953552
+      ]
+    },
+    {
+      "node": 39,
+      "name": "neck_01",
+      "translation": [
+        0,
+        0.29516878724098206,
+        -0.013792944140732288
+      ],
+      "rotation": [
+        0.18639032542705536,
+        0,
+        0,
+        0.982475757598877
+      ],
+      "scale": [
+        1,
+        1.0000001192092896,
+        1
+      ]
+    },
+    {
+      "node": 40,
+      "name": "spine_03",
+      "translation": [
+        0,
+        0.09107223898172379,
+        -1.862645149230957e-09
+      ],
+      "rotation": [
+        -0.06568115204572678,
+        0,
+        0,
+        0.9978407025337219
+      ],
+      "scale": [
+        1,
+        1,
+        1.0000001192092896
+      ]
+    },
+    {
+      "node": 41,
+      "name": "spine_02",
+      "translation": [
+        0,
+        0.0665019229054451,
+        8.883944246917963e-09
+      ],
+      "rotation": [
+        -0.10110936313867569,
+        0,
+        0,
+        0.9948753118515015
+      ],
+      "scale": [
+        1,
+        1.0000001192092896,
+        1
+      ]
+    },
+    {
+      "node": 42,
+      "name": "spine_01",
+      "translation": [
+        0,
+        0.0846562385559082,
+        -2.7939677238464355e-08
+      ],
+      "rotation": [
+        0.43429020047187805,
+        0,
+        0,
+        0.9007730484008789
+      ],
+      "scale": [
+        1,
+        1.0000001192092896,
+        1.0000001192092896
+      ]
+    },
+    {
+      "node": 51,
+      "name": "pelvis",
+      "translation": [
+        0,
+        -0.023182759061455727,
+        0.8262252807617188
+      ],
+      "rotation": [
+        0.4830370843410492,
+        0,
+        0,
+        0.8755999207496643
+      ]
+    },
+    {
+      "node": 52,
+      "name": "Root",
+      "translation": [
+        0,
+        -0.00010177493095397949,
+        6.100162863731384e-08
+      ],
+      "rotation": [
+        -0.7071067690849304,
+        0,
+        0,
+        0.7071067690849304
+      ]
+    },
+    {
+      "node": 60,
+      "name": "Human.rig"
+    }
+  ],
+  "meshNode": {
+    "name": "Human",
+    "skin": 0
+  },
+  "allBody": {
+    "count": 14517,
+    "min": [
+      -0.48558488488197327,
+      -1.6374372080463218e-08,
+      -0.09151459485292435
+    ],
+    "max": [
+      0.48558488488197327,
+      1.591229796409607,
+      0.2925512492656708
+    ]
+  },
+  "fullyHeadWeighted": {
+    "count": 3791,
+    "min": [
+      -0.09122702479362488,
+      1.3805742263793945,
+      -0.0459948293864727
+    ],
+    "max": [
+      0.09122702479362488,
+      1.591229796409607,
+      0.14964595437049866
+    ]
+  },
+  "upperHead_yGe1_51": {
+    "count": 282,
+    "min": [
+      -0.07687117159366608,
+      1.5102663040161133,
+      -0.0459948293864727
+    ],
+    "max": [
+      0.07687117159366608,
+      1.591229796409607,
+      0.1360788494348526
+    ]
+  },
+  "upperHeadTriangles": 484,
+  "upperHeadPatchMaxDeltaM": 0.0,
+  "shoulderBandNotAnatomicalSegmentation": {
+    "count": 148,
+    "min": [
+      -0.20463019609451294,
+      1.274535894393921,
+      -0.060540128499269485
+    ],
+    "max": [
+      0.20463019609451294,
+      1.3419300317764282,
+      0.08240272104740143
+    ]
+  },
+  "textures": {
+    "albedo.png": {
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    "normal.png": {
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    "flow.png": {
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    "depth.png": {
+      "dimensions": [
+        1024,
+        1024
+      ]
+    }
+  },
+  "manifest": {
+    "packages/testbed/src/ember-local-feature-v001.js": {
+      "bytes": 11828,
+      "sha256": "d1b769696b525537d85fa8808f7df69450229b69af3457292f044ca478da7c97"
+    },
+    "packages/testbed/src/ember-ocular-v003-material.js": {
+      "bytes": 76094,
+      "sha256": "55040b37a7a1d35ec31c1716fbeefa88a27227d27f6de2239d5ec1cb3009014a"
+    },
+    "packages/core/src/material/HairMaterial.js": {
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    "packages/core/src/figure/Skeleton.js": {
+      "bytes": 19123,
+      "sha256": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4"
+    },
+    "tools/figure-pipeline/hair_texture.py": {
+      "bytes": 61711,
+      "sha256": "1e6962000651b8eab1d8d3c931259960f7889af1a0c7b3caac54357840279f64"
+    },
+    "reference/ember/portraits/face-reference-1.png": {
+      "bytes": 1277836,
+      "sha256": "92464091b3c68000c79ed846896f4df1486ed39fdff902ff97940eda564e9d3a"
+    },
+    "assets/hair/bob01/albedo.png": {
+      "bytes": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+    },
+    "assets/hair/bob01/normal.png": {
+      "bytes": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+    },
+    "assets/hair/bob01/flow.png": {
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    "assets/hair/bob01/depth.png": {
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    },
+    "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb": {
+      "bytes": 11568232,
+      "sha256": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef"
+    },
+    "docs/evidence/ember-2026-10-31-local-feature-v001/positions.f32": {
+      "bytes": 174204,
+      "sha256": "3859319a3c553fea959b80ba19ad9ad9a4823a42b11a32adfd356d06635c2654"
+    }
+  },
+  "cpuSeconds": 0.032407,
+  "maxRssBytes": 60981248,
+  "limitsOfInference": [
+    "Not a fitted hairline or silhouette.",
+    "Head weights include face; roots require explicit scalp masks and normals.",
+    "Shoulder band is a bounding aid; actual posed collision tests remain necessary."
+  ]
+}

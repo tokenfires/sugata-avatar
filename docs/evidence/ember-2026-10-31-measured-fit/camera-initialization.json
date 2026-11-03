@@ -1,0 +1,477 @@
+{
+  "stage": "camera-initialization-only",
+  "center": [
+    0.0,
+    1.47,
+    0.1
+  ],
+  "fov": 28,
+  "identity": {},
+  "views": {
+    "front": {
+      "camera": [
+        -0.021976776837220102,
+        0.21,
+        -0.003754523520909823,
+        -0.5634188568683786,
+        0.0031768853582631253,
+        0.004939244203435544
+      ],
+      "rmsPixels": 14.975006462959989,
+      "history": [
+        {
+          "iteration": 0,
+          "objective": 299.8585942223765,
+          "improved": true
+        },
+        {
+          "iteration": 1,
+          "objective": 97.38446514678033,
+          "improved": true
+        },
+        {
+          "iteration": 2,
+          "objective": 94.93317301330337,
+          "improved": true
+        },
+        {
+          "iteration": 3,
+          "objective": 94.51098829444112,
+          "improved": true
+        },
+        {
+          "iteration": 4,
+          "objective": 93.69029810527364,
+          "improved": true
+        },
+        {
+          "iteration": 5,
+          "objective": 91.847750354348,
+          "improved": false
+        },
+        {
+          "iteration": 6,
+          "objective": 91.847750354348,
+          "improved": false
+        },
+        {
+          "iteration": 7,
+          "objective": 91.847750354348,
+          "improved": false
+        },
+        {
+          "iteration": 8,
+          "objective": 91.847750354348,
+          "improved": true
+        },
+        {
+          "iteration": 9,
+          "objective": 89.35945497193259,
+          "improved": false
+        },
+        {
+          "iteration": 10,
+          "objective": 89.35945497193259,
+          "improved": false
+        },
+        {
+          "iteration": 11,
+          "objective": 89.35945497193259,
+          "improved": false
+        },
+        {
+          "iteration": 12,
+          "objective": 89.35945497193259,
+          "improved": false
+        },
+        {
+          "iteration": 13,
+          "objective": 89.35945497193259,
+          "improved": true
+        },
+        {
+          "iteration": 14,
+          "objective": 89.30512539672512,
+          "improved": true
+        },
+        {
+          "iteration": 15,
+          "objective": 89.30073980608141,
+          "improved": false
+        },
+        {
+          "iteration": 16,
+          "objective": 89.30073980608141,
+          "improved": true
+        },
+        {
+          "iteration": 17,
+          "objective": 89.27702405631848,
+          "improved": false
+        },
+        {
+          "iteration": 18,
+          "objective": 89.27702405631848,
+          "improved": true
+        },
+        {
+          "iteration": 19,
+          "objective": 89.25569595657522,
+          "improved": false
+        },
+        {
+          "iteration": 20,
+          "objective": 89.25569595657522,
+          "improved": true
+        },
+        {
+          "iteration": 21,
+          "objective": 89.24117896412002,
+          "improved": false
+        },
+        {
+          "iteration": 22,
+          "objective": 89.24117896412002,
+          "improved": true
+        },
+        {
+          "iteration": 23,
+          "objective": 89.23217372270852,
+          "improved": true
+        },
+        {
+          "iteration": 24,
+          "objective": 89.22570583666274,
+          "improved": false
+        },
+        {
+          "iteration": 25,
+          "objective": 89.22570583666274,
+          "improved": true
+        },
+        {
+          "iteration": 26,
+          "objective": 89.21855542557516,
+          "improved": false
+        },
+        {
+          "iteration": 27,
+          "objective": 89.21855542557516,
+          "improved": true
+        },
+        {
+          "iteration": 28,
+          "objective": 89.21335705921317,
+          "improved": true
+        },
+        {
+          "iteration": 29,
+          "objective": 89.2124816095954,
+          "improved": false
+        },
+        {
+          "iteration": 30,
+          "objective": 89.2124816095954,
+          "improved": true
+        },
+        {
+          "iteration": 31,
+          "objective": 89.20824568882747,
+          "improved": false
+        },
+        {
+          "iteration": 32,
+          "objective": 89.20824568882747,
+          "improved": true
+        },
+        {
+          "iteration": 33,
+          "objective": 89.20453353338637,
+          "improved": false
+        },
+        {
+          "iteration": 34,
+          "objective": 89.20453353338637,
+          "improved": true
+        }
+      ],
+      "projected": {
+        "nose-tip": [
+          519.9953982167032,
+          595.9726830565198
+        ],
+        "mouth-screen-left": [
+          429.6671943807444,
+          686.3336995036133
+        ],
+        "mouth-screen-right": [
+          613.4246775082088,
+          687.3674331544286
+        ],
+        "lower-lip-mid": [
+          520.8074458386872,
+          734.0639886022836
+        ],
+        "eye-outer-screen-left": [
+          371.4523789357446,
+          446.1575223109883
+        ],
+        "eye-outer-screen-right": [
+          673.4342601801729,
+          447.07988709326776
+        ],
+        "eye-inner-screen-left": [
+          460.23857725439296,
+          456.3335814122745
+        ],
+        "eye-inner-screen-right": [
+          583.8991401070774,
+          456.72440441921174
+        ],
+        "nose-wing-screen-left": [
+          456.9202892022011,
+          587.3006167378887
+        ],
+        "nose-wing-screen-right": [
+          585.9732384607776,
+          587.8895155947685
+        ]
+      }
+    },
+    "angle": {
+      "camera": [
+        -0.13910098466077153,
+        0.21,
+        0.05946944156393831,
+        -0.23679663897162354,
+        0.0026519221019338907,
+        0.03182833766565609
+      ],
+      "rmsPixels": 9.86553562605576,
+      "history": [
+        {
+          "iteration": 0,
+          "objective": 2477.3779779917204,
+          "improved": true
+        },
+        {
+          "iteration": 1,
+          "objective": 77.48670069533588,
+          "improved": true
+        },
+        {
+          "iteration": 2,
+          "objective": 44.044383033927616,
+          "improved": true
+        },
+        {
+          "iteration": 3,
+          "objective": 41.537010076710736,
+          "improved": true
+        },
+        {
+          "iteration": 4,
+          "objective": 39.46056649273215,
+          "improved": false
+        },
+        {
+          "iteration": 5,
+          "objective": 39.46056649273215,
+          "improved": false
+        },
+        {
+          "iteration": 6,
+          "objective": 39.46056649273215,
+          "improved": false
+        },
+        {
+          "iteration": 7,
+          "objective": 39.46056649273215,
+          "improved": false
+        },
+        {
+          "iteration": 8,
+          "objective": 39.46056649273215,
+          "improved": true
+        },
+        {
+          "iteration": 9,
+          "objective": 39.12153247775919,
+          "improved": false
+        },
+        {
+          "iteration": 10,
+          "objective": 39.12153247775919,
+          "improved": true
+        },
+        {
+          "iteration": 11,
+          "objective": 39.014096308545575,
+          "improved": false
+        },
+        {
+          "iteration": 12,
+          "objective": 39.014096308545575,
+          "improved": false
+        },
+        {
+          "iteration": 13,
+          "objective": 39.014096308545575,
+          "improved": false
+        },
+        {
+          "iteration": 14,
+          "objective": 39.014096308545575,
+          "improved": true
+        },
+        {
+          "iteration": 15,
+          "objective": 39.01401925789925,
+          "improved": false
+        },
+        {
+          "iteration": 16,
+          "objective": 39.01401925789925,
+          "improved": true
+        },
+        {
+          "iteration": 17,
+          "objective": 39.01396575963706,
+          "improved": true
+        },
+        {
+          "iteration": 18,
+          "objective": 39.01391063613949,
+          "improved": false
+        },
+        {
+          "iteration": 19,
+          "objective": 39.01391063613949,
+          "improved": true
+        },
+        {
+          "iteration": 20,
+          "objective": 39.01385027632542,
+          "improved": false
+        },
+        {
+          "iteration": 21,
+          "objective": 39.01385027632542,
+          "improved": true
+        },
+        {
+          "iteration": 22,
+          "objective": 39.01380477349443,
+          "improved": true
+        },
+        {
+          "iteration": 23,
+          "objective": 39.01377583603328,
+          "improved": false
+        },
+        {
+          "iteration": 24,
+          "objective": 39.01377583603328,
+          "improved": true
+        },
+        {
+          "iteration": 25,
+          "objective": 39.013725917295446,
+          "improved": false
+        },
+        {
+          "iteration": 26,
+          "objective": 39.013725917295446,
+          "improved": true
+        },
+        {
+          "iteration": 27,
+          "objective": 39.01368459579979,
+          "improved": true
+        },
+        {
+          "iteration": 28,
+          "objective": 39.01367672539632,
+          "improved": false
+        },
+        {
+          "iteration": 29,
+          "objective": 39.01367672539632,
+          "improved": true
+        },
+        {
+          "iteration": 30,
+          "objective": 39.01363338626607,
+          "improved": false
+        },
+        {
+          "iteration": 31,
+          "objective": 39.01363338626607,
+          "improved": true
+        },
+        {
+          "iteration": 32,
+          "objective": 39.013593560888445,
+          "improved": false
+        },
+        {
+          "iteration": 33,
+          "objective": 39.013593560888445,
+          "improved": true
+        },
+        {
+          "iteration": 34,
+          "objective": 39.01356504843797,
+          "improved": true
+        }
+      ],
+      "projected": {
+        "nose-tip": [
+          505.40380552215504,
+          497.5830182642766
+        ],
+        "mouth-screen-left": [
+          455.0082612914748,
+          568.7573337966281
+        ],
+        "mouth-screen-right": [
+          584.7342072801207,
+          561.5081571131986
+        ],
+        "lower-lip-mid": [
+          518.8345508295323,
+          597.6489070794684
+        ],
+        "eye-outer-screen-left": [
+          402.88187932379253,
+          401.0455125932794
+        ],
+        "eye-outer-screen-right": [
+          615.6316342088303,
+          386.6590180629518
+        ],
+        "eye-inner-screen-left": [
+          464.75322076344736,
+          403.7663674580475
+        ],
+        "eye-inner-screen-right": [
+          551.7703891006878,
+          397.9232895563764
+        ],
+        "nose-wing-screen-left": [
+          467.6755833992748,
+          496.5365626110916
+        ],
+        "nose-wing-screen-right": [
+          558.4163014430709,
+          491.0213615442424
+        ]
+      }
+    }
+  },
+  "limits": [
+    "Native identity and expression unchanged. Camera alignment is not a likeness candidate.",
+    "Fixed focal length; angles and distance bounded. Generated-image cameras remain estimated."
+  ],
+  "seconds": 0.011061791999964043
+}

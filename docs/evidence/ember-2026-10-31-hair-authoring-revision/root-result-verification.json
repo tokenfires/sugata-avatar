@@ -1,0 +1,34 @@
+{
+  "utc": "2026-11-01T04:28:03.127680+00:00",
+  "inputsUnchanged": 64,
+  "checks": [
+    {
+      "guide": "nape-03",
+      "distanceMm": 26.013452629072976,
+      "originalSeedPass": false,
+      "triangleIndex": 14712,
+      "sourceIdsPositionsWeightsMatch": true,
+      "baryReconstructionErrorM": 1.4304896245381992e-17,
+      "normalMatches": true,
+      "closestEdgeOrthogonality": -1.0672615135404184e-19,
+      "outsideThirdVertexHalfspace": -0.00043275729597030895
+    },
+    {
+      "guide": "nape-04",
+      "distanceMm": 15.74571519892815,
+      "originalSeedPass": true,
+      "triangleIndex": 14596,
+      "sourceIdsPositionsWeightsMatch": true,
+      "baryReconstructionErrorM": 9.813077866773595e-18,
+      "normalMatches": true,
+      "closestEdgeOrthogonality": 7.792703114739563e-20,
+      "outsideThirdVertexHalfspace": -0.00024427822424077954
+    }
+  ],
+  "verificationScope": "Read stored2 triangles from frozen GLB/body patch and independently recomputed weights, barycentric reconstruction, normals, seed distances and edge closest-point conditions; no whole-surface lookup or curve/runtime replay.",
+  "rootNominationAccepted": false,
+  "controlEdits": 0,
+  "curveEvaluations": 0,
+  "newImages": 0,
+  "verificationNote": "Initial metadata reader omitted unsigned-byte joint indices; added standard glTF5121 decoding. No source or lookup change."
+}

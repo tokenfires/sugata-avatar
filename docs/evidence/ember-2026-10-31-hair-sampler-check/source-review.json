@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-01T03:08:15.398673+00:00",
+  "admitSingleCheck": true,
+  "preflightSha256": "a3f0e3f57a1d82e5e207753d84a7ee83b29d0b57c1df1f73d960e9395ab230e1",
+  "critic": "/root/local_feature_critic",
+  "criticDecision": "GO one source-only first-guide sampler check; 27 inputs match; exact reproduction required; no compile/render authority.",
+  "rootDecision": "Independently agrees: nearest-root order/offset and original centripetal curve are preserved; bounded deterministic sampling with held-out validation; no compiler/mesh path.",
+  "automaticBuildAdmission": false
+}

@@ -1,0 +1,4588 @@
+{
+  "version": "ember-waves-v003",
+  "status": "Applied 26 edits; rendered draft requires visual review",
+  "coordinates": "frozen figure metres; +Y up, +Z forward, -X screen-left in front view",
+  "reference": "reference/ember/portraits/face-reference-1.png",
+  "intent": "lifted side sweep, loose grouped waves, shoulder-region endpoints; no cap or helical generator",
+  "inputs": {
+    "packages/testbed/src/ember-local-feature-v001.js": {
+      "bytes": 11828,
+      "sha256": "d1b769696b525537d85fa8808f7df69450229b69af3457292f044ca478da7c97"
+    },
+    "packages/testbed/src/ember-ocular-v003-material.js": {
+      "bytes": 76094,
+      "sha256": "55040b37a7a1d35ec31c1716fbeefa88a27227d27f6de2239d5ec1cb3009014a"
+    },
+    "packages/core/src/material/HairMaterial.js": {
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    "packages/core/src/figure/Skeleton.js": {
+      "bytes": 19123,
+      "sha256": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4"
+    },
+    "tools/figure-pipeline/hair_texture.py": {
+      "bytes": 61711,
+      "sha256": "1e6962000651b8eab1d8d3c931259960f7889af1a0c7b3caac54357840279f64"
+    },
+    "reference/ember/portraits/face-reference-1.png": {
+      "bytes": 1277836,
+      "sha256": "92464091b3c68000c79ed846896f4df1486ed39fdff902ff97940eda564e9d3a"
+    },
+    "assets/hair/bob01/albedo.png": {
+      "bytes": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+    },
+    "assets/hair/bob01/normal.png": {
+      "bytes": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+    },
+    "assets/hair/bob01/flow.png": {
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    "assets/hair/bob01/depth.png": {
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    },
+    "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb": {
+      "bytes": 11568232,
+      "sha256": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef"
+    },
+    "docs/evidence/ember-2026-10-31-local-feature-v001/positions.f32": {
+      "bytes": 174204,
+      "sha256": "3859319a3c553fea959b80ba19ad9ad9a4823a42b11a32adfd356d06635c2654"
+    },
+    "docs/evidence/ember-2026-10-31-local-feature-v001/normals.f32": {
+      "bytes": 174204,
+      "sha256": "907028a279e85dc4a15c2cc9829fdbc10af82d0aa2d989f9cddf09e8817e67e7"
+    },
+    "packages/testbed/src/ember-brow-only-v002.js": {
+      "bytes": 9653,
+      "sha256": "6cfd55383e0afb7dae51d2cfcaca177d3228ffd0db5beed7c0bf39b21920b2a9"
+    },
+    "docs/evidence/ember-2026-10-31-brow-lash-v001/brow-positions.f32": {
+      "bytes": 1488,
+      "sha256": "d7e204c19fd76a10d06ac2545956d0d939127608d3342663dcec6a7136234247"
+    },
+    "docs/evidence/ember-2026-10-31-measured-fit/candidate-correction-v001.json": {
+      "bytes": 16270,
+      "sha256": "9572d8f2f6b433b5eb5e1dd7ee3e1f17e95109ac8606edc46d361f2f369eea3e"
+    },
+    "reference/ember/portraits/face-reference-2.png": {
+      "bytes": 1213961,
+      "sha256": "50cdaa32a44fd064b4d3f21bdec722ce533b822508fb5e5048f9fc950a5b14fe"
+    }
+  },
+  "scalpAllowlist": {
+    "topMinY": 1.535,
+    "templeMinY": 1.535,
+    "templeMinAbsX": 0.052,
+    "templeMaxAbsX": 0.079,
+    "templeMaxZ": 0.11,
+    "rearMinY": 1.44,
+    "rearMaxZ": -0.02,
+    "rearMaxAbsX": 0.064,
+    "minHeadWeight": 0.999,
+    "rootSeedMaxDistanceM": 0.025,
+    "rootOffsetM": 0.0006,
+    "earExclusion": "Below y1.535, allow only rear x within +/-0.064 and z<=-0.02; no lateral temple/ear roots"
+  },
+  "interpolation": {
+    "type": "centripetal-catmull-rom",
+    "segments": [
+      32,
+      64
+    ],
+    "maxMidpointChordErrorM": 0.00035,
+    "camberM": 0.001,
+    "rootBlendFraction": 0.09,
+    "samplingNote": "Up to64 intervals within unchanged24000-vertex/32000-triangle limits; retain0.350mm sampled error."
+  },
+  "material": {
+    "baseColourHex": "6e3420",
+    "atlas": "assets/hair/bob01",
+    "strips": 8,
+    "capStripExcluded": 0,
+    "textureFlipY": false,
+    "rootV": 0,
+    "tipV": 1,
+    "lockGroups": 16,
+    "rootFade": 0
+  },
+  "limits": {
+    "cpuSeconds": 10,
+    "wallSeconds": 15,
+    "rssBytes": 536870912,
+    "maxVertices": 24000,
+    "maxTriangles": 32000,
+    "collisionPairs": 2000000,
+    "meshBytes": 4194304,
+    "reportBytes": 2097152,
+    "totalOutputBytes": 10485760
+  },
+  "guides": [
+    {
+      "id": "crown-sweep-01",
+      "role": "crown-sweep",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 0,
+      "rootSeed": [
+        0.026,
+        1.562,
+        0.118
+      ],
+      "acrossHint": [
+        0,
+        0,
+        1
+      ],
+      "rollDegrees": [
+        0,
+        15,
+        45,
+        75
+      ],
+      "points": [
+        [
+          0.026,
+          1.562,
+          0.118
+        ],
+        [
+          0.016,
+          1.611,
+          0.134
+        ],
+        [
+          -0.023,
+          1.626,
+          0.14
+        ],
+        [
+          -0.066,
+          1.604,
+          0.15
+        ],
+        [
+          -0.09,
+          1.563,
+          0.165
+        ],
+        [
+          -0.099,
+          1.519,
+          0.178
+        ],
+        [
+          -0.081,
+          1.473,
+          0.181
+        ],
+        [
+          -0.108,
+          1.425,
+          0.168
+        ],
+        [
+          -0.111,
+          1.386,
+          0.153
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.016,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "crown-sweep-02",
+      "role": "crown-sweep",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 0,
+      "rootSeed": [
+        0.028,
+        1.578,
+        0.097
+      ],
+      "acrossHint": [
+        0,
+        0,
+        1
+      ],
+      "rollDegrees": [
+        0,
+        10,
+        50,
+        80
+      ],
+      "points": [
+        [
+          0.028,
+          1.578,
+          0.097
+        ],
+        [
+          0.016,
+          1.619,
+          0.111
+        ],
+        [
+          -0.029,
+          1.631,
+          0.119
+        ],
+        [
+          -0.06,
+          1.605,
+          0.121
+        ],
+        [
+          -0.105,
+          1.566,
+          0.145
+        ],
+        [
+          -0.105,
+          1.51,
+          0.158
+        ],
+        [
+          -0.091,
+          1.464,
+          0.166
+        ],
+        [
+          -0.121,
+          1.419,
+          0.147
+        ],
+        [
+          -0.109,
+          1.37,
+          0.158
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.016,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "scalp-following inner portion then authored loose-wave endpoint",
+      "surfaceControls": {
+        "indices": [
+          1,
+          2
+        ],
+        "offsetM": 0.003,
+        "maxSeedDistanceM": 0.065,
+        "layerDepthScale": 0.2,
+        "blendOutControlIndex": 3
+      }
+    },
+    {
+      "id": "crown-sweep-03",
+      "role": "crown-sweep",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 1,
+      "rootSeed": [
+        0.026,
+        1.587,
+        0.073
+      ],
+      "acrossHint": [
+        0,
+        0,
+        1
+      ],
+      "rollDegrees": [
+        0,
+        15,
+        40,
+        70
+      ],
+      "points": [
+        [
+          0.026,
+          1.587,
+          0.073
+        ],
+        [
+          0.01,
+          1.619,
+          0.089
+        ],
+        [
+          -0.038,
+          1.628,
+          0.099
+        ],
+        [
+          -0.083,
+          1.601,
+          0.112
+        ],
+        [
+          -0.108,
+          1.552,
+          0.122
+        ],
+        [
+          -0.113,
+          1.505,
+          0.135
+        ],
+        [
+          -0.096,
+          1.46,
+          0.145
+        ],
+        [
+          -0.127,
+          1.408,
+          0.127
+        ],
+        [
+          -0.11,
+          1.353,
+          0.147
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.016,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "crown-sweep-04",
+      "role": "crown-sweep",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 1,
+      "rootSeed": [
+        0.021,
+        1.586,
+        0.048
+      ],
+      "acrossHint": [
+        0,
+        0,
+        1
+      ],
+      "rollDegrees": [
+        0,
+        5,
+        35,
+        70
+      ],
+      "points": [
+        [
+          0.021,
+          1.586,
+          0.048
+        ],
+        [
+          0.001,
+          1.616,
+          0.058
+        ],
+        [
+          -0.046,
+          1.618,
+          0.073
+        ],
+        [
+          -0.087,
+          1.583,
+          0.085
+        ],
+        [
+          -0.112,
+          1.539,
+          0.097
+        ],
+        [
+          -0.102,
+          1.485,
+          0.115
+        ],
+        [
+          -0.124,
+          1.435,
+          0.103
+        ],
+        [
+          -0.111,
+          1.382,
+          0.125
+        ],
+        [
+          -0.127,
+          1.327,
+          0.141
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.016,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "scalp-following inner portion then authored loose-wave endpoint",
+      "surfaceControls": {
+        "indices": [
+          1,
+          2
+        ],
+        "offsetM": 0.003,
+        "maxSeedDistanceM": 0.065,
+        "layerDepthScale": 0.2,
+        "blendOutControlIndex": 3
+      }
+    },
+    {
+      "id": "crown-sweep-05",
+      "role": "crown-sweep",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 2,
+      "rootSeed": [
+        0.031,
+        1.571,
+        0.104
+      ],
+      "acrossHint": [
+        0,
+        0,
+        1
+      ],
+      "rollDegrees": [
+        0,
+        -10,
+        -40,
+        -65
+      ],
+      "points": [
+        [
+          0.031,
+          1.571,
+          0.104
+        ],
+        [
+          0.048,
+          1.6,
+          0.111
+        ],
+        [
+          0.078,
+          1.591,
+          0.103
+        ],
+        [
+          0.094,
+          1.558,
+          0.094
+        ],
+        [
+          0.1,
+          1.517,
+          0.097
+        ],
+        [
+          0.11,
+          1.473,
+          0.117
+        ],
+        [
+          0.099,
+          1.425,
+          0.141
+        ],
+        [
+          0.115,
+          1.376,
+          0.151
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "crown-sweep-06",
+      "role": "crown-sweep",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 2,
+      "rootSeed": [
+        0.035,
+        1.58,
+        0.079
+      ],
+      "acrossHint": [
+        0,
+        0,
+        1
+      ],
+      "rollDegrees": [
+        0,
+        -15,
+        -35,
+        -60
+      ],
+      "points": [
+        [
+          0.035,
+          1.58,
+          0.079
+        ],
+        [
+          0.051,
+          1.608,
+          0.081
+        ],
+        [
+          0.085,
+          1.591,
+          0.071
+        ],
+        [
+          0.104,
+          1.548,
+          0.069
+        ],
+        [
+          0.111,
+          1.506,
+          0.082
+        ],
+        [
+          0.101,
+          1.463,
+          0.113
+        ],
+        [
+          0.121,
+          1.415,
+          0.131
+        ],
+        [
+          0.114,
+          1.363,
+          0.148
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "scalp-following inner portion then authored loose-wave endpoint",
+      "surfaceControls": {
+        "indices": [
+          1,
+          2
+        ],
+        "offsetM": 0.003,
+        "maxSeedDistanceM": 0.065,
+        "layerDepthScale": 0.2,
+        "blendOutControlIndex": 3
+      }
+    },
+    {
+      "id": "crown-sweep-07",
+      "role": "crown-sweep",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 3,
+      "rootSeed": [
+        0.03,
+        1.584,
+        0.051
+      ],
+      "acrossHint": [
+        0,
+        0,
+        1
+      ],
+      "rollDegrees": [
+        0,
+        -10,
+        -35,
+        -75
+      ],
+      "points": [
+        [
+          0.03,
+          1.584,
+          0.051
+        ],
+        [
+          0.054,
+          1.608,
+          0.05
+        ],
+        [
+          0.089,
+          1.584,
+          0.043
+        ],
+        [
+          0.112,
+          1.537,
+          0.04
+        ],
+        [
+          0.113,
+          1.488,
+          0.062
+        ],
+        [
+          0.106,
+          1.441,
+          0.102
+        ],
+        [
+          0.129,
+          1.394,
+          0.118
+        ],
+        [
+          0.119,
+          1.339,
+          0.14
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "crown-sweep-08",
+      "role": "crown-sweep",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 3,
+      "rootSeed": [
+        0.023,
+        1.578,
+        0.026
+      ],
+      "acrossHint": [
+        0,
+        0,
+        1
+      ],
+      "rollDegrees": [
+        0,
+        -20,
+        -45,
+        -70
+      ],
+      "points": [
+        [
+          0.023,
+          1.578,
+          0.026
+        ],
+        [
+          0.053,
+          1.603,
+          0.026
+        ],
+        [
+          0.088,
+          1.571,
+          0.014
+        ],
+        [
+          0.11,
+          1.523,
+          0.009
+        ],
+        [
+          0.116,
+          1.474,
+          0.033
+        ],
+        [
+          0.11,
+          1.429,
+          0.079
+        ],
+        [
+          0.132,
+          1.378,
+          0.104
+        ],
+        [
+          0.123,
+          1.321,
+          0.132
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "scalp-following inner portion then authored loose-wave endpoint",
+      "surfaceControls": {
+        "indices": [
+          1,
+          2
+        ],
+        "offsetM": 0.003,
+        "maxSeedDistanceM": 0.065,
+        "layerDepthScale": 0.2,
+        "blendOutControlIndex": 3
+      }
+    },
+    {
+      "id": "temple-heavy-01",
+      "role": "temple-heavy",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 4,
+      "rootSeed": [
+        -0.045,
+        1.553,
+        0.119
+      ],
+      "acrossHint": [
+        1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        15,
+        5,
+        -15,
+        20
+      ],
+      "points": [
+        [
+          -0.045,
+          1.553,
+          0.119
+        ],
+        [
+          -0.079,
+          1.574,
+          0.147
+        ],
+        [
+          -0.1,
+          1.541,
+          0.172
+        ],
+        [
+          -0.091,
+          1.496,
+          0.184
+        ],
+        [
+          -0.112,
+          1.451,
+          0.173
+        ],
+        [
+          -0.098,
+          1.408,
+          0.188
+        ],
+        [
+          -0.124,
+          1.362,
+          0.171
+        ],
+        [
+          -0.113,
+          1.31,
+          0.174
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.016,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "temple-heavy-02",
+      "role": "temple-heavy",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 4,
+      "rootSeed": [
+        -0.06,
+        1.54,
+        0.103
+      ],
+      "acrossHint": [
+        1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        5,
+        -10,
+        15,
+        -15
+      ],
+      "points": [
+        [
+          -0.06,
+          1.54,
+          0.103
+        ],
+        [
+          -0.087,
+          1.553,
+          0.136
+        ],
+        [
+          -0.11,
+          1.516,
+          0.156
+        ],
+        [
+          -0.102,
+          1.471,
+          0.167
+        ],
+        [
+          -0.127,
+          1.426,
+          0.151
+        ],
+        [
+          -0.111,
+          1.382,
+          0.176
+        ],
+        [
+          -0.132,
+          1.339,
+          0.159
+        ],
+        [
+          -0.12,
+          1.292,
+          0.166
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.016,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "temple-heavy-03",
+      "role": "temple-heavy",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 5,
+      "rootSeed": [
+        -0.069,
+        1.538,
+        0.081
+      ],
+      "acrossHint": [
+        1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        10,
+        20,
+        -10,
+        10
+      ],
+      "points": [
+        [
+          -0.069,
+          1.538,
+          0.081
+        ],
+        [
+          -0.092,
+          1.538,
+          0.116
+        ],
+        [
+          -0.121,
+          1.5,
+          0.133
+        ],
+        [
+          -0.109,
+          1.455,
+          0.15
+        ],
+        [
+          -0.132,
+          1.411,
+          0.142
+        ],
+        [
+          -0.114,
+          1.368,
+          0.163
+        ],
+        [
+          -0.138,
+          1.325,
+          0.153
+        ],
+        [
+          -0.124,
+          1.285,
+          0.17
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.016,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "temple-heavy-04",
+      "role": "temple-heavy",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 5,
+      "rootSeed": [
+        -0.071,
+        1.538,
+        0.055
+      ],
+      "acrossHint": [
+        1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        20,
+        0,
+        -15,
+        15
+      ],
+      "points": [
+        [
+          -0.071,
+          1.538,
+          0.055
+        ],
+        [
+          -0.099,
+          1.522,
+          0.087
+        ],
+        [
+          -0.126,
+          1.481,
+          0.111
+        ],
+        [
+          -0.113,
+          1.435,
+          0.131
+        ],
+        [
+          -0.135,
+          1.392,
+          0.121
+        ],
+        [
+          -0.118,
+          1.347,
+          0.148
+        ],
+        [
+          -0.139,
+          1.309,
+          0.14
+        ],
+        [
+          -0.125,
+          1.28,
+          0.158
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.016,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "temple-light-01",
+      "role": "temple-light",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 6,
+      "rootSeed": [
+        0.053,
+        1.546,
+        0.112
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        -15,
+        10,
+        -10,
+        20
+      ],
+      "points": [
+        [
+          0.053,
+          1.546,
+          0.112
+        ],
+        [
+          0.082,
+          1.559,
+          0.127
+        ],
+        [
+          0.106,
+          1.523,
+          0.135
+        ],
+        [
+          0.096,
+          1.48,
+          0.151
+        ],
+        [
+          0.118,
+          1.439,
+          0.152
+        ],
+        [
+          0.103,
+          1.395,
+          0.173
+        ],
+        [
+          0.125,
+          1.351,
+          0.158
+        ],
+        [
+          0.112,
+          1.307,
+          0.18
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "temple-light-02",
+      "role": "temple-light",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 6,
+      "rootSeed": [
+        0.065,
+        1.538,
+        0.09
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        10,
+        -10,
+        15,
+        -20
+      ],
+      "points": [
+        [
+          0.065,
+          1.538,
+          0.09
+        ],
+        [
+          0.091,
+          1.541,
+          0.104
+        ],
+        [
+          0.115,
+          1.501,
+          0.118
+        ],
+        [
+          0.105,
+          1.458,
+          0.138
+        ],
+        [
+          0.127,
+          1.418,
+          0.135
+        ],
+        [
+          0.11,
+          1.374,
+          0.162
+        ],
+        [
+          0.132,
+          1.331,
+          0.15
+        ],
+        [
+          0.119,
+          1.289,
+          0.173
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "temple-light-03",
+      "role": "temple-light",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 7,
+      "rootSeed": [
+        0.07,
+        1.538,
+        0.067
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        15,
+        0,
+        -10,
+        10
+      ],
+      "points": [
+        [
+          0.07,
+          1.538,
+          0.067
+        ],
+        [
+          0.098,
+          1.529,
+          0.083
+        ],
+        [
+          0.122,
+          1.486,
+          0.1
+        ],
+        [
+          0.11,
+          1.443,
+          0.122
+        ],
+        [
+          0.134,
+          1.401,
+          0.119
+        ],
+        [
+          0.118,
+          1.357,
+          0.149
+        ],
+        [
+          0.137,
+          1.315,
+          0.137
+        ],
+        [
+          0.123,
+          1.282,
+          0.161
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "temple-light-04",
+      "role": "temple-light",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 7,
+      "rootSeed": [
+        0.072,
+        1.538,
+        0.042
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        20,
+        -10,
+        5,
+        20
+      ],
+      "points": [
+        [
+          0.072,
+          1.538,
+          0.042
+        ],
+        [
+          0.099,
+          1.518,
+          0.061
+        ],
+        [
+          0.126,
+          1.475,
+          0.08
+        ],
+        [
+          0.115,
+          1.433,
+          0.107
+        ],
+        [
+          0.137,
+          1.389,
+          0.103
+        ],
+        [
+          0.12,
+          1.347,
+          0.135
+        ],
+        [
+          0.141,
+          1.31,
+          0.122
+        ],
+        [
+          0.126,
+          1.281,
+          0.15
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "side-heavy-01",
+      "role": "side-heavy",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 8,
+      "rootSeed": [
+        -0.056,
+        1.56,
+        0.089
+      ],
+      "acrossHint": [
+        1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        0,
+        15,
+        -15,
+        20
+      ],
+      "points": [
+        [
+          -0.056,
+          1.56,
+          0.089
+        ],
+        [
+          -0.092,
+          1.571,
+          0.111
+        ],
+        [
+          -0.118,
+          1.532,
+          0.126
+        ],
+        [
+          -0.11,
+          1.485,
+          0.149
+        ],
+        [
+          -0.137,
+          1.44,
+          0.137
+        ],
+        [
+          -0.119,
+          1.395,
+          0.167
+        ],
+        [
+          -0.142,
+          1.348,
+          0.147
+        ],
+        [
+          -0.124,
+          1.301,
+          0.171
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.016,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "side-heavy-02",
+      "role": "side-heavy",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 8,
+      "rootSeed": [
+        -0.068,
+        1.547,
+        0.065
+      ],
+      "acrossHint": [
+        1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        10,
+        -10,
+        20,
+        -15
+      ],
+      "points": [
+        [
+          -0.068,
+          1.547,
+          0.065
+        ],
+        [
+          -0.101,
+          1.552,
+          0.087
+        ],
+        [
+          -0.13,
+          1.507,
+          0.11
+        ],
+        [
+          -0.116,
+          1.462,
+          0.132
+        ],
+        [
+          -0.143,
+          1.418,
+          0.119
+        ],
+        [
+          -0.126,
+          1.374,
+          0.15
+        ],
+        [
+          -0.147,
+          1.331,
+          0.131
+        ],
+        [
+          -0.13,
+          1.29,
+          0.158
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.016,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "side-heavy-03",
+      "role": "side-heavy",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 9,
+      "rootSeed": [
+        -0.071,
+        1.538,
+        0.042
+      ],
+      "acrossHint": [
+        1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        -5,
+        20,
+        -15,
+        10
+      ],
+      "points": [
+        [
+          -0.071,
+          1.538,
+          0.042
+        ],
+        [
+          -0.104,
+          1.538,
+          0.063
+        ],
+        [
+          -0.133,
+          1.491,
+          0.086
+        ],
+        [
+          -0.12,
+          1.448,
+          0.113
+        ],
+        [
+          -0.148,
+          1.402,
+          0.096
+        ],
+        [
+          -0.13,
+          1.358,
+          0.129
+        ],
+        [
+          -0.151,
+          1.317,
+          0.113
+        ],
+        [
+          -0.133,
+          1.282,
+          0.14
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.016,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "side-heavy-04",
+      "role": "side-heavy",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 9,
+      "rootSeed": [
+        -0.068,
+        1.538,
+        0.012
+      ],
+      "acrossHint": [
+        1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        0,
+        -20,
+        15,
+        0
+      ],
+      "points": [
+        [
+          -0.068,
+          1.538,
+          0.012
+        ],
+        [
+          -0.103,
+          1.521,
+          0.028
+        ],
+        [
+          -0.134,
+          1.474,
+          0.051
+        ],
+        [
+          -0.122,
+          1.431,
+          0.08
+        ],
+        [
+          -0.146,
+          1.387,
+          0.063
+        ],
+        [
+          -0.132,
+          1.346,
+          0.097
+        ],
+        [
+          -0.152,
+          1.306,
+          0.082
+        ],
+        [
+          -0.135,
+          1.281,
+          0.111
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.016,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "side-heavy-05",
+      "role": "side-heavy",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 10,
+      "rootSeed": [
+        -0.058,
+        1.538,
+        -0.013
+      ],
+      "acrossHint": [
+        0,
+        0,
+        -1
+      ],
+      "rollDegrees": [
+        0,
+        15,
+        -10,
+        20
+      ],
+      "points": [
+        [
+          -0.058,
+          1.538,
+          -0.013
+        ],
+        [
+          -0.096,
+          1.535,
+          -0.028
+        ],
+        [
+          -0.122,
+          1.49,
+          -0.043
+        ],
+        [
+          -0.111,
+          1.447,
+          -0.059
+        ],
+        [
+          -0.136,
+          1.405,
+          -0.048
+        ],
+        [
+          -0.119,
+          1.361,
+          -0.071
+        ],
+        [
+          -0.141,
+          1.32,
+          -0.061
+        ],
+        [
+          -0.125,
+          1.283,
+          -0.085
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.016,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "side-heavy-06",
+      "role": "side-heavy",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 10,
+      "rootSeed": [
+        -0.045,
+        1.55,
+        -0.031
+      ],
+      "acrossHint": [
+        0,
+        0,
+        -1
+      ],
+      "rollDegrees": [
+        10,
+        -10,
+        15,
+        -15
+      ],
+      "points": [
+        [
+          -0.045,
+          1.55,
+          -0.031
+        ],
+        [
+          -0.083,
+          1.547,
+          -0.057
+        ],
+        [
+          -0.109,
+          1.502,
+          -0.076
+        ],
+        [
+          -0.102,
+          1.46,
+          -0.092
+        ],
+        [
+          -0.127,
+          1.414,
+          -0.08
+        ],
+        [
+          -0.114,
+          1.371,
+          -0.104
+        ],
+        [
+          -0.134,
+          1.326,
+          -0.095
+        ],
+        [
+          -0.119,
+          1.287,
+          -0.112
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.016,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "side-light-01",
+      "role": "side-light",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 11,
+      "rootSeed": [
+        0.058,
+        1.551,
+        0.083
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        0,
+        -10,
+        15,
+        -15
+      ],
+      "points": [
+        [
+          0.058,
+          1.551,
+          0.083
+        ],
+        [
+          0.095,
+          1.556,
+          0.101
+        ],
+        [
+          0.123,
+          1.513,
+          0.12
+        ],
+        [
+          0.11,
+          1.47,
+          0.144
+        ],
+        [
+          0.139,
+          1.426,
+          0.13
+        ],
+        [
+          0.121,
+          1.381,
+          0.161
+        ],
+        [
+          0.144,
+          1.338,
+          0.141
+        ],
+        [
+          0.126,
+          1.292,
+          0.17
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "side-light-02",
+      "role": "side-light",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 11,
+      "rootSeed": [
+        0.068,
+        1.539,
+        0.058
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        15,
+        0,
+        -15,
+        10
+      ],
+      "points": [
+        [
+          0.068,
+          1.539,
+          0.058
+        ],
+        [
+          0.101,
+          1.545,
+          0.076
+        ],
+        [
+          0.132,
+          1.498,
+          0.098
+        ],
+        [
+          0.118,
+          1.455,
+          0.122
+        ],
+        [
+          0.146,
+          1.41,
+          0.109
+        ],
+        [
+          0.127,
+          1.366,
+          0.141
+        ],
+        [
+          0.149,
+          1.324,
+          0.124
+        ],
+        [
+          0.131,
+          1.285,
+          0.154
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "side-light-03",
+      "role": "side-light",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 12,
+      "rootSeed": [
+        0.071,
+        1.538,
+        0.03
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        5,
+        15,
+        -10,
+        15
+      ],
+      "points": [
+        [
+          0.071,
+          1.538,
+          0.03
+        ],
+        [
+          0.105,
+          1.529,
+          0.045
+        ],
+        [
+          0.136,
+          1.481,
+          0.07
+        ],
+        [
+          0.122,
+          1.438,
+          0.098
+        ],
+        [
+          0.148,
+          1.395,
+          0.081
+        ],
+        [
+          0.133,
+          1.351,
+          0.116
+        ],
+        [
+          0.153,
+          1.313,
+          0.099
+        ],
+        [
+          0.135,
+          1.282,
+          0.13
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "side-light-04",
+      "role": "side-light",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 12,
+      "rootSeed": [
+        0.067,
+        1.538,
+        0.004
+      ],
+      "acrossHint": [
+        0,
+        0,
+        1
+      ],
+      "rollDegrees": [
+        0,
+        -10,
+        15,
+        10
+      ],
+      "points": [
+        [
+          0.067,
+          1.538,
+          0.004
+        ],
+        [
+          0.101,
+          1.52,
+          -0.014
+        ],
+        [
+          0.129,
+          1.476,
+          -0.031
+        ],
+        [
+          0.117,
+          1.432,
+          -0.048
+        ],
+        [
+          0.141,
+          1.387,
+          -0.035
+        ],
+        [
+          0.126,
+          1.344,
+          -0.06
+        ],
+        [
+          0.146,
+          1.306,
+          -0.047
+        ],
+        [
+          0.129,
+          1.28,
+          -0.075
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "side-light-05",
+      "role": "side-light",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 13,
+      "rootSeed": [
+        0.055,
+        1.535,
+        -0.018
+      ],
+      "acrossHint": [
+        0,
+        0,
+        1
+      ],
+      "rollDegrees": [
+        15,
+        0,
+        -15,
+        5
+      ],
+      "points": [
+        [
+          0.055,
+          1.535,
+          -0.018
+        ],
+        [
+          0.091,
+          1.539,
+          -0.04
+        ],
+        [
+          0.119,
+          1.494,
+          -0.057
+        ],
+        [
+          0.108,
+          1.45,
+          -0.077
+        ],
+        [
+          0.132,
+          1.407,
+          -0.064
+        ],
+        [
+          0.116,
+          1.363,
+          -0.089
+        ],
+        [
+          0.138,
+          1.322,
+          -0.075
+        ],
+        [
+          0.121,
+          1.286,
+          -0.103
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "side-light-06",
+      "role": "side-light",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 13,
+      "rootSeed": [
+        0.038,
+        1.55,
+        -0.032
+      ],
+      "acrossHint": [
+        0,
+        0,
+        1
+      ],
+      "rollDegrees": [
+        -10,
+        15,
+        -10,
+        15
+      ],
+      "points": [
+        [
+          0.038,
+          1.55,
+          -0.032
+        ],
+        [
+          0.073,
+          1.551,
+          -0.062
+        ],
+        [
+          0.101,
+          1.507,
+          -0.081
+        ],
+        [
+          0.094,
+          1.462,
+          -0.101
+        ],
+        [
+          0.12,
+          1.418,
+          -0.087
+        ],
+        [
+          0.104,
+          1.374,
+          -0.114
+        ],
+        [
+          0.125,
+          1.331,
+          -0.098
+        ],
+        [
+          0.11,
+          1.291,
+          -0.125
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "occipital-01",
+      "role": "occipital",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 14,
+      "rootSeed": [
+        -0.053,
+        1.557,
+        -0.011
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        0,
+        10,
+        -15,
+        10
+      ],
+      "points": [
+        [
+          -0.053,
+          1.557,
+          -0.011
+        ],
+        [
+          -0.069,
+          1.579,
+          -0.045
+        ],
+        [
+          -0.08,
+          1.544,
+          -0.079
+        ],
+        [
+          -0.066,
+          1.5,
+          -0.099
+        ],
+        [
+          -0.085,
+          1.454,
+          -0.113
+        ],
+        [
+          -0.07,
+          1.41,
+          -0.1
+        ],
+        [
+          -0.091,
+          1.365,
+          -0.122
+        ],
+        [
+          -0.073,
+          1.316,
+          -0.112
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "occipital-02",
+      "role": "occipital",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 14,
+      "rootSeed": [
+        -0.032,
+        1.574,
+        -0.014
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        10,
+        -15,
+        10,
+        -10
+      ],
+      "points": [
+        [
+          -0.032,
+          1.574,
+          -0.014
+        ],
+        [
+          -0.041,
+          1.596,
+          -0.045
+        ],
+        [
+          -0.053,
+          1.558,
+          -0.086
+        ],
+        [
+          -0.042,
+          1.51,
+          -0.105
+        ],
+        [
+          -0.058,
+          1.463,
+          -0.118
+        ],
+        [
+          -0.045,
+          1.42,
+          -0.108
+        ],
+        [
+          -0.062,
+          1.378,
+          -0.126
+        ],
+        [
+          -0.047,
+          1.33,
+          -0.118
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "occipital-03",
+      "role": "occipital",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 15,
+      "rootSeed": [
+        -0.009,
+        1.581,
+        -0.012
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        0,
+        15,
+        -10,
+        15
+      ],
+      "points": [
+        [
+          -0.009,
+          1.581,
+          -0.012
+        ],
+        [
+          -0.012,
+          1.603,
+          -0.045
+        ],
+        [
+          -0.026,
+          1.566,
+          -0.089
+        ],
+        [
+          -0.009,
+          1.523,
+          -0.11
+        ],
+        [
+          -0.028,
+          1.478,
+          -0.124
+        ],
+        [
+          -0.013,
+          1.432,
+          -0.113
+        ],
+        [
+          -0.03,
+          1.384,
+          -0.129
+        ],
+        [
+          -0.018,
+          1.333,
+          -0.121
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "occipital-04",
+      "role": "occipital",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 15,
+      "rootSeed": [
+        0.015,
+        1.58,
+        -0.012
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        -10,
+        10,
+        -15,
+        10
+      ],
+      "points": [
+        [
+          0.015,
+          1.58,
+          -0.012
+        ],
+        [
+          0.018,
+          1.601,
+          -0.045
+        ],
+        [
+          0.005,
+          1.563,
+          -0.089
+        ],
+        [
+          0.021,
+          1.513,
+          -0.109
+        ],
+        [
+          0.003,
+          1.467,
+          -0.123
+        ],
+        [
+          0.019,
+          1.423,
+          -0.112
+        ],
+        [
+          0.002,
+          1.378,
+          -0.128
+        ],
+        [
+          0.015,
+          1.331,
+          -0.119
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "occipital-05",
+      "role": "occipital",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 14,
+      "rootSeed": [
+        0.038,
+        1.569,
+        -0.012
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        10,
+        -10,
+        15,
+        0
+      ],
+      "points": [
+        [
+          0.038,
+          1.569,
+          -0.012
+        ],
+        [
+          0.049,
+          1.589,
+          -0.043
+        ],
+        [
+          0.037,
+          1.554,
+          -0.084
+        ],
+        [
+          0.053,
+          1.507,
+          -0.105
+        ],
+        [
+          0.035,
+          1.461,
+          -0.118
+        ],
+        [
+          0.05,
+          1.416,
+          -0.109
+        ],
+        [
+          0.033,
+          1.371,
+          -0.127
+        ],
+        [
+          0.049,
+          1.32,
+          -0.116
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "outer lifted wave",
+      "surfaceControls": null
+    },
+    {
+      "id": "occipital-06",
+      "role": "occipital",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 14,
+      "rootSeed": [
+        -0.04,
+        1.532,
+        -0.037
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        0,
+        15,
+        -10,
+        10
+      ],
+      "points": [
+        [
+          -0.04,
+          1.532,
+          -0.037
+        ],
+        [
+          -0.051,
+          1.549,
+          -0.067
+        ],
+        [
+          -0.036,
+          1.512,
+          -0.097
+        ],
+        [
+          -0.057,
+          1.466,
+          -0.11
+        ],
+        [
+          -0.04,
+          1.421,
+          -0.101
+        ],
+        [
+          -0.061,
+          1.377,
+          -0.125
+        ],
+        [
+          -0.043,
+          1.334,
+          -0.114
+        ],
+        [
+          -0.062,
+          1.29,
+          -0.132
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "scalp-following inner portion then authored loose-wave endpoint",
+      "surfaceControls": {
+        "indices": [
+          1,
+          2
+        ],
+        "offsetM": 0.003,
+        "maxSeedDistanceM": 0.065,
+        "layerDepthScale": 0.2,
+        "blendOutControlIndex": 3
+      }
+    },
+    {
+      "id": "occipital-07",
+      "role": "occipital",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 15,
+      "rootSeed": [
+        -0.01,
+        1.535,
+        -0.043
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        -5,
+        10,
+        -15,
+        15
+      ],
+      "points": [
+        [
+          -0.01,
+          1.535,
+          -0.043
+        ],
+        [
+          -0.018,
+          1.552,
+          -0.074
+        ],
+        [
+          -0.004,
+          1.514,
+          -0.103
+        ],
+        [
+          -0.024,
+          1.469,
+          -0.117
+        ],
+        [
+          -0.006,
+          1.424,
+          -0.106
+        ],
+        [
+          -0.028,
+          1.38,
+          -0.13
+        ],
+        [
+          -0.01,
+          1.336,
+          -0.119
+        ],
+        [
+          -0.031,
+          1.293,
+          -0.137
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "scalp-following inner portion then authored loose-wave endpoint",
+      "surfaceControls": {
+        "indices": [
+          1,
+          2
+        ],
+        "offsetM": 0.003,
+        "maxSeedDistanceM": 0.065,
+        "layerDepthScale": 0.2,
+        "blendOutControlIndex": 3
+      }
+    },
+    {
+      "id": "occipital-08",
+      "role": "occipital",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 15,
+      "rootSeed": [
+        0.023,
+        1.533,
+        -0.041
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        10,
+        -15,
+        15,
+        -10
+      ],
+      "points": [
+        [
+          0.023,
+          1.533,
+          -0.041
+        ],
+        [
+          0.033,
+          1.55,
+          -0.071
+        ],
+        [
+          0.02,
+          1.511,
+          -0.102
+        ],
+        [
+          0.041,
+          1.466,
+          -0.116
+        ],
+        [
+          0.024,
+          1.421,
+          -0.105
+        ],
+        [
+          0.045,
+          1.377,
+          -0.129
+        ],
+        [
+          0.027,
+          1.332,
+          -0.117
+        ],
+        [
+          0.047,
+          1.291,
+          -0.135
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "scalp-following inner portion then authored loose-wave endpoint",
+      "surfaceControls": {
+        "indices": [
+          1,
+          2
+        ],
+        "offsetM": 0.003,
+        "maxSeedDistanceM": 0.065,
+        "layerDepthScale": 0.2,
+        "blendOutControlIndex": 3
+      }
+    },
+    {
+      "id": "nape-01",
+      "role": "nape",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 14,
+      "rootSeed": [
+        -0.043,
+        1.48,
+        -0.03
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        0,
+        10,
+        -10,
+        10
+      ],
+      "points": [
+        [
+          -0.043,
+          1.48,
+          -0.03
+        ],
+        [
+          -0.057,
+          1.495,
+          -0.059
+        ],
+        [
+          -0.046,
+          1.462,
+          -0.08
+        ],
+        [
+          -0.066,
+          1.424,
+          -0.093
+        ],
+        [
+          -0.05,
+          1.386,
+          -0.082
+        ],
+        [
+          -0.071,
+          1.349,
+          -0.106
+        ],
+        [
+          -0.054,
+          1.312,
+          -0.097
+        ],
+        [
+          -0.068,
+          1.285,
+          -0.117
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "scalp-following inner portion then authored loose-wave endpoint",
+      "surfaceControls": {
+        "indices": [
+          1,
+          2
+        ],
+        "offsetM": 0.003,
+        "maxSeedDistanceM": 0.065,
+        "layerDepthScale": 0.2,
+        "blendOutControlIndex": 3
+      }
+    },
+    {
+      "id": "nape-02",
+      "role": "nape",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 14,
+      "rootSeed": [
+        -0.016,
+        1.473,
+        -0.036
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        10,
+        -10,
+        15,
+        -5
+      ],
+      "points": [
+        [
+          -0.016,
+          1.473,
+          -0.036
+        ],
+        [
+          -0.024,
+          1.488,
+          -0.066
+        ],
+        [
+          -0.011,
+          1.455,
+          -0.087
+        ],
+        [
+          -0.03,
+          1.418,
+          -0.1
+        ],
+        [
+          -0.014,
+          1.381,
+          -0.09
+        ],
+        [
+          -0.034,
+          1.344,
+          -0.113
+        ],
+        [
+          -0.018,
+          1.307,
+          -0.103
+        ],
+        [
+          -0.033,
+          1.282,
+          -0.125
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "scalp-following inner portion then authored loose-wave endpoint",
+      "surfaceControls": {
+        "indices": [
+          1,
+          2
+        ],
+        "offsetM": 0.003,
+        "maxSeedDistanceM": 0.065,
+        "layerDepthScale": 0.2,
+        "blendOutControlIndex": 3
+      }
+    },
+    {
+      "id": "nape-03",
+      "role": "nape",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 15,
+      "rootSeed": [
+        0.016160937741050374,
+        1.4974157277321836,
+        -0.04155510418385146
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        0,
+        15,
+        -10,
+        5
+      ],
+      "points": [
+        [
+          0.016160937741050374,
+          1.4974157277321836,
+          -0.04155510418385146
+        ],
+        [
+          0.019,
+          1.486,
+          -0.067
+        ],
+        [
+          0.006,
+          1.453,
+          -0.088
+        ],
+        [
+          0.025,
+          1.416,
+          -0.101
+        ],
+        [
+          0.008,
+          1.379,
+          -0.091
+        ],
+        [
+          0.028,
+          1.342,
+          -0.114
+        ],
+        [
+          0.011,
+          1.306,
+          -0.103
+        ],
+        [
+          0.026,
+          1.28,
+          -0.124
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "scalp-following inner portion then authored loose-wave endpoint",
+      "surfaceControls": {
+        "indices": [
+          1,
+          2
+        ],
+        "offsetM": 0.003,
+        "maxSeedDistanceM": 0.065,
+        "layerDepthScale": 0.2,
+        "blendOutControlIndex": 3
+      },
+      "explicitRootSite": {
+        "triangleIndex": 14712,
+        "vertices": [
+          12989,
+          12988,
+          8363
+        ],
+        "cornerPositions": [
+          [
+            0.02539805695414543,
+            1.49658203125,
+            -0.0397968664765358
+          ],
+          [
+            0.012676063925027847,
+            1.4977302551269531,
+            -0.04221843183040619
+          ],
+          [
+            0.013774910010397434,
+            1.514363408088684,
+            -0.04365423321723938
+          ]
+        ],
+        "cornerHeadWeights": [
+          1,
+          1,
+          1
+        ],
+        "cornerCoordinateBranches": [
+          [
+            "rear"
+          ],
+          [
+            "rear"
+          ],
+          [
+            "rear"
+          ]
+        ],
+        "bary": [
+          0.273925147423559,
+          0.7260748525764366,
+          4.482298248045763e-15
+        ],
+        "surfacePoint": [
+          0.016160937741050374,
+          1.4974157277321836,
+          -0.04155510418385146
+        ],
+        "normal": [
+          0.17772598995765732,
+          -0.09628108773900929,
+          -0.9793586802787649
+        ],
+        "outwardDot": 0.9910322361482218
+      }
+    },
+    {
+      "id": "nape-04",
+      "role": "nape",
+      "sideWitness": "portrait1 screen-left = figure negative X; screen-right = positive X",
+      "lockGroup": 15,
+      "rootSeed": [
+        0.04,
+        1.479,
+        -0.031
+      ],
+      "acrossHint": [
+        -1,
+        0,
+        0
+      ],
+      "rollDegrees": [
+        -10,
+        10,
+        -15,
+        10
+      ],
+      "points": [
+        [
+          0.04,
+          1.479,
+          -0.031
+        ],
+        [
+          0.052,
+          1.494,
+          -0.06
+        ],
+        [
+          0.04,
+          1.46,
+          -0.081
+        ],
+        [
+          0.06,
+          1.422,
+          -0.094
+        ],
+        [
+          0.044,
+          1.385,
+          -0.083
+        ],
+        [
+          0.065,
+          1.348,
+          -0.107
+        ],
+        [
+          0.048,
+          1.311,
+          -0.096
+        ],
+        [
+          0.062,
+          1.284,
+          -0.118
+        ]
+      ],
+      "ribbons": [
+        {
+          "offsetAcross": -0.004,
+          "offsetOut": 0.002,
+          "widthM": 0.012,
+          "widthProfile": [
+            0.65,
+            1,
+            0.85,
+            0.04
+          ],
+          "strip": 1,
+          "endFraction": 0.97
+        },
+        {
+          "offsetAcross": 0.001,
+          "offsetOut": 0.004,
+          "widthM": 0.014,
+          "widthProfile": [
+            0.65,
+            1,
+            0.9,
+            0.04
+          ],
+          "strip": 2,
+          "endFraction": 1
+        },
+        {
+          "offsetAcross": 0.005,
+          "offsetOut": 0.003,
+          "widthM": 0.01,
+          "widthProfile": [
+            0.65,
+            0.92,
+            0.8,
+            0.04
+          ],
+          "strip": 3,
+          "endFraction": 0.94
+        }
+      ],
+      "layer": "scalp-following inner portion then authored loose-wave endpoint",
+      "surfaceControls": {
+        "indices": [
+          1,
+          2
+        ],
+        "offsetM": 0.003,
+        "maxSeedDistanceM": 0.065,
+        "layerDepthScale": 0.2,
+        "blendOutControlIndex": 3
+      }
+    }
+  ],
+  "preservation": {
+    "terminalGuideTargets": true,
+    "ribbonEndFractions": true,
+    "physicalRibbonEdges": "Follow waves per Robert choice",
+    "baseline": "brow-only-v002; no face patch"
+  }
+}

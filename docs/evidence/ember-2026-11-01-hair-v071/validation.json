@@ -1,0 +1,175 @@
+{
+  "protectedInputs": "All preflight/build hashes match; approved face, eyes and brows unchanged",
+  "retainedGeometry": "All231other ribbons exact across7vertexbuffers and their index triangles. Complete UV/UV1 buffers exact. Source guide control points and coverage bands exact; only target middle vertex positions and its derived attributes change.",
+  "retainedV065SideFillExact": true,
+  "retainedV067CrownFillExact": true,
+  "retainedV070FootprintCentreFrontAndEndsExact": true,
+  "allOriginalRootAndEndRowsExact": true,
+  "centrelineAndOppositeBoundaryExact": true,
+  "completeRootDistanceBufferExact": true,
+  "changedPositionVertices": 5,
+  "reshape": {
+    "guide": "side-scalp-heavy-01",
+    "vertices": [
+      {
+        "vertex": 23877,
+        "row": 4,
+        "t": 0.2857142857142857,
+        "beforeX": -0.05381079618008267,
+        "skinX": -0.03561609885318062,
+        "edgeToSkinM": 0.01819469732690205,
+        "desiredInwardM": 6.901347968098204e-05,
+        "appliedInwardM": 4.9839942441586484e-05
+      },
+      {
+        "vertex": 23880,
+        "row": 5,
+        "t": 0.3571428571428571,
+        "beforeX": -0.06081301033305223,
+        "skinX": -0.00853307815191695,
+        "edgeToSkinM": 0.05227993218113528,
+        "desiredInwardM": 0.027822034714144833,
+        "appliedInwardM": 0.015419692811471005
+      },
+      {
+        "vertex": 23886,
+        "row": 7,
+        "t": 0.5714285714285714,
+        "beforeX": -0.07698242601153214,
+        "skinX": -0.022075825628665502,
+        "edgeToSkinM": 0.05490660038286664,
+        "desiredInwardM": 0.05090660038286664,
+        "appliedInwardM": 0.01316265494752347
+      },
+      {
+        "vertex": 23889,
+        "row": 8,
+        "t": 0.6428571428571428,
+        "beforeX": -0.0802555731838662,
+        "skinX": -0.03769599979636429,
+        "edgeToSkinM": 0.04255957338750191,
+        "desiredInwardM": 0.038559573387501905,
+        "appliedInwardM": 0.010632746397733067
+      },
+      {
+        "vertex": 23892,
+        "row": 9,
+        "t": 0.7142857142857143,
+        "beforeX": -0.08164831135995036,
+        "skinX": -0.07063994351708597,
+        "edgeToSkinM": 0.011008367842864394,
+        "desiredInwardM": 0.0030547493468792947,
+        "appliedInwardM": 0.0012587996973919889
+      }
+    ],
+    "samples": 690,
+    "limitedSamples": 267,
+    "rayMisses": 1,
+    "maxRequestedInwardM": 0.05090660038286664,
+    "maxAppliedInwardM": 0.015419692811471005
+  },
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "addedVertices": 0,
+  "addedTriangles": 0,
+  "vertices": 23997,
+  "triangles": 31068,
+  "sceneAndComponent": "Byte-identical to v070 after version normalization",
+  "material": "All appearance profiles, ambient, pigment and shadow settings unchanged",
+  "clearance": {
+    "triangleCrossings": [
+      132,
+      122
+    ],
+    "nearestSignedFlags": [
+      60,
+      50
+    ],
+    "correctedWindingFacesBefore": 242,
+    "correctedWindingFacesAfter": 242,
+    "changedWindingTriangles": [],
+    "qualification": "No added crossings or signed-distance flags. No added corrected winding faces; entire index buffer exact. Final surface and winding remain unqualified."
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2772,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.844203,
+    "rssBytes": 177324032,
+    "wallSeconds": 1.608612084
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v071; retain v068",
+    "finding": "The exposed sheet is slightly less prominent at 45 degrees, but the broad blunt ledge remains at 90 degrees. Coverage at 90 and 135 degrees survives. Frontal views, hairline and silhouette appear stable.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Shorten and taper the unsupported upper-rear corner identified by the side-ray measurement; blend adjacent edge rows beneath the neighboring lock while preserving coverage over the measured scalp strip."
+  }
+}

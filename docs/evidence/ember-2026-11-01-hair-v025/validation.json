@@ -1,0 +1,62 @@
+{
+  "protectedInputs": "all hashes match",
+  "fixedLongGuides": 102,
+  "unchangedRibbonsAll7Attributes": 217,
+  "editedUnderlayers": [
+    "body-fill-heavy-01",
+    "body-fill-heavy-02",
+    "body-fill-light-01",
+    "body-fill-light-02",
+    "body-fill-rear-01",
+    "body-fill-rear-02",
+    "body-fill-rear-03"
+  ],
+  "all224RootRows": "byte-exact",
+  "all224TerminalCentreMaxDisplacementM": 8.673016639964169e-19,
+  "underlayerTerminalEdgeMaxDisplacementM": 2.3000870656798348e-06,
+  "hairlineAndCrown": "all buffers unchanged after vertex-offset mapping",
+  "ambientAndFilter": "retained; component and main match after version-string normalization",
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "draws": 1
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "draws": 2
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "draws": 3
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "draws": 4
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "draws": 5
+    }
+  ],
+  "resources": {
+    "cpuSeconds": 1.75292,
+    "rssBytes": 178831360,
+    "wallSeconds": 1.488626709
+  },
+  "vertices": 23454,
+  "triangles": 30376,
+  "outerXYZBounds": "unchanged",
+  "clearanceCrossings": [
+    132,
+    122
+  ],
+  "browser": "Retained handle failed once; one fresh symbolic iab tab recovered. Five views saved.",
+  "appearanceAccepted": false,
+  "critic": "One review: retain wave-shape improvement. Less uniformly straight tails; stable lower hairline and overall extent; rear change modest. Screen-right cheek inner pair forms conspicuous isolated loop. Next tuck only its upper bend into neighbouring outer wave; preserve lower S-bend, endpoints and other underlayers.",
+  "retainedFor": "Lower-underlayer wave shape, not final appearance"
+}

@@ -1,0 +1,827 @@
+{
+  "source": "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb",
+  "sourceHash": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef",
+  "view": "front",
+  "frame": "reference",
+  "draws": 1,
+  "weights": {
+    "mouthSmileLeft": 0.3409697180754864,
+    "mouthSmileRight": 0.3409697180754864
+  },
+  "headYaw": 0,
+  "neutralLight": false,
+  "witness": "front",
+  "wideHair": true,
+  "hair": {
+    "version": "v018",
+    "guides": 134,
+    "ribbons": 214,
+    "vertices": 22539,
+    "triangles": 29196,
+    "cardFrame": {
+      "vertices": 22539,
+      "method": "uneven-row central derivatives; per-column cross derivative",
+      "normalized": false,
+      "minAlong": 0.0039466156790496495,
+      "minAcross": 0.001051622846605718,
+      "minSinAngle": 0.01592324187345105,
+      "addedBytes": 540936,
+      "mode": "interpolated per vertex",
+      "headLocal": true
+    },
+    "maxRootResidualM": 1.0843891732606442e-7,
+    "atlas": {
+      "width": 1024,
+      "height": 1024,
+      "rootV": 0,
+      "tipV": 1,
+      "capStripExcluded": 0,
+      "strips": [
+        {
+          "strip": 1,
+          "rows": [
+            {
+              "y": 0,
+              "n": 68,
+              "medianRootToTip": 0
+            },
+            {
+              "y": 128,
+              "n": 89,
+              "medianRootToTip": 0.125490203499794
+            },
+            {
+              "y": 256,
+              "n": 89,
+              "medianRootToTip": 0.250980406999588
+            },
+            {
+              "y": 512,
+              "n": 86,
+              "medianRootToTip": 0.501960813999176
+            },
+            {
+              "y": 768,
+              "n": 82,
+              "medianRootToTip": 0.7490196228027344
+            },
+            {
+              "y": 960,
+              "n": 49,
+              "medianRootToTip": 0.9372549057006836
+            }
+          ]
+        },
+        {
+          "strip": 2,
+          "rows": [
+            {
+              "y": 0,
+              "n": 88,
+              "medianRootToTip": 0
+            },
+            {
+              "y": 128,
+              "n": 89,
+              "medianRootToTip": 0.125490203499794
+            },
+            {
+              "y": 256,
+              "n": 101,
+              "medianRootToTip": 0.250980406999588
+            },
+            {
+              "y": 512,
+              "n": 93,
+              "medianRootToTip": 0.501960813999176
+            },
+            {
+              "y": 768,
+              "n": 62,
+              "medianRootToTip": 0.7490196228027344
+            },
+            {
+              "y": 960,
+              "n": 0,
+              "medianRootToTip": null
+            }
+          ]
+        },
+        {
+          "strip": 3,
+          "rows": [
+            {
+              "y": 0,
+              "n": 80,
+              "medianRootToTip": 0
+            },
+            {
+              "y": 128,
+              "n": 89,
+              "medianRootToTip": 0.125490203499794
+            },
+            {
+              "y": 256,
+              "n": 83,
+              "medianRootToTip": 0.250980406999588
+            },
+            {
+              "y": 512,
+              "n": 89,
+              "medianRootToTip": 0.501960813999176
+            },
+            {
+              "y": 768,
+              "n": 47,
+              "medianRootToTip": 0.7490196228027344
+            },
+            {
+              "y": 960,
+              "n": 0,
+              "medianRootToTip": null
+            }
+          ]
+        }
+      ]
+    },
+    "material": {
+      "baseColourHex": "57301e",
+      "cap": false,
+      "indirect": {
+        "model": "pigment-weighted hemisphere diffuse proxy",
+        "gain": 1,
+        "builds": 1
+      },
+      "castShadow": true,
+      "receiveShadow": true,
+      "rootTransition": {
+        "coverageCompleteM": 0.014,
+        "occlusionRampM": 0.012,
+        "anchors": "unchanged"
+      },
+      "alphaToCoverage": true
+    },
+    "sourceClearance": [
+      {
+        "state": "bind",
+        "penetratingVertices": 60,
+        "triangleCrossings": 132,
+        "minSignedM": -0.03354449565354313,
+        "witnesses": [
+          {
+            "vertex": 2412,
+            "signedM": -0.0017363099423719532,
+            "nearestDistanceM": 0.03190705897640562
+          },
+          {
+            "vertex": 2504,
+            "signedM": -0.0014695607545438596,
+            "nearestDistanceM": 0.029596817475639216
+          },
+          {
+            "vertex": 6484,
+            "signedM": -0.0032611231497804392,
+            "nearestDistanceM": 0.052545559749264836
+          },
+          {
+            "vertex": 6594,
+            "signedM": -0.001507193157326163,
+            "nearestDistanceM": 0.053690829819300734
+          },
+          {
+            "vertex": 6595,
+            "signedM": -0.005454502666990182,
+            "nearestDistanceM": 0.054657455995993275
+          },
+          {
+            "vertex": 6708,
+            "signedM": -0.005596265503724725,
+            "nearestDistanceM": 0.05291047371167057
+          },
+          {
+            "vertex": 14935,
+            "signedM": -0.008336001339321747,
+            "nearestDistanceM": 0.025272839210340528
+          },
+          {
+            "vertex": 17052,
+            "signedM": -0.0013253612699766174,
+            "nearestDistanceM": 0.0013253612699766176
+          }
+        ],
+        "crossingWitnesses": [
+          {
+            "hairTriangle": 19589,
+            "vertices": [
+              15090,
+              15094,
+              15091
+            ],
+            "guide": "under-temple-heavy-01-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 19589,
+            "vertices": [
+              15090,
+              15094,
+              15091
+            ],
+            "guide": "under-temple-heavy-01-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 19589,
+            "vertices": [
+              15090,
+              15094,
+              15091
+            ],
+            "guide": "under-temple-heavy-01-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 19589,
+            "vertices": [
+              15090,
+              15094,
+              15091
+            ],
+            "guide": "under-temple-heavy-01-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 21111,
+            "vertices": [
+              16264,
+              16268,
+              16265
+            ],
+            "guide": "under-side-heavy-01-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 21111,
+            "vertices": [
+              16264,
+              16268,
+              16265
+            ],
+            "guide": "under-side-heavy-01-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22132,
+            "vertices": [
+              17049,
+              17052,
+              17053
+            ],
+            "guide": "under-side-heavy-04-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22132,
+            "vertices": [
+              17049,
+              17052,
+              17053
+            ],
+            "guide": "under-side-heavy-04-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22132,
+            "vertices": [
+              17049,
+              17052,
+              17053
+            ],
+            "guide": "under-side-heavy-04-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22132,
+            "vertices": [
+              17049,
+              17052,
+              17053
+            ],
+            "guide": "under-side-heavy-04-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22137,
+            "vertices": [
+              17052,
+              17056,
+              17053
+            ],
+            "guide": "under-side-heavy-04-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22138,
+            "vertices": [
+              17053,
+              17056,
+              17057
+            ],
+            "guide": "under-side-heavy-04-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22139,
+            "vertices": [
+              17053,
+              17057,
+              17054
+            ],
+            "guide": "under-side-heavy-04-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22139,
+            "vertices": [
+              17053,
+              17057,
+              17054
+            ],
+            "guide": "under-side-heavy-04-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22296,
+            "vertices": [
+              17175,
+              17178,
+              17179
+            ],
+            "guide": "under-side-heavy-04-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22296,
+            "vertices": [
+              17175,
+              17178,
+              17179
+            ],
+            "guide": "under-side-heavy-04-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22297,
+            "vertices": [
+              17175,
+              17179,
+              17176
+            ],
+            "guide": "under-side-heavy-04-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22298,
+            "vertices": [
+              17176,
+              17179,
+              17180
+            ],
+            "guide": "under-side-heavy-04-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22298,
+            "vertices": [
+              17176,
+              17179,
+              17180
+            ],
+            "guide": "under-side-heavy-04-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22298,
+            "vertices": [
+              17176,
+              17179,
+              17180
+            ],
+            "guide": "under-side-heavy-04-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22299,
+            "vertices": [
+              17176,
+              17180,
+              17177
+            ],
+            "guide": "under-side-heavy-04-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 23326,
+            "vertices": [
+              17968,
+              17971,
+              17972
+            ],
+            "guide": "under-side-light-03-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 23327,
+            "vertices": [
+              17968,
+              17972,
+              17969
+            ],
+            "guide": "under-side-light-03-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 23330,
+            "vertices": [
+              17971,
+              17974,
+              17975
+            ],
+            "guide": "under-side-light-03-1",
+            "ribbon": 0
+          }
+        ]
+      },
+      {
+        "state": "head",
+        "penetratingVertices": 50,
+        "triangleCrossings": 122,
+        "minSignedM": -0.03691207802827235,
+        "witnesses": [
+          {
+            "vertex": 2412,
+            "signedM": -0.0017363099869662545,
+            "nearestDistanceM": 0.03190705812612272
+          },
+          {
+            "vertex": 2414,
+            "signedM": -0.0015172711809216493,
+            "nearestDistanceM": 0.028923079569236884
+          },
+          {
+            "vertex": 2509,
+            "signedM": -0.0007160282906096449,
+            "nearestDistanceM": 0.031739046322721697
+          },
+          {
+            "vertex": 2607,
+            "signedM": -0.0013720740048682222,
+            "nearestDistanceM": 0.029913305045779954
+          },
+          {
+            "vertex": 14828,
+            "signedM": -0.0005989060015279685,
+            "nearestDistanceM": 0.028356116447567872
+          },
+          {
+            "vertex": 14935,
+            "signedM": -0.00833600155341837,
+            "nearestDistanceM": 0.025272838194007115
+          },
+          {
+            "vertex": 17126,
+            "signedM": -0.0032369919165145776,
+            "nearestDistanceM": 0.036522802157283284
+          },
+          {
+            "vertex": 17181,
+            "signedM": -0.002975770355477221,
+            "nearestDistanceM": 0.002975770355477221
+          }
+        ],
+        "crossingWitnesses": [
+          {
+            "hairTriangle": 19589,
+            "vertices": [
+              15090,
+              15094,
+              15091
+            ],
+            "guide": "under-temple-heavy-01-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 19589,
+            "vertices": [
+              15090,
+              15094,
+              15091
+            ],
+            "guide": "under-temple-heavy-01-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 19589,
+            "vertices": [
+              15090,
+              15094,
+              15091
+            ],
+            "guide": "under-temple-heavy-01-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 19589,
+            "vertices": [
+              15090,
+              15094,
+              15091
+            ],
+            "guide": "under-temple-heavy-01-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 21111,
+            "vertices": [
+              16264,
+              16268,
+              16265
+            ],
+            "guide": "under-side-heavy-01-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 21111,
+            "vertices": [
+              16264,
+              16268,
+              16265
+            ],
+            "guide": "under-side-heavy-01-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22300,
+            "vertices": [
+              17178,
+              17181,
+              17182
+            ],
+            "guide": "under-side-heavy-04-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22300,
+            "vertices": [
+              17178,
+              17181,
+              17182
+            ],
+            "guide": "under-side-heavy-04-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22301,
+            "vertices": [
+              17178,
+              17182,
+              17179
+            ],
+            "guide": "under-side-heavy-04-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22302,
+            "vertices": [
+              17179,
+              17182,
+              17183
+            ],
+            "guide": "under-side-heavy-04-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22302,
+            "vertices": [
+              17179,
+              17182,
+              17183
+            ],
+            "guide": "under-side-heavy-04-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 22303,
+            "vertices": [
+              17179,
+              17183,
+              17180
+            ],
+            "guide": "under-side-heavy-04-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 23316,
+            "vertices": [
+              17961,
+              17964,
+              17965
+            ],
+            "guide": "under-side-light-03-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 23317,
+            "vertices": [
+              17961,
+              17965,
+              17962
+            ],
+            "guide": "under-side-light-03-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 23317,
+            "vertices": [
+              17961,
+              17965,
+              17962
+            ],
+            "guide": "under-side-light-03-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 23318,
+            "vertices": [
+              17962,
+              17965,
+              17966
+            ],
+            "guide": "under-side-light-03-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 23318,
+            "vertices": [
+              17962,
+              17965,
+              17966
+            ],
+            "guide": "under-side-light-03-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 23318,
+            "vertices": [
+              17962,
+              17965,
+              17966
+            ],
+            "guide": "under-side-light-03-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 23319,
+            "vertices": [
+              17962,
+              17966,
+              17963
+            ],
+            "guide": "under-side-light-03-1",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 23476,
+            "vertices": [
+              18084,
+              18087,
+              18088
+            ],
+            "guide": "under-side-light-03-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 23477,
+            "vertices": [
+              18084,
+              18088,
+              18085
+            ],
+            "guide": "under-side-light-03-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 23477,
+            "vertices": [
+              18084,
+              18088,
+              18085
+            ],
+            "guide": "under-side-light-03-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 23478,
+            "vertices": [
+              18085,
+              18088,
+              18089
+            ],
+            "guide": "under-side-light-03-2",
+            "ribbon": 0
+          },
+          {
+            "hairTriangle": 23478,
+            "vertices": [
+              18085,
+              18088,
+              18089
+            ],
+            "guide": "under-side-light-03-2",
+            "ribbon": 0
+          }
+        ]
+      }
+    ],
+    "correctedWindingFaces": 201,
+    "structuralChecks": false,
+    "qualification": "First original hair candidate; likeness, finish and full motion unaccepted"
+  },
+  "hairBounds": {
+    "croppedVertices": 0,
+    "complete": true
+  },
+  "shadowing": {
+    "type": "PCF tent25",
+    "samples": 25,
+    "kernelWeightSum": 81,
+    "filterBuilds": 2,
+    "receivers": [
+      "Ember_original_waves_v018"
+    ],
+    "maps": [
+      {
+        "width": 1024,
+        "height": 1024,
+        "position": [
+          -0.6,
+          0.6,
+          0.8
+        ],
+        "colour": "fff1df",
+        "intensity": 2.8,
+        "bias": -0.00003,
+        "normalBiasM": 0.0004,
+        "radiusTexels": 4
+      },
+      {
+        "width": 1024,
+        "height": 1024,
+        "position": [
+          0.7,
+          0.2,
+          0.45
+        ],
+        "colour": "e4e9e9",
+        "intensity": 0.65,
+        "bias": -0.00003,
+        "normalBiasM": 0.0004,
+        "radiusTexels": 4
+      }
+    ],
+    "faceReceivesShadows": false
+  },
+  "hemisphere": {
+    "sky": "efeee9",
+    "ground": "7c8173",
+    "intensity": 1.4
+  },
+  "ocularCorrection": {
+    "version": "v003",
+    "scleraChroma": 0,
+    "irisInput": "lighter procedural hazel using frozen source fibres",
+    "postAlbedoLift": false
+  },
+  "cards": [
+    {
+      "mesh": "Humaneyebrow001",
+      "brow": true,
+      "alphaTest": 0.5,
+      "alphaToCoverage": false,
+      "msaaSamples": 4,
+      "placement": "2mm upward query; projected rise .773–2.101mm; same frozen-skin signed gap",
+      "drawSamples": 4
+    }
+  ],
+  "geometry": "brow-only-v002 body, eyes, brows, lashes, pigment and expression deltas unchanged",
+  "maps": {
+    "curvature": null,
+    "region": null,
+    "cavity": null
+  },
+  "eyeY": 1.4865916967391968,
+  "eyeFront": 0.12358388304710388,
+  "eyeGeometry": "left : sclera R 16.444 mm (rms 0.223), cornea R 8.934 mm over 55 verts (rms 0.0252) centred 8.667 mm forward, iris plane 14.417 mm (rms 0.323), iris R 7.033 mm, anterior chamber 3.183 mm, axis 0.004 -0.022 1.000\nright: sclera R 16.444 mm (rms 0.223), cornea R 8.924 mm over 55 verts (rms 0.0255) centred 8.678 mm forward, iris plane 14.417 mm (rms 0.323), iris R 6.941 mm, anterior chamber 3.184 mm, axis -0.004 -0.022 1.000",
+  "oralClearance": "failed witnessed crossings; no repair in this study",
+  "limits": "One original layered-card hair candidate; fixed face/eyes/brows. Four planned witnesses, no animation loop, global fit or native build. Full hair dynamics and mouth clearance unqualified."
+}

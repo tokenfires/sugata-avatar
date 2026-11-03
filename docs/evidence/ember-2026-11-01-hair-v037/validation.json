@@ -1,0 +1,106 @@
+{
+  "protectedInputs": "All hashes match including face assets, atlas and shared HairMaterial",
+  "unchangedOtherRibbons": 225,
+  "unchangedOtherRibbonAttributes": [
+    "position",
+    "normal",
+    "uv",
+    "uv1",
+    "along",
+    "across",
+    "rootDistance"
+  ],
+  "allCentrelinePositionsExact": 7929,
+  "allRootAndEndRowsExact": 456,
+  "allOriginalGuideInputs": "Unchanged",
+  "changedEdgeVertices": 170,
+  "maxEdgeShiftM": 0.0015000358401183877,
+  "maxWidthFloat32ErrorM": 6.083149012466038e-08,
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "unchangedBuffers": [
+    "uv",
+    "uv1",
+    "index",
+    "rootDistance"
+  ],
+  "sceneAndMaterial": "Byte-identical after version normalization; v034 density, colour, ambient, shadow settings and approved features fixed",
+  "frameReports": "All five identical after version/draw normalization; tight face crop changes from 2772 to 2770 due to curved edges. Four full-hair views remain uncropped.",
+  "resources": {
+    "cpuSeconds": 1.460997,
+    "rssBytes": 179355648,
+    "wallSeconds": 1.2449485
+  },
+  "vertices": 23787,
+  "triangles": 30804,
+  "clearance": "Unchanged 132/122 crossings and 239 corrected winding faces; final clearance/winding not certified",
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "croppedVertices": 0
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "croppedVertices": 2770
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "croppedVertices": 0
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "croppedVertices": 0
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "croppedVertices": 0
+    }
+  ],
+  "trial": {
+    "guide": "temple-light-01",
+    "ribbons": [
+      0,
+      1,
+      2
+    ],
+    "maxDepthM": 0.0015,
+    "widthFraction": 0.16,
+    "startFade": [
+      0.22,
+      0.4
+    ],
+    "endFade": [
+      0.75,
+      0.9
+    ],
+    "method": "Shift both cross-section edges equally inward along the local surface normal; retain existing middle-column centreline and recompute normals/card directions",
+    "preservation": "All228centreline paths, all root/end rows, edge-to-edge widths, other225ribbons, hairline, density, colour, ambient and shadow settings fixed",
+    "qualification": "One outer-wave curvature trial using existing columns; no banking, added vertices or covering layer",
+    "curvedVertices": 170,
+    "maxCurveDepthM": 0.0015
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v037; retain v034",
+    "evidence": "The broad highlight still reads as a ribbon without convincing added roundness. No obvious new gap, chunky ridge, hairline shift or loss of fullness, but no useful appearance gain.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "From v034, test modest irregular strand-level roughness variation on the same wave. Keep geometry, pigment, opacity, lighting and ambient response fixed."
+  }
+}

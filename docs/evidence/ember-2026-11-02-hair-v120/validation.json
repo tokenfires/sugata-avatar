@@ -1,0 +1,290 @@
+{
+  "protectedInputs": "All admitted hashes match; approved face, eyes and brows unchanged",
+  "baseline": "v119",
+  "changedPositionVertices": 8,
+  "targetGuide": "under-side-light-04-2",
+  "allOther232RibbonsExactAcrossSevenBuffers": true,
+  "allXAndYExact": true,
+  "targetCentrelineAndOppositeEdgeExact": true,
+  "sourceGuidesAndControlsExact": true,
+  "rootsAndEndsExact": true,
+  "retainedCoveragePassesExact": true,
+  "completeUvUv1RootDistanceIndicesExact": true,
+  "globalBoundsExact": true,
+  "addedVertices": 0,
+  "addedTriangles": 0,
+  "vertices": 23997,
+  "triangles": 31064,
+  "reshape": {
+    "guide": "under-side-light-04-2",
+    "vertices": [
+      {
+        "vertex": 18236,
+        "row": 4,
+        "cross": 2,
+        "t": 0.1607142857142857,
+        "weight": 0.0005016066746543794,
+        "before": [
+          0.04654571898243913,
+          1.533334603581925,
+          -0.03772615039370223
+        ],
+        "after": [
+          0.04654571898243913,
+          1.533334603581925,
+          -0.037738188953893935
+        ],
+        "extension": [
+          0,
+          0,
+          -1.2038560191705105e-05
+        ]
+      },
+      {
+        "vertex": 18239,
+        "row": 5,
+        "cross": 2,
+        "t": 0.17857142857142855,
+        "weight": 0.2650498430562517,
+        "before": [
+          0.04709035990193555,
+          1.5279316207128946,
+          -0.03821566740662268
+        ],
+        "after": [
+          0.04709035990193555,
+          1.5279316207128946,
+          -0.04457686363997272
+        ],
+        "extension": [
+          0,
+          0,
+          -0.00636119623335004
+        ]
+      },
+      {
+        "vertex": 18242,
+        "row": 6,
+        "cross": 2,
+        "t": 0.21428571428571427,
+        "weight": 0.9994983933253456,
+        "before": [
+          0.04788498322620444,
+          1.5161238347761392,
+          -0.03715461985721341
+        ],
+        "after": [
+          0.04788498322620444,
+          1.5161238347761392,
+          -0.06114258129702171
+        ],
+        "extension": [
+          0,
+          0,
+          -0.023987961439808296
+        ]
+      },
+      {
+        "vertex": 18245,
+        "row": 7,
+        "cross": 2,
+        "t": 0.25,
+        "weight": 1,
+        "before": [
+          0.04857107074384542,
+          1.5036675609114571,
+          -0.034810411141245945
+        ],
+        "after": [
+          0.04857107074384542,
+          1.5036675609114571,
+          -0.058810411141245945
+        ],
+        "extension": [
+          0,
+          0,
+          -0.024
+        ]
+      },
+      {
+        "vertex": 18248,
+        "row": 8,
+        "cross": 2,
+        "t": 0.26785714285714285,
+        "weight": 0.9951380802216764,
+        "before": [
+          0.04940545786741919,
+          1.4978772777188887,
+          -0.034274207141841484
+        ],
+        "after": [
+          0.04940545786741919,
+          1.4978772777188887,
+          -0.05815752106716172
+        ],
+        "extension": [
+          0,
+          0,
+          -0.023883313925320233
+        ]
+      },
+      {
+        "vertex": 18251,
+        "row": 9,
+        "cross": 2,
+        "t": 0.2857142857142857,
+        "weight": 0.7891227294749642,
+        "before": [
+          0.051032162552581216,
+          1.4927763424260916,
+          -0.03496151454694464
+        ],
+        "after": [
+          0.051032162552581216,
+          1.4927763424260916,
+          -0.053900460054343784
+        ],
+        "extension": [
+          0,
+          0,
+          -0.018938945507399142
+        ]
+      },
+      {
+        "vertex": 18254,
+        "row": 10,
+        "cross": 2,
+        "t": 0.30357142857142855,
+        "weight": 0.4237350083723628,
+        "before": [
+          0.054581323370525,
+          1.4865117451319394,
+          -0.037811659444188156
+        ],
+        "after": [
+          0.054581323370525,
+          1.4865117451319394,
+          -0.04798129964512486
+        ],
+        "extension": [
+          0,
+          0,
+          -0.010169640200936707
+        ]
+      },
+      {
+        "vertex": 18257,
+        "row": 11,
+        "cross": 2,
+        "t": 0.3214285714285714,
+        "weight": 0.09819037985873313,
+        "before": [
+          0.05940049047607984,
+          1.4803315538246418,
+          -0.04225596214451805
+        ],
+        "after": [
+          0.05940049047607984,
+          1.4803315538246418,
+          -0.044612531261127644
+        ],
+        "extension": [
+          0,
+          0,
+          -0.0023565691166095954
+        ]
+      }
+    ],
+    "maxDisplacementM": 0.024,
+    "qualification": "Eight interior cross2 edge points only; actual occlusion, outline and clearance require build/render verification."
+  },
+  "sceneAndComponent": "Identical to v119 after version normalization",
+  "material": "All profiles and previous alpha fills, ambient, pigment and shadow settings unchanged",
+  "clearance": {
+    "completeReportExact": true,
+    "triangleCrossings": [
+      132,
+      122
+    ],
+    "nearestSignedFlags": [
+      61,
+      50
+    ],
+    "correctedWindingFaces": 242,
+    "qualification": "Unchanged full-groom clearance and winding limits remain; not final qualification."
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2774,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.788533,
+    "rssBytes": 182009856,
+    "wallSeconds": 1.5910754999999999
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Retain v120 as modest coverage gain",
+    "finding": "225degree broad scalp patch becomes narrower slivers within descending wave. No new flap, conspicuous seam or silhouette change in inspected views.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Cover225degree upper crown scalp slit x775-794/y346-380 with tapered inner overlap; preserve crest."
+  },
+  "retainedForNextStep": true,
+  "retainedBaseline": "v120"
+}

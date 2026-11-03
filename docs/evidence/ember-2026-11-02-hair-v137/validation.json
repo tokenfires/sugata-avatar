@@ -1,0 +1,293 @@
+{
+  "protectedInputs": "All admitted hashes match; approved face, eyes and brows unchanged",
+  "baseline": "v136",
+  "changedPositionVertices": 8,
+  "targetGuide": "under-side-light-03-2",
+  "allOther232RibbonsExactAcrossSevenBuffers": true,
+  "xyCoordinatesExact": true,
+  "maxRearwardExtensionM": 0.012000001966953278,
+  "targetCentrelineAndOppositeEdgeExact": true,
+  "maxSideEdgeShiftPixels": 10.923043018457406,
+  "sourceGuidesAndControlsExact": true,
+  "rootsAndEndsExact": true,
+  "retainedConstructionStagesExact": true,
+  "v095AndV126OppositeArchEdgesExact": true,
+  "completeUvUv1RootDistanceIndicesExact": true,
+  "globalBoundsExact": true,
+  "addedVertices": 0,
+  "addedTriangles": 0,
+  "vertices": 23997,
+  "triangles": 31064,
+  "reshape": {
+    "guide": "under-side-light-03-2",
+    "vertices": [
+      {
+        "vertex": 18023,
+        "row": 13,
+        "cross": 2,
+        "t": 0.30357142857142855,
+        "weight": 0.014577259475218563,
+        "before": [
+          0.05482644195265695,
+          1.4785392813151796,
+          -0.033889166884526374
+        ],
+        "after": [
+          0.05482644195265695,
+          1.4785392813151796,
+          -0.034064093998228996
+        ],
+        "extension": [
+          0,
+          0,
+          -0.00017492711370262277
+        ]
+      },
+      {
+        "vertex": 18026,
+        "row": 14,
+        "cross": 2,
+        "t": 0.3214285714285714,
+        "weight": 0.3935860058309033,
+        "before": [
+          0.061497646290758885,
+          1.468944178638563,
+          -0.03078302793432562
+        ],
+        "after": [
+          0.061497646290758885,
+          1.468944178638563,
+          -0.03550606000429646
+        ],
+        "extension": [
+          0,
+          0,
+          -0.00472303206997084
+        ]
+      },
+      {
+        "vertex": 18029,
+        "row": 15,
+        "cross": 2,
+        "t": 0.33928571428571425,
+        "weight": 0.8819241982507284,
+        "before": [
+          0.06938583205342767,
+          1.4606982363029222,
+          -0.02655302365122284
+        ],
+        "after": [
+          0.06938583205342767,
+          1.4606982363029222,
+          -0.03713611403023158
+        ],
+        "extension": [
+          0,
+          0,
+          -0.010583090379008741
+        ]
+      },
+      {
+        "vertex": 18032,
+        "row": 16,
+        "cross": 2,
+        "t": 0.3571428571428571,
+        "weight": 1,
+        "before": [
+          0.0779932835589867,
+          1.4531378555935641,
+          -0.021697470785805455
+        ],
+        "after": [
+          0.0779932835589867,
+          1.4531378555935641,
+          -0.033697470785805456
+        ],
+        "extension": [
+          0,
+          0,
+          -0.012
+        ]
+      },
+      {
+        "vertex": 18035,
+        "row": 17,
+        "cross": 2,
+        "t": 0.3928571428571428,
+        "weight": 1,
+        "before": [
+          0.09509150883428329,
+          1.4392757083679657,
+          -0.019744851419814215
+        ],
+        "after": [
+          0.09509150883428329,
+          1.4392757083679657,
+          -0.031744851419814216
+        ],
+        "extension": [
+          0,
+          0,
+          -0.012
+        ]
+      },
+      {
+        "vertex": 18038,
+        "row": 18,
+        "cross": 2,
+        "t": 0.4107142857142857,
+        "weight": 0.999578204297592,
+        "before": [
+          0.10242266795161757,
+          1.433303354342276,
+          -0.02244259106622994
+        ],
+        "after": [
+          0.10242266795161757,
+          1.433303354342276,
+          -0.03443752951780105
+        ],
+        "extension": [
+          0,
+          0,
+          -0.011994938451571105
+        ]
+      },
+      {
+        "vertex": 18041,
+        "row": 19,
+        "cross": 2,
+        "t": 0.42857142857142855,
+        "weight": 0.7718928841377821,
+        "before": [
+          0.10813559667071539,
+          1.428733198723869,
+          -0.024171069884065446
+        ],
+        "after": [
+          0.10813559667071539,
+          1.428733198723869,
+          -0.03343378449371883
+        ],
+        "extension": [
+          0,
+          0,
+          -0.009262714609653385
+        ]
+      },
+      {
+        "vertex": 18044,
+        "row": 20,
+        "cross": 2,
+        "t": 0.4642857142857143,
+        "weight": 0.025483209156678233,
+        "before": [
+          0.11613181016872166,
+          1.4191928621373004,
+          -0.022664042264981244
+        ],
+        "after": [
+          0.11613181016872166,
+          1.4191928621373004,
+          -0.02296984077486138
+        ],
+        "extension": [
+          0,
+          0,
+          -0.0003057985098801388
+        ]
+      }
+    ],
+    "maxDisplacementM": 0.012,
+    "qualification": "Eight interior cross2 points extended rearward; all retained construction stages preserved. Actual multi-angle occlusion, outline and clearance require build/render verification."
+  },
+  "sceneAndComponent": "Identical to v136 after version normalization",
+  "material": "All profiles and previous alpha fills, ambient, pigment and shadow settings unchanged",
+  "clearance": {
+    "completeReportExact": true,
+    "triangleCrossings": [
+      132,
+      122
+    ],
+    "nearestSignedFlags": [
+      61,
+      50
+    ],
+    "correctedWindingFaces": 242,
+    "qualification": "Unchanged full-groom clearance and winding limits remain; not final qualification."
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2774,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.773495,
+    "rssBytes": 184631296,
+    "wallSeconds": 1.571519375
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Retain v137 locally",
+    "finding": "The broad bright opening at 270 degrees is reduced to narrower strand gaps. The fill follows the descending wave without an obvious patch or abrupt return; other inspected views and frontal framing remain stable.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Map and narrow the 225\u00b0 opening beneath the raised screen-left arch (711\u2013730,357\u2013375) using inner backing while preserving the arch outline."
+  },
+  "retainedForNextStep": true,
+  "retainedBaseline": "v137"
+}

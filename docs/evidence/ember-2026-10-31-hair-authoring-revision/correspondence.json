@@ -1,0 +1,172 @@
+{
+  "utc": "2026-11-01T04:26:44.504Z",
+  "preflightSha256": "9cfbbe923d4b4955a96534d98d0530cd536334636041ed37ead7f56ff27ecab0",
+  "eligibleTriangles": 288,
+  "pairs": 576,
+  "results": [
+    {
+      "guide": "nape-03",
+      "originalSeed": [
+        0.013,
+        1.472,
+        -0.037
+      ],
+      "originalSeedCoordinateBranches": [
+        "rear"
+      ],
+      "originalSeedDistanceM": 0.026013452629072977,
+      "originalSeedMaxDistanceM": 0.025,
+      "originalSeedPass": false,
+      "sourceOutwardOffsetM": 0.0006,
+      "outwardOffsetApplied": false,
+      "nearestEligible": {
+        "triangleIndex": 14712,
+        "vertices": [
+          12989,
+          12988,
+          8363
+        ],
+        "cornerPositions": [
+          [
+            0.02539805695414543,
+            1.49658203125,
+            -0.0397968664765358
+          ],
+          [
+            0.012676063925027847,
+            1.4977302551269531,
+            -0.04221843183040619
+          ],
+          [
+            0.013774910010397434,
+            1.514363408088684,
+            -0.04365423321723938
+          ]
+        ],
+        "cornerHeadWeights": [
+          1,
+          1,
+          1
+        ],
+        "cornerCoordinateBranches": [
+          [
+            "rear"
+          ],
+          [
+            "rear"
+          ],
+          [
+            "rear"
+          ]
+        ],
+        "bary": [
+          0.273925147423559,
+          0.7260748525764366,
+          4.482298248045763e-15
+        ],
+        "surfacePoint": [
+          0.016160937741050374,
+          1.4974157277321836,
+          -0.04155510418385146
+        ],
+        "normal": [
+          0.17772598995765732,
+          -0.09628108773900929,
+          -0.9793586802787649
+        ],
+        "outwardDot": 0.9910322361482218
+      },
+      "rootAccepted": false,
+      "proposedNewSeed": null,
+      "note": "Closest eligible triangle is source evidence only. An out-of-range original seed remains rejected; no automatic replacement root or altered threshold."
+    },
+    {
+      "guide": "nape-04",
+      "originalSeed": [
+        0.04,
+        1.479,
+        -0.031
+      ],
+      "originalSeedCoordinateBranches": [
+        "rear"
+      ],
+      "originalSeedDistanceM": 0.01574571519892815,
+      "originalSeedMaxDistanceM": 0.025,
+      "originalSeedPass": true,
+      "sourceOutwardOffsetM": 0.0006,
+      "outwardOffsetApplied": false,
+      "nearestEligible": {
+        "triangleIndex": 14596,
+        "vertices": [
+          12983,
+          12986,
+          8308
+        ],
+        "cornerPositions": [
+          [
+            0.04692238196730614,
+            1.4937809705734253,
+            -0.03037393093109131
+          ],
+          [
+            0.036909639835357666,
+            1.4952924251556396,
+            -0.03612307831645012
+          ],
+          [
+            0.037810999900102615,
+            1.5109020471572876,
+            -0.037361402064561844
+          ]
+        ],
+        "cornerHeadWeights": [
+          1,
+          1,
+          1
+        ],
+        "cornerCoordinateBranches": [
+          [
+            "rear"
+          ],
+          [
+            "rear"
+          ],
+          [
+            "rear"
+          ]
+        ],
+        "bary": [
+          0.627038835115548,
+          0.37296116488445574,
+          -3.823231356025743e-15
+        ],
+        "surfacePoint": [
+          0.043188017998087004,
+          1.4943446844350778,
+          -0.032518139637027134
+        ],
+        "normal": [
+          0.4845467285537359,
+          -0.09694793913673921,
+          -0.8693765380690988
+        ],
+        "outwardDot": 0.9952416893982129
+      },
+      "rootAccepted": false,
+      "proposedNewSeed": null,
+      "note": "Closest eligible triangle is source evidence only. An out-of-range original seed remains rejected; no automatic replacement root or altered threshold."
+    }
+  ],
+  "resources": {
+    "cpuSeconds": 0.052907,
+    "wallSeconds": 0.032805208,
+    "observedRssBytes": 110002176
+  },
+  "originalSeedMutation": false,
+  "guideControlsChanged": false,
+  "curveEvaluations": 0,
+  "samplerExecution": false,
+  "compilerExecution": false,
+  "automaticAuthoringAdmission": false,
+  "appearanceAccepted": false
+}

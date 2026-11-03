@@ -1,0 +1,248 @@
+{
+  "protectedInputs": "All admitted hashes match; approved face, eyes and brows unchanged",
+  "baseline": "v130",
+  "changedPositionVertices": 6,
+  "targetGuide": "side-heavy-06",
+  "allOther232RibbonsExactAcrossSevenBuffers": true,
+  "yzCoordinatesExact": true,
+  "maxInwardXExtensionM": 0.012000001966953278,
+  "targetCentrelineAndOppositeEdgeExact": true,
+  "sourceGuidesAndControlsExact": true,
+  "rootsAndEndsExact": true,
+  "retainedConstructionStagesExact": true,
+  "v095AndV126OppositeArchEdgesExact": true,
+  "completeUvUv1RootDistanceIndicesExact": true,
+  "globalBoundsExact": true,
+  "addedVertices": 0,
+  "addedTriangles": 0,
+  "vertices": 23997,
+  "triangles": 31064,
+  "reshape": {
+    "guide": "side-heavy-06",
+    "vertices": [
+      {
+        "vertex": 7158,
+        "row": 9,
+        "cross": 0,
+        "t": 0.25,
+        "weight": 0.49999999999999967,
+        "before": [
+          -0.09474027037590545,
+          1.5140777405049988,
+          -0.07473776859845552
+        ],
+        "after": [
+          -0.08874027037590546,
+          1.5140777405049988,
+          -0.07473776859845552
+        ],
+        "extension": [
+          0.005999999999999996,
+          0,
+          0
+        ]
+      },
+      {
+        "vertex": 7161,
+        "row": 10,
+        "cross": 0,
+        "t": 0.2857142857142857,
+        "weight": 1,
+        "before": [
+          -0.10282930256188426,
+          1.5043833436203553,
+          -0.08461195010084782
+        ],
+        "after": [
+          -0.09082930256188426,
+          1.5043833436203553,
+          -0.08461195010084782
+        ],
+        "extension": [
+          0.012,
+          0,
+          0
+        ]
+      },
+      {
+        "vertex": 7164,
+        "row": 11,
+        "cross": 0,
+        "t": 0.30357142857142855,
+        "weight": 1,
+        "before": [
+          -0.10362244133444516,
+          1.500941408913111,
+          -0.0867285315330069
+        ],
+        "after": [
+          -0.09162244133444516,
+          1.500941408913111,
+          -0.0867285315330069
+        ],
+        "extension": [
+          0.012,
+          0,
+          0
+        ]
+      },
+      {
+        "vertex": 7167,
+        "row": 12,
+        "cross": 0,
+        "t": 0.3214285714285714,
+        "weight": 1,
+        "before": [
+          -0.10314548874728453,
+          1.496718889425199,
+          -0.08895871532918606
+        ],
+        "after": [
+          -0.09114548874728454,
+          1.496718889425199,
+          -0.08895871532918606
+        ],
+        "extension": [
+          0.012,
+          0,
+          0
+        ]
+      },
+      {
+        "vertex": 7170,
+        "row": 13,
+        "cross": 0,
+        "t": 0.3571428571428571,
+        "weight": 0.8017492711370277,
+        "before": [
+          -0.09995602609269684,
+          1.4865408785433132,
+          -0.09356324874029313
+        ],
+        "after": [
+          -0.0903350348390525,
+          1.4865408785433132,
+          -0.09356324874029313
+        ],
+        "extension": [
+          0.009620991253644332,
+          0,
+          0
+        ]
+      },
+      {
+        "vertex": 7173,
+        "row": 14,
+        "cross": 0,
+        "t": 0.3928571428571428,
+        "weight": 0.03914264118345845,
+        "before": [
+          -0.09598938174856345,
+          1.4744285806374582,
+          -0.09783845455295286
+        ],
+        "after": [
+          -0.09551967005436195,
+          1.4744285806374582,
+          -0.09783845455295286
+        ],
+        "extension": [
+          0.0004697116942015014,
+          0,
+          0
+        ]
+      }
+    ],
+    "maxDisplacementM": 0.012,
+    "qualification": "Six interior cross0 points extended inward in X. Actual multi-angle occlusion, outline and clearance require build/render verification."
+  },
+  "sceneAndComponent": "Identical to v130 after version normalization",
+  "material": "All profiles and previous alpha fills, ambient, pigment and shadow settings unchanged",
+  "clearance": {
+    "completeReportExact": true,
+    "triangleCrossings": [
+      132,
+      122
+    ],
+    "nearestSignedFlags": [
+      61,
+      50
+    ],
+    "correctedWindingFaces": 242,
+    "qualification": "Unchanged full-groom clearance and winding limits remain; not final qualification."
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2774,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.793011,
+    "rssBytes": 182943744,
+    "wallSeconds": 1.589167625
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v131; retain v130",
+    "finding": "Rear hole closes but fill creates a solid angular insert around x904-918/y407-441 with a pointed lower return separate from the descending wave. Other views and frontal framing appear stable.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Start from v130 and taper added width earlier through the lower return, keeping only the upper overlap beneath the outer wave."
+  },
+  "retainedForNextStep": false,
+  "retainedBaseline": "v130"
+}

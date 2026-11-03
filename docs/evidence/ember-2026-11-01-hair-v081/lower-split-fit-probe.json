@@ -1,0 +1,72 @@
+{
+  "failures": [],
+  "connectorSplit": {
+    "sourceGuide": "ear-bridge-front-half-01",
+    "sections": [
+      {
+        "guide": "ear-bridge-lower-rear-01",
+        "vertexStart": 23976,
+        "vertexCount": 9,
+        "parameters": [
+          0.3571428571428571,
+          0.5714285714285714,
+          1
+        ],
+        "rootDistanceOffsetM": 0.06527483626969556
+      },
+      {
+        "guide": "ear-bridge-lower-front-01",
+        "vertexStart": 23985,
+        "vertexCount": 15,
+        "parameters": [
+          0.3571428571428571,
+          0.5,
+          0.6428571428571428,
+          0.8571428571428571,
+          1
+        ],
+        "rootDistanceOffsetM": 0.06527483626969556
+      }
+    ],
+    "originalVertices": 45,
+    "finalVertices": 48,
+    "retainedUpperRows": 8,
+    "atlasMapping": "retained source cross range",
+    "poseClearance": {
+      "vertex": 23991,
+      "outwardM": 0.0062654523891464,
+      "finalX": -0.0946
+    },
+    "preservedTerminals": [
+      {
+        "oldVertex": 23994,
+        "newVertex": 23982
+      },
+      {
+        "oldVertex": 23995,
+        "newVertex": 23984
+      },
+      {
+        "oldVertex": 23995,
+        "newVertex": 23997
+      },
+      {
+        "oldVertex": 23996,
+        "newVertex": 23999
+      }
+    ],
+    "maxSurfaceFitM": 0.030874650594783337,
+    "maxOutwardCorrectionM": 0.022477645223646134,
+    "clearanceConstraints": 10790,
+    "overlapPolygons": 3170,
+    "qualification": "Staggered lower continuations; original upper positions and attachment/end targets retained. Final surface and appearance unqualified.",
+    "sourceAtlasRange": [
+      0.3125,
+      0.3740234375
+    ]
+  },
+  "hits": 0,
+  "negative": [],
+  "crossing": [],
+  "qualification": "Read-only bind pose probe; final compiler and posed checks authoritative"
+}

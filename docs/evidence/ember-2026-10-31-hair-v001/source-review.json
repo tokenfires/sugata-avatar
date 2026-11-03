@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-01T02:59:10.418839+00:00",
+  "admitSingleBuild": true,
+  "preflightSha256": "ee1779fb8c658e073f033ffee1167808a21f43e9a8a552828e180fe9deb5b988",
+  "critic": "/root/local_feature_critic",
+  "criticVerdict": "GO for one supervised compilation; 22 inputs match; no previous STARTED marker. Coverage and appearance unassessed.",
+  "rootVerdict": "Independent source check agrees: explicit inner controls, ear exclusion, root-row/morph-aware verification and full-surface checks are present. Protected face/eye/brow functions unchanged.",
+  "limits": {
+    "cpuSeconds": 10,
+    "wallSeconds": 15,
+    "rssBytes": 536870912,
+    "maxVertices": 24000,
+    "maxTriangles": 32000,
+    "collisionPairs": 2000000,
+    "meshBytes": 4194304,
+    "reportBytes": 2097152,
+    "totalOutputBytes": 10485760
+  },
+  "automaticRetry": false
+}

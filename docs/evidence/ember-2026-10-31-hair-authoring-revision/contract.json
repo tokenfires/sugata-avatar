@@ -1,0 +1,39 @@
+{
+  "scope": "One coherent authoring-source contract for seven affected paths and two unresolved nape attachments. No guide edit or build admitted by this document.",
+  "affectedGuides": ["crown-sweep-02", "crown-sweep-04", "side-heavy-01", "occipital-02", "occipital-03", "occipital-04", "occipital-05", "nape-03", "nape-04"],
+  "source": "tools/ember-hair/ember-waves-v001.json",
+  "bodyGlb": "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb",
+  "bodyPositions": "docs/evidence/ember-2026-10-31-local-feature-v001/positions.f32",
+  "responsibilities": [
+    {"guides":["crown-sweep-02"],"witness":"visual-review front/angle blue1.2–1.3–1.4; portrait1 swept crown","purpose":"Broaden the tight crest while preserving root lift and useful lower waves. Do not flatten it to satisfy sampling.","status":"visual authoring purpose established; exact revised coordinates not authored"},
+    {"guides":["occipital-02","occipital-03","occipital-04","occipital-05"],"witness":"visual-review rear/angle controls4–7","purpose":"Consider restrained variation of bend phase within this family while preserving broad S waves and shoulder-region endpoints. No whole-hairstyle repetition claim from four paths.","status":"candidate authoring purpose established; no mandatory change to every path"},
+    {"guides":["crown-sweep-04","side-heavy-01"],"witness":"visual-review orange2.2–2.3–2.4 and purple3.0–3.7; W2/W3/W4/W5 failures","purpose":"Preserve the broad crown turn, lifted side entry and useful loose S bends. Any future control re-expression must explicitly serve construction feasibility while retaining visible shape; do not claim a photographed likeness defect.","status":"known sampling failures remain unresolved; no particular change is justified or authored"},
+    {"guides":["nape-03","nape-04"],"witness":"visual-review unresolved seed markers and layout-check missing root correspondence","purpose":"Establish actual eligible triangle correspondence before choosing attachment sites. Preserve inner-row construction; no automatic seed translation or mask relaxation.","status":"source gap; exact original-seed distances/triangles not yet recorded"}
+  ],
+  "sourcePreparationSubstep": {
+    "kind":"ONE read-only original-nape-seed correspondence report",
+    "seedIds":["nape-03","nape-04"],
+    "operations":"Reconstruct frozen eligible scalp triangles using exact coordinate, head-weight and outward-normal predicates; for each of the two original seeds report the closest eligible triangle and exact original seed distance. Record triangle index/vertices/positions, barycentrics, normal/outward dot, corner head weights and eligible coordinate branches. Report strict original25mm pass/fail without accepting an out-of-range result.",
+    "noMutation":true,
+    "noOtherGuideEvaluation":true,
+    "noCurveOrSamplerExecution":true,
+    "noRootFallback":true,
+    "noAutomaticNewSeed":true,
+    "surfacePointIsNotApprovedRoot":true,
+    "stop":"One report only; no repeated query, nearest-unfiltered fallback, expanded region, authoring edit, candidate admission or immediate build. The root/critic must decide whether this geometry supports a useful local attachment proposal."
+  },
+  "limits":{"cpuSeconds":10,"wallSeconds":15,"rssBytes":536870912,"bodyVertices":14517,"bodyTriangles":32000,"seedQueries":2,"nearestPairs":64000,"reportBytes":262144,"logBytes":131072,"totalOutputBytes":2097152},
+  "laterRevisionConstraints": [
+    "Do not mutate the frozen guide JSON or prior evidence; one isolated proposed revision must enumerate changed controls/roots and its rationale, including preservation intents.",
+    "Crown-sweep-01 and the other30 unaffected guides remain unchanged. The two preserve-intent guides are not automatically approved for edits.",
+    "Preserve40 guides/120 ribbons, original tips and end fractions, widths, roll, atlas/material mappings and eleven inner-guide portions. Existing valid roots remain fixed; only the two unresolved nape attachments are under correspondence review.",
+    "Preserve all exact scalp/root/ear/inner-coverage predicates, root offsets and morph-aware root-row checks, q/t roles, frame orientation, generated-surface and triangle-crossing checks.",
+    "No new allocation experiment or relaxed0.350mm/40-interval gate; previous diagnostics/compilations and three visual sheets remain consumed.",
+    "Do not claim build readiness from crown02/nape work alone. Every known failure must remain explicit until a coherent revised source and bounded qualification are separately admitted.",
+    "Later source review must specify evidence reuse for unchanged curves, gaps for changed curves and exact qualification workload. No compiler adaptation or execution is admitted now.",
+    "No new camera fit, capture, source search, cap/ornament/default groom, whole-character redesign, face/eye/brow change or macOS settings change."
+  ],
+  "reviewDecisionNeeded":"Review the exact read-only correspondence source and workload first. Root may separately admit that single report. Authoring edits, revised guide JSON and candidate compilation remain distinct later decisions, not automatic consequences.",
+  "alternatives":[{"route":"Conservative revision inside current construction","tradeoff":"Preserves more useful shape; unresolved preserve-intent guides still need a defensible construction solution. Selected for source preparation."},{"route":"Re-author affected lock family together","tradeoff":"More freedom to make the family coherent, but greater shape change and reference drift risk. Not selected now."}],
+  "acceptanceLimits":"No likeness, finish, expression meaning, coverage, clearance, root motion or hair appearance qualified. Goal remains complete animated Ember with approved eyes and the full character roadmap."
+}

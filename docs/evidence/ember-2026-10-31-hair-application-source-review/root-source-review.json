@@ -1,0 +1,300 @@
+{
+  "utc": "2026-11-01T04:47:59.958955+00:00",
+  "sourceOnly": true,
+  "priorInputsUnchanged": 69,
+  "sourceInputCount": 72,
+  "proposalUnchanged": true,
+  "rootDecision": "Do not prepare a knowingly unqualified application launcher or execute this proposal. Exact physical-tip preservation is not established by its edits; the proposed implementation is blocked before execution.",
+  "applicationImplementationReady": false,
+  "newExecutableAuthored": false,
+  "runtimeExecuted": false,
+  "candidateOutput": false,
+  "guideSourceModified": false,
+  "witnesses": [
+    {
+      "source": "tools/ember-hair/compile-v002.mjs",
+      "region": "frame transport and regular vertex construction, lines130-143",
+      "finding": "Each physical terminal row includes accumulated transported across/normal vectors multiplied by nonzero across/out offsets and nonzero residual width. Upstream changes or changed sampling parameters can affect physical endpoints even when centre C(1) and last guide control stay fixed. This is source dependence, not measured drift."
+    },
+    {
+      "source": "node_modules/three/src/extras/curves/CatmullRomCurve3.js",
+      "region": "getPoint, last-interval extrapolation and nonuniform coefficients",
+      "finding": "The .94/.97 centres on eight-control occipital curves depend on changed controls5/6 and fixed7. Last control alone cannot establish their preservation."
+    },
+    {
+      "source": "docs/evidence/ember-2026-10-31-hair-authoring-revision/correspondence.json",
+      "region": "nape-03 original seed strict distance failure and nominated edge site",
+      "finding": "There is no valid original attached nape03 curve/frame/ribbon-tip baseline. The future site must not be treated as a retroactive original pass."
+    }
+  ],
+  "affectedGuideSourceFacts": [
+    {
+      "guide": "crown-sweep-02",
+      "changedFields": [
+        "points/3",
+        "points/4"
+      ],
+      "ribbons": [
+        {
+          "endFraction": 0.97,
+          "offsetAcrossM": -0.004,
+          "offsetOutM": 0.002,
+          "tipWidthM": 0.0005600000000000001
+        },
+        {
+          "endFraction": 1,
+          "offsetAcrossM": 0.001,
+          "offsetOutM": 0.004,
+          "tipWidthM": 0.00064
+        },
+        {
+          "endFraction": 0.94,
+          "offsetAcrossM": 0.005,
+          "offsetOutM": 0.003,
+          "tipWidthM": 0.0004
+        }
+      ],
+      "oldAttachedCentreAvailable": true,
+      "actualTipRowsQualified": false
+    },
+    {
+      "guide": "crown-sweep-04",
+      "changedFields": [
+        "points/3",
+        "points/4"
+      ],
+      "ribbons": [
+        {
+          "endFraction": 0.97,
+          "offsetAcrossM": -0.004,
+          "offsetOutM": 0.002,
+          "tipWidthM": 0.0005600000000000001
+        },
+        {
+          "endFraction": 1,
+          "offsetAcrossM": 0.001,
+          "offsetOutM": 0.004,
+          "tipWidthM": 0.00064
+        },
+        {
+          "endFraction": 0.94,
+          "offsetAcrossM": 0.005,
+          "offsetOutM": 0.003,
+          "tipWidthM": 0.0004
+        }
+      ],
+      "oldAttachedCentreAvailable": true,
+      "actualTipRowsQualified": false
+    },
+    {
+      "guide": "side-heavy-01",
+      "changedFields": [
+        "points/1",
+        "points/2"
+      ],
+      "ribbons": [
+        {
+          "endFraction": 0.97,
+          "offsetAcrossM": -0.004,
+          "offsetOutM": 0.002,
+          "tipWidthM": 0.0005600000000000001
+        },
+        {
+          "endFraction": 1,
+          "offsetAcrossM": 0.001,
+          "offsetOutM": 0.004,
+          "tipWidthM": 0.00064
+        },
+        {
+          "endFraction": 0.94,
+          "offsetAcrossM": 0.005,
+          "offsetOutM": 0.003,
+          "tipWidthM": 0.0004
+        }
+      ],
+      "oldAttachedCentreAvailable": true,
+      "actualTipRowsQualified": false
+    },
+    {
+      "guide": "occipital-02",
+      "changedFields": [
+        "points/2",
+        "points/3",
+        "points/4",
+        "points/5",
+        "points/6"
+      ],
+      "ribbons": [
+        {
+          "endFraction": 0.97,
+          "offsetAcrossM": -0.004,
+          "offsetOutM": 0.002,
+          "tipWidthM": 0.00048
+        },
+        {
+          "endFraction": 1,
+          "offsetAcrossM": 0.001,
+          "offsetOutM": 0.004,
+          "tipWidthM": 0.0005600000000000001
+        },
+        {
+          "endFraction": 0.94,
+          "offsetAcrossM": 0.005,
+          "offsetOutM": 0.003,
+          "tipWidthM": 0.0004
+        }
+      ],
+      "oldAttachedCentreAvailable": true,
+      "actualTipRowsQualified": false
+    },
+    {
+      "guide": "occipital-03",
+      "changedFields": [
+        "points/3",
+        "points/4",
+        "points/5",
+        "points/6"
+      ],
+      "ribbons": [
+        {
+          "endFraction": 0.97,
+          "offsetAcrossM": -0.004,
+          "offsetOutM": 0.002,
+          "tipWidthM": 0.00048
+        },
+        {
+          "endFraction": 1,
+          "offsetAcrossM": 0.001,
+          "offsetOutM": 0.004,
+          "tipWidthM": 0.0005600000000000001
+        },
+        {
+          "endFraction": 0.94,
+          "offsetAcrossM": 0.005,
+          "offsetOutM": 0.003,
+          "tipWidthM": 0.0004
+        }
+      ],
+      "oldAttachedCentreAvailable": true,
+      "actualTipRowsQualified": false
+    },
+    {
+      "guide": "occipital-04",
+      "changedFields": [
+        "points/3",
+        "points/4",
+        "points/5",
+        "points/6"
+      ],
+      "ribbons": [
+        {
+          "endFraction": 0.97,
+          "offsetAcrossM": -0.004,
+          "offsetOutM": 0.002,
+          "tipWidthM": 0.00048
+        },
+        {
+          "endFraction": 1,
+          "offsetAcrossM": 0.001,
+          "offsetOutM": 0.004,
+          "tipWidthM": 0.0005600000000000001
+        },
+        {
+          "endFraction": 0.94,
+          "offsetAcrossM": 0.005,
+          "offsetOutM": 0.003,
+          "tipWidthM": 0.0004
+        }
+      ],
+      "oldAttachedCentreAvailable": true,
+      "actualTipRowsQualified": false
+    },
+    {
+      "guide": "occipital-05",
+      "changedFields": [
+        "points/2",
+        "points/3",
+        "points/4",
+        "points/5",
+        "points/6"
+      ],
+      "ribbons": [
+        {
+          "endFraction": 0.97,
+          "offsetAcrossM": -0.004,
+          "offsetOutM": 0.002,
+          "tipWidthM": 0.00048
+        },
+        {
+          "endFraction": 1,
+          "offsetAcrossM": 0.001,
+          "offsetOutM": 0.004,
+          "tipWidthM": 0.0005600000000000001
+        },
+        {
+          "endFraction": 0.94,
+          "offsetAcrossM": 0.005,
+          "offsetOutM": 0.003,
+          "tipWidthM": 0.0004
+        }
+      ],
+      "oldAttachedCentreAvailable": true,
+      "actualTipRowsQualified": false
+    },
+    {
+      "guide": "nape-03",
+      "changedFields": [
+        "rootSeed",
+        "points/0"
+      ],
+      "ribbons": [
+        {
+          "endFraction": 0.97,
+          "offsetAcrossM": -0.004,
+          "offsetOutM": 0.002,
+          "tipWidthM": 0.00048
+        },
+        {
+          "endFraction": 1,
+          "offsetAcrossM": 0.001,
+          "offsetOutM": 0.004,
+          "tipWidthM": 0.0005600000000000001
+        },
+        {
+          "endFraction": 0.94,
+          "offsetAcrossM": 0.005,
+          "offsetOutM": 0.003,
+          "tipWidthM": 0.0004
+        }
+      ],
+      "oldAttachedCentreAvailable": false,
+      "actualTipRowsQualified": false
+    }
+  ],
+  "evidenceReuse": {
+    "unchangedFirstGuide": "Consumed prior-method sampled centre-curve evidence only; do not re-evaluate or claim new-method, frame, surface, or tip qualification.",
+    "unchangedLayoutGuides": 30,
+    "unchangedLayoutRibbons": 90,
+    "changedExistingGuides": 7,
+    "changedExistingRibbons": 21,
+    "newSiteGuide": "nape-03, 3 ribbons; original attached state absent",
+    "unchangedUnassessedGuide": "nape-04, 3 ribbons; only centre-distance result available",
+    "surfaceOrRootMotionPassesAvailable": 0,
+    "knownSamplingFailuresStillUnresolved": 9
+  },
+  "preservedLimits": {
+    "chordErrorM": 0.00035,
+    "maxIntervals": 40,
+    "guides": 40,
+    "ribbons": 120,
+    "cpuSeconds": 10,
+    "wallSeconds": 15,
+    "rssBytes": 536870912,
+    "maxVertices": 24000,
+    "maxTriangles": 32000,
+    "collisionPairs": 2000000,
+    "outputBytes": 10485760
+  },
+  "nextExecutionAdmitted": false,
+  "appearanceAccepted": false
+}

@@ -1,0 +1,91 @@
+{
+  "baselineChecks": [
+    {
+      "path": "packages/testbed/ember-appearance-v001.html",
+      "unchanged": true,
+      "sha256": "9f4cbf3fb9bc4b704b60d4aa3704cc8e3dd92cb5213d038c9e016b0c02647052"
+    },
+    {
+      "path": "packages/testbed/src/ember-appearance-v001.js",
+      "unchanged": true,
+      "sha256": "fc486085da779ae74f2e33f501349b678a97551c59187a99a583829c18984af0"
+    },
+    {
+      "path": "packages/core/src/material/EyeMaterial.js",
+      "unchanged": true,
+      "sha256": "a64b29c812a7110cfdf8cf1045023628605af0906b607f49cd337a53ba79aa25"
+    },
+    {
+      "path": "packages/core/src/material/SkinMaterial.js",
+      "unchanged": true,
+      "sha256": "803522f23feb60a98f5dc927e2a274351c872141a7d038b11c4673a4ff91440e"
+    },
+    {
+      "path": "packages/core/src/figure/Skeleton.js",
+      "unchanged": true,
+      "sha256": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4"
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb",
+      "unchanged": true,
+      "sha256": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef"
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-measured-fit/candidate-correction-v001.json",
+      "unchanged": true,
+      "sha256": "9572d8f2f6b433b5eb5e1dd7ee3e1f17e95109ac8606edc46d361f2f369eea3e"
+    },
+    {
+      "path": "reference/ember/portraits/face-reference-2.png",
+      "unchanged": true,
+      "sha256": "50cdaa32a44fd064b4d3f21bdec722ce533b822508fb5e5048f9fc950a5b14fe"
+    },
+    {
+      "path": "reference/ember/portraits/face-reference-1.png",
+      "unchanged": true,
+      "sha256": "92464091b3c68000c79ed846896f4df1486ed39fdff902ff97940eda564e9d3a"
+    },
+    {
+      "path": "package-lock.json",
+      "unchanged": true,
+      "sha256": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "docs/evidence/ember-2026-10-31-ocular-v002/README.md",
+      "bytes": 5916,
+      "sha256": "66d44de78ddad31945030ed068fc04bd6c280e93b2ce0d7ce64a14b08a7723be"
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-ocular-v002/angle-neutral-ax.txt",
+      "bytes": 1494,
+      "sha256": "1b7be1d5ed6205ee5f228e9cc644997d3b6b0032af1929c0b51b77a3b1e03549"
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-ocular-v002/angle-neutral.jpg",
+      "bytes": 84983,
+      "sha256": "1cce3f99498e7154700817167d2746908616d419c132523a0b64137c6a59335e"
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-ocular-v002/final-handoff-ax.txt",
+      "bytes": 1497,
+      "sha256": "0b94b39d9cff2e60b6d87d272fae025dd95661f62b50ff7c58a9344bdc6b5559"
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-ocular-v002/front-reference-ax.txt",
+      "bytes": 1497,
+      "sha256": "b3a2f8cf48d40fd5f94847d81642b5157730adbeabf95ff057a30313b9a60d9e"
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-ocular-v002/front-reference.jpg",
+      "bytes": 83254,
+      "sha256": "68168e2ed27db49bd85cd90dadb8f77b151c3f882d741396e6aaa0e59044106d"
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-ocular-v002/preflight.json",
+      "bytes": 3178,
+      "sha256": "ddc86dd6b66e8d83b35f6577c4a06f7831629f6e716ba933701bfabfbc7f7905"
+    }
+  ]
+}

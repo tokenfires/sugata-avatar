@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-01T03:30:45.760967+00:00",
+  "id": "advance-sugata-avatar-visual-quality",
+  "status": "ACTIVE",
+  "kind": "heartbeat",
+  "name": "Advance Sugata until check-in",
+  "rrule": "FREQ=MINUTELY;INTERVAL=10",
+  "targetThreadId": "01a0ff57-d720-7db2-923f-9e3e0521216c",
+  "updatedAt": 1793503825872,
+  "promptSha256": "e2c6dbb58037113bf1281fe335f228b6bb6958f2db04d6aa1f36f58786147ebd",
+  "readback": "App API update followed by persisted configuration read",
+  "latestReceipt": "docs/evidence/ember-2026-10-31-hair-v002/README.md",
+  "buildConsumed": true,
+  "automaticRetry": false
+}

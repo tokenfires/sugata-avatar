@@ -1,0 +1,38 @@
+{
+  "sourceOnly": true,
+  "preflightSha256": "0ad041c25474a06e96d6ef21e2a51048a984b8555ee998f59b9f56a4397e9d5d",
+  "previousInputsUnchanged": 27,
+  "inputs": 26,
+  "maxRibbons": 120,
+  "maxSegmentsPerRibbon": 40,
+  "maxVerticesFromSource": 14760,
+  "maxTrianglesFromSource": 19200,
+  "samplingEvaluationGuardTotal": 122880,
+  "sourceBoundDerivation": "m initial intervals between 7 and 11: 5m + 10(40-m) + 9*40 = 760-5m <=725. Conservative bound is725; cache reduces actual evaluations.",
+  "conservativeUncachedSamplingRequestsPerRibbon": 725,
+  "maxGeometryPointCalls": 14760,
+  "geometryPointCallExplanation": "one centre getPoint and two internal getPoint calls per getTangent; no sampling rerun",
+  "hardLimits": {
+    "cpuSeconds": 10,
+    "wallSeconds": 15,
+    "rssBytes": 536870912,
+    "maxVertices": 24000,
+    "maxTriangles": 32000,
+    "collisionPairs": 2000000,
+    "meshBytes": 4194304,
+    "reportBytes": 2097152,
+    "totalOutputBytes": 10485760
+  },
+  "constructionChecksPreserved": [
+    "scalp allowlist and per-ribbon root-row anchors",
+    "11 inner guide controls",
+    "q roll and coverage; t width/root/camber/UV",
+    "parallel transport and face orientation",
+    "generated-surface nearest and triangle crossing checks at bind/head",
+    "morph-aware browser attachment",
+    "fixed material, atlas and four view states"
+  ],
+  "newBuilds": 0,
+  "newCaptures": 0,
+  "appearanceAccepted": false
+}

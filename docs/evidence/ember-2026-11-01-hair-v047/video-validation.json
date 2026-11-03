@@ -1,0 +1,37 @@
+{
+  "webm": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "vp8",
+        "width": 512,
+        "height": 512,
+        "r_frame_rate": "283/12",
+        "nb_read_frames": "423"
+      }
+    ],
+    "format": {
+      "size": "5690627"
+    }
+  },
+  "mp4": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 512,
+        "height": 512,
+        "r_frame_rate": "283/12",
+        "duration": "18.021974",
+        "nb_read_frames": "423"
+      }
+    ],
+    "format": {
+      "duration": "18.021974",
+      "size": "7484153"
+    }
+  },
+  "qualification": "425 browser-rendered frames; MediaRecorder encoded 423. MP4 is a local H264 transcode, not a second rendering. Four decoded video frames visually inspected; this is not a temporal artifact certification."
+}

@@ -1,0 +1,29 @@
+{
+  "view": "front",
+  "camera": [
+    -0.09111898694078406,
+    0.15574138563875242,
+    -0.001001242346757512,
+    -0.5978257768382786,
+    0.004852315835521454,
+    0.002885763189830665
+  ],
+  "crop": {
+    "enabled": true,
+    "fullWidth": 512,
+    "fullHeight": 512,
+    "offsetX": 190,
+    "offsetY": 270,
+    "width": 160,
+    "height": 160
+  },
+  "expression": {
+    "jawOpen": 0.45
+  },
+  "colours": {
+    "Humanteeth_base": "cyan",
+    "Humantongue01": "magenta",
+    "other": "grey"
+  },
+  "geometry": "candidate.glb bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef"
+}

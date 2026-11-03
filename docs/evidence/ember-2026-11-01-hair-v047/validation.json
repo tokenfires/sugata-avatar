@@ -1,0 +1,93 @@
+{
+  "protectedInputs": "All preflight hashes match",
+  "geometry": "Direct import of retained v045 component and eight original buffers; no hair compiler run or geometry mutation",
+  "maxStaticRootResidualDeltaM": 4.935067134145444e-16,
+  "rootResidualQualification": "Last-bit world-transform rounding only; maximum observed deviation from the retained front check is recorded here.",
+  "staticFrontReport": "Exact v045 report after excluding new inspection metadata and qualification text",
+  "inspectionViews": [
+    {
+      "degrees": 0,
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707057924e-07
+    },
+    {
+      "degrees": 45,
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "degrees": 90,
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "degrees": 135,
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "degrees": 180,
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "degrees": 225,
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "degrees": 270,
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "degrees": 315,
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "fixedAcrossInspection": [
+    "front reference expression",
+    "warm lights",
+    "ambient model/gain",
+    "shadow filter/transmission",
+    "face",
+    "eyes",
+    "brows",
+    "hairline",
+    "hair material",
+    "all hair geometry and lock-end targets"
+  ],
+  "fullTurn": {
+    "frames": 425,
+    "elapsedSeconds": 18.04670000000298,
+    "complete": true,
+    "minDegrees": 0,
+    "maxDegrees": 360,
+    "maxCroppedVertices": 0,
+    "maxRootResidualM": 1.084389175141625e-07,
+    "meanRenderMs": 14.321647058795481,
+    "recorded": true,
+    "recordingBytes": 5690627,
+    "geometry": "Exact retained v045",
+    "sampling": "Elapsed-time progression, capped at 24 rendered frames per second; not a performance benchmark"
+  },
+  "stopControl": "Stopped in under two seconds; controls restored; recording retained",
+  "video": {
+    "format": "H264 MP4",
+    "durationSeconds": 18.021974,
+    "encodedFrames": 423,
+    "sizeBytes": 7484153
+  },
+  "browserErrors": 0,
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Retain v047 as a useful inspection; v045 remains hair baseline",
+    "rootAgreement": true,
+    "finding": "Substantial bare side scalp above and behind ears at 90/270 degrees and open gaps between front and rear hair masses at quarter views. Front and rear views overstate fullness compared with portraits.",
+    "evidence": "Eight angle screenshots and four decoded video samples inspected; no claim about popping or smooth temporal behavior.",
+    "next": "Rebuild inner crown-to-temple coverage on the side exposed at 90-135 degrees as overlapping scalp-following ribbons beneath existing outer waves. Reallocate underlayer geometry if needed; preserve frontal hairline and original end targets. Inspect side and rear-quarter views before extending to other side."
+  },
+  "qualification": "Rigid whole-figure turntable only. Existing clearance/winding defects, hair dynamics, facial motion, likeness and finish remain unqualified."
+}

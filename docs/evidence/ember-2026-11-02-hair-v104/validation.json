@@ -1,0 +1,312 @@
+{
+  "protectedInputs": "All preflight/build hashes match; approved face, eyes and brows unchanged",
+  "retainedGeometry": "All232other ribbons exact across7vertexbuffers. Complete UV/UV1/rootDistance/index buffers exact. Source guides and control anchors exact; only7gap-facing middle edge Z positions and derived attributes change. AllX/Ypositions exact.",
+  "retainedV065SideFillExact": true,
+  "retainedV067CrownFillExact": true,
+  "retainedV075UpperCoverageAndReturnEdgeExact": true,
+  "retainedV082WaveEdgeExact": true,
+  "retainedV084AlphaFillExact": true,
+  "retainedV085V086OppositeFillExact": false,
+  "previousStagesExactButMiddleEdgeExtended": "V085/V086 input settings and construction-stage reports unchanged; seven middle-edge points of that ribbon receive an additional forward extension in v104",
+  "retainedV089NeckBlendExact": true,
+  "retainedV090ArchFillExact": true,
+  "retainedV091AdjacentArchFillExact": true,
+  "retainedV092OppositeArchFillExact": true,
+  "retainedV094VisibleRimFillExact": true,
+  "retainedV095QuarterRimFillExact": true,
+  "retainedV096MidRearFillExact": true,
+  "retainedV098UpperSlotTaperExact": true,
+  "retainedV099OppositeSlotExact": true,
+  "retainedV100AdjacentSlotExact": true,
+  "retainedV101MidOpeningExact": true,
+  "retainedV102NeckMiddleExact": true,
+  "allEdgeHeightsExact": true,
+  "allTransverseXExact": true,
+  "allOriginalRootAndEndRowsExact": true,
+  "targetCentrelineAndOppositeBoundaryExact": true,
+  "changedPositionVertices": 7,
+  "reshape": {
+    "guide": "under-side-light-04-1",
+    "vertices": [
+      {
+        "vertex": 18162,
+        "row": 20,
+        "cross": 0,
+        "t": 0.5357142857142857,
+        "weight": 0.1982507288629734,
+        "before": [
+          0.1460913621732924,
+          1.4215145308871373,
+          -0.009508777839601718
+        ],
+        "after": [
+          0.1460913621732924,
+          1.4215145308871373,
+          -0.006336766177794143
+        ],
+        "extension": [
+          0,
+          0,
+          0.0031720116618075746
+        ]
+      },
+      {
+        "vertex": 18165,
+        "row": 21,
+        "cross": 0,
+        "t": 0.5535714285714286,
+        "weight": 0.6628940295663197,
+        "before": [
+          0.14854192907264974,
+          1.4081845357698783,
+          -0.006802781249061186
+        ],
+        "after": [
+          0.14854192907264974,
+          1.4081845357698783,
+          0.0038035232239999293
+        ],
+        "extension": [
+          0,
+          0,
+          0.010606304473061115
+        ]
+      },
+      {
+        "vertex": 18168,
+        "row": 22,
+        "cross": 0,
+        "t": 0.5714285714285714,
+        "weight": 0.9878979175656525,
+        "before": [
+          0.14710979638549482,
+          1.3916915957224354,
+          -0.011517006942606024
+        ],
+        "after": [
+          0.14710979638549482,
+          1.3916915957224354,
+          0.004289359738444416
+        ],
+        "extension": [
+          0,
+          0,
+          0.01580636668105044
+        ]
+      },
+      {
+        "vertex": 18171,
+        "row": 23,
+        "cross": 0,
+        "t": 0.5892857142857142,
+        "weight": 1,
+        "before": [
+          0.14617647533831019,
+          1.3786086071349115,
+          -0.01493583292864148
+        ],
+        "after": [
+          0.14617647533831019,
+          1.3786086071349115,
+          0.001064167071358521
+        ],
+        "extension": [
+          0,
+          0,
+          0.016
+        ]
+      },
+      {
+        "vertex": 18174,
+        "row": 24,
+        "cross": 0,
+        "t": 0.6071428571428571,
+        "weight": 1,
+        "before": [
+          0.14596193646999175,
+          1.373531996740427,
+          -0.01673257406222033
+        ],
+        "after": [
+          0.14596193646999175,
+          1.373531996740427,
+          -0.0007325740622203293
+        ],
+        "extension": [
+          0,
+          0,
+          0.016
+        ]
+      },
+      {
+        "vertex": 18177,
+        "row": 25,
+        "cross": 0,
+        "t": 0.6428571428571428,
+        "weight": 0.5458609932936125,
+        "before": [
+          0.14060190781760212,
+          1.363435238959643,
+          -0.028645291429059437
+        ],
+        "after": [
+          0.14060190781760212,
+          1.363435238959643,
+          -0.019911515536361637
+        ],
+        "extension": [
+          0,
+          0,
+          0.0087337758926978
+        ]
+      },
+      {
+        "vertex": 18180,
+        "row": 26,
+        "cross": 0,
+        "t": 0.6785714285714286,
+        "weight": 0.0012324796640855729,
+        "before": [
+          0.12928104455282777,
+          1.3542594230331497,
+          -0.04697979604897133
+        ],
+        "after": [
+          0.12928104455282777,
+          1.3542594230331497,
+          -0.04696007637434596
+        ],
+        "extension": [
+          0,
+          0,
+          1.9719674625369167e-05
+        ]
+      }
+    ],
+    "maxDisplacementM": 0.016,
+    "qualification": "One local slot fill; full hair appearance remains unaccepted."
+  },
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "addedVertices": 0,
+  "addedTriangles": 0,
+  "vertices": 23997,
+  "triangles": 31064,
+  "sceneAndComponent": "Identical to v103 after version normalization",
+  "material": "All appearance profiles, v084 alpha infill, ambient, pigment and shadow settings unchanged",
+  "clearance": {
+    "triangleCrossings": [
+      132,
+      122
+    ],
+    "nearestSignedFlags": [
+      61,
+      50
+    ],
+    "correctedWindingFaces": 242,
+    "changedWindingTriangles": 0,
+    "qualification": "No added body crossings or nearest-normal flags. Index buffer exact. Existing body-clearance/winding limitations remain; not full final surface qualification."
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2774,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.880245,
+    "rssBytes": 176766976,
+    "wallSeconds": 1.674096083
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Retain v104 as modest local integration gain",
+    "finding": "270-degree curved overlap connects straight strip middle with rear wave;225-degree coverage fuller. No conspicuous new ledge, tab or frontal framing change across eleven views. Straight terminal section remains exposed and overlap has coarse ladder-like gaps.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Map270-degree gaps853-881/511-553; where geometry already covers them, trial one softly faded offset alpha sample locally, preserving outer feather and tips."
+  },
+  "retainedV103UpperNeckExact": true,
+  "straightNeckStripExact": true,
+  "retainedForNextStep": true,
+  "baseline": "v103",
+  "fullReportedClearanceAndWitnessesExact": true,
+  "coverageProxy": {
+    "samples": 36,
+    "newlyCovered": [
+      [
+        866,
+        554
+      ],
+      [
+        874,
+        564
+      ]
+    ],
+    "lost": [],
+    "qualification": "Coarse nearest alpha/core proxy only, not full shader/MSAA coverage certification. Actual browser images establish visible change."
+  }
+}

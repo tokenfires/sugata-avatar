@@ -1,0 +1,13 @@
+# Frozen-eye attribution — completed once
+
+October 31, 2026, America/Los_Angeles. Owner: chat `01a194ba-ffd1-7841-b0cd-2d40e0ac1924`. Both prior Sugata chats were idle; no owned native/fitting job was live. Existing review service remained healthy. Ten-minute automation readback was PAUSED and was left unchanged.
+
+The one read-only [source report](source-report.json) establishes genuinely dark pigment across both eyes: frozen `brown_eye` is a 1024-square PNG with visible fine red/brown fibres. In the physical .35–.85 iris annulus, the right eye has zero exact-black samples among 60 source vertices in both fitted views yet median linear luminance is only .0137–.0153. Own mesh UV sampling is similarly dark (.0151) in both eyes. This supports a lighter hazel input without moving geometry or UVs.
+
+A localized uncertainty remains: left-eye refracted sampling includes 5/60 near-black pupil samples; a .35-radius unrefracted ring includes 22/72. The source report does not prove every UV correspondence is correct. That limited overlap does not explain bilateral darkness. The two-piece pupil remap is identity at the current scale of 1. No new mapping parameter was inferred or applied.
+
+Root inspected the extracted unmodified [texture](frozen-eye.png), both saved v002 witnesses and original portrait2. Independent critic inspected the same evidence and source report; both select one isolated lighter-hazel pigment input, preserving black pupils, outer limbus and sclera. Alternative: correct a proved mapping offset, but present evidence does not justify moving the whole sampling frame and risking pupil/limbus displacement. Source inspection alone does not qualify rendered colour, likeness or expression meaning.
+
+The run completed normally: 0.08017 measured CPU seconds, 143,392,768 bytes peak RSS, approximately 0.64 MB outputs; limits were 60 CPU seconds, 512 MiB additional memory, 20 MiB output. External CPU/output limits and RSS/wall watchdog supplemented internal checks. No native renderer, browser capture, gain sweep or asset mutation. Bilinear source samples exclude GPU mip filtering, screen visibility and lighting; these are source attribution statistics, not screen-pixel percentages. `STARTED.json` prevents accidental replay.
+
+Next separately scoped slice: [ocular v003](../ember-2026-10-31-ocular-v003/preflight.json), one lighter procedural hazel input using frozen texture fibres, max four fixed captures. Shared material, source PNG/GLB, v001/v002 and default assets remain unchanged. Preserve the queued human feature corrections and full character roadmap; mouth/speech clearance remains unqualified.

@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-02T04:01:19.025Z",
+  "error": "Error: Wedge combined outward ceiling\n    at requireThat (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v076.mjs:23:61)\n    at compile (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v076.mjs:557:58)\n    at file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v076.mjs:72:7\n    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)",
+  "collisionPairs": 0,
+  "resources": {
+    "cpu": {
+      "user": 1494732,
+      "system": 67095
+    },
+    "rss": 158760960,
+    "wallSeconds": 1.418606583
+  },
+  "candidateAccepted": false,
+  "automaticRetry": false
+}

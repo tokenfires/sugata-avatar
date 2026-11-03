@@ -1,0 +1,101 @@
+{
+  "utc": "2026-11-01T02:42:18.844346+00:00",
+  "stage": "original-hair-plan-reviewed-source-preparation-admitted",
+  "ownedOtherChat": "01a194ba-ffd1-7841-b0cd-2d40e0ac1924",
+  "otherChatObserved": "idle",
+  "guideSourceExists": false,
+  "compilerExists": false,
+  "builds": 0,
+  "newCandidateCaptures": 0,
+  "critic": "/root/local_feature_critic",
+  "criticDecision": "Revised plan useful; source preparation only. Guide and compiler require exact review before build.",
+  "rootDecision": "Agree; offset, full-ribbon clearance, full-hair framing, chord tolerance and collision budget made explicit.",
+  "browser": {
+    "retainedHandle": "browser.user unavailable",
+    "freshTabsOpened": 1,
+    "livePage": "http://127.0.0.1:5173/ember-local-feature-v001.html",
+    "completedDraw": 1,
+    "view": "front",
+    "frame": "reference",
+    "neutralLight": false,
+    "handoff": true,
+    "newScreenshot": false
+  },
+  "inputs": {
+    "packages/testbed/src/ember-local-feature-v001.js": {
+      "bytes": 11828,
+      "sha256": "d1b769696b525537d85fa8808f7df69450229b69af3457292f044ca478da7c97",
+      "unchanged": true
+    },
+    "packages/testbed/src/ember-ocular-v003-material.js": {
+      "bytes": 76094,
+      "sha256": "55040b37a7a1d35ec31c1716fbeefa88a27227d27f6de2239d5ec1cb3009014a",
+      "unchanged": true
+    },
+    "packages/core/src/material/HairMaterial.js": {
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613",
+      "unchanged": true
+    },
+    "packages/core/src/figure/Skeleton.js": {
+      "bytes": 19123,
+      "sha256": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4",
+      "unchanged": true
+    },
+    "tools/figure-pipeline/hair_texture.py": {
+      "bytes": 61711,
+      "sha256": "1e6962000651b8eab1d8d3c931259960f7889af1a0c7b3caac54357840279f64",
+      "unchanged": true
+    },
+    "reference/ember/portraits/face-reference-1.png": {
+      "bytes": 1277836,
+      "sha256": "92464091b3c68000c79ed846896f4df1486ed39fdff902ff97940eda564e9d3a",
+      "unchanged": true
+    },
+    "assets/hair/bob01/albedo.png": {
+      "bytes": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5",
+      "unchanged": true
+    },
+    "assets/hair/bob01/normal.png": {
+      "bytes": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a",
+      "unchanged": true
+    },
+    "assets/hair/bob01/flow.png": {
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6",
+      "unchanged": true
+    },
+    "assets/hair/bob01/depth.png": {
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b",
+      "unchanged": true
+    },
+    "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb": {
+      "bytes": 11568232,
+      "sha256": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef",
+      "unchanged": true
+    },
+    "docs/evidence/ember-2026-10-31-local-feature-v001/positions.f32": {
+      "bytes": 174204,
+      "sha256": "3859319a3c553fea959b80ba19ad9ad9a4823a42b11a32adfd356d06635c2654",
+      "unchanged": true
+    }
+  },
+  "outputs": {
+    "docs/evidence/ember-2026-10-31-hair-authoring-plan/README.md": {
+      "bytes": 19027,
+      "sha256": "92db753ddc3c55df5c5f0d5f124ae7f04f9b3e02654d2baf96ab02fc870c7dca"
+    },
+    "docs/evidence/ember-2026-10-31-hair-authoring-plan/source-inspection.json": {
+      "bytes": 6588,
+      "sha256": "c6ba69785535764dad702c265e106f69595bcda33faef987a37faf84b28ed118"
+    },
+    "tools/ember-measured-fit/hair_attachment_inspection.py": {
+      "bytes": 5568,
+      "sha256": "2be64db614c87b62870208eb4fcf8cfe9c25e7f1494762ba37d8a2f79d2bd5e7"
+    }
+  },
+  "next": "Author guide JSON plus compiler/isolated viewer, independently review exact sources and workload, then one CPU compile and four planned image witnesses."
+}

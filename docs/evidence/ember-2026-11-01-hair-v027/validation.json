@@ -1,0 +1,64 @@
+{
+  "protectedInputs": "all hashes match",
+  "all8GeometryBuffers": "byte-identical to v026; all guides roots end rows and bounds preserved",
+  "ambientFilterLightsBias": "unchanged",
+  "hairShadowTransmission": {
+    "trial": "Neutral linear28percent light through nearest hair shadow sample",
+    "api": "Three NodeMaterial.castShadowNode plus renderer.shadowMap.transmitted",
+    "hairRGB": [
+      0.28,
+      0.28,
+      0.28
+    ],
+    "castAlphaMultiplier": 1,
+    "preservation": "Hair alpha mask, body opaque-black caster, all geometry and approved features, ambient, light intensities, tent25 filter and bias fixed",
+    "qualification": "Nearest-occluder proxy, not fibre multiple scattering or multi-layer optical depth; compare head-only shadow control before retaining"
+  },
+  "headCaster": "opaque black unchanged; native head-only control has small edge differences",
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "draws": 1
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "draws": 2
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "draws": 3
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "draws": 4
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "draws": 5
+    }
+  ],
+  "resources": {
+    "cpuSeconds": 1.421797,
+    "rssBytes": 178143232,
+    "wallSeconds": 1.2138662909999998
+  },
+  "vertices": 23427,
+  "triangles": 30340,
+  "clearanceCrossings": [
+    132,
+    122
+  ],
+  "sourceReview": {
+    "NodeMaterial.js": "castShadowNode documented coloured-shadow proxy",
+    "Renderer.js": "_getShadowNodes multiplies castShadowNode.a by original colorNode alpha; body caster defaults black",
+    "ShadowNode.js": "native transmitted path mixes filtered depth with nearest shadow colour; not multilayer attenuation"
+  },
+  "critic": "One review: retain visible reduction in ink-black stripes with remaining lock separation. Still too uniformly red-orange/flat; next single same-geometry auburn pigment comparison, preserving lights and shadow settings. No regular lock-wide colour bands.",
+  "retainedFor": "Shadow appearance development, not physical transmission or final likeness",
+  "appearanceAccepted": false
+}

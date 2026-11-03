@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-31",
+  "trigger": "Robert resumed work and timer after updating and restarting the app",
+  "operation": "emberAfterUpdate.getAXState()",
+  "result": "browser.user is unavailable",
+  "inventory": [
+    {"id": "3", "name": "Chrome", "type": "extension"},
+    {"id": "1", "name": "Codex MCP Apps", "type": "mcpapps"},
+    {"id": "2", "name": "ChatGPT in-app browser", "type": "iab"}
+  ],
+  "iabIdentityChangedSinceSuccessfulTurn": false,
+  "freshBindingAttempts": 0,
+  "toolSessionResets": 0,
+  "newScreenshots": 0,
+  "candidateEdits": false,
+  "candidateJsSha256": "fc486085da779ae74f2e33f501349b678a97551c59187a99a583829c18984af0",
+  "appearanceV001CapturesUsed": 3,
+  "appearanceV001CapturesRemaining": 3,
+  "automationReadback": {"status": "ACTIVE", "rrule": "FREQ=MINUTELY;INTERVAL=10"},
+  "rootCause": "unresolved; repeated between-turn loss is consistent with a tool/session lifecycle issue but does not prove its mechanism",
+  "next": "Keep checkpoint quiet without repeated recovery attempts until a distinct repair direction or connection-state change; preserve single ocular correction and all human feature targets"
+}

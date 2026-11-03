@@ -1,0 +1,272 @@
+{
+  "source": "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb",
+  "sourceHash": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef",
+  "view": "rear",
+  "frame": "neutral",
+  "draws": 3,
+  "weights": {},
+  "headYaw": 0,
+  "neutralLight": true,
+  "witness": "rear",
+  "wideHair": true,
+  "hair": {
+    "version": "v003",
+    "guides": 40,
+    "ribbons": 120,
+    "vertices": 13665,
+    "triangles": 17740,
+    "maxRootResidualM": 1.1198188933637924e-7,
+    "atlas": {
+      "width": 1024,
+      "height": 1024,
+      "rootV": 0,
+      "tipV": 1,
+      "capStripExcluded": 0,
+      "strips": [
+        {
+          "strip": 1,
+          "rows": [
+            {
+              "y": 0,
+              "n": 68,
+              "medianRootToTip": 0
+            },
+            {
+              "y": 128,
+              "n": 89,
+              "medianRootToTip": 0.125490203499794
+            },
+            {
+              "y": 256,
+              "n": 89,
+              "medianRootToTip": 0.250980406999588
+            },
+            {
+              "y": 512,
+              "n": 86,
+              "medianRootToTip": 0.501960813999176
+            },
+            {
+              "y": 768,
+              "n": 82,
+              "medianRootToTip": 0.7490196228027344
+            },
+            {
+              "y": 960,
+              "n": 49,
+              "medianRootToTip": 0.9372549057006836
+            }
+          ]
+        },
+        {
+          "strip": 2,
+          "rows": [
+            {
+              "y": 0,
+              "n": 88,
+              "medianRootToTip": 0
+            },
+            {
+              "y": 128,
+              "n": 89,
+              "medianRootToTip": 0.125490203499794
+            },
+            {
+              "y": 256,
+              "n": 101,
+              "medianRootToTip": 0.250980406999588
+            },
+            {
+              "y": 512,
+              "n": 93,
+              "medianRootToTip": 0.501960813999176
+            },
+            {
+              "y": 768,
+              "n": 62,
+              "medianRootToTip": 0.7490196228027344
+            },
+            {
+              "y": 960,
+              "n": 0,
+              "medianRootToTip": null
+            }
+          ]
+        },
+        {
+          "strip": 3,
+          "rows": [
+            {
+              "y": 0,
+              "n": 80,
+              "medianRootToTip": 0
+            },
+            {
+              "y": 128,
+              "n": 89,
+              "medianRootToTip": 0.125490203499794
+            },
+            {
+              "y": 256,
+              "n": 83,
+              "medianRootToTip": 0.250980406999588
+            },
+            {
+              "y": 512,
+              "n": 89,
+              "medianRootToTip": 0.501960813999176
+            },
+            {
+              "y": 768,
+              "n": 47,
+              "medianRootToTip": 0.7490196228027344
+            },
+            {
+              "y": 960,
+              "n": 0,
+              "medianRootToTip": null
+            }
+          ]
+        }
+      ]
+    },
+    "material": {
+      "baseColourHex": "6e3420",
+      "cap": false,
+      "alphaToCoverage": true
+    },
+    "sourceClearance": [
+      {
+        "state": "bind",
+        "penetratingVertices": 158,
+        "triangleCrossings": 380,
+        "minSignedM": -0.008098088252334589,
+        "witnesses": [
+          {
+            "vertex": 351,
+            "signedM": -0.001997378896692739,
+            "nearestDistanceM": 0.001997378896692739
+          },
+          {
+            "vertex": 354,
+            "signedM": -0.001634083084179284,
+            "nearestDistanceM": 0.001634083084179284
+          },
+          {
+            "vertex": 357,
+            "signedM": -0.002294657991849167,
+            "nearestDistanceM": 0.0022946579918491665
+          },
+          {
+            "vertex": 360,
+            "signedM": -0.003918684356005047,
+            "nearestDistanceM": 0.003918684356005047
+          },
+          {
+            "vertex": 361,
+            "signedM": -0.0007204673979017819,
+            "nearestDistanceM": 0.0007204673979017819
+          },
+          {
+            "vertex": 363,
+            "signedM": -0.004417426597533577,
+            "nearestDistanceM": 0.004417426597533576
+          },
+          {
+            "vertex": 364,
+            "signedM": -0.0010531777445593215,
+            "nearestDistanceM": 0.0010531777445593215
+          },
+          {
+            "vertex": 366,
+            "signedM": -0.003666292859675243,
+            "nearestDistanceM": 0.0036662928596752423
+          }
+        ]
+      },
+      {
+        "state": "head",
+        "penetratingVertices": 157,
+        "triangleCrossings": 380,
+        "minSignedM": -0.02695750682707275,
+        "witnesses": [
+          {
+            "vertex": 351,
+            "signedM": -0.001997378852912186,
+            "nearestDistanceM": 0.0019973788529121864
+          },
+          {
+            "vertex": 354,
+            "signedM": -0.0016340830715889149,
+            "nearestDistanceM": 0.001634083071588915
+          },
+          {
+            "vertex": 357,
+            "signedM": -0.0022946579811113335,
+            "nearestDistanceM": 0.0022946579811113335
+          },
+          {
+            "vertex": 360,
+            "signedM": -0.003918684361676366,
+            "nearestDistanceM": 0.003918684361676366
+          },
+          {
+            "vertex": 361,
+            "signedM": -0.0007204673981097295,
+            "nearestDistanceM": 0.0007204673981097296
+          },
+          {
+            "vertex": 363,
+            "signedM": -0.0044174266174144905,
+            "nearestDistanceM": 0.0044174266174144905
+          },
+          {
+            "vertex": 364,
+            "signedM": -0.0010531777490128862,
+            "nearestDistanceM": 0.0010531777490128862
+          },
+          {
+            "vertex": 366,
+            "signedM": -0.00366629287617577,
+            "nearestDistanceM": 0.00366629287617577
+          }
+        ]
+      }
+    ],
+    "correctedWindingFaces": 58,
+    "structuralChecks": false,
+    "qualification": "First original hair candidate; likeness, finish and full motion unaccepted"
+  },
+  "hairBounds": {
+    "croppedVertices": 0,
+    "complete": true
+  },
+  "ocularCorrection": {
+    "version": "v003",
+    "scleraChroma": 0,
+    "irisInput": "lighter procedural hazel using frozen source fibres",
+    "postAlbedoLift": false
+  },
+  "cards": [
+    {
+      "mesh": "Humaneyebrow001",
+      "brow": true,
+      "alphaTest": 0.5,
+      "alphaToCoverage": false,
+      "msaaSamples": 4,
+      "placement": "2mm upward query; projected rise .773–2.101mm; same frozen-skin signed gap",
+      "drawSamples": 4
+    }
+  ],
+  "geometry": "brow-only-v002 body, eyes, brows, lashes, pigment and expression deltas unchanged",
+  "maps": {
+    "curvature": null,
+    "region": null,
+    "cavity": null
+  },
+  "eyeY": 1.4865916967391968,
+  "eyeFront": 0.12358388304710388,
+  "eyeGeometry": "left : sclera R 16.444 mm (rms 0.223), cornea R 8.934 mm over 55 verts (rms 0.0252) centred 8.667 mm forward, iris plane 14.417 mm (rms 0.323), iris R 7.033 mm, anterior chamber 3.183 mm, axis 0.004 -0.022 1.000\nright: sclera R 16.444 mm (rms 0.223), cornea R 8.924 mm over 55 verts (rms 0.0255) centred 8.678 mm forward, iris plane 14.417 mm (rms 0.323), iris R 6.941 mm, anterior chamber 3.184 mm, axis -0.004 -0.022 1.000",
+  "oralClearance": "failed witnessed crossings; no repair in this study",
+  "limits": "One original layered-card hair candidate; fixed face/eyes/brows. Four planned witnesses, no animation loop, global fit or native build. Full hair dynamics and mouth clearance unqualified."
+}

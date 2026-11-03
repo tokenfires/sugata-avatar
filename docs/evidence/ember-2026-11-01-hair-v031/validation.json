@@ -1,0 +1,108 @@
+{
+  "protectedInputs": "All protected hashes match, including approved face assets, atlas and shared HairMaterial",
+  "scope": "Only widthProfile added to seven existing body-fill underlayers; all authored control points unchanged",
+  "unchangedOtherRibbons": 217,
+  "unchangedOtherRibbonAttributes": [
+    "position",
+    "normal",
+    "uv",
+    "uv1",
+    "along",
+    "across",
+    "rootDistance"
+  ],
+  "allRootAndEndRowsExact": 448,
+  "allCentrelineVerticesExact": 7809,
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "changedVertices": 356,
+  "maxEdgeDisplacementM": 0.007200027653378201,
+  "unchangedBuffers": [
+    "uv",
+    "uv1",
+    "rootDistance"
+  ],
+  "triangleConnectivity": "All triangles retain vertex sets; winding changes confined to seven edited underlayers",
+  "windingChanges": 9,
+  "correctedWindingFacesBefore": 230,
+  "correctedWindingFacesAfter": 239,
+  "sceneAndMaterial": "Byte-identical to v028 after version normalization; no v029/v030 changes",
+  "frameReports": "All five match v028 after version,draw count and winding count normalization; face close-up crops2763 vs2757 vertices because underlayers widen. All four full-hair witnesses remain uncropped.",
+  "resources": {
+    "cpuSeconds": 1.439331,
+    "rssBytes": 178176000,
+    "wallSeconds": 1.222535292
+  },
+  "vertices": 23427,
+  "triangles": 30340,
+  "clearance": "Unchanged132 bind/122 head crossings; final surface clearance and winding still unqualified",
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "croppedVertices": 0
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "croppedVertices": 2763
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "croppedVertices": 0
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "croppedVertices": 0
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "croppedVertices": 0
+    }
+  ],
+  "trial": {
+    "ids": [
+      "body-fill-heavy-01",
+      "body-fill-heavy-02",
+      "body-fill-light-01",
+      "body-fill-light-02",
+      "body-fill-rear-01",
+      "body-fill-rear-02",
+      "body-fill-rear-03"
+    ],
+    "method": "Staggered width envelopes on existing underlayers only; original centreline bends fixed",
+    "maxSideWidthMultiplier": 1.45,
+    "maxRearWidthMultiplier": 1.4,
+    "unchangedRegions": "t<=.2 and t>=.9; all root and terminal rows",
+    "preservation": "All original long guides and end targets, lower hairline and crown backing, ambient, pigment, shadows and approved face/eyes/brows fixed",
+    "qualification": "Render trial for denser inner mass; check broad panels, fullness and silhouette against retained v028"
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Retain v031 as a small density improvement",
+    "evidence": "Lower side masses and central rear slightly more continuous, without obvious new flat panels or silhouette change. Hairline stable. Large lace-like inner openings and separated rear bundles remain.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Add two overlapping S-wave backing locks behind screen-left inner angle opening, below ear toward shoulder; preserve existing endpoints."
+  },
+  "windingChangeLocations": {
+    "body-fill-heavy-01": 2,
+    "body-fill-rear-01": 3,
+    "body-fill-rear-02": 2,
+    "body-fill-rear-03": 2
+  }
+}

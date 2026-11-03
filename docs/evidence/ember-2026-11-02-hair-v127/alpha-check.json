@@ -1,0 +1,68 @@
+{
+  "config": {
+    "guide": "occipital-03",
+    "ribbon": 1,
+    "start": 0.345,
+    "full": 0.36,
+    "fade": 0.4,
+    "end": 0.425,
+    "offsetTexels": 4,
+    "contribution": 0.65,
+    "edgeBlend": [
+      0.62,
+      0.69
+    ],
+    "centreBlend": [
+      0.87,
+      0.94
+    ],
+    "purpose": "Composite a fixed four-texel translated strand alpha sample into the remaining opposite rear gray core. Feathered interior window preserves original alpha, roots, edges, tips and existing fills."
+  },
+  "scopeSamples": 40401,
+  "changedScopeSamples": 584,
+  "originalAlphaNeverReduced": true,
+  "outsideWindowExact": true,
+  "retainedCategoriesExact": true,
+  "noMixedTriangleCategories": true,
+  "taggedVertices": {
+    "waveAtlasFill": 123,
+    "neckAtlasFill": 120,
+    "rearCrownAtlasFill": 114,
+    "upperCrownAtlasFill": 72,
+    "rearArchAtlasFill": 114,
+    "oppositeArchAtlasFill": 123
+  },
+  "formerBlankMarginSamples": [
+    {
+      "pixel": [
+        709,
+        368
+      ],
+      "u": 0.7702074638704739,
+      "t": 0.3627981608924493,
+      "before": 0.4902347562792024,
+      "after": 0.8215821646977208
+    },
+    {
+      "pixel": [
+        709,
+        373
+      ],
+      "u": 0.8363730512421739,
+      "t": 0.3764079341928613,
+      "before": 0.004427638087711012,
+      "after": 0.6515496733306989
+    },
+    {
+      "pixel": [
+        699,
+        378
+      ],
+      "u": 0.6963647351125052,
+      "t": 0.39509201540635,
+      "before": 0.28885819343711233,
+      "after": 0.7511003677029893
+    }
+  ],
+  "qualification": "Bilinear base-level alpha and discrete scope proxy; no GPU filtering or MSAA certification"
+}

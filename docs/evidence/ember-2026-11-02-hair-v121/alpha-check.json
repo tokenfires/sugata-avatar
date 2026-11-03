@@ -1,0 +1,54 @@
+{
+  "config": {
+    "guide": "part-sweep-1-4",
+    "ribbon": 0,
+    "start": 0.35,
+    "full": 0.4,
+    "fade": 0.58,
+    "end": 0.64,
+    "offsetTexels": 6,
+    "contribution": 0.65,
+    "edgeBlend": [
+      0.3,
+      0.38
+    ],
+    "centreBlend": [
+      0.46,
+      0.54
+    ],
+    "purpose": "Composite a fixed six-texel translated strand alpha sample over the central upper crown slit. Feathered interior window preserves original alpha, roots, edges, tips and all existing fills."
+  },
+  "scopeSamples": 40401,
+  "changedScopeSamples": 678,
+  "originalAlphaNeverReduced": true,
+  "outsideWindowExact": true,
+  "retainedCategoriesExact": true,
+  "noMixedTriangleCategories": true,
+  "taggedVertices": {
+    "waveAtlasFill": 123,
+    "neckAtlasFill": 120,
+    "rearCrownAtlasFill": 114,
+    "upperCrownAtlasFill": 72
+  },
+  "formerBlankMarginSamples": [
+    {
+      "u": 0.42678096693972817,
+      "t": 0.40224646385156454,
+      "before": 0.30001118260335213,
+      "after": 0.7550039139111733
+    },
+    {
+      "u": 0.4025260395458066,
+      "t": 0.4657819169094665,
+      "before": 0,
+      "after": 0.65
+    },
+    {
+      "u": 0.4046407388575553,
+      "t": 0.5788506969167602,
+      "before": 0,
+      "after": 0.65
+    }
+  ],
+  "qualification": "Bilinear base-level alpha and discrete scope proxy; no GPU filtering or MSAA certification"
+}

@@ -1,0 +1,230 @@
+{
+  "protectedInputs": "All input hashes match; approved face, eyes and brows unchanged",
+  "retainedGeometry": "All 232 other ribbons exact across seven vertex arrays, mapping and triangle indices. Source guides, coverage bands and control anchors exact. Original roots/anchor records unchanged.",
+  "upperConnectorPositionsUVsAndRootDistancesExactVersusV078": true,
+  "upperConnectorRows": 8,
+  "allOriginalRootsExact": true,
+  "originalTerminalTargetsRepresentedExactly": [
+    {
+      "oldVertex": 23994,
+      "newVertex": 23982
+    },
+    {
+      "oldVertex": 23995,
+      "newVertex": 23984
+    },
+    {
+      "oldVertex": 23995,
+      "newVertex": 23997
+    },
+    {
+      "oldVertex": 23996,
+      "newVertex": 23999
+    }
+  ],
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "connectorSplit": {
+    "sourceGuide": "ear-bridge-front-half-01",
+    "sections": [
+      {
+        "guide": "ear-bridge-lower-rear-01",
+        "vertexStart": 23976,
+        "vertexCount": 9,
+        "parameters": [
+          0.3571428571428571,
+          0.5714285714285714,
+          1
+        ],
+        "rootDistanceOffsetM": 0.06527486057457242
+      },
+      {
+        "guide": "ear-bridge-lower-front-01",
+        "vertexStart": 23985,
+        "vertexCount": 15,
+        "parameters": [
+          0.3571428571428571,
+          0.5,
+          0.6428571428571428,
+          0.8571428571428571,
+          1
+        ],
+        "rootDistanceOffsetM": 0.06527486057457242
+      }
+    ],
+    "originalVertices": 45,
+    "finalVertices": 48,
+    "retainedUpperRows": 8,
+    "atlasMapping": "retained source cross range",
+    "poseClearance": {
+      "vertex": 23991,
+      "outwardM": 0.0062654410470146665,
+      "finalX": -0.0946
+    },
+    "preservedTerminals": [
+      {
+        "oldVertex": 23994,
+        "newVertex": 23982
+      },
+      {
+        "oldVertex": 23995,
+        "newVertex": 23984
+      },
+      {
+        "oldVertex": 23995,
+        "newVertex": 23997
+      },
+      {
+        "oldVertex": 23996,
+        "newVertex": 23999
+      }
+    ],
+    "maxSurfaceFitM": 0.030874658084006842,
+    "maxOutwardCorrectionM": 0.022477633193275018,
+    "clearanceConstraints": 10790,
+    "overlapPolygons": 3170,
+    "qualification": "Staggered lower continuations; original upper positions and attachment/end targets retained. Final surface and appearance unqualified.",
+    "sourceAtlasRange": [
+      0.3125,
+      0.3740234375
+    ]
+  },
+  "addedVertices": 3,
+  "addedTriangles": -4,
+  "vertices": 24000,
+  "triangles": 31060,
+  "ribbons": 235,
+  "withinOriginalBudget": true,
+  "sceneAndComponent": "Byte-identical to v075 after version normalization. No shader changes.",
+  "material": "Ambient, shadow and pigment profiles unchanged; existing dense core now tagged across 135 vertices in six sections.",
+  "clearance": {
+    "poses": [
+      {
+        "pose": "bind",
+        "crossingsBefore": 132,
+        "crossingsAfter": 132,
+        "signedFlagsBefore": 60,
+        "signedFlagsAfter": 60
+      },
+      {
+        "pose": "head",
+        "crossingsBefore": 122,
+        "crossingsAfter": 122,
+        "signedFlagsBefore": 50,
+        "signedFlagsAfter": 50
+      }
+    ],
+    "correctedWindingFacesBefore": 242,
+    "correctedWindingFacesAfter": 242,
+    "qualification": "No added crossings or signed-distance flags in either pose relative to retained v075. The new head-turn flag in v080 is removed. Baseline surface and winding remain unqualified."
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2772,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.850396,
+    "rssBytes": 180355072,
+    "wallSeconds": 1.629641541
+  },
+  "appearanceAccepted": false,
+  "retainedForNextStep": false,
+  "changedPositionVerticesVersusV080": [
+    23991
+  ],
+  "changedUVerticesVersusV080": [
+    23976,
+    23977,
+    23978,
+    23979,
+    23980,
+    23981,
+    23982,
+    23983,
+    23984,
+    23985,
+    23986,
+    23988,
+    23989,
+    23991,
+    23992,
+    23994,
+    23995,
+    23997,
+    23998
+  ],
+  "indexUV1AndRootDistanceExactVersusV080": true,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v081 as replacement; retain v075",
+    "finding": "UV correction closes diagonal slit and improves side coverage, but filled region remains a broad flat panel at90 and staggered ends form conspicuous short crosswise edges at135. Front and angle framing stable.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Return to v075 and widen only the gap-facing edge of the descending wave bordering the wedge on screen-right at90. Preserve centreline, roots and end targets."
+  },
+  "slitCheck": "Five sampled pixels now have nearest-texel/dense-core alpha proxy0.96-1.0; browser render and critic confirm closure. Proxy is not full shader/MSAA certification."
+}

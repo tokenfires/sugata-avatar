@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-02T00:49:45.083Z",
+  "error": "Error: Geometry ceiling\n    at requireThat (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v048.mjs:23:61)\n    at compile (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v048.mjs:237:3)\n    at file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v048.mjs:72:7\n    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)",
+  "collisionPairs": 0,
+  "resources": {
+    "cpu": {
+      "user": 1065678,
+      "system": 60024
+    },
+    "rss": 154370048,
+    "wallSeconds": 1.014382125
+  },
+  "candidateAccepted": false,
+  "automaticRetry": false
+}

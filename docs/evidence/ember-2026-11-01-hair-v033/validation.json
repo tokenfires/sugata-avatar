@@ -1,0 +1,70 @@
+{
+  "protectedInputs": "All hashes match including face assets, atlas and shared material",
+  "all8PreviousBuffers": "Exact prefixes; all226existing ribbons, roots, centrelines, endpoints and hairline unchanged",
+  "addedLocks": [
+    "inner-backing-light-01",
+    "inner-backing-light-02"
+  ],
+  "addedVertices": 177,
+  "addedTriangles": 228,
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "newRoots": 6,
+  "sceneAndMaterial": "Byte-identical after version normalization; ambient, pigment, shadows, cameras and approved features fixed",
+  "frameReports": "All five match v032 after version/draw, geometry counts and face close-up crop count normalization. All four full-hair views uncropped.",
+  "clearance": "Unchanged132 bind/122 head crossings;239corrected winding faces; final clearance/winding not certified",
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "croppedVertices": 0
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "croppedVertices": 2772
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "croppedVertices": 0
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "croppedVertices": 0
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "croppedVertices": 0
+    }
+  ],
+  "vertices": 23787,
+  "triangles": 30804,
+  "resources": {
+    "cpuSeconds": 1.47071,
+    "rssBytes": 178634752,
+    "wallSeconds": 1.258260833
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Retain v033 as modest coverage improvement",
+    "evidence": "Screen-right ear-to-neck opening denser in front and close-up; face opening, hairline and outer silhouette stable. No conspicuous new panel; rear change minimal.",
+    "remaining": "Backing still a loose mesh of short strands; internal tips separated from longer waves. Coverage improves more than convincing fullness.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Refine opacity/taper of four recent backing locks only; denser middles and end breakup with geometry and colour fixed."
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "version": "v047",
+  "scope": "Browser inspection only; imports retained v045 component and buffers directly. No compiler invocation or hair geometry changes.",
+  "inputs": {
+    "packages/testbed/ember-hair-v047.html": {
+      "bytes": 3174,
+      "sha256": "55118ee3d0301dc81a0cba4e3380c5a6e66f97f888b1f0df67e02b58ac705b12"
+    },
+    "packages/testbed/src/ember-hair-v047.js": {
+      "bytes": 14905,
+      "sha256": "6149199f9ca229205f4c026aad983d0ebbfe852515cd6099d12ac428f1f2bb6f"
+    },
+    "packages/testbed/src/ember-hair-v047-motion.js": {
+      "bytes": 5098,
+      "sha256": "f327240f7dddab0bab5c1053d188bb26b67d763d5404c56e48c251ae5234297b"
+    },
+    "packages/testbed/src/ember-hair-v045.js": {
+      "bytes": 13877,
+      "sha256": "11262684d50ca9779d491175c97d4918ae3ff1f29c914683faaf40822b0f833b"
+    },
+    "packages/testbed/src/ember-hair-v045-component.js": {
+      "bytes": 10801,
+      "sha256": "b1c4e8a4bad61c59136fcbdb083caccfa8b5237fb5f98b75ffa6d613d8aee87e"
+    },
+    "docs/evidence/ember-2026-11-01-hair-v045/along.bin": {
+      "bytes": 286380,
+      "sha256": "ec4a84e4b94101420b5972a12ffb2b0cb7aca247e8f3b15129d4a5e249d7a350"
+    },
+    "docs/evidence/ember-2026-11-01-hair-v045/uv.bin": {
+      "bytes": 190920,
+      "sha256": "dee92f02e265c87d72b48e073c7e334faaac0302f585ae866be9a7f945de46f1"
+    },
+    "docs/evidence/ember-2026-11-01-hair-v045/position.bin": {
+      "bytes": 286380,
+      "sha256": "462a798d17a888e313397054cdf1e5d3966b69364e2da7883a56e5f98f54fa45"
+    },
+    "docs/evidence/ember-2026-11-01-hair-v045/index.bin": {
+      "bytes": 370848,
+      "sha256": "b0d2df8e6ae6e7fa1394b5c4a380d3125db29940e4ff367ea6ed044ebe4fbfd3"
+    },
+    "docs/evidence/ember-2026-11-01-hair-v045/across.bin": {
+      "bytes": 286380,
+      "sha256": "5956358b1aba81b2423051fdf5d4890a168d04e143224cb7107ce94dffacd111"
+    },
+    "docs/evidence/ember-2026-11-01-hair-v045/uv1.bin": {
+      "bytes": 190920,
+      "sha256": "dbad716b4d7c7163e67c81710b8a1792a0f0fe2356839b321d099606cc527d36"
+    },
+    "docs/evidence/ember-2026-11-01-hair-v045/rootDistance.bin": {
+      "bytes": 95460,
+      "sha256": "6d01bc6912a24934365e46f20c352b178d56dbe7f17b9b34174e53186361db5b"
+    },
+    "docs/evidence/ember-2026-11-01-hair-v045/normal.bin": {
+      "bytes": 286380,
+      "sha256": "5b273e24446d016db60b4464c611d20c19d96b36d70e9be6baef76d92905a5cf"
+    }
+  },
+  "protectedInputs": {
+    "packages/testbed/src/ember-local-feature-v001.js": {
+      "bytes": 11828,
+      "sha256": "d1b769696b525537d85fa8808f7df69450229b69af3457292f044ca478da7c97"
+    },
+    "packages/testbed/src/ember-ocular-v003-material.js": {
+      "bytes": 76094,
+      "sha256": "55040b37a7a1d35ec31c1716fbeefa88a27227d27f6de2239d5ec1cb3009014a"
+    },
+    "packages/core/src/material/HairMaterial.js": {
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    "packages/core/src/figure/Skeleton.js": {
+      "bytes": 19123,
+      "sha256": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4"
+    },
+    "tools/figure-pipeline/hair_texture.py": {
+      "bytes": 61711,
+      "sha256": "1e6962000651b8eab1d8d3c931259960f7889af1a0c7b3caac54357840279f64"
+    },
+    "reference/ember/portraits/face-reference-1.png": {
+      "bytes": 1277836,
+      "sha256": "92464091b3c68000c79ed846896f4df1486ed39fdff902ff97940eda564e9d3a"
+    },
+    "assets/hair/bob01/albedo.png": {
+      "bytes": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+    },
+    "assets/hair/bob01/normal.png": {
+      "bytes": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+    },
+    "assets/hair/bob01/flow.png": {
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    "assets/hair/bob01/depth.png": {
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    },
+    "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb": {
+      "bytes": 11568232,
+      "sha256": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef"
+    },
+    "docs/evidence/ember-2026-10-31-local-feature-v001/positions.f32": {
+      "bytes": 174204,
+      "sha256": "3859319a3c553fea959b80ba19ad9ad9a4823a42b11a32adfd356d06635c2654"
+    },
+    "docs/evidence/ember-2026-10-31-local-feature-v001/normals.f32": {
+      "bytes": 174204,
+      "sha256": "907028a279e85dc4a15c2cc9829fdbc10af82d0aa2d989f9cddf09e8817e67e7"
+    },
+    "packages/testbed/src/ember-brow-only-v002.js": {
+      "bytes": 9653,
+      "sha256": "6cfd55383e0afb7dae51d2cfcaca177d3228ffd0db5beed7c0bf39b21920b2a9"
+    },
+    "docs/evidence/ember-2026-10-31-brow-lash-v001/brow-positions.f32": {
+      "bytes": 1488,
+      "sha256": "d7e204c19fd76a10d06ac2545956d0d939127608d3342663dcec6a7136234247"
+    },
+    "docs/evidence/ember-2026-10-31-measured-fit/candidate-correction-v001.json": {
+      "bytes": 16270,
+      "sha256": "9572d8f2f6b433b5eb5e1dd7ee3e1f17e95109ac8606edc46d361f2f369eea3e"
+    },
+    "reference/ember/portraits/face-reference-2.png": {
+      "bytes": 1213961,
+      "sha256": "50cdaa32a44fd064b4d3f21bdec722ce533b822508fb5e5048f9fc950a5b14fe"
+    }
+  },
+  "limits": {
+    "durationSeconds": 18,
+    "wallSeconds": 25,
+    "renderedFrames": 450,
+    "recordingBytes": 12582912,
+    "canvas": [
+      512,
+      512
+    ],
+    "fpsCap": 24
+  },
+  "preservation": "Face, eyes, brows, all geometry, hairline, lock ends, hair materials, ambient model and gain fixed."
+}

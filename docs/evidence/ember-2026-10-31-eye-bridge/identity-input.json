@@ -1,0 +1,272 @@
+{
+  "source": "../ember-2026-10-31-measured-fit/candidate-correction-v001.json",
+  "macro": {
+    "gender": 0,
+    "age": 0.5,
+    "muscle": 0.5,
+    "weight": 0.5,
+    "height": 0.5,
+    "proportions": 0.5,
+    "cupsize": 0.5,
+    "firmness": 0.5,
+    "race": {
+      "asian": 0.33,
+      "caucasian": 0.33,
+      "african": 0.33
+    }
+  },
+  "stack": [
+    {
+      "target": "head-scale-horiz-incr",
+      "weight": 0.5745277811472442,
+      "region": "head",
+      "offset": 638000,
+      "count": 5240,
+      "slider": "head/head-scale-horiz-decr-incr",
+      "side": "unsided"
+    },
+    {
+      "target": "l-cheek-volume-incr",
+      "weight": 0.6441848396942098,
+      "region": "cheek",
+      "offset": 12704,
+      "count": 229,
+      "slider": "cheek/cheek-volume-decr-incr",
+      "side": "left"
+    },
+    {
+      "target": "r-cheek-volume-incr",
+      "weight": 0.6441848396942098,
+      "region": "cheek",
+      "offset": 29824,
+      "count": 229,
+      "slider": "cheek/cheek-volume-decr-incr",
+      "side": "right"
+    },
+    {
+      "target": "chin-height-incr",
+      "weight": 0.2877085832250744,
+      "region": "chin",
+      "offset": 229824,
+      "count": 561,
+      "slider": "chin/chin-height-decr-incr",
+      "side": "unsided"
+    },
+    {
+      "target": "chin-width-incr",
+      "weight": 0.39297019644363645,
+      "region": "chin",
+      "offset": 269024,
+      "count": 266,
+      "slider": "chin/chin-width-decr-incr",
+      "side": "unsided"
+    },
+    {
+      "target": "chin-prominent-incr",
+      "weight": 0.2004547034799703,
+      "region": "chin",
+      "offset": 257184,
+      "count": 129,
+      "slider": "chin/chin-prominent-decr-incr",
+      "side": "unsided"
+    },
+    {
+      "target": "l-eye-scale-incr",
+      "weight": 0.5369844380354306,
+      "region": "eyes",
+      "offset": 94080,
+      "count": 627,
+      "slider": "eyes/eye-scale-decr-incr",
+      "side": "left"
+    },
+    {
+      "target": "r-eye-scale-incr",
+      "weight": 0.5369844380354306,
+      "region": "eyes",
+      "offset": 240384,
+      "count": 594,
+      "slider": "eyes/eye-scale-decr-incr",
+      "side": "right"
+    },
+    {
+      "target": "l-eye-trans-in",
+      "weight": 0.680090514998772,
+      "region": "eyes",
+      "offset": 115664,
+      "count": 723,
+      "slider": "eyes/eye-trans-in-out",
+      "side": "left"
+    },
+    {
+      "target": "r-eye-trans-in",
+      "weight": 0.680090514998772,
+      "region": "eyes",
+      "offset": 260912,
+      "count": 694,
+      "slider": "eyes/eye-trans-in-out",
+      "side": "right"
+    },
+    {
+      "target": "l-eye-trans-down",
+      "weight": 0.23476782307835126,
+      "region": "eyes",
+      "offset": 104112,
+      "count": 722,
+      "slider": "eyes/eye-trans-down-up",
+      "side": "left"
+    },
+    {
+      "target": "r-eye-trans-down",
+      "weight": 0.23476782307835126,
+      "region": "eyes",
+      "offset": 249888,
+      "count": 689,
+      "slider": "eyes/eye-trans-down-up",
+      "side": "right"
+    },
+    {
+      "target": "l-eye-corner1-down",
+      "weight": 0.05480582409335852,
+      "region": "eyes",
+      "offset": 7440,
+      "count": 223,
+      "slider": "eyes/eye-corner1-down-up",
+      "side": "left"
+    },
+    {
+      "target": "r-eye-corner1-down",
+      "weight": 0.05480582409335852,
+      "region": "eyes",
+      "offset": 158912,
+      "count": 205,
+      "slider": "eyes/eye-corner1-down-up",
+      "side": "right"
+    },
+    {
+      "target": "nose-scale-horiz-decr",
+      "weight": 0.6193962017820904,
+      "region": "nose",
+      "offset": 57856,
+      "count": 312,
+      "slider": "nose/nose-scale-horiz-decr-incr",
+      "side": "unsided"
+    },
+    {
+      "target": "nose-scale-vert-incr",
+      "weight": 0.19153804227024115,
+      "region": "nose",
+      "offset": 76336,
+      "count": 407,
+      "slider": "nose/nose-scale-vert-decr-incr",
+      "side": "unsided"
+    },
+    {
+      "target": "nose-scale-depth-decr",
+      "weight": 0.20721862202762362,
+      "region": "nose",
+      "offset": 46080,
+      "count": 359,
+      "slider": "nose/nose-scale-depth-decr-incr",
+      "side": "unsided"
+    },
+    {
+      "target": "nose-trans-down",
+      "weight": 0.13610211394907634,
+      "region": "nose",
+      "offset": 102928,
+      "count": 414,
+      "slider": "nose/nose-trans-down-up",
+      "side": "unsided"
+    },
+    {
+      "target": "nose-point-up",
+      "weight": 0.5139163785785729,
+      "region": "nose",
+      "offset": 42752,
+      "count": 77,
+      "slider": "nose/nose-point-down-up",
+      "side": "unsided"
+    },
+    {
+      "target": "mouth-scale-horiz-decr",
+      "weight": 0.39044470814576043,
+      "region": "mouth",
+      "offset": 55392,
+      "count": 838,
+      "slider": "mouth/mouth-scale-horiz-decr-incr",
+      "side": "unsided"
+    },
+    {
+      "target": "mouth-trans-up",
+      "weight": 0.2984525968429379,
+      "region": "mouth",
+      "offset": 196496,
+      "count": 978,
+      "slider": "mouth/mouth-trans-down-up",
+      "side": "unsided"
+    },
+    {
+      "target": "mouth-scale-depth-incr",
+      "weight": 0.006536553354519402,
+      "region": "mouth",
+      "offset": 47552,
+      "count": 490,
+      "slider": "mouth/mouth-scale-depth-decr-incr",
+      "side": "unsided"
+    },
+    {
+      "target": "l-eye-height1-incr",
+      "weight": 0.16698462522861465,
+      "region": "eyes",
+      "offset": 30080,
+      "count": 235,
+      "slider": "eyes/eye-height1-decr-incr",
+      "side": "left"
+    },
+    {
+      "target": "r-eye-height1-incr",
+      "weight": 0.16698462522861465,
+      "region": "eyes",
+      "offset": 180128,
+      "count": 215,
+      "slider": "eyes/eye-height1-decr-incr",
+      "side": "right"
+    },
+    {
+      "target": "l-eye-height3-decr",
+      "weight": 0.00027649295194070837,
+      "region": "eyes",
+      "offset": 49952,
+      "count": 336,
+      "slider": "eyes/eye-height3-decr-incr",
+      "side": "left"
+    },
+    {
+      "target": "r-eye-height3-decr",
+      "weight": 0.00027649295194070837,
+      "region": "eyes",
+      "offset": 198592,
+      "count": 294,
+      "slider": "eyes/eye-height3-decr-incr",
+      "side": "right"
+    },
+    {
+      "target": "l-eye-corner2-down",
+      "weight": 0.23848824695444718,
+      "region": "eyes",
+      "offset": 14288,
+      "count": 229,
+      "slider": "eyes/eye-corner2-down-up",
+      "side": "left"
+    },
+    {
+      "target": "r-eye-corner2-down",
+      "weight": 0.23848824695444718,
+      "region": "eyes",
+      "offset": 165120,
+      "count": 216,
+      "slider": "eyes/eye-corner2-down-up",
+      "side": "right"
+    }
+  ]
+}

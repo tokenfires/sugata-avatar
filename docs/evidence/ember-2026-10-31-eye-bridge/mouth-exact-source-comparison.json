@@ -1,0 +1,109 @@
+{
+  "scope": "Only the two previously witnessed triangle pairs, same two jaw settings; no global source intersection search.",
+  "baseline": "assets/figures/figure_g000.glb",
+  "baselineSha256": "26aa87c59a5e7cff800d3bf576426945aeb63d0bd2dff0e67db34f2240ae559d",
+  "indexHashes": {
+    "teeth_base": "327ef583c951aab388e4bcad4095006dfa900707cfd96592159e762aafeb3bf1",
+    "tongue01": "27b6ee6da46989bf844037ae1671d5b967642665c3952e62c6df9d3444495d57"
+  },
+  "result": [
+    {
+      "jawOpen": 0,
+      "tongueTriangle": 1,
+      "toothGumTriangle": 5115,
+      "maxTongueCoordinateDifferenceMetres": 0.0027577336877584457,
+      "maxToothGumCoordinateDifferenceMetres": 0.0019099712371826172,
+      "sameWitnessGeometryExactly": false,
+      "baselineTongue": [
+        [
+          -0.015673307701945305,
+          1.422743797302246,
+          0.10243461281061172
+        ],
+        [
+          -0.01590866409242153,
+          1.4249544143676758,
+          0.10918841511011124
+        ],
+        [
+          -0.01818528026342392,
+          1.425878882408142,
+          0.10241799801588058
+        ]
+      ],
+      "baselineTeethGum": [
+        [
+          -0.018207725137472153,
+          1.425667643547058,
+          0.10817358642816544
+        ],
+        [
+          -0.02043403871357441,
+          1.4239989519119263,
+          0.10739590227603912
+        ],
+        [
+          -0.01866120658814907,
+          1.4235881567001343,
+          0.10664395987987518
+        ]
+      ],
+      "baselineSegmentTriangleCrossing": null,
+      "baselineTongueDistancesToToothPlaneMm": [
+        -2.1776130669115275,
+        1.6452354320962908,
+        -4.565291478011915
+      ]
+    },
+    {
+      "jawOpen": 0.45,
+      "tongueTriangle": 1,
+      "toothGumTriangle": 5118,
+      "maxTongueCoordinateDifferenceMetres": 0.0027577336877584457,
+      "maxToothGumCoordinateDifferenceMetres": 0.0019099712371826172,
+      "sameWitnessGeometryExactly": false,
+      "baselineTongue": [
+        [
+          -0.015673307701945305,
+          1.4159938037395476,
+          0.0969446137547493
+        ],
+        [
+          -0.01590866409242153,
+          1.4168094038963317,
+          0.10369841605424882
+        ],
+        [
+          -0.01818528026342392,
+          1.4189488589763641,
+          0.09737799651920795
+        ]
+      ],
+      "baselineTeethGum": [
+        [
+          -0.01866120658814907,
+          1.4153873026371002,
+          0.10203573033213616
+        ],
+        [
+          -0.0180123969912529,
+          1.4155231893062592,
+          0.10043726786971093
+        ],
+        [
+          -0.01741688698530197,
+          1.4176894664764403,
+          0.10185284800827503
+        ]
+      ],
+      "baselineSegmentTriangleCrossing": null,
+      "baselineTongueDistancesToToothPlaneMm": [
+        0.7053536023942557,
+        2.2259755921173707,
+        -2.570893617675379
+      ]
+    }
+  ],
+  "limit": "Inherited overlap does not by itself establish a visible defect or justify moving the tongue.",
+  "comparisonMethod": "Three.js Ray.intersectTriangle on only six segments per witnessed pair, clipped to segment endpoints; independent library arithmetic."
+}

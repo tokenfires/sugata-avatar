@@ -1,0 +1,221 @@
+{
+  "scope": "Source-only readiness; no visual generation admitted",
+  "inputs": {
+    "packages/testbed/src/ember-local-feature-v001.js": {
+      "bytes": 11828,
+      "sha256": "d1b769696b525537d85fa8808f7df69450229b69af3457292f044ca478da7c97"
+    },
+    "packages/testbed/src/ember-ocular-v003-material.js": {
+      "bytes": 76094,
+      "sha256": "55040b37a7a1d35ec31c1716fbeefa88a27227d27f6de2239d5ec1cb3009014a"
+    },
+    "packages/core/src/material/HairMaterial.js": {
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    "packages/core/src/figure/Skeleton.js": {
+      "bytes": 19123,
+      "sha256": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4"
+    },
+    "tools/figure-pipeline/hair_texture.py": {
+      "bytes": 61711,
+      "sha256": "1e6962000651b8eab1d8d3c931259960f7889af1a0c7b3caac54357840279f64"
+    },
+    "reference/ember/portraits/face-reference-1.png": {
+      "bytes": 1277836,
+      "sha256": "92464091b3c68000c79ed846896f4df1486ed39fdff902ff97940eda564e9d3a"
+    },
+    "assets/hair/bob01/albedo.png": {
+      "bytes": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+    },
+    "assets/hair/bob01/normal.png": {
+      "bytes": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+    },
+    "assets/hair/bob01/flow.png": {
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    "assets/hair/bob01/depth.png": {
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    },
+    "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb": {
+      "bytes": 11568232,
+      "sha256": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef"
+    },
+    "docs/evidence/ember-2026-10-31-local-feature-v001/positions.f32": {
+      "bytes": 174204,
+      "sha256": "3859319a3c553fea959b80ba19ad9ad9a4823a42b11a32adfd356d06635c2654"
+    },
+    "docs/evidence/ember-2026-10-31-local-feature-v001/normals.f32": {
+      "bytes": 174204,
+      "sha256": "907028a279e85dc4a15c2cc9829fdbc10af82d0aa2d989f9cddf09e8817e67e7"
+    },
+    "tools/ember-hair/ember-waves-v001.json": {
+      "bytes": 38230,
+      "sha256": "b95683611ecbadbafc6552b30eddce2381a4d83b499cd9fbf253de9ea153cfc7"
+    },
+    "/Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile.mjs": {
+      "bytes": 19438,
+      "sha256": "f6f13db43ecf988bf5ca2a339da38c0682401a92bd3ee67dec4cf181f2dd25fa"
+    },
+    "tools/ember-hair/run.py": {
+      "bytes": 2265,
+      "sha256": "ac7815da77a1fe2a1a452ba31a4e8ca4c1d1b44a54c84e6e5572c3e4ed187728"
+    },
+    "tools/lut-bake/glb.mjs": {
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    },
+    "tools/critic/png.mjs": {
+      "bytes": 11612,
+      "sha256": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+    },
+    "packages/testbed/ember-hair-v001.html": {
+      "bytes": 1906,
+      "sha256": "37d64c75fcbe6e92f4f7666f2d15aac2553086b096369d657a4c38e02c893b75"
+    },
+    "packages/testbed/src/ember-hair-v001.js": {
+      "bytes": 12779,
+      "sha256": "724a58548acafea5dbe290eef17c3da49504a5fb0c25f5a0a8c09501d912ca9e"
+    },
+    "packages/testbed/src/ember-hair-v001-component.js": {
+      "bytes": 4724,
+      "sha256": "9fbbdbc51c820236d7b11f0c8b265f43753e8b71466be7e2f11991493e661f4a"
+    },
+    "package-lock.json": {
+      "bytes": 24580,
+      "sha256": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2"
+    },
+    "docs/evidence/ember-2026-10-31-hair-v001/preflight.json": {
+      "bytes": 6315,
+      "sha256": "ee1779fb8c658e073f033ffee1167808a21f43e9a8a552828e180fe9deb5b988"
+    },
+    "docs/evidence/ember-2026-10-31-hair-v001/failure.json": {
+      "bytes": 869,
+      "sha256": "c6011c3ebde8af0ca8d893718e62d36661e0cafdc596d948790cdd8e29d3e85b"
+    },
+    "docs/evidence/ember-2026-10-31-hair-v001/process-result.json": {
+      "bytes": 229,
+      "sha256": "2937372cad15d78c380f7ed832d4bb4daaeaf4a7849fd34945a5c6835fc26be2"
+    },
+    "/Users/robault/GitHub/sugata-avatar/tools/ember-hair/sampler-check.mjs": {
+      "bytes": 11091,
+      "sha256": "62bee655a86830ccd9eed3e5f723c084ca0ebe34ad8141c7cadf7879f43a2da9"
+    },
+    "tools/ember-hair/sampler-check-run.py": {
+      "bytes": 2296,
+      "sha256": "ff807fed7dba912fc8455a681d6480387a357f58d3a2b333250f1e0d6bab7037"
+    },
+    "docs/evidence/ember-2026-10-31-hair-sampler-check/preflight.json": {
+      "bytes": 5132,
+      "sha256": "a3f0e3f57a1d82e5e207753d84a7ee83b29d0b57c1df1f73d960e9395ab230e1"
+    },
+    "/Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v002.mjs": {
+      "bytes": 19763,
+      "sha256": "5774a3d07e4a761e23e602459c5145f3e70999e2da591e0750e831250045b2cc"
+    },
+    "tools/ember-hair/run-v002.py": {
+      "bytes": 2270,
+      "sha256": "677d96469b3287ca67257f27aa9e729198bb051c4fe2302ab0247321845d70ec"
+    },
+    "tools/ember-hair/sample-adaptive-v002.mjs": {
+      "bytes": 2911,
+      "sha256": "5b1cdd12ccfe5a6b399d928bd58b4f091cd9b1967017ecd020d5b198fcb17c3b"
+    },
+    "docs/evidence/ember-2026-10-31-hair-sampler-check/report.json": {
+      "bytes": 321629,
+      "sha256": "2de8b01b475e0d38f3c5231d664e43e3afe9d2101085463880eb2ea4a3dde420"
+    },
+    "docs/evidence/ember-2026-10-31-hair-sampler-check/review-receipt.json": {
+      "bytes": 965,
+      "sha256": "e27890012217860115d69a80da4acd0935bd415f37d330c26d925f67fe783b20"
+    },
+    "packages/testbed/ember-hair-v002.html": {
+      "bytes": 1906,
+      "sha256": "285967008ff88ac1a3fdab8ad68ff33d0c6e11fd37b9e0b93be8e2b51a3c61ab"
+    },
+    "packages/testbed/src/ember-hair-v002.js": {
+      "bytes": 12779,
+      "sha256": "3a3747d54f81466978b34c0b04d94d6f631b5003ab21949ae93cdb4666537300"
+    },
+    "packages/testbed/src/ember-hair-v002-component.js": {
+      "bytes": 4724,
+      "sha256": "60e73fe94b4b85b7f683849daac10bb65d9ad6ce54d3e9dde3ad3c1791c22418"
+    },
+    "docs/evidence/ember-2026-10-31-hair-v002/preflight.json": {
+      "bytes": 7642,
+      "sha256": "0ad041c25474a06e96d6ef21e2a51048a984b8555ee998f59b9f56a4397e9d5d"
+    },
+    "docs/evidence/ember-2026-10-31-hair-v002/failure.json": {
+      "bytes": 1062,
+      "sha256": "3ae68e64821fad3c418177917aafa78fb1d47a2880fdabf31b4bc270e785385a"
+    },
+    "docs/evidence/ember-2026-10-31-hair-v002/build-review.json": {
+      "bytes": 1643,
+      "sha256": "a34501e986820aed7f2920b3a9bdbdc6c58a54464e8c6b404ad53ee2b8ec9e86"
+    },
+    "docs/evidence/ember-2026-10-31-hair-layout-check/contract.json": {
+      "bytes": 2825,
+      "sha256": "bd6e4f2f2244922864db0ffcc12b07c1c6811d4aba1dc5d2d764d318135f4f6b"
+    },
+    "tools/ember-hair/layout-check.mjs": {
+      "bytes": 11550,
+      "sha256": "c0c7a3b608a4114e7c5a2091cf643bdba33ee58145ea0c628aa95401e2303d62"
+    },
+    "tools/ember-hair/layout-check-run.py": {
+      "bytes": 2485,
+      "sha256": "00495204489d9715bb2f2790b7cb8952731d9cf67aa0718f2d29a7d26af8ff89"
+    },
+    "docs/evidence/ember-2026-10-31-hair-layout-check/preflight.json": {
+      "bytes": 8536,
+      "sha256": "3aa456cbecdaab6ec4398a8e20d68d6cf5db16e60420418748d3d9026349b9e8"
+    },
+    "docs/evidence/ember-2026-10-31-hair-layout-check/failure.json": {
+      "bytes": 368886,
+      "sha256": "1e7b35cffbb0c38da4025d8c1d77bc89a77756d5566b1e1673d5a55721a8a97e"
+    },
+    "docs/evidence/ember-2026-10-31-hair-layout-check/result-review.json": {
+      "bytes": 1931,
+      "sha256": "b5d1ad7e08b1027890af2fcbc75f1214279eaf8b154b0f8002f1bb30f045ac3c"
+    },
+    "tools/ember-hair/visual-review.mjs": {
+      "bytes": 13043,
+      "sha256": "e369f41de180079f7135a1b385af4355b3414e19261d0a0499d3e14c5170166e"
+    },
+    "tools/ember-hair/visual-review-run.py": {
+      "bytes": 2650,
+      "sha256": "f25502fdb9fcb354cc49e2051b5bf0b5f3754c67a2692d223d50aad47162ef95"
+    },
+    "packages/testbed/ember-hair-visual-review.html": {
+      "bytes": 3512,
+      "sha256": "38adc0ac5e2b3278dadb79a2a9849d1fd40346475fb9b1f8383d6bf2559e128a"
+    },
+    "docs/evidence/ember-2026-10-31-hair-visual-review/contract.json": {
+      "bytes": 4699,
+      "sha256": "8781d516cdd471ebf1a178e3754f2f8860933047f0a52458bafd92f5c21dca41"
+    },
+    "node_modules/three/build/three.core.js": {
+      "bytes": 1443056,
+      "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
+    },
+    "node_modules/three/build/three.module.js": {
+      "bytes": 650153,
+      "sha256": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7"
+    },
+    "node_modules/three/src/extras/curves/CatmullRomCurve3.js": {
+      "bytes": 7372,
+      "sha256": "768ef1d2e91fbf024bfe5d97ddeadc7c41764689a3e7a775340824d05b1c9281"
+    },
+    "vite.config.js": {
+      "bytes": 3698,
+      "sha256": "6f1cac9c8364f231d1d50f750cb109ebb9b70484584527bb6aecf1a824928d0d"
+    },
+    "node_modules/three/package.json": {
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df"
+    }
+  }
+}

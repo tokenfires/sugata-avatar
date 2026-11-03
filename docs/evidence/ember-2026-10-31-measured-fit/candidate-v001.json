@@ -1,0 +1,620 @@
+{
+  "stage": "measured-native-geometry-v001-unaccepted",
+  "source": "assets/figures/figure_g000.glb",
+  "observations": "observations-checked-v001.json",
+  "center": [
+    0.0,
+    1.47,
+    0.1
+  ],
+  "fov": 28,
+  "identity": {
+    "head/head-scale-horiz-decr-incr": 0.588586122495446,
+    "cheek/cheek-volume-decr-incr": 0.5842779829826944,
+    "chin/chin-height-decr-incr": 0.31292139594908874,
+    "chin/chin-width-decr-incr": 0.3310662593441189,
+    "chin/chin-prominent-decr-incr": 0.1131829001112444,
+    "eyes/eye-scale-decr-incr": 0.48507743231861455,
+    "eyes/eye-trans-in-out": -0.5914865370491896,
+    "eyes/eye-trans-down-up": -0.2551945264179128,
+    "eyes/eye-corner1-down-up": 0.04318330078372333,
+    "nose/nose-scale-horiz-decr-incr": -0.5349044667514943,
+    "nose/nose-scale-vert-decr-incr": 0.13894906956011926,
+    "nose/nose-scale-depth-decr-incr": -0.12864171935609536,
+    "nose/nose-trans-down-up": -0.09552633394955629,
+    "nose/nose-point-down-up": 0.4261121102727371,
+    "mouth/mouth-scale-horiz-decr-incr": -0.28852240898674775,
+    "mouth/mouth-trans-down-up": 0.4105503574625806,
+    "mouth/mouth-scale-depth-decr-incr": 0.003258390537326435
+  },
+  "views": {
+    "front": {
+      "camera": [
+        -0.08940680928348968,
+        0.1620359329011228,
+        -0.0014658570476491543,
+        -0.5880467450598834,
+        0.004815058661828319,
+        0.002564794508221726
+      ],
+      "smile": 0.29867481418817704,
+      "rmsPixels": 6.696634654431167,
+      "projected": {
+        "nose-tip": [
+          514.1934293454707,
+          594.9285155470225
+        ],
+        "mouth-screen-left": [
+          414.41687455918503,
+          670.2241283457045
+        ],
+        "mouth-screen-right": [
+          631.3711210759801,
+          672.0484780921036
+        ],
+        "lower-lip-mid": [
+          519.233493124493,
+          727.450472303542
+        ],
+        "eye-outer-screen-left": [
+          354.87357407294803,
+          452.5017008783912
+        ],
+        "eye-outer-screen-right": [
+          693.5097436131468,
+          451.9292385298219
+        ],
+        "eye-inner-screen-left": [
+          462.52982876966047,
+          462.4189956831218
+        ],
+        "eye-inner-screen-right": [
+          582.0852071501137,
+          462.5217173880167
+        ],
+        "nose-wing-screen-left": [
+          454.77525328916465,
+          595.9843956345085
+        ],
+        "nose-wing-screen-right": [
+          586.9821429555733,
+          596.6646039041236
+        ],
+        "front-outline-cheek-left": [
+          298.5007586553477,
+          602.8197360232073
+        ],
+        "front-outline-cheek-right": [
+          778.4087797831298,
+          600.500699068795
+        ],
+        "front-outline-jaw-left": [
+          371.46345771317044,
+          757.5635309922752
+        ],
+        "front-outline-jaw-right": [
+          693.3992615816763,
+          759.0899121881345
+        ],
+        "front-outline-chin": [
+          524.5966353518503,
+          839.777644488935
+        ]
+      },
+      "errorsPixels": {
+        "nose-tip": 9.026444519653722,
+        "mouth-screen-left": 0.8807730820336286,
+        "mouth-screen-right": 1.6689418642372664,
+        "lower-lip-mid": 4.515997842647211,
+        "eye-outer-screen-left": 0.5173850465653759,
+        "eye-outer-screen-right": 1.177659310186244,
+        "eye-inner-screen-left": 1.6494349444056502,
+        "eye-inner-screen-right": 4.344448980047052,
+        "nose-wing-screen-left": 3.0239677202646953,
+        "nose-wing-screen-right": 1.9327469939973665,
+        "front-outline-cheek-left": 6.180013479540817,
+        "front-outline-cheek-right": 9.604280545985278,
+        "front-outline-jaw-left": 11.053628383848084,
+        "front-outline-jaw-right": 8.335283663442635,
+        "front-outline-chin": 14.457451761413509
+      }
+    },
+    "angle": {
+      "camera": [
+        -0.2713037246509442,
+        0.21,
+        0.06746826387102414,
+        -0.2638498837199027,
+        0.0058964133196072336,
+        0.03061640845990796
+      ],
+      "smile": 0.22191812945167055,
+      "rmsPixels": 6.366984685740179,
+      "projected": {
+        "nose-tip": [
+          498.4249946009795,
+          499.1089247548742
+        ],
+        "mouth-screen-left": [
+          448.80623716568823,
+          559.4394341441774
+        ],
+        "mouth-screen-right": [
+          594.9539605633382,
+          550.4280819076326
+        ],
+        "lower-lip-mid": [
+          517.6580873519051,
+          593.1938084560966
+        ],
+        "eye-outer-screen-left": [
+          394.3038120652379,
+          405.90038700128355
+        ],
+        "eye-outer-screen-right": [
+          627.707910810501,
+          386.32148342256755
+        ],
+        "eye-inner-screen-left": [
+          467.1119639182072,
+          407.1377551368876
+        ],
+        "eye-inner-screen-right": [
+          549.3836516005354,
+          400.4997282082717
+        ],
+        "nose-wing-screen-left": [
+          468.064119711582,
+          502.3549605380834
+        ],
+        "nose-wing-screen-right": [
+          558.198463401012,
+          496.10922591476725
+        ],
+        "angle-outline-cheek-near": [
+          714.9370332040817,
+          501.79302993669705
+        ],
+        "angle-outline-jaw-near": [
+          669.9792017500944,
+          620.1186911579562
+        ],
+        "angle-outline-chin": [
+          515.7155909469858,
+          671.6106277930619
+        ]
+      },
+      "errorsPixels": {
+        "nose-tip": 4.400443687648044,
+        "mouth-screen-left": 3.2238522622632844,
+        "mouth-screen-right": 2.090342435109048,
+        "lower-lip-mid": 0.875699186015744,
+        "eye-outer-screen-left": 4.9495929532495,
+        "eye-outer-screen-right": 3.5253544372444097,
+        "eye-inner-screen-left": 1.1432509219302984,
+        "eye-inner-screen-right": 4.2071911278569045,
+        "nose-wing-screen-left": 3.3551190647781057,
+        "nose-wing-screen-right": 7.757219227762096,
+        "angle-outline-cheek-near": 10.221460614298067,
+        "angle-outline-jaw-near": 13.708906020021852,
+        "angle-outline-chin": 8.504657760467257
+      }
+    }
+  },
+  "history": [
+    {
+      "iteration": 0,
+      "objective": 188.7815633601121,
+      "improved": true
+    },
+    {
+      "iteration": 1,
+      "objective": 42.84937181757192,
+      "improved": true
+    },
+    {
+      "iteration": 2,
+      "objective": 38.563756007641885,
+      "improved": false
+    },
+    {
+      "iteration": 3,
+      "objective": 38.563756007641885,
+      "improved": true
+    },
+    {
+      "iteration": 4,
+      "objective": 38.111416828669874,
+      "improved": false
+    },
+    {
+      "iteration": 5,
+      "objective": 38.111416828669874,
+      "improved": true
+    },
+    {
+      "iteration": 6,
+      "objective": 37.54288107305733,
+      "improved": false
+    },
+    {
+      "iteration": 7,
+      "objective": 37.54288107305733,
+      "improved": true
+    },
+    {
+      "iteration": 8,
+      "objective": 36.79592633091029,
+      "improved": false
+    },
+    {
+      "iteration": 9,
+      "objective": 36.79592633091029,
+      "improved": true
+    },
+    {
+      "iteration": 10,
+      "objective": 35.88481397756094,
+      "improved": false
+    },
+    {
+      "iteration": 11,
+      "objective": 35.88481397756094,
+      "improved": true
+    },
+    {
+      "iteration": 12,
+      "objective": 34.89979608255392,
+      "improved": false
+    },
+    {
+      "iteration": 13,
+      "objective": 34.89979608255392,
+      "improved": true
+    },
+    {
+      "iteration": 14,
+      "objective": 33.97582120302396,
+      "improved": false
+    },
+    {
+      "iteration": 15,
+      "objective": 33.97582120302396,
+      "improved": true
+    },
+    {
+      "iteration": 16,
+      "objective": 33.22919673207623,
+      "improved": false
+    },
+    {
+      "iteration": 17,
+      "objective": 33.22919673207623,
+      "improved": true
+    },
+    {
+      "iteration": 18,
+      "objective": 32.705075958372596,
+      "improved": false
+    },
+    {
+      "iteration": 19,
+      "objective": 32.705075958372596,
+      "improved": true
+    },
+    {
+      "iteration": 20,
+      "objective": 32.377726697229136,
+      "improved": false
+    },
+    {
+      "iteration": 21,
+      "objective": 32.377726697229136,
+      "improved": true
+    },
+    {
+      "iteration": 22,
+      "objective": 32.18961943332282,
+      "improved": false
+    },
+    {
+      "iteration": 23,
+      "objective": 32.18961943332282,
+      "improved": true
+    },
+    {
+      "iteration": 24,
+      "objective": 32.08637956167442,
+      "improved": false
+    },
+    {
+      "iteration": 25,
+      "objective": 32.08637956167442,
+      "improved": true
+    },
+    {
+      "iteration": 26,
+      "objective": 32.030446376143914,
+      "improved": true
+    },
+    {
+      "iteration": 27,
+      "objective": 32.01515846717726,
+      "improved": false
+    },
+    {
+      "iteration": 28,
+      "objective": 32.01515846717726,
+      "improved": true
+    },
+    {
+      "iteration": 29,
+      "objective": 31.982058675237678,
+      "improved": false
+    },
+    {
+      "iteration": 30,
+      "objective": 31.982058675237678,
+      "improved": true
+    },
+    {
+      "iteration": 31,
+      "objective": 31.956757063803483,
+      "improved": false
+    },
+    {
+      "iteration": 32,
+      "objective": 31.956757063803483,
+      "improved": true
+    },
+    {
+      "iteration": 33,
+      "objective": 31.940850223123583,
+      "improved": true
+    },
+    {
+      "iteration": 34,
+      "objective": 31.93610525409315,
+      "improved": false
+    },
+    {
+      "iteration": 35,
+      "objective": 31.93610525409315,
+      "improved": true
+    },
+    {
+      "iteration": 36,
+      "objective": 31.92429457333865,
+      "improved": false
+    },
+    {
+      "iteration": 37,
+      "objective": 31.92429457333865,
+      "improved": true
+    },
+    {
+      "iteration": 38,
+      "objective": 31.914870740963003,
+      "improved": false
+    },
+    {
+      "iteration": 39,
+      "objective": 31.914870740963003,
+      "improved": true
+    },
+    {
+      "iteration": 40,
+      "objective": 31.90873701060496,
+      "improved": true
+    },
+    {
+      "iteration": 41,
+      "objective": 31.905123000345675,
+      "improved": false
+    },
+    {
+      "iteration": 42,
+      "objective": 31.905123000345675,
+      "improved": true
+    },
+    {
+      "iteration": 43,
+      "objective": 31.899807646040127,
+      "improved": false
+    },
+    {
+      "iteration": 44,
+      "objective": 31.899807646040127,
+      "improved": true
+    },
+    {
+      "iteration": 45,
+      "objective": 31.8957606450962,
+      "improved": true
+    },
+    {
+      "iteration": 46,
+      "objective": 31.89555262036701,
+      "improved": false
+    },
+    {
+      "iteration": 47,
+      "objective": 31.89555262036701,
+      "improved": true
+    },
+    {
+      "iteration": 48,
+      "objective": 31.891916134309223,
+      "improved": false
+    },
+    {
+      "iteration": 49,
+      "objective": 31.891916134309223,
+      "improved": true
+    },
+    {
+      "iteration": 50,
+      "objective": 31.888669075488693,
+      "improved": false
+    },
+    {
+      "iteration": 51,
+      "objective": 31.888669075488693,
+      "improved": true
+    },
+    {
+      "iteration": 52,
+      "objective": 31.886443092141622,
+      "improved": true
+    },
+    {
+      "iteration": 53,
+      "objective": 31.88487094053599,
+      "improved": false
+    },
+    {
+      "iteration": 54,
+      "objective": 31.88487094053599,
+      "improved": true
+    },
+    {
+      "iteration": 55,
+      "objective": 31.882679259558806,
+      "improved": false
+    },
+    {
+      "iteration": 56,
+      "objective": 31.882679259558806,
+      "improved": true
+    },
+    {
+      "iteration": 57,
+      "objective": 31.880998422210887,
+      "improved": true
+    },
+    {
+      "iteration": 58,
+      "objective": 31.88052923383411,
+      "improved": false
+    },
+    {
+      "iteration": 59,
+      "objective": 31.88052923383411,
+      "improved": true
+    },
+    {
+      "iteration": 60,
+      "objective": 31.87886031678092,
+      "improved": false
+    },
+    {
+      "iteration": 61,
+      "objective": 31.87886031678092,
+      "improved": true
+    },
+    {
+      "iteration": 62,
+      "objective": 31.877423731416254,
+      "improved": false
+    },
+    {
+      "iteration": 63,
+      "objective": 31.877423731416254,
+      "improved": true
+    },
+    {
+      "iteration": 64,
+      "objective": 31.876437959311986,
+      "improved": true
+    },
+    {
+      "iteration": 65,
+      "objective": 31.875450728878242,
+      "improved": false
+    },
+    {
+      "iteration": 66,
+      "objective": 31.875450728878242,
+      "improved": true
+    },
+    {
+      "iteration": 67,
+      "objective": 31.874362230892373,
+      "improved": false
+    },
+    {
+      "iteration": 68,
+      "objective": 31.874362230892373,
+      "improved": true
+    },
+    {
+      "iteration": 69,
+      "objective": 31.873558462375563,
+      "improved": true
+    },
+    {
+      "iteration": 70,
+      "objective": 31.873000232007865,
+      "improved": false
+    },
+    {
+      "iteration": 71,
+      "objective": 31.873000232007865,
+      "improved": true
+    },
+    {
+      "iteration": 72,
+      "objective": 31.87211356492157,
+      "improved": false
+    },
+    {
+      "iteration": 73,
+      "objective": 31.87211356492157,
+      "improved": true
+    },
+    {
+      "iteration": 74,
+      "objective": 31.871405869547242,
+      "improved": true
+    },
+    {
+      "iteration": 75,
+      "objective": 31.871158921308837,
+      "improved": false
+    },
+    {
+      "iteration": 76,
+      "objective": 31.871158921308837,
+      "improved": true
+    },
+    {
+      "iteration": 77,
+      "objective": 31.870390056449335,
+      "improved": false
+    },
+    {
+      "iteration": 78,
+      "objective": 31.870390056449335,
+      "improved": true
+    },
+    {
+      "iteration": 79,
+      "objective": 31.869724057494842,
+      "improved": false
+    }
+  ],
+  "seconds": 0.1593049590010196,
+  "limits": [
+    "Sparse measured fit is not full likeness acceptance.",
+    "View-specific surface anchors approximate contours; must remain on visible contour after fitting.",
+    "Generated photos and unknown cameras do not uniquely determine 3D anatomy.",
+    "Independent eyeballs/teeth and rig have not yet been refitted. Hair and finished skin absent.",
+    "Eye aperture, upper lip thickness and forehead not directly constrained."
+  ],
+  "atBounds": [
+    {
+      "parameter": "angle-pitch",
+      "value": 0.21
+    }
+  ]
+}

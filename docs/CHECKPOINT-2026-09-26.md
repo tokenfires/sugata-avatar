@@ -1,3 +1,5 @@
+> **Historical.** Current entry point: `AGENTS.md`; current status: `docs/EMBER-AVATAR-NEXT.md`.
+
 # Sugata checkpoint — 2026-09-26 18:39 PDT
 
 **Stopped at Robert's explicit request. Resume only after a new request.** The earlier end-of-day

@@ -1,0 +1,96 @@
+{
+  "scope": "One exact isolation after rejected combined trial: same auburn pigment/projected brow positions; restore original alphaTest .5 and disable alphaToCoverage, retain original lash material and geometry.",
+  "baselineInputs": [
+    {
+      "path": "packages/testbed/ember-appearance-v001.html",
+      "bytes": 2067,
+      "sha256": "9f4cbf3fb9bc4b704b60d4aa3704cc8e3dd92cb5213d038c9e016b0c02647052"
+    },
+    {
+      "path": "packages/testbed/src/ember-appearance-v001.js",
+      "bytes": 8110,
+      "sha256": "fc486085da779ae74f2e33f501349b678a97551c59187a99a583829c18984af0"
+    },
+    {
+      "path": "packages/core/src/material/EyeMaterial.js",
+      "bytes": 75066,
+      "sha256": "a64b29c812a7110cfdf8cf1045023628605af0906b607f49cd337a53ba79aa25"
+    },
+    {
+      "path": "packages/core/src/material/SkinMaterial.js",
+      "bytes": 72436,
+      "sha256": "803522f23feb60a98f5dc927e2a274351c872141a7d038b11c4673a4ff91440e"
+    },
+    {
+      "path": "packages/core/src/figure/Skeleton.js",
+      "bytes": 19123,
+      "sha256": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4"
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb",
+      "bytes": 11568232,
+      "sha256": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef"
+    },
+    {
+      "path": "docs/evidence/ember-2026-10-31-measured-fit/candidate-correction-v001.json",
+      "bytes": 16270,
+      "sha256": "9572d8f2f6b433b5eb5e1dd7ee3e1f17e95109ac8606edc46d361f2f369eea3e"
+    },
+    {
+      "path": "reference/ember/portraits/face-reference-2.png",
+      "bytes": 1213961,
+      "sha256": "50cdaa32a44fd064b4d3f21bdec722ce533b822508fb5e5048f9fc950a5b14fe"
+    },
+    {
+      "path": "reference/ember/portraits/face-reference-1.png",
+      "bytes": 1277836,
+      "sha256": "92464091b3c68000c79ed846896f4df1486ed39fdff902ff97940eda564e9d3a"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 24580,
+      "sha256": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2"
+    },
+    {
+      "path": "packages/testbed/src/ember-appearance-v002.js",
+      "bytes": 8492,
+      "sha256": "ca8872ba2ccc365cd4ce1ee8ec601f9b953a8b0f820f6bdc99bdb350894032dc"
+    },
+    {
+      "path": "packages/testbed/ember-appearance-v002.html",
+      "bytes": 2066,
+      "sha256": "43c4e270e8e531515946e7da64cae92363473cd096456390806a40893258f1a3"
+    },
+    {
+      "path": "packages/testbed/src/ember-appearance-v003.js",
+      "bytes": 7359,
+      "sha256": "85e1012c25786ef69b74fc09b6de1b4127cdd9a520f6bd624c5b4f9ecec1ea81"
+    },
+    {
+      "path": "packages/testbed/src/ember-ocular-v003-material.js",
+      "bytes": 76094,
+      "sha256": "55040b37a7a1d35ec31c1716fbeefa88a27227d27f6de2239d5ec1cb3009014a"
+    }
+  ],
+  "limits": {
+    "candidates": 1,
+    "captures": 2,
+    "canvas": [
+      512,
+      512
+    ],
+    "pixelRatio": 1,
+    "readySeconds": 30,
+    "nativeBuilds": 0,
+    "animationLoops": 0,
+    "outputBytes": 20971520,
+    "cpuPrepSeconds": 30,
+    "cpuPrepRssMiB": 256
+  },
+  "frames": [
+    "front/reference/warm",
+    "front/neutral/neutral"
+  ],
+  "decision": "Reject combined candidate. Critic nominates exact frozen baseline coverage to isolate brow colour/placement. No threshold search or further revision after verdict.",
+  "criticWorth": "Nominated by independent actual-image critic; root agrees this isolates the two coupled changes."
+}

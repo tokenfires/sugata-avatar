@@ -1,0 +1,64 @@
+{
+  "method": "Nearest signed distance plus a negative-X ray through every posed body triangle at each flagged vertex Y/Z. Checks whether vertex lies before the first skin intersection.",
+  "results": [
+    {
+      "state": "bind",
+      "flags": []
+    },
+    {
+      "state": "head",
+      "flags": [
+        {
+          "outermostBodyX": -0.07050454616748447,
+          "vertexBeforeOutermostSkin": true,
+          "vertex": 23936,
+          "row": 9,
+          "cross": 2,
+          "parameter": 0.5,
+          "signedM": -0.004562203805285712,
+          "distanceM": 0.012052103774397617,
+          "position": [
+            -0.09526327703915272,
+            1.470873092014444,
+            0.041851673956734115
+          ],
+          "nearest": [
+            -0.08583468855247982,
+            1.470698618698849,
+            0.049356637887358557
+          ],
+          "normal": [
+            -0.22847998554158264,
+            -0.40451653822134576,
+            0.8855299354128786
+          ]
+        },
+        {
+          "outermostBodyX": -0.06548855830473263,
+          "vertexBeforeOutermostSkin": true,
+          "vertex": 23939,
+          "row": 10,
+          "cross": 2,
+          "parameter": 0.5714285714285714,
+          "signedM": -0.004692733569803292,
+          "distanceM": 0.02239172395632399,
+          "position": [
+            -0.09343731465703443,
+            1.460650537600814,
+            0.029096622135126773
+          ],
+          "nearest": [
+            -0.08432245046614927,
+            1.465487136211344,
+            0.04896911232630698
+          ],
+          "normal": [
+            -0.7331788292760636,
+            -0.24865434903084244,
+            0.6329453523088931
+          ]
+        }
+      ]
+    }
+  ]
+}

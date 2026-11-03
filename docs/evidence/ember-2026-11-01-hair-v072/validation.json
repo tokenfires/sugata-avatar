@@ -1,0 +1,261 @@
+{
+  "protectedInputs": "All preflight/build hashes match; approved face, eyes and brows unchanged",
+  "retainedGeometry": "All231other ribbons exact across7vertexbuffers and their index triangles. Complete UV/UV1 buffers exact. Source guide control points and coverage bands exact; only target middle vertex positions and its derived attributes change.",
+  "retainedV065SideFillExact": true,
+  "retainedV067CrownFillExact": true,
+  "retainedV068UpperBandCentreFrontAndEndsExact": true,
+  "allOriginalRootAndEndRowsExact": true,
+  "centrelineAndOppositeBoundaryExact": true,
+  "completeRootDistanceBufferExact": true,
+  "changedPositionVertices": 6,
+  "reshape": {
+    "guide": "side-scalp-heavy-01",
+    "vertices": [
+      {
+        "vertex": 23877,
+        "row": 4,
+        "cross": 0,
+        "t": 0.2857142857142857,
+        "backwardM": 0.00025748106526884626,
+        "outwardM": 0,
+        "rearScalpZ": 0.002287838546120323,
+        "extendedZ": 0.022701242444897147,
+        "cornerTrimM": 0
+      },
+      {
+        "vertex": 23880,
+        "row": 5,
+        "cross": 0,
+        "t": 0.3571428571428571,
+        "backwardM": 0.02566398210765524,
+        "outwardM": 0,
+        "rearScalpZ": -0.010357384599165916,
+        "extendedZ": -0.008259598475182848,
+        "cornerTrimM": 0.0039022138760169325
+      },
+      {
+        "vertex": 23883,
+        "row": 6,
+        "cross": 0,
+        "t": 0.42857142857142855,
+        "backwardM": 0.03272334901477255,
+        "outwardM": 0,
+        "rearScalpZ": -0.018063511468340933,
+        "extendedZ": -0.030000000000000002,
+        "cornerTrimM": 0.01793648853165907
+      },
+      {
+        "vertex": 23886,
+        "row": 7,
+        "cross": 0,
+        "t": 0.5714285714285714,
+        "backwardM": 0.044798835423789554,
+        "outwardM": 0,
+        "rearScalpZ": -0.033669500661839956,
+        "extendedZ": -0.030000000000000002,
+        "cornerTrimM": 0.002330499338160045
+      },
+      {
+        "vertex": 23889,
+        "row": 8,
+        "cross": 0,
+        "t": 0.6428571428571428,
+        "backwardM": 0.0561308136853545,
+        "outwardM": 0,
+        "rearScalpZ": -0.03885288307319802,
+        "extendedZ": -0.03,
+        "cornerTrimM": 0
+      },
+      {
+        "vertex": 23892,
+        "row": 9,
+        "cross": 0,
+        "t": 0.7142857142857143,
+        "backwardM": 0.027971947469673818,
+        "outwardM": 0,
+        "rearScalpZ": -0.042515322837810426,
+        "extendedZ": 0.0062027768326734095,
+        "cornerTrimM": 0
+      }
+    ],
+    "maxBackwardM": 0.0561308136853545,
+    "maxOutwardM": 0,
+    "maxCornerTrimM": 0.01793648853165907,
+    "triangleSamples": 765,
+    "triangleConstraints": 0
+  },
+  "depthFit": {
+    "guide": "side-scalp-heavy-01",
+    "vertices": [
+      {
+        "vertex": 23877,
+        "row": 4,
+        "t": 0.2857142857142857,
+        "beforeX": -0.05381079618008267,
+        "skinX": -0.03561609885318062,
+        "edgeToSkinM": 0.01819469732690205,
+        "desiredInwardM": 6.901347968098204e-05,
+        "appliedInwardM": 6.541536430254978e-05
+      },
+      {
+        "vertex": 23880,
+        "row": 5,
+        "t": 0.3571428571428571,
+        "beforeX": -0.06081301033305223,
+        "skinX": -0.020843062071160823,
+        "edgeToSkinM": 0.03996994826189141,
+        "desiredInwardM": 0.02072822193398541,
+        "appliedInwardM": 0.01146955970474515
+      },
+      {
+        "vertex": 23883,
+        "row": 6,
+        "t": 0.42857142857142855,
+        "beforeX": -0.0670215725217824,
+        "skinX": -0.03185529210793919,
+        "edgeToSkinM": 0.035166280413843204,
+        "desiredInwardM": 0.0311662804138432,
+        "appliedInwardM": 0.010765743327711385
+      },
+      {
+        "vertex": 23886,
+        "row": 7,
+        "t": 0.5714285714285714,
+        "beforeX": -0.07698242601153214,
+        "skinX": -0.031700530182033726,
+        "edgeToSkinM": 0.04528189582949842,
+        "desiredInwardM": 0.04128189582949841,
+        "appliedInwardM": 0.012691229645195798
+      },
+      {
+        "vertex": 23889,
+        "row": 8,
+        "t": 0.6428571428571428,
+        "beforeX": -0.0802555731838662,
+        "skinX": -0.03769599979636429,
+        "edgeToSkinM": 0.04255957338750191,
+        "desiredInwardM": 0.038559573387501905,
+        "appliedInwardM": 0.012347456623344475
+      },
+      {
+        "vertex": 23892,
+        "row": 9,
+        "t": 0.7142857142857143,
+        "beforeX": -0.08164831135995036,
+        "skinX": -0.07063994351708597,
+        "edgeToSkinM": 0.011008367842864394,
+        "desiredInwardM": 0.0030547493468792947,
+        "appliedInwardM": 0.0012587996973919889
+      }
+    ],
+    "samples": 765,
+    "limitedSamples": 346,
+    "rayMisses": 0,
+    "maxRequestedInwardM": 0.04128189582949841,
+    "maxAppliedInwardM": 0.012691229645195798
+  },
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "addedVertices": 0,
+  "addedTriangles": 0,
+  "vertices": 23997,
+  "triangles": 31068,
+  "sceneAndComponent": "Byte-identical to v068 after version normalization",
+  "material": "All appearance profiles, ambient, pigment and shadow settings unchanged",
+  "clearance": {
+    "triangleCrossings": [
+      132,
+      122
+    ],
+    "nearestSignedFlags": [
+      60,
+      50
+    ],
+    "correctedWindingFacesBefore": 242,
+    "correctedWindingFacesAfter": 242,
+    "changedWindingTriangles": [],
+    "qualification": "No added crossings or signed-distance flags. No added corrected winding faces; entire index buffer exact. Final surface and winding remain unqualified."
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2772,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.776848,
+    "rssBytes": 177782784,
+    "wallSeconds": 1.5467736669999999
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v072; retain v068",
+    "finding": "The trimmed corner is less prominent, but the broad blunt step remains at 90 degrees and the sheet is visible at 45 degrees. Much of v070 coverage survives with a small pale sliver exposed. Frontal appearance and silhouette remain stable.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Rebuild the widened section as two narrower overlapping scalp-following strips with staggered boundaries, reallocating the existing band vertex budget. Preserve v068 base coverage and original anchors and lock-end targets."
+  }
+}

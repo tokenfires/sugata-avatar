@@ -1,0 +1,5867 @@
+{
+  "scope": "One source-only local-field/correspondence inspection; six 0.1-unit direction samples are response witnesses, not selected candidate settings or an identity solve.",
+  "correspondence": {
+    "glbBodyVertices": 14517,
+    "knownNativeVertices": 13380,
+    "matched": 14517,
+    "failures": [],
+    "failureCount": 0,
+    "maxDistanceMetres": 1.201947465904182e-7,
+    "sourceDuplicateSpreadMetres": 0,
+    "method": "Coordinate equality within 2 micrometres to the frozen fitted source; no optimization. UV-split copies share one native source."
+  },
+  "endpointSupport": [
+    {
+      "id": "cheek/cheek-volume-decr-incr",
+      "baseline": 0.6441848396942098,
+      "endpoints": [
+        {
+          "end": "negative-left",
+          "target": "l-cheek-volume-decr",
+          "records": 194,
+          "nonzero": 152,
+          "visible": 152,
+          "helpers": 0
+        },
+        {
+          "end": "negative-right",
+          "target": "r-cheek-volume-decr",
+          "records": 194,
+          "nonzero": 152,
+          "visible": 152,
+          "helpers": 0
+        },
+        {
+          "end": "positive-left",
+          "target": "l-cheek-volume-incr",
+          "records": 229,
+          "nonzero": 210,
+          "visible": 210,
+          "helpers": 0
+        },
+        {
+          "end": "positive-right",
+          "target": "r-cheek-volume-incr",
+          "records": 229,
+          "nonzero": 210,
+          "visible": 210,
+          "helpers": 0
+        }
+      ]
+    },
+    {
+      "id": "chin/chin-width-decr-incr",
+      "baseline": 0.39297019644363645,
+      "endpoints": [
+        {
+          "end": "negative-unsided",
+          "target": "chin-width-decr",
+          "records": 179,
+          "nonzero": 142,
+          "visible": 142,
+          "helpers": 0
+        },
+        {
+          "end": "positive-unsided",
+          "target": "chin-width-incr",
+          "records": 266,
+          "nonzero": 198,
+          "visible": 198,
+          "helpers": 0
+        }
+      ]
+    },
+    {
+      "id": "chin/chin-cleft-decr-incr",
+      "baseline": 0,
+      "endpoints": [
+        {
+          "end": "negative-unsided",
+          "target": "chin-cleft-decr",
+          "records": 21,
+          "nonzero": 21,
+          "visible": 21,
+          "helpers": 0
+        },
+        {
+          "end": "positive-unsided",
+          "target": "chin-cleft-incr",
+          "records": 50,
+          "nonzero": 39,
+          "visible": 39,
+          "helpers": 0
+        }
+      ]
+    },
+    {
+      "id": "mouth/mouth-lowerlip-height-decr-incr",
+      "baseline": 0,
+      "endpoints": [
+        {
+          "end": "negative-unsided",
+          "target": "mouth-lowerlip-height-decr",
+          "records": 121,
+          "nonzero": 121,
+          "visible": 121,
+          "helpers": 0
+        },
+        {
+          "end": "positive-unsided",
+          "target": "mouth-lowerlip-height-incr",
+          "records": 77,
+          "nonzero": 64,
+          "visible": 64,
+          "helpers": 0
+        }
+      ]
+    },
+    {
+      "id": "mouth/mouth-lowerlip-volume-decr-incr",
+      "baseline": 0,
+      "endpoints": [
+        {
+          "end": "negative-unsided",
+          "target": "mouth-lowerlip-volume-decr",
+          "records": 72,
+          "nonzero": 59,
+          "visible": 59,
+          "helpers": 0
+        },
+        {
+          "end": "positive-unsided",
+          "target": "mouth-lowerlip-volume-incr",
+          "records": 187,
+          "nonzero": 130,
+          "visible": 130,
+          "helpers": 0
+        }
+      ]
+    }
+  ],
+  "fields": [
+    {
+      "name": "cheek-reduce-current-positive",
+      "slider": "cheek/cheek-volume-decr-incr",
+      "before": 0.6441848396942098,
+      "after": 0.5441848396942098,
+      "change": -0.1,
+      "visibleMoved": 420,
+      "helpersMoved": 0,
+      "helperIds": [],
+      "visibleBoundsMetres": {
+        "min": [
+          -0.07031423598527908,
+          1.3907270431518555,
+          0.06179490685462952
+        ],
+        "max": [
+          0.07031423598527908,
+          1.4777580499649048,
+          0.13828228414058685
+        ]
+      },
+      "maximum": {
+        "nativeVertex": 5301,
+        "magnitudeMm": 0.9459386753028345,
+        "deltaMm": [
+          0.7199999876320359,
+          0.20000000949949026,
+          -0.5799999926239252
+        ],
+        "positionMetres": [
+          -0.05514879524707794,
+          1.4345077276229858,
+          0.11752761900424957
+        ]
+      },
+      "affectedNativeIds": [
+        42,
+        76,
+        77,
+        78,
+        138,
+        139,
+        140,
+        141,
+        183,
+        184,
+        191,
+        192,
+        196,
+        203,
+        213,
+        218,
+        219,
+        259,
+        269,
+        270,
+        288,
+        337,
+        358,
+        363,
+        368,
+        369,
+        372,
+        374,
+        375,
+        376,
+        377,
+        378,
+        379,
+        380,
+        402,
+        407,
+        408,
+        411,
+        412,
+        413,
+        414,
+        415,
+        416,
+        417,
+        418,
+        419,
+        420,
+        422,
+        424,
+        427,
+        430,
+        433,
+        436,
+        497,
+        498,
+        499,
+        524,
+        528,
+        541,
+        711,
+        712,
+        725,
+        735,
+        736,
+        737,
+        739,
+        740,
+        869,
+        892,
+        893,
+        894,
+        895,
+        900,
+        901,
+        902,
+        903,
+        905,
+        906,
+        908,
+        910,
+        911,
+        912,
+        915,
+        917,
+        998,
+        3697,
+        3698,
+        3699,
+        3732,
+        3733,
+        3734,
+        3735,
+        3736,
+        3737,
+        3738,
+        3739,
+        4886,
+        5049,
+        5051,
+        5058,
+        5059,
+        5060,
+        5061,
+        5065,
+        5066,
+        5067,
+        5068,
+        5075,
+        5086,
+        5091,
+        5092,
+        5098,
+        5133,
+        5136,
+        5137,
+        5139,
+        5140,
+        5141,
+        5142,
+        5143,
+        5144,
+        5145,
+        5146,
+        5147,
+        5148,
+        5149,
+        5150,
+        5151,
+        5152,
+        5153,
+        5154,
+        5155,
+        5156,
+        5163,
+        5164,
+        5169,
+        5170,
+        5172,
+        5173,
+        5174,
+        5175,
+        5176,
+        5177,
+        5178,
+        5179,
+        5180,
+        5181,
+        5182,
+        5183,
+        5184,
+        5185,
+        5186,
+        5201,
+        5202,
+        5203,
+        5204,
+        5205,
+        5206,
+        5207,
+        5208,
+        5209,
+        5212,
+        5216,
+        5217,
+        5218,
+        5219,
+        5224,
+        5226,
+        5227,
+        5228,
+        5235,
+        5238,
+        5240,
+        5241,
+        5242,
+        5246,
+        5249,
+        5250,
+        5251,
+        5258,
+        5286,
+        5287,
+        5288,
+        5289,
+        5290,
+        5295,
+        5297,
+        5298,
+        5299,
+        5300,
+        5301,
+        5302,
+        5303,
+        5304,
+        5305,
+        5306,
+        5321,
+        5322,
+        5323,
+        5324,
+        5325,
+        5326,
+        5327,
+        5328,
+        5330,
+        5331,
+        5332,
+        5333,
+        5339,
+        5341,
+        6826,
+        6860,
+        6861,
+        6862,
+        6916,
+        6917,
+        6918,
+        6919,
+        6959,
+        6960,
+        6967,
+        6968,
+        6972,
+        6978,
+        6988,
+        6993,
+        6994,
+        7028,
+        7038,
+        7039,
+        7057,
+        7099,
+        7119,
+        7123,
+        7128,
+        7129,
+        7132,
+        7134,
+        7135,
+        7136,
+        7137,
+        7138,
+        7139,
+        7140,
+        7162,
+        7167,
+        7168,
+        7171,
+        7172,
+        7173,
+        7174,
+        7175,
+        7176,
+        7177,
+        7178,
+        7179,
+        7180,
+        7182,
+        7184,
+        7187,
+        7190,
+        7193,
+        7196,
+        7246,
+        7247,
+        7248,
+        7269,
+        7273,
+        7284,
+        7434,
+        7435,
+        7447,
+        7455,
+        7456,
+        7457,
+        7459,
+        7460,
+        7574,
+        7594,
+        7595,
+        7596,
+        7597,
+        7602,
+        7603,
+        7604,
+        7605,
+        7607,
+        7608,
+        7610,
+        7612,
+        7613,
+        7614,
+        7617,
+        7619,
+        7692,
+        10365,
+        10366,
+        10367,
+        10400,
+        10401,
+        10402,
+        10403,
+        10404,
+        10405,
+        10406,
+        10407,
+        11504,
+        11667,
+        11669,
+        11675,
+        11676,
+        11677,
+        11678,
+        11681,
+        11682,
+        11683,
+        11684,
+        11690,
+        11701,
+        11706,
+        11707,
+        11713,
+        11748,
+        11750,
+        11751,
+        11753,
+        11754,
+        11755,
+        11756,
+        11757,
+        11758,
+        11759,
+        11760,
+        11761,
+        11762,
+        11763,
+        11764,
+        11765,
+        11766,
+        11767,
+        11768,
+        11769,
+        11770,
+        11776,
+        11777,
+        11782,
+        11783,
+        11784,
+        11785,
+        11786,
+        11787,
+        11788,
+        11789,
+        11790,
+        11791,
+        11792,
+        11793,
+        11794,
+        11795,
+        11796,
+        11797,
+        11798,
+        11812,
+        11813,
+        11814,
+        11815,
+        11816,
+        11817,
+        11818,
+        11819,
+        11820,
+        11822,
+        11826,
+        11827,
+        11828,
+        11829,
+        11834,
+        11835,
+        11836,
+        11837,
+        11844,
+        11847,
+        11849,
+        11850,
+        11851,
+        11854,
+        11857,
+        11858,
+        11859,
+        11866,
+        11892,
+        11893,
+        11894,
+        11895,
+        11896,
+        11901,
+        11902,
+        11903,
+        11904,
+        11905,
+        11906,
+        11907,
+        11908,
+        11909,
+        11910,
+        11911,
+        11925,
+        11926,
+        11927,
+        11928,
+        11929,
+        11930,
+        11931,
+        11932,
+        11934,
+        11935,
+        11936,
+        11937,
+        11942,
+        11944
+      ],
+      "anchorResponses": [
+        {
+          "name": "nose-tip",
+          "vertices": [
+            297
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "mouth-screen-left",
+          "vertices": [
+            369
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            -0.02000000094994902
+          ]
+        },
+        {
+          "name": "mouth-screen-right",
+          "vertices": [
+            7129
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            -0.02000000094994902
+          ]
+        },
+        {
+          "name": "lower-lip-mid",
+          "vertices": [
+            492
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-outer-screen-left",
+          "vertices": [
+            6781
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-outer-screen-right",
+          "vertices": [
+            13377
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-inner-screen-left",
+          "vertices": [
+            6769
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-inner-screen-right",
+          "vertices": [
+            13365
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "nose-wing-screen-left",
+          "vertices": [
+            5051
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0.01000000047497451,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "nose-wing-screen-right",
+          "vertices": [
+            11669
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            -0.01000000047497451,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-cheek-left",
+          "vertices": [
+            910,
+            736,
+            5206
+          ],
+          "weights": [
+            0.7403421477163405,
+            0.02975158891257215,
+            0.22990626337108738
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0.4349299431499477,
+            0.08319161274106986,
+            -0.12167290819315209
+          ]
+        },
+        {
+          "name": "front-outline-cheek-right",
+          "vertices": [
+            11789,
+            11768,
+            11817
+          ],
+          "weights": [
+            0.32879664768572914,
+            0.11259560713170483,
+            0.5586077451825661
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            -0.6740558852309567,
+            0.0724342117333119,
+            -0.20261401556994235
+          ]
+        },
+        {
+          "name": "front-outline-jaw-left",
+          "vertices": [
+            5226,
+            5298,
+            5297
+          ],
+          "weights": [
+            0.14470137999067748,
+            0.2481294950429874,
+            0.6071691249663351
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0.1001882730823493,
+            0.017781798146982834,
+            -0.06778179907755165
+          ]
+        },
+        {
+          "name": "front-outline-jaw-right",
+          "vertices": [
+            11835,
+            11902,
+            11903
+          ],
+          "weights": [
+            0.03372474222891764,
+            0.6374256861072235,
+            0.32884957166385886
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            -0.10684794877799125,
+            0.020405470113617645,
+            -0.07040547057433379
+          ]
+        },
+        {
+          "name": "front-outline-chin",
+          "vertices": [
+            11781,
+            5211,
+            5171
+          ],
+          "weights": [
+            0.019501921889849172,
+            0.29892134376476903,
+            0.6815767343453818
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "angle-outline-cheek-near",
+          "vertices": [
+            7612,
+            11817,
+            7456
+          ],
+          "weights": [
+            0.33766747267959035,
+            0.07407478247828929,
+            0.5882577448421203
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            -0.46416483426787414,
+            0.0983884809879658,
+            -0.13492518656936922
+          ]
+        },
+        {
+          "name": "angle-outline-jaw-near",
+          "vertices": [
+            7728,
+            7725,
+            7726
+          ],
+          "weights": [
+            0.2773359206186662,
+            0.6690632337246355,
+            0.05360084565669829
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "angle-outline-chin",
+          "vertices": [
+            5168,
+            5211,
+            5214
+          ],
+          "weights": [
+            0.8109345485979581,
+            0.11281937865698419,
+            0.07624607274505768
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "mouth-seam-mid",
+          "vertices": [
+            473,
+            520,
+            474
+          ],
+          "weights": [
+            0.08781869886132196,
+            0.018298947309610597,
+            0.8938823538290674
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "upper-lid-left",
+          "vertices": [
+            4865,
+            4847,
+            1
+          ],
+          "weights": [
+            0.24578524489014913,
+            0.49238321142513525,
+            0.26183154368471556
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lower-lid-left",
+          "vertices": [
+            47,
+            44,
+            4861
+          ],
+          "weights": [
+            0.199914072606518,
+            0.31311760984607756,
+            0.4869683175474044
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "upper-lid-right",
+          "vertices": [
+            6786,
+            6787,
+            11465
+          ],
+          "weights": [
+            0.10561189440325591,
+            0.6453705827052141,
+            0.24901752289152998
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lower-lid-right",
+          "vertices": [
+            6828,
+            13372,
+            13370
+          ],
+          "weights": [
+            0.29728747361206576,
+            0.04959523815899903,
+            0.6531172882289352
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "name": "eyes",
+          "descriptorVertices": 1064,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.6482,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 2.2795,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.7213,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "brows",
+          "descriptorVertices": 124,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.416,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 1.9231,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.3073,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "lashes",
+          "descriptorVertices": 250,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.48,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 1.9221,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.3298,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "teeth",
+          "descriptorVertices": 3868,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                15077,
+                15111
+              ],
+              "reference": 0.5002,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                15061,
+                15068
+              ],
+              "reference": 0.4465,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                14993,
+                15061
+              ],
+              "reference": 0.3132,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "tongue",
+          "descriptorVertices": 226,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.48,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 1.9221,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.3298,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        }
+      ]
+    },
+    {
+      "name": "chin-narrow-current-positive",
+      "slider": "chin/chin-width-decr-incr",
+      "before": 0.39297019644363645,
+      "after": 0.2929701964436364,
+      "change": -0.1,
+      "visibleMoved": 198,
+      "helpersMoved": 0,
+      "helperIds": [],
+      "visibleBoundsMetres": {
+        "min": [
+          -0.05389951169490814,
+          1.3806122541427612,
+          0.08650092780590057
+        ],
+        "max": [
+          0.05389951169490814,
+          1.4251412153244019,
+          0.1368710994720459
+        ]
+      },
+      "maximum": {
+        "nativeVertex": 5165,
+        "magnitudeMm": 1.1903781186415776,
+        "deltaMm": [
+          1.1900000274181368,
+          -0.030000001424923546,
+          0
+        ],
+        "positionMetres": [
+          -0.03232553228735924,
+          1.3931527137756348,
+          0.1233588233590126
+        ]
+      },
+      "affectedNativeIds": [
+        361,
+        370,
+        371,
+        373,
+        380,
+        399,
+        400,
+        401,
+        404,
+        405,
+        406,
+        440,
+        477,
+        478,
+        479,
+        712,
+        721,
+        722,
+        723,
+        725,
+        726,
+        727,
+        728,
+        729,
+        730,
+        731,
+        734,
+        743,
+        744,
+        746,
+        891,
+        892,
+        897,
+        898,
+        913,
+        914,
+        915,
+        916,
+        917,
+        918,
+        919,
+        920,
+        921,
+        922,
+        990,
+        993,
+        994,
+        995,
+        3696,
+        3697,
+        3698,
+        3699,
+        3700,
+        3701,
+        3702,
+        5142,
+        5143,
+        5156,
+        5157,
+        5158,
+        5159,
+        5160,
+        5161,
+        5163,
+        5164,
+        5165,
+        5166,
+        5167,
+        5168,
+        5169,
+        5170,
+        5172,
+        5174,
+        5207,
+        5210,
+        5212,
+        5213,
+        5214,
+        5215,
+        5216,
+        5217,
+        5220,
+        5221,
+        5222,
+        5223,
+        5224,
+        5226,
+        5227,
+        5228,
+        5291,
+        5292,
+        5293,
+        5294,
+        5295,
+        5297,
+        5298,
+        5299,
+        5335,
+        5338,
+        7122,
+        7130,
+        7131,
+        7133,
+        7140,
+        7159,
+        7160,
+        7161,
+        7164,
+        7165,
+        7166,
+        7200,
+        7232,
+        7233,
+        7234,
+        7435,
+        7444,
+        7445,
+        7446,
+        7447,
+        7448,
+        7449,
+        7450,
+        7451,
+        7452,
+        7453,
+        7454,
+        7463,
+        7464,
+        7466,
+        7593,
+        7594,
+        7599,
+        7600,
+        7615,
+        7616,
+        7617,
+        7618,
+        7619,
+        7620,
+        7621,
+        7622,
+        7623,
+        7624,
+        7685,
+        7687,
+        7688,
+        7689,
+        10364,
+        10365,
+        10366,
+        10367,
+        10368,
+        10369,
+        10370,
+        11756,
+        11757,
+        11770,
+        11771,
+        11772,
+        11773,
+        11774,
+        11775,
+        11776,
+        11777,
+        11778,
+        11779,
+        11780,
+        11781,
+        11782,
+        11783,
+        11784,
+        11786,
+        11818,
+        11821,
+        11822,
+        11823,
+        11824,
+        11825,
+        11826,
+        11827,
+        11830,
+        11831,
+        11832,
+        11833,
+        11834,
+        11835,
+        11836,
+        11837,
+        11897,
+        11898,
+        11899,
+        11900,
+        11901,
+        11902,
+        11903,
+        11904,
+        11939,
+        11941
+      ],
+      "anchorResponses": [
+        {
+          "name": "nose-tip",
+          "vertices": [
+            297
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "mouth-screen-left",
+          "vertices": [
+            369
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "mouth-screen-right",
+          "vertices": [
+            7129
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lower-lip-mid",
+          "vertices": [
+            492
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-outer-screen-left",
+          "vertices": [
+            6781
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-outer-screen-right",
+          "vertices": [
+            13377
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-inner-screen-left",
+          "vertices": [
+            6769
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-inner-screen-right",
+          "vertices": [
+            13365
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "nose-wing-screen-left",
+          "vertices": [
+            5051
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "nose-wing-screen-right",
+          "vertices": [
+            11669
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-cheek-left",
+          "vertices": [
+            910,
+            736,
+            5206
+          ],
+          "weights": [
+            0.7403421477163405,
+            0.02975158891257215,
+            0.22990626337108738
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-cheek-right",
+          "vertices": [
+            11789,
+            11768,
+            11817
+          ],
+          "weights": [
+            0.32879664768572914,
+            0.11259560713170483,
+            0.5586077451825661
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-jaw-left",
+          "vertices": [
+            5226,
+            5298,
+            5297
+          ],
+          "weights": [
+            0.14470137999067748,
+            0.2481294950429874,
+            0.6071691249663351
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0.3624377700083498,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-jaw-right",
+          "vertices": [
+            11835,
+            11902,
+            11903
+          ],
+          "weights": [
+            0.03372474222891764,
+            0.6374256861072235,
+            0.32884957166385886
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            -0.3311600857089657,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-chin",
+          "vertices": [
+            11781,
+            5211,
+            5171
+          ],
+          "weights": [
+            0.019501921889849172,
+            0.29892134376476903,
+            0.6815767343453818
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            -0.005265519046841882,
+            -0.0003900384563228152,
+            0
+          ]
+        },
+        {
+          "name": "angle-outline-cheek-near",
+          "vertices": [
+            7612,
+            11817,
+            7456
+          ],
+          "weights": [
+            0.33766747267959035,
+            0.07407478247828929,
+            0.5882577448421203
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "angle-outline-jaw-near",
+          "vertices": [
+            7728,
+            7725,
+            7726
+          ],
+          "weights": [
+            0.2773359206186662,
+            0.6690632337246355,
+            0.05360084565669829
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "angle-outline-chin",
+          "vertices": [
+            5168,
+            5211,
+            5214
+          ],
+          "weights": [
+            0.8109345485979581,
+            0.11281937865698419,
+            0.07624607274505768
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0.23801385156107233,
+            -0.016981152505971164,
+            0
+          ]
+        },
+        {
+          "name": "mouth-seam-mid",
+          "vertices": [
+            473,
+            520,
+            474
+          ],
+          "weights": [
+            0.08781869886132196,
+            0.018298947309610597,
+            0.8938823538290674
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "upper-lid-left",
+          "vertices": [
+            4865,
+            4847,
+            1
+          ],
+          "weights": [
+            0.24578524489014913,
+            0.49238321142513525,
+            0.26183154368471556
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lower-lid-left",
+          "vertices": [
+            47,
+            44,
+            4861
+          ],
+          "weights": [
+            0.199914072606518,
+            0.31311760984607756,
+            0.4869683175474044
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "upper-lid-right",
+          "vertices": [
+            6786,
+            6787,
+            11465
+          ],
+          "weights": [
+            0.10561189440325591,
+            0.6453705827052141,
+            0.24901752289152998
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lower-lid-right",
+          "vertices": [
+            6828,
+            13372,
+            13370
+          ],
+          "weights": [
+            0.29728747361206576,
+            0.04959523815899903,
+            0.6531172882289352
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "name": "eyes",
+          "descriptorVertices": 1064,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.6482,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 2.2795,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.7213,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "brows",
+          "descriptorVertices": 124,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.416,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 1.9231,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.3073,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "lashes",
+          "descriptorVertices": 250,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.48,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 1.9221,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.3298,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "teeth",
+          "descriptorVertices": 3868,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                15077,
+                15111
+              ],
+              "reference": 0.5002,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                15061,
+                15068
+              ],
+              "reference": 0.4465,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                14993,
+                15061
+              ],
+              "reference": 0.3132,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "tongue",
+          "descriptorVertices": 226,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.48,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 1.9221,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.3298,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        }
+      ]
+    },
+    {
+      "name": "cleft-positive",
+      "slider": "chin/chin-cleft-decr-incr",
+      "before": 0,
+      "after": 0.1,
+      "change": 0.1,
+      "visibleMoved": 39,
+      "helpersMoved": 0,
+      "helperIds": [],
+      "visibleBoundsMetres": {
+        "min": [
+          -0.026133937761187553,
+          1.3802903890609741,
+          0.10932929068803787
+        ],
+        "max": [
+          0.026133937761187553,
+          1.396520733833313,
+          0.1353207379579544
+        ]
+      },
+      "maximum": {
+        "nativeVertex": 5157,
+        "magnitudeMm": 0.34985711433598893,
+        "deltaMm": [
+          0,
+          -0.17999999690800908,
+          0.30000000260770326
+        ],
+        "positionMetres": [
+          -0.007943729870021343,
+          1.3947490453720093,
+          0.1353207379579544
+        ]
+      },
+      "affectedNativeIds": [
+        726,
+        727,
+        732,
+        744,
+        747,
+        780,
+        914,
+        918,
+        919,
+        5157,
+        5158,
+        5166,
+        5167,
+        5168,
+        5214,
+        5215,
+        5220,
+        5221,
+        5291,
+        5292,
+        5293,
+        7448,
+        7449,
+        7464,
+        7616,
+        7620,
+        7621,
+        11771,
+        11772,
+        11779,
+        11780,
+        11781,
+        11824,
+        11825,
+        11830,
+        11831,
+        11897,
+        11898,
+        11899
+      ],
+      "anchorResponses": [
+        {
+          "name": "nose-tip",
+          "vertices": [
+            297
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "mouth-screen-left",
+          "vertices": [
+            369
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "mouth-screen-right",
+          "vertices": [
+            7129
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lower-lip-mid",
+          "vertices": [
+            492
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-outer-screen-left",
+          "vertices": [
+            6781
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-outer-screen-right",
+          "vertices": [
+            13377
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-inner-screen-left",
+          "vertices": [
+            6769
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-inner-screen-right",
+          "vertices": [
+            13365
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "nose-wing-screen-left",
+          "vertices": [
+            5051
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "nose-wing-screen-right",
+          "vertices": [
+            11669
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-cheek-left",
+          "vertices": [
+            910,
+            736,
+            5206
+          ],
+          "weights": [
+            0.7403421477163405,
+            0.02975158891257215,
+            0.22990626337108738
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-cheek-right",
+          "vertices": [
+            11789,
+            11768,
+            11817
+          ],
+          "weights": [
+            0.32879664768572914,
+            0.11259560713170483,
+            0.5586077451825661
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-jaw-left",
+          "vertices": [
+            5226,
+            5298,
+            5297
+          ],
+          "weights": [
+            0.14470137999067748,
+            0.2481294950429874,
+            0.6071691249663351
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-jaw-right",
+          "vertices": [
+            11835,
+            11902,
+            11903
+          ],
+          "weights": [
+            0.03372474222891764,
+            0.6374256861072235,
+            0.32884957166385886
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-chin",
+          "vertices": [
+            11781,
+            5211,
+            5171
+          ],
+          "weights": [
+            0.019501921889849172,
+            0.29892134376476903,
+            0.6815767343453818
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            -0.003510345879873085,
+            0.0058505766178099765
+          ]
+        },
+        {
+          "name": "angle-outline-cheek-near",
+          "vertices": [
+            7612,
+            11817,
+            7456
+          ],
+          "weights": [
+            0.33766747267959035,
+            0.07407478247828929,
+            0.5882577448421203
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "angle-outline-jaw-near",
+          "vertices": [
+            7728,
+            7725,
+            7726
+          ],
+          "weights": [
+            0.2773359206186662,
+            0.6690632337246355,
+            0.05360084565669829
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "angle-outline-chin",
+          "vertices": [
+            5168,
+            5211,
+            5214
+          ],
+          "weights": [
+            0.8109345485979581,
+            0.11281937865698419,
+            0.07624607274505768
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            -0.15969250909858843,
+            0.26615418871640856
+          ]
+        },
+        {
+          "name": "mouth-seam-mid",
+          "vertices": [
+            473,
+            520,
+            474
+          ],
+          "weights": [
+            0.08781869886132196,
+            0.018298947309610597,
+            0.8938823538290674
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "upper-lid-left",
+          "vertices": [
+            4865,
+            4847,
+            1
+          ],
+          "weights": [
+            0.24578524489014913,
+            0.49238321142513525,
+            0.26183154368471556
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lower-lid-left",
+          "vertices": [
+            47,
+            44,
+            4861
+          ],
+          "weights": [
+            0.199914072606518,
+            0.31311760984607756,
+            0.4869683175474044
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "upper-lid-right",
+          "vertices": [
+            6786,
+            6787,
+            11465
+          ],
+          "weights": [
+            0.10561189440325591,
+            0.6453705827052141,
+            0.24901752289152998
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lower-lid-right",
+          "vertices": [
+            6828,
+            13372,
+            13370
+          ],
+          "weights": [
+            0.29728747361206576,
+            0.04959523815899903,
+            0.6531172882289352
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "name": "eyes",
+          "descriptorVertices": 1064,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.6482,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 2.2795,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.7213,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "brows",
+          "descriptorVertices": 124,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.416,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 1.9231,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.3073,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "lashes",
+          "descriptorVertices": 250,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.48,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 1.9221,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.3298,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "teeth",
+          "descriptorVertices": 3868,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                15077,
+                15111
+              ],
+              "reference": 0.5002,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                15061,
+                15068
+              ],
+              "reference": 0.4465,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                14993,
+                15061
+              ],
+              "reference": 0.3132,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "tongue",
+          "descriptorVertices": 226,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.48,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 1.9221,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.3298,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        }
+      ]
+    },
+    {
+      "name": "cleft-negative",
+      "slider": "chin/chin-cleft-decr-incr",
+      "before": 0,
+      "after": -0.1,
+      "change": -0.1,
+      "visibleMoved": 21,
+      "helpersMoved": 0,
+      "helperIds": [],
+      "visibleBoundsMetres": {
+        "min": [
+          -0.01745886355638504,
+          1.381172776222229,
+          0.12615104019641876
+        ],
+        "max": [
+          0.01745886355638504,
+          1.4085819721221924,
+          0.13583067059516907
+        ]
+      },
+      "maximum": {
+        "nativeVertex": 5214,
+        "magnitudeMm": 0.3446737636797332,
+        "deltaMm": [
+          0.3400000045076013,
+          -0.04000000189989805,
+          0.04000000189989805
+        ],
+        "positionMetres": [
+          -0.008310557343065739,
+          1.3888994455337524,
+          0.13405078649520874
+        ]
+      },
+      "affectedNativeIds": [
+        724,
+        731,
+        733,
+        5162,
+        5167,
+        5168,
+        5171,
+        5211,
+        5214,
+        5215,
+        5220,
+        5221,
+        5225,
+        5296,
+        7453,
+        11780,
+        11781,
+        11824,
+        11825,
+        11830,
+        11831
+      ],
+      "anchorResponses": [
+        {
+          "name": "nose-tip",
+          "vertices": [
+            297
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "mouth-screen-left",
+          "vertices": [
+            369
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "mouth-screen-right",
+          "vertices": [
+            7129
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lower-lip-mid",
+          "vertices": [
+            492
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-outer-screen-left",
+          "vertices": [
+            6781
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-outer-screen-right",
+          "vertices": [
+            13377
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-inner-screen-left",
+          "vertices": [
+            6769
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-inner-screen-right",
+          "vertices": [
+            13365
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "nose-wing-screen-left",
+          "vertices": [
+            5051
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "nose-wing-screen-right",
+          "vertices": [
+            11669
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-cheek-left",
+          "vertices": [
+            910,
+            736,
+            5206
+          ],
+          "weights": [
+            0.7403421477163405,
+            0.02975158891257215,
+            0.22990626337108738
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-cheek-right",
+          "vertices": [
+            11789,
+            11768,
+            11817
+          ],
+          "weights": [
+            0.32879664768572914,
+            0.11259560713170483,
+            0.5586077451825661
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-jaw-left",
+          "vertices": [
+            5226,
+            5298,
+            5297
+          ],
+          "weights": [
+            0.14470137999067748,
+            0.2481294950429874,
+            0.6071691249663351
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-jaw-right",
+          "vertices": [
+            11835,
+            11902,
+            11903
+          ],
+          "weights": [
+            0.03372474222891764,
+            0.6374256861072235,
+            0.32884957166385886
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-chin",
+          "vertices": [
+            11781,
+            5211,
+            5171
+          ],
+          "weights": [
+            0.019501921889849172,
+            0.29892134376476903,
+            0.6815767343453818
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            -0.006435634188778074,
+            0.0003900384563228152,
+            -0.23434445378270752
+          ]
+        },
+        {
+          "name": "angle-outline-cheek-near",
+          "vertices": [
+            7612,
+            11817,
+            7456
+          ],
+          "weights": [
+            0.33766747267959035,
+            0.07407478247828929,
+            0.5882577448421203
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "angle-outline-jaw-near",
+          "vertices": [
+            7728,
+            7725,
+            7726
+          ],
+          "weights": [
+            0.2773359206186662,
+            0.6690632337246355,
+            0.05360084565669829
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "angle-outline-chin",
+          "vertices": [
+            5168,
+            5211,
+            5214
+          ],
+          "weights": [
+            0.8109345485979581,
+            0.11281937865698419,
+            0.07624607274505768
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0.29353206466426873,
+            0.013168848687643576,
+            0.016519920246678078
+          ]
+        },
+        {
+          "name": "mouth-seam-mid",
+          "vertices": [
+            473,
+            520,
+            474
+          ],
+          "weights": [
+            0.08781869886132196,
+            0.018298947309610597,
+            0.8938823538290674
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "upper-lid-left",
+          "vertices": [
+            4865,
+            4847,
+            1
+          ],
+          "weights": [
+            0.24578524489014913,
+            0.49238321142513525,
+            0.26183154368471556
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lower-lid-left",
+          "vertices": [
+            47,
+            44,
+            4861
+          ],
+          "weights": [
+            0.199914072606518,
+            0.31311760984607756,
+            0.4869683175474044
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "upper-lid-right",
+          "vertices": [
+            6786,
+            6787,
+            11465
+          ],
+          "weights": [
+            0.10561189440325591,
+            0.6453705827052141,
+            0.24901752289152998
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lower-lid-right",
+          "vertices": [
+            6828,
+            13372,
+            13370
+          ],
+          "weights": [
+            0.29728747361206576,
+            0.04959523815899903,
+            0.6531172882289352
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "name": "eyes",
+          "descriptorVertices": 1064,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.6482,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 2.2795,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.7213,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "brows",
+          "descriptorVertices": 124,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.416,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 1.9231,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.3073,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "lashes",
+          "descriptorVertices": 250,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.48,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 1.9221,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.3298,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "teeth",
+          "descriptorVertices": 3868,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                15077,
+                15111
+              ],
+              "reference": 0.5002,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                15061,
+                15068
+              ],
+              "reference": 0.4465,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                14993,
+                15061
+              ],
+              "reference": 0.3132,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "tongue",
+          "descriptorVertices": 226,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.48,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 1.9221,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.3298,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        }
+      ]
+    },
+    {
+      "name": "lower-lip-height-decrease",
+      "slider": "mouth/mouth-lowerlip-height-decr-incr",
+      "before": 0,
+      "after": -0.1,
+      "change": -0.1,
+      "visibleMoved": 121,
+      "helpersMoved": 0,
+      "helperIds": [],
+      "visibleBoundsMetres": {
+        "min": [
+          -0.02319781295955181,
+          1.3849437236785889,
+          0.11803986132144928
+        ],
+        "max": [
+          0.02319781295955181,
+          1.4279102087020874,
+          0.14250317215919495
+        ]
+      },
+      "maximum": {
+        "nativeVertex": 724,
+        "magnitudeMm": 0.4600000102072954,
+        "deltaMm": [
+          0,
+          0.4600000102072954,
+          0
+        ],
+        "positionMetres": [
+          0,
+          1.4085819721221924,
+          0.1342402696609497
+        ]
+      },
+      "affectedNativeIds": [
+        370,
+        371,
+        400,
+        401,
+        405,
+        406,
+        437,
+        438,
+        440,
+        443,
+        475,
+        476,
+        477,
+        478,
+        479,
+        480,
+        481,
+        483,
+        484,
+        485,
+        486,
+        487,
+        489,
+        490,
+        491,
+        492,
+        493,
+        495,
+        496,
+        500,
+        511,
+        512,
+        513,
+        517,
+        518,
+        519,
+        523,
+        534,
+        535,
+        540,
+        557,
+        568,
+        569,
+        570,
+        574,
+        585,
+        586,
+        587,
+        591,
+        602,
+        603,
+        608,
+        625,
+        721,
+        722,
+        723,
+        724,
+        728,
+        731,
+        733,
+        3706,
+        5157,
+        5158,
+        5162,
+        5171,
+        5211,
+        5214,
+        5335,
+        5336,
+        5337,
+        7130,
+        7131,
+        7160,
+        7161,
+        7165,
+        7166,
+        7197,
+        7198,
+        7200,
+        7203,
+        7230,
+        7231,
+        7232,
+        7233,
+        7234,
+        7235,
+        7236,
+        7238,
+        7239,
+        7240,
+        7241,
+        7242,
+        7244,
+        7245,
+        7249,
+        7259,
+        7260,
+        7264,
+        7265,
+        7266,
+        7279,
+        7280,
+        7309,
+        7310,
+        7311,
+        7324,
+        7325,
+        7326,
+        7339,
+        7340,
+        7444,
+        7445,
+        7446,
+        7450,
+        7453,
+        10374,
+        11771,
+        11772,
+        11824,
+        11939,
+        11940
+      ],
+      "anchorResponses": [
+        {
+          "name": "nose-tip",
+          "vertices": [
+            297
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "mouth-screen-left",
+          "vertices": [
+            369
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "mouth-screen-right",
+          "vertices": [
+            7129
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lower-lip-mid",
+          "vertices": [
+            492
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0.4000000189989805,
+            0
+          ]
+        },
+        {
+          "name": "eye-outer-screen-left",
+          "vertices": [
+            6781
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-outer-screen-right",
+          "vertices": [
+            13377
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-inner-screen-left",
+          "vertices": [
+            6769
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-inner-screen-right",
+          "vertices": [
+            13365
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "nose-wing-screen-left",
+          "vertices": [
+            5051
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "nose-wing-screen-right",
+          "vertices": [
+            11669
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-cheek-left",
+          "vertices": [
+            910,
+            736,
+            5206
+          ],
+          "weights": [
+            0.7403421477163405,
+            0.02975158891257215,
+            0.22990626337108738
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-cheek-right",
+          "vertices": [
+            11789,
+            11768,
+            11817
+          ],
+          "weights": [
+            0.32879664768572914,
+            0.11259560713170483,
+            0.5586077451825661
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-jaw-left",
+          "vertices": [
+            5226,
+            5298,
+            5297
+          ],
+          "weights": [
+            0.14470137999067748,
+            0.2481294950429874,
+            0.6071691249663351
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-jaw-right",
+          "vertices": [
+            11835,
+            11902,
+            11903
+          ],
+          "weights": [
+            0.03372474222891764,
+            0.6374256861072235,
+            0.32884957166385886
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-chin",
+          "vertices": [
+            11781,
+            5211,
+            5171
+          ],
+          "weights": [
+            0.019501921889849172,
+            0.29892134376476903,
+            0.6815767343453818
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0.05846973728883523,
+            0
+          ]
+        },
+        {
+          "name": "angle-outline-cheek-near",
+          "vertices": [
+            7612,
+            11817,
+            7456
+          ],
+          "weights": [
+            0.33766747267959035,
+            0.07407478247828929,
+            0.5882577448421203
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "angle-outline-jaw-near",
+          "vertices": [
+            7728,
+            7725,
+            7726
+          ],
+          "weights": [
+            0.2773359206186662,
+            0.6690632337246355,
+            0.05360084565669829
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "angle-outline-chin",
+          "vertices": [
+            5168,
+            5211,
+            5214
+          ],
+          "weights": [
+            0.8109345485979581,
+            0.11281937865698419,
+            0.07624607274505768
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0.01997275000030943,
+            0
+          ]
+        },
+        {
+          "name": "mouth-seam-mid",
+          "vertices": [
+            473,
+            520,
+            474
+          ],
+          "weights": [
+            0.08781869886132196,
+            0.018298947309610597,
+            0.8938823538290674
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "upper-lid-left",
+          "vertices": [
+            4865,
+            4847,
+            1
+          ],
+          "weights": [
+            0.24578524489014913,
+            0.49238321142513525,
+            0.26183154368471556
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lower-lid-left",
+          "vertices": [
+            47,
+            44,
+            4861
+          ],
+          "weights": [
+            0.199914072606518,
+            0.31311760984607756,
+            0.4869683175474044
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "upper-lid-right",
+          "vertices": [
+            6786,
+            6787,
+            11465
+          ],
+          "weights": [
+            0.10561189440325591,
+            0.6453705827052141,
+            0.24901752289152998
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lower-lid-right",
+          "vertices": [
+            6828,
+            13372,
+            13370
+          ],
+          "weights": [
+            0.29728747361206576,
+            0.04959523815899903,
+            0.6531172882289352
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "name": "eyes",
+          "descriptorVertices": 1064,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.6482,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 2.2795,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.7213,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "brows",
+          "descriptorVertices": 124,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.416,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 1.9231,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.3073,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "lashes",
+          "descriptorVertices": 250,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.48,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 1.9221,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.3298,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "teeth",
+          "descriptorVertices": 3868,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                15077,
+                15111
+              ],
+              "reference": 0.5002,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                15061,
+                15068
+              ],
+              "reference": 0.4465,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                14993,
+                15061
+              ],
+              "reference": 0.3132,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "tongue",
+          "descriptorVertices": 226,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.48,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 1.9221,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.3298,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        }
+      ]
+    },
+    {
+      "name": "lower-lip-volume-decrease",
+      "slider": "mouth/mouth-lowerlip-volume-decr-incr",
+      "before": 0,
+      "after": -0.1,
+      "change": -0.1,
+      "visibleMoved": 59,
+      "helpersMoved": 0,
+      "helperIds": [],
+      "visibleBoundsMetres": {
+        "min": [
+          -0.017471451312303543,
+          1.409409523010254,
+          0.1336042284965515
+        ],
+        "max": [
+          0.017471451312303543,
+          1.4279102087020874,
+          0.14250317215919495
+        ]
+      },
+      "maximum": {
+        "nativeVertex": 512,
+        "magnitudeMm": 0.23173260975459173,
+        "deltaMm": [
+          0.020000000949949026,
+          -0.020000000949949026,
+          -0.2300000051036477
+        ],
+        "positionMetres": [
+          -0.0056075965985655785,
+          1.424081563949585,
+          0.14180871844291687
+        ]
+      },
+      "affectedNativeIds": [
+        406,
+        476,
+        477,
+        478,
+        479,
+        480,
+        481,
+        482,
+        483,
+        484,
+        486,
+        487,
+        488,
+        489,
+        490,
+        492,
+        493,
+        494,
+        495,
+        496,
+        510,
+        511,
+        512,
+        513,
+        517,
+        518,
+        523,
+        534,
+        535,
+        540,
+        722,
+        5335,
+        5336,
+        5337,
+        7166,
+        7231,
+        7232,
+        7233,
+        7234,
+        7235,
+        7236,
+        7237,
+        7238,
+        7239,
+        7241,
+        7242,
+        7243,
+        7244,
+        7245,
+        7258,
+        7259,
+        7260,
+        7264,
+        7265,
+        7279,
+        7280,
+        7445,
+        11939,
+        11940
+      ],
+      "anchorResponses": [
+        {
+          "name": "nose-tip",
+          "vertices": [
+            297
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "mouth-screen-left",
+          "vertices": [
+            369
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "mouth-screen-right",
+          "vertices": [
+            7129
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lower-lip-mid",
+          "vertices": [
+            492
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            -0.20999999251216653
+          ]
+        },
+        {
+          "name": "eye-outer-screen-left",
+          "vertices": [
+            6781
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-outer-screen-right",
+          "vertices": [
+            13377
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-inner-screen-left",
+          "vertices": [
+            6769
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "eye-inner-screen-right",
+          "vertices": [
+            13365
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "nose-wing-screen-left",
+          "vertices": [
+            5051
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "nose-wing-screen-right",
+          "vertices": [
+            11669
+          ],
+          "weights": [
+            1
+          ],
+          "status": "surface-reviewed-provisional",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-cheek-left",
+          "vertices": [
+            910,
+            736,
+            5206
+          ],
+          "weights": [
+            0.7403421477163405,
+            0.02975158891257215,
+            0.22990626337108738
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-cheek-right",
+          "vertices": [
+            11789,
+            11768,
+            11817
+          ],
+          "weights": [
+            0.32879664768572914,
+            0.11259560713170483,
+            0.5586077451825661
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-jaw-left",
+          "vertices": [
+            5226,
+            5298,
+            5297
+          ],
+          "weights": [
+            0.14470137999067748,
+            0.2481294950429874,
+            0.6071691249663351
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-jaw-right",
+          "vertices": [
+            11835,
+            11902,
+            11903
+          ],
+          "weights": [
+            0.03372474222891764,
+            0.6374256861072235,
+            0.32884957166385886
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "front-outline-chin",
+          "vertices": [
+            11781,
+            5211,
+            5171
+          ],
+          "weights": [
+            0.019501921889849172,
+            0.29892134376476903,
+            0.6815767343453818
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "angle-outline-cheek-near",
+          "vertices": [
+            7612,
+            11817,
+            7456
+          ],
+          "weights": [
+            0.33766747267959035,
+            0.07407478247828929,
+            0.5882577448421203
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "angle-outline-jaw-near",
+          "vertices": [
+            7728,
+            7725,
+            7726
+          ],
+          "weights": [
+            0.2773359206186662,
+            0.6690632337246355,
+            0.05360084565669829
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "angle-outline-chin",
+          "vertices": [
+            5168,
+            5211,
+            5214
+          ],
+          "weights": [
+            0.8109345485979581,
+            0.11281937865698419,
+            0.07624607274505768
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "mouth-seam-mid",
+          "vertices": [
+            473,
+            520,
+            474
+          ],
+          "weights": [
+            0.08781869886132196,
+            0.018298947309610597,
+            0.8938823538290674
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "upper-lid-left",
+          "vertices": [
+            4865,
+            4847,
+            1
+          ],
+          "weights": [
+            0.24578524489014913,
+            0.49238321142513525,
+            0.26183154368471556
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lower-lid-left",
+          "vertices": [
+            47,
+            44,
+            4861
+          ],
+          "weights": [
+            0.199914072606518,
+            0.31311760984607756,
+            0.4869683175474044
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "upper-lid-right",
+          "vertices": [
+            6786,
+            6787,
+            11465
+          ],
+          "weights": [
+            0.10561189440325591,
+            0.6453705827052141,
+            0.24901752289152998
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "lower-lid-right",
+          "vertices": [
+            6828,
+            13372,
+            13370
+          ],
+          "weights": [
+            0.29728747361206576,
+            0.04959523815899903,
+            0.6531172882289352
+          ],
+          "status": "root-surface-pick",
+          "deltaMm": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "name": "eyes",
+          "descriptorVertices": 1064,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.6482,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 2.2795,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.7213,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "brows",
+          "descriptorVertices": 124,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.416,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 1.9231,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.3073,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "lashes",
+          "descriptorVertices": 250,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.48,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 1.9221,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.3298,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "teeth",
+          "descriptorVertices": 3868,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                15077,
+                15111
+              ],
+              "reference": 0.5002,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                15061,
+                15068
+              ],
+              "reference": 0.4465,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                14993,
+                15061
+              ],
+              "reference": 0.3132,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        },
+        {
+          "name": "tongue",
+          "descriptorVertices": 226,
+          "barycentricMoved": 0,
+          "maxBarycentricDeltaMm": 0,
+          "largestWitnesses": [],
+          "scaleResponses": [
+            {
+              "axis": "x_scale",
+              "indices": [
+                5399,
+                11998
+              ],
+              "reference": 1.48,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "z_scale",
+              "indices": [
+                962,
+                5320
+              ],
+              "reference": 1.9221,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            },
+            {
+              "axis": "y_scale",
+              "indices": [
+                791,
+                881
+              ],
+              "reference": 2.3298,
+              "endpointDeltasMm": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ]
+              ],
+              "axisSeparationDeltaMm": 0
+            }
+          ],
+          "scaleAxisChanges": false,
+          "limit": "Descriptor source indices, not exported part indices. If scale axes change, barycentric displacement is incomplete; offset-scale and rig/expression refit remain unqualified."
+        }
+      ]
+    }
+  ],
+  "inputsUnchanged": true,
+  "resources": {
+    "cpuSeconds": 0.168425,
+    "wallSeconds": 0.11336274999999998,
+    "rssBytes": 136953856
+  },
+  "limits": [
+    "No appearance or fit acceptance. No output geometry or modified source asset.",
+    "Anchors retain their provisional semantics: lower-lip-mid is not a verified vermilion boundary; mouth-seam/lid rims are provisional surface picks.",
+    "No oral intersections or additional mouth-clearance probes. Existing defects remain unqualified.",
+    "Part descriptor zero response is source coupling evidence only; full animated rig/expression safety is not established."
+  ]
+}

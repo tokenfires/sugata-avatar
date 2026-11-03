@@ -1,0 +1,216 @@
+{
+  "inputs": {
+    "packages/testbed/src/ember-local-feature-v001.js": {
+      "bytes": 11828,
+      "sha256": "d1b769696b525537d85fa8808f7df69450229b69af3457292f044ca478da7c97"
+    },
+    "packages/testbed/src/ember-ocular-v003-material.js": {
+      "bytes": 76094,
+      "sha256": "55040b37a7a1d35ec31c1716fbeefa88a27227d27f6de2239d5ec1cb3009014a"
+    },
+    "packages/core/src/material/HairMaterial.js": {
+      "bytes": 244907,
+      "sha256": "cc91af01db7fe50565780dbb7263311a1523732197270bf309e013558ee8a613"
+    },
+    "packages/core/src/figure/Skeleton.js": {
+      "bytes": 19123,
+      "sha256": "375919bb260cd3de2d3f8ab1b1849603f25b2c26da3e83a695bdfedbae30caa4"
+    },
+    "tools/figure-pipeline/hair_texture.py": {
+      "bytes": 61711,
+      "sha256": "1e6962000651b8eab1d8d3c931259960f7889af1a0c7b3caac54357840279f64"
+    },
+    "reference/ember/portraits/face-reference-1.png": {
+      "bytes": 1277836,
+      "sha256": "92464091b3c68000c79ed846896f4df1486ed39fdff902ff97940eda564e9d3a"
+    },
+    "assets/hair/bob01/albedo.png": {
+      "bytes": 1096244,
+      "sha256": "567bf4513b056878aed83c8418446ec6e4fc262653680ab5815be8a6e7422da5"
+    },
+    "assets/hair/bob01/normal.png": {
+      "bytes": 1077492,
+      "sha256": "93f20ee7b3b29ee24229e7925577c5760fb0d65b388b61cac217890e56c1588a"
+    },
+    "assets/hair/bob01/flow.png": {
+      "bytes": 349906,
+      "sha256": "f36b0188b0f50e8fb96e5d46cc398eeba6fd6db9ce8850b0c9dc15104966f7d6"
+    },
+    "assets/hair/bob01/depth.png": {
+      "bytes": 62903,
+      "sha256": "32cbe1eb12aec2ef7c0c9019bc5f0c045fd7eb42acd9cfd5e243c272fac4c51b"
+    },
+    "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb": {
+      "bytes": 11568232,
+      "sha256": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef"
+    },
+    "docs/evidence/ember-2026-10-31-local-feature-v001/positions.f32": {
+      "bytes": 174204,
+      "sha256": "3859319a3c553fea959b80ba19ad9ad9a4823a42b11a32adfd356d06635c2654"
+    },
+    "tools/ember-hair/ember-waves-v001.json": {
+      "bytes": 32112,
+      "sha256": "6c3eb4373cd0f5310c334b7dbc40711a916368cd9fca884565e113cba82032b0"
+    },
+    "/Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile.mjs": {
+      "bytes": 18711,
+      "sha256": "9e4879a6d78902fecd55dc75757c4f2580e24cb876cd3c8c935323c943306b37"
+    },
+    "tools/ember-hair/run.py": {
+      "bytes": 1903,
+      "sha256": "c424ef7e92edbe71c2b76bea1c00fef2121675510239fb29d7f1c6ad3fc818ed"
+    },
+    "tools/lut-bake/glb.mjs": {
+      "bytes": 9892,
+      "sha256": "1e10a01be93bf4c1920482e3dab853fe0a13aa03b539538f4bf11ed9127d1fb2"
+    },
+    "tools/critic/png.mjs": {
+      "bytes": 11612,
+      "sha256": "28d67d921fd7f6af587e2cd5a3b96ceefced4769f0d624df45d3fa39a2812a7a"
+    },
+    "packages/testbed/ember-hair-v001.html": {
+      "bytes": 1906,
+      "sha256": "37d64c75fcbe6e92f4f7666f2d15aac2553086b096369d657a4c38e02c893b75"
+    },
+    "packages/testbed/src/ember-hair-v001.js": {
+      "bytes": 12779,
+      "sha256": "724a58548acafea5dbe290eef17c3da49504a5fb0c25f5a0a8c09501d912ca9e"
+    },
+    "packages/testbed/src/ember-hair-v001-component.js": {
+      "bytes": 4800,
+      "sha256": "d00d52f0da384cab3e6962913fd76aed5d1fbd9d49b1eef7d884a213ef4de88f"
+    },
+    "package-lock.json": {
+      "bytes": 24580,
+      "sha256": "86ecac19d647890aa276ef8cc95dc6e12ca283c2da67ba72dfec6eb82c1bb4c2"
+    }
+  },
+  "limits": {
+    "cpuSeconds": 10,
+    "wallSeconds": 15,
+    "rssBytes": 536870912,
+    "maxVertices": 24000,
+    "maxTriangles": 32000,
+    "collisionPairs": 2000000,
+    "meshBytes": 4194304,
+    "reportBytes": 2097152,
+    "totalOutputBytes": 10485760
+  },
+  "atlas": {
+    "width": 1024,
+    "height": 1024,
+    "rootV": 0,
+    "tipV": 1,
+    "capStripExcluded": 0,
+    "strips": [
+      {
+        "strip": 1,
+        "rows": [
+          {
+            "y": 0,
+            "n": 68,
+            "medianRootToTip": 0
+          },
+          {
+            "y": 128,
+            "n": 89,
+            "medianRootToTip": 0.125490203499794
+          },
+          {
+            "y": 256,
+            "n": 89,
+            "medianRootToTip": 0.250980406999588
+          },
+          {
+            "y": 512,
+            "n": 86,
+            "medianRootToTip": 0.501960813999176
+          },
+          {
+            "y": 768,
+            "n": 82,
+            "medianRootToTip": 0.7490196228027344
+          },
+          {
+            "y": 960,
+            "n": 49,
+            "medianRootToTip": 0.9372549057006836
+          }
+        ]
+      },
+      {
+        "strip": 2,
+        "rows": [
+          {
+            "y": 0,
+            "n": 88,
+            "medianRootToTip": 0
+          },
+          {
+            "y": 128,
+            "n": 89,
+            "medianRootToTip": 0.125490203499794
+          },
+          {
+            "y": 256,
+            "n": 101,
+            "medianRootToTip": 0.250980406999588
+          },
+          {
+            "y": 512,
+            "n": 93,
+            "medianRootToTip": 0.501960813999176
+          },
+          {
+            "y": 768,
+            "n": 62,
+            "medianRootToTip": 0.7490196228027344
+          },
+          {
+            "y": 960,
+            "n": 0,
+            "medianRootToTip": null
+          }
+        ]
+      },
+      {
+        "strip": 3,
+        "rows": [
+          {
+            "y": 0,
+            "n": 80,
+            "medianRootToTip": 0
+          },
+          {
+            "y": 128,
+            "n": 89,
+            "medianRootToTip": 0.125490203499794
+          },
+          {
+            "y": 256,
+            "n": 83,
+            "medianRootToTip": 0.250980406999588
+          },
+          {
+            "y": 512,
+            "n": 89,
+            "medianRootToTip": 0.501960813999176
+          },
+          {
+            "y": 768,
+            "n": 47,
+            "medianRootToTip": 0.7490196228027344
+          },
+          {
+            "y": 960,
+            "n": 0,
+            "medianRootToTip": null
+          }
+        ]
+      }
+    ]
+  },
+  "guides": 40,
+  "ribbons": 120,
+  "scope": "Source/atlas preflight only; no geometry compilation or camera/identity solve"
+}

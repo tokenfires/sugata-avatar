@@ -4,9 +4,11 @@
 
 ## External dependency — Ember character authoring
 
-**Ember's photo-guided face workflow uses KeenTools FaceBuilder for Blender and its proprietary KeenTools Core library, outside Sugata.** This is a third-party authoring dependency; photo-to-head fitting is not a capability implemented by this repository. Robert installed the add-on and approved one free trial on October 31, 2026. The first fitted head and projected texture have been exported and opened in an isolated local browser review. **Ember likeness and AAA finish are not yet accepted**, and integration into the animated avatar remains outstanding.
+**Ember's character studies use external authoring tools and assets: Blender/MakeHuman/MPFB, plus KeenTools FaceBuilder and its proprietary Core for the retained photo-guided head study.** These dependencies are outside Sugata and must remain disclosed. Robert installed FaceBuilder and approved one free trial on October31,2026. Its fitted head and projected texture were exported and reviewed; they are preserved as a comparison, not a completed avatar.
 
-Reproducing this authoring step requires Blender, a separate FaceBuilder/Core installation and a valid trial or license. Preserve that provenance with any resulting character; do not present externally authored results as Sugata-only generation. Editable Blender projects and an ordinary static GLB are preserved. The browser review loads that exported asset without FaceBuilder; further FaceBuilder authoring depends on its trial/license. No purchase or subscription is authorized.
+The current measured-fitting experiment uses Sugata's existing MakeHuman-derived identity controls with manually checked portrait observations. One candidate and one correction have been rendered; the corrected native head is retained for a fitted-eye and early-animation probe. This is not complete automatic photo reconstruction. **Ember likeness, AAA finish and complete animated integration are not yet accepted.**
+
+Reproducing the FaceBuilder study requires Blender, a separate FaceBuilder/Core installation and valid authoring access. Its ordinary exported mesh can be reviewed without FaceBuilder. Preserve provenance with any resulting character; do not present externally authored results as Sugata-only generation. No purchase or subscription is authorized.
 
 See the central [character-authoring dependencies and provenance register](docs/AUTHORING-DEPENDENCIES.md) for roles, licensing, installation status and result limits. [Current Ember work](docs/EMBER-AVATAR-NEXT.md).
 
@@ -114,9 +116,10 @@ The [reopenable Sage/lavender examples](looks/README.md) provide both accepted b
 portable JSON settings, with the same outfit and applied colours. Open either through the
 lookbook's **Open settings (JSON)** control; these remain g050 clothing studies.
 
-For current work, start with the [Ember avatar plan](docs/EMBER-AVATAR-NEXT.md),
-[current work window](docs/WORK-WINDOW-2026-10-18.md), [project checklist](docs/PROJECT-CHECKLIST.md)
-and [product direction](docs/PRODUCT-ROADMAP.md). The [September26 workday](docs/PROGRESS-2026-09-26.md)
+For current work, start with [AGENTS.md](AGENTS.md) and the
+[Ember avatar status and plan](docs/EMBER-AVATAR-NEXT.md). The
+[project checklist](docs/PROJECT-CHECKLIST.md) and [product direction](docs/PRODUCT-ROADMAP.md)
+are reference. The [September26 workday](docs/PROGRESS-2026-09-26.md)
 and [September22 recovery checkpoint](docs/RECOVERY-2026-09-22.md) are historical context;
 the former also records the persistent local review server and service controls.
 The [September 8 restart](docs/RESTART-2026-09-08.md) records the active checkout and partial

@@ -1,0 +1,90 @@
+{
+  "protectedInputs": "All protected hashes match including face assets, atlas and shared HairMaterial",
+  "unchangedRibbons": 221,
+  "allOriginalGuidesAndCoverageControls": "identical to v028",
+  "allRootAndEndRowsPositionExact": 448,
+  "lowerBoundaryVerticesExact": 81,
+  "changedVertices": 120,
+  "maxPositionShiftM": 0.008000042953668109,
+  "unchangedBuffers": [
+    "uv",
+    "uv1",
+    "index"
+  ],
+  "unchangedOtherRibbonsAttributes": [
+    "position",
+    "normal",
+    "uv",
+    "uv1",
+    "along",
+    "across",
+    "rootDistance"
+  ],
+  "sceneAndMaterial": "Byte-identical to v028 after version normalization; v029 mask absent",
+  "frameReports": "All five identical to v028 after version and draw counter normalization",
+  "resources": {
+    "cpuSeconds": 1.446123,
+    "rssBytes": 179044352,
+    "wallSeconds": 1.228484542
+  },
+  "vertices": 23427,
+  "triangles": 30340,
+  "clearance": "Unchanged 132 bind / 122 head crossings; full clearance still unqualified",
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981
+    }
+  ],
+  "surfaceTrial": {
+    "ids": [
+      "lower-hairline-overlap-01",
+      "lower-hairline-overlap-02",
+      "lower-hairline-overlap-03"
+    ],
+    "scalpOffsetM": 0.004,
+    "maxUpperShiftM": 0.008,
+    "crossWeights": [
+      1,
+      0.35,
+      0
+    ],
+    "startFade": [
+      0.12,
+      0.25
+    ],
+    "endFade": [
+      0.68,
+      0.84
+    ],
+    "preservation": "All other ribbons and all three lower edges, root/end rows fixed. Original v028 alpha, ambient, pigment and softer shadows retained.",
+    "qualification": "Bounded surface-shape trial; not an anatomical hairline adjustment",
+    "vertices": 120,
+    "maxDisplacementM": 0.008000000000000071
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v030; retain v028",
+    "evidence": "Thick laminated rim remains; new pale horizontal break above it reduces coherent coverage. Silhouette and rear essentially unchanged.",
+    "hairline": "Visible lower boundary remains near 1.1 eye spacings; projected visual comparison, not anatomical calibration",
+    "rootAgreement": true,
+    "next": "From v028, widen/stagger middle portions of seven existing body-fill underlayers; keep centreline bends, roots, endpoints and hairline fixed."
+  }
+}

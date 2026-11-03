@@ -1,0 +1,204 @@
+{
+  "protectedInputs": "All admitted hashes match; approved face, eyes and brows unchanged",
+  "baseline": "v130",
+  "changedPositionVertices": 4,
+  "targetGuide": "side-heavy-06",
+  "allOther232RibbonsExactAcrossSevenBuffers": true,
+  "yzCoordinatesExact": true,
+  "maxInwardXExtensionM": 0.01199999451637268,
+  "targetCentrelineAndOppositeEdgeExact": true,
+  "sourceGuidesAndControlsExact": true,
+  "rootsAndEndsExact": true,
+  "retainedConstructionStagesExact": true,
+  "v095AndV126OppositeArchEdgesExact": true,
+  "completeUvUv1RootDistanceIndicesExact": true,
+  "globalBoundsExact": true,
+  "addedVertices": 0,
+  "addedTriangles": 0,
+  "vertices": 23997,
+  "triangles": 31064,
+  "reshape": {
+    "guide": "side-heavy-06",
+    "vertices": [
+      {
+        "vertex": 7158,
+        "row": 9,
+        "cross": 0,
+        "t": 0.25,
+        "weight": 0.49999999999999967,
+        "before": [
+          -0.09474027037590545,
+          1.5140777405049988,
+          -0.07473776859845552
+        ],
+        "after": [
+          -0.08874027037590546,
+          1.5140777405049988,
+          -0.07473776859845552
+        ],
+        "extension": [
+          0.005999999999999996,
+          0,
+          0
+        ]
+      },
+      {
+        "vertex": 7161,
+        "row": 10,
+        "cross": 0,
+        "t": 0.2857142857142857,
+        "weight": 1,
+        "before": [
+          -0.10282930256188426,
+          1.5043833436203553,
+          -0.08461195010084782
+        ],
+        "after": [
+          -0.09082930256188426,
+          1.5043833436203553,
+          -0.08461195010084782
+        ],
+        "extension": [
+          0.012,
+          0,
+          0
+        ]
+      },
+      {
+        "vertex": 7164,
+        "row": 11,
+        "cross": 0,
+        "t": 0.30357142857142855,
+        "weight": 0.9854227405247814,
+        "before": [
+          -0.10362244133444516,
+          1.500941408913111,
+          -0.0867285315330069
+        ],
+        "after": [
+          -0.09179736844814779,
+          1.500941408913111,
+          -0.0867285315330069
+        ],
+        "extension": [
+          0.011825072886297376,
+          0,
+          0
+        ]
+      },
+      {
+        "vertex": 7167,
+        "row": 12,
+        "cross": 0,
+        "t": 0.3214285714285714,
+        "weight": 0.6064139941690967,
+        "before": [
+          -0.10314548874728453,
+          1.496718889425199,
+          -0.08895871532918606
+        ],
+        "after": [
+          -0.09586852081725537,
+          1.496718889425199,
+          -0.08895871532918606
+        ],
+        "extension": [
+          0.00727696793002916,
+          0,
+          0
+        ]
+      }
+    ],
+    "maxDisplacementM": 0.012,
+    "qualification": "Four interior cross0 points extended inward in X. Actual multi-angle occlusion, outline and clearance require build/render verification."
+  },
+  "sceneAndComponent": "Identical to v130 after version normalization",
+  "material": "All profiles and previous alpha fills, ambient, pigment and shadow settings unchanged",
+  "clearance": {
+    "completeReportExact": true,
+    "triangleCrossings": [
+      132,
+      122
+    ],
+    "nearestSignedFlags": [
+      61,
+      50
+    ],
+    "correctedWindingFaces": 242,
+    "qualification": "Unchanged full-groom clearance and winding limits remain; not final qualification."
+  },
+  "views": [
+    {
+      "name": "front",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891732606442e-07
+    },
+    {
+      "name": "face",
+      "croppedVertices": 2774,
+      "rootResidualM": 1.0843891730854622e-07
+    },
+    {
+      "name": "angle",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891686893117e-07
+    },
+    {
+      "name": "rear",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706976359e-07
+    },
+    {
+      "name": "head",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084507882800798e-07
+    },
+    {
+      "name": "yaw-45",
+      "croppedVertices": 0,
+      "rootResidualM": 1.084389168325577e-07
+    },
+    {
+      "name": "yaw-90",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-135",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891727328523e-07
+    },
+    {
+      "name": "yaw-225",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    },
+    {
+      "name": "yaw-270",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891707142212e-07
+    },
+    {
+      "name": "yaw-315",
+      "croppedVertices": 0,
+      "rootResidualM": 1.0843891706560668e-07
+    }
+  ],
+  "browserErrors": 0,
+  "resources": {
+    "cpuSeconds": 1.798597,
+    "rssBytes": 182763520,
+    "wallSeconds": 1.596926625
+  },
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Retain v132 locally",
+    "finding": "Rear opening around x904-920/y404-426 stays reduced while v131 long angular insert and pointed lower return are removed. Overlap blends into existing wave; other inspected views show no obvious new contour or framing regression.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Map and narrow the 90 degree crown notch around x788-800/y325-336 from beneath the crest, preserving crest height and the frontal sweep."
+  },
+  "retainedForNextStep": true,
+  "retainedBaseline": "v132"
+}

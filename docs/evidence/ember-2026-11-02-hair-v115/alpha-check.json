@@ -1,0 +1,47 @@
+{
+  "config": {
+    "guide": "under-occipital-04-2",
+    "ribbon": 0,
+    "start": 0.36,
+    "full": 0.43,
+    "fade": 0.5,
+    "end": 0.59,
+    "offsetTexels": 12,
+    "contribution": 0.65,
+    "edgeBlend": [
+      0,
+      0.025
+    ],
+    "centreBlend": [
+      0.25,
+      0.38
+    ],
+    "purpose": "Composite a fixed12texel translated alpha sample inside the blank strip1 margin, with zero contribution at the physical edge, roots, ends, and all other ribbons. Preserve all original alpha and existing fills."
+  },
+  "scopeSamples": 40401,
+  "changedScopeSamples": 1049,
+  "originalAlphaNeverReduced": true,
+  "outsideWindowExact": true,
+  "retainedCategoriesExact": true,
+  "noMixedTriangleCategories": true,
+  "taggedVertices": {
+    "waveAtlasFill": 123,
+    "neckAtlasFill": 120,
+    "innerAtlasFill": 114
+  },
+  "formerBlankMarginSamples": [
+    {
+      "u": 0.072,
+      "t": 0.456,
+      "before": 0,
+      "after": 0.6477312911156178
+    },
+    {
+      "u": 0.012,
+      "t": 0.478,
+      "before": 0,
+      "after": 0.3055104
+    }
+  ],
+  "qualification": "Bilinear base-level alpha and discrete scope proxy; no GPU filtering or MSAA certification"
+}

@@ -1,0 +1,50 @@
+{
+  "protectedInputs": "all hashes match",
+  "all8PreviousBuffers": "exact prefixes; all221 existing root and terminal rows unchanged",
+  "fixedLongGuides": 102,
+  "newFrontalLayers": 3,
+  "ambientAndFilter": "retained; component and main unchanged after version-string normalization",
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "draws": 1
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "draws": 2
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "draws": 3
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "draws": 4
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "draws": 5
+    }
+  ],
+  "resources": {
+    "cpuSeconds": 1.43633,
+    "rssBytes": 178765824,
+    "wallSeconds": 1.226709834
+  },
+  "vertices": 23391,
+  "triangles": 30292,
+  "newVerticesWithinPriorXYZBounds": true,
+  "clearanceCrossings": [
+    132,
+    122
+  ],
+  "appearanceAccepted": false,
+  "critic": "One review: retain hairline-height and coverage correction. Crown backing continuous again, v023 slits substantially closed, v022 floating fringe integrated. Central boundary [261,104 +/-5] supports about1.1 eye spacings. Stacked ribbon rim and shadow hatching remain. Next shape only7 lower underlayers into staggered shallow S-curves.",
+  "retainedFor": "Authorized hairline height and coverage; not naturalistic finish",
+  "shadowOnOffPairs": "face and angle matched except hair cast-shadow flag and frame counter"
+}

@@ -1,0 +1,57 @@
+{
+  "sourceImage": "yaw-135.jpg",
+  "canvas": {
+    "x": 546,
+    "y": 214,
+    "width": 512,
+    "height": 512
+  },
+  "method": "Manual visible gap pixels ray-cast through exact fixed135degreecamera into preserved bind body; no calibrated anatomy claim",
+  "samples": [
+    {
+      "pixel": [
+        850,
+        445
+      ],
+      "body": {
+        "point": [
+          -0.07861245674885542,
+          1.4739799663656976,
+          0.031500107077615636
+        ],
+        "distance": 0.98623391919789,
+        "triangle": 10754
+      }
+    },
+    {
+      "pixel": [
+        847,
+        451
+      ],
+      "body": {
+        "point": [
+          -0.07509995464766195,
+          1.4682652189600547,
+          0.031078540972656943
+        ],
+        "distance": 0.9881686968045138,
+        "triangle": 10035
+      }
+    },
+    {
+      "pixel": [
+        847,
+        439
+      ],
+      "body": {
+        "point": [
+          -0.07599505658233874,
+          1.4797611758277407,
+          0.030101383157959738
+        ],
+        "distance": 0.9871234603737302,
+        "triangle": 10720
+      }
+    }
+  ]
+}

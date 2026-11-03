@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-01T03:50:05.432805+00:00",
+  "preflightSha256": "3aa456cbecdaab6ec4398a8e20d68d6cf5db16e60420418748d3d9026349b9e8",
+  "critic": "/root/local_feature_critic",
+  "criticVerdict": "Recommend admitSingleCheck true. All42 inputs match; exact39/117 exclusion, root/inner correspondence, disjoint probes, pass semantics, resource/output/immutability guards verified. No blocking source finding.",
+  "rootVerdict": "Agree after independent source/workload/hash verification; explicit human resume and idle continuation chat; no competing owned work. Admit exactly one supervised CPU source-only check.",
+  "admitSingleCheck": true,
+  "excludedFirstGuide": "No anchor or curve evaluation; prior report reused only as prior-method evidence.",
+  "candidateBuildAdmitted": false,
+  "automaticRetry": false,
+  "command": "python3 tools/ember-hair/layout-check-run.py"
+}

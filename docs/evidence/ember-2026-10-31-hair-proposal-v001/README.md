@@ -1,0 +1,17 @@
+# Ember hair: isolated authoring proposal
+
+**Retained after independent/root source review; unapplied and unqualified. No hair candidate exists.**
+
+The concrete [proposal](../../../tools/ember-hair/authoring-proposal-v001.json) contains 26 explicit old/new entries across eight guides. It proposes a broader crown02 turn, modest preserve-intent entry/transition changes for crown04 and side-heavy01, distinct middle-wave phases for four occipital paths, and the previously inspected nape03 surface site. The original guide JSON remains unchanged; 32 guides, including crown01 and nape04, have no proposed change.
+
+Root and `/root/local_feature_critic` verified all original vectors, finite proposed coordinates, displacement arithmetic, unchanged protected fields and the exact 69-input manifest. The final proposal SHA256 is `935a97173f5d9216167bd09092ccb96ee4266f7ca8c6e80e2cc17c651b0d5f46`; manifest SHA256 is `51e5c2a819038b9b32e7e17fc05e416ad5ced205555313720158402f5c3b1c39`. See [review](source-review.json) and [root verification](root-source-verification.json).
+
+The proposals have named visual or construction purposes. Crown04 and side-heavy01 remain useful shapes; their numerical failures are not presented as likeness defects. The occipital phase observation covers only the four displayed paths, not the entire hairstyle. Coordinate bounds are not evidence of improved sampling or appearance.
+
+The critic caught two overstatements, corrected before retention: retaining crown02 control3 height does not prove an unchanged curve maximum; retaining terminal guide controls and end-fraction parameters does not preserve every physical ribbon tip. The four occipital proposals can move the `.94/.97` endpoints through their penultimate-control changes. **Actual endpoint preservation remains binding and blocks application.** Measuring drift would not authorize accepting it, adding compensating edits or changing fractions. The proposal is not an endpoint-preserving implementation.
+
+Nape03 uses the recorded triangle14712/barycentric surface site as a nomination, with its original failed seed retained in the evidence. The site lies on an edge. A future implementation must use explicit correspondence; another nearest-point lookup alone cannot establish that the nominated triangle/normal was used. Root-row width, inner controls, surfaces and motion remain unqualified. Nape04 retains its original seed and only its prior centre-distance result.
+
+Every known sampling failure remains unresolved. No curves, root searches, samplers, compilers, meshes, browser operations or images were produced. No approved eye, face, brow, material or avatar source changed. Existing Vite PID9108 is retained, the continuation chat is idle, and no owned construction job remains.
+
+The next concrete responsibility is source preparation and independent/root review of one finite application/qualification implementation for this exact proposal. It must fail closed on the physical-tip constraint, preserve explicit nape correspondence, declare which frozen evidence can be reused, cover all changed paths and the still-unassessed nape04 construction, and keep every existing sampling, surface, attachment and resource guard. Any incompatibility must be recorded as a source blocker before execution; no automatic compensating revision or new sampler experiment. Source review alone admits no application, qualification run or build.

@@ -1,0 +1,87 @@
+{
+  "view": "front",
+  "frame": "reference",
+  "draws": 182,
+  "weights": {
+    "mouthSmileLeft": 0.3409697180754864,
+    "mouthSmileRight": 0.3409697180754864
+  },
+  "headYaw": 0,
+  "playing": false,
+  "lastSequence": {
+    "frames": 180,
+    "seconds": 6.0045,
+    "completed": true
+  },
+  "components": [
+    {
+      "name": "Human",
+      "vertices": 14517,
+      "skinned": true,
+      "active": [
+        [
+          "mouthSmileLeft",
+          0.3409697180754864
+        ],
+        [
+          "mouthSmileRight",
+          0.3409697180754864
+        ]
+      ]
+    },
+    {
+      "name": "Humancornea",
+      "vertices": 524,
+      "skinned": true,
+      "active": []
+    },
+    {
+      "name": "Humaneyebrow001",
+      "vertices": 124,
+      "skinned": true,
+      "active": [
+        [
+          "mouthSmileLeft",
+          0.3409697180754864
+        ],
+        [
+          "mouthSmileRight",
+          0.3409697180754864
+        ]
+      ]
+    },
+    {
+      "name": "Humaneyelashes01",
+      "vertices": 250,
+      "skinned": true,
+      "active": [
+        [
+          "mouthSmileLeft",
+          0.3409697180754864
+        ],
+        [
+          "mouthSmileRight",
+          0.3409697180754864
+        ]
+      ]
+    },
+    {
+      "name": "Humanhigh-poly",
+      "vertices": 552,
+      "skinned": true,
+      "active": []
+    },
+    {
+      "name": "Humanteeth_base",
+      "vertices": 4494,
+      "skinned": true,
+      "active": []
+    },
+    {
+      "name": "Humantongue01",
+      "vertices": 253,
+      "skinned": true,
+      "active": []
+    }
+  ]
+}

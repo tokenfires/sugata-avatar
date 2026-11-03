@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-01T21:11:04.702Z",
+  "error": "Error: Authored seed outside eligible scalp -0.10665580085390794,1.374490184819863,0.1322140782132422\n    at requireThat (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v021.mjs:23:61)\n    at anchor (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v021.mjs:110:5)\n    at radialScalp (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v021.mjs:137:40)\n    at compile (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v021.mjs:205:115)\n    at file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v021.mjs:72:7\n    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)",
+  "collisionPairs": 0,
+  "resources": {
+    "cpu": {
+      "user": 1093039,
+      "system": 64647
+    },
+    "rss": 150388736,
+    "wallSeconds": 1.053221125
+  },
+  "candidateAccepted": false,
+  "automaticRetry": false
+}

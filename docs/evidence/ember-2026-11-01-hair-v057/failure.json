@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-02T01:39:34.248Z",
+  "error": "Error: Connector triangle clearance correction ceiling {\"triangle\":30990,\"vertices\":[23932,23935,23936],\"bary\":[0,0.3,0.7],\"point\":[-0.07792637427546759,1.4811578542244686,0.031662579072540914],\"skinX\":-0.09029850709833631,\"correction\":0.018388761175526753,\"weight\":0.7}\n    at requireThat (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v057.mjs:23:61)\n    at compile (file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v057.mjs:285:9)\n    at file:///Users/robault/GitHub/sugata-avatar/tools/ember-hair/compile-v057.mjs:72:7\n    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)",
+  "collisionPairs": 0,
+  "resources": {
+    "cpu": {
+      "user": 1083886,
+      "system": 70545
+    },
+    "rss": 158351360,
+    "wallSeconds": 1.0117135
+  },
+  "candidateAccepted": false,
+  "automaticRetry": false
+}

@@ -1,0 +1,52 @@
+{
+  "source": "docs/evidence/ember-2026-10-31-eye-bridge/candidate.glb",
+  "sourceHash": "bcb87a95d76ad252d2681c614c8d9f34d2f51a87a10077298323066fc9ebcdef",
+  "values": {
+    "cheek/cheek-volume-decr-incr": {
+      "before": 0.6441848396942098,
+      "after": 0.5441848396942098
+    },
+    "chin/chin-width-decr-incr": {
+      "before": 0.39297019644363645,
+      "after": 0.2929701964436364
+    },
+    "mouth/mouth-lowerlip-volume-decr-incr": {
+      "before": 0,
+      "after": -0.1
+    }
+  },
+  "outputs": {
+    "positions.f32": {
+      "bytes": 174204,
+      "sha256": "3859319a3c553fea959b80ba19ad9ad9a4823a42b11a32adfd356d06635c2654"
+    },
+    "normals.f32": {
+      "bytes": 174204,
+      "sha256": "907028a279e85dc4a15c2cc9829fdbc10af82d0aa2d989f9cddf09e8817e67e7"
+    },
+    "normal-rotations.f32": {
+      "bytes": 232272,
+      "sha256": "69dc4c03d436588505c22260fcbafaf959c16d34617c2a6cad0db5d9dfcd2b91"
+    }
+  },
+  "bodyVertices": 14517,
+  "moved": 614,
+  "maxShiftMm": 1.1903781186415776,
+  "correspondenceError": 1.201947465904182e-7,
+  "minimumFaceAgreement": 0.9978367041661451,
+  "baselineDegenerate": 0,
+  "maxRotationRadians": 0.052164732355621656,
+  "changedNormalVertices": 848,
+  "normalHaloVertices": 234,
+  "morphNormalChannels": 0,
+  "normalMethod": "Per-native old/new summed face-area normals define one rotation applied to existing base normals and any existing relative expression NORMAL deltas; UV copies receive same rotation. Expression POSITION deltas remain frozen. Normal rotation through expressions is approximate; no missing normal channels are created.",
+  "inputsUnchanged": true,
+  "resources": {
+    "cpuSeconds": 0.136961,
+    "rssBytes": 121405440
+  },
+  "limits": [
+    "Rest-source preparation only, no visual or animated-clearance acceptance.",
+    "Cleft and lower-lip height unchanged; dimple remains unresolved."
+  ]
+}

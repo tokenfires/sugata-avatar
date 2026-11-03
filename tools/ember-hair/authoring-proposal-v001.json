@@ -1,0 +1,654 @@
+{
+  "version": "ember-hair-authoring-proposal-v001",
+  "status": "ISOLATED PROPOSAL ONLY \u2014 NOT APPLIED, QUALIFIED OR BUILD-READY",
+  "source": "tools/ember-hair/ember-waves-v001.json",
+  "sourceSha256": "b95683611ecbadbafc6552b30eddce2381a4d83b499cd9fbf253de9ea153cfc7",
+  "entries": [
+    {
+      "guide": "crown-sweep-02",
+      "category": "visual transition",
+      "sourceWitness": "Front/angle blue1.2\u20131.3\u20131.4 tight crest against portrait1 lifted sweep",
+      "purpose": "Keep control3 Y=1.605 (not a proved curve maximum) and controls5 through tip. Move the free crest inward/back along the sweep and widen its outgoing shoulder to propose a broader turn.",
+      "maxControlDisplacementM": 0.02,
+      "edits": [
+        {
+          "path": "points/3",
+          "before": [
+            -0.075,
+            1.605,
+            0.133
+          ],
+          "after": [
+            -0.06,
+            1.605,
+            0.121
+          ],
+          "controlDisplacementM": 0.019209372712298552
+        },
+        {
+          "path": "points/4",
+          "before": [
+            -0.101,
+            1.562,
+            0.144
+          ],
+          "after": [
+            -0.105,
+            1.566,
+            0.145
+          ],
+          "controlDisplacementM": 0.0057445626465380244
+        }
+      ],
+      "claim": "Proposed only; no curve, visual-preservation or sampling qualification."
+    },
+    {
+      "guide": "crown-sweep-04",
+      "category": "preserve-intent construction",
+      "sourceWitness": "Orange2.2\u20132.3\u20132.4 broad useful turn; W2/W3/W4 do not establish image defects",
+      "purpose": "Slightly redistribute two free transition controls between the frozen scalp-following region and descending lock to ease their spacing/direction change. Preserve broad-turn intent and lower waves. No numerical improvement is claimed.",
+      "maxControlDisplacementM": 0.004,
+      "edits": [
+        {
+          "path": "points/3",
+          "before": [
+            -0.088,
+            1.586,
+            0.085
+          ],
+          "after": [
+            -0.087,
+            1.583,
+            0.085
+          ],
+          "controlDisplacementM": 0.0031622776601684874
+        },
+        {
+          "path": "points/4",
+          "before": [
+            -0.114,
+            1.537,
+            0.096
+          ],
+          "after": [
+            -0.112,
+            1.539,
+            0.097
+          ],
+          "controlDisplacementM": 0.0030000000000000027
+        }
+      ],
+      "claim": "Proposed only; no curve, visual-preservation or sampling qualification."
+    },
+    {
+      "guide": "side-heavy-01",
+      "category": "preserve-intent construction",
+      "sourceWitness": "Purple3.0\u20133.2 lifted entry and3.3\u20133.7 useful loose S-bends; W5 is not an image defect",
+      "purpose": "Ease the drop between the two entry controls while retaining a lifted entry and every lower-wave control. This is a construction re-expression, not a likeness correction or proven sampler repair.",
+      "maxControlDisplacementM": 0.004,
+      "edits": [
+        {
+          "path": "points/1",
+          "before": [
+            -0.093,
+            1.572,
+            0.11
+          ],
+          "after": [
+            -0.092,
+            1.571,
+            0.111
+          ],
+          "controlDisplacementM": 0.0017320508075689429
+        },
+        {
+          "path": "points/2",
+          "before": [
+            -0.119,
+            1.529,
+            0.125
+          ],
+          "after": [
+            -0.118,
+            1.532,
+            0.126
+          ],
+          "controlDisplacementM": 0.003316624790355503
+        }
+      ],
+      "claim": "Proposed only; no curve, visual-preservation or sampling qualification."
+    },
+    {
+      "guide": "occipital-02",
+      "category": "family phase and return",
+      "sourceWitness": "Rear/angle paths4\u20137 similar bend phases;33 other guides omitted",
+      "purpose": "Move this wave sequence modestly lower relative to neighbours and ease lateral/depth returns. Preserve root, raised peak and tip. Upper transition adjustment joins that lower phase coherently; no complete-hairstyle verdict.",
+      "maxControlDisplacementM": 0.007,
+      "edits": [
+        {
+          "path": "points/2",
+          "before": [
+            -0.054,
+            1.56,
+            -0.087
+          ],
+          "after": [
+            -0.053,
+            1.558,
+            -0.086
+          ],
+          "controlDisplacementM": 0.0024494897427831805
+        },
+        {
+          "path": "points/3",
+          "before": [
+            -0.04,
+            1.514,
+            -0.106
+          ],
+          "after": [
+            -0.042,
+            1.51,
+            -0.105
+          ],
+          "controlDisplacementM": 0.004582575694955844
+        },
+        {
+          "path": "points/4",
+          "before": [
+            -0.06,
+            1.468,
+            -0.12
+          ],
+          "after": [
+            -0.058,
+            1.463,
+            -0.118
+          ],
+          "controlDisplacementM": 0.005744562646537935
+        },
+        {
+          "path": "points/5",
+          "before": [
+            -0.044,
+            1.423,
+            -0.108
+          ],
+          "after": [
+            -0.045,
+            1.42,
+            -0.108
+          ],
+          "controlDisplacementM": 0.0031622776601684874
+        },
+        {
+          "path": "points/6",
+          "before": [
+            -0.065,
+            1.379,
+            -0.128
+          ],
+          "after": [
+            -0.062,
+            1.378,
+            -0.126
+          ],
+          "controlDisplacementM": 0.003741657386773974
+        }
+      ],
+      "claim": "Proposed only; no curve, visual-preservation or sampling qualification."
+    },
+    {
+      "guide": "occipital-03",
+      "category": "family phase and return",
+      "sourceWitness": "Rear/angle same-phase middle bends and terminal-return family",
+      "purpose": "Lift the middle-wave phase relative to02/04 and soften the last lateral/depth return to the fixed endpoint. Preserve root, peak and upper entry; retain broad S intent.",
+      "maxControlDisplacementM": 0.007,
+      "edits": [
+        {
+          "path": "points/3",
+          "before": [
+            -0.01,
+            1.519,
+            -0.111
+          ],
+          "after": [
+            -0.009,
+            1.523,
+            -0.11
+          ],
+          "controlDisplacementM": 0.004242640687119289
+        },
+        {
+          "path": "points/4",
+          "before": [
+            -0.03,
+            1.474,
+            -0.125
+          ],
+          "after": [
+            -0.028,
+            1.478,
+            -0.124
+          ],
+          "controlDisplacementM": 0.004582575694955842
+        },
+        {
+          "path": "points/5",
+          "before": [
+            -0.014,
+            1.428,
+            -0.112
+          ],
+          "after": [
+            -0.013,
+            1.432,
+            -0.113
+          ],
+          "controlDisplacementM": 0.004242640687119289
+        },
+        {
+          "path": "points/6",
+          "before": [
+            -0.035,
+            1.382,
+            -0.132
+          ],
+          "after": [
+            -0.03,
+            1.384,
+            -0.129
+          ],
+          "controlDisplacementM": 0.006164414002968982
+        }
+      ],
+      "claim": "Proposed only; no curve, visual-preservation or sampling qualification."
+    },
+    {
+      "guide": "occipital-04",
+      "category": "family phase and return",
+      "sourceWitness": "Rear/angle same-phase middle bends and terminal-return family",
+      "purpose": "Lower the middle-wave phase relative to03 and ease its last return to the fixed endpoint. Preserve root, peak and upper entry; avoid uniform repeated phase within these four paths.",
+      "maxControlDisplacementM": 0.007,
+      "edits": [
+        {
+          "path": "points/3",
+          "before": [
+            0.022,
+            1.517,
+            -0.11
+          ],
+          "after": [
+            0.021,
+            1.513,
+            -0.109
+          ],
+          "controlDisplacementM": 0.004242640687119288
+        },
+        {
+          "path": "points/4",
+          "before": [
+            0.001,
+            1.471,
+            -0.124
+          ],
+          "after": [
+            0.003,
+            1.467,
+            -0.123
+          ],
+          "controlDisplacementM": 0.004582575694955843
+        },
+        {
+          "path": "points/5",
+          "before": [
+            0.018,
+            1.427,
+            -0.113
+          ],
+          "after": [
+            0.019,
+            1.423,
+            -0.112
+          ],
+          "controlDisplacementM": 0.004242640687119289
+        },
+        {
+          "path": "points/6",
+          "before": [
+            -0.002,
+            1.38,
+            -0.131
+          ],
+          "after": [
+            0.002,
+            1.378,
+            -0.128
+          ],
+          "controlDisplacementM": 0.005385164807134506
+        }
+      ],
+      "claim": "Proposed only; no curve, visual-preservation or sampling qualification."
+    },
+    {
+      "guide": "occipital-05",
+      "category": "family phase and preserve-intent entry",
+      "sourceWitness": "Rear/angle phase relationship; W9 root-side failure is not a separate visible defect",
+      "purpose": "Use a smaller upward phase shift than03 through the middle with a gentle return to the fixed tip. Modest upper-entry adjustment connects the variation to unchanged root/peak; construction-preservation proposal, not an image-defect claim.",
+      "maxControlDisplacementM": 0.007,
+      "edits": [
+        {
+          "path": "points/2",
+          "before": [
+            0.036,
+            1.55,
+            -0.085
+          ],
+          "after": [
+            0.037,
+            1.554,
+            -0.084
+          ],
+          "controlDisplacementM": 0.004242640687119289
+        },
+        {
+          "path": "points/3",
+          "before": [
+            0.054,
+            1.505,
+            -0.105
+          ],
+          "after": [
+            0.053,
+            1.507,
+            -0.105
+          ],
+          "controlDisplacementM": 0.0022360679774997916
+        },
+        {
+          "path": "points/4",
+          "before": [
+            0.033,
+            1.459,
+            -0.119
+          ],
+          "after": [
+            0.035,
+            1.461,
+            -0.118
+          ],
+          "controlDisplacementM": 0.0030000000000000027
+        },
+        {
+          "path": "points/5",
+          "before": [
+            0.051,
+            1.415,
+            -0.107
+          ],
+          "after": [
+            0.05,
+            1.416,
+            -0.109
+          ],
+          "controlDisplacementM": 0.0024494897427831323
+        },
+        {
+          "path": "points/6",
+          "before": [
+            0.03,
+            1.37,
+            -0.129
+          ],
+          "after": [
+            0.033,
+            1.371,
+            -0.127
+          ],
+          "controlDisplacementM": 0.003741657386773915
+        }
+      ],
+      "claim": "Proposed only; no curve, visual-preservation or sampling qualification."
+    },
+    {
+      "guide": "nape-03",
+      "category": "explicit inspected site nomination",
+      "sourceWitness": "authoring-revision/correspondence.json triangle14712 vertices12989/12988/8363",
+      "purpose": "Replace the off-surface root guess with the inspected eligible rear-surface site as a new authored choice. This does not retroactively pass the original26.013453mm seed and is not a threshold-targeting nudge.",
+      "originalSeedDistanceM": 0.026013452629072977,
+      "originalSeedPass": false,
+      "nominatedSite": {
+        "triangleIndex": 14712,
+        "vertices": [
+          12989,
+          12988,
+          8363
+        ],
+        "cornerPositions": [
+          [
+            0.02539805695414543,
+            1.49658203125,
+            -0.0397968664765358
+          ],
+          [
+            0.012676063925027847,
+            1.4977302551269531,
+            -0.04221843183040619
+          ],
+          [
+            0.013774910010397434,
+            1.514363408088684,
+            -0.04365423321723938
+          ]
+        ],
+        "cornerHeadWeights": [
+          1,
+          1,
+          1
+        ],
+        "cornerCoordinateBranches": [
+          [
+            "rear"
+          ],
+          [
+            "rear"
+          ],
+          [
+            "rear"
+          ]
+        ],
+        "bary": [
+          0.273925147423559,
+          0.7260748525764366,
+          4.482298248045763e-15
+        ],
+        "surfacePoint": [
+          0.016160937741050374,
+          1.4974157277321836,
+          -0.04155510418385146
+        ],
+        "normal": [
+          0.17772598995765732,
+          -0.09628108773900929,
+          -0.9793586802787649
+        ],
+        "outwardDot": 0.9910322361482218
+      },
+      "offsetM": 0.0006,
+      "offsetAppliedToSeed": false,
+      "edits": [
+        {
+          "path": "rootSeed",
+          "before": [
+            0.013,
+            1.472,
+            -0.037
+          ],
+          "after": [
+            0.016160937741050374,
+            1.4974157277321836,
+            -0.04155510418385146
+          ]
+        },
+        {
+          "path": "points/0",
+          "before": [
+            0.013,
+            1.472,
+            -0.037
+          ],
+          "after": [
+            0.016160937741050374,
+            1.4974157277321836,
+            -0.04155510418385146
+          ]
+        }
+      ],
+      "edgeWarning": "Point lies on a triangle edge. Later application must preserve the stated site and record actual triangle/barycentric correspondence; no root-row width, inner-control, surface or motion pass is implied.",
+      "claim": "Nomination only; rootAccepted:false. No extra centre-point lookup admitted."
+    }
+  ],
+  "unchangedGuides": [
+    "crown-sweep-01",
+    "crown-sweep-03",
+    "crown-sweep-05",
+    "crown-sweep-06",
+    "crown-sweep-07",
+    "crown-sweep-08",
+    "temple-heavy-01",
+    "temple-heavy-02",
+    "temple-heavy-03",
+    "temple-heavy-04",
+    "temple-light-01",
+    "temple-light-02",
+    "temple-light-03",
+    "temple-light-04",
+    "side-heavy-02",
+    "side-heavy-03",
+    "side-heavy-04",
+    "side-heavy-05",
+    "side-heavy-06",
+    "side-light-01",
+    "side-light-02",
+    "side-light-03",
+    "side-light-04",
+    "side-light-05",
+    "side-light-06",
+    "occipital-01",
+    "occipital-06",
+    "occipital-07",
+    "occipital-08",
+    "nape-01",
+    "nape-02",
+    "nape-04"
+  ],
+  "knownFailureAccounting": [
+    {
+      "guide": "crown-sweep-02",
+      "knownFailedRibbons": [
+        1
+      ],
+      "status": "Unresolved until separately admitted qualification; no pass inferred from proposed controls."
+    },
+    {
+      "guide": "crown-sweep-04",
+      "knownFailedRibbons": [
+        0,
+        1,
+        2
+      ],
+      "status": "Unresolved until separately admitted qualification; no pass inferred from proposed controls."
+    },
+    {
+      "guide": "side-heavy-01",
+      "knownFailedRibbons": [
+        1
+      ],
+      "status": "Unresolved until separately admitted qualification; no pass inferred from proposed controls."
+    },
+    {
+      "guide": "occipital-02",
+      "knownFailedRibbons": [
+        1
+      ],
+      "status": "Unresolved until separately admitted qualification; no pass inferred from proposed controls."
+    },
+    {
+      "guide": "occipital-03",
+      "knownFailedRibbons": [
+        1
+      ],
+      "status": "Unresolved until separately admitted qualification; no pass inferred from proposed controls."
+    },
+    {
+      "guide": "occipital-04",
+      "knownFailedRibbons": [
+        1
+      ],
+      "status": "Unresolved until separately admitted qualification; no pass inferred from proposed controls."
+    },
+    {
+      "guide": "occipital-05",
+      "knownFailedRibbons": [
+        1
+      ],
+      "status": "Unresolved until separately admitted qualification; no pass inferred from proposed controls."
+    },
+    {
+      "guide": "nape-03",
+      "knownFailedRibbons": null,
+      "status": "Site nomination only; sampling/inner controls/root-row/surface/motion remain unassessed."
+    },
+    {
+      "guide": "nape-04",
+      "knownFailedRibbons": null,
+      "status": "Unchanged; centre seed passes only; sampling/inner controls/root-row/surface/motion remain unassessed."
+    }
+  ],
+  "preservation": {
+    "guideCount": 40,
+    "ribbonCount": 120,
+    "unchangedGuideCount": 32,
+    "changedGuideCount": 8,
+    "validRootsUnchanged": true,
+    "elevenSurfaceControlConfigurationsUnchanged": true,
+    "surfaceControlSeedIndicesUnchanged": true,
+    "widthRollAtlasMaterialsUnchanged": true,
+    "samplerThresholdM": 0.00035,
+    "maxIntervals": 40,
+    "geometryLimitsUnchanged": true,
+    "faceApprovedEyesBrowsUnchanged": true,
+    "terminalGuideControlCoordinatesUnchanged": true,
+    "ribbonEndFractionParametersUnchanged": true,
+    "trimmedRibbonEndpointPositions": "NOT ESTABLISHED: occipital control5/6 edits generally move curve points at q=.94/.97 even with terminal control7 fixed. No unchanged physical-tip claim or automatic shortening allowance."
+  },
+  "limitsOfInference": [
+    "Control displacement bounds do not prove curve preservation, sampling improvement or appearance.",
+    "Fixed terminal guide controls/end-fraction fields are source invariants only. Actual curve extrema and shortened-ribbon tip positions remain unqualified; later application/qualification must record their changes explicitly against preserved length/wave intent before build/appearance acceptance.",
+    "A coherent authored proposal can be source-reviewed without asserting every failure is repaired.",
+    "Nape03 site lies on an edge; root-row width may fail. No mask/threshold/budget change admitted.",
+    "No original guide JSON or viewer consumes this proposal. No curve, sampler, root lookup, compiler or renderer ran."
+  ],
+  "nextDecision": "Independent/root review exact proposal, then separately review one finite application/qualification implementation addressing every listed gap, including explicit nape edge correspondence and actual trimmed-tip changes. No automatic partial repair, sampler sweep, qualification run or build.",
+  "applicationAdmitted": false,
+  "candidateBuildAdmitted": false,
+  "appearanceAccepted": false,
+  "qualificationGaps": [
+    {
+      "area": "curve extrema",
+      "status": "Control3 Y unchanged does not prove unchanged crest maximum; no curve evaluation admitted in source preparation."
+    },
+    {
+      "area": "trimmed ribbon tips",
+      "status": "Occipital .94/.97 endpoints generally move; only terminal guide controls and endFraction fields are fixed. Actual tip displacement and intended length preservation require explicit later qualification; do not silently call all tips unchanged."
+    },
+    {
+      "area": "nape03 edge anchor",
+      "status": "Application needs explicit recorded triangle/barycentric/normal correspondence. Feeding the nominated edge point through another nearest lookup alone is insufficient and is not admitted by this proposal."
+    },
+    {
+      "area": "known sampling failures",
+      "status": "All known failures remain unresolved; source bounds/proposed controls are not a pass."
+    }
+  ]
+}

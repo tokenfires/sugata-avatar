@@ -1,3 +1,5 @@
+> **Historical.** Current entry point: `AGENTS.md`; current status: `docs/EMBER-AVATAR-NEXT.md`.
+
 # Current status: RESUMED — October 8 after the Codex update
 
 **Robert explicitly resumed with “let's resume, We're back up.”** This revokes the19:07 pause. Recovery automation is ACTIVE every ten minutes through the app API and saved-TOML readback. Vite825 and loopback HTTP200 are freshly verified; no owned native/query job exists. Read the latest receipt below and [fresh recovery plan](evidence/appearance-2026-10-08/resume-after-codex-update/PLAN.md). Older pauses and expired slice bounds remain historical.

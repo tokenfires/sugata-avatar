@@ -1,0 +1,115 @@
+{
+  "protectedInputs": "All hashes match including face assets, atlas and shared HairMaterial",
+  "unchangedOtherRibbons": 228,
+  "unchangedOtherRibbonAttributes": [
+    "position",
+    "normal",
+    "uv",
+    "uv1",
+    "along",
+    "across",
+    "rootDistance"
+  ],
+  "allRootAndEndRowsExact": 458,
+  "allOriginalGuideInputs": "Unchanged; all 182 original long ribbons byte-identical",
+  "changedVertices": 21,
+  "changedNormalizedRows": [
+    0.625,
+    0.65625,
+    0.6875,
+    0.75,
+    0.8125,
+    0.84375,
+    0.875
+  ],
+  "maxDisplacementM": 0.016087931383641823,
+  "maxFixedRearProjectionErrorPx": 0.00011102024030271443,
+  "projectionQualification": "Fixed rear camera only; floating-point position storage explains the subpixel residual. Other views inspected separately.",
+  "globalBoundsExact": [
+    [
+      -0.1564088612794876,
+      1.2803186178207397,
+      -0.14066503942012787
+    ],
+    [
+      0.15815450251102448,
+      1.6288286447525024,
+      0.19510109722614288
+    ]
+  ],
+  "unchangedBuffers": [
+    "uv",
+    "uv1",
+    "index"
+  ],
+  "correctedWindingFaces": 239,
+  "sceneAndMaterial": "Byte-identical after version normalization; v045 density, colour, ambient, shadow settings and approved features fixed",
+  "frameReports": "All five identical after version normalization; four full-hair views uncropped",
+  "resources": {
+    "cpuSeconds": 1.445608,
+    "rssBytes": 179273728,
+    "wallSeconds": 1.2382250830000001
+  },
+  "vertices": 23865,
+  "triangles": 30904,
+  "clearance": "Unchanged 132/122 crossings and 239 corrected winding faces; final clearance/winding not certified",
+  "views": [
+    {
+      "name": "front",
+      "rootResidualMm": 0.00010843891732606441,
+      "croppedVertices": 0
+    },
+    {
+      "name": "face",
+      "rootResidualMm": 0.00010843891730854621,
+      "croppedVertices": 2772
+    },
+    {
+      "name": "angle",
+      "rootResidualMm": 0.00010843891686893117,
+      "croppedVertices": 0
+    },
+    {
+      "name": "rear",
+      "rootResidualMm": 0.00010843891706976359,
+      "croppedVertices": 0
+    },
+    {
+      "name": "head",
+      "rootResidualMm": 0.00010845078828007981,
+      "croppedVertices": 0
+    }
+  ],
+  "trial": {
+    "guide": "rear-slot-bridge-01",
+    "maxDepthM": 0.016,
+    "startFade": [
+      0.6,
+      0.7
+    ],
+    "endFade": [
+      0.79,
+      0.89
+    ],
+    "rearCameraOrigin": [
+      0,
+      1.45,
+      -1.005
+    ],
+    "method": "Move selected lower rows away from the rear camera along their original camera rays; preserve rear projection while increasing Z depth",
+    "projectionQualification": "Only the fixed rear witness projection is constrained; all other views must be checked",
+    "preservation": "Upper rows through t=.60, root/end rows, all228earlier ribbons, dense core, hairline, ambient and approved features fixed",
+    "tuckedVertices": 21,
+    "maxTuckDisplacementM": 0.016087933822343258
+  },
+  "newBrowserErrors": 0,
+  "appearanceAccepted": false,
+  "visualReview": {
+    "criticReviews": 1,
+    "decision": "Reject v046; retain v045",
+    "evidence": "Pale rear segment remains conspicuous and appears slightly more squared-off. Coverage preserved; no obvious new jaw loop or regression in the other views. No useful integration gain.",
+    "rootAgreement": true,
+    "fullAppearanceAccepted": false,
+    "next": "Slow head-turn inspection of retained v045 with expression, lighting and geometry fixed, explicitly a draft with rigidly attached hair; use the intermediate views to target the next fullness pass."
+  }
+}
